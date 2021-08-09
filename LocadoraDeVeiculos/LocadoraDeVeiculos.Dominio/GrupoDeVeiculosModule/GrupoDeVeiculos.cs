@@ -2,11 +2,26 @@
 {
     public class GrupoDeVeiculos
     {
-        public string nome;
-        public float taxaPlanoDiario;
-        public float taxaKmControlado;
-        public int quantidadeQuilometrosKmControlado;
-        public float taxaKmLivre;
+        private string nome;
+        private float taxaPlanoDiario;
+        private float taxaKmControlado;
+        private int quantidadeQuilometrosKmControlado;
+        private float taxaKmLivre;
+
+        public string Nome { get => nome; set => nome = value; }
+        public float TaxaPlanoDiario { get => taxaPlanoDiario; set => taxaPlanoDiario = value; }
+        public float TaxaKmControlado { get => taxaKmControlado; set => taxaKmControlado = value; }
+        public int QuantidadeQuilometrosKmControlado { get => quantidadeQuilometrosKmControlado; set => quantidadeQuilometrosKmControlado = value; }
+        public float TaxaKmLivre { get => taxaKmLivre; set => taxaKmLivre = value; }
+
+        public GrupoDeVeiculos(string nome, float taxaPlanoDiario, float taxaKmControlado, int quantidadeQuilometrosKmControlado, float taxaKmLivre)
+        {
+            this.nome = nome;
+            this.taxaPlanoDiario = taxaPlanoDiario;
+            this.taxaKmControlado = taxaKmControlado;
+            this.quantidadeQuilometrosKmControlado = quantidadeQuilometrosKmControlado;
+            this.taxaKmLivre = taxaKmLivre;
+        }
 
         public string Validar()
         {
