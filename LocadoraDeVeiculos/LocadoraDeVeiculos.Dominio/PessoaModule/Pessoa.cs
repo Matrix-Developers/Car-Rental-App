@@ -25,27 +25,20 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             else
                 resultadoValidacaoRegistroUnico = ValidarCnpj(RegistroUnico);
 
-            if (Nome.Length <= 0)
+            if (Nome.Length == 0)
                 resultadoValidacao = "O nome não pode ser nulo\n";
-            if (this.RegistroUnico.Length != 11 && this.RegistroUnico.Length != 14)
-                resultadoValidacao += "O CPF/CNPJ não está correto\n";
             if (this.Endereco.Length <= 0)
                 resultadoValidacao += "O endereço não pode ser nulo\n";
-            if (this.Telefone.Length <= 0 && this.Email.Length <= 0) // os dois nao
+            if (this.Telefone.Length == 0 && this.Email.Length == 0)
                 resultadoValidacao += "É obrigatório inserir Telefone ou E-mail\n";
-            if (this.Telefone.Length != 0 && this.Email.Length <= 0) // telefone-sim/ /email-nao
-                if (this.Telefone.Length != 9)
-                    resultadoValidacao += "O telefone deve ter 9 dígitos\n";
-            if (this.Email.Length != 0 && this.Telefone.Length <= 0) // email-sim/ /telefone-nao
-                if (!(this.Email.Contains('@')))
-                    resultadoValidacao += "O email está incorreto\n";
-            if (this.Telefone.Length != 0 && this.Email.Length != 0) // os dois sim
+            else
             {
-                if (this.Telefone.Length != 9)
-                    resultadoValidacao += "O telefone deve ter 9 dígitos\n";
-                if (!(this.Email.Contains('@')))
+                if (this.Telefone.Length > 0 && this.Telefone.Length < 9)
+                    resultadoValidacao += "O telefone deve ter no mínimo 9 dígitos\n";
+                if (this.Email.Length > 0 && !(this.Email.Contains('@')))
                     resultadoValidacao += "O email está incorreto\n";
             }
+
             if (!resultadoValidacaoRegistroUnico)
             {
                 if (EhPessoaFisica)
@@ -95,7 +88,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             return cpf.EndsWith(digito);
         }
 
-        public static bool ValidarCnpj(string cnpj)
+        private static bool ValidarCnpj(string cnpj)
         {
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
