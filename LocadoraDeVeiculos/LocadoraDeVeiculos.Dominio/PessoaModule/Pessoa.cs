@@ -6,95 +6,121 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.PessoaModule
 {
-    public class Pessoa
+    public abstract class Pessoa
     {
-        int id;
-        string nome;
-        string registroUnico;
-        string endereco;
-        string telefone;
-        string email;
-        bool ehPessoaFisica;
+        protected int Id { get; set; }
+        protected string Nome { get; set; }
+        protected string RegistroUnico { get; set; }
+        protected string Endereco { get; set; }
+        protected string Telefone { get; set; }
+        protected string Email { get; set; }
+        protected bool EhPessoaFisica { get; set; }
 
-        public int Id { get => id; set => id = value; }
-        public string Nome { get => nome; set => nome = value; }
-        public string CpfCnpj { get => registroUnico; set => registroUnico = value; }
-        public string Endereco { get => endereco; set => endereco = value; }
-        public string Telefone { get => telefone; set => telefone = value; }
-        public string Email { get => email; set => email = value; }
-        public bool EhPessoaFisica { get => ehPessoaFisica; set => ehPessoaFisica = value; }
-
-        public Pessoa(int id, string nome, string cpfCnpj, string endereco, string telefone, string email, bool ehPessoaFisica)
-        {
-            this.id = id;
-            this.nome = nome;
-            this.registroUnico = cpfCnpj;
-            this.endereco = endereco;
-            this.telefone = telefone;
-            this.email = email;
-            this.ehPessoaFisica = ehPessoaFisica;
-        }
-
-        public string Validar()
+        public virtual string ValidarPessoa()
         {
             string resultadoValidacao = "";
-            int seZeroEhValido = 0;
+            bool resultadoValidacaoRegistroUnico = false;
+            if (EhPessoaFisica)
+                resultadoValidacaoRegistroUnico = ValidarCpf(RegistroUnico);
+            else
+                resultadoValidacaoRegistroUnico = ValidarCnpj(RegistroUnico);
 
-            if (this.nome.Length <= 0)
-            {
+            if (Nome.Length == 0)
                 resultadoValidacao = "O nome não pode ser nulo\n";
-                seZeroEhValido++;
-            }
-            if (this.registroUnico.Length != 11 && this.registroUnico.Length != 14)
-            {
-                resultadoValidacao += "O CPF/CNPJ não está correto\n";
-                seZeroEhValido++;
-            }
-            if (this.endereco.Length <= 0)
-            {
+            if (this.Endereco.Length <= 0)
                 resultadoValidacao += "O endereço não pode ser nulo\n";
-                seZeroEhValido++;
-            }
-            if (this.telefone.Length <= 0 && this.email.Length <= 0) // os dois nao
-            {
+            if (this.Telefone.Length == 0 && this.Email.Length == 0)
                 resultadoValidacao += "É obrigatório inserir Telefone ou E-mail\n";
-                seZeroEhValido++;
-            }
-            if (this.telefone.Length != 0 && this.email.Length <= 0) // telefone-sim/ /email-nao
+            else
             {
-                if (this.telefone.Length != 9)
-                {
-                    resultadoValidacao += "O telefone deve ter 9 dígitos\n";
-                    seZeroEhValido++;
-                }
-            }
-            if (this.email.Length != 0 && this.telefone.Length <= 0) // email-sim/ /telefone-nao
-            {
-                if (!(this.email.Contains('@')))
-                {
+                if (this.Telefone.Length > 0 && this.Telefone.Length < 9)
+                    resultadoValidacao += "O telefone deve ter no mínimo 9 dígitos\n";
+                if (this.Email.Length > 0 && !(this.Email.Contains('@')))
                     resultadoValidacao += "O email está incorreto\n";
-                    seZeroEhValido++;
-                }
-            }
-            if (this.telefone.Length != 0 && this.email.Length != 0) // os dois sim
-            {
-                if (this.telefone.Length != 9)
-                {
-                    resultadoValidacao += "O telefone deve ter 9 dígitos\n";
-                    seZeroEhValido++;
-                }
-                if (!(this.email.Contains('@')))
-                {
-                    resultadoValidacao += "O email está incorreto\n";
-                    seZeroEhValido++;
-                }
             }
 
-            if (seZeroEhValido == 0)
+            if (!resultadoValidacaoRegistroUnico)
+            {
+                if (EhPessoaFisica)
+                    resultadoValidacao += "O CPF não é válido\n";
+                else
+                    resultadoValidacao += "O CNPJ não é válido\n";
+            }
+            if (resultadoValidacao == "")
                 resultadoValidacao = "VALIDO";
 
             return resultadoValidacao;
         }
 
+        private static bool ValidarCpf(string cpf)
+        {
+            int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            string tempCpf;
+            string digito;
+            int soma;
+            int resto;
+            cpf = cpf.Trim();
+            cpf = cpf.Replace(".", "").Replace("-", "");
+            if (cpf.Length != 11)
+                return false;
+            tempCpf = cpf.Substring(0, 9);
+            soma = 0;
+
+            for (int i = 0; i < 9; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+            resto = soma % 11;
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCpf = tempCpf + digito;
+            soma = 0;
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+            resto = soma % 11;
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cpf.EndsWith(digito);
+        }
+
+        private static bool ValidarCnpj(string cnpj)
+        {
+            int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int soma;
+            int resto;
+            string digito;
+            string tempCnpj;
+            cnpj = cnpj.Trim();
+            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            if (cnpj.Length != 14)
+                return false;
+            tempCnpj = cnpj.Substring(0, 12);
+            soma = 0;
+            for (int i = 0; i < 12; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCnpj = tempCnpj + digito;
+            soma = 0;
+            for (int i = 0; i < 13; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cnpj.EndsWith(digito);
+        }
     }
 }
