@@ -10,7 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
     {
         int id;
         string nome;
-        string cpfCnpj;
+        string registroUnico;
         string endereco;
         string telefone;
         string email;
@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
 
         public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
-        public string CpfCnpj { get => cpfCnpj; set => cpfCnpj = value; }
+        public string CpfCnpj { get => registroUnico; set => registroUnico = value; }
         public string Endereco { get => endereco; set => endereco = value; }
         public string Telefone { get => telefone; set => telefone = value; }
         public string Email { get => email; set => email = value; }
@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
         {
             this.id = id;
             this.nome = nome;
-            this.cpfCnpj = cpfCnpj;
+            this.registroUnico = cpfCnpj;
             this.endereco = endereco;
             this.telefone = telefone;
             this.email = email;
@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
                 resultadoValidacao = "O nome não pode ser nulo\n";
                 seZeroEhValido++;
             }
-            if (this.cpfCnpj.Length != 11 && this.cpfCnpj.Length != 14)
+            if (this.registroUnico.Length != 11 && this.registroUnico.Length != 14)
             {
                 resultadoValidacao += "O CPF/CNPJ não está correto\n";
                 seZeroEhValido++;
