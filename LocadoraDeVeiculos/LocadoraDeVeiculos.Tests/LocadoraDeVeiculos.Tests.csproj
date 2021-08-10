@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosTest.cs" />
+    <Compile Include="PessoaModule\PessoaTest.cs" />
     <Compile Include="SevicoModule\ServicosTest.cs" />
     <Compile Include="VeiculoModule\VeiculoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
