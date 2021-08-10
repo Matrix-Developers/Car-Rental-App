@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosTest.cs" />
-    <Compile Include="PessoaModule\PessoaTest.cs" />
     <Compile Include="SevicoModule\ServicosTest.cs" />
     <Compile Include="VeiculoModule\VeiculoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +68,9 @@
       <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClienteModule\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
