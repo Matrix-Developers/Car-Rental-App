@@ -9,7 +9,7 @@ namespace LocadoraDeVeiculos.Tests
     {
       
         [TestMethod]
-        public void DeveRetornarUmVeiculoComTodosOsCamposCorretos()
+        public void DeveCriarVeiculo_Correto()
         {
             Veiculo veiculo = new Veiculo("Ecosport", "SUV", "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", "200L", 2018, 30000, 4,5, "Grande");
 
@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.Tests
         }
 
         [TestMethod]
-        public void DeveRetornarUmVeiculoComTodosOsCamposIncorretos()
+        public void DeveApresentarErroVeiculo_TotalmenteIncorreto()
         {
             Veiculo veiculo = new Veiculo("", "", "", "", "", "", "", "",0,0,0,0,"");
 
