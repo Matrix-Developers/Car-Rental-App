@@ -46,36 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientes\ClientesForm.cs">
+    <Compile Include="Features\Clientes\ClientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientes\ClientesForm.Designer.cs">
+    <Compile Include="Features\Clientes\ClientesForm.Designer.cs">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionarios\FuncionarioForm.cs">
+    <Compile Include="Features\Clientes\TabelaClientesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Clientes\TabelaClientesControl.Designer.cs">
+      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Funcionarios\FuncionarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionarios\FuncionarioForm.Designer.cs">
+    <Compile Include="Features\Funcionarios\FuncionarioForm.Designer.cs">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrupoDeVeiculos\GrupodeVeiculoForm.cs">
+    <Compile Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GrupoDeVeiculos\GrupodeVeiculoForm.Designer.cs">
+    <Compile Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.Designer.cs">
       <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Locacao\LocacaoForm.cs">
+    <Compile Include="Features\Locacao\LocacaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Locacao\LocacaoForm.Designer.cs">
+    <Compile Include="Features\Locacao\LocacaoForm.Designer.cs">
       <DependentUpon>LocacaoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Serviços\ServicosForm.cs">
+    <Compile Include="Features\Serviços\ServicosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Serviços\ServicosForm.Designer.cs">
+    <Compile Include="Features\Serviços\ServicosForm.Designer.cs">
       <DependentUpon>ServicosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shared\DataGridViewExtensions.cs" />
     <Compile Include="TelaPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,19 +91,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Veiculo\VeiculoForm.cs">
+    <Compile Include="Features\Veiculo\VeiculoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Veiculo\VeiculoForm.Designer.cs">
+    <Compile Include="Features\Veiculo\VeiculoForm.Designer.cs">
       <DependentUpon>VeiculoForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Clientes\ClientesForm.resx">
+    <EmbeddedResource Include="Features\Clientes\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionarios\FuncionarioForm.resx">
+    <EmbeddedResource Include="Features\Clientes\TabelaClientesControl.resx">
+      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Funcionarios\FuncionarioForm.resx">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrupoDeVeiculos\GrupodeVeiculoForm.resx">
+    <EmbeddedResource Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.resx">
       <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -108,13 +118,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Serviços\ServicosForm.resx">
+    <EmbeddedResource Include="Features\Serviços\ServicosForm.resx">
       <DependentUpon>ServicosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Veiculo\VeiculoForm.resx">
+    <EmbeddedResource Include="Features\Veiculo\VeiculoForm.resx">
       <DependentUpon>VeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
