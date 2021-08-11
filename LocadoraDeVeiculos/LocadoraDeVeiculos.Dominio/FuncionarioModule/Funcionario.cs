@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.PessoaModule;
 using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
 {
@@ -10,9 +11,10 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         public DateTime DataAdmissao { get; }
         public string Cargo { get; }
         public double Salario { get; }
+
         public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matricula, string usuarioAcesso, DateTime dataAdmissao, string cargo, double salario)
         {
-            Id = id;
+            this.id = id;
             Nome = nome;
             RegistroUnico = registroUnico;
             Endereco = endereco;
@@ -26,7 +28,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             Salario = salario;
         }
 
-        public string Validar()
+        public override string Validar()
         {
             string resultadoValidação = "";
             if (UsuarioAcesso.Length == 0)
@@ -44,6 +46,46 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             if (resultadoValidação == "")
                 resultadoValidação += "VALIDO";
             return resultadoValidação;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Funcionario funcionario &&
+                   id == funcionario.id &&
+                   Nome == funcionario.Nome &&
+                   RegistroUnico == funcionario.RegistroUnico &&
+                   Endereco == funcionario.Endereco &&
+                   Telefone == funcionario.Telefone &&
+                   Email == funcionario.Email &&
+                   EhPessoaFisica == funcionario.EhPessoaFisica &&
+                   Matricula == funcionario.Matricula &&
+                   UsuarioAcesso == funcionario.UsuarioAcesso &&
+                   DataAdmissao == funcionario.DataAdmissao &&
+                   Cargo == funcionario.Cargo &&
+                   Salario == funcionario.Salario;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 367286739;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RegistroUnico);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefone);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
+            hashCode = hashCode * -1521134295 + EhPessoaFisica.GetHashCode();
+            hashCode = hashCode * -1521134295 + Matricula.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(UsuarioAcesso);
+            hashCode = hashCode * -1521134295 + DataAdmissao.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Cargo);
+            hashCode = hashCode * -1521134295 + Salario.GetHashCode();
+            return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return $"Funcionario = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {Matricula}, {UsuarioAcesso}, {DataAdmissao}, {Cargo}, {Salario}]";
         }
     }
 }
