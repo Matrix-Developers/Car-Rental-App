@@ -1,9 +1,9 @@
-﻿using System;
-
+using LocadoraDeVeiculos.Dominio.Shared;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.VeiculoModule
 {
-    public class Veiculo
+    public class Veiculo : EntidadeBase
     {
         public string modelo;
         public string grupoVeiculos;
@@ -22,8 +22,9 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
 
-        public Veiculo(string modelo, string grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, string capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, string tamanhoPortaMala)
+        public Veiculo(int id,string modelo, string grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, string capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, string tamanhoPortaMala)
         {
+            this.id = id;
             this.modelo = modelo;
             this.grupoVeiculos = grupoVeiculos;
             this.placa = placa;
@@ -38,7 +39,8 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.capacidadePessoas = capacidadePessoas;
             this.tamanhoPortaMala = tamanhoPortaMala;
         }
-        public string Validar()
+
+        public override string Validar()
         {
             string resultadoValidacao = "";
 
@@ -72,5 +74,56 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                 resultadoValidacao = "VALIDO";
                 return resultadoValidacao;
         }
-    } 
+
+
+        public override bool Equals(object obj)
+        {
+            return obj is Veiculo veiculo &&
+                   id == veiculo.id &&
+                   modelo == veiculo.modelo &&
+                   grupoVeiculos == veiculo.grupoVeiculos &&
+                   placa == veiculo.placa &&
+                   chassi == veiculo.chassi &&
+                   marca == veiculo.marca &&
+                   cor == veiculo.cor &&
+                   tipoCombustivel == veiculo.tipoCombustivel &&
+                   capacidadeTanque == veiculo.capacidadeTanque &&
+                   ano == veiculo.ano &&
+                   kilometragem == veiculo.kilometragem &&
+                   numeroPortas == veiculo.numeroPortas &&
+                   capacidadePessoas == veiculo.capacidadePessoas &&
+                   tamanhoPortaMala == veiculo.tamanhoPortaMala &&
+                   temArCondicionado == veiculo.temArCondicionado &&
+                   temDirecaoHidraulica == veiculo.temDirecaoHidraulica &&
+                   temFreiosAbs == veiculo.temFreiosAbs;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -1048936057;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(modelo);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(grupoVeiculos);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(placa);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(chassi);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(marca);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(cor);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(tipoCombustivel);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(capacidadeTanque);
+            hashCode = hashCode * -1521134295 + ano.GetHashCode();
+            hashCode = hashCode * -1521134295 + kilometragem.GetHashCode();
+            hashCode = hashCode * -1521134295 + numeroPortas.GetHashCode();
+            hashCode = hashCode * -1521134295 + capacidadePessoas.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(tamanhoPortaMala);
+            hashCode = hashCode * -1521134295 + temArCondicionado.GetHashCode();
+            hashCode = hashCode * -1521134295 + temDirecaoHidraulica.GetHashCode();
+            hashCode = hashCode * -1521134295 + temFreiosAbs.GetHashCode();
+            return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return $"Veiculo = [{id}, {modelo}, {grupoVeiculos}, {placa}, {chassi}, {marca}, {cor}, {tipoCombustivel}, {capacidadeTanque}, {ano}, {kilometragem}, {numeroPortas}, {capacidadePessoas}, {tamanhoPortaMala}]";
+        }
+    }
 }
