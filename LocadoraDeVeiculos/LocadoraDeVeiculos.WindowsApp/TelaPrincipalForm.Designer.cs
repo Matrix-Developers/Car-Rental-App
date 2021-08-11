@@ -42,6 +42,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.locaçaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -85,7 +86,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.locaçaoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -163,6 +165,14 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // locaçaoToolStripMenuItem
+            // 
+            this.locaçaoToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locaçaoToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.locaçaoToolStripMenuItem.Name = "locaçaoToolStripMenuItem";
+            this.locaçaoToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.locaçaoToolStripMenuItem.Text = "Locaçao";
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,6 +208,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ToolStripMenuItem locaçaoToolStripMenuItem;
     }
 }
 

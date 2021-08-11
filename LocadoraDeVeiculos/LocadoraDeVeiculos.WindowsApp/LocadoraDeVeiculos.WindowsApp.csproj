@@ -76,17 +76,29 @@
     <Compile Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.Designer.cs">
       <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Locacao\LocacaoForm.cs">
+    <Compile Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.Designer.cs">
+      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Serviços\AdicionarServiço.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Locacao\LocacaoForm.Designer.cs">
-      <DependentUpon>LocacaoForm.cs</DependentUpon>
+    <Compile Include="Features\Serviços\AdicionarServiço.Designer.cs">
+      <DependentUpon>AdicionarServiço.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Serviços\ServicosForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Features\Serviços\ServicosForm.Designer.cs">
       <DependentUpon>ServicosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Veiculo\TabelaVeiculoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Veiculo\TabelaVeiculoControl.Designer.cs">
+      <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\DataGridViewExtensions.cs" />
     <Compile Include="TelaPrincipalForm.cs">
@@ -117,6 +129,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.resx">
       <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.resx">
+      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Serviços\AdicionarServiço.resx">
+      <DependentUpon>AdicionarServiço.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Veiculo\TabelaVeiculoControl.resx">
+      <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

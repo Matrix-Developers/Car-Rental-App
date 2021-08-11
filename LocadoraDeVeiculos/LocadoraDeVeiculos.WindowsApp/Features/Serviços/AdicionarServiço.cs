@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Locacao
+namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 {
-    public partial class LocacaoForm : Form
+    public partial class AdicionarServiço : Form
     {
-        public LocacaoForm()
+        public AdicionarServiço()
         {
             InitializeComponent();
         }
