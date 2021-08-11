@@ -46,6 +46,7 @@
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculos.cs" />
     <Compile Include="PessoaModule\Pessoa.cs" />
     <Compile Include="SevicosModule\Servico.cs" />
+    <Compile Include="Shared\EntidadeBase.cs" />
     <Compile Include="VeiculoModule\Veiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
