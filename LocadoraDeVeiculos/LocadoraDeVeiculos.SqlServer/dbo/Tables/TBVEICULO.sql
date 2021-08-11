@@ -15,6 +15,9 @@
     [TemArCondicionado]    BIT          NOT NULL,
     [TemDirecaoHidraulica] BIT          NOT NULL,
     [TemFreiosAbs]         BIT          NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_TBVEICULO_TBGRUPOVEICULO] FOREIGN KEY ([Id_GrupoVeiculo]) REFERENCES [dbo].[TBGRUPOVEICULO] ([Id]) ON DELETE CASCADE
 );
+
+
 

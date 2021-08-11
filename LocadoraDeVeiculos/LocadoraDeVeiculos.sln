@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Controla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Tests", "LocadoraDeVeiculos.Tests\LocadoraDeVeiculos.Tests.csproj", "{5DEF9302-2DDF-456E-92E0-09774B401F45}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LocadoraDeVeiculos.SqlServer", "LocadoraDeVeiculos.SqlServer\LocadoraDeVeiculos.SqlServer.sqlproj", "{22C0B170-9B97-4D20-B23B-3810DD8B9260}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{5DEF9302-2DDF-456E-92E0-09774B401F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DEF9302-2DDF-456E-92E0-09774B401F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DEF9302-2DDF-456E-92E0-09774B401F45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C0B170-9B97-4D20-B23B-3810DD8B9260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C0B170-9B97-4D20-B23B-3810DD8B9260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C0B170-9B97-4D20-B23B-3810DD8B9260}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{22C0B170-9B97-4D20-B23B-3810DD8B9260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C0B170-9B97-4D20-B23B-3810DD8B9260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C0B170-9B97-4D20-B23B-3810DD8B9260}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
