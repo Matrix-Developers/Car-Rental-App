@@ -64,6 +64,12 @@
     <Compile Include="Features\Funcionarios\FuncionarioForm.Designer.cs">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Funcionarios\TabelaFuncionarioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Funcionarios\TabelaFuncionarioControl.Designer.cs">
+      <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Funcionarios\FuncionarioForm.resx">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Funcionarios\TabelaFuncionarioControl.resx">
+      <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.resx">
       <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
