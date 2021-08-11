@@ -11,7 +11,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveCriarGrupoDeVeiculo_Correto()
         {
-            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos("nome", 12.50f, 25.73f, 200, 13.99f);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0,"nome", 12.50f, 25.73f, 200, 13.99f);
 
             string resultado = grupoDeVeiculos.Validar();
 
@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveApresentarErro_GrupoTotalmenteIncorreto()
         {
-            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos("",0f,0f,0,0f);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0,"",0f,0f,0,0f);
 
             string resultado = grupoDeVeiculos.Validar();
 

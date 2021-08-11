@@ -1,6 +1,9 @@
-﻿namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
+﻿using LocadoraDeVeiculos.Dominio.Shared;
+using System.Collections.Generic;
+
+namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 {
-    public class GrupoDeVeiculos
+    public class GrupoDeVeiculos : EntidadeBase
     {
         private string nome;
         private float taxaPlanoDiario;
@@ -14,8 +17,9 @@
         public int QuantidadeQuilometrosKmControlado { get => quantidadeQuilometrosKmControlado; set => quantidadeQuilometrosKmControlado = value; }
         public float TaxaKmLivre { get => taxaKmLivre; set => taxaKmLivre = value; }
 
-        public GrupoDeVeiculos(string nome, float taxaPlanoDiario, float taxaKmControlado, int quantidadeQuilometrosKmControlado, float taxaKmLivre)
+        public GrupoDeVeiculos(int id,string nome, float taxaPlanoDiario, float taxaKmControlado, int quantidadeQuilometrosKmControlado, float taxaKmLivre)
         {
+            this.id = id;
             this.nome = nome;
             this.taxaPlanoDiario = taxaPlanoDiario;
             this.taxaKmControlado = taxaKmControlado;
@@ -23,7 +27,7 @@
             this.taxaKmLivre = taxaKmLivre;
         }
 
-        public string Validar()
+        public override string Validar()
         {
             string resultadoValidacao = "VALIDO";
 
@@ -43,6 +47,34 @@
                 resultadoValidacao += "A quantidade de quilômetros não pode ser nulo nem negativo";
 
             return resultadoValidacao;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is GrupoDeVeiculos veiculos &&
+                   id == veiculos.id &&
+                   nome == veiculos.nome &&
+                   taxaPlanoDiario == veiculos.taxaPlanoDiario &&
+                   taxaKmControlado == veiculos.taxaKmControlado &&
+                   quantidadeQuilometrosKmControlado == veiculos.quantidadeQuilometrosKmControlado &&
+                   taxaKmLivre == veiculos.taxaKmLivre;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1038375158;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(nome);
+            hashCode = hashCode * -1521134295 + taxaPlanoDiario.GetHashCode();
+            hashCode = hashCode * -1521134295 + taxaKmControlado.GetHashCode();
+            hashCode = hashCode * -1521134295 + quantidadeQuilometrosKmControlado.GetHashCode();
+            hashCode = hashCode * -1521134295 + taxaKmLivre.GetHashCode();
+            return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return $"GrupoDeVaiculos = [{id}, {nome}, {taxaPlanoDiario}, {taxaKmControlado}, {quantidadeQuilometrosKmControlado}, {taxaKmLivre}]";
         }
     }
 }
