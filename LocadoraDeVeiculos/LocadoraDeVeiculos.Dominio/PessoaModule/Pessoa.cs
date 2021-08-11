@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Dominio.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.PessoaModule
 {
-    public abstract class Pessoa
+    public abstract class Pessoa : EntidadeBase
     {
-        protected int Id { get; set; }
         protected string Nome { get; set; }
         protected string RegistroUnico { get; set; }
         protected string Endereco { get; set; }

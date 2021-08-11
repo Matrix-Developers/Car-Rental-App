@@ -11,7 +11,7 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
         [TestMethod]
         public void DeveCriarServicoCorreto()
         {
-            Servico servico = new Servico("nome","tipo",100f);
+            Servico servico = new Servico(0,"nome","tipo",100f);
             Assert.AreEqual("VALIDO",servico.Validar());
         }
 
@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
 
         public void DeveCriarServicoIncorreto()
         {
-            Servico servico = new Servico("", "", 0f);
+            Servico servico = new Servico(0,"", "", 0f);
             Assert.AreEqual("O nome não pode ser nulo\nO valor não pode ser nulo ou negativo", servico.Validar());
         }
     }

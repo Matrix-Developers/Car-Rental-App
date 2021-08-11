@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.PessoaModule;
 using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.ClienteModule
 {
@@ -10,7 +11,7 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
 
         public Cliente(int id, string nome, string registroUnico, string endereco, string telefone, string email, string cnh, DateTime validadeCnh, bool ehPessoaFisica)
         {
-            Id = id;
+            this.id = id;
             Nome = nome;
             RegistroUnico = registroUnico;
             Endereco = endereco;
@@ -21,7 +22,7 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
             EhPessoaFisica = ehPessoaFisica;
         }
 
-        public string Validar()
+        public override string Validar()
         {
             string resultadoValidação = "";
             if (!ValidarCnh())
@@ -66,6 +67,40 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
                 EhValida = vl1.ToString() + vl2.ToString() == cnhSelecionada.Substring(cnhSelecionada.Length - 2, 2);
             }
             return EhValida;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Cliente cliente &&
+                   id == cliente.id &&
+                   Nome == cliente.Nome &&
+                   RegistroUnico == cliente.RegistroUnico &&
+                   Endereco == cliente.Endereco &&
+                   Telefone == cliente.Telefone &&
+                   Email == cliente.Email &&
+                   EhPessoaFisica == cliente.EhPessoaFisica &&
+                   Cnh == cliente.Cnh &&
+                   ValidadeCnh == cliente.ValidadeCnh;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -1382064342;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RegistroUnico);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefone);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
+            hashCode = hashCode * -1521134295 + EhPessoaFisica.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Cnh);
+            hashCode = hashCode * -1521134295 + ValidadeCnh.GetHashCode();
+            return hashCode;
+        }
+
+        public override string ToString()
+        {
+            return $"Cliente = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {Cnh}, {ValidadeCnh}, {EhPessoaFisica}]";
         }
     }
 }
