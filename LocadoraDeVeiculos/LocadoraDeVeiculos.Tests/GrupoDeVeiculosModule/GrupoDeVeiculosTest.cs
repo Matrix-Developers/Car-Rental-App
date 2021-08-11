@@ -9,20 +9,24 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
     public class GrupoDeVeiculosTest
     {
         [TestMethod]
-        public void DeveCriarDominioCorreto()
+        public void DeveCriarGrupoDeVeiculo_Correto()
         {
             GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos("nome", 12.50f, 25.73f, 200, 13.99f);
 
-            Assert.AreEqual("VALIDO", grupoDeVeiculos.Validar());
+            string resultado = grupoDeVeiculos.Validar();
+
+            Assert.AreEqual("VALIDO", resultado);
         }
 
         [TestMethod]
-        public void DeveCriarDominioIncorreto()
+        public void DeveApresentarErro_GrupoTotalmenteIncorreto()
         {
             GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos("",0f,0f,0,0f);
 
+            string resultado = grupoDeVeiculos.Validar();
+
             Assert.AreEqual("O nome não pode ser nulo\nA taxa do Quilometro Controlado não pode ser nula nem negativa\nA taxa do Plano Diário não pode ser nula nem negativa\nA taxa do Quilometro Livre não pode ser nula nem negativa\nA quantidade de quilômetros não pode ser nulo nem negativo", 
-                            grupoDeVeiculos.Validar());
+                            resultado);
         }
     }
 }

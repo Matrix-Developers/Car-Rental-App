@@ -1,0 +1,154 @@
+﻿using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
+namespace LocadoraDeVeiculos.Tests.FuncionarioModule
+{
+    [TestClass]
+    public class FuncionarioDominioTest
+    {
+        Funcionario funcionario;
+
+        [TestMethod]
+        public void DeveCriarFuncionario_Completo()
+        {
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("VALIDO", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroFuncionario_UsuarioDeAcessoEmBranco()
+        {
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("O usuário de acesso não pode estar vazio\n", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroFuncionario_MatriculaZerada()
+        {
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 000, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("Matricula inválida\n", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroFuncionario_SalarioZerado()
+        {
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 0f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("O salário deve ser maior que R$ 0,00\n", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroFuncionario_CargoVazio()
+        {
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("O funcionário deve possuir um cargo\n", resultado);
+        }
+
+        [TestMethod]
+        public void DeveCriarFuncionario_DataDeAdmissaoInvalida()
+        {
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2030, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("Data de admissão inválida\n", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroFuncionario_FuncionarioTotalmenteInvalido()
+        {
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 0, "", new DateTime(2030, 01, 01), "", 0f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("O usuário de acesso não pode estar vazio\nMatricula inválida\nO salário deve ser maior que R$ 0,00\nO funcionário deve possuir um cargo\nData de admissão inválida\n", resultado);
+        }
+
+        #region Testes para as propriedades herdadas de Pessoa
+        [TestMethod]
+        public void DeveCriarPessoa_Completo()
+        {
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "999999999", "email@g.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("VALIDO", resultado);
+        }
+
+        [TestMethod]
+        public void DeveCriarPessoa_SemTelefone()
+        {
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "", "email@g.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("VALIDO", resultado);
+        }
+
+        [TestMethod]
+        public void DeveCriarPessoa_SemEmail()
+        {
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "999999999", "", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("VALIDO", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroPessoa_PessoaTotalmenteInvalida()
+        {
+            funcionario = new Funcionario(1, "", "", "", "", "", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nÉ obrigatório inserir Telefone ou E-mail\nO CPF não é válido\n", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroPessoa_PessoaInvalidaComEmailSemArrobaEUmNumeroNoTelefone()
+        {
+            funcionario = new Funcionario(1, "", "", "", "1", "a", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO telefone deve ter no mínimo 9 dígitos\nO email está incorreto\nO CPF não é válido\n", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroPessoa_PessoaValidaComEmailSemArrobaTelefoneApenasUmNumero()
+        {
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "9", "email", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("O telefone deve ter no mínimo 9 dígitos\nO email está incorreto\n", resultado);
+        }
+
+        [TestMethod]
+        public void DeveApresentarErroPessoa_PessoaValidaApenasUmNumeroDeCelularApenas()
+        {
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "9", "email@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+
+            string resultado = funcionario.Validar();
+
+            Assert.AreEqual("O telefone deve ter no mínimo 9 dígitos\n", resultado);
+        }
+        #endregion
+    }
+}
