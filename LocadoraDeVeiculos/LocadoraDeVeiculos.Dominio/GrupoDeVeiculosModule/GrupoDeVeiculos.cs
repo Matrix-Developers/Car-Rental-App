@@ -25,7 +25,7 @@
 
         public string Validar()
         {
-            string resultadoValidacao = "VALIDO";
+            string resultadoValidacao = "";
 
             if (this.nome.Length <= 0)
                 resultadoValidacao  = "O nome não pode ser nulo\n";
@@ -41,6 +41,9 @@
 
             if (this.quantidadeQuilometrosKmControlado <= 0)
                 resultadoValidacao += "A quantidade de quilômetros não pode ser nulo nem negativo";
+
+            if (resultadoValidacao.Length == 0)
+                resultadoValidacao = "VALIDO";
 
             return resultadoValidacao;
         }
