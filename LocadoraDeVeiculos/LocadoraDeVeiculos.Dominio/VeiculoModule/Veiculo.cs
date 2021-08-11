@@ -40,90 +40,37 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         }
         public string Validar()
         {
-            int seZeroehValido = 0;
             string resultadoValidacao = "";
 
-            if (this.modelo.Length <= 0)
-            {
+            if (this.modelo.Length == 0)
                 resultadoValidacao = "O campo modelo não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-            if (this.grupoVeiculos.Length <= 0)
-            {
+            if (this.grupoVeiculos.Length == 0)
                 resultadoValidacao += "O campo grupo de veículos não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-            if (this.placa.Length <= 0)
-            {
+            if (this.placa.Length == 0)
                 resultadoValidacao += "O campo placa não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
-            if (this.chassi.Length <= 0)
-            {
+            if (this.chassi.Length == 0)
                 resultadoValidacao += "O campo chassi não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
-            if (this.marca.Length <= 0)
-            {
+            if (this.marca.Length == 0)
                 resultadoValidacao += "O campo marca não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
-            if (this.cor.Length <= 0)
-            {
+            if (this.cor.Length == 0)
                 resultadoValidacao += "O campo cor não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
-            if (this.tipoCombustivel.Length <= 0)
-            {
+            if (this.tipoCombustivel.Length == 0)
                 resultadoValidacao += "O campo tipo de combústivel não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
-            if (this.capacidadeTanque.Length <= 0)
-            {
+            if (this.capacidadeTanque.Length == 0)
                 resultadoValidacao += "O campo capacidade de tanque não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
             if (this.ano <= 0)
-            {
                 resultadoValidacao += "O campo ano não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
             if (this.kilometragem <= 0)
-            {
                 resultadoValidacao += "O campo kilometragem não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
             if (this.numeroPortas <= 0)
-            {
                 resultadoValidacao += "O campo numero de portas não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
             if (this.capacidadePessoas <= 0)
-            {
                 resultadoValidacao += "O campo capacidades de pessoas não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-
-            if (this.tamanhoPortaMala.Length <= 0)
-            {
+            if (this.tamanhoPortaMala.Length == 0)
                 resultadoValidacao += "O campo tamanho do porta mala não pode ser vazio!\n";
-                seZeroehValido++;
-            }
-            if (seZeroehValido == 0)
-            {
+            if (resultadoValidacao == "")
                 resultadoValidacao = "VALIDO";
-            }
                 return resultadoValidacao;
         }
-    }
- 
+    } 
 }
