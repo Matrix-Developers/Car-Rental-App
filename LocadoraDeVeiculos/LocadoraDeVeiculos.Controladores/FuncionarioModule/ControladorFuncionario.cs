@@ -8,5 +8,9 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 {
     public class ControladorFuncionario
     {
+
+        #region Queries
+
+        #endregion
     }
 }
