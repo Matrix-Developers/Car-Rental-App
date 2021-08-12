@@ -169,6 +169,8 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             parametros.Add("ID_GRUPOVEICULO", veiculo.grupoVeiculos);
             parametros.Add("PLACA", veiculo.placa);
             parametros.Add("CHASSI", veiculo.chassi);
+            parametros.Add("MARCA", veiculo.marca);
+            //parametros.Add("IMAGEM", veiculo.imagem);
             parametros.Add("COR", veiculo.cor);
             parametros.Add("TIPOCOMBUSTIVEL", veiculo.tipoCombustivel);
             parametros.Add("ANO", veiculo.ano);
@@ -200,12 +202,12 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             int numeroPortas = Convert.ToInt32(reader["NUMEROPORTAS"]);
             int capacidadePessoas = Convert.ToInt32(reader["CAPACIDADEPESSOAS"]);
             char tamanhoPortaMala = Convert.ToChar(reader["TAMANHOPORTAMALA"]);
-            string temArCondicionado = Convert.ToString(reader["TEMARCONDICIONADO"]);
-            string temDirecaoHidraulica = Convert.ToString(reader["TEMDIRECAOHIDRAULICA"]);
-            string temFreioAbs = Convert.ToString(reader["TEMFREIOABS"]);
+            bool temArCondicionado = Convert.ToBoolean(reader["TEMARCONDICIONADO"]);
+            bool temDirecaoHidraulica = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
+            bool temFreioAbs = Convert.ToBoolean(reader["TEMFREIOABS"]);
 
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupoVeiculos, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, kilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala);
+            Veiculo veiculo = new Veiculo(id, modelo, grupoVeiculos, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, kilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
 
             veiculo.Id = id;
 

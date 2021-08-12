@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
 
-        public Veiculo(int id,string modelo, string grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala)
+        public Veiculo(int id,string modelo, string grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs)
         {
             this.id = id;
             this.modelo = modelo;
@@ -38,6 +38,9 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.numeroPortas = numeroPortas;
             this.capacidadePessoas = capacidadePessoas;
             this.tamanhoPortaMala = tamanhoPortaMala;
+            this.temArCondicionado = temArCondicionado;
+            this.temDirecaoHidraulica = temDirecaoHidraulica;
+            this.temFreiosAbs = temFreiosAbs;
         }
 
         public override string Validar()
@@ -74,7 +77,6 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                 resultadoValidacao = "VALIDO";
                 return resultadoValidacao;
         }
-
 
         public override bool Equals(object obj)
         {
