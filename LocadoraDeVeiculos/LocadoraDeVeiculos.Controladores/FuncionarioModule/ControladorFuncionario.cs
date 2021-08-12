@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.PessoaModule;
+using LocadoraDeVeiculos.Dominio;
 
 namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 {
@@ -25,7 +25,8 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 											[MatriculaInterna],
 											[UsuarioAcesso],
 											[Cargo],
-											[Salario]
+											[Salario],
+                                            [dataAdmissao]
 										)
 										values
 										(
@@ -38,7 +39,8 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 											@MatriculaInterna,
 											@UsuarioAcesso,
 											@Cargo,
-											@Salario
+											@Salario,
+                                            @dataAdmissao
 										);";
 		const string comandoEditar = @"update TBFUNCIONARIO 
 									    set
@@ -51,7 +53,8 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 									    	[MatriculaInterna] = @MatriculaInterna,
 									    	[UsuarioAcesso] = @UsuarioAcesso,
 									    	[Cargo] = @Cargo,
-									    	[Salario] = @Salario	
+									    	[Salario] = @Salario,
+                                            [dataAdmissao] = @dataAdmissao
 									    where [id] = @id;";
 		const string comandoExcluir = @"delete from TBFUNCIONARIO where [id] = @id;";
 		const string comandoSelecionarTodos = "select * from TBFUNCIONARIO;";
@@ -97,11 +100,11 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", funcionario.Id);
-            parametros.Add("NOME", funcionario.Nome);
-            parametros.Add("EMAIL", funcionario.Email);
-            parametros.Add("TELEFONE", funcionario.Telefone);
-            parametros.Add("CARGO", funcionario.Cargo);
-            parametros.Add("EMPRESA", funcionario.Empresa);
+            parametros.Add("Nome", funcionario.Nome);
+            parametros.Add("RegistroUnico", funcionario.RegistroUnico);
+            parametros.Add("Endereco", funcionario.Endereco);
+            parametros.Add("Telefone", funcionario.Telefone);
+            parametros.Add("Email", funcionario.Email);
 
             return parametros;
         }
@@ -114,6 +117,11 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             string endereco = Convert.ToString(reader["Endereco"]);
             string telefone = Convert.ToString(reader["Telefone"]);
             string email = Convert.ToString(reader["Email"]);
+            int matricula = Convert.ToInt32(reader["MatriculaInterna"]);
+            string usuarioAcesso = Convert.ToString(reader["UsuarioAcesso"]);
+            DateTime dataAdmissao = Convert.ToDateTime(reader["DataAdmissao"]);
+            string cargo = Convert.ToString(reader["cargo"]);
+            double salario = Convert.ToDouble(Convert.ToString(reader["Salario"]));
 
             Funcionario funcionario = new Funcionario(id,nome, registroUnico, endereco, telefone, email,matricula, usuarioAcesso,dataAdmissao,cargo,salario);
 
