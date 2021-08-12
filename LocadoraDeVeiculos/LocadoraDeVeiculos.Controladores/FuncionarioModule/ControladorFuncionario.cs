@@ -63,37 +63,50 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 
         public override string Editar(int id, Funcionario registro)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = registro.Validar();
+            if (resultadoValidacao == "VALIDO")
+            {
+                registro.Id = id;
+                Db.Update(comandoEditar, ObtemParametrosFuncionario(registro));
+            }
+            return resultadoValidacao;
         }
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(comandoExcluir, AdicionarParametro("Id", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return Db.Exists(comandoSelecionarPorId, AdicionarParametro("Id", id));
         }
 
         public override string InserirNovo(Funcionario registro)
         {
 			string resultadoValidacao = registro.Validar();
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(comandoInserir, ObtemParametrosFuncionario(registro));
+            if (resultadoValidacao == "VALIDO")            
+                registro.Id = Db.Insert(comandoInserir, ObtemParametrosFuncionario(registro));            
             return resultadoValidacao;
         }
 
         public override Funcionario SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(comandoSelecionarPorId,ConverterEmFuncionario, AdicionarParametro("Id",id));
         }
 
         public override List<Funcionario> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return Db.GetAll(comandoSelecionarTodos, ConverterEmFuncionario);
         }
-
 
         private Dictionary<string, object> ObtemParametrosFuncionario(Funcionario funcionario)
         {
@@ -105,6 +118,11 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             parametros.Add("Endereco", funcionario.Endereco);
             parametros.Add("Telefone", funcionario.Telefone);
             parametros.Add("Email", funcionario.Email);
+            parametros.Add("MatriculaInterna",funcionario.Matricula);
+            parametros.Add("UsuarioAcesso",funcionario.UsuarioAcesso);
+            parametros.Add("DataAdmissao",funcionario.DataAdmissao);
+            parametros.Add("Cargo",funcionario.Cargo);
+            parametros.Add("Salario",float.Parse(Convert.ToString(funcionario.Salario)));
 
             return parametros;
         }
@@ -120,7 +138,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             int matricula = Convert.ToInt32(reader["MatriculaInterna"]);
             string usuarioAcesso = Convert.ToString(reader["UsuarioAcesso"]);
             DateTime dataAdmissao = Convert.ToDateTime(reader["DataAdmissao"]);
-            string cargo = Convert.ToString(reader["cargo"]);
+            string cargo = Convert.ToString(reader["Cargo"]);
             double salario = Convert.ToDouble(Convert.ToString(reader["Salario"]));
 
             Funcionario funcionario = new Funcionario(id,nome, registroUnico, endereco, telefone, email,matricula, usuarioAcesso,dataAdmissao,cargo,salario);
