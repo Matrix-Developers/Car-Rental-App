@@ -1,3 +1,4 @@
+using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
     public class Veiculo : EntidadeBase
     {
         public string modelo;
-        public string grupoVeiculos;
+        public GrupoDeVeiculos grupoVeiculos;
         public string placa;
         public string chassi;
         public string marca;
@@ -22,7 +23,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
 
-        public Veiculo(int id,string modelo, string grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs)
+        public Veiculo(int id,string modelo, GrupoDeVeiculos grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs)
         {
             this.id = id;
             this.modelo = modelo;
@@ -49,8 +50,6 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
 
             if (this.modelo.Length == 0)
                 resultadoValidacao = "O campo modelo não pode ser vazio!\n";
-            if (this.grupoVeiculos.Length == 0)
-                resultadoValidacao += "O campo grupo de veículos não pode ser vazio!\n";
             if (this.placa.Length == 0)
                 resultadoValidacao += "O campo placa não pode ser vazio!\n";
             if (this.chassi.Length == 0)
@@ -104,13 +103,12 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         {
             return $"Veiculo = [{id}, {modelo}, {grupoVeiculos}, {placa}, {chassi}, {marca}, {cor}, {tipoCombustivel}, {capacidadeTanque}, {ano}, {kilometragem}, {numeroPortas}, {capacidadePessoas}, {tamanhoPortaMala}]";
         }
-
         public override int GetHashCode()
         {
             int hashCode = -1048936057;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(modelo);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(grupoVeiculos);
+            hashCode = hashCode * -1521134295 + EqualityComparer<GrupoDeVeiculos>.Default.GetHashCode(grupoVeiculos);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(placa);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(chassi);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(marca);

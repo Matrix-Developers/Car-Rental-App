@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
+using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
@@ -17,17 +18,16 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [PLACA],
                 [CHASSI],      
                 [MARCA], 
-                [IMAGEM],
                 [COR],
                 [TIPOCOMBUSTIVEL],
                 [ANO],
                 [KILOMETRAGEM],
                 [NUMEROPORTAS],
                 [CAPACIDADEPESSOAS],
-                [TAMANHOPORTAMALAS],
+                [TAMANHOPORTAMALA],
                 [TEMARCONDICIONADO],
                 [TEMDIRECAOHIDRAULICA],
-                [TEMFREIOABS]
+                [TEMFREIOSABS]
             )
             VALUES
             (
@@ -36,57 +36,56 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 @PLACA,
                 @CHASSI,      
                 @MARCA,
-                @IMAGEM,
                 @COR,
                 @TIPOCOMBUSTIVEL,
                 @ANO,
                 @KILOMETRAGEM,
                 @NUMEROPORTAS,
                 @CAPACIDADEPESSOAS,
-                @TAMANHOPORTAMALAS,
+                @TAMANHOPORTAMALA,
                 @TEMARCONDICIONADO,
                 @TEMDIRECAOHIDRAULICA,
-                @TEMFREIOABS
+                @TEMFREIOSABS
             )";
         private const string sqlSelecionarTodosVeiculos =
             @"SELECT 
+                [ID],
                 [MODELO],
                 [ID_GRUPOVEICULO],
                 [PLACA],
                 [CHASSI],      
                 [MARCA], 
-                [IMAGEM],
                 [COR],
                 [TIPOCOMBUSTIVEL],
                 [ANO],
                 [KILOMETRAGEM],
                 [NUMEROPORTAS],
                 [CAPACIDADEPESSOAS],
-                [TAMANHOPORTAMALAS],
+                [TAMANHOPORTAMALA],
                 [TEMARCONDICIONADO],
                 [TEMDIRECAOHIDRAULICA],
-                [TEMFREIOABS] 
+                [TEMFREIOSABS] 
             FROM 
                 TBVEICULO ORDER BY ID;";
 
         private const string sqlSelecionarVeiculoPorId =
             @"SELECT  
+                [ID],
                 [MODELO],
                 [ID_GRUPOVEICULO],
                 [PLACA],
                 [CHASSI],      
                 [MARCA], 
-                [IMAGEM],
                 [COR],
                 [TIPOCOMBUSTIVEL],
                 [ANO],
                 [KILOMETRAGEM],
                 [NUMEROPORTAS],
                 [CAPACIDADEPESSOAS],
-                [TAMANHOPORTAMALAS],
+                [TAMANHOPORTAMALA],
                 [TEMARCONDICIONADO],
                 [TEMDIRECAOHIDRAULICA],
-                [TEMFREIOABS] 
+                [TEMFREIOSABS] 
             FROM
                 TBVEICULO 
             WHERE 
@@ -99,7 +98,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [PLACA] = @PLACA,
                 [CHASSI] = @CHASSI,
                 [MARCA] = @MARCA,
-                [IMAGEM] = @IMAGEM,
                 [COR] = @COR,
                 [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
                 [ANO] = @ANO,
@@ -107,7 +105,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [NUMEROPORTAS] = @NUMEROPORTAS,
                 [CAPACIDADEPESSOAS] = @CAPACIDADEPESSOAS,
                 [TAMANHOPORTAMALA] = @TAMANHOPORTAMALA,
-                [TEMARCONDICIONADO] = @TEMARCONDICIONADO
+                [TEMARCONDICIONADO] = @TEMARCONDICIONADO,
                 [TEMDIRECAOHIDRAULICA] = @TEMDIRECAOHIDRAULICA,
                 [TEMFREIOSABS] = @TEMFREIOSABS
             WHERE
@@ -132,32 +130,48 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         {
             string resultadoValidacao = registro.Validar();
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacao == "VALIDO")
                 registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
 
             return resultadoValidacao;
         }
         public override List<Veiculo> SelecionarTodos()
         {
-            throw new System.NotImplementedException();
+            return Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
         }
         public override Veiculo SelecionarPorId(int id)
         {
-            throw new System.NotImplementedException();
+            return Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
         }
         public override string Editar(int id, Veiculo registro)
         {
-            throw new System.NotImplementedException();
-        }
+            string resultadoValidacao = registro.Validar();
 
+            if (resultadoValidacao == "VALIDO")
+            {
+                registro.Id = id;
+                Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
+            }
+
+            return resultadoValidacao;
+        }
         public override bool Excluir(int id)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                Db.Delete(sqlDeletarVeiculo, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
         {
-            throw new System.NotImplementedException();
+            return Db.Exists(sqlExisteVeiculo, AdicionarParametro("ID", id));
         }
 
         private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
@@ -180,7 +194,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             parametros.Add("TAMANHOPORTAMALA", veiculo.tamanhoPortaMala);
             parametros.Add("TEMARCONDICIONADO", veiculo.temArCondicionado);
             parametros.Add("TEMDIRECAOHIDRAULICA", veiculo.temDirecaoHidraulica);
-            parametros.Add("TEMFREIOABS", veiculo.temFreiosAbs);
+            parametros.Add("TEMFREIOSABS", veiculo.temFreiosAbs);
 
             return parametros;
         }
@@ -189,14 +203,14 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         {
             int id = Convert.ToInt32(reader["ID"]);
             string modelo = Convert.ToString(reader["MODELO"]);
-            string grupoVeiculos = Convert.ToString(reader["ID_GRUPOVEICULO"]);
+            GrupoDeVeiculos grupoVeiculos = (reader["ID_GRUPOVEICULO"]) as GrupoDeVeiculos;
             string placa = Convert.ToString(reader["PLACA"]);
             string chassi = Convert.ToString(reader["CHASSI"]);
             string marca = Convert.ToString(reader["MARCA"]);
             //string imagem = Convert.(reader["IMAGEM"]);
             string cor = Convert.ToString(reader["COR"]);
             string tipoCombustivel = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
-            double capacidadeTanque = Convert.ToDouble(reader["capacidadeTanque"]);
+            //double capacidadeTanque = Convert.ToDouble(reader["capacidadeTanque"]);
             int ano = Convert.ToInt32(reader["ANO"]);
             double kilometragem = Convert.ToDouble(reader["KILOMETRAGEM"]);
             int numeroPortas = Convert.ToInt32(reader["NUMEROPORTAS"]);
@@ -204,10 +218,10 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             char tamanhoPortaMala = Convert.ToChar(reader["TAMANHOPORTAMALA"]);
             bool temArCondicionado = Convert.ToBoolean(reader["TEMARCONDICIONADO"]);
             bool temDirecaoHidraulica = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
-            bool temFreioAbs = Convert.ToBoolean(reader["TEMFREIOABS"]);
+            bool temFreioAbs = Convert.ToBoolean(reader["TEMFREIOSABS"]);
 
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupoVeiculos, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, kilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
+            Veiculo veiculo = new Veiculo(id, modelo, grupoVeiculos, placa, chassi, marca, cor, tipoCombustivel, 60.5, ano, kilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
 
             veiculo.Id = id;
 
