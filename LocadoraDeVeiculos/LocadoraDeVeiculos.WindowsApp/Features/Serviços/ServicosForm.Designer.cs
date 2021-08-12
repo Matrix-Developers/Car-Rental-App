@@ -40,6 +40,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,11 +151,34 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 67;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(150, 351);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(70, 28);
+            this.button2.TabIndex = 69;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(79, 351);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(70, 28);
+            this.button3.TabIndex = 68;
+            this.button3.Text = "Confirmar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // ServicosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 363);
+            this.BackColor = System.Drawing.Color.DarkGray;
+            this.ClientSize = new System.Drawing.Size(304, 391);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -180,5 +205,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

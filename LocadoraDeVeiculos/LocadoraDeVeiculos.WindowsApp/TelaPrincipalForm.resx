@@ -126,13 +126,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEQSURBVHhe7dAxigNAEANB///TvlSB4CLBsK6CzoU+AAAA
-        AAAAAHDI958Ya6dnjLXTM8ba6Rlj7fSMsXZ6xlg7PWOsnZ4x1k7PGGunZ4y10zPG2ukZY+30jLF2esZY
-        Oz1jrJ2eMdZOzxhrp2eMtdMzxtrpGWPt9IyxdnrGWDs9Y6ydnv28dspLnddGv9R5bfRLnddGv9R5bfRL
-        nddGv9R5bfRLnddGv9TPa6dkjLXTM8ba6Rlj7fSMsXZ6xlg7PWOsnZ4x1k7PGGunZ4y10zPG2ukZY+30
-        jLF2esZYOz1jrJ2eMdZOzxhrp2eMtdMzxtrpGWPt9IyxdnrGWDs9Y6ydnjHWTs8AAAAAAAAA4IDP5w/L
-        Jjzup2H8dQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABZSURBVGhD7c/BCsAgDERB//+n7V2kUEhYLTOw5+QNAOCn
+        5rLrCEgTkCYgTUCagLTjAtaHuldud6Rz5XZHOldud6Rzccc99JWANAFpAtIEpAlIuz4AAHg3xgOVhM8x
+        0ZYUzwAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
