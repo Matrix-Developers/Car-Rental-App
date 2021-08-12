@@ -6,7 +6,7 @@ using System;
 namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
 {
     [TestClass]
-    public class GrupoDeVeiculosTest
+    public class GrupoDeVeiculosDominioTest
     {
         [TestMethod]
         public void DeveCriarGrupoDeVeiculo_Correto()
