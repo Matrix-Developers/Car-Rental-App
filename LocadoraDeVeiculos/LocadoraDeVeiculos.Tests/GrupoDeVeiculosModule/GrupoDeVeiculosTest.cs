@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveApresentarErro_SomenteNomeCorreto()
         {
-            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos("nome", 0f, 0f, 0, 0f);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 0f, 0f, 0, 0f);
 
             string resultado = grupoDeVeiculos.Validar();
 
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveApresentarErro_SomenteNomeIncorreto()
         {
-            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos("", 10f, 10f, 10, 10f);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "", 10f, 10f, 10, 10f);
 
             string resultado = grupoDeVeiculos.Validar();
 
