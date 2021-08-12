@@ -46,6 +46,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Clientes\ClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Clientes\ClientesForm.Designer.cs">
+      <DependentUpon>ClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Clientes\TabelaClientesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Clientes\TabelaClientesControl.Designer.cs">
+      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Funcionarios\FuncionarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Funcionarios\FuncionarioForm.Designer.cs">
+      <DependentUpon>FuncionarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Funcionarios\TabelaFuncionarioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Funcionarios\TabelaFuncionarioControl.Designer.cs">
+      <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.Designer.cs">
+      <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.Designer.cs">
+      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Serviços\AdicionarServiço.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Serviços\AdicionarServiço.Designer.cs">
+      <DependentUpon>AdicionarServiço.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Serviços\ServicosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Serviços\ServicosForm.Designer.cs">
+      <DependentUpon>ServicosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Veiculo\TabelaVeiculoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Veiculo\TabelaVeiculoControl.Designer.cs">
+      <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\DataGridViewExtensions.cs" />
     <Compile Include="TelaPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +109,36 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Features\Veiculo\VeiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Veiculo\VeiculoForm.Designer.cs">
+      <DependentUpon>VeiculoForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Features\Clientes\ClientesForm.resx">
+      <DependentUpon>ClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Clientes\TabelaClientesControl.resx">
+      <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Funcionarios\FuncionarioForm.resx">
+      <DependentUpon>FuncionarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Funcionarios\TabelaFuncionarioControl.resx">
+      <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.resx">
+      <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.resx">
+      <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Serviços\AdicionarServiço.resx">
+      <DependentUpon>AdicionarServiço.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Veiculo\TabelaVeiculoControl.resx">
+      <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +148,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Features\Serviços\ServicosForm.resx">
+      <DependentUpon>ServicosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaPrincipalForm.resx">
+      <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Veiculo\VeiculoForm.resx">
+      <DependentUpon>VeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,5 +170,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
