@@ -14,15 +14,13 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
     {
         public ClientesForm()
         {
-            InitializeComponent();
-            panel1.Visible = false;
-            
+            InitializeComponent(); 
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            panel1.Visible = true;
-            
+            labelCPF.Text = "CPF";
+
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

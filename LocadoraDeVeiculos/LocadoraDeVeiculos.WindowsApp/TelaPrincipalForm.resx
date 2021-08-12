@@ -126,40 +126,30 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABZSURBVGhD7c/BCsAgDERB//+n7V2kUEhYLTOw5+QNAOCn
-        5rLrCEgTkCYgTUCagLTjAtaHuldud6Rz5XZHOldud6Rzccc99JWANAFpAtIEpAlIuz4AAHg3xgOVhM8x
-        0ZYUzwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABzSURBVFhH7dRbCoAwDETRLs2duTSXph1oIR9KfEQb5B4Y
+        yIe0U4QUALhuqplbNA+nImuL5uEo5KGQh0KeTwvZpXeUpaYX0rz3jc2j5akD+mVR0Zm3pSuU7pedoUtC
+        Xh+FQh4KeSjkSVfILs/Xlx6AnyllA3eWdGn6IHHaAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHwSURBVHhe7dg7SkNRFIXhNIKFOANH4gCcg71DsBNtHZev
-        EVhYOAxLUdeRbDhcdpJ7XtnF+T9YiEoQ/g2S3A0AAAAAAAAwsSvtVfvS3rVH7VTDEdxrv86etTMNAz1o
-        Xnzbi8YRBjkU38YRBlgb38YROiqNb+MIHdTGt3GEBq3xbRyhwqXmxawdR6hwq3kxa8cRKvQ+wpN2oqFA
-        7yPcaVg4337dpecRPjRk0rudT+3i/7vdeh0hPcDDVv5W81hHeNMg3vv80Uf40dKj7Ont+5A18gjpUfb0
-        1nzCHXGE9Hentya+recRiC8l8W09jkB8qYlvazkC8aUlvq3mCMSXHvFtJUcgvvSMb1tzhPQoe3ol8dNj
-        4hvtO/vZvq05wtRK49sz+muNIzSqjW84QoPW+Cb9O/Je4y0d4dCj7Cn0ip9+nn7vvc5b+rvTI34g4gci
-        fiDiByJ+IOIHIn4g4gcifiDiByJ+IOIHIn4g4gcifiDiByJ+IOIHIn4g4gcifiDiByJ+IOIHIn4g4gci
-        fiDiB/PieCP+IF6g5Yg/kBcpH/EH80LlI/5gXqx8HuJ35AXLt0T8zrxo+XLEH8AL12PEX8mL1zriF/AC
-        toz4hbyItSN+BS9kzYhfyYtZOuI38IKWjPiNvKhrR3wAAAAAAABMarP5A+9zsPa4PzlYAAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADUSURBVFhH7ZPNCQIxFAbThd61ALUCSxBr8eZBrMw67EEb
+        8KLfaAIhJHvLvghvYMj+5DDsvgTH+RNW8hRXc3byKd/yIbfSjDwmaRa1lGWMedRZ1oKQqLXsDr/p8Lv8
+        MhXFoHclzcxLHnkQqUWxr+sXKgd4Kop97O9G7TRhLWr2GIb1nt2XUYu4dqEWw3HmyJdR+aB3oRUDrNyn
+        dya/yWPAY1p4TAuPaTFUzEYOEwMXOUwM5EFXHgizGMiDbpIosxjIg0pnj4FWkEkM7CVRpZw+xxmcED47
+        C8zP/5SHOAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIeSURBVHhe7dZBalVBFEXR33EyTtIZBHQ4jkMnkragVY0P
-        u7HFNBJvneIs2N1w7nvwfh5VVVVVVVVVVVXDvqx+v3P7b9YbfMTDf9aX8A8f+fCf9SX8xf94+M+ufgl2
-        8E0dz0bf1PFs9E0dz0bf1PFs9E0dz0bf1PFs9E0dz0bfVFVVVQz7IUsqnh2VVDw7Kql4dlRS8eyopOLZ
-        UUnFs6OSimdHJRXPjmLTbBOLZ0exabaJxbOj2DTbxOLZUWyabWLx7Cg2zTaxeHYUm2abWDw7ik2zTSye
-        HcWm2SYWz45i02wTi2dHsWm2icWzo9g028Ti2VFsmm1i8ewoNs02sXh2FJtmm1g8O4pNs00snh3Fptkm
-        Fs+OYtNsE4tnR7FptonFs6PYNNvE4tlRbJptYvHsKDbNNrF4dhSbZptYPDuKTbNNLJ4dxabZJhbPjmLT
-        bBOLZ0exabaJxbOj2DTbxOLZUWyabWLx7Cg2zTaxeHYUm2abWDw7ik2zTSyeHcWm2SYWz45i02wTi2dH
-        sWm2icWzo9g028Ti2VFsmm1i8ewoNs02sXh2FJtmm1g8O4pNs00snh3FptkmFu91ZYcltLfH+7Gy4xLa
-        2+O9rOy4hPb2eJ9Xv1Z24MntzXv7Fb6u7MiT25uv8Wn1fWWHntjeujdfZR/0bXXy52hv2xuve/i0v6v7
-        x+3n6oR/UfeGvWVvuuabX1VVVVVVVVVVp3k8/gDXBnysjS9fPQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVFhH7Za7DQIxEAUd0gGN0BMlEFIWDVAPMRnsCyxd
+        sM8gz+oQkkeaiHvj+yS0xeJHHMJLeDXqN12zCzroFr4+qGvKb0pPmx1GVHOadUN/i56qwjKyVz9jGVl8
+        xjK20exTjNxuyyBRsrWQKNlaSJRsLSRKthYSJVsLiZKthUTJ1kKiZGshUbK1kCjZWkiUbC0kSrYWEiVb
+        C4mSreUZ9mj2F2Nk36lRxj3s4VnVKOMUPsLsoG/UVo1SjuE5zD7LSG20XSx2oLU3ie4NHq0AyTQAAAAA
+        SUVORK5CYII=
 </value>
   </data>
 </root>
