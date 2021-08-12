@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         {
             string resultadoValidacao = registro.Validar();
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));
             }
@@ -71,7 +71,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         {
             string resultadoValidacao = registro.Validar();
 
-            if (resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
                 Db.Update(sqlEditarGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));
