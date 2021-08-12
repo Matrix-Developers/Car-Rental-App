@@ -17,14 +17,14 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
         public int QuantidadeQuilometrosKmControlado { get => quantidadeQuilometrosKmControlado; set => quantidadeQuilometrosKmControlado = value; }
         public float TaxaKmLivre { get => taxaKmLivre; set => taxaKmLivre = value; }
 
-        public GrupoDeVeiculos(int id,string nome, float taxaPlanoDiario, float taxaKmControlado, int quantidadeQuilometrosKmControlado, float taxaKmLivre)
+        public GrupoDeVeiculos(int id,string nome, float taxaPlanoDiario, float taxaKmControlado, float taxaKmLivre, int quantidadeQuilometrosKmControlado)
         {
             this.id = id;
             this.nome = nome;
             this.taxaPlanoDiario = taxaPlanoDiario;
             this.taxaKmControlado = taxaKmControlado;
-            this.quantidadeQuilometrosKmControlado = quantidadeQuilometrosKmControlado;
             this.taxaKmLivre = taxaKmLivre;
+            this.quantidadeQuilometrosKmControlado = quantidadeQuilometrosKmControlado;
         }
 
         public override string Validar()

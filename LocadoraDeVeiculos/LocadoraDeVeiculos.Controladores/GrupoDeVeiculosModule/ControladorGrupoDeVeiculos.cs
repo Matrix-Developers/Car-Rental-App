@@ -132,7 +132,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             float taxaKmLivre = (float)Convert.ToDouble(reader["TaxaKmLivre"]);
             int quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QuantidadeQuilometrosKmControlado"]);
 
-            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(id, nome, taxaPlanoDiario, taxaKmControlado, quantidadeQuilometrosKmControlado, taxaKmLivre);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(id, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
 
             return grupoDeVeiculos;
         }
