@@ -8,6 +8,8 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 {
     public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculos>
     {
+        //Nota: nome da tabela "TBGRUPOVEICULO" é incosistente com o nome das outras tabelas do banco.
+        //      - talvez considerar renomear "TBGRUPOVEICULO" para "TBGRUPODEVEICULOS"
         private const string sqlInserirGrupoDeVeiculos =
                 @"INSERT INTO TBGRUPOVEICULO
                 (
@@ -109,12 +111,30 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
         private Dictionary<string, object> ObtemParametrosGrupoDeVeiculos(GrupoDeVeiculos grupoDeVeiculos)
         {
-            throw new NotImplementedException();
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("Id", grupoDeVeiculos.Id);
+            parametros.Add("Nome", grupoDeVeiculos.Nome);
+            parametros.Add("TaxaPlanoDiario", grupoDeVeiculos.TaxaPlanoDiario);
+            parametros.Add("TaxaKmControlado", grupoDeVeiculos.TaxaKmControlado);
+            parametros.Add("TaxaKmLivre", grupoDeVeiculos.TaxaKmLivre);
+            parametros.Add("QuantidadeQuilometrosKmControlado", grupoDeVeiculos.QuantidadeQuilometrosKmControlado);
+
+            return parametros;
         }
 
         private GrupoDeVeiculos ConverterEmGrupoDeVeiculos(IDataReader reader)
         {
-            throw new NotImplementedException();
+            int id = Convert.ToInt32(reader["Id"]); ;
+            string nome = Convert.ToString(reader["Nome"]); ;
+            float taxaPlanoDiario = (float)Convert.ToDouble(reader["TaxaPlanoDiario"]);
+            float taxaKmControlado = (float)Convert.ToDouble(reader["TaxaKmControlado"]);
+            float taxaKmLivre = (float)Convert.ToDouble(reader["TaxaKmLivre"]);
+            int quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QuantidadeQuilometrosKmControlado"]);
+
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(id, nome, taxaPlanoDiario, taxaKmControlado, quantidadeQuilometrosKmControlado, taxaKmLivre);
+
+            return grupoDeVeiculos;
         }
     }
 }
