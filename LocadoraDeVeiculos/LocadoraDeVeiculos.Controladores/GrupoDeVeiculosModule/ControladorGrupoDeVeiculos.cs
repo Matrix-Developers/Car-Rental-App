@@ -9,22 +9,49 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
     public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculos>
     {
         private const string sqlInserirGrupoDeVeiculos =
-            @"";
+                @"INSERT INTO TBGRUPOVEICULO
+                (
+	                [Nome],
+	                [TaxaPlanoDiario],
+	                [TaxaKmControlado],
+	                [TaxaKmLivre],
+	                [QuantidadeQuilometrosKmControlado]
+                )
+                VALUES
+                (
+	                @Nome,
+	                @TaxaPlanoDiario,
+	                @TaxaKmControlado,
+	                @TaxaKmLivre,
+	                @QuantidadeQuilometrosKmControlado
+                );";
 
         private const string sqlEditarGrupoDeVeiculos =
-            @" ";
+                @"UPDATE TBGRUPOVEICULO 
+                SET
+	                [Nome] = @Nome,
+	                [TaxaPlanoDiario] = @TaxaPlanoDiario,
+	                [TaxaKmControlado] = @TaxaKmControlado,
+	                [TaxaKmLivre] = @TaxaKmLivre,
+	                [QuantidadeQuilometrosKmControlado] = @QuantidadeQuilometrosKmControlado
+                WHERE [Id] = @Id;";
 
         private const string sqlExcluirGrupoDeVeiculos =
-            @" ";
+                @"DELETE FROM TBGRUPOVEICULO  WHERE [Id] = @Id;";
 
         private const string sqlSelecionarGrupoDeVeiculosPorId =
-            @" ";
+                @"SELECT * FROM TBGRUPOVEICULO WHERE [Id] = @Id;";
 
         private const string sqlSelecionarTodosGrupoDeVeiculoss =
-            @" ";
+                @"SELECT * FROM TBGRUPOVEICULO;";
 
         private const string sqlExisteGrupoDeVeiculos =
-            @" ";
+                @"SELECT 
+                    COUNT(*) 
+                FROM 
+                    [TBGRUPOVEICULO]
+                WHERE 
+                    [Id] = @Id";
 
         public override string InserirNovo(GrupoDeVeiculos registro)
         {
