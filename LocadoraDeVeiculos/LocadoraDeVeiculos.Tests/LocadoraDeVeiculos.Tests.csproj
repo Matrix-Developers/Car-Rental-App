@@ -72,7 +72,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
-      //<Project>{35789073-23E1-426D-BBC2-E1AF3DB9935E}</Project>
+      <Project>{35789073-23E1-426D-BBC2-E1AF3DB9935E}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>
     </ProjectReference>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
