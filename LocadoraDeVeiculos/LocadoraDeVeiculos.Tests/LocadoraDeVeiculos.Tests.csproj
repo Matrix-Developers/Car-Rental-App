@@ -62,8 +62,9 @@
     <Compile Include="SevicoModule\ServicosControladorTest.cs" />
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosDominioTest.cs" />
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosControladorTest.cs" />
-    <Compile Include="SevicoModule\ServicosTest.cs" />
-    <Compile Include="VeiculoModule\VeiculoTest.cs" />
+    <Compile Include="SevicoModule\ServicoDominioTest.cs" />
+    <Compile Include="VeiculoModule\VeiculoControladorTest.cs" />
+    <Compile Include="VeiculoModule\VeiculoDominioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
