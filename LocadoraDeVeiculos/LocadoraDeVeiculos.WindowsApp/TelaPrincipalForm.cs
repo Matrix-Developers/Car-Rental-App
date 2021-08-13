@@ -26,5 +26,10 @@ namespace LocadoraDeVeiculos.WindowsApp
             tarefas.ShowDialog();
             this.Close();
         }
+
+        private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripMenu.Enabled = true;
+        }
     }
 }

@@ -6,13 +6,13 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
 {
     public class Funcionario : Pessoa
     {
-        public int Matricula { get; }
+        public int MatriculaInterna { get; }
         public string UsuarioAcesso { get; }
         public DateTime DataAdmissao { get; }
         public string Cargo { get; }
         public double Salario { get; }
 
-        public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matricula, string usuarioAcesso, DateTime dataAdmissao, string cargo, double salario,bool ehPessoaFisica)
+        public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matriculaInterna, string usuarioAcesso, DateTime dataAdmissao, string cargo, double salario,bool ehPessoaFisica)
         {
             this.id = id;
             Nome = nome;
@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             Telefone = telefone;
             Email = email;
             EhPessoaFisica = true;
-            Matricula = matricula;
+            MatriculaInterna = matriculaInterna;
             UsuarioAcesso = usuarioAcesso;
             DataAdmissao = dataAdmissao;
             Cargo = cargo;
@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             string resultadoValidação = "";
             if (UsuarioAcesso.Length == 0)
                 resultadoValidação += "O usuário de acesso não pode estar vazio\n";
-            if(Matricula <= 0)
+            if(MatriculaInterna <= 0)
                 resultadoValidação += "Matricula inválida\n";
             if (Salario <= 0)
                 resultadoValidação += "O salário deve ser maior que R$ 0,00\n";
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
                    Telefone == funcionario.Telefone &&
                    Email == funcionario.Email &&
                    EhPessoaFisica == funcionario.EhPessoaFisica &&
-                   Matricula == funcionario.Matricula &&
+                   MatriculaInterna == funcionario.MatriculaInterna &&
                    UsuarioAcesso == funcionario.UsuarioAcesso &&
                    DataAdmissao == funcionario.DataAdmissao &&
                    Cargo == funcionario.Cargo &&
@@ -76,7 +76,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefone);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
             hashCode = hashCode * -1521134295 + EhPessoaFisica.GetHashCode();
-            hashCode = hashCode * -1521134295 + Matricula.GetHashCode();
+            hashCode = hashCode * -1521134295 + MatriculaInterna.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(UsuarioAcesso);
             hashCode = hashCode * -1521134295 + DataAdmissao.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Cargo);
@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
 
         public override string ToString()
         {
-            return $"Funcionario = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {Matricula}, {UsuarioAcesso}, {DataAdmissao}, {Cargo}, {Salario}]";
+            return $"Funcionario = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {MatriculaInterna}, {UsuarioAcesso}, {DataAdmissao}, {Cargo}, {Salario}]";
         }
     }
 }

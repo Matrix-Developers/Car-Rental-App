@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 @TEMFREIOSABS
             )";
         private const string sqlSelecionarTodosVeiculos =
-            @"SELECT 
+            @"SELECT
                 [ID],
                 [MODELO],
                 [ID_GRUPOVEICULO],
