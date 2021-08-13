@@ -13,36 +13,36 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         private const string sqlInserirGrupoDeVeiculos =
                 @"INSERT INTO TBGRUPOVEICULO
                 (
-	                [Nome],
-	                [TaxaPlanoDiario],
-	                [TaxaKmControlado],
-	                [TaxaKmLivre],
-	                [QuantidadeQuilometrosKmControlado]
+	                [NOME],
+	                [TAXAPLANODIARIO],
+	                [TAXAKMCONTROLADO],
+	                [TAXAKMLIVRE],
+	                [QUANTIDADEQUILOMETROSKMCONTROLADO]
                 )
                 VALUES
                 (
-	                @Nome,
-	                @TaxaPlanoDiario,
-	                @TaxaKmControlado,
-	                @TaxaKmLivre,
-	                @QuantidadeQuilometrosKmControlado
+	                @NOME,
+	                @TAXAPLANODIARIO,
+	                @TAXAKMCONTROLADO,
+	                @TAXAKMLIVRE,
+	                @QUANTIDADEQUILOMETROSKMCONTROLADO
                 );";
 
         private const string sqlEditarGrupoDeVeiculos =
                 @"UPDATE TBGRUPOVEICULO 
                 SET
-	                [Nome] = @Nome,
-	                [TaxaPlanoDiario] = @TaxaPlanoDiario,
-	                [TaxaKmControlado] = @TaxaKmControlado,
-	                [TaxaKmLivre] = @TaxaKmLivre,
-	                [QuantidadeQuilometrosKmControlado] = @QuantidadeQuilometrosKmControlado
-                WHERE [Id] = @Id;";
+	                [NOME] = @NOME,
+	                [TAXAPLANODIARIO] = @TAXAPLANODIARIO,
+	                [TAXAKMCONTROLADO] = @TAXAKMCONTROLADO,
+	                [TAXAKMLIVRE] = @TAXAKMLIVRE,
+	                [QUANTIDADEQUILOMETROSKMCONTROLADO] = @QUANTIDADEQUILOMETROSKMCONTROLADO
+                WHERE [ID] = @ID;";
 
         private const string sqlExcluirGrupoDeVeiculos =
-                @"DELETE FROM TBGRUPOVEICULO  WHERE [Id] = @Id;";
+                @"DELETE FROM TBGRUPOVEICULO  WHERE [ID] = @ID;";
 
         private const string sqlSelecionarGrupoDeVeiculosPorId =
-                @"SELECT * FROM TBGRUPOVEICULO WHERE [Id] = @Id;";
+                @"SELECT * FROM TBGRUPOVEICULO WHERE [ID] = @ID;";
 
         private const string sqlSelecionarTodosGrupoDeVeiculoss =
                 @"SELECT * FROM TBGRUPOVEICULO;";
@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
                 FROM 
                     [TBGRUPOVEICULO]
                 WHERE 
-                    [Id] = @Id";
+                    [ID] = @ID";
 
         public override string InserirNovo(GrupoDeVeiculos registro)
         {
@@ -127,24 +127,24 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("Id", grupoDeVeiculos.Id);
-            parametros.Add("Nome", grupoDeVeiculos.Nome);
-            parametros.Add("TaxaPlanoDiario", grupoDeVeiculos.TaxaPlanoDiario);
-            parametros.Add("TaxaKmControlado", grupoDeVeiculos.TaxaKmControlado);
-            parametros.Add("TaxaKmLivre", grupoDeVeiculos.TaxaKmLivre);
-            parametros.Add("QuantidadeQuilometrosKmControlado", grupoDeVeiculos.QuantidadeQuilometrosKmControlado);
+            parametros.Add("ID", grupoDeVeiculos.Id);
+            parametros.Add("NOME", grupoDeVeiculos.Nome);
+            parametros.Add("TAXAPLANODIARIO", grupoDeVeiculos.TaxaPlanoDiario);
+            parametros.Add("TAXAKMCONTROLADO", grupoDeVeiculos.TaxaKmControlado);
+            parametros.Add("TAXAKMLIVRE", grupoDeVeiculos.TaxaKmLivre);
+            parametros.Add("QUANTIDADEQUILOMETROSKMCONTROLADO", grupoDeVeiculos.QuantidadeQuilometrosKmControlado);
 
             return parametros;
         }
 
         private GrupoDeVeiculos ConverterEmGrupoDeVeiculos(IDataReader reader)
         {
-            int id = Convert.ToInt32(reader["Id"]); ;
-            string nome = Convert.ToString(reader["Nome"]); ;
-            float taxaPlanoDiario = (float)Convert.ToDouble(reader["TaxaPlanoDiario"]);
-            float taxaKmControlado = (float)Convert.ToDouble(reader["TaxaKmControlado"]);
-            float taxaKmLivre = (float)Convert.ToDouble(reader["TaxaKmLivre"]);
-            int quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QuantidadeQuilometrosKmControlado"]);
+            int id = Convert.ToInt32(reader["ID"]); ;
+            string nome = Convert.ToString(reader["NOME"]); ;
+            float taxaPlanoDiario = (float)Convert.ToDouble(reader["TAXAPLANODIARIO"]);
+            float taxaKmControlado = (float)Convert.ToDouble(reader["TAXAKMCONTROLADO"]);
+            float taxaKmLivre = (float)Convert.ToDouble(reader["TAXAKMLIVRE"]);
+            int quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QUANTIDADEQUILOMETROSKMCONTROLADO"]);
 
             GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(id, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
 
