@@ -19,8 +19,8 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 	            [NOME],
 	            [REGISTROUNICO],
 	            [ENDERECO],
-	            [TELEFONE],
 	            [EMAIL],
+	            [TELEFONE],
 	            [EHPESSOAFISICA],
 	            [CNH],
 	            [VALIDADECNH]
@@ -135,7 +135,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
         private Cliente ConverterEmClientes(IDataReader reader)
         {
 			int id = Convert.ToInt32(reader["ID"]);
-			string nome = Convert.ToString((reader["Nome"]));
+			string nome = Convert.ToString((reader["NOME"]));
 			string registroUnico = Convert.ToString((reader["REGISTROUNICO"]));
 			string endereco = Convert.ToString(reader["ENDERECO"]);
 			string telefone = Convert.ToString(reader["TELEFONE"]);
@@ -145,7 +145,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 			bool ehPessoaFisica = Convert.ToBoolean(reader["EHPESSOAFISiCA"]);
 
 			Cliente cliente = new Cliente(id, nome, registroUnico, endereco, telefone, email, cnh, validadeCnh, ehPessoaFisica);
-
+			cliente.Id = id;
 			return cliente;
 		}
 
