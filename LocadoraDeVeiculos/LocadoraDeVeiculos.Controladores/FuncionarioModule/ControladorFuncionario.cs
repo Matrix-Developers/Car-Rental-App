@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
     {
 
         #region Queries
-        const string comandoInserir = @"insert into TBFUNCIONARIO
+        private const string comandoInserir = @"insert into TBFUNCIONARIO
 										(
 											[Nome],
 											[RegistroUnico],
@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 											@Salario,
                                             @dataAdmissao
 										);";
-		const string comandoEditar = @"update TBFUNCIONARIO 
+        private const string comandoEditar = @"update TBFUNCIONARIO 
 									    set
 									    	[Nome] = @Nome,
 									    	[RegistroUnico] = @RegistroUnico,
@@ -56,9 +56,9 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 									    	[Salario] = @Salario,
                                             [dataAdmissao] = @dataAdmissao
 									    where [id] = @id;";
-		const string comandoExcluir = @"delete from TBFUNCIONARIO where [id] = @id;";
-		const string comandoSelecionarTodos = "select * from TBFUNCIONARIO;";
-		const string comandoSelecionarPorId = "select * from TBFUNCIONARIO where [id] = @id;";
+        private const string comandoExcluir = @"delete from TBFUNCIONARIO where [id] = @id;";
+        private const string comandoSelecionarTodos = "select * from TBFUNCIONARIO;";
+		private const string comandoSelecionarPorId = "select * from TBFUNCIONARIO where [id] = @id;";
         #endregion
 
         public override string Editar(int id, Funcionario registro)
@@ -94,7 +94,8 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         {
 			string resultadoValidacao = registro.Validar();
             if (resultadoValidacao == "VALIDO")            
-                registro.Id = Db.Insert(comandoInserir, ObtemParametrosFuncionario(registro));            
+                registro.Id = Db.Insert(comandoInserir, ObtemParametrosFuncionario(registro));
+            
             return resultadoValidacao;
         }
 
@@ -123,6 +124,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             parametros.Add("DataAdmissao",funcionario.DataAdmissao);
             parametros.Add("Cargo",funcionario.Cargo);
             parametros.Add("Salario",float.Parse(Convert.ToString(funcionario.Salario)));
+            parametros.Add("EhPessoaFisica", Convert.ToBoolean(funcionario.EhPessoaFisica));
 
             return parametros;
         }
@@ -140,8 +142,9 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             DateTime dataAdmissao = Convert.ToDateTime(reader["DataAdmissao"]);
             string cargo = Convert.ToString(reader["Cargo"]);
             double salario = Convert.ToDouble(Convert.ToString(reader["Salario"]));
+            bool ehPessoaFisica = Convert.ToBoolean(reader["EhPessoaFisica"]);
 
-            Funcionario funcionario = new Funcionario(id,nome, registroUnico, endereco, telefone, email,matricula, usuarioAcesso,dataAdmissao,cargo,salario);
+            Funcionario funcionario = new Funcionario(id,nome, registroUnico, endereco, telefone, email,matricula, usuarioAcesso,dataAdmissao,cargo,salario,ehPessoaFisica);
 
             funcionario.Id = id;
 

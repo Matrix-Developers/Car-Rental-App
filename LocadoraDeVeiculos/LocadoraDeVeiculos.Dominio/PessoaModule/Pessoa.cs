@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             else
                 resultadoValidacaoRegistroUnico = ValidarCnpj(RegistroUnico);
 
-            if (Nome.Length == 0)
+            if (this.Nome.Length == 0)
                 resultadoValidacao = "O nome não pode ser nulo\n";
             if (this.Endereco.Length <= 0)
                 resultadoValidacao += "O endereço não pode ser nulo\n";

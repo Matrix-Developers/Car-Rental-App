@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         public string Cargo { get; }
         public double Salario { get; }
 
-        public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matricula, string usuarioAcesso, DateTime dataAdmissao, string cargo, double salario)
+        public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matricula, string usuarioAcesso, DateTime dataAdmissao, string cargo, double salario,bool ehPessoaFisica)
         {
             this.id = id;
             Nome = nome;
@@ -26,6 +26,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             DataAdmissao = dataAdmissao;
             Cargo = cargo;
             Salario = salario;
+            EhPessoaFisica = ehPessoaFisica;
         }
 
         public override string Validar()
