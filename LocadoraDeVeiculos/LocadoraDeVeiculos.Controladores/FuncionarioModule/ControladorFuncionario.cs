@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 											[UsuarioAcesso],
 											[Cargo],
 											[Salario],
-                                            [dataAdmissao]
+                                            [DataAdmissao]
 										)
 										values
 										(
@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 											@UsuarioAcesso,
 											@Cargo,
 											@Salario,
-                                            @dataAdmissao
+                                            @DataAdmissao
 										);";
         private const string comandoEditar = @"update TBFUNCIONARIO 
 									    set
@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 									    	[UsuarioAcesso] = @UsuarioAcesso,
 									    	[Cargo] = @Cargo,
 									    	[Salario] = @Salario,
-                                            [dataAdmissao] = @dataAdmissao
+                                            [DataAdmissao] = @DataAdmissao
 									    where [id] = @id;";
         private const string comandoExcluir = @"delete from TBFUNCIONARIO where [id] = @id;";
         private const string comandoSelecionarTodos = "select * from TBFUNCIONARIO;";
