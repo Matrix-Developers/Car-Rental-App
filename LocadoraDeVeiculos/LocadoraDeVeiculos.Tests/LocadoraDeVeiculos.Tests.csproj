@@ -59,8 +59,9 @@
     <Compile Include="ClienteModule\ClienteControladorTest.cs" />
     <Compile Include="FuncionarioModule\FuncionarioDominioTest.cs" />
     <Compile Include="FuncionarioModule\FuncionarioControladorTest.cs" />
-    <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosTest.cs" />
     <Compile Include="SevicoModule\ServicosControladorTest.cs" />
+    <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosDominioTest.cs" />
+    <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosControladorTest.cs" />
     <Compile Include="SevicoModule\ServicosTest.cs" />
     <Compile Include="VeiculoModule\VeiculoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
