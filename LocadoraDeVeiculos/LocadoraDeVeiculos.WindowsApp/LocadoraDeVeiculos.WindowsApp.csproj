@@ -82,11 +82,11 @@
     <Compile Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.Designer.cs">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Serviços\AdicionarServiço.cs">
+    <Compile Include="Features\Serviços\AdicionarServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Serviços\AdicionarServiço.Designer.cs">
-      <DependentUpon>AdicionarServiço.cs</DependentUpon>
+    <Compile Include="Features\Serviços\AdicionarServico.Designer.cs">
+      <DependentUpon>AdicionarServico.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Serviços\ServicosForm.cs">
       <SubType>Form</SubType>
@@ -133,8 +133,8 @@
     <EmbeddedResource Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.resx">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Serviços\AdicionarServiço.resx">
-      <DependentUpon>AdicionarServiço.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Serviços\AdicionarServico.resx">
+      <DependentUpon>AdicionarServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Veiculo\TabelaVeiculoControl.resx">
       <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>

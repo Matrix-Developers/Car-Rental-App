@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 {
-    public partial class AdicionarServiço : Form
+    public partial class AdicionarServico : Form
     {
-        public AdicionarServiço()
+        public AdicionarServico()
         {
             InitializeComponent();
         }

@@ -1,7 +1,7 @@
 ﻿
 namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 {
-    partial class AdicionarServiço
+    partial class AdicionarServico
     {
         /// <summary>
         /// Required designer variable.
