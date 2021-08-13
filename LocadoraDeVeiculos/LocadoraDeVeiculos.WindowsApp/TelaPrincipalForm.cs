@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.WindowsApp.Clientes;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Serviços;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -30,6 +32,12 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             toolStripMenu.Enabled = true;
+        }
+
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdicionarServico telAdicionarServico = new AdicionarServico(new ControladorServico());
+            telAdicionarServico.ShowDialog();
         }
     }
 }

@@ -29,133 +29,175 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelNome = new System.Windows.Forms.Label();
+            this.labelValor = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.labelTaxaFixa = new System.Windows.Forms.Label();
+            this.labelCalcDiaria = new System.Windows.Forms.Label();
+            this.rdbTaxaFixa = new System.Windows.Forms.RadioButton();
+            this.rdbCalcDiaria = new System.Windows.Forms.RadioButton();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnConfirma = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.labelId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // labelNome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(26, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome";
+            this.labelNome.AutoSize = true;
+            this.labelNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNome.ForeColor = System.Drawing.Color.Red;
+            this.labelNome.Location = new System.Drawing.Point(23, 63);
+            this.labelNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNome.Name = "labelNome";
+            this.labelNome.Size = new System.Drawing.Size(79, 29);
+            this.labelNome.TabIndex = 0;
+            this.labelNome.Text = "Nome";
             // 
-            // label2
+            // labelValor
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(26, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Valor";
+            this.labelValor.AutoSize = true;
+            this.labelValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValor.ForeColor = System.Drawing.Color.Red;
+            this.labelValor.Location = new System.Drawing.Point(23, 104);
+            this.labelValor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelValor.Name = "labelValor";
+            this.labelValor.Size = new System.Drawing.Size(69, 29);
+            this.labelValor.TabIndex = 1;
+            this.labelValor.Text = "Valor";
             // 
-            // textBox1
+            // txtNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtNome.Location = new System.Drawing.Point(113, 70);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNome.MaxLength = 200;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(132, 22);
+            this.txtNome.TabIndex = 2;
             // 
-            // textBox2
+            // txtValor
             // 
-            this.textBox2.Location = new System.Drawing.Point(86, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtValor.Location = new System.Drawing.Point(113, 111);
+            this.txtValor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValor.MaxLength = 200;
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(132, 22);
+            this.txtValor.TabIndex = 3;
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
-            // label3
+            // labelTaxaFixa
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(36, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 23);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Taxa Fixa";
+            this.labelTaxaFixa.AutoSize = true;
+            this.labelTaxaFixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTaxaFixa.ForeColor = System.Drawing.Color.Red;
+            this.labelTaxaFixa.Location = new System.Drawing.Point(52, 147);
+            this.labelTaxaFixa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTaxaFixa.Name = "labelTaxaFixa";
+            this.labelTaxaFixa.Size = new System.Drawing.Size(117, 29);
+            this.labelTaxaFixa.TabIndex = 4;
+            this.labelTaxaFixa.Text = "Taxa Fixa";
             // 
-            // label4
+            // labelCalcDiaria
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(36, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 23);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Calc. Diária";
+            this.labelCalcDiaria.AutoSize = true;
+            this.labelCalcDiaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCalcDiaria.ForeColor = System.Drawing.Color.Red;
+            this.labelCalcDiaria.Location = new System.Drawing.Point(57, 176);
+            this.labelCalcDiaria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCalcDiaria.Name = "labelCalcDiaria";
+            this.labelCalcDiaria.Size = new System.Drawing.Size(136, 29);
+            this.labelCalcDiaria.TabIndex = 5;
+            this.labelCalcDiaria.Text = "Calc. Diária";
             // 
-            // radioButton1
+            // rdbTaxaFixa
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(133, 126);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1.TabIndex = 6;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbTaxaFixa.AutoSize = true;
+            this.rdbTaxaFixa.Location = new System.Drawing.Point(32, 151);
+            this.rdbTaxaFixa.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbTaxaFixa.Name = "rdbTaxaFixa";
+            this.rdbTaxaFixa.Size = new System.Drawing.Size(17, 16);
+            this.rdbTaxaFixa.TabIndex = 4;
+            this.rdbTaxaFixa.TabStop = true;
+            this.rdbTaxaFixa.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdbCalcDiaria
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(133, 154);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbCalcDiaria.AutoSize = true;
+            this.rdbCalcDiaria.Location = new System.Drawing.Point(32, 186);
+            this.rdbCalcDiaria.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbCalcDiaria.Name = "rdbCalcDiaria";
+            this.rdbCalcDiaria.Size = new System.Drawing.Size(17, 16);
+            this.rdbCalcDiaria.TabIndex = 5;
+            this.rdbCalcDiaria.TabStop = true;
+            this.rdbCalcDiaria.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(101, 182);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 28);
-            this.button2.TabIndex = 61;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(172, 224);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(100, 34);
+            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button1
+            // btnConfirma
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(30, 182);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 60;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnConfirma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirma.Location = new System.Drawing.Point(28, 224);
+            this.btnConfirma.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirma.Name = "btnConfirma";
+            this.btnConfirma.Size = new System.Drawing.Size(100, 34);
+            this.btnConfirma.TabIndex = 6;
+            this.btnConfirma.Text = "Confirmar";
+            this.btnConfirma.UseVisualStyleBackColor = true;
+            this.btnConfirma.Click += new System.EventHandler(this.btnConfirma_Click);
             // 
-            // AdicionarServiço
+            // txtId
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.txtId.Location = new System.Drawing.Point(113, 28);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId.MaxLength = 200;
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(132, 22);
+            this.txtId.TabIndex = 1;
+            // 
+            // labelId
+            // 
+            this.labelId.AutoSize = true;
+            this.labelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelId.ForeColor = System.Drawing.Color.Red;
+            this.labelId.Location = new System.Drawing.Point(23, 21);
+            this.labelId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(33, 29);
+            this.labelId.TabIndex = 7;
+            this.labelId.Text = "Id";
+            // 
+            // AdicionarServico
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(223, 222);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "AdicionarServiço";
+            this.ClientSize = new System.Drawing.Size(297, 273);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.labelId);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnConfirma);
+            this.Controls.Add(this.rdbCalcDiaria);
+            this.Controls.Add(this.rdbTaxaFixa);
+            this.Controls.Add(this.labelCalcDiaria);
+            this.Controls.Add(this.labelTaxaFixa);
+            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.labelValor);
+            this.Controls.Add(this.labelNome);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "AdicionarServico";
             this.Text = "AdicionarServiço";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,15 +206,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelNome;
+        private System.Windows.Forms.Label labelValor;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.Label labelTaxaFixa;
+        private System.Windows.Forms.Label labelCalcDiaria;
+        private System.Windows.Forms.RadioButton rdbTaxaFixa;
+        private System.Windows.Forms.RadioButton rdbCalcDiaria;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnConfirma;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label labelId;
     }
 }
