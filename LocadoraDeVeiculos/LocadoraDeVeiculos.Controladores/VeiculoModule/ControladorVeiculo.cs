@@ -20,6 +20,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [MARCA], 
                 [COR],
                 [TIPOCOMBUSTIVEL],
+                [CAPACIDADETANQUE],
                 [ANO],
                 [KILOMETRAGEM],
                 [NUMEROPORTAS],
@@ -38,6 +39,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 @MARCA,
                 @COR,
                 @TIPOCOMBUSTIVEL,
+                @CAPACIDADETANQUE,
                 @ANO,
                 @KILOMETRAGEM,
                 @NUMEROPORTAS,
@@ -49,47 +51,65 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             )";
         private const string sqlSelecionarTodosVeiculos =
             @"SELECT
-                [ID],
-                [MODELO],
-                [ID_GRUPOVEICULO],
-                [PLACA],
-                [CHASSI],      
-                [MARCA], 
-                [COR],
-                [TIPOCOMBUSTIVEL],
-                [ANO],
-                [KILOMETRAGEM],
-                [NUMEROPORTAS],
-                [CAPACIDADEPESSOAS],
-                [TAMANHOPORTAMALA],
-                [TEMARCONDICIONADO],
-                [TEMDIRECAOHIDRAULICA],
-                [TEMFREIOSABS] 
+                CV.[ID],
+                CV.[MODELO],
+                CV.[ID_GRUPOVEICULO],
+                CV.[PLACA],
+                CV.[CHASSI],      
+                CV.[MARCA], 
+                CV.[COR],
+                CV.[TIPOCOMBUSTIVEL],
+                CV.[CAPACIDADETANQUE],
+                CV.[ANO],
+                CV.[KILOMETRAGEM],
+                CV.[NUMEROPORTAS],
+                CV.[CAPACIDADEPESSOAS],
+                CV.[TAMANHOPORTAMALA],
+                CV.[TEMARCONDICIONADO],
+                CV.[TEMDIRECAOHIDRAULICA],
+                CV.[TEMFREIOSABS],
+                CG.[NOME],
+                CG.[TAXAPLANODIARIO],
+                CG.[TAXAKMCONTROLADO],
+                CG.[TAXAKMLIVRE],
+                CG.[QUANTIDADEQUILOMETROSKMCONTROLADO]
             FROM 
-                TBVEICULO ORDER BY ID;";
+                [TBVEICULO] AS CV LEFT JOIN 
+                [TBGRUPOVEICULO] AS CG
+            ON
+                CG.ID = CV.ID_GRUPOVEICULO";
 
         private const string sqlSelecionarVeiculoPorId =
             @"SELECT  
-                [ID],
-                [MODELO],
-                [ID_GRUPOVEICULO],
-                [PLACA],
-                [CHASSI],      
-                [MARCA], 
-                [COR],
-                [TIPOCOMBUSTIVEL],
-                [ANO],
-                [KILOMETRAGEM],
-                [NUMEROPORTAS],
-                [CAPACIDADEPESSOAS],
-                [TAMANHOPORTAMALA],
-                [TEMARCONDICIONADO],
-                [TEMDIRECAOHIDRAULICA],
-                [TEMFREIOSABS] 
-            FROM
-                TBVEICULO 
+                CV.[ID],
+                CV.[MODELO],
+                CV.[ID_GRUPOVEICULO],
+                CV.[PLACA],
+                CV.[CHASSI],      
+                CV.[MARCA], 
+                CV.[COR],
+                CV.[TIPOCOMBUSTIVEL],
+                CV.[CAPACIDADETANQUE],
+                CV.[ANO],
+                CV.[KILOMETRAGEM],
+                CV.[NUMEROPORTAS],
+                CV.[CAPACIDADEPESSOAS],
+                CV.[TAMANHOPORTAMALA],
+                CV.[TEMARCONDICIONADO],
+                CV.[TEMDIRECAOHIDRAULICA],
+                CV.[TEMFREIOSABS],
+                CG.[NOME],
+                CG.[TAXAPLANODIARIO],
+                CG.[TAXAKMCONTROLADO],
+                CG.[TAXAKMLIVRE],
+                CG.[QUANTIDADEQUILOMETROSKMCONTROLADO]
+            FROM 
+                [TBVEICULO] AS CV LEFT JOIN 
+                [TBGRUPOVEICULO] AS CG
+            ON
+                CG.ID = CV.ID_GRUPOVEICULO
             WHERE 
-                [ID] = @ID";
+                CV.[ID] = @ID";
 
         private const string sqlEditarVeiculo =
             @"UPDATE TBVEICULO SET
@@ -100,6 +120,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [MARCA] = @MARCA,
                 [COR] = @COR,
                 [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
+                [CAPACIDADETANQUE] = @CAPACIDADETANQUE,
                 [ANO] = @ANO,
                 [KILOMETRAGEM] = @KILOMETRAGEM,
                 [NUMEROPORTAS] = @NUMEROPORTAS,
@@ -180,13 +201,14 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             parametros.Add("ID", veiculo.Id);
             parametros.Add("MODELO", veiculo.modelo);
-            parametros.Add("ID_GRUPOVEICULO", veiculo.grupoVeiculos);
+            parametros.Add("ID_GRUPOVEICULO", veiculo.grupoVeiculos.Id);
             parametros.Add("PLACA", veiculo.placa);
             parametros.Add("CHASSI", veiculo.chassi);
             parametros.Add("MARCA", veiculo.marca);
             //parametros.Add("IMAGEM", veiculo.imagem);
             parametros.Add("COR", veiculo.cor);
             parametros.Add("TIPOCOMBUSTIVEL", veiculo.tipoCombustivel);
+            parametros.Add("CAPACIDADETANQUE", veiculo.capacidadeTanque);
             parametros.Add("ANO", veiculo.ano);
             parametros.Add("KILOMETRAGEM", veiculo.kilometragem);
             parametros.Add("NUMEROPORTAS", veiculo.numeroPortas);
@@ -201,27 +223,34 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
         private Veiculo ConverterEmVeiculo(IDataReader reader)
         {
-            int id = Convert.ToInt32(reader["ID"]);
-            string modelo = Convert.ToString(reader["MODELO"]);
-            GrupoDeVeiculos grupoVeiculos = (reader["ID_GRUPOVEICULO"]) as GrupoDeVeiculos;
-            string placa = Convert.ToString(reader["PLACA"]);
-            string chassi = Convert.ToString(reader["CHASSI"]);
-            string marca = Convert.ToString(reader["MARCA"]);
+            var id = Convert.ToInt32(reader["ID"]);
+            var modelo = Convert.ToString(reader["MODELO"]);
+            var grupoVeiculos = Convert.ToInt32(reader["ID_GRUPOVEICULO"]);
+            var placa = Convert.ToString(reader["PLACA"]);
+            var chassi = Convert.ToString(reader["CHASSI"]);
+            var marca = Convert.ToString(reader["MARCA"]);
             //string imagem = Convert.(reader["IMAGEM"]);
-            string cor = Convert.ToString(reader["COR"]);
-            string tipoCombustivel = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
-            //double capacidadeTanque = Convert.ToDouble(reader["capacidadeTanque"]);
-            int ano = Convert.ToInt32(reader["ANO"]);
-            double kilometragem = Convert.ToDouble(reader["KILOMETRAGEM"]);
-            int numeroPortas = Convert.ToInt32(reader["NUMEROPORTAS"]);
-            int capacidadePessoas = Convert.ToInt32(reader["CAPACIDADEPESSOAS"]);
-            char tamanhoPortaMala = Convert.ToChar(reader["TAMANHOPORTAMALA"]);
-            bool temArCondicionado = Convert.ToBoolean(reader["TEMARCONDICIONADO"]);
-            bool temDirecaoHidraulica = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
-            bool temFreioAbs = Convert.ToBoolean(reader["TEMFREIOSABS"]);
+            var cor = Convert.ToString(reader["COR"]);
+            var tipoCombustivel = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
+            var capacidadeTanque = Convert.ToDouble(reader["capacidadeTanque"]);
+            var ano = Convert.ToInt32(reader["ANO"]);
+            var kilometragem = Convert.ToDouble(reader["KILOMETRAGEM"]);
+            var numeroPortas = Convert.ToInt32(reader["NUMEROPORTAS"]);
+            var capacidadePessoas = Convert.ToInt32(reader["CAPACIDADEPESSOAS"]);
+            var tamanhoPortaMala = Convert.ToChar(reader["TAMANHOPORTAMALA"]);
+            var temArCondicionado = Convert.ToBoolean(reader["TEMARCONDICIONADO"]);
+            var temDirecaoHidraulica = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
+            var temFreioAbs = Convert.ToBoolean(reader["TEMFREIOSABS"]);
 
+            var nome = Convert.ToString(reader["NOME"]);
+            var taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
+            var taxaKmControlado = Convert.ToDouble(reader["TAXAKMCONTROLADO"]);
+            var taxaKmLivre = Convert.ToDouble(reader["TAXAKMLIVRE"]);
+            var quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QUANTIDADEQUILOMETROSKMCONTROLADO"]);
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupoVeiculos, placa, chassi, marca, cor, tipoCombustivel, 60.5, ano, kilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
+            GrupoDeVeiculos grupo = new GrupoDeVeiculos(grupoVeiculos, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
+
+            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, kilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
 
             veiculo.Id = id;
 
