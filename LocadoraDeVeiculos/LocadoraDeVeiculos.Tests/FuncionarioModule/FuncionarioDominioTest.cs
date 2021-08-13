@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveCriarFuncionario_Completo()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f,true);
 
             string resultado = funcionario.Validar();
 
@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroFuncionario_UsuarioDeAcessoEmBranco()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "", new DateTime(2021, 01, 01), "Vendedor", 1000f,true);
 
             string resultado = funcionario.Validar();
 
@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroFuncionario_MatriculaZerada()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 000, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 000, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f,true);
 
             string resultado = funcionario.Validar();
 
@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroFuncionario_SalarioZerado()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 0f);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 0f, true);
 
             string resultado = funcionario.Validar();
 
@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroFuncionario_CargoVazio()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "", 1000f);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveCriarFuncionario_DataDeAdmissaoInvalida()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2030, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2030, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -72,7 +72,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroFuncionario_FuncionarioTotalmenteInvalido()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 0, "", new DateTime(2030, 01, 01), "", 0f);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 0, "", new DateTime(2030, 01, 01), "", 0f, true);
 
             string resultado = funcionario.Validar();
 
@@ -83,7 +83,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveCriarPessoa_Completo()
         {
-            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "999999999", "email@g.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "999999999", "email@g.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -93,7 +93,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveCriarPessoa_SemTelefone()
         {
-            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "", "email@g.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "", "email@g.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveCriarPessoa_SemEmail()
         {
-            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "999999999", "", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "999999999", "", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -113,7 +113,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroPessoa_PessoaTotalmenteInvalida()
         {
-            funcionario = new Funcionario(1, "", "", "", "", "", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(1, "", "", "", "", "", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -123,7 +123,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroPessoa_PessoaInvalidaComEmailSemArrobaEUmNumeroNoTelefone()
         {
-            funcionario = new Funcionario(1, "", "", "", "1", "a", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(1, "", "", "", "1", "a", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -133,7 +133,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroPessoa_PessoaValidaComEmailSemArrobaTelefoneApenasUmNumero()
         {
-            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "9", "email", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "9", "email", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -143,7 +143,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroPessoa_PessoaValidaApenasUmNumeroDeCelularApenas()
         {
-            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "9", "email@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f);
+            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "9", "email@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 

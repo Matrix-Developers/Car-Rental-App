@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
     <Compile Include="ServicoModule\ControladorServico.cs" />
     <Compile Include="ClientesModule\ControladorClientes.cs" />
     <Compile Include="Shared\Controlador.cs" />
