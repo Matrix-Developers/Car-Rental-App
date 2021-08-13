@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
             GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             controlador.InserirNovo(grupoDeVeiculos);
 
-            GrupoDeVeiculos novoGrupoDeVeiculos = new GrupoDeVeiculos(0, "emon", 5.12f, 37.52f, 99.31f, 2);
+            GrupoDeVeiculos novoGrupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 5.12f, 37.52f, 99.31f, 2);
 
             controlador.Editar(grupoDeVeiculos.Id, novoGrupoDeVeiculos);
 
@@ -106,5 +106,30 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
             existeGrupoDeVeiculos.Should().BeFalse();
         }
 
+        [TestMethod]
+        public void NaoDeveInserir_GrupoDeVeiculosQuandoNomeJaExiste()
+        {
+            GrupoDeVeiculos novoGrupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            controlador.InserirNovo(novoGrupoDeVeiculos);
+            GrupoDeVeiculos identicoGrupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            
+            string resposta = controlador.InserirNovo(identicoGrupoDeVeiculos);
+
+            resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
+        }
+
+        [TestMethod]
+        public void NaoDeveAtualizar_GrupoDeVeiculosQuandoNomeJaExiste()
+        {
+            GrupoDeVeiculos grupoDeVeiculosParaEditar = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            controlador.InserirNovo(grupoDeVeiculosParaEditar);
+            GrupoDeVeiculos grupoDeVeiculosExistente = new GrupoDeVeiculos(0, "emon", 5.12f, 37.52f, 99.31f, 2);
+            controlador.InserirNovo(grupoDeVeiculosExistente);
+
+            GrupoDeVeiculos grupoDeVeiculosConflitante = new GrupoDeVeiculos(0, "emon", 5.21f, 35.72f, 93.91f, 20);
+            string resposta =  controlador.Editar(grupoDeVeiculosParaEditar.Id, grupoDeVeiculosConflitante);
+
+            resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
+        }
     }
 }

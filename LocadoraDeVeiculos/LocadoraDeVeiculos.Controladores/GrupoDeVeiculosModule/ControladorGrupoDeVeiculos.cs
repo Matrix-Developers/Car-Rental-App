@@ -59,6 +59,13 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         {
             string resultadoValidacao = registro.Validar();
 
+            List<GrupoDeVeiculos> grupoDeVeiculosRegistrados = SelecionarTodos();
+            foreach (GrupoDeVeiculos grupo in grupoDeVeiculosRegistrados)
+            {
+                if (registro.Nome == grupo.Nome)
+                    resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
+            }
+
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));
@@ -70,6 +77,13 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         public override string Editar(int id, GrupoDeVeiculos registro)
         {
             string resultadoValidacao = registro.Validar();
+
+            List<GrupoDeVeiculos> grupoDeVeiculosRegistrados = SelecionarTodos();
+            foreach (GrupoDeVeiculos grupo in grupoDeVeiculosRegistrados)
+            {
+                if (id != grupo.Id && registro.Nome == grupo.Nome)
+                    resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
+            }
 
             if (resultadoValidacao == "VALIDO")
             {
