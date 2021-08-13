@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using FluentAssertions;
 using System;
@@ -44,6 +44,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         public void DeveApresentarErro_SomenteNomeIncorreto()
         {
             GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "", 10f, 10f, 10, 10f);
+
 
             string resultado = grupoDeVeiculos.Validar();
 
