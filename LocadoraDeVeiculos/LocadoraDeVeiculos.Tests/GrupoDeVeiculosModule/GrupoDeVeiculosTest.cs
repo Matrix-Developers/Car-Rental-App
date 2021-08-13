@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using FluentAssertions;
 using System;

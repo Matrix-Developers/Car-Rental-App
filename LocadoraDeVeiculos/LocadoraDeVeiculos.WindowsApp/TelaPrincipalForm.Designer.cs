@@ -146,7 +146,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(40, 42);
             this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+          
             // 
             // toolStripButton3
             // 
