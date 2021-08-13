@@ -44,8 +44,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.statusStripRodape = new System.Windows.Forms.StatusStrip();
+            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
+            this.statusStripRodape.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -86,6 +89,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // serviçosToolStripMenuItem
             // 
@@ -99,12 +103,14 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
             this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.veiculosToolStripMenuItem.Text = "Veiculos";
+            this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.veiculosToolStripMenuItem_Click);
             // 
             // grupoDeVeículosToolStripMenuItem
             // 
             this.grupoDeVeículosToolStripMenuItem.Name = "grupoDeVeículosToolStripMenuItem";
             this.grupoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.grupoDeVeículosToolStripMenuItem.Text = "Grupo de Veículos";
+            this.grupoDeVeículosToolStripMenuItem.Click += new System.EventHandler(this.grupoDeVeículosToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -151,6 +157,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(40, 52);
             this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click_1);
             // 
             // toolStripButton3
             // 
@@ -161,6 +168,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(40, 52);
             this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton1
             // 
@@ -171,6 +179,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(40, 52);
             this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // panel1
             // 
@@ -180,12 +189,29 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panel1.Size = new System.Drawing.Size(1051, 529);
             this.panel1.TabIndex = 6;
             // 
+            // statusStripRodape
+            // 
+            this.statusStripRodape.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelRodape});
+            this.statusStripRodape.Location = new System.Drawing.Point(0, 512);
+            this.statusStripRodape.Name = "statusStripRodape";
+            this.statusStripRodape.Size = new System.Drawing.Size(800, 22);
+            this.statusStripRodape.TabIndex = 7;
+            this.statusStripRodape.Text = "statusStrip1";
+            // 
+            // labelRodape
+            // 
+            this.labelRodape.Name = "labelRodape";
+            this.labelRodape.Size = new System.Drawing.Size(28, 17);
+            this.labelRodape.Text = "Text";
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1067, 634);
+            this.Controls.Add(this.statusStripRodape);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.label1);
@@ -197,6 +223,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.menuStrip1.PerformLayout();
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
+            this.statusStripRodape.ResumeLayout(false);
+            this.statusStripRodape.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,6 +246,8 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem veiculosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem grupoDeVeículosToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.StatusStrip statusStripRodape;
+        private System.Windows.Forms.ToolStripStatusLabel labelRodape;
     }
 }
 
