@@ -9,12 +9,12 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
 {
     public abstract class Pessoa : EntidadeBase
     {
-        protected string Nome { get; set; }
-        protected string RegistroUnico { get; set; }
-        protected string Endereco { get; set; }
-        protected string Telefone { get; set; }
-        protected string Email { get; set; }
-        protected bool EhPessoaFisica { get; set; }
+        public string Nome { get; set; }
+        public string RegistroUnico { get; set; }
+        public string Endereco { get; set; }
+        public string Telefone { get; set; }
+        public string Email { get; set; }
+        public bool EhPessoaFisica { get; set; }
 
         public virtual string ValidarPessoa()
         {
