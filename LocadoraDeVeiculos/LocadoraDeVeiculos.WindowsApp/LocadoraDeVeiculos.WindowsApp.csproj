@@ -101,6 +101,7 @@
       <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\DataGridViewExtensions.cs" />
+    <Compile Include="Shared\ICadastravel.cs" />
     <Compile Include="TelaPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +171,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+      <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
+      <Name>LocadoraDeVeiculos.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+      <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
+      <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

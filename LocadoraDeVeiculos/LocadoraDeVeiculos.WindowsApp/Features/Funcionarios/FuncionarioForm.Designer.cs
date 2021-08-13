@@ -38,10 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbTituloCadastroDeFuncionarios = new System.Windows.Forms.Label();
             this.textId = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
-            this.textTelefone = new System.Windows.Forms.TextBox();
             this.textEndereco = new System.Windows.Forms.TextBox();
-            this.textCPF = new System.Windows.Forms.TextBox();
-            this.textNome = new System.Windows.Forms.TextBox();
             this.lbCargo = new System.Windows.Forms.Label();
             this.lbSalario = new System.Windows.Forms.Label();
             this.lbUsuAcesso = new System.Windows.Forms.Label();
@@ -56,6 +53,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.textNome = new System.Windows.Forms.TextBox();
+            this.mskTxtCpf = new System.Windows.Forms.MaskedTextBox();
+            this.mskTxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -152,33 +152,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.textEmail.Size = new System.Drawing.Size(100, 20);
             this.textEmail.TabIndex = 36;
             // 
-            // textTelefone
-            // 
-            this.textTelefone.Location = new System.Drawing.Point(111, 154);
-            this.textTelefone.Name = "textTelefone";
-            this.textTelefone.Size = new System.Drawing.Size(100, 20);
-            this.textTelefone.TabIndex = 37;
-            // 
             // textEndereco
             // 
-            this.textEndereco.Location = new System.Drawing.Point(111, 124);
+            this.textEndereco.Location = new System.Drawing.Point(111, 121);
             this.textEndereco.Name = "textEndereco";
             this.textEndereco.Size = new System.Drawing.Size(100, 20);
             this.textEndereco.TabIndex = 38;
-            // 
-            // textCPF
-            // 
-            this.textCPF.Location = new System.Drawing.Point(111, 90);
-            this.textCPF.Name = "textCPF";
-            this.textCPF.Size = new System.Drawing.Size(100, 20);
-            this.textCPF.TabIndex = 39;
-            // 
-            // textNome
-            // 
-            this.textNome.Location = new System.Drawing.Point(111, 53);
-            this.textNome.Name = "textNome";
-            this.textNome.Size = new System.Drawing.Size(100, 20);
-            this.textNome.TabIndex = 40;
             // 
             // lbCargo
             // 
@@ -272,6 +251,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.mskTxtTelefone);
+            this.groupBox1.Controls.Add(this.mskTxtCpf);
             this.groupBox1.Controls.Add(this.lbId);
             this.groupBox1.Controls.Add(this.lbTelefone);
             this.groupBox1.Controls.Add(this.lbEmail);
@@ -280,9 +261,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox1.Controls.Add(this.lbNome);
             this.groupBox1.Controls.Add(this.textId);
             this.groupBox1.Controls.Add(this.textEmail);
-            this.groupBox1.Controls.Add(this.textTelefone);
             this.groupBox1.Controls.Add(this.textEndereco);
-            this.groupBox1.Controls.Add(this.textCPF);
             this.groupBox1.Controls.Add(this.textNome);
             this.groupBox1.Location = new System.Drawing.Point(12, 102);
             this.groupBox1.Name = "groupBox1";
@@ -328,6 +307,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             // 
+            // textNome
+            // 
+            this.textNome.Location = new System.Drawing.Point(111, 53);
+            this.textNome.Name = "textNome";
+            this.textNome.Size = new System.Drawing.Size(100, 20);
+            this.textNome.TabIndex = 40;
+            // 
+            // mskTxtCpf
+            // 
+            this.mskTxtCpf.Location = new System.Drawing.Point(111, 87);
+            this.mskTxtCpf.Mask = "000.000.000-00";
+            this.mskTxtCpf.Name = "mskTxtCpf";
+            this.mskTxtCpf.Size = new System.Drawing.Size(100, 20);
+            this.mskTxtCpf.TabIndex = 41;
+            // 
+            // mskTxtTelefone
+            // 
+            this.mskTxtTelefone.Location = new System.Drawing.Point(111, 151);
+            this.mskTxtTelefone.Mask = "(00) 00000-0000";
+            this.mskTxtTelefone.Name = "mskTxtTelefone";
+            this.mskTxtTelefone.Size = new System.Drawing.Size(100, 20);
+            this.mskTxtTelefone.TabIndex = 42;
+            // 
             // FuncionarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,10 +363,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private System.Windows.Forms.Label lbTituloCadastroDeFuncionarios;
         private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.TextBox textEmail;
-        private System.Windows.Forms.TextBox textTelefone;
         private System.Windows.Forms.TextBox textEndereco;
-        private System.Windows.Forms.TextBox textCPF;
-        private System.Windows.Forms.TextBox textNome;
         private System.Windows.Forms.Label lbCargo;
         private System.Windows.Forms.Label lbSalario;
         private System.Windows.Forms.Label lbUsuAcesso;
@@ -379,5 +378,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.MaskedTextBox mskTxtTelefone;
+        private System.Windows.Forms.MaskedTextBox mskTxtCpf;
+        private System.Windows.Forms.TextBox textNome;
     }
 }
