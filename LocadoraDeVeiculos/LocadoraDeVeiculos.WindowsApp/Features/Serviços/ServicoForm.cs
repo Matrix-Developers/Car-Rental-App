@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 {
-    public partial class AdicionarServico : Form
+    public partial class ServicoForm : Form
     {
         private Servico servico;
 
-        public AdicionarServico()
+        public ServicoForm()
         {
             InitializeComponent();
         }
@@ -43,7 +43,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
         {
             int id = Convert.ToInt32(txtId.Text);
             string nome = txtNome.Text;
-            double valor = Convert.ToDouble(txtNome.Text);
+            if (!double.TryParse(txtNome.Text, out double valor))
+                valor = 0;
             string tipo = "";
             if (rdbCalcDiaria.Checked)
                 tipo = "Calculo Diario";
@@ -58,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                //TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
 
                 DialogResult = DialogResult.None;
             }
@@ -73,7 +74,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
         {
             if (e.KeyChar == '.')
             {
-                if (this.Text.IndexOf(".") >= 0 || this.Text.Length == 0)
+                if (txtValor.Text.IndexOf(".") >= 0 || txtValor.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -84,9 +85,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             }
         }
 
-        private void AdicionarServico_FormClosing(object sender, FormClosingEventArgs e)
+        private void ServicoForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            TelaPrincipalForm.Instancia.AtualizarRodape("");
+            //TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
     }
 }

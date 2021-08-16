@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdicionarServico telAdicionarServico = new AdicionarServico();
+            ServicoForm telAdicionarServico = new ServicoForm();
             telAdicionarServico.ShowDialog();
 
             //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
