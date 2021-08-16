@@ -77,28 +77,6 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                 return resultadoValidacao;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is Veiculo veiculo &&
-                   id == veiculo.id &&
-                   modelo == veiculo.modelo &&
-                   grupoVeiculos == veiculo.grupoVeiculos &&
-                   placa == veiculo.placa &&
-                   chassi == veiculo.chassi &&
-                   marca == veiculo.marca &&
-                   cor == veiculo.cor &&
-                   tipoCombustivel == veiculo.tipoCombustivel &&
-                   capacidadeTanque == veiculo.capacidadeTanque &&
-                   ano == veiculo.ano &&
-                   kilometragem == veiculo.kilometragem &&
-                   numeroPortas == veiculo.numeroPortas &&
-                   capacidadePessoas == veiculo.capacidadePessoas &&
-                   tamanhoPortaMala == veiculo.tamanhoPortaMala &&
-                   temArCondicionado == veiculo.temArCondicionado &&
-                   temDirecaoHidraulica == veiculo.temDirecaoHidraulica &&
-                   temFreiosAbs == veiculo.temFreiosAbs;
-        }
-
         public override string ToString()
         {
             return $"Veiculo = [{id}, {modelo}, {grupoVeiculos}, {placa}, {chassi}, {marca}, {cor}, {tipoCombustivel}, {capacidadeTanque}, {ano}, {kilometragem}, {numeroPortas}, {capacidadePessoas}, {tamanhoPortaMala}]";
@@ -124,6 +102,28 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             hashCode = hashCode * -1521134295 + temDirecaoHidraulica.GetHashCode();
             hashCode = hashCode * -1521134295 + temFreiosAbs.GetHashCode();
             return hashCode;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Veiculo veiculo &&
+                   id == veiculo.id &&
+                   modelo == veiculo.modelo &&
+                   EqualityComparer<GrupoDeVeiculos>.Default.Equals(grupoVeiculos, veiculo.grupoVeiculos) &&
+                   placa == veiculo.placa &&
+                   chassi == veiculo.chassi &&
+                   marca == veiculo.marca &&
+                   cor == veiculo.cor &&
+                   tipoCombustivel == veiculo.tipoCombustivel &&
+                   capacidadeTanque == veiculo.capacidadeTanque &&
+                   ano == veiculo.ano &&
+                   kilometragem == veiculo.kilometragem &&
+                   numeroPortas == veiculo.numeroPortas &&
+                   capacidadePessoas == veiculo.capacidadePessoas &&
+                   tamanhoPortaMala == veiculo.tamanhoPortaMala &&
+                   temArCondicionado == veiculo.temArCondicionado &&
+                   temDirecaoHidraulica == veiculo.temDirecaoHidraulica &&
+                   temFreiosAbs == veiculo.temFreiosAbs;
         }
     }
 }
