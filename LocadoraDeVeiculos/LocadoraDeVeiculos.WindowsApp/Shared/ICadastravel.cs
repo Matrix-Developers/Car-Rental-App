@@ -8,7 +8,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
         void EditarRegistro();
         void ExcluirRegistro();
         UserControl ObterTabela();
-        void FiltrarRegistros();
-        void AgruparRegistros();
+      // void FiltrarRegistros();
+        //void AgruparRegistros();
     }
 }
