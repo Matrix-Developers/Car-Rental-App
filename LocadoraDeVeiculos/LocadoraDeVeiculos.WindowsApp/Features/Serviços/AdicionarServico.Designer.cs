@@ -199,6 +199,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdicionarServico";
             this.Text = "AdicionarServiço";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdicionarServico_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

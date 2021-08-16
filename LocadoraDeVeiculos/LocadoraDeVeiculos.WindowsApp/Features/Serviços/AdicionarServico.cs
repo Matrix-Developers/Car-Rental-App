@@ -1,9 +1,11 @@
 ﻿using LocadoraDeVeiculos.Controladores.ServicoModule;
+using LocadoraDeVeiculos.Dominio.SevicosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,18 +15,53 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 {
     public partial class AdicionarServico : Form
     {
-        ControladorServico controladorServico;
+        private Servico servico;
 
-        public AdicionarServico(ControladorServico controladorServico)
+        public AdicionarServico()
         {
-            this.controladorServico = controladorServico;
             InitializeComponent();
+        }
+
+        public Servico Servico
+        {
+            get { return servico; }
+            set
+            {
+                servico = value;
+
+                txtId.Text = servico.Id.ToString();
+                txtNome.Text = servico.Nome.ToString();
+                txtValor.Text = servico.Valor.ToString();
+                if (servico.Tipo == "Calculo Diario")
+                    rdbCalcDiaria.Checked = true;
+                else
+                    rdbTaxaFixa.Checked = true;
+            }
         }
 
         private void btnConfirma_Click(object sender, EventArgs e)
         {
-            //string nome = txtNome.Text;
-            //double valor = Convert.ToDouble(txtNome.Text);
+            int id = Convert.ToInt32(txtId.Text);
+            string nome = txtNome.Text;
+            double valor = Convert.ToDouble(txtNome.Text);
+            string tipo = "";
+            if (rdbCalcDiaria.Checked)
+                tipo = "Calculo Diario";
+            else
+                tipo = "Calculo Fixo";
+
+            servico = new Servico(id, nome, tipo, valor);
+
+            string resultadoValidacao = servico.Validar();
+
+            if (resultadoValidacao != "ESTA_VALIDO")
+            {
+                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                DialogResult = DialogResult.None;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -45,6 +82,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             {
                 e.Handled = true;
             }
+        }
+
+        private void AdicionarServico_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
     }
 }

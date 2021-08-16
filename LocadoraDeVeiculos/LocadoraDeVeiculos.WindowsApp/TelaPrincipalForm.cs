@@ -53,6 +53,9 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            AdicionarServico telAdicionarServico = new AdicionarServico();
+            telAdicionarServico.ShowDialog();
+
             //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
 
             //ConfigurarToolBox(configuracao);
@@ -107,12 +110,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             operacoes.ExcluirRegistro();
-        }
-
-        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AdicionarServico telAdicionarServico = new AdicionarServico(new ControladorServico());
-            telAdicionarServico.ShowDialog();
         }
     }
 }
