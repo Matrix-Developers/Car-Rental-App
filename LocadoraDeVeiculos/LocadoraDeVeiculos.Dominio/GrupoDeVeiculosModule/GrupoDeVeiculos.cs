@@ -6,18 +6,18 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
     public class GrupoDeVeiculos : EntidadeBase
     {
         private string nome;
-        private float taxaPlanoDiario;
-        private float taxaKmControlado;
+        private double taxaPlanoDiario;
+        private double taxaKmControlado;
         private int quantidadeQuilometrosKmControlado;
-        private float taxaKmLivre;
+        private double taxaKmLivre;
 
         public string Nome { get => nome; set => nome = value; }
-        public float TaxaPlanoDiario { get => taxaPlanoDiario; set => taxaPlanoDiario = value; }
-        public float TaxaKmControlado { get => taxaKmControlado; set => taxaKmControlado = value; }
+        public double TaxaPlanoDiario { get => taxaPlanoDiario; set => taxaPlanoDiario = value; }
+        public double TaxaKmControlado { get => taxaKmControlado; set => taxaKmControlado = value; }
         public int QuantidadeQuilometrosKmControlado { get => quantidadeQuilometrosKmControlado; set => quantidadeQuilometrosKmControlado = value; }
-        public float TaxaKmLivre { get => taxaKmLivre; set => taxaKmLivre = value; }
+        public double TaxaKmLivre { get => taxaKmLivre; set => taxaKmLivre = value; }
 
-        public GrupoDeVeiculos(int id,string nome, float taxaPlanoDiario, float taxaKmControlado, float taxaKmLivre, int quantidadeQuilometrosKmControlado)
+        public GrupoDeVeiculos(int id,string nome, double taxaPlanoDiario, double taxaKmControlado, double taxaKmLivre, int quantidadeQuilometrosKmControlado)
         {
             this.id = id;
             this.nome = nome;

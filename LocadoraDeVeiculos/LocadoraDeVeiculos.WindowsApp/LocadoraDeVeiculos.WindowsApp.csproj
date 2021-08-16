@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataGridViewGrouper">
+      <HintPath>Libraries\DataGridViewGrouper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -102,6 +105,8 @@
     </Compile>
     <Compile Include="Shared\DataGridViewExtensions.cs" />
     <Compile Include="Shared\ICadastravel.cs" />
+    <Compile Include="Shared\IConfiguracaoToolBox.cs" />
+
     <Compile Include="TelaPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +185,7 @@
       <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
+    <Content Include="Libraries\DataGridViewGrouper.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,17 +1,17 @@
 ﻿using System.Windows.Forms;
 
-namespace eAgenda.WindowsApp.Shared
+
+namespace LocadoraDeVeiculos.WindowsApp.Shared
+
 {
     public interface ICadastravel
     {
         void InserirNovoRegistro();
 
         void EditarRegistro();
-
         void ExcluirRegistro();
-
         UserControl ObterTabela();
-
         void FiltrarRegistros();
+        void AgruparRegistros();
     }
 }

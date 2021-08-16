@@ -141,9 +141,9 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         {
             int id = Convert.ToInt32(reader["ID"]); ;
             string nome = Convert.ToString(reader["NOME"]); ;
-            float taxaPlanoDiario = (float)Convert.ToDouble(reader["TAXAPLANODIARIO"]);
-            float taxaKmControlado = (float)Convert.ToDouble(reader["TAXAKMCONTROLADO"]);
-            float taxaKmLivre = (float)Convert.ToDouble(reader["TAXAKMLIVRE"]);
+            double taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
+            double taxaKmControlado = Convert.ToDouble(reader["TAXAKMCONTROLADO"]);
+            double taxaKmLivre = Convert.ToDouble(reader["TAXAKMLIVRE"]);
             int quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QUANTIDADEQUILOMETROSKMCONTROLADO"]);
 
             GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(id, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);

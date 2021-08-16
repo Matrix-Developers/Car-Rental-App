@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.WindowsApp.Clientes;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.WindowsApp.Shared;
+
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
     public partial class TelaPrincipalForm : Form
     {
+        private ICadastravel operacoes;
         public static TelaPrincipalForm Instancia;
         public TelaPrincipalForm()
         {
@@ -33,13 +27,86 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStripMenu.Enabled = true;
+            //ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
 
+            //ConfigurarToolBox(configuracao);
+
+            //AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+
+            //ConfigurarPainelRegistros();
         }
 
-        private void ConfigurarPainelRegistros()
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+
+            //ConfigurarToolBox(configuracao);
+
+            //AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+
+            //ConfigurarPainelRegistros();
+        }
+
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+
+            //ConfigurarToolBox(configuracao);
+
+            //AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+
+            //ConfigurarPainelRegistros();
+        }
+
+        private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+
+            //ConfigurarToolBox(configuracao);
+
+            //AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+
+            //ConfigurarPainelRegistros();
+        }
+
+        private void grupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+
+            //ConfigurarToolBox(configuracao);
+
+            //AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+
+            //ConfigurarPainelRegistros();
+        }
+        public void AtualizarRodape(string mensagem)
+        {
+            labelRodape.Text = mensagem;
+        }
+
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
+        {
+            operacoes.InserirNovoRegistro();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            operacoes.EditarRegistro();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            operacoes.ExcluirRegistro();
         }
     }
 }
