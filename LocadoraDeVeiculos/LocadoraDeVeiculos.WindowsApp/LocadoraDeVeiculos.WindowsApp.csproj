@@ -97,6 +97,8 @@
     <Compile Include="Features\Serviços\ServicosForm.Designer.cs">
       <DependentUpon>ServicosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Veiculo\ConfiguracaoVeiculoToolBox.cs" />
+    <Compile Include="Features\Veiculo\OperacoesVeiculo.cs" />
     <Compile Include="Features\Veiculo\TabelaVeiculoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +179,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libraries\DataGridViewGrouper.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+      <Project>{35789073-23E1-426D-BBC2-E1AF3DB9935E}</Project>
+      <Name>LocadoraDeVeiculos.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+      <Project>{7F169E59-39E2-4908-BE88-38206B8983F7}</Project>
+      <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
