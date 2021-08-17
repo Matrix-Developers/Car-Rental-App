@@ -35,25 +35,39 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                 textEndereco.Text = cliente.Endereco;
                 maskTelefone.Text = cliente.Telefone;
                 tetxtEmail.Text = cliente.Email;
-                mskCNH.Text = cliente.Cnh;
+                maskedCNH.Text = cliente.Cnh;
                 dtpValidade.Text = cliente.ValidadeCnh.ToShortDateString();
+                if (cliente.EhPessoaFisica)
+                {
+                    radioButton1.Checked = true;
+                    radioButton2.Checked = false;
+                }
+                
             }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             labelRegistro.Text = "CPF";
+            maskRegistro.Mask =  "000.000.000-00";
 
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             labelRegistro.Text = "CNPJ";
-            mskCNH.Text = "XX. XXX. XXX/0001-XX";
+            maskRegistro.Mask = "00.000.000/0000-00";
 
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+       
+
+        private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
             int Id = Convert.ToInt32(textId.Text);
             string Nome = textNome.Text;
@@ -61,10 +75,14 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             string Endereco = textEndereco.Text;
             string TeleFone = maskTelefone.Text;
             string Email = tetxtEmail.Text;
-            string CNH = mskCNH.Text;
+            string CNH = maskedCNH.Text;
             DateTime Validade = Convert.ToDateTime(dtpValidade.Text);
-            bool ehPessoaFisica = Convert.ToBoolean(EhPessoaFisica());
+            bool ehPessoaFisica = false;
+            if (radioButton1.Checked == true)       
+                ehPessoaFisica = true;
 
+
+            Id = 0;
             cliente = new Cliente(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, Validade, ehPessoaFisica);
 
             string resultadoValidacao = cliente.Validar();
@@ -76,21 +94,11 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                 TelaPrincipalForm.Instancia.AtualizarRodape(erro);
 
                 DialogResult = DialogResult.None;
+
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-           
-        }
-        private string EhPessoaFisica()
-        {
-            if (RBSim.Checked)
-                return "Sim";
-
-            else
-            return "Não";
-        }
+        
     }
   
 }

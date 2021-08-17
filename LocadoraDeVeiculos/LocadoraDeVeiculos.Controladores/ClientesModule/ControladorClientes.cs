@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 					[CNH] = @CNH,
 					[VALIDADECNH] = @VALIDADECNH
 				WHERE [ID] = @ID;
-            )";
+            ";
 
 		private const string sqlExcluirClientes =
 		@"

@@ -55,6 +55,7 @@
     <Compile Include="Features\Clientes\ClientesForm.Designer.cs">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Clientes\ConfiguracaoClienteToolBox.cs" />
     <Compile Include="Features\Clientes\OperacoesClientes.cs" />
     <Compile Include="Features\Clientes\TabelaClientesControl.cs">
       <SubType>UserControl</SubType>

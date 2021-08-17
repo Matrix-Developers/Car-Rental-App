@@ -61,7 +61,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             int soma;
             int resto;
             cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace("-", "");
+            cpf = cpf.Replace(".", "").Replace("-", "").Replace(",", "");
             if (cpf.Length != 11)
                 return false;
             tempCpf = cpf.Substring(0, 9);
@@ -97,7 +97,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             string digito;
             string tempCnpj;
             cnpj = cnpj.Trim();
-            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "");
             if (cnpj.Length != 14)
                 return false;
             tempCnpj = cnpj.Substring(0, 12);

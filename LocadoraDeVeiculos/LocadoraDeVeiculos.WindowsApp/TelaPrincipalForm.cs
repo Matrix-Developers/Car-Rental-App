@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 
 namespace LocadoraDeVeiculos.WindowsApp
@@ -12,15 +14,11 @@ namespace LocadoraDeVeiculos.WindowsApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
+
+            Instancia = this;
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ClientesForm tarefas = new ClientesForm();
-            tarefas.ShowDialog();
-            this.Close();
-        }
+       
 
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -37,16 +35,18 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+     
+            ConfiguracaoClienteToolBox configuracao = new ConfiguracaoClienteToolBox();
 
-            //ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao);
 
-            //AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+            operacoes = new OperacoesClientes(new ControladorCliente());
 
-            //ConfigurarPainelRegistros();
+            ConfigurarPainelRegistros();
         }
+
 
         private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -91,19 +91,44 @@ namespace LocadoraDeVeiculos.WindowsApp
             labelRodape.Text = mensagem;
         }
 
-        private void toolStripButton2_Click_1(object sender, EventArgs e)
+       
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
+        }
+
+        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
+        {
+            toolboxAcoes.Enabled = true;
+            labelTipoCadastro.Text = configuracao.TipoCadastro;
+
+            btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
+            btnEditar.ToolTipText = configuracao.ToolTipEditar;
+            btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
         {
             operacoes.InserirNovoRegistro();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             operacoes.EditarRegistro();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
             operacoes.ExcluirRegistro();
         }
+
+
     }
 }
