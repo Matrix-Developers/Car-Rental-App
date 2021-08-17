@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 {
-    public partial class ServicoForm : Form
+    public partial class TelaServicoForm : Form
     {
         private Servico servico;
 
-        public ServicoForm()
+        public TelaServicoForm()
         {
             InitializeComponent();
         }
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
         {
             int id = Convert.ToInt32(txtId.Text);
             string nome = txtNome.Text;
-            if (!double.TryParse(txtNome.Text, out double valor))
+            if (!double.TryParse(txtValor.Text, out double valor))
                 valor = 0;
             string tipo = "";
             if (rdbCalcDiaria.Checked)
@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 
             string resultadoValidacao = servico.Validar();
 
-            if (resultadoValidacao != "ESTA_VALIDO")
+            if (resultadoValidacao != "VALIDO")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
@@ -63,11 +63,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 
                 DialogResult = DialogResult.None;
             }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)

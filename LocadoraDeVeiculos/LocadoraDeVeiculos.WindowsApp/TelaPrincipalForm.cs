@@ -51,20 +51,17 @@ namespace LocadoraDeVeiculos.WindowsApp
             //ConfigurarPainelRegistros();
         }
 
-        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ServicoForm telAdicionarServico = new ServicoForm();
-            telAdicionarServico.ShowDialog();
+            ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
 
-            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+            ConfigurarToolBox(configuracao);
 
-            //ConfigurarToolBox(configuracao);
+            AtualizarRodape(configuracao.TipoCadastro);
 
-            //AtualizarRodape(configuracao.TipoCadastro);
+            operacoes = new OperacoesServico(new ControladorServico());
 
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
-
-            //ConfigurarPainelRegistros();
+            ConfigurarPainelRegistros();
         }
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,6 +107,27 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             operacoes.ExcluirRegistro();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
+        }
+
+        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
+        {
+            toolStripMenu.Enabled = true;
+
+            labelTipoCadastro.Text = configuracao.TipoCadastro;
+            btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
+            btnEditar.ToolTipText = configuracao.ToolTipEditar;
+            btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
         }
     }
 }

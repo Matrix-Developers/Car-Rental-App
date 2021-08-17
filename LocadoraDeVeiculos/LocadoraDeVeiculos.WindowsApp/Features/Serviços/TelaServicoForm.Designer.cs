@@ -1,7 +1,7 @@
 ﻿
 namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
 {
-    partial class ServicoForm
+    partial class TelaServicoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -139,6 +139,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(205, 287);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
@@ -147,10 +148,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnConfirma
             // 
+            this.btnConfirma.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirma.Location = new System.Drawing.Point(16, 287);
             this.btnConfirma.Margin = new System.Windows.Forms.Padding(4);
@@ -163,11 +164,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(128, 19);
             this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.MaxLength = 200;
             this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(153, 22);
             this.txtId.TabIndex = 1;
             this.txtId.Text = "0";
@@ -229,7 +230,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             this.lblCadastroServico.TabIndex = 53;
             this.lblCadastroServico.Text = "Cadastro de Serviços";
             // 
-            // ServicoForm
+            // TelaServicoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -240,7 +241,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirma);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ServicoForm";
+            this.Name = "TelaServicoForm";
             this.Text = "Serviço";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServicoForm_FormClosing);
             this.groupBox1.ResumeLayout(false);

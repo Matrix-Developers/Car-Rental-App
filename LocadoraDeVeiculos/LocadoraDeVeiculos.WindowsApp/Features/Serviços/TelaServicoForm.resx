@@ -117,42 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>382, 47</value>
-  </metadata>
-  <metadata name="toolStripMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>497, 47</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAdicionar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABzSURBVFhH7dRbCoAwDETRLs2duTSXph1oIR9KfEQb5B4Y
-        yIe0U4QUALhuqplbNA+nImuL5uEo5KGQh0KeTwvZpXeUpaYX0rz3jc2j5akD+mVR0Zm3pSuU7pedoUtC
-        Xh+FQh4KeSjkSVfILs/Xlx6AnyllA3eWdGn6IHHaAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnEditar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADUSURBVFhH7ZPNCQIxFAbThd61ALUCSxBr8eZBrMw67EEb
-        8KLfaAIhJHvLvghvYMj+5DDsvgTH+RNW8hRXc3byKd/yIbfSjDwmaRa1lGWMedRZ1oKQqLXsDr/p8Lv8
-        MhXFoHclzcxLHnkQqUWxr+sXKgd4Kop97O9G7TRhLWr2GIb1nt2XUYu4dqEWw3HmyJdR+aB3oRUDrNyn
-        dya/yWPAY1p4TAuPaTFUzEYOEwMXOUwM5EFXHgizGMiDbpIosxjIg0pnj4FWkEkM7CVRpZw+xxmcED47
-        C8zP/5SHOAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnExcluir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADJSURBVFhH7Za7DQIxEAUd0gGN0BMlEFIWDVAPMRnsCyxd
-        sM8gz+oQkkeaiHvj+yS0xeJHHMJLeDXqN12zCzroFr4+qGvKb0pPmx1GVHOadUN/i56qwjKyVz9jGVl8
-        xjK20exTjNxuyyBRsrWQKNlaSJRsLSRKthYSJVsLiZKthUTJ1kKiZGshUbK1kCjZWkiUbC0kSrYWEiVb
-        C4mSreUZ9mj2F2Nk36lRxj3s4VnVKOMUPsLsoG/UVo1SjuE5zD7LSG20XSx2oLU3ie4NHq0AyTQAAAAA
-        SUVORK5CYII=
-</value>
-  </data>
-  <metadata name="statusStripRodape.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>627, 47</value>
-  </metadata>
 </root>
