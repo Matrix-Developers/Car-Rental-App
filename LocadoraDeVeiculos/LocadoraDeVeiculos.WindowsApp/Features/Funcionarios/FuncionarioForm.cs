@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
 
                 textId.Text = funcionario.Id.ToString();
                 textNome.Text = funcionario.Nome.ToString();
-                mskTxtCpf.Text = funcionario.RegistroUnico.ToString();
+                mskTxtCpf.Text = funcionario.RegistroUnico;
                 textEndereco.Text = funcionario.Endereco.ToString();
                 mskTxtTelefone.Text = funcionario.Telefone.ToString();
                 textEmail.Text = funcionario.Email.ToString();
@@ -47,8 +48,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             string nome = (string)textNome.Text;
-            string registroUnico = (string)mskTxtCpf.Text;
+            string registroUnico = mskTxtCpf.Text;
             string endereco = (string)textEndereco.Text;
+
             string telefone = (string)mskTxtTelefone.Text;
             string email = (string)textEmail.Text;
             int matriculaInterna = Convert.ToInt32(textMatriculaInterna.Text);
@@ -60,12 +62,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
                 dataAdmissao = Convert.ToDateTime(mskTxtDataAdmissao.Text);
             string cargo = (string)textCargo.Text;
             double salario = Convert.ToDouble(textSalario.Text);
+             
+            funcionario = new Funcionario(0,nome,registroUnico,endereco,telefone,email,matriculaInterna,usuarioAcesso,dataAdmissao,cargo,salario,true);
 
+            string resultadoValidacao = funcionario.Validar();
+
+            if (resultadoValidacao != "VALIDO")
+            {
+                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                DialogResult = DialogResult.None;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
     }
 }

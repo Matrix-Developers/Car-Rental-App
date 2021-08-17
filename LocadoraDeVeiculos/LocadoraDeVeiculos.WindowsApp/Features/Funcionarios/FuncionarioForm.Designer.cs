@@ -45,9 +45,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbMatInt = new System.Windows.Forms.Label();
             this.lbDataAdmissao = new System.Windows.Forms.Label();
             this.textUsuarioAcesso = new System.Windows.Forms.TextBox();
-            this.textCargo = new System.Windows.Forms.TextBox();
-            this.textSalario = new System.Windows.Forms.TextBox();
-            this.textMatriculaInterna = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mskTxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.mskTxtCpf = new System.Windows.Forms.MaskedTextBox();
@@ -55,9 +52,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.mskTxtDataAdmissao = new System.Windows.Forms.MaskedTextBox();
+            this.textSalario = new System.Windows.Forms.NumericUpDown();
+            this.textMatriculaInterna = new System.Windows.Forms.NumericUpDown();
+            this.textCargo = new System.Windows.Forms.TextBox();
+            this.mskTxtDataAdmissao = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textSalario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).BeginInit();
             this.SuspendLayout();
             // 
             // lbId
@@ -141,9 +143,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             this.textId.Enabled = false;
             this.textId.Location = new System.Drawing.Point(111, 19);
+            this.textId.MaxLength = 200;
             this.textId.Name = "textId";
+            this.textId.ReadOnly = true;
             this.textId.Size = new System.Drawing.Size(100, 20);
             this.textId.TabIndex = 32;
+            this.textId.Text = "0";
             // 
             // textEmail
             // 
@@ -221,27 +226,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.textUsuarioAcesso.Size = new System.Drawing.Size(100, 20);
             this.textUsuarioAcesso.TabIndex = 7;
             // 
-            // textCargo
-            // 
-            this.textCargo.Location = new System.Drawing.Point(181, 126);
-            this.textCargo.Name = "textCargo";
-            this.textCargo.Size = new System.Drawing.Size(100, 20);
-            this.textCargo.TabIndex = 9;
-            // 
-            // textSalario
-            // 
-            this.textSalario.Location = new System.Drawing.Point(181, 156);
-            this.textSalario.Name = "textSalario";
-            this.textSalario.Size = new System.Drawing.Size(100, 20);
-            this.textSalario.TabIndex = 10;
-            // 
-            // textMatriculaInterna
-            // 
-            this.textMatriculaInterna.Location = new System.Drawing.Point(181, 21);
-            this.textMatriculaInterna.Name = "textMatriculaInterna";
-            this.textMatriculaInterna.Size = new System.Drawing.Size(100, 20);
-            this.textMatriculaInterna.TabIndex = 6;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.mskTxtTelefone);
@@ -288,6 +272,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.mskTxtDataAdmissao);
+            this.groupBox2.Controls.Add(this.textMatriculaInterna);
+            this.groupBox2.Controls.Add(this.textSalario);
             this.groupBox2.Controls.Add(this.lbDataAdmissao);
             this.groupBox2.Controls.Add(this.lbMatInt);
             this.groupBox2.Controls.Add(this.textUsuarioAcesso);
@@ -295,8 +281,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox2.Controls.Add(this.lbSalario);
             this.groupBox2.Controls.Add(this.textCargo);
             this.groupBox2.Controls.Add(this.lbCargo);
-            this.groupBox2.Controls.Add(this.textSalario);
-            this.groupBox2.Controls.Add(this.textMatriculaInterna);
             this.groupBox2.Location = new System.Drawing.Point(248, 102);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(287, 185);
@@ -305,6 +289,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(240, 370);
             this.btnCancelar.Name = "btnCancelar";
@@ -316,6 +301,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Location = new System.Drawing.Point(159, 370);
             this.btnConfirmar.Name = "btnConfirmar";
@@ -325,13 +311,33 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
+            // textSalario
+            // 
+            this.textSalario.Location = new System.Drawing.Point(181, 155);
+            this.textSalario.Name = "textSalario";
+            this.textSalario.Size = new System.Drawing.Size(100, 20);
+            this.textSalario.TabIndex = 46;
+            // 
+            // textMatriculaInterna
+            // 
+            this.textMatriculaInterna.Location = new System.Drawing.Point(181, 19);
+            this.textMatriculaInterna.Name = "textMatriculaInterna";
+            this.textMatriculaInterna.Size = new System.Drawing.Size(99, 20);
+            this.textMatriculaInterna.TabIndex = 47;
+            // 
+            // textCargo
+            // 
+            this.textCargo.Location = new System.Drawing.Point(181, 126);
+            this.textCargo.Name = "textCargo";
+            this.textCargo.Size = new System.Drawing.Size(100, 20);
+            this.textCargo.TabIndex = 9;
+            // 
             // mskTxtDataAdmissao
             // 
-            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(181, 91);
-            this.mskTxtDataAdmissao.Mask = "00/00/0000";
+            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(181, 86);
             this.mskTxtDataAdmissao.Name = "mskTxtDataAdmissao";
-            this.mskTxtDataAdmissao.Size = new System.Drawing.Size(100, 20);
-            this.mskTxtDataAdmissao.TabIndex = 33;
+            this.mskTxtDataAdmissao.Size = new System.Drawing.Size(98, 20);
+            this.mskTxtDataAdmissao.TabIndex = 48;
             // 
             // FuncionarioForm
             // 
@@ -350,6 +356,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textSalario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,9 +381,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private System.Windows.Forms.Label lbMatInt;
         private System.Windows.Forms.Label lbDataAdmissao;
         private System.Windows.Forms.TextBox textUsuarioAcesso;
-        private System.Windows.Forms.TextBox textCargo;
-        private System.Windows.Forms.TextBox textSalario;
-        private System.Windows.Forms.TextBox textMatriculaInterna;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCancelar;
@@ -383,6 +388,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private System.Windows.Forms.MaskedTextBox mskTxtTelefone;
         private System.Windows.Forms.MaskedTextBox mskTxtCpf;
         private System.Windows.Forms.TextBox textNome;
-        private System.Windows.Forms.MaskedTextBox mskTxtDataAdmissao;
+        private System.Windows.Forms.NumericUpDown textSalario;
+        private System.Windows.Forms.NumericUpDown textMatriculaInterna;
+        private System.Windows.Forms.DateTimePicker mskTxtDataAdmissao;
+        private System.Windows.Forms.TextBox textCargo;
     }
 }

@@ -41,13 +41,38 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
             }
 
             Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
+            FuncionarioForm tela = new FuncionarioForm();
+            tela.Funcionario = funcionarioSelecionado;
 
-            //if ()
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.Funcionario);
+                List<Funcionario> funcionarios = controlador.SelecionarTodos();
+                tabelaFuncionarios.AtualizarRegistros(funcionarios);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário [{funcionarioSelecionado.Nome}] editado com sucesso");
+            }
+
         }
 
         public void ExcluirRegistro()
         {
-            
+            int id = tabelaFuncionarios.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Funcionário para editar","Exclusao de Funcionários",MessageBoxButtons.OK , MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Nome}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+                List<Funcionario> funcionarios = controlador.SelecionarTodos();
+                tabelaFuncionarios.AtualizarRegistros(funcionarios);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário [{funcionarioSelecionado.Nome}] removido com sucesso");
+            }
         }
 
         public void FiltrarRegistros()
@@ -57,7 +82,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void InserirNovoRegistro()
         {
-            FuncionarioForm tela = new FuncionarioForm();
+            FuncionarioForm tela = new FuncionarioForm();           
 
             if (tela.ShowDialog() == DialogResult.OK)
             {

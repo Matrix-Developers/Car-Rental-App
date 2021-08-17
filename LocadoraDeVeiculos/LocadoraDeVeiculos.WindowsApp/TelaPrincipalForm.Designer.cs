@@ -150,6 +150,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(40, 42);
             this.btnAdicionar.Text = "btnAdicionar";
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnEditar
             // 
@@ -160,6 +161,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(40, 42);
             this.btnEditar.Text = "btnEditar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -170,6 +172,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(40, 42);
             this.btnExcluir.Text = "toolStripButton1";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // panelRegistros
             // 

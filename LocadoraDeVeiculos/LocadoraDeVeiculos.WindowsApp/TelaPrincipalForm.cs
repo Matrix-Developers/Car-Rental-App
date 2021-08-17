@@ -72,5 +72,20 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
 
         public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            operacoes.InserirNovoRegistro();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            operacoes.EditarRegistro();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            operacoes.ExcluirRegistro();
+        }
     }
 }
