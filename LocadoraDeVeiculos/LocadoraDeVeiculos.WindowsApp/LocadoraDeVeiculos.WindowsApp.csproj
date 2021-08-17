@@ -73,11 +73,11 @@
     <Compile Include="Features\Funcionarios\TabelaFuncionarioControl.Designer.cs">
       <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.cs">
+    <Compile Include="Features\GrupoDeVeiculos\TelaGrupoDeVeiculosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.Designer.cs">
-      <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
+    <Compile Include="Features\GrupoDeVeiculos\TelaGrupoDeVeiculosForm.Designer.cs">
+      <DependentUpon>TelaGrupoDeVeiculosForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.cs">
       <SubType>UserControl</SubType>
@@ -132,8 +132,8 @@
     <EmbeddedResource Include="Features\Funcionarios\TabelaFuncionarioControl.resx">
       <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\GrupoDeVeiculos\GrupodeVeiculoForm.resx">
-      <DependentUpon>GrupodeVeiculoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\GrupoDeVeiculos\TelaGrupoDeVeiculosForm.resx">
+      <DependentUpon>TelaGrupoDeVeiculosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.resx">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>

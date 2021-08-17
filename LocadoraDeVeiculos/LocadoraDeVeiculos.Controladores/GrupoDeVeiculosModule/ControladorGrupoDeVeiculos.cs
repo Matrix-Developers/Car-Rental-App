@@ -8,8 +8,6 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 {
     public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculos>
     {
-        //Nota: nome da tabela "TBGRUPOVEICULO" é incosistente com o nome das outras tabelas do banco.
-        //      - talvez considerar renomear "TBGRUPOVEICULO" para "TBGRUPODEVEICULOS"
         private const string sqlInserirGrupoDeVeiculos =
                 @"INSERT INTO TBGRUPOVEICULO
                 (
