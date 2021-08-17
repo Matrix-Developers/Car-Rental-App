@@ -74,7 +74,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Red;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(88, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(88, 24);
             this.toolStripMenuItem1.Text = "Cadastros";
             // 
             // funcionáriosToolStripMenuItem
@@ -121,7 +121,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.locaçaoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,7 +130,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.locaçaoToolStripMenuItem.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locaçaoToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.locaçaoToolStripMenuItem.Name = "locaçaoToolStripMenuItem";
-            this.locaçaoToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
+            this.locaçaoToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.locaçaoToolStripMenuItem.Text = "Locaçao";
             // 
             // toolStripMenu
@@ -143,7 +143,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnAdicionar,
             this.btnEditar,
             this.btnExcluir});
-            this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
+            this.toolStripMenu.Location = new System.Drawing.Point(0, 28);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(1067, 55);
             this.toolStripMenu.TabIndex = 5;
@@ -183,10 +183,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             // 
             // panelRegistros
             // 
-            this.panelRegistros.Location = new System.Drawing.Point(0, 90);
+            this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRegistros.Location = new System.Drawing.Point(0, 83);
             this.panelRegistros.Margin = new System.Windows.Forms.Padding(4);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(1051, 529);
+            this.panelRegistros.Size = new System.Drawing.Size(1067, 551);
             this.panelRegistros.TabIndex = 6;
             // 
             // statusStripRodape

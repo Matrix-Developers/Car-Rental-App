@@ -240,7 +240,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirma);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "TelaServicoForm";
             this.Text = "Serviço";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServicoForm_FormClosing);
