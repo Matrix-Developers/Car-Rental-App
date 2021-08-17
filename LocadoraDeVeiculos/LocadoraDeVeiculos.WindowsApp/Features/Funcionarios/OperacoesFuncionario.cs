@@ -32,7 +32,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void EditarRegistro()
         {
-            
+            int id = tabelaFuncionarios.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Funcionário para poderEditar!","Edição de Funcionários",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
+
+            //if ()
         }
 
         public void ExcluirRegistro()

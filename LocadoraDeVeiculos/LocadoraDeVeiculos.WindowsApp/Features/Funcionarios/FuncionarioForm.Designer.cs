@@ -50,12 +50,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.textSalario = new System.Windows.Forms.TextBox();
             this.textMatricula = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mskTxtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.mskTxtCpf = new System.Windows.Forms.MaskedTextBox();
+            this.textNome = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.textNome = new System.Windows.Forms.TextBox();
-            this.mskTxtCpf = new System.Windows.Forms.MaskedTextBox();
-            this.mskTxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -150,14 +150,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.textEmail.Location = new System.Drawing.Point(111, 181);
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(100, 20);
-            this.textEmail.TabIndex = 36;
+            this.textEmail.TabIndex = 5;
             // 
             // textEndereco
             // 
             this.textEndereco.Location = new System.Drawing.Point(111, 121);
             this.textEndereco.Name = "textEndereco";
             this.textEndereco.Size = new System.Drawing.Size(100, 20);
-            this.textEndereco.TabIndex = 38;
+            this.textEndereco.TabIndex = 3;
             // 
             // lbCargo
             // 
@@ -219,35 +219,35 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.textUsuAcesso.Location = new System.Drawing.Point(181, 55);
             this.textUsuAcesso.Name = "textUsuAcesso";
             this.textUsuAcesso.Size = new System.Drawing.Size(100, 20);
-            this.textUsuAcesso.TabIndex = 50;
+            this.textUsuAcesso.TabIndex = 7;
             // 
             // textDataAdmissao
             // 
             this.textDataAdmissao.Location = new System.Drawing.Point(181, 92);
             this.textDataAdmissao.Name = "textDataAdmissao";
             this.textDataAdmissao.Size = new System.Drawing.Size(100, 20);
-            this.textDataAdmissao.TabIndex = 49;
+            this.textDataAdmissao.TabIndex = 8;
             // 
             // textCargo
             // 
             this.textCargo.Location = new System.Drawing.Point(181, 126);
             this.textCargo.Name = "textCargo";
             this.textCargo.Size = new System.Drawing.Size(100, 20);
-            this.textCargo.TabIndex = 48;
+            this.textCargo.TabIndex = 9;
             // 
             // textSalario
             // 
             this.textSalario.Location = new System.Drawing.Point(181, 156);
             this.textSalario.Name = "textSalario";
             this.textSalario.Size = new System.Drawing.Size(100, 20);
-            this.textSalario.TabIndex = 47;
+            this.textSalario.TabIndex = 10;
             // 
             // textMatricula
             // 
             this.textMatricula.Location = new System.Drawing.Point(181, 21);
             this.textMatricula.Name = "textMatricula";
             this.textMatricula.Size = new System.Drawing.Size(100, 20);
-            this.textMatricula.TabIndex = 46;
+            this.textMatricula.TabIndex = 6;
             // 
             // groupBox1
             // 
@@ -268,6 +268,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox1.Size = new System.Drawing.Size(217, 236);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
+            // 
+            // mskTxtTelefone
+            // 
+            this.mskTxtTelefone.Location = new System.Drawing.Point(111, 151);
+            this.mskTxtTelefone.Mask = "(00) 00000-0000";
+            this.mskTxtTelefone.Name = "mskTxtTelefone";
+            this.mskTxtTelefone.Size = new System.Drawing.Size(100, 20);
+            this.mskTxtTelefone.TabIndex = 4;
+            // 
+            // mskTxtCpf
+            // 
+            this.mskTxtCpf.Location = new System.Drawing.Point(111, 87);
+            this.mskTxtCpf.Mask = "000.000.000-00";
+            this.mskTxtCpf.Name = "mskTxtCpf";
+            this.mskTxtCpf.Size = new System.Drawing.Size(100, 20);
+            this.mskTxtCpf.TabIndex = 2;
+            // 
+            // textNome
+            // 
+            this.textNome.Location = new System.Drawing.Point(111, 53);
+            this.textNome.Name = "textNome";
+            this.textNome.Size = new System.Drawing.Size(100, 20);
+            this.textNome.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -293,7 +316,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.btnCancelar.Location = new System.Drawing.Point(240, 370);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 28);
-            this.btnCancelar.TabIndex = 54;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -303,32 +326,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.btnConfirmar.Location = new System.Drawing.Point(159, 370);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 28);
-            this.btnConfirmar.TabIndex = 53;
+            this.btnConfirmar.TabIndex = 11;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            // 
-            // textNome
-            // 
-            this.textNome.Location = new System.Drawing.Point(111, 53);
-            this.textNome.Name = "textNome";
-            this.textNome.Size = new System.Drawing.Size(100, 20);
-            this.textNome.TabIndex = 40;
-            // 
-            // mskTxtCpf
-            // 
-            this.mskTxtCpf.Location = new System.Drawing.Point(111, 87);
-            this.mskTxtCpf.Mask = "000.000.000-00";
-            this.mskTxtCpf.Name = "mskTxtCpf";
-            this.mskTxtCpf.Size = new System.Drawing.Size(100, 20);
-            this.mskTxtCpf.TabIndex = 41;
-            // 
-            // mskTxtTelefone
-            // 
-            this.mskTxtTelefone.Location = new System.Drawing.Point(111, 151);
-            this.mskTxtTelefone.Mask = "(00) 00000-0000";
-            this.mskTxtTelefone.Name = "mskTxtTelefone";
-            this.mskTxtTelefone.Size = new System.Drawing.Size(100, 20);
-            this.mskTxtTelefone.TabIndex = 42;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // FuncionarioForm
             // 

@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.WindowsApp.Clientes;
+using LocadoraDeVeiculos.WindowsApp.Funcionarios;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.WindowsApp.Features.Funcionarios;
 
@@ -42,7 +44,9 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            
+            operacoes = new OperacoesFuncionario(new ControladorFuncionario());
+
+            ConfigurarPainelRegistros();
         }
 
         private void ConfigurarPainelRegistros()
