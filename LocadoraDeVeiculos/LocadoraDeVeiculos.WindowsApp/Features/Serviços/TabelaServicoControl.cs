@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
+namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 {
     public partial class TabelaServicoControl : UserControl
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Serviços
+namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 {
     partial class TabelaServicoControl
     {
