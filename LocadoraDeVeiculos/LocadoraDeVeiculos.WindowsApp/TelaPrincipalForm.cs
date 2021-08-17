@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Veiculo;
+using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 
 namespace LocadoraDeVeiculos.WindowsApp
@@ -13,6 +14,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
+            Instancia = this;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -70,7 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesTarefa(new ControladorTarefa());
+            operacoes = new OperacoesVeiculo(new ControladorVeiculo());
 
             ConfigurarPainelRegistros();
         }
@@ -107,6 +109,16 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoes.ExcluirRegistro();
         }
 
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
+        }
         private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
         {
             toolBoxAcoes.Enabled = true;

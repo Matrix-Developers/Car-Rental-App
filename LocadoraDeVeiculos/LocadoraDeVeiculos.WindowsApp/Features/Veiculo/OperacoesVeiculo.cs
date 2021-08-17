@@ -11,6 +11,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
     {
         private readonly ControladorVeiculo controlador = null;
         private readonly TabelaVeiculoControl tabelaVeiculo = null;
+        public OperacoesVeiculo(ControladorVeiculo ctrlVeiculo)
+        {
+            controlador = ctrlVeiculo;
+            tabelaVeiculo = new TabelaVeiculoControl();
+        }
         public void InserirNovoRegistro()
         {
             VeiculoForm tela = new VeiculoForm();
@@ -78,43 +83,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tarefaSelecionada.modelo}] removido com sucesso");
             }
         }
-        //public void FiltrarRegistros()
-        //{
-        //    FiltroVeiculoForm telaFiltro = new FiltroVeiculoForm();
-
-        //    if (telaFiltro.ShowDialog() == DialogResult.OK)
-        //    {
-        //        List<Veiculo> veiculos = new List<Veiculo>();
-        //        string tipoVeiculo = "";
-
-        //        switch (telaFiltro.TipoFiltro)
-        //        {
-        //            case FiltroVeiculoEnum.TodasVeiculos:
-        //                veiculos = controlador.SelecionarTodos();
-        //                break;
-
-        //            case FiltroVeiculoEnum.VeiculosPendentes:
-        //                {
-        //                    veiculos = controlador.SelecionarTodasVeiculosPendentes();
-        //                    tipoVeiculo = "pendente(s)";
-        //                    break;
-        //                }
-
-        //            case FiltroVeiculoEnum.VeiculosConcluidas:
-        //                {
-        //                    veiculos = controlador.SelecionarTodasVeiculosConcluidas();
-        //                    tipoVeiculo = "concluída(s)";
-        //                    break;
-        //                }
-
-        //            default:
-        //                break;
-        //        }
-
-        //        tabelaVeiculo.AtualizarRegistros(veiculos);
-        //        TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {veiculos.Count} tarefa(s) {tipoVeiculo}");
-        //    }
-        //}
+        public void FiltrarRegistros()
+        {
+            throw new System.NotImplementedException();
+        }
         public UserControl ObterTabela()
         {
             List<Veiculo> veiculos = controlador.SelecionarTodos();

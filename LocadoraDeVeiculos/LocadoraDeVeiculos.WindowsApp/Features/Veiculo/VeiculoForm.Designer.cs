@@ -53,23 +53,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textCombustivel = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.gBoxDados = new System.Windows.Forms.GroupBox();
-            this.cBoxGrupo = new System.Windows.Forms.ComboBox();
-            this.dateTPAno = new System.Windows.Forms.DateTimePicker();
-            this.numUpDownQtdPortas = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownQtdPessoas = new System.Windows.Forms.NumericUpDown();
-            this.cBoxPortaMalas = new System.Windows.Forms.ComboBox();
-            this.numUpDownCapTanque = new System.Windows.Forms.NumericUpDown();
+            this.cBoxCombustivel = new System.Windows.Forms.ComboBox();
+            this.textAno = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.numUpDownCapTanque = new System.Windows.Forms.NumericUpDown();
+            this.cBoxPortaMalas = new System.Windows.Forms.ComboBox();
+            this.numUpDownQtdPessoas = new System.Windows.Forms.NumericUpDown();
+            this.numUpDownQtdPortas = new System.Windows.Forms.NumericUpDown();
+            this.cBoxGrupo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkLBoxOpcionais = new System.Windows.Forms.CheckedListBox();
             this.gBoxDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPortas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownCapTanque)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPortas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,38 +89,39 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textPlaca.Location = new System.Drawing.Point(97, 49);
             this.textPlaca.Name = "textPlaca";
             this.textPlaca.Size = new System.Drawing.Size(217, 20);
-            this.textPlaca.TabIndex = 80;
+            this.textPlaca.TabIndex = 1;
             // 
             // textChassi
             // 
             this.textChassi.Location = new System.Drawing.Point(97, 75);
             this.textChassi.Name = "textChassi";
             this.textChassi.Size = new System.Drawing.Size(217, 20);
-            this.textChassi.TabIndex = 79;
+            this.textChassi.TabIndex = 2;
             // 
             // textMarca
             // 
             this.textMarca.Location = new System.Drawing.Point(97, 101);
             this.textMarca.Name = "textMarca";
             this.textMarca.Size = new System.Drawing.Size(217, 20);
-            this.textMarca.TabIndex = 78;
+            this.textMarca.TabIndex = 3;
             // 
             // textModelo
             // 
             this.textModelo.Location = new System.Drawing.Point(97, 127);
             this.textModelo.Name = "textModelo";
             this.textModelo.Size = new System.Drawing.Size(217, 20);
-            this.textModelo.TabIndex = 77;
+            this.textModelo.TabIndex = 4;
             // 
             // textImagem
             // 
             this.textImagem.Location = new System.Drawing.Point(140, 206);
             this.textImagem.Name = "textImagem";
             this.textImagem.Size = new System.Drawing.Size(174, 20);
-            this.textImagem.TabIndex = 74;
+            this.textImagem.TabIndex = 8;
             // 
             // textId
             // 
+            this.textId.Enabled = false;
             this.textId.Location = new System.Drawing.Point(97, 23);
             this.textId.Name = "textId";
             this.textId.ReadOnly = true;
@@ -220,7 +221,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textCor.Location = new System.Drawing.Point(195, 153);
             this.textCor.Name = "textCor";
             this.textCor.Size = new System.Drawing.Size(119, 20);
-            this.textCor.TabIndex = 82;
+            this.textCor.TabIndex = 6;
             // 
             // label10
             // 
@@ -260,7 +261,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textKM.Location = new System.Drawing.Point(140, 310);
             this.textKM.Name = "textKM";
             this.textKM.Size = new System.Drawing.Size(174, 20);
-            this.textKM.TabIndex = 90;
+            this.textKM.TabIndex = 13;
             // 
             // label12
             // 
@@ -306,35 +307,33 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.label15.TabIndex = 82;
             this.label15.Text = "Km";
             // 
-            // textCombustivel
+            // btnCancelar
             // 
-            this.textCombustivel.Location = new System.Drawing.Point(140, 258);
-            this.textCombustivel.Name = "textCombustivel";
-            this.textCombustivel.Size = new System.Drawing.Size(174, 20);
-            this.textCombustivel.TabIndex = 86;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(311, 615);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 28);
+            this.btnCancelar.TabIndex = 84;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnConfirmar
             // 
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(311, 615);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 28);
-            this.button2.TabIndex = 84;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(230, 615);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 83;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirmar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.Location = new System.Drawing.Point(230, 615);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(75, 28);
+            this.btnConfirmar.TabIndex = 83;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // gBoxDados
             // 
+            this.gBoxDados.Controls.Add(this.cBoxCombustivel);
+            this.gBoxDados.Controls.Add(this.textAno);
             this.gBoxDados.Controls.Add(this.label1);
             this.gBoxDados.Controls.Add(this.numUpDownCapTanque);
             this.gBoxDados.Controls.Add(this.cBoxPortaMalas);
@@ -344,7 +343,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.gBoxDados.Controls.Add(this.label11);
             this.gBoxDados.Controls.Add(this.label16);
             this.gBoxDados.Controls.Add(this.cBoxGrupo);
-            this.gBoxDados.Controls.Add(this.dateTPAno);
             this.gBoxDados.Controls.Add(this.lbChassi);
             this.gBoxDados.Controls.Add(this.label12);
             this.gBoxDados.Controls.Add(this.label13);
@@ -352,7 +350,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.gBoxDados.Controls.Add(this.textCor);
             this.gBoxDados.Controls.Add(this.lbPlaca);
             this.gBoxDados.Controls.Add(this.textKM);
-            this.gBoxDados.Controls.Add(this.textCombustivel);
             this.gBoxDados.Controls.Add(this.label10);
             this.gBoxDados.Controls.Add(this.lbImagem);
             this.gBoxDados.Controls.Add(this.lbNome);
@@ -374,55 +371,26 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.gBoxDados.TabStop = false;
             this.gBoxDados.Text = "Dados Obrigatórios";
             // 
-            // cBoxGrupo
+            // cBoxCombustivel
             // 
-            this.cBoxGrupo.FormattingEnabled = true;
-            this.cBoxGrupo.Location = new System.Drawing.Point(97, 179);
-            this.cBoxGrupo.Name = "cBoxGrupo";
-            this.cBoxGrupo.Size = new System.Drawing.Size(217, 21);
-            this.cBoxGrupo.TabIndex = 96;
+            this.cBoxCombustivel.FormattingEnabled = true;
+            this.cBoxCombustivel.Items.AddRange(new object[] {
+            "Gasolina",
+            "Etanol",
+            "Flex (Gasolina e Etanol)",
+            "Diesel"});
+            this.cBoxCombustivel.Location = new System.Drawing.Point(129, 258);
+            this.cBoxCombustivel.Name = "cBoxCombustivel";
+            this.cBoxCombustivel.Size = new System.Drawing.Size(185, 21);
+            this.cBoxCombustivel.TabIndex = 10;
+            this.cBoxCombustivel.Text = "Selecionar";
             // 
-            // dateTPAno
+            // textAno
             // 
-            this.dateTPAno.CustomFormat = "yyyy";
-            this.dateTPAno.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPAno.Location = new System.Drawing.Point(97, 153);
-            this.dateTPAno.Name = "dateTPAno";
-            this.dateTPAno.Size = new System.Drawing.Size(51, 20);
-            this.dateTPAno.TabIndex = 95;
-            // 
-            // numUpDownQtdPortas
-            // 
-            this.numUpDownQtdPortas.Location = new System.Drawing.Point(112, 284);
-            this.numUpDownQtdPortas.Name = "numUpDownQtdPortas";
-            this.numUpDownQtdPortas.Size = new System.Drawing.Size(48, 20);
-            this.numUpDownQtdPortas.TabIndex = 97;
-            // 
-            // numUpDownQtdPessoas
-            // 
-            this.numUpDownQtdPessoas.Location = new System.Drawing.Point(266, 284);
-            this.numUpDownQtdPessoas.Name = "numUpDownQtdPessoas";
-            this.numUpDownQtdPessoas.Size = new System.Drawing.Size(48, 20);
-            this.numUpDownQtdPessoas.TabIndex = 98;
-            // 
-            // cBoxPortaMalas
-            // 
-            this.cBoxPortaMalas.FormattingEnabled = true;
-            this.cBoxPortaMalas.Items.AddRange(new object[] {
-            "Pequeno",
-            "Médio",
-            "Grande"});
-            this.cBoxPortaMalas.Location = new System.Drawing.Point(158, 336);
-            this.cBoxPortaMalas.Name = "cBoxPortaMalas";
-            this.cBoxPortaMalas.Size = new System.Drawing.Size(156, 21);
-            this.cBoxPortaMalas.TabIndex = 99;
-            // 
-            // numUpDownCapTanque
-            // 
-            this.numUpDownCapTanque.Location = new System.Drawing.Point(141, 232);
-            this.numUpDownCapTanque.Name = "numUpDownCapTanque";
-            this.numUpDownCapTanque.Size = new System.Drawing.Size(126, 20);
-            this.numUpDownCapTanque.TabIndex = 100;
+            this.textAno.Location = new System.Drawing.Point(97, 153);
+            this.textAno.Name = "textAno";
+            this.textAno.Size = new System.Drawing.Size(51, 20);
+            this.textAno.TabIndex = 5;
             // 
             // label1
             // 
@@ -434,6 +402,49 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.label1.Size = new System.Drawing.Size(41, 23);
             this.label1.TabIndex = 101;
             this.label1.Text = "litros";
+            // 
+            // numUpDownCapTanque
+            // 
+            this.numUpDownCapTanque.Location = new System.Drawing.Point(141, 232);
+            this.numUpDownCapTanque.Name = "numUpDownCapTanque";
+            this.numUpDownCapTanque.Size = new System.Drawing.Size(126, 20);
+            this.numUpDownCapTanque.TabIndex = 9;
+            // 
+            // cBoxPortaMalas
+            // 
+            this.cBoxPortaMalas.FormattingEnabled = true;
+            this.cBoxPortaMalas.Items.AddRange(new object[] {
+            "G",
+            "M",
+            "P"});
+            this.cBoxPortaMalas.Location = new System.Drawing.Point(158, 336);
+            this.cBoxPortaMalas.Name = "cBoxPortaMalas";
+            this.cBoxPortaMalas.Size = new System.Drawing.Size(156, 21);
+            this.cBoxPortaMalas.TabIndex = 14;
+            this.cBoxPortaMalas.Text = "Selecionar";
+            // 
+            // numUpDownQtdPessoas
+            // 
+            this.numUpDownQtdPessoas.Location = new System.Drawing.Point(266, 284);
+            this.numUpDownQtdPessoas.Name = "numUpDownQtdPessoas";
+            this.numUpDownQtdPessoas.Size = new System.Drawing.Size(48, 20);
+            this.numUpDownQtdPessoas.TabIndex = 12;
+            // 
+            // numUpDownQtdPortas
+            // 
+            this.numUpDownQtdPortas.Location = new System.Drawing.Point(112, 284);
+            this.numUpDownQtdPortas.Name = "numUpDownQtdPortas";
+            this.numUpDownQtdPortas.Size = new System.Drawing.Size(48, 20);
+            this.numUpDownQtdPortas.TabIndex = 11;
+            // 
+            // cBoxGrupo
+            // 
+            this.cBoxGrupo.FormattingEnabled = true;
+            this.cBoxGrupo.Location = new System.Drawing.Point(97, 179);
+            this.cBoxGrupo.Name = "cBoxGrupo";
+            this.cBoxGrupo.Size = new System.Drawing.Size(217, 21);
+            this.cBoxGrupo.TabIndex = 7;
+            this.cBoxGrupo.Text = "Selecionar";
             // 
             // groupBox1
             // 
@@ -466,16 +477,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.ClientSize = new System.Drawing.Size(398, 650);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gBoxDados);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.label8);
             this.Name = "VeiculoForm";
             this.Text = "-";
             this.gBoxDados.ResumeLayout(false);
             this.gBoxDados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPortas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownCapTanque)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPortas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -507,12 +518,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textCombustivel;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.GroupBox gBoxDados;
-        private System.Windows.Forms.DateTimePicker dateTPAno;
         private System.Windows.Forms.ComboBox cBoxGrupo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numUpDownCapTanque;
@@ -521,5 +530,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private System.Windows.Forms.NumericUpDown numUpDownQtdPortas;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckedListBox checkLBoxOpcionais;
+        private System.Windows.Forms.TextBox textAno;
+        private System.Windows.Forms.ComboBox cBoxCombustivel;
     }
 }
