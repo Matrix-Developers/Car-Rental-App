@@ -85,11 +85,19 @@
     <Compile Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.Designer.cs">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Serviços\AdicionarServiço.cs">
+    <Compile Include="Features\Serviços\ConfiguracaoServicoToolBox.cs" />
+    <Compile Include="Features\Serviços\OperacoesServico.cs" />
+    <Compile Include="Features\Serviços\TabelaServicoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Serviços\TabelaServicoControl.Designer.cs">
+      <DependentUpon>TabelaServicoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Serviços\TelaServicoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\Serviços\AdicionarServiço.Designer.cs">
-      <DependentUpon>AdicionarServiço.cs</DependentUpon>
+    <Compile Include="Features\Serviços\TelaServicoForm.Designer.cs">
+      <DependentUpon>TelaServicoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Serviços\ServicosForm.cs">
       <SubType>Form</SubType>
@@ -138,8 +146,11 @@
     <EmbeddedResource Include="Features\GrupoDeVeiculos\TabelaGrupoDeVeiculosControl.resx">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Serviços\AdicionarServiço.resx">
-      <DependentUpon>AdicionarServiço.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Serviços\TabelaServicoControl.resx">
+      <DependentUpon>TabelaServicoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Serviços\TelaServicoForm.resx">
+      <DependentUpon>TelaServicoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Veiculo\TabelaVeiculoControl.resx">
       <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
@@ -176,7 +187,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+      <Project>{35789073-23E1-426D-BBC2-E1AF3DB9935E}</Project>
+      <Name>LocadoraDeVeiculos.Controladores</Name>
+    </ProjectReference>
     <Content Include="Libraries\DataGridViewGrouper.dll" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+      <Project>{7F169E59-39E2-4908-BE88-38206B8983F7}</Project>
+      <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

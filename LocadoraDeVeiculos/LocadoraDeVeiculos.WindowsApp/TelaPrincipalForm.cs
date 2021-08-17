@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
+using LocadoraDeVeiculos.WindowsApp.Clientes;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 
 namespace LocadoraDeVeiculos.WindowsApp
@@ -12,6 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
+            Instancia = this;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -48,17 +52,17 @@ namespace LocadoraDeVeiculos.WindowsApp
             //ConfigurarPainelRegistros();
         }
 
-        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+            ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
 
-            //ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao);
 
-            //AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+            operacoes = new OperacoesServico(new ControladorServico());
 
-            //ConfigurarPainelRegistros();
+            ConfigurarPainelRegistros();
         }
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,6 +108,27 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             operacoes.ExcluirRegistro();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
+        }
+
+        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
+        {
+            toolStripMenu.Enabled = true;
+
+            labelTipoCadastro.Text = configuracao.TipoCadastro;
+            btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
+            btnEditar.ToolTipText = configuracao.ToolTipEditar;
+            btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
         }
     }
 }
