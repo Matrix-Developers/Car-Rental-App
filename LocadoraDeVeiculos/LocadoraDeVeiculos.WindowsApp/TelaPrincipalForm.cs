@@ -15,6 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
+            Instancia = this;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)

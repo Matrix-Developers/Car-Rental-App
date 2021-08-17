@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
-                //TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
 
                 DialogResult = DialogResult.None;
             }
@@ -82,7 +82,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
         private void ServicoForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //TelaPrincipalForm.Instancia.AtualizarRodape("");
+            TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
     }
 }
