@@ -16,6 +16,8 @@ using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.WindowsApp.Features.Funcionarios;
 using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
+using LocadoraDeVeiculos.Controladores.ClientesModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -29,10 +31,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             Instancia = this;
         }
-
-       
-
-        private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
+      
+        private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {           
             ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
 
@@ -48,14 +48,25 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
-     
-            ConfiguracaoClienteToolBox configuracao = new ConfiguracaoClienteToolBox();
 
             ConfigurarToolBox(configuracao);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
             operacoes = new OperacoesServico(new ControladorServico());
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoClienteToolBox configuracao = new ConfiguracaoClienteToolBox();
+
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesClientes(new ControladorCliente());
 
             ConfigurarPainelRegistros();
         }
@@ -98,6 +109,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
         }
 
-
+       
     }
 }
