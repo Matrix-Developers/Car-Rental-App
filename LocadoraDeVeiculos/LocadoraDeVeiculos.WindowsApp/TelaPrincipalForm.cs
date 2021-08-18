@@ -76,15 +76,15 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void grupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+            ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
 
-            //ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao);
 
-            //AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+            operacoes = new OperacoesTarefa(new ControladorTarefa());
 
-            //ConfigurarPainelRegistros();
+            ConfigurarPainelRegistros();
         }
         public void AtualizarRodape(string mensagem)
         {

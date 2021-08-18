@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
+namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo
 {
     public partial class TabelaGrupoDeVeiculosControl : UserControl
     {
@@ -39,6 +40,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
            };
 
             return colunas;
+        }
+        public int ObtemIdSelecionado()
+        {
+            return gridGrupoDeVeiculos.SelecionarId<int>();
+        }
+
+        public void AtualizarRegistros(List<GrupoDeVeiculos> grupoDeVeiculos)
+        {
+            gridGrupoDeVeiculos.Rows.Clear();
+
+            foreach (GrupoDeVeiculos grupo in grupoDeVeiculos)
+            {
+                gridGrupoDeVeiculos.Rows.Add(grupo.Id, grupo.Nome, grupo.TaxaPlanoDiario, grupo.TaxaKmControlado,
+                    grupo.TaxaKmLivre);
+            }
         }
     }
 }

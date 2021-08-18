@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +9,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
+namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculo
 {
     public partial class TarefaGrupoDeVeiculosForm : Form
     {
+        private GrupoDeVeiculos grupoDeVeiculos
         public TarefaGrupoDeVeiculosForm()
         {
             InitializeComponent();
+        }
+
+        public GrupoDeVeiculos GrupoDeVeiculos
+        {
+            get { return grupoDeVeiculos; }
+
+            set
+            {
+                grupoDeVeiculos = value;
+
+                textId.Text = grupoDeVeiculos.Id.ToString();
+                textNomeGrupo.Text = grupoDeVeiculos.Nome;
+                txtTaxaPlanoDiario.Text =grupoDeVeiculos.TaxaPlanoDiario.ToString();
+                txtTaxaKMControlado.Text = grupoDeVeiculos.TaxaKmControlado.ToString();
+                txtTaxaKMLivre.Text = grupoDeVeiculos.TaxaKmLivre.ToString();
+            }
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
