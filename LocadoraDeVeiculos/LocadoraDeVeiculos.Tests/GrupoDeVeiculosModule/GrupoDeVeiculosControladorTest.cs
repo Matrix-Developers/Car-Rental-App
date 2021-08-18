@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveInserir_GrupoDeVeiculos()
         {
-            GrupoDeVeiculo novoGrupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos novoGrupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
 
             controlador.InserirNovo(novoGrupoDeVeiculos);
 
@@ -33,10 +33,10 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveAtualizar_GrupoDeVeiculos()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             controlador.InserirNovo(grupoDeVeiculos);
 
-            GrupoDeVeiculo novoGrupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 5.12f, 37.52f, 99.31f, 2);
+            GrupoDeVeiculos novoGrupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 5.12f, 37.52f, 99.31f, 2);
 
             controlador.Editar(grupoDeVeiculos.Id, novoGrupoDeVeiculos);
 
@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveExcluir_GrupoDeVeiculos()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             controlador.InserirNovo(grupoDeVeiculos);
 
             controlador.Excluir(grupoDeVeiculos.Id);
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveSelecionar_GrupoDeVeiculosPorId()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             controlador.InserirNovo(grupoDeVeiculos);
 
             var grupoDeVeiculosEncontrado = controlador.SelecionarPorId(grupoDeVeiculos.Id);
@@ -70,14 +70,14 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveSelecionar_TodosGrupoDeVeiculos()
         {
-            GrupoDeVeiculo g1 = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos g1 = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             controlador.InserirNovo(g1);
-            GrupoDeVeiculo g2 = new GrupoDeVeiculo(0, "emon", 5.12f, 37.52f, 99.31f, 2);
+            GrupoDeVeiculos g2 = new GrupoDeVeiculos(0, "emon", 5.12f, 37.52f, 99.31f, 2);
             controlador.InserirNovo(g2);
-            GrupoDeVeiculo g3 = new GrupoDeVeiculo(0, "meno", 5.21f, 35.72f, 93.91f, 20);
+            GrupoDeVeiculos g3 = new GrupoDeVeiculos(0, "meno", 5.21f, 35.72f, 93.91f, 20);
             controlador.InserirNovo(g3);
 
-            List<GrupoDeVeiculo> grupoDeVeiculosAgrupado = controlador.SelecionarTodos();
+            List<GrupoDeVeiculos> grupoDeVeiculosAgrupado = controlador.SelecionarTodos();
 
             grupoDeVeiculosAgrupado.Should().HaveCount(3);
             grupoDeVeiculosAgrupado[0].Nome.Should().Be("nome");
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveRetornarTrue_QuandoExisteGrupoDeVeiculos()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             controlador.InserirNovo(grupoDeVeiculos);
 
             bool existeGrupoDeVeiculos = controlador.Existe(grupoDeVeiculos.Id);
@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void DeveRetornarFalse_QuandoNaoExisteGrupoDeVeiculos()
         {
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
 
             bool existeGrupoDeVeiculos = controlador.Existe(grupoDeVeiculos.Id);
 
@@ -109,9 +109,9 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void NaoDeveInserir_GrupoDeVeiculosQuandoNomeJaExiste()
         {
-            GrupoDeVeiculo novoGrupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos novoGrupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             controlador.InserirNovo(novoGrupoDeVeiculos);
-            GrupoDeVeiculo identicoGrupoDeVeiculos = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos identicoGrupoDeVeiculos = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             
             string resposta = controlador.InserirNovo(identicoGrupoDeVeiculos);
 
@@ -121,12 +121,12 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         [TestMethod]
         public void NaoDeveAtualizar_GrupoDeVeiculosQuandoNomeJaExiste()
         {
-            GrupoDeVeiculo grupoDeVeiculosParaEditar = new GrupoDeVeiculo(0, "nome", 12.50f, 25.73f, 13.99f, 200);
+            GrupoDeVeiculos grupoDeVeiculosParaEditar = new GrupoDeVeiculos(0, "nome", 12.50f, 25.73f, 13.99f, 200);
             controlador.InserirNovo(grupoDeVeiculosParaEditar);
-            GrupoDeVeiculo grupoDeVeiculosExistente = new GrupoDeVeiculo(0, "emon", 5.12f, 37.52f, 99.31f, 2);
+            GrupoDeVeiculos grupoDeVeiculosExistente = new GrupoDeVeiculos(0, "emon", 5.12f, 37.52f, 99.31f, 2);
             controlador.InserirNovo(grupoDeVeiculosExistente);
 
-            GrupoDeVeiculo grupoDeVeiculosConflitante = new GrupoDeVeiculo(0, "emon", 5.21f, 35.72f, 93.91f, 20);
+            GrupoDeVeiculos grupoDeVeiculosConflitante = new GrupoDeVeiculos(0, "emon", 5.21f, 35.72f, 93.91f, 20);
             string resposta =  controlador.Editar(grupoDeVeiculosParaEditar.Id, grupoDeVeiculosConflitante);
 
             resposta.Should().Be("O nome do grupo de veículos deve ser único\n");

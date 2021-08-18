@@ -1,8 +1,5 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.ClientesModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.WindowsApp.Clientes;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
@@ -70,15 +67,15 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
+            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
 
-            ConfigurarToolBox(configuracao);
+            //ConfigurarToolBox(configuracao);
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            //AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesVeiculo(new ControladorVeiculo());
+            //operacoes = new OperacoesTarefa(new ControladorTarefa());
 
-            ConfigurarPainelRegistros();
+            //ConfigurarPainelRegistros();
         }
 
         private void grupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,7 +123,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
         {
-            toolBoxAcoes.Enabled = true;
+            toolStripMenu.Enabled = true;
+
             labelTipoCadastro.Text = configuracao.TipoCadastro;
             btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
             btnEditar.ToolTipText = configuracao.ToolTipEditar;

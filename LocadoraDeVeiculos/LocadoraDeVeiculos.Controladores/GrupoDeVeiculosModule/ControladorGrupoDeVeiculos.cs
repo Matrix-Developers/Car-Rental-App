@@ -6,7 +6,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 {
-    public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculo>
+    public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculos>
     {
         //Nota: nome da tabela "TBGRUPOVEICULO" é incosistente com o nome das outras tabelas do banco.
         //      - talvez considerar renomear "TBGRUPOVEICULO" para "TBGRUPODEVEICULOS"
@@ -55,12 +55,12 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
                 WHERE 
                     [ID] = @ID";
 
-        public override string InserirNovo(GrupoDeVeiculo registro)
+        public override string InserirNovo(GrupoDeVeiculos registro)
         {
             string resultadoValidacao = registro.Validar();
 
-            List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodos();
-            foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
+            List<GrupoDeVeiculos> grupoDeVeiculosRegistrados = SelecionarTodos();
+            foreach (GrupoDeVeiculos grupo in grupoDeVeiculosRegistrados)
             {
                 if (registro.Nome == grupo.Nome)
                     resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
@@ -74,12 +74,12 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             return resultadoValidacao;
         }
 
-        public override string Editar(int id, GrupoDeVeiculo registro)
+        public override string Editar(int id, GrupoDeVeiculos registro)
         {
             string resultadoValidacao = registro.Validar();
 
-            List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodos();
-            foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
+            List<GrupoDeVeiculos> grupoDeVeiculosRegistrados = SelecionarTodos();
+            foreach (GrupoDeVeiculos grupo in grupoDeVeiculosRegistrados)
             {
                 if (id != grupo.Id && registro.Nome == grupo.Nome)
                     resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
@@ -113,17 +113,17 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             return Db.Exists(sqlExisteGrupoDeVeiculos, AdicionarParametro("ID", id));
         }
 
-        public override GrupoDeVeiculo SelecionarPorId(int id)
+        public override GrupoDeVeiculos SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmGrupoDeVeiculos, AdicionarParametro("ID", id));
         }
 
-        public override List<GrupoDeVeiculo> SelecionarTodos()
+        public override List<GrupoDeVeiculos> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosGrupoDeVeiculoss, ConverterEmGrupoDeVeiculos);
         }
 
-        private Dictionary<string, object> ObtemParametrosGrupoDeVeiculos(GrupoDeVeiculo grupoDeVeiculos)
+        private Dictionary<string, object> ObtemParametrosGrupoDeVeiculos(GrupoDeVeiculos grupoDeVeiculos)
         {
             var parametros = new Dictionary<string, object>();
 
@@ -137,7 +137,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             return parametros;
         }
 
-        private GrupoDeVeiculo ConverterEmGrupoDeVeiculos(IDataReader reader)
+        private GrupoDeVeiculos ConverterEmGrupoDeVeiculos(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]); ;
             string nome = Convert.ToString(reader["NOME"]); ;
@@ -146,7 +146,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             double taxaKmLivre = Convert.ToDouble(reader["TAXAKMLIVRE"]);
             int quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QUANTIDADEQUILOMETROSKMCONTROLADO"]);
 
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
+            GrupoDeVeiculos grupoDeVeiculos = new GrupoDeVeiculos(id, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
 
             return grupoDeVeiculos;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 {
-    public class GrupoDeVeiculo : EntidadeBase
+    public class GrupoDeVeiculos : EntidadeBase
     {
         private string nome;
         private double taxaPlanoDiario;
@@ -17,7 +17,7 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
         public int QuantidadeQuilometrosKmControlado { get => quantidadeQuilometrosKmControlado; set => quantidadeQuilometrosKmControlado = value; }
         public double TaxaKmLivre { get => taxaKmLivre; set => taxaKmLivre = value; }
 
-        public GrupoDeVeiculo(int id,string nome, double taxaPlanoDiario, double taxaKmControlado, double taxaKmLivre, int quantidadeQuilometrosKmControlado)
+        public GrupoDeVeiculos(int id,string nome, double taxaPlanoDiario, double taxaKmControlado, double taxaKmLivre, int quantidadeQuilometrosKmControlado)
         {
             this.id = id;
             this.nome = nome;
@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 
         public override bool Equals(object obj)
         {
-            return obj is GrupoDeVeiculo veiculos &&
+            return obj is GrupoDeVeiculos veiculos &&
                    id == veiculos.id &&
                    nome == veiculos.nome &&
                    taxaPlanoDiario == veiculos.taxaPlanoDiario &&
@@ -77,7 +77,7 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 
         public override string ToString()
         {
-            return nome;
+            return $"GrupoDeVaiculos = [{id}, {nome}, {taxaPlanoDiario}, {taxaKmControlado}, {quantidadeQuilometrosKmControlado}, {taxaKmLivre}]";
         }
     }
 }

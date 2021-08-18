@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="ClienteModule\Cliente.cs" />
     <Compile Include="FuncionarioModule\Funcionario.cs" />
-    <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculo.cs" />
+    <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculos.cs" />
     <Compile Include="PessoaModule\Pessoa.cs" />
     <Compile Include="SevicosModule\Servico.cs" />
     <Compile Include="Shared\EntidadeBase.cs" />
