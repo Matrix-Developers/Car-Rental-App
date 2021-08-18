@@ -28,15 +28,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "", HeaderText = ""},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome do Grupo"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "", HeaderText = ""},
+                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaPlanoDiario", HeaderText = "Taxa do Plano Diário"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "", HeaderText = ""},
+                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaKMControlado", HeaderText = "Taxa do KM Controlado"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "", HeaderText = ""},
+                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaKMLivre", HeaderText = "Taxa do KM Livre"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "", HeaderText = ""}
+                new DataGridViewTextBoxColumn {DataPropertyName = "QuantidadeQuilometrosKmControlado", HeaderText = "Quantidade KM Controlado"}
            };
 
             return colunas;
@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo
             foreach (GrupoDeVeiculos grupo in grupoDeVeiculos)
             {
                 gridGrupoDeVeiculos.Rows.Add(grupo.Id, grupo.Nome, grupo.TaxaPlanoDiario, grupo.TaxaKmControlado,
-                    grupo.TaxaKmLivre);
+                    grupo.TaxaKmLivre,grupo.QuantidadeQuilometrosKmControlado);
             }
         }
     }

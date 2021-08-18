@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo
 {
-    public class ConfiguracaoTarefaToolBox : IConfiguracaoToolBox
+    public class ConfiguracaoGrupoDeVeiculosToolBox : IConfiguracaoToolBox
     {
         public string TipoCadastro
         {

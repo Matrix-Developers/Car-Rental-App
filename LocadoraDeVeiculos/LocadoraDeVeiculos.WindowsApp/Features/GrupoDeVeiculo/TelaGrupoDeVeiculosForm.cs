@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculo
 {
     public partial class TarefaGrupoDeVeiculosForm : Form
     {
-        private GrupoDeVeiculos grupoDeVeiculos
+        private GrupoDeVeiculos grupoDeVeiculos;
         public TarefaGrupoDeVeiculosForm()
         {
             InitializeComponent();
@@ -32,11 +33,32 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculo
                 txtTaxaPlanoDiario.Text =grupoDeVeiculos.TaxaPlanoDiario.ToString();
                 txtTaxaKMControlado.Text = grupoDeVeiculos.TaxaKmControlado.ToString();
                 txtTaxaKMLivre.Text = grupoDeVeiculos.TaxaKmLivre.ToString();
+                textQuantKMControl.Text = grupoDeVeiculos.QuantidadeQuilometrosKmControlado.ToString();
             }
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            int Id = Convert.ToInt32(textId.Text);
+            string Nome = textNomeGrupo.Text;
+            double TaxaPlanoDiario = Convert.ToDouble(txtTaxaPlanoDiario.Text);
+            double TaxaKmControlado = Convert.ToDouble(txtTaxaKMControlado.Text);
+            double TaxaKmLivre = Convert.ToDouble(txtTaxaKMLivre.Text);
+            int QuantidadeQuilometrosKmControlado = Convert.ToInt32(textQuantKMControl.Text);
+
+            grupoDeVeiculos = new GrupoDeVeiculos(Id, Nome, TaxaPlanoDiario, TaxaKmControlado, TaxaKmLivre, QuantidadeQuilometrosKmControlado);
+
+            string resultadoValidacao = grupoDeVeiculos.Validar();
+
+            if (resultadoValidacao != "VALIDO")
+            {
+                string erro = new StringReader(resultadoValidacao).ReadLine();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+
+                DialogResult = DialogResult.None;
+            }
+
 
         }
 

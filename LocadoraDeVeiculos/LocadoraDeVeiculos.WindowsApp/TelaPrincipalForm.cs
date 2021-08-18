@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo;
+using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -12,15 +14,10 @@ namespace LocadoraDeVeiculos.WindowsApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
+            Instancia = this;
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ClientesForm tarefas = new ClientesForm();
-            tarefas.ShowDialog();
-            this.Close();
-        }
+      
 
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -76,16 +73,38 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void grupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+            ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
 
             ConfigurarToolBox(configuracao);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesTarefa(new ControladorTarefa());
+            operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
 
             ConfigurarPainelRegistros();
         }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
+        }
+
+        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
+        {
+            toolBoxAcoes.Enabled = true;
+            labelTipoCadastro.Text = configuracao.TipoCadastro;
+
+            btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
+            btnEditar.ToolTipText = configuracao.ToolTipEditar;
+            btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
+        }
+
         public void AtualizarRodape(string mensagem)
         {
             labelRodape.Text = mensagem;
