@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
+namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo
 {
     partial class TabelaGrupoDeVeiculosControl
     {

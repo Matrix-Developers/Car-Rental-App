@@ -20,6 +20,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
+using LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo;
+using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
