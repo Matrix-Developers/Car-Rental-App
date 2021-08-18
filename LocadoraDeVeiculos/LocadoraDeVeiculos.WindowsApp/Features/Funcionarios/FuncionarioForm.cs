@@ -47,20 +47,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            string nome = (string)textNome.Text;
+            string nome = textNome.Text;
             string registroUnico = mskTxtCpf.Text;
-            string endereco = (string)textEndereco.Text;
+            string endereco = textEndereco.Text;
 
-            string telefone = (string)mskTxtTelefone.Text;
-            string email = (string)textEmail.Text;
+            string telefone = mskTxtTelefone.Text;
+            string email = textEmail.Text;
             int matriculaInterna = Convert.ToInt32(textMatriculaInterna.Text);
-            string usuarioAcesso = (string)textUsuarioAcesso.Text;
+            string usuarioAcesso = textUsuarioAcesso.Text;
             DateTime dataAdmissao;
             if (mskTxtDataAdmissao.Text == null)
                 dataAdmissao = DateTime.Now;
             else
                 dataAdmissao = Convert.ToDateTime(mskTxtDataAdmissao.Text);
-            string cargo = (string)textCargo.Text;
+            string cargo = textCargo.Text;
             double salario = Convert.ToDouble(textSalario.Text);
              
             funcionario = new Funcionario(0,nome,registroUnico,endereco,telefone,email,matriculaInterna,usuarioAcesso,dataAdmissao,cargo,salario,true);

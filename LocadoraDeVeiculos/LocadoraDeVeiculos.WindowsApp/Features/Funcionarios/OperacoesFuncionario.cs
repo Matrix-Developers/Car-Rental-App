@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para poderEditar!","Edição de Funcionários",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Funcionário para poder Editar!","Edição de Funcionários",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 return;
             }
 
