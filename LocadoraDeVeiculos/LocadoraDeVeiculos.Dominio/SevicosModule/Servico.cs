@@ -18,11 +18,13 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
 
         public override string Validar()
         {
-            string resultadoValidacao = "VALIDO";
+            string resultadoValidacao = "";
             if (this.Nome.Length == 0)
                 resultadoValidacao = "O nome não pode ser nulo\n";
             if (this.Valor <= 0)
                 resultadoValidacao += "O valor não pode ser nulo ou negativo";
+            if (resultadoValidacao.Length == 0)
+                resultadoValidacao = "VALIDO";
             return resultadoValidacao;
         }
 

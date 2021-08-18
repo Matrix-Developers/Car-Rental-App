@@ -1,8 +1,12 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
+using LocadoraDeVeiculos.WindowsApp.Clientes;
+using LocadoraDeVeiculos.WindowsApp.ClientesModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 
 namespace LocadoraDeVeiculos.WindowsApp
@@ -51,17 +55,17 @@ namespace LocadoraDeVeiculos.WindowsApp
             //ConfigurarPainelRegistros();
         }
 
-        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+            ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
 
-            //ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao);
 
-            //AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+            operacoes = new OperacoesServico(new ControladorServico());
 
-            //ConfigurarPainelRegistros();
+            ConfigurarPainelRegistros();
         }
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,6 +123,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
+
         private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
         {
             toolBoxAcoes.Enabled = true;
