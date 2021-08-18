@@ -18,6 +18,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.Controladores.ClientesModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
+using LocadoraDeVeiculos.Controladores.VeiculoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -71,6 +73,19 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
+        private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
+
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesVeiculo(new ControladorVeiculo());
+
+            ConfigurarPainelRegistros();
+        }
+
         public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -101,14 +116,11 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
         {
-            toolStripMenu.Enabled = true;
-
+            toolBoxAcoes.Enabled = true;
             labelTipoCadastro.Text = configuracao.TipoCadastro;
             btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
             btnEditar.ToolTipText = configuracao.ToolTipEditar;
             btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
         }
-
-       
     }
 }

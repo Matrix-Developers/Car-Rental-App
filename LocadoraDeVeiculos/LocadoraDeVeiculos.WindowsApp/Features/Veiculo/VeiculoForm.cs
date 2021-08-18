@@ -1,22 +1,101 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using System;
+using System.IO;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 
-namespace LocadoraDeVeiculos.WindowsApp.Veiculo
+namespace LocadoraDeVeiculos.WindowsApp.Veiculos
 {
     public partial class VeiculoForm : Form
     {
+        private Veiculo veiculo;
+        private ControladorGrupoDeVeiculos controladorGrupoVeiculos = new ControladorGrupoDeVeiculos();
         public VeiculoForm()
-        {
+        {            
             InitializeComponent();
+            CarregarGruposDeVeiculos();
         }
 
-      
+        private void CarregarGruposDeVeiculos()
+        {
+            cBoxGrupo.DataSource = controladorGrupoVeiculos.SelecionarTodos();
+        }
+
+        public Veiculo Veiculo
+        {
+            get { return veiculo; }
+
+            set
+            {
+                veiculo = value;
+
+                textId.Text = veiculo.Id.ToString();
+                textModelo.Text = veiculo.modelo;
+                cBoxGrupo.Text = veiculo.grupoVeiculos.Nome;
+                textPlaca.Text = veiculo.placa;
+                textChassi.Text = veiculo.chassi;
+                textMarca.Text = veiculo.marca;
+                textCor.Text = veiculo.marca;
+                cBoxCombustivel.Text = veiculo.tipoCombustivel;
+                numUpDownCapTanque.Text = veiculo.capacidadeTanque.ToString();
+                textAno.Text = veiculo.ano.ToString();
+                textKM.Text = veiculo.quilometragem.ToString();
+                numUpDownQtdPortas.Text = veiculo.numeroPortas.ToString();
+                numUpDownQtdPessoas.Text = veiculo.capacidadePessoas.ToString();
+                cBoxPortaMalas.Text = veiculo.tamanhoPortaMala.ToString();
+                if (veiculo.temArCondicionado)
+                    checkLBoxOpcionais.SetItemChecked(0, true);
+                if (veiculo.temDirecaoHidraulica)
+                    checkLBoxOpcionais.SetItemChecked(1, true);
+                if (veiculo.temFreiosAbs)
+                    checkLBoxOpcionais.SetItemChecked(2, true);
+            }
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            if(textId.Text.Length > 0)
+                id = Convert.ToInt32(textId.Text);
+            GrupoDeVeiculo grupoDeVeiculos = null;
+            string placa = textPlaca.Text;
+            string chassi = textChassi.Text;
+            string marca = textMarca.Text;
+            string modelo = textModelo.Text;
+            int ano = Convert.ToInt32(textAno.Text);
+            string cor = textCor.Text;
+            grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
+            //string imagem = textImagem.Text;
+            int capTanque = Convert.ToInt32(numUpDownCapTanque.Value);
+            string combustivel = cBoxCombustivel.Text;
+            int numPortas = Convert.ToInt32(numUpDownQtdPortas.Value);
+            int numPessoas = Convert.ToInt32(numUpDownQtdPessoas.Value);
+            string quilometragem = textKM.Text;
+            char tamPortaMalas = Convert.ToChar(cBoxPortaMalas.Text);
+            bool possuiArCondicionado = false;
+            bool possuiDirecaoHidraulica = false;
+            bool possuiFreioAbs = false;
+
+            if (checkLBoxOpcionais.CheckedIndices.Contains(0))
+                possuiArCondicionado = true;
+            if (checkLBoxOpcionais.CheckedIndices.Contains(1))
+                possuiDirecaoHidraulica = true;
+            if (checkLBoxOpcionais.CheckedIndices.Contains(2))
+                possuiFreioAbs = true;
+
+            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, quilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs);
+
+            string resultadoValidacao = veiculo.Validar();
+
+            if (resultadoValidacao != "VALIDO")
+            {
+                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                DialogResult = DialogResult.None;
+            }
+        }
     }
 }
