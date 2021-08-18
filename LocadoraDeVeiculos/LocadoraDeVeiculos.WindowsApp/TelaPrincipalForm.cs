@@ -1,10 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.WindowsApp.Clientes;
+using LocadoraDeVeiculos.WindowsApp.Funcionarios;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
+using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using LocadoraDeVeiculos.WindowsApp.Features.Funcionarios;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -15,6 +24,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
+
             Instancia = this;
         }
 
@@ -27,29 +37,16 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
 
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
+        {           
+            ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
 
-            //ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao);
 
-            //AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
+            operacoes = new OperacoesFuncionario(new ControladorFuncionario());
 
-            //ConfigurarPainelRegistros();
-        }
-
-        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
-
-            //ConfigurarToolBox(configuracao);
-
-            //AtualizarRodape(configuracao.TipoCadastro);
-
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
-
-            //ConfigurarPainelRegistros();
+            ConfigurarPainelRegistros();
         }
 
         private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,47 +62,30 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
         {
-            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+            toolStripMenu.Enabled = true;
 
-            //ConfigurarToolBox(configuracao);
+            labelTipoCadastro.Text = configuracao.TipoCadastro;
+            btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
+            btnEditar.ToolTipText = configuracao.ToolTipEditar;
+            btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
 
-            //AtualizarRodape(configuracao.TipoCadastro);
-
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
-
-            //ConfigurarPainelRegistros();
         }
 
-        private void grupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ConfiguracaoTarefaToolBox configuracao = new ConfiguracaoTarefaToolBox();
+        public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
 
-            //ConfigurarToolBox(configuracao);
-
-            //AtualizarRodape(configuracao.TipoCadastro);
-
-            //operacoes = new OperacoesTarefa(new ControladorTarefa());
-
-            //ConfigurarPainelRegistros();
-        }
-        public void AtualizarRodape(string mensagem)
-        {
-            labelRodape.Text = mensagem;
-        }
-
-        private void toolStripButton2_Click_1(object sender, EventArgs e)
+        private void btnAdicionar_Click(object sender, EventArgs e)
         {
             operacoes.InserirNovoRegistro();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             operacoes.EditarRegistro();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
             operacoes.ExcluirRegistro();
         }

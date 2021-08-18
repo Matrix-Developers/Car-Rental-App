@@ -61,12 +61,14 @@
     <Compile Include="Features\Clientes\TabelaClientesControl.Designer.cs">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Funcionarios\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\Funcionarios\FuncionarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Features\Funcionarios\FuncionarioForm.Designer.cs">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Funcionarios\OperacoesFuncionario.cs" />
     <Compile Include="Features\Funcionarios\TabelaFuncionarioControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +175,7 @@
     <EmbeddedResource Include="Features\Veiculo\VeiculoForm.resx">
       <DependentUpon>VeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -188,8 +191,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
-      <Project>{35789073-23E1-426D-BBC2-E1AF3DB9935E}</Project>
+      <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+      <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
+      <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
     <Content Include="Libraries\DataGridViewGrouper.dll" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
