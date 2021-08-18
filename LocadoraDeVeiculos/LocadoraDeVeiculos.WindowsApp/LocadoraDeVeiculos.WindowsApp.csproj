@@ -73,6 +73,7 @@
     <Compile Include="Features\Funcionarios\TabelaFuncionarioControl.Designer.cs">
       <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\GrupoDeVeiculo\ConfiguracaoGrupoDeVeiculosToolBox.cs" />
     <Compile Include="Features\GrupoDeVeiculo\OperacoesGrupoDeVeiculos.cs" />
     <Compile Include="Features\GrupoDeVeiculo\TelaGrupoDeVeiculosForm.cs">
       <SubType>Form</SubType>
