@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo
+namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 {
     public partial class TabelaGrupoDeVeiculosControl : UserControl
     {
@@ -46,11 +46,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculo
             return gridGrupoDeVeiculos.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<GrupoDeVeiculos> grupoDeVeiculos)
+        public void AtualizarRegistros(List<GrupoDeVeiculo> grupoDeVeiculos)
         {
             gridGrupoDeVeiculos.Rows.Clear();
 
-            foreach (GrupoDeVeiculos grupo in grupoDeVeiculos)
+            foreach (GrupoDeVeiculo grupo in grupoDeVeiculos)
             {
                 gridGrupoDeVeiculos.Rows.Add(grupo.Id, grupo.Nome, grupo.TaxaPlanoDiario, grupo.TaxaKmControlado,
                     grupo.TaxaKmLivre,grupo.QuantidadeQuilometrosKmControlado);

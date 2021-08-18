@@ -10,17 +10,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculo
+namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
 {
     public partial class TarefaGrupoDeVeiculosForm : Form
     {
-        private GrupoDeVeiculos grupoDeVeiculos;
+        private GrupoDeVeiculo grupoDeVeiculos;
         public TarefaGrupoDeVeiculosForm()
         {
             InitializeComponent();
         }
 
-        public GrupoDeVeiculos GrupoDeVeiculos
+        public GrupoDeVeiculo GrupoDeVeiculos
         {
             get { return grupoDeVeiculos; }
 
@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculo
             double TaxaKmLivre = Convert.ToDouble(txtTaxaKMLivre.Text);
             int QuantidadeQuilometrosKmControlado = Convert.ToInt32(textQuantKMControl.Text);
 
-            grupoDeVeiculos = new GrupoDeVeiculos(Id, Nome, TaxaPlanoDiario, TaxaKmControlado, TaxaKmLivre, QuantidadeQuilometrosKmControlado);
+            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaKmControlado, TaxaKmLivre, QuantidadeQuilometrosKmControlado);
 
             string resultadoValidacao = grupoDeVeiculos.Validar();
 

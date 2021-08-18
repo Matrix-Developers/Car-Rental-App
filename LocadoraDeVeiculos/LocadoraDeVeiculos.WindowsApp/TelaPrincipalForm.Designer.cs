@@ -109,6 +109,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.grupoDeVeículosToolStripMenuItem.Name = "grupoDeVeículosToolStripMenuItem";
             this.grupoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.grupoDeVeículosToolStripMenuItem.Text = "Grupo de Veículos";
+            this.grupoDeVeículosToolStripMenuItem.Click += new System.EventHandler(this.grupoDeVeículosToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -119,7 +120,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.locaçaoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,7 +142,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnAdicionar,
             this.btnEditar,
             this.btnExcluir});
-            this.toolBoxAcoes.Location = new System.Drawing.Point(0, 30);
+            this.toolBoxAcoes.Location = new System.Drawing.Point(0, 28);
             this.toolBoxAcoes.Name = "toolBoxAcoes";
             this.toolBoxAcoes.Size = new System.Drawing.Size(1067, 55);
             this.toolBoxAcoes.TabIndex = 5;
@@ -182,9 +183,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             // panelRegistros
             // 
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRegistros.Location = new System.Drawing.Point(0, 85);
+            this.panelRegistros.Location = new System.Drawing.Point(0, 83);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(1067, 549);
+            this.panelRegistros.Size = new System.Drawing.Size(1067, 551);
             this.panelRegistros.TabIndex = 6;
             // 
             // statusStripRodape

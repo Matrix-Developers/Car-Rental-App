@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculo
+namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
 {
     partial class TarefaGrupoDeVeiculosForm
     {
