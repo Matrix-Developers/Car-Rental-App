@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.statusStripRodape = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
-            this.toolStripMenu.SuspendLayout();
+            this.toolboxAcoes.SuspendLayout();
             this.statusStripRodape.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,11 +214,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.Controls.Add(this.menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TelaPrincipalForm";
-            this.Text = "Form1";
+            this.Text = "Locadora de veículos ";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStripMenu.ResumeLayout(false);
-            this.toolStripMenu.PerformLayout();
+            this.toolboxAcoes.ResumeLayout(false);
+            this.toolboxAcoes.PerformLayout();
             this.statusStripRodape.ResumeLayout(false);
             this.statusStripRodape.PerformLayout();
             this.ResumeLayout(false);

@@ -55,6 +55,8 @@
     <Compile Include="Features\Clientes\ClientesForm.Designer.cs">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Clientes\ConfiguracaoClienteToolBox.cs" />
+    <Compile Include="Features\Clientes\OperacoesClientes.cs" />
     <Compile Include="Features\Clientes\TabelaClientesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +203,16 @@
     <Content Include="Libraries\DataGridViewGrouper.dll" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
       <Project>{7F169E59-39E2-4908-BE88-38206B8983F7}</Project>
+      <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+      <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
+      <Name>LocadoraDeVeiculos.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+      <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
   </ItemGroup>

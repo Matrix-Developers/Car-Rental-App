@@ -97,7 +97,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             string digito;
             string tempCnpj;
             cnpj = cnpj.Trim();
-            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Replace(",", "");
             if (cnpj.Length != 14)
                 return false;
             tempCnpj = cnpj.Substring(0, 12);

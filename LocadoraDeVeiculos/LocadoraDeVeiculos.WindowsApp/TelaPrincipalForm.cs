@@ -30,13 +30,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             Instancia = this;
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ClientesForm tarefas = new ClientesForm();
-            tarefas.ShowDialog();
-            this.Close();
-        }
+       
 
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {           
@@ -54,6 +48,8 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
+     
+            ConfiguracaoClienteToolBox configuracao = new ConfiguracaoClienteToolBox();
 
             ConfigurarToolBox(configuracao);
 
@@ -101,5 +97,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             btnEditar.ToolTipText = configuracao.ToolTipEditar;
             btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
         }
+
+
     }
 }
