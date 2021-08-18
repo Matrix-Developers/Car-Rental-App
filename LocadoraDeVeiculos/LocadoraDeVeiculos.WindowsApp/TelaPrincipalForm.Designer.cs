@@ -43,12 +43,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripMenu = new System.Windows.Forms.ToolStrip();
-            this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStripRodape = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
@@ -62,12 +56,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelTipoCadastro.AutoSize = true;
             this.labelTipoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTipoCadastro.ForeColor = System.Drawing.Color.Red;
-            this.labelTipoCadastro.Location = new System.Drawing.Point(373, 0);
-            this.labelTipoCadastro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTipoCadastro.Location = new System.Drawing.Point(280, 0);
             this.labelTipoCadastro.Name = "labelTipoCadastro";
-            this.labelTipoCadastro.Size = new System.Drawing.Size(324, 36);
+            this.labelTipoCadastro.Size = new System.Drawing.Size(383, 29);
             this.labelTipoCadastro.TabIndex = 3;
-            this.labelTipoCadastro.Text = "Locadora de Veículos";
+            this.labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
             // 
             // toolStripMenuItem1
             // 
@@ -80,41 +73,41 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Red;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(88, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(72, 21);
             this.toolStripMenuItem1.Text = "Cadastros";
             // 
             // funcionáriosToolStripMenuItem
             // 
             this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.funcionáriosToolStripMenuItem.Text = "Funcionários";
             this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionáriosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // serviçosToolStripMenuItem
             // 
             this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.serviçosToolStripMenuItem.Text = "Serviços";
             this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.servicosToolStripMenuItem_Click);
             // 
             // veiculosToolStripMenuItem
             // 
             this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
-            this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.veiculosToolStripMenuItem.Text = "Veiculos";
             this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.veiculosToolStripMenuItem_Click);
             // 
             // grupoDeVeículosToolStripMenuItem
             // 
             this.grupoDeVeículosToolStripMenuItem.Name = "grupoDeVeículosToolStripMenuItem";
-            this.grupoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.grupoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.grupoDeVeículosToolStripMenuItem.Text = "Grupo de Veículos";
             this.grupoDeVeículosToolStripMenuItem.Click += new System.EventHandler(this.grupoDeVeículosToolStripMenuItem_Click);
             // 
@@ -127,7 +120,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.locaçaoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -136,7 +130,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.locaçaoToolStripMenuItem.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locaçaoToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.locaçaoToolStripMenuItem.Name = "locaçaoToolStripMenuItem";
-            this.locaçaoToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.locaçaoToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
             this.locaçaoToolStripMenuItem.Text = "Locaçao";
             // 
             // toolBoxAcoes
@@ -147,27 +141,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.toolBoxAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAdicionar,
             this.btnEditar,
-            this.btnExcluir,
-            this.toolStripSeparator1,
-            this.labelTipoCadastro});
+            this.btnExcluir});
             this.toolBoxAcoes.Location = new System.Drawing.Point(0, 25);
             this.toolBoxAcoes.Name = "toolBoxAcoes";
-            this.toolBoxAcoes.Size = new System.Drawing.Size(800, 45);
+            this.toolBoxAcoes.Size = new System.Drawing.Size(800, 37);
             this.toolBoxAcoes.TabIndex = 5;
-            // toolStripMenu
-            // 
-            this.toolStripMenu.AutoSize = false;
-            this.toolStripMenu.BackColor = System.Drawing.Color.DarkGray;
-            this.toolStripMenu.Enabled = false;
-            this.toolStripMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAdicionar,
-            this.btnEditar,
-            this.btnExcluir});
-            this.toolStripMenu.Location = new System.Drawing.Point(0, 28);
-            this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(1067, 55);
-            this.toolStripMenu.TabIndex = 5;
             // 
             // btnAdicionar
             // 
@@ -176,7 +154,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnAdicionar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(40, 42);
+            this.btnAdicionar.Size = new System.Drawing.Size(40, 34);
             this.btnAdicionar.Text = "toolStripButton2";
             this.btnAdicionar.Click += new System.EventHandler(this.toolStripButton2_Click_1);
             // 
@@ -187,7 +165,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(40, 42);
+            this.btnEditar.Size = new System.Drawing.Size(40, 34);
             this.btnEditar.Text = "toolStripButton3";
             this.btnEditar.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
@@ -198,39 +176,16 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(40, 42);
-            this.btnExcluir.Text = "toolStripButton1";
-            this.btnExcluir.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 45);
-            // 
-            // labelTipoCadastro
-            // 
-            this.labelTipoCadastro.Name = "labelTipoCadastro";
-            this.labelTipoCadastro.Size = new System.Drawing.Size(174, 42);
-            this.labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
-            // 
-            // panelRegistros
-            // 
-            this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRegistros.Location = new System.Drawing.Point(0, 70);
-            this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(800, 464);
-
-            this.btnExcluir.Size = new System.Drawing.Size(40, 52);
+            this.btnExcluir.Size = new System.Drawing.Size(40, 34);
             this.btnExcluir.Text = "toolStripButton1";
             this.btnExcluir.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // panelRegistros
             // 
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRegistros.Location = new System.Drawing.Point(0, 83);
-            this.panelRegistros.Margin = new System.Windows.Forms.Padding(4);
+            this.panelRegistros.Location = new System.Drawing.Point(0, 62);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(1067, 551);
+            this.panelRegistros.Size = new System.Drawing.Size(800, 453);
             this.panelRegistros.TabIndex = 6;
             // 
             // statusStripRodape
@@ -238,30 +193,30 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.statusStripRodape.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripRodape.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelRodape});
-            this.statusStripRodape.Location = new System.Drawing.Point(0, 608);
+            this.statusStripRodape.Location = new System.Drawing.Point(0, 493);
             this.statusStripRodape.Name = "statusStripRodape";
-            this.statusStripRodape.Size = new System.Drawing.Size(1067, 26);
+            this.statusStripRodape.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStripRodape.Size = new System.Drawing.Size(800, 22);
             this.statusStripRodape.TabIndex = 7;
             this.statusStripRodape.Text = "statusStrip1";
             // 
             // labelRodape
             // 
             this.labelRodape.Name = "labelRodape";
-            this.labelRodape.Size = new System.Drawing.Size(36, 20);
+            this.labelRodape.Size = new System.Drawing.Size(28, 17);
             this.labelRodape.Text = "Text";
             // 
             // TelaPrincipalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(1067, 634);
+            this.ClientSize = new System.Drawing.Size(800, 515);
             this.Controls.Add(this.statusStripRodape);
             this.Controls.Add(this.panelRegistros);
             this.Controls.Add(this.toolBoxAcoes);
             this.Controls.Add(this.labelTipoCadastro);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TelaPrincipalForm";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
@@ -293,8 +248,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.Panel panelRegistros;
         private System.Windows.Forms.StatusStrip statusStripRodape;
         private System.Windows.Forms.ToolStripStatusLabel labelRodape;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel labelTipoCadastro;
     }
 }
 
