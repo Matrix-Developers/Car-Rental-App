@@ -418,6 +418,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             // cBoxPortaMalas
             // 
+            this.cBoxPortaMalas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxPortaMalas.FormattingEnabled = true;
             this.cBoxPortaMalas.Items.AddRange(new object[] {
             "G",
@@ -427,7 +428,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.cBoxPortaMalas.Name = "cBoxPortaMalas";
             this.cBoxPortaMalas.Size = new System.Drawing.Size(156, 21);
             this.cBoxPortaMalas.TabIndex = 14;
-            this.cBoxPortaMalas.Text = "Selecionar";
             // 
             // numUpDownQtdPessoas
             // 
@@ -445,12 +445,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             // cBoxGrupo
             // 
+            this.cBoxGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxGrupo.FormattingEnabled = true;
             this.cBoxGrupo.Location = new System.Drawing.Point(97, 179);
             this.cBoxGrupo.Name = "cBoxGrupo";
             this.cBoxGrupo.Size = new System.Drawing.Size(217, 21);
             this.cBoxGrupo.TabIndex = 7;
-            this.cBoxGrupo.Text = "Selecionar";
             // 
             // groupBox1
             // 

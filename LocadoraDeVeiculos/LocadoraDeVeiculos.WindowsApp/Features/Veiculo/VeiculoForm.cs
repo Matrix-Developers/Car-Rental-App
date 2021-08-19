@@ -17,6 +17,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             CarregarGruposDeVeiculos();
             this.Text = titulo;
             labelTitulo.Text = titulo;
+            cBoxPortaMalas.SelectedIndex = 0;
         }
 
         private void CarregarGruposDeVeiculos()
@@ -58,14 +59,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             int id = 0;
-            if(textId.Text.Length > 0)
-                id = Convert.ToInt32(textId.Text);
+            int ano = 0;
             GrupoDeVeiculo grupoDeVeiculos = null;
+            if (textId.Text.Length > 0)
+                id = Convert.ToInt32(textId.Text);            
             string placa = textPlaca.Text;
             string chassi = textChassi.Text;
             string marca = textMarca.Text;
             string modelo = textModelo.Text;
-            int ano = Convert.ToInt32(textAno.Text);
+            if(textAno.Text.Length > 0)
+                ano = Convert.ToInt32(textAno.Text);
             string cor = textCor.Text;
             grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
             //string imagem = textImagem.Text;
