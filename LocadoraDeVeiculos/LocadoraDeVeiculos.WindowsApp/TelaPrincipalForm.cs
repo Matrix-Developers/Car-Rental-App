@@ -137,5 +137,31 @@ namespace LocadoraDeVeiculos.WindowsApp
             btnEditar.ToolTipText = configuracao.ToolTipEditar;
             btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
         }
+
+        private void locarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
+
+            //ConfigurarToolBox(configuracao);
+
+            //AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
+
+            //ConfigurarPainelRegistros();
+        }
+
+        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
+
+            //ConfigurarToolBox(configuracao);
+
+            //AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
+
+            //ConfigurarPainelRegistros();
+        }
     }
 }
