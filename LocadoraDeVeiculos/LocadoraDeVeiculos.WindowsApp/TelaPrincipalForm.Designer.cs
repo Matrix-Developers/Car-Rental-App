@@ -257,6 +257,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.menuStrip1);
             this.Name = "TelaPrincipalForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locadora de veículos ";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

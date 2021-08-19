@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(70, 9);
+            this.label8.Location = new System.Drawing.Point(83, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(154, 23);
             this.label8.TabIndex = 26;
@@ -68,10 +68,10 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(74, 58);
+            this.radioButton1.Location = new System.Drawing.Point(87, 58);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(38, 17);
-            this.radioButton1.TabIndex = 27;
+            this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "PF";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(186, 58);
+            this.radioButton2.Location = new System.Drawing.Point(200, 58);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(37, 17);
             this.radioButton2.TabIndex = 28;
@@ -93,10 +93,10 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // 
             this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirmar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.Location = new System.Drawing.Point(84, 396);
+            this.btnConfirmar.Location = new System.Drawing.Point(12, 321);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 28);
-            this.btnConfirmar.TabIndex = 30;
+            this.btnConfirmar.TabIndex = 9;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
@@ -105,13 +105,12 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(155, 396);
+            this.btnCancelar.Location = new System.Drawing.Point(232, 321);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 28);
-            this.btnCancelar.TabIndex = 31;
+            this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // groupBox1
             // 
@@ -135,49 +134,49 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
             this.groupBox1.Location = new System.Drawing.Point(4, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 309);
+            this.groupBox1.Size = new System.Drawing.Size(312, 234);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insira os dados";
             // 
             // maskRegistro
             // 
-            this.maskRegistro.Location = new System.Drawing.Point(151, 89);
-            this.maskRegistro.Mask = "000000000-90";
+            this.maskRegistro.Location = new System.Drawing.Point(154, 71);
+            this.maskRegistro.Mask = "999.999.999-99";
             this.maskRegistro.Name = "maskRegistro";
             this.maskRegistro.Size = new System.Drawing.Size(93, 20);
-            this.maskRegistro.TabIndex = 44;
+            this.maskRegistro.TabIndex = 3;
             // 
             // maskedCNH
             // 
-            this.maskedCNH.Location = new System.Drawing.Point(151, 238);
+            this.maskedCNH.Location = new System.Drawing.Point(154, 175);
             this.maskedCNH.Mask = "000000000-90";
             this.maskedCNH.Name = "maskedCNH";
             this.maskedCNH.Size = new System.Drawing.Size(81, 20);
-            this.maskedCNH.TabIndex = 43;
+            this.maskedCNH.TabIndex = 7;
             // 
             // maskTelefone
             // 
-            this.maskTelefone.Location = new System.Drawing.Point(154, 164);
+            this.maskTelefone.Location = new System.Drawing.Point(154, 123);
             this.maskTelefone.Mask = "(99) 00000-0000";
             this.maskTelefone.Name = "maskTelefone";
             this.maskTelefone.Size = new System.Drawing.Size(81, 20);
-            this.maskTelefone.TabIndex = 37;
+            this.maskTelefone.TabIndex = 5;
             // 
             // dtpValidade
             // 
             this.dtpValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpValidade.Location = new System.Drawing.Point(154, 275);
+            this.dtpValidade.Location = new System.Drawing.Point(154, 201);
             this.dtpValidade.Name = "dtpValidade";
             this.dtpValidade.Size = new System.Drawing.Size(90, 20);
-            this.dtpValidade.TabIndex = 36;
+            this.dtpValidade.TabIndex = 8;
             // 
             // lbValidade
             // 
             this.lbValidade.AutoSize = true;
             this.lbValidade.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbValidade.ForeColor = System.Drawing.Color.Red;
-            this.lbValidade.Location = new System.Drawing.Point(6, 273);
+            this.lbValidade.Location = new System.Drawing.Point(8, 199);
             this.lbValidade.Name = "lbValidade";
             this.lbValidade.Size = new System.Drawing.Size(109, 23);
             this.lbValidade.TabIndex = 35;
@@ -185,6 +184,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // 
             // textId
             // 
+            this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textId.Enabled = false;
             this.textId.Location = new System.Drawing.Point(154, 19);
             this.textId.Name = "textId";
@@ -197,7 +197,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.labelCNH.AutoSize = true;
             this.labelCNH.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCNH.ForeColor = System.Drawing.Color.Red;
-            this.labelCNH.Location = new System.Drawing.Point(6, 234);
+            this.labelCNH.Location = new System.Drawing.Point(8, 171);
             this.labelCNH.Name = "labelCNH";
             this.labelCNH.Size = new System.Drawing.Size(43, 23);
             this.labelCNH.TabIndex = 29;
@@ -208,7 +208,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.lbTelefone.AutoSize = true;
             this.lbTelefone.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTelefone.ForeColor = System.Drawing.Color.Red;
-            this.lbTelefone.Location = new System.Drawing.Point(6, 159);
+            this.lbTelefone.Location = new System.Drawing.Point(8, 119);
             this.lbTelefone.Name = "lbTelefone";
             this.lbTelefone.Size = new System.Drawing.Size(70, 23);
             this.lbTelefone.TabIndex = 21;
@@ -219,7 +219,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.lbEmail.AutoSize = true;
             this.lbEmail.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEmail.ForeColor = System.Drawing.Color.Red;
-            this.lbEmail.Location = new System.Drawing.Point(6, 195);
+            this.lbEmail.Location = new System.Drawing.Point(8, 145);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(53, 23);
             this.lbEmail.TabIndex = 22;
@@ -227,17 +227,17 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // 
             // tetxtEmail
             // 
-            this.tetxtEmail.Location = new System.Drawing.Point(154, 203);
+            this.tetxtEmail.Location = new System.Drawing.Point(154, 149);
             this.tetxtEmail.Name = "tetxtEmail";
             this.tetxtEmail.Size = new System.Drawing.Size(131, 20);
-            this.tetxtEmail.TabIndex = 28;
+            this.tetxtEmail.TabIndex = 6;
             // 
             // lbEndereco
             // 
             this.lbEndereco.AutoSize = true;
             this.lbEndereco.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEndereco.ForeColor = System.Drawing.Color.Red;
-            this.lbEndereco.Location = new System.Drawing.Point(6, 125);
+            this.lbEndereco.Location = new System.Drawing.Point(8, 93);
             this.lbEndereco.Name = "lbEndereco";
             this.lbEndereco.Size = new System.Drawing.Size(78, 23);
             this.lbEndereco.TabIndex = 20;
@@ -248,7 +248,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.labelRegistro.AutoSize = true;
             this.labelRegistro.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRegistro.ForeColor = System.Drawing.Color.Red;
-            this.labelRegistro.Location = new System.Drawing.Point(6, 86);
+            this.labelRegistro.Location = new System.Drawing.Point(8, 67);
             this.labelRegistro.Name = "labelRegistro";
             this.labelRegistro.Size = new System.Drawing.Size(41, 23);
             this.labelRegistro.TabIndex = 19;
@@ -256,17 +256,17 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // 
             // textEndereco
             // 
-            this.textEndereco.Location = new System.Drawing.Point(154, 133);
+            this.textEndereco.Location = new System.Drawing.Point(154, 97);
             this.textEndereco.Name = "textEndereco";
             this.textEndereco.Size = new System.Drawing.Size(131, 20);
-            this.textEndereco.TabIndex = 26;
+            this.textEndereco.TabIndex = 4;
             // 
             // lbNome
             // 
             this.lbNome.AutoSize = true;
             this.lbNome.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNome.ForeColor = System.Drawing.Color.Red;
-            this.lbNome.Location = new System.Drawing.Point(6, 50);
+            this.lbNome.Location = new System.Drawing.Point(8, 41);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(52, 23);
             this.lbNome.TabIndex = 17;
@@ -277,7 +277,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.lbId.AutoSize = true;
             this.lbId.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbId.ForeColor = System.Drawing.Color.Red;
-            this.lbId.Location = new System.Drawing.Point(6, 16);
+            this.lbId.Location = new System.Drawing.Point(8, 15);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(22, 23);
             this.lbId.TabIndex = 14;
@@ -285,10 +285,10 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // 
             // textNome
             // 
-            this.textNome.Location = new System.Drawing.Point(154, 54);
+            this.textNome.Location = new System.Drawing.Point(154, 45);
             this.textNome.Name = "textNome";
             this.textNome.Size = new System.Drawing.Size(131, 20);
-            this.textNome.TabIndex = 24;
+            this.textNome.TabIndex = 2;
             // 
             // ClientesForm
             // 
@@ -297,7 +297,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(319, 429);
+            this.ClientSize = new System.Drawing.Size(319, 357);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);

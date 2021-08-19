@@ -41,12 +41,20 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            double TaxaPlanoDiario = 0;
+            double TaxaKmControlado = 0;
+            double TaxaKmLivre = 0;
+            int QuantidadeQuilometrosKmControlado = 0;
             int Id = Convert.ToInt32(textId.Text);
             string Nome = textNomeGrupo.Text;
-            double TaxaPlanoDiario = Convert.ToDouble(txtTaxaPlanoDiario.Text);
-            double TaxaKmControlado = Convert.ToDouble(txtTaxaKMControlado.Text);
-            double TaxaKmLivre = Convert.ToDouble(txtTaxaKMLivre.Text);
-            int QuantidadeQuilometrosKmControlado = Convert.ToInt32(textQuantKMControl.Text);
+            if(txtTaxaPlanoDiario.Text.Length > 0)
+                TaxaPlanoDiario = Convert.ToDouble(txtTaxaPlanoDiario.Text);
+            if (txtTaxaKMControlado.Text.Length > 0)
+                TaxaKmControlado = Convert.ToDouble(txtTaxaKMControlado.Text);
+            if (txtTaxaKMLivre.Text.Length > 0)
+                TaxaKmLivre = Convert.ToDouble(txtTaxaKMLivre.Text);
+            if (textQuantKMControl.Text.Length > 0)
+                QuantidadeQuilometrosKmControlado = Convert.ToInt32(textQuantKMControl.Text);
 
             grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaKmControlado, TaxaKmLivre, QuantidadeQuilometrosKmControlado);
 
@@ -95,6 +103,21 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
         }
 
         private void txtTaxaKMLivre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.')
+            {
+                if (txtTaxaKMLivre.Text.IndexOf(".") >= 0 || txtTaxaKMLivre.Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+            }
+            else if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textQuantKMControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
