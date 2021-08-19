@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public void InserirNovoRegistro()
         {
-            VeiculoForm tela = new VeiculoForm();
+            VeiculoForm tela = new VeiculoForm("Cadastro de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 
             Veiculo tarefaSelecionada = controlador.SelecionarPorId(id);
 
-            VeiculoForm tela = new VeiculoForm();
+            VeiculoForm tela = new VeiculoForm("Edição de Veiculos");
 
             tela.Veiculo = tarefaSelecionada;
 

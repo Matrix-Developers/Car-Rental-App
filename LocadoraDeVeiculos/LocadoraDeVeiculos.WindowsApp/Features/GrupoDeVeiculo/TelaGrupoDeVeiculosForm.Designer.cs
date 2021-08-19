@@ -43,8 +43,8 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbQuantKMControl = new System.Windows.Forms.Label();
             this.textQuantKMControl = new System.Windows.Forms.TextBox();
+            this.lbQuantKMControl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -197,6 +197,13 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.groupBox1.TabIndex = 60;
             this.groupBox1.TabStop = false;
             // 
+            // textQuantKMControl
+            // 
+            this.textQuantKMControl.Location = new System.Drawing.Point(274, 188);
+            this.textQuantKMControl.Name = "textQuantKMControl";
+            this.textQuantKMControl.Size = new System.Drawing.Size(100, 20);
+            this.textQuantKMControl.TabIndex = 47;
+            // 
             // lbQuantKMControl
             // 
             this.lbQuantKMControl.AutoSize = true;
@@ -207,13 +214,6 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.lbQuantKMControl.Size = new System.Drawing.Size(265, 24);
             this.lbQuantKMControl.TabIndex = 46;
             this.lbQuantKMControl.Text = "Quantidade de KM Controlado";
-            // 
-            // textQuantKMControl
-            // 
-            this.textQuantKMControl.Location = new System.Drawing.Point(274, 188);
-            this.textQuantKMControl.Name = "textQuantKMControl";
-            this.textQuantKMControl.Size = new System.Drawing.Size(100, 20);
-            this.textQuantKMControl.TabIndex = 47;
             // 
             // TarefaGrupoDeVeiculosForm
             // 
@@ -226,7 +226,12 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblCadastroGrupoDeVeiculos);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TarefaGrupoDeVeiculosForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "GrupodeVeiculo";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             }
             Cliente clienteSelecionado = controlador.SelecionarPorId(id);
 
-            ClientesForm tela = new ClientesForm();
+            ClientesForm tela = new ClientesForm("Edição de Clientes");
 
             tela.Clientes = clienteSelecionado;
 
@@ -72,7 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         }
         public void InserirNovoRegistro()
         {
-            ClientesForm tela = new ClientesForm();
+            ClientesForm tela = new ClientesForm("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.Clientes);

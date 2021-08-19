@@ -15,9 +15,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
     public partial class TarefaGrupoDeVeiculosForm : Form
     {
         private GrupoDeVeiculo grupoDeVeiculos;
-        public TarefaGrupoDeVeiculosForm()
+        public TarefaGrupoDeVeiculosForm(string titulo)
         {
             InitializeComponent();
+            this.Text = titulo;
+            lblCadastroGrupoDeVeiculos.Text = titulo;
         }
 
         public GrupoDeVeiculo GrupoDeVeiculos

@@ -50,16 +50,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.mskTxtCpf = new System.Windows.Forms.MaskedTextBox();
             this.textNome = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.mskTxtDataAdmissao = new System.Windows.Forms.DateTimePicker();
+            this.textMatriculaInterna = new System.Windows.Forms.NumericUpDown();
+            this.textSalario = new System.Windows.Forms.NumericUpDown();
+            this.textCargo = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.textSalario = new System.Windows.Forms.NumericUpDown();
-            this.textMatriculaInterna = new System.Windows.Forms.NumericUpDown();
-            this.textCargo = new System.Windows.Forms.TextBox();
-            this.mskTxtDataAdmissao = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textSalario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textSalario)).BeginInit();
             this.SuspendLayout();
             // 
             // lbId
@@ -287,13 +287,41 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox2.TabIndex = 52;
             this.groupBox2.TabStop = false;
             // 
+            // mskTxtDataAdmissao
+            // 
+            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(181, 86);
+            this.mskTxtDataAdmissao.Name = "mskTxtDataAdmissao";
+            this.mskTxtDataAdmissao.Size = new System.Drawing.Size(98, 20);
+            this.mskTxtDataAdmissao.TabIndex = 48;
+            // 
+            // textMatriculaInterna
+            // 
+            this.textMatriculaInterna.Location = new System.Drawing.Point(181, 19);
+            this.textMatriculaInterna.Name = "textMatriculaInterna";
+            this.textMatriculaInterna.Size = new System.Drawing.Size(99, 20);
+            this.textMatriculaInterna.TabIndex = 47;
+            // 
+            // textSalario
+            // 
+            this.textSalario.Location = new System.Drawing.Point(181, 155);
+            this.textSalario.Name = "textSalario";
+            this.textSalario.Size = new System.Drawing.Size(100, 20);
+            this.textSalario.TabIndex = 46;
+            // 
+            // textCargo
+            // 
+            this.textCargo.Location = new System.Drawing.Point(181, 126);
+            this.textCargo.Name = "textCargo";
+            this.textCargo.Size = new System.Drawing.Size(100, 20);
+            this.textCargo.TabIndex = 9;
+            // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(240, 370);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 28);
+            this.btnCancelar.Size = new System.Drawing.Size(81, 28);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -303,41 +331,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.Location = new System.Drawing.Point(159, 370);
+            this.btnConfirmar.Location = new System.Drawing.Point(144, 370);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 28);
+            this.btnConfirmar.Size = new System.Drawing.Size(90, 28);
             this.btnConfirmar.TabIndex = 11;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
-            // 
-            // textSalario
-            // 
-            this.textSalario.Location = new System.Drawing.Point(181, 155);
-            this.textSalario.Name = "textSalario";
-            this.textSalario.Size = new System.Drawing.Size(100, 20);
-            this.textSalario.TabIndex = 46;
-            // 
-            // textMatriculaInterna
-            // 
-            this.textMatriculaInterna.Location = new System.Drawing.Point(181, 19);
-            this.textMatriculaInterna.Name = "textMatriculaInterna";
-            this.textMatriculaInterna.Size = new System.Drawing.Size(99, 20);
-            this.textMatriculaInterna.TabIndex = 47;
-            // 
-            // textCargo
-            // 
-            this.textCargo.Location = new System.Drawing.Point(181, 126);
-            this.textCargo.Name = "textCargo";
-            this.textCargo.Size = new System.Drawing.Size(100, 20);
-            this.textCargo.TabIndex = 9;
-            // 
-            // mskTxtDataAdmissao
-            // 
-            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(181, 86);
-            this.mskTxtDataAdmissao.Name = "mskTxtDataAdmissao";
-            this.mskTxtDataAdmissao.Size = new System.Drawing.Size(98, 20);
-            this.mskTxtDataAdmissao.TabIndex = 48;
             // 
             // FuncionarioForm
             // 
@@ -350,14 +350,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbTituloCadastroDeFuncionarios);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FuncionarioForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Funcionario";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textSalario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textSalario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

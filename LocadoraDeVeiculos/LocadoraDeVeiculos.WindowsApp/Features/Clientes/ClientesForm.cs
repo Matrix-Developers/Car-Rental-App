@@ -15,9 +15,11 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
     public partial class ClientesForm : Form
     {
         private Cliente cliente;
-        public ClientesForm()
+        public ClientesForm(string titulo)
         {
             InitializeComponent();
+            label8.Text = titulo;
+            this.Text = titulo;
         }
 
         public Cliente Clientes

@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.textPlaca = new System.Windows.Forms.TextBox();
             this.textChassi = new System.Windows.Forms.TextBox();
             this.textMarca = new System.Windows.Forms.TextBox();
@@ -73,16 +73,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label8
+            // labelTitulo
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(92, 28);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(207, 22);
-            this.label8.TabIndex = 64;
-            this.label8.Text = "Cadastro de Veículos";
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.ForeColor = System.Drawing.Color.Red;
+            this.labelTitulo.Location = new System.Drawing.Point(92, 28);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(207, 22);
+            this.labelTitulo.TabIndex = 64;
+            this.labelTitulo.Text = "Cadastro de Veículos";
             // 
             // textPlaca
             // 
@@ -479,8 +479,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.Controls.Add(this.gBoxDados);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "VeiculoForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "-";
             this.gBoxDados.ResumeLayout(false);
             this.gBoxDados.PerformLayout();
@@ -495,7 +501,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
 
         #endregion
 
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.TextBox textPlaca;
         private System.Windows.Forms.TextBox textChassi;
         private System.Windows.Forms.TextBox textMarca;

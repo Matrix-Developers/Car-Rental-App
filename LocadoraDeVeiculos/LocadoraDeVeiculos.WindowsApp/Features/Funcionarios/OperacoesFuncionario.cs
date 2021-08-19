@@ -41,7 +41,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
             }
 
             Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
-            FuncionarioForm tela = new FuncionarioForm();
+            FuncionarioForm tela = new FuncionarioForm("Edição de Funcionário");
             tela.Funcionario = funcionarioSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -82,7 +82,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void InserirNovoRegistro()
         {
-            FuncionarioForm tela = new FuncionarioForm();           
+            FuncionarioForm tela = new FuncionarioForm("Cadastro de Funcionário");           
 
             if (tela.ShowDialog() == DialogResult.OK)
             {

@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
             GrupoDeVeiculo grupoSelecionado = controlador.SelecionarPorId(id);
 
-            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm();
+            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Edição de Grupo de Veiculos");
 
             tela.GrupoDeVeiculos = grupoSelecionado;
 
@@ -85,7 +85,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
         public void InserirNovoRegistro()
         {
-            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm();
+            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Cadastro de Grupo de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {

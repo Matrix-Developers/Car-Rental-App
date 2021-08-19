@@ -35,6 +35,8 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskRegistro = new System.Windows.Forms.MaskedTextBox();
+            this.maskedCNH = new System.Windows.Forms.MaskedTextBox();
             this.maskTelefone = new System.Windows.Forms.MaskedTextBox();
             this.dtpValidade = new System.Windows.Forms.DateTimePicker();
             this.lbValidade = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.lbNome = new System.Windows.Forms.Label();
             this.lbId = new System.Windows.Forms.Label();
             this.textNome = new System.Windows.Forms.TextBox();
-            this.maskedCNH = new System.Windows.Forms.MaskedTextBox();
-            this.maskRegistro = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,6 +139,22 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insira os dados";
+            // 
+            // maskRegistro
+            // 
+            this.maskRegistro.Location = new System.Drawing.Point(151, 89);
+            this.maskRegistro.Mask = "000000000-90";
+            this.maskRegistro.Name = "maskRegistro";
+            this.maskRegistro.Size = new System.Drawing.Size(93, 20);
+            this.maskRegistro.TabIndex = 44;
+            // 
+            // maskedCNH
+            // 
+            this.maskedCNH.Location = new System.Drawing.Point(151, 238);
+            this.maskedCNH.Mask = "000000000-90";
+            this.maskedCNH.Name = "maskedCNH";
+            this.maskedCNH.Size = new System.Drawing.Size(81, 20);
+            this.maskedCNH.TabIndex = 43;
             // 
             // maskTelefone
             // 
@@ -274,22 +290,6 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.textNome.Size = new System.Drawing.Size(131, 20);
             this.textNome.TabIndex = 24;
             // 
-            // maskedCNH
-            // 
-            this.maskedCNH.Location = new System.Drawing.Point(151, 238);
-            this.maskedCNH.Mask = "000000000-90";
-            this.maskedCNH.Name = "maskedCNH";
-            this.maskedCNH.Size = new System.Drawing.Size(81, 20);
-            this.maskedCNH.TabIndex = 43;
-            // 
-            // maskRegistro
-            // 
-            this.maskRegistro.Location = new System.Drawing.Point(151, 89);
-            this.maskRegistro.Mask = "000000000-90";
-            this.maskRegistro.Name = "maskRegistro";
-            this.maskRegistro.Size = new System.Drawing.Size(93, 20);
-            this.maskRegistro.TabIndex = 44;
-            // 
             // ClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,7 +304,12 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label8);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ClientesForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Clientes";
             this.groupBox1.ResumeLayout(false);

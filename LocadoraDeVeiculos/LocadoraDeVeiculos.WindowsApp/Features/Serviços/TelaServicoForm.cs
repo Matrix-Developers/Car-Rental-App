@@ -17,9 +17,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
     {
         private Servico servico;
 
-        public TelaServicoForm()
+        public TelaServicoForm(string titulo)
         {
             InitializeComponent();
+            this.Text = titulo;
+            lblCadastroServico.Text = titulo;
         }
 
         public Servico Servico

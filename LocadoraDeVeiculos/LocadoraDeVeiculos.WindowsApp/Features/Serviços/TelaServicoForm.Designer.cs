@@ -52,10 +52,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.labelNome.AutoSize = true;
             this.labelNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNome.ForeColor = System.Drawing.Color.Red;
-            this.labelNome.Location = new System.Drawing.Point(10, 49);
-            this.labelNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNome.Location = new System.Drawing.Point(8, 40);
             this.labelNome.Name = "labelNome";
-            this.labelNome.Size = new System.Drawing.Size(79, 29);
+            this.labelNome.Size = new System.Drawing.Size(62, 24);
             this.labelNome.TabIndex = 0;
             this.labelNome.Text = "Nome";
             // 
@@ -64,29 +63,26 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.labelValor.AutoSize = true;
             this.labelValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValor.ForeColor = System.Drawing.Color.Red;
-            this.labelValor.Location = new System.Drawing.Point(10, 78);
-            this.labelValor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelValor.Location = new System.Drawing.Point(8, 63);
             this.labelValor.Name = "labelValor";
-            this.labelValor.Size = new System.Drawing.Size(69, 29);
+            this.labelValor.Size = new System.Drawing.Size(54, 24);
             this.labelValor.TabIndex = 1;
             this.labelValor.Text = "Valor";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(128, 49);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNome.Location = new System.Drawing.Point(96, 40);
             this.txtNome.MaxLength = 200;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(153, 22);
+            this.txtNome.Size = new System.Drawing.Size(116, 20);
             this.txtNome.TabIndex = 2;
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(128, 83);
-            this.txtValor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValor.Location = new System.Drawing.Point(96, 67);
             this.txtValor.MaxLength = 200;
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(153, 22);
+            this.txtValor.Size = new System.Drawing.Size(116, 20);
             this.txtValor.TabIndex = 3;
             this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
@@ -95,10 +91,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.labelCalculoFixo.AutoSize = true;
             this.labelCalculoFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCalculoFixo.ForeColor = System.Drawing.Color.Red;
-            this.labelCalculoFixo.Location = new System.Drawing.Point(89, 172);
-            this.labelCalculoFixo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCalculoFixo.Location = new System.Drawing.Point(67, 140);
             this.labelCalculoFixo.Name = "labelCalculoFixo";
-            this.labelCalculoFixo.Size = new System.Drawing.Size(146, 29);
+            this.labelCalculoFixo.Size = new System.Drawing.Size(115, 24);
             this.labelCalculoFixo.TabIndex = 5;
             this.labelCalculoFixo.Text = "Cálculo Fixo";
             // 
@@ -107,20 +102,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.labelCalculoDiario.AutoSize = true;
             this.labelCalculoDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCalculoDiario.ForeColor = System.Drawing.Color.Red;
-            this.labelCalculoDiario.Location = new System.Drawing.Point(89, 138);
-            this.labelCalculoDiario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCalculoDiario.Location = new System.Drawing.Point(67, 112);
             this.labelCalculoDiario.Name = "labelCalculoDiario";
-            this.labelCalculoDiario.Size = new System.Drawing.Size(164, 29);
+            this.labelCalculoDiario.Size = new System.Drawing.Size(126, 24);
             this.labelCalculoDiario.TabIndex = 4;
             this.labelCalculoDiario.Text = "Cálculo Diário";
             // 
             // rdbTaxaFixa
             // 
             this.rdbTaxaFixa.AutoSize = true;
-            this.rdbTaxaFixa.Location = new System.Drawing.Point(64, 182);
-            this.rdbTaxaFixa.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbTaxaFixa.Location = new System.Drawing.Point(48, 148);
             this.rdbTaxaFixa.Name = "rdbTaxaFixa";
-            this.rdbTaxaFixa.Size = new System.Drawing.Size(17, 16);
+            this.rdbTaxaFixa.Size = new System.Drawing.Size(14, 13);
             this.rdbTaxaFixa.TabIndex = 4;
             this.rdbTaxaFixa.TabStop = true;
             this.rdbTaxaFixa.UseVisualStyleBackColor = true;
@@ -129,10 +122,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             // 
             this.rdbCalcDiaria.AutoSize = true;
             this.rdbCalcDiaria.Checked = true;
-            this.rdbCalcDiaria.Location = new System.Drawing.Point(64, 148);
-            this.rdbCalcDiaria.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbCalcDiaria.Location = new System.Drawing.Point(48, 120);
             this.rdbCalcDiaria.Name = "rdbCalcDiaria";
-            this.rdbCalcDiaria.Size = new System.Drawing.Size(17, 16);
+            this.rdbCalcDiaria.Size = new System.Drawing.Size(14, 13);
             this.rdbCalcDiaria.TabIndex = 5;
             this.rdbCalcDiaria.TabStop = true;
             this.rdbCalcDiaria.UseVisualStyleBackColor = true;
@@ -141,10 +133,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(205, 287);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(147, 233);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 34);
+            this.btnCancelar.Size = new System.Drawing.Size(82, 28);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -153,10 +144,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             // 
             this.btnConfirma.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirma.Location = new System.Drawing.Point(16, 287);
-            this.btnConfirma.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirma.Location = new System.Drawing.Point(12, 233);
             this.btnConfirma.Name = "btnConfirma";
-            this.btnConfirma.Size = new System.Drawing.Size(100, 34);
+            this.btnConfirma.Size = new System.Drawing.Size(91, 28);
             this.btnConfirma.TabIndex = 6;
             this.btnConfirma.Text = "Confirmar";
             this.btnConfirma.UseVisualStyleBackColor = true;
@@ -165,11 +155,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(128, 19);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtId.Location = new System.Drawing.Point(96, 15);
             this.txtId.MaxLength = 200;
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(153, 22);
+            this.txtId.Size = new System.Drawing.Size(116, 20);
             this.txtId.TabIndex = 1;
             this.txtId.Text = "0";
             // 
@@ -178,10 +167,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.labelId.AutoSize = true;
             this.labelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelId.ForeColor = System.Drawing.Color.Red;
-            this.labelId.Location = new System.Drawing.Point(10, 19);
-            this.labelId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelId.Location = new System.Drawing.Point(8, 15);
             this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(33, 29);
+            this.labelId.Size = new System.Drawing.Size(25, 24);
             this.labelId.TabIndex = 7;
             this.labelId.Text = "Id";
             // 
@@ -198,11 +186,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.groupBox1.Controls.Add(this.txtValor);
             this.groupBox1.Controls.Add(this.labelNome);
             this.groupBox1.Controls.Add(this.labelValor);
-            this.groupBox1.Location = new System.Drawing.Point(16, 56);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(289, 213);
+            this.groupBox1.Size = new System.Drawing.Size(217, 173);
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             // 
@@ -211,10 +197,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.lblTipoCalculo.AutoSize = true;
             this.lblTipoCalculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoCalculo.ForeColor = System.Drawing.Color.Red;
-            this.lblTipoCalculo.Location = new System.Drawing.Point(10, 109);
-            this.lblTipoCalculo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTipoCalculo.Location = new System.Drawing.Point(8, 89);
             this.lblTipoCalculo.Name = "lblTipoCalculo";
-            this.lblTipoCalculo.Size = new System.Drawing.Size(162, 29);
+            this.lblTipoCalculo.Size = new System.Drawing.Size(127, 24);
             this.lblTipoCalculo.TabIndex = 53;
             this.lblTipoCalculo.Text = "Tipo de Taxa:";
             // 
@@ -223,27 +208,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.lblCadastroServico.AutoSize = true;
             this.lblCadastroServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCadastroServico.ForeColor = System.Drawing.Color.Red;
-            this.lblCadastroServico.Location = new System.Drawing.Point(41, 23);
-            this.lblCadastroServico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCadastroServico.Location = new System.Drawing.Point(31, 19);
             this.lblCadastroServico.Name = "lblCadastroServico";
-            this.lblCadastroServico.Size = new System.Drawing.Size(243, 29);
+            this.lblCadastroServico.Size = new System.Drawing.Size(188, 24);
             this.lblCadastroServico.TabIndex = 53;
             this.lblCadastroServico.Text = "Cadastro de Serviços";
             // 
             // TelaServicoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(319, 333);
+            this.ClientSize = new System.Drawing.Size(239, 271);
             this.Controls.Add(this.lblCadastroServico);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirma);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaServicoForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serviço";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServicoForm_FormClosing);
             this.groupBox1.ResumeLayout(false);

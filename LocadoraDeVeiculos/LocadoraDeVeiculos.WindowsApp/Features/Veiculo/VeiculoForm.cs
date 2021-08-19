@@ -11,10 +11,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
     {
         private Veiculo veiculo;
         private ControladorGrupoDeVeiculos controladorGrupoVeiculos = new ControladorGrupoDeVeiculos();
-        public VeiculoForm()
+        public VeiculoForm(string titulo)
         {            
             InitializeComponent();
             CarregarGruposDeVeiculos();
+            this.Text = titulo;
+            labelTitulo.Text = titulo;
         }
 
         private void CarregarGruposDeVeiculos()

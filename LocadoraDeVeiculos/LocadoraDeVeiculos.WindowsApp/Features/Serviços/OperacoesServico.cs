@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
         public void InserirNovoRegistro()
         {
-            TelaServicoForm tela = new TelaServicoForm();
+            TelaServicoForm tela = new TelaServicoForm("Cadastro de Serviços");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             Servico servicoSelecionada = controlador.SelecionarPorId(id);
 
-            TelaServicoForm tela = new TelaServicoForm();
+            TelaServicoForm tela = new TelaServicoForm("Edição de Serviços");
 
             tela.Servico = servicoSelecionada;
 

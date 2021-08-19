@@ -17,9 +17,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
     {
         private Funcionario funcionario;
 
-        public FuncionarioForm()
+        public FuncionarioForm(string titulo)
         {
-            InitializeComponent();          
+            InitializeComponent();
+            this.Text = titulo;
+            lbTituloCadastroDeFuncionarios.Text = titulo;
         }
 
         public Funcionario Funcionario
