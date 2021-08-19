@@ -50,10 +50,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             string nome = textNome.Text;
-            string registroUnico = mskTxtCpf.Text;
+            string registroUnico = mskTxtCpf.Text.Replace("-", "").Replace(".", "").Replace(" ", "");
             string endereco = textEndereco.Text;
-
-            string telefone = mskTxtTelefone.Text;
+            string telefone = mskTxtTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
             string email = textEmail.Text;
             int matriculaInterna = Convert.ToInt32(textMatriculaInterna.Text);
             string usuarioAcesso = textUsuarioAcesso.Text;

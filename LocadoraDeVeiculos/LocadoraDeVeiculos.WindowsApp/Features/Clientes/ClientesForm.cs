@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 
@@ -60,22 +53,15 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             labelRegistro.Text = "CNPJ";
             maskRegistro.Mask = "00.000.000/0000-00";
 
-        }
-
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-       
+        }       
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
             int Id = Convert.ToInt32(textId.Text);
             string Nome = textNome.Text;
-            string Registro = maskRegistro.Text;
+            string Registro = maskRegistro.Text.Replace("-", "").Replace(".", "").Replace("/", "").Replace(" ", "");
             string Endereco = textEndereco.Text;
-            string TeleFone = maskTelefone.Text;
+            string TeleFone = maskTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
             string Email = tetxtEmail.Text;
             string CNH = maskedCNH.Text;
             DateTime Validade = Convert.ToDateTime(dtpValidade.Text);
@@ -83,11 +69,11 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             if (radioButton1.Checked == true)       
                 ehPessoaFisica = true;
 
-
             Id = 0;
             cliente = new Cliente(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, Validade, ehPessoaFisica);
 
             string resultadoValidacao = cliente.Validar();
+
 
             if (resultadoValidacao != "VALIDO")
             {
@@ -96,11 +82,8 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                 TelaPrincipalForm.Instancia.AtualizarRodape(erro);
 
                 DialogResult = DialogResult.None;
-
             }
-        }
-
-        
+        }        
     }
   
 }

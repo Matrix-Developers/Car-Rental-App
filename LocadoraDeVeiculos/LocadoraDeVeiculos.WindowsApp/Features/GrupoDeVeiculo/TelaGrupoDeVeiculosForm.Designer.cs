@@ -45,19 +45,22 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textQuantKMControl = new System.Windows.Forms.TextBox();
             this.lbQuantKMControl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textNomeGrupo
             // 
-            this.textNomeGrupo.Location = new System.Drawing.Point(274, 53);
+            this.textNomeGrupo.Location = new System.Drawing.Point(329, 45);
             this.textNomeGrupo.Name = "textNomeGrupo";
             this.textNomeGrupo.Size = new System.Drawing.Size(100, 20);
             this.textNomeGrupo.TabIndex = 2;
             // 
             // txtTaxaPlanoDiario
             // 
-            this.txtTaxaPlanoDiario.Location = new System.Drawing.Point(274, 87);
+            this.txtTaxaPlanoDiario.Location = new System.Drawing.Point(329, 71);
             this.txtTaxaPlanoDiario.Name = "txtTaxaPlanoDiario";
             this.txtTaxaPlanoDiario.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaPlanoDiario.TabIndex = 3;
@@ -65,7 +68,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             // 
             // txtTaxaKMControlado
             // 
-            this.txtTaxaKMControlado.Location = new System.Drawing.Point(274, 122);
+            this.txtTaxaKMControlado.Location = new System.Drawing.Point(329, 97);
             this.txtTaxaKMControlado.Name = "txtTaxaKMControlado";
             this.txtTaxaKMControlado.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaKMControlado.TabIndex = 4;
@@ -73,7 +76,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             // 
             // txtTaxaKMLivre
             // 
-            this.txtTaxaKMLivre.Location = new System.Drawing.Point(274, 154);
+            this.txtTaxaKMLivre.Location = new System.Drawing.Point(329, 123);
             this.txtTaxaKMLivre.Name = "txtTaxaKMLivre";
             this.txtTaxaKMLivre.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaKMLivre.TabIndex = 5;
@@ -81,8 +84,9 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             // 
             // textId
             // 
+            this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textId.Enabled = false;
-            this.textId.Location = new System.Drawing.Point(274, 19);
+            this.textId.Location = new System.Drawing.Point(329, 19);
             this.textId.Name = "textId";
             this.textId.Size = new System.Drawing.Size(100, 20);
             this.textId.TabIndex = 1;
@@ -93,7 +97,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.lblCadastroGrupoDeVeiculos.AutoSize = true;
             this.lblCadastroGrupoDeVeiculos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCadastroGrupoDeVeiculos.ForeColor = System.Drawing.Color.Red;
-            this.lblCadastroGrupoDeVeiculos.Location = new System.Drawing.Point(64, 24);
+            this.lblCadastroGrupoDeVeiculos.Location = new System.Drawing.Point(85, 24);
             this.lblCadastroGrupoDeVeiculos.Name = "lblCadastroGrupoDeVeiculos";
             this.lblCadastroGrupoDeVeiculos.Size = new System.Drawing.Size(274, 24);
             this.lblCadastroGrupoDeVeiculos.TabIndex = 47;
@@ -104,7 +108,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.lbId.AutoSize = true;
             this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbId.ForeColor = System.Drawing.Color.Red;
-            this.lbId.Location = new System.Drawing.Point(6, 16);
+            this.lbId.Location = new System.Drawing.Point(6, 14);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(25, 24);
             this.lbId.TabIndex = 41;
@@ -115,7 +119,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.lbNomeGrupo.AutoSize = true;
             this.lbNomeGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNomeGrupo.ForeColor = System.Drawing.Color.Red;
-            this.lbNomeGrupo.Location = new System.Drawing.Point(6, 50);
+            this.lbNomeGrupo.Location = new System.Drawing.Point(6, 40);
             this.lbNomeGrupo.Name = "lbNomeGrupo";
             this.lbNomeGrupo.Size = new System.Drawing.Size(144, 24);
             this.lbNomeGrupo.TabIndex = 42;
@@ -126,7 +130,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.lbDiario.AutoSize = true;
             this.lbDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDiario.ForeColor = System.Drawing.Color.Red;
-            this.lbDiario.Location = new System.Drawing.Point(6, 87);
+            this.lbDiario.Location = new System.Drawing.Point(6, 66);
             this.lbDiario.Name = "lbDiario";
             this.lbDiario.Size = new System.Drawing.Size(185, 24);
             this.lbDiario.TabIndex = 43;
@@ -137,7 +141,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.lbKMControlado.AutoSize = true;
             this.lbKMControlado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbKMControlado.ForeColor = System.Drawing.Color.Red;
-            this.lbKMControlado.Location = new System.Drawing.Point(6, 121);
+            this.lbKMControlado.Location = new System.Drawing.Point(6, 92);
             this.lbKMControlado.Name = "lbKMControlado";
             this.lbKMControlado.Size = new System.Drawing.Size(259, 24);
             this.lbKMControlado.TabIndex = 44;
@@ -148,7 +152,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.lbKMLivre.AutoSize = true;
             this.lbKMLivre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbKMLivre.ForeColor = System.Drawing.Color.Red;
-            this.lbKMLivre.Location = new System.Drawing.Point(6, 151);
+            this.lbKMLivre.Location = new System.Drawing.Point(6, 118);
             this.lbKMLivre.Name = "lbKMLivre";
             this.lbKMLivre.Size = new System.Drawing.Size(204, 24);
             this.lbKMLivre.TabIndex = 45;
@@ -158,7 +162,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(303, 270);
+            this.btnCancelar.Location = new System.Drawing.Point(350, 238);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 28);
             this.btnCancelar.TabIndex = 7;
@@ -169,7 +173,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             // 
             this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.Location = new System.Drawing.Point(10, 270);
+            this.btnConfirmar.Location = new System.Drawing.Point(12, 238);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(88, 28);
             this.btnConfirmar.TabIndex = 6;
@@ -179,6 +183,9 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textQuantKMControl);
             this.groupBox1.Controls.Add(this.lbQuantKMControl);
             this.groupBox1.Controls.Add(this.lbId);
@@ -193,34 +200,68 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.groupBox1.Controls.Add(this.txtTaxaKMLivre);
             this.groupBox1.Location = new System.Drawing.Point(10, 51);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(386, 213);
-            this.groupBox1.TabIndex = 60;
+            this.groupBox1.Size = new System.Drawing.Size(435, 181);
+            this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             // 
             // textQuantKMControl
             // 
-            this.textQuantKMControl.Location = new System.Drawing.Point(274, 188);
+            this.textQuantKMControl.Location = new System.Drawing.Point(329, 149);
             this.textQuantKMControl.Name = "textQuantKMControl";
             this.textQuantKMControl.Size = new System.Drawing.Size(100, 20);
-            this.textQuantKMControl.TabIndex = 47;
+            this.textQuantKMControl.TabIndex = 6;
+            this.textQuantKMControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textQuantKMControl_KeyPress);
             // 
             // lbQuantKMControl
             // 
             this.lbQuantKMControl.AutoSize = true;
             this.lbQuantKMControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbQuantKMControl.ForeColor = System.Drawing.Color.Red;
-            this.lbQuantKMControl.Location = new System.Drawing.Point(6, 184);
+            this.lbQuantKMControl.Location = new System.Drawing.Point(6, 144);
             this.lbQuantKMControl.Name = "lbQuantKMControl";
             this.lbQuantKMControl.Size = new System.Drawing.Size(265, 24);
             this.lbQuantKMControl.TabIndex = 46;
             this.lbQuantKMControl.Text = "Quantidade de KM Controlado";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(289, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 24);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "R$";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(289, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 24);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "R$";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(290, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 24);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "R$";
             // 
             // TarefaGrupoDeVeiculosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(403, 304);
+            this.ClientSize = new System.Drawing.Size(455, 274);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
@@ -258,5 +299,8 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textQuantKMControl;
         private System.Windows.Forms.Label lbQuantKMControl;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

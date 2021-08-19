@@ -17,6 +17,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             CarregarGruposDeVeiculos();
             this.Text = titulo;
             labelTitulo.Text = titulo;
+            cBoxPortaMalas.SelectedIndex = 0;
         }
 
         private void CarregarGruposDeVeiculos()
@@ -58,14 +59,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             int id = 0;
-            if(textId.Text.Length > 0)
-                id = Convert.ToInt32(textId.Text);
+            int ano = 0;
             GrupoDeVeiculo grupoDeVeiculos = null;
+            if (textId.Text.Length > 0)
+                id = Convert.ToInt32(textId.Text);            
             string placa = textPlaca.Text;
             string chassi = textChassi.Text;
             string marca = textMarca.Text;
             string modelo = textModelo.Text;
-            int ano = Convert.ToInt32(textAno.Text);
+            if(textAno.Text.Length > 0)
+                ano = Convert.ToInt32(textAno.Text);
             string cor = textCor.Text;
             grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
             //string imagem = textImagem.Text;
@@ -97,6 +100,36 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
 
                 DialogResult = DialogResult.None;
+            }
+        }
+
+        private void textAno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.')
+            {
+                if (textAno.Text.IndexOf(".") >= 0 || textAno.Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+            }
+            else if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textKM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.')
+            {
+                if (textKM.Text.IndexOf(".") >= 0 || textKM.Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+            }
+            else if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
+            {
+                e.Handled = true;
             }
         }
     }

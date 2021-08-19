@@ -114,6 +114,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             // textImagem
             // 
+            this.textImagem.Enabled = false;
             this.textImagem.Location = new System.Drawing.Point(140, 206);
             this.textImagem.Name = "textImagem";
             this.textImagem.Size = new System.Drawing.Size(174, 20);
@@ -121,6 +122,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             // textId
             // 
+            this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textId.Enabled = false;
             this.textId.Location = new System.Drawing.Point(97, 23);
             this.textId.Name = "textId";
@@ -262,6 +264,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textKM.Name = "textKM";
             this.textKM.Size = new System.Drawing.Size(174, 20);
             this.textKM.TabIndex = 13;
+            this.textKM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textKM_KeyPress);
             // 
             // label12
             // 
@@ -314,7 +317,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.btnCancelar.Location = new System.Drawing.Point(311, 615);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 28);
-            this.btnCancelar.TabIndex = 84;
+            this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -322,10 +325,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirmar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.Location = new System.Drawing.Point(230, 615);
+            this.btnConfirmar.Location = new System.Drawing.Point(12, 615);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 28);
-            this.btnConfirmar.TabIndex = 83;
+            this.btnConfirmar.TabIndex = 16;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
@@ -374,6 +377,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // cBoxCombustivel
             // 
             this.cBoxCombustivel.FormattingEnabled = true;
+            this.cBoxCombustivel.ItemHeight = 13;
             this.cBoxCombustivel.Items.AddRange(new object[] {
             "Gasolina",
             "Etanol",
@@ -388,9 +392,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // textAno
             // 
             this.textAno.Location = new System.Drawing.Point(97, 153);
+            this.textAno.MaxLength = 4;
             this.textAno.Name = "textAno";
             this.textAno.Size = new System.Drawing.Size(51, 20);
             this.textAno.TabIndex = 5;
+            this.textAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAno_KeyPress);
             // 
             // label1
             // 
@@ -412,6 +418,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             // cBoxPortaMalas
             // 
+            this.cBoxPortaMalas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxPortaMalas.FormattingEnabled = true;
             this.cBoxPortaMalas.Items.AddRange(new object[] {
             "G",
@@ -421,7 +428,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.cBoxPortaMalas.Name = "cBoxPortaMalas";
             this.cBoxPortaMalas.Size = new System.Drawing.Size(156, 21);
             this.cBoxPortaMalas.TabIndex = 14;
-            this.cBoxPortaMalas.Text = "Selecionar";
             // 
             // numUpDownQtdPessoas
             // 
@@ -439,12 +445,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             // cBoxGrupo
             // 
+            this.cBoxGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxGrupo.FormattingEnabled = true;
             this.cBoxGrupo.Location = new System.Drawing.Point(97, 179);
             this.cBoxGrupo.Name = "cBoxGrupo";
             this.cBoxGrupo.Size = new System.Drawing.Size(217, 21);
             this.cBoxGrupo.TabIndex = 7;
-            this.cBoxGrupo.Text = "Selecionar";
             // 
             // groupBox1
             // 
@@ -467,7 +473,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.checkLBoxOpcionais.Location = new System.Drawing.Point(6, 19);
             this.checkLBoxOpcionais.Name = "checkLBoxOpcionais";
             this.checkLBoxOpcionais.Size = new System.Drawing.Size(355, 124);
-            this.checkLBoxOpcionais.TabIndex = 0;
+            this.checkLBoxOpcionais.TabIndex = 15;
             // 
             // VeiculoForm
             // 
