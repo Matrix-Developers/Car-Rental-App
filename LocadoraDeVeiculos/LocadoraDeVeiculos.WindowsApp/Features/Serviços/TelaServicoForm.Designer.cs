@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.labelNome.AutoSize = true;
             this.labelNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNome.ForeColor = System.Drawing.Color.Red;
-            this.labelNome.Location = new System.Drawing.Point(8, 40);
+            this.labelNome.Location = new System.Drawing.Point(6, 35);
             this.labelNome.Name = "labelNome";
             this.labelNome.Size = new System.Drawing.Size(62, 24);
             this.labelNome.TabIndex = 0;
@@ -63,7 +63,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.labelValor.AutoSize = true;
             this.labelValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValor.ForeColor = System.Drawing.Color.Red;
-            this.labelValor.Location = new System.Drawing.Point(8, 63);
+            this.labelValor.Location = new System.Drawing.Point(6, 62);
             this.labelValor.Name = "labelValor";
             this.labelValor.Size = new System.Drawing.Size(54, 24);
             this.labelValor.TabIndex = 1;
@@ -133,7 +133,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(147, 233);
+            this.btnCancelar.Location = new System.Drawing.Point(145, 225);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(82, 28);
             this.btnCancelar.TabIndex = 7;
@@ -144,7 +144,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             // 
             this.btnConfirma.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirma.Location = new System.Drawing.Point(12, 233);
+            this.btnConfirma.Location = new System.Drawing.Point(12, 225);
             this.btnConfirma.Name = "btnConfirma";
             this.btnConfirma.Size = new System.Drawing.Size(91, 28);
             this.btnConfirma.TabIndex = 6;
@@ -154,6 +154,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             // 
             // txtId
             // 
+            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(96, 15);
             this.txtId.MaxLength = 200;
@@ -167,7 +168,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.labelId.AutoSize = true;
             this.labelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelId.ForeColor = System.Drawing.Color.Red;
-            this.labelId.Location = new System.Drawing.Point(8, 15);
+            this.labelId.Location = new System.Drawing.Point(6, 10);
             this.labelId.Name = "labelId";
             this.labelId.Size = new System.Drawing.Size(25, 24);
             this.labelId.TabIndex = 7;
@@ -208,7 +209,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.lblCadastroServico.AutoSize = true;
             this.lblCadastroServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCadastroServico.ForeColor = System.Drawing.Color.Red;
-            this.lblCadastroServico.Location = new System.Drawing.Point(31, 19);
+            this.lblCadastroServico.Location = new System.Drawing.Point(26, 19);
             this.lblCadastroServico.Name = "lblCadastroServico";
             this.lblCadastroServico.Size = new System.Drawing.Size(188, 24);
             this.lblCadastroServico.TabIndex = 53;
@@ -219,7 +220,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(239, 271);
+            this.ClientSize = new System.Drawing.Size(239, 262);
             this.Controls.Add(this.lblCadastroServico);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);

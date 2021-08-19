@@ -99,5 +99,35 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
                 DialogResult = DialogResult.None;
             }
         }
+
+        private void textAno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.')
+            {
+                if (textAno.Text.IndexOf(".") >= 0 || textAno.Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+            }
+            else if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textKM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.')
+            {
+                if (textKM.Text.IndexOf(".") >= 0 || textKM.Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+            }
+            else if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

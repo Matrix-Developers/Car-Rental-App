@@ -121,7 +121,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaKMLivre.Text.IndexOf(".") >= 0 || txtTaxaKMLivre.Text.Length == 0)
+                if (textQuantKMControl.Text.IndexOf(".") >= 0 || textQuantKMControl.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
