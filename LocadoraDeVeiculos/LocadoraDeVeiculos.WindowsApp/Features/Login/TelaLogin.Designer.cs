@@ -40,20 +40,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(239, 228);
+            this.btnConfirmar.Location = new System.Drawing.Point(120, 206);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmar.TabIndex = 26;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.Enter += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(33, 192);
+            this.label4.Location = new System.Drawing.Point(31, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 23);
             this.label4.TabIndex = 25;
@@ -61,7 +62,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // 
             // textSenha
             // 
-            this.textSenha.Location = new System.Drawing.Point(154, 197);
+            this.textSenha.Location = new System.Drawing.Point(152, 162);
             this.textSenha.Name = "textSenha";
             this.textSenha.PasswordChar = '*';
             this.textSenha.Size = new System.Drawing.Size(160, 20);
@@ -69,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // 
             // textUsuario
             // 
-            this.textUsuario.Location = new System.Drawing.Point(154, 171);
+            this.textUsuario.Location = new System.Drawing.Point(152, 136);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(160, 20);
             this.textUsuario.TabIndex = 23;
@@ -79,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(33, 166);
+            this.label3.Location = new System.Drawing.Point(31, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 23);
             this.label3.TabIndex = 22;
@@ -113,7 +114,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(338, 263);
+            this.ClientSize = new System.Drawing.Size(338, 236);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textSenha);

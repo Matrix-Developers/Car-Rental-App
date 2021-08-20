@@ -56,6 +56,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.textCargo = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textSenha = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).BeginInit();
@@ -170,7 +172,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbCargo.AutoSize = true;
             this.lbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCargo.ForeColor = System.Drawing.Color.Red;
-            this.lbCargo.Location = new System.Drawing.Point(6, 107);
+            this.lbCargo.Location = new System.Drawing.Point(6, 118);
             this.lbCargo.Name = "lbCargo";
             this.lbCargo.Size = new System.Drawing.Size(61, 24);
             this.lbCargo.TabIndex = 44;
@@ -181,7 +183,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbSalario.AutoSize = true;
             this.lbSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSalario.ForeColor = System.Drawing.Color.Red;
-            this.lbSalario.Location = new System.Drawing.Point(6, 132);
+            this.lbSalario.Location = new System.Drawing.Point(6, 143);
             this.lbSalario.Name = "lbSalario";
             this.lbSalario.Size = new System.Drawing.Size(67, 24);
             this.lbSalario.TabIndex = 43;
@@ -192,7 +194,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbUsuAcesso.AutoSize = true;
             this.lbUsuAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuAcesso.ForeColor = System.Drawing.Color.Red;
-            this.lbUsuAcesso.Location = new System.Drawing.Point(6, 55);
+            this.lbUsuAcesso.Location = new System.Drawing.Point(6, 40);
             this.lbUsuAcesso.Name = "lbUsuAcesso";
             this.lbUsuAcesso.Size = new System.Drawing.Size(169, 24);
             this.lbUsuAcesso.TabIndex = 42;
@@ -203,7 +205,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbMatInt.AutoSize = true;
             this.lbMatInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMatInt.ForeColor = System.Drawing.Color.Red;
-            this.lbMatInt.Location = new System.Drawing.Point(6, 31);
+            this.lbMatInt.Location = new System.Drawing.Point(6, 16);
             this.lbMatInt.Name = "lbMatInt";
             this.lbMatInt.Size = new System.Drawing.Size(85, 24);
             this.lbMatInt.TabIndex = 41;
@@ -214,7 +216,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbDataAdmissao.AutoSize = true;
             this.lbDataAdmissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDataAdmissao.ForeColor = System.Drawing.Color.Red;
-            this.lbDataAdmissao.Location = new System.Drawing.Point(6, 84);
+            this.lbDataAdmissao.Location = new System.Drawing.Point(6, 95);
             this.lbDataAdmissao.Name = "lbDataAdmissao";
             this.lbDataAdmissao.Size = new System.Drawing.Size(162, 24);
             this.lbDataAdmissao.TabIndex = 45;
@@ -222,7 +224,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // textUsuarioAcesso
             // 
-            this.textUsuarioAcesso.Location = new System.Drawing.Point(181, 60);
+            this.textUsuarioAcesso.Location = new System.Drawing.Point(180, 45);
             this.textUsuarioAcesso.Name = "textUsuarioAcesso";
             this.textUsuarioAcesso.Size = new System.Drawing.Size(100, 20);
             this.textUsuarioAcesso.TabIndex = 7;
@@ -272,6 +274,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textSenha);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.mskTxtDataAdmissao);
             this.groupBox2.Controls.Add(this.textMatriculaInterna);
             this.groupBox2.Controls.Add(this.textSalario);
@@ -291,21 +295,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // mskTxtDataAdmissao
             // 
             this.mskTxtDataAdmissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(181, 86);
+            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(181, 97);
             this.mskTxtDataAdmissao.Name = "mskTxtDataAdmissao";
             this.mskTxtDataAdmissao.Size = new System.Drawing.Size(99, 20);
             this.mskTxtDataAdmissao.TabIndex = 8;
             // 
             // textMatriculaInterna
             // 
-            this.textMatriculaInterna.Location = new System.Drawing.Point(181, 34);
+            this.textMatriculaInterna.Location = new System.Drawing.Point(181, 19);
             this.textMatriculaInterna.Name = "textMatriculaInterna";
             this.textMatriculaInterna.Size = new System.Drawing.Size(99, 20);
             this.textMatriculaInterna.TabIndex = 6;
             // 
             // textSalario
             // 
-            this.textSalario.Location = new System.Drawing.Point(181, 138);
+            this.textSalario.Location = new System.Drawing.Point(180, 149);
             this.textSalario.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -317,7 +321,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // textCargo
             // 
-            this.textCargo.Location = new System.Drawing.Point(181, 112);
+            this.textCargo.Location = new System.Drawing.Point(180, 123);
             this.textCargo.Name = "textCargo";
             this.textCargo.Size = new System.Drawing.Size(100, 20);
             this.textCargo.TabIndex = 9;
@@ -345,6 +349,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(6, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 24);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Senha";
+            // 
+            // textSenha
+            // 
+            this.textSenha.Location = new System.Drawing.Point(180, 71);
+            this.textSenha.Name = "textSenha";
+            this.textSenha.PasswordChar = '*';
+            this.textSenha.Size = new System.Drawing.Size(100, 20);
+            this.textSenha.TabIndex = 47;
             // 
             // FuncionarioForm
             // 
@@ -405,5 +428,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private System.Windows.Forms.NumericUpDown textMatriculaInterna;
         private System.Windows.Forms.DateTimePicker mskTxtDataAdmissao;
         private System.Windows.Forms.TextBox textCargo;
+        private System.Windows.Forms.TextBox textSenha;
+        private System.Windows.Forms.Label label1;
     }
 }
