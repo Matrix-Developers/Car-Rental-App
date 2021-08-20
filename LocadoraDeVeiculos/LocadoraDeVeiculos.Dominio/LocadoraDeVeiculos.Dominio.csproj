@@ -47,7 +47,7 @@
     <Compile Include="LocacaoModule\Locacao.cs" />
     <Compile Include="PessoaModule\Pessoa.cs" />
     <Compile Include="SevicosModule\Servico.cs" />
-    <Compile Include="Shared\CalcularLocacao.cs" />
+    <Compile Include="LocacaoModule\CalcularLocacao.cs" />
     <Compile Include="Shared\EntidadeBase.cs" />
     <Compile Include="VeiculoModule\Veiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
