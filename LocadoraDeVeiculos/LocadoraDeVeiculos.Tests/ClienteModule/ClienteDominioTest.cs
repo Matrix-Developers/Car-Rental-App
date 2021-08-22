@@ -92,31 +92,11 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
         [TestMethod]
         public void DeveApresentarErro_PessoaJuridica()
         {
-            cliente = new Cliente(0, "", "", "", "", "", "", new DateTime(2000, 01, 01), false);
+            cliente = new Cliente(0, "", "", "", "", "", "", null, false);
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("CNH inválida\nCNH fora do prazo de validade\nO nome não pode ser nulo\nO endereço não pode ser nulo\nÉ obrigatório inserir Telefone ou E-mail\nO CNPJ não é válido\n", resultadoValidaca);
-        }
-
-        [TestMethod]
-        public void DeveApresentarErro_PessoaJuridicaSemCnh()
-        {
-            cliente = new Cliente(0, "Nome Teste", "29.073.791/0001-61", "Endereco Cliente", "4932518000", "teste@email.com", "", new DateTime(2030, 01, 01), false);
-
-            string resultadoValidaca = cliente.Validar();
-
-            Assert.AreEqual("CNH inválida\n", resultadoValidaca);
-        }
-
-        [TestMethod]
-        public void DeveApresentarErro_PessoaJuridicaCnhComDataInvalida()
-        {
-            cliente = new Cliente(0, "Nome Teste", "29.073.791/0001-61", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2000, 01, 01), false);
-
-            string resultadoValidaca = cliente.Validar();
-
-            Assert.AreEqual("CNH fora do prazo de validade\n", resultadoValidaca);
+            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nÉ obrigatório inserir Telefone ou E-mail\nO CNPJ não é válido\n", resultadoValidaca);
         }
 
         #region Testes para as propriedades herdadas de Pessoa

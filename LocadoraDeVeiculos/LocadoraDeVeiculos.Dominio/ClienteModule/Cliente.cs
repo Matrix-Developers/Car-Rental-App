@@ -7,9 +7,9 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
     public class Cliente : Pessoa
     {
         public string Cnh { get; }
-        public DateTime ValidadeCnh { get; }
+        public DateTime? ValidadeCnh { get; }
 
-        public Cliente(int id, string nome, string registroUnico, string endereco, string telefone, string email, string cnh, DateTime validadeCnh, bool ehPessoaFisica)
+        public Cliente(int id, string nome, string registroUnico, string endereco, string telefone, string email, string cnh, DateTime? validadeCnh, bool ehPessoaFisica)
         {
             this.id = id;
             Nome = nome;
@@ -25,10 +25,13 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
         public override string Validar()
         {
             string resultadoValidação = "";
-            if (!ValidarCnh())
-                resultadoValidação += "CNH inválida\n";
-            if (ValidadeCnh < DateTime.Now)
-                resultadoValidação += "CNH fora do prazo de validade\n";
+            if (EhPessoaFisica)
+            {
+                if (!ValidarCnh())
+                    resultadoValidação += "CNH inválida\n";
+                if (ValidadeCnh < DateTime.Now)
+                    resultadoValidação += "CNH fora do prazo de validade\n";
+            }
             if (base.ValidarPessoa() != "VALIDO")
                 resultadoValidação += base.ValidarPessoa();
             if (resultadoValidação == "")

@@ -6,8 +6,8 @@
     [Telefone]       VARCHAR (50) NULL,
     [Email]          VARCHAR (50) NOT NULL,
     [EhPessoaFisica] BIT          NOT NULL,
-    [Cnh]            VARCHAR (50) NOT NULL,
-    [ValidadeCnh]    DATETIME     NOT NULL,
+    [Cnh]            VARCHAR (50) NULL,
+    [ValidadeCnh]    DATETIME     NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
