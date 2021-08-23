@@ -131,7 +131,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [TEMARCONDICIONADO] = @TEMARCONDICIONADO,
                 [TEMDIRECAOHIDRAULICA] = @TEMDIRECAOHIDRAULICA,
                 [TEMFREIOSABS] = @TEMFREIOSABS,
-                [STATUSLOCACAO] = @STATUSLOCACAO
+                [ESTAALUGADO] = @ESTAALUGADO
             WHERE
                 [ID] = @ID
             ";
@@ -219,7 +219,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             parametros.Add("TEMARCONDICIONADO", veiculo.temArCondicionado);
             parametros.Add("TEMDIRECAOHIDRAULICA", veiculo.temDirecaoHidraulica);
             parametros.Add("TEMFREIOSABS", veiculo.temFreiosAbs);
-            parametros.Add("STATUSLOCACAO", veiculo.estaAlugado);
+            parametros.Add("ESTAALUGADO", veiculo.estaAlugado);
 
             return parametros;
         }
@@ -244,16 +244,18 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             var temArCondicionado = Convert.ToBoolean(reader["TEMARCONDICIONADO"]);
             var temDirecaoHidraulica = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
             var temFreioAbs = Convert.ToBoolean(reader["TEMFREIOSABS"]);
+            var estaAlugado = Convert.ToBoolean(reader["ESTAALUGADO"]);
 
             var nome = Convert.ToString(reader["NOME"]);
             var taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
             var taxaKmControlado = Convert.ToDouble(reader["TAXAKMCONTROLADO"]);
             var taxaKmLivre = Convert.ToDouble(reader["TAXAKMLIVRE"]);
             var quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QUANTIDADEQUILOMETROSKMCONTROLADO"]);
+            
 
             GrupoDeVeiculo grupo = new GrupoDeVeiculo(grupoVeiculos, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
+            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado);
 
             veiculo.Id = id;
 
