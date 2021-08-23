@@ -134,6 +134,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 
         private Cliente ConverterEmClientes(IDataReader reader)
         {
+			DateTime? validadeCnh = null;
 			int id = Convert.ToInt32(reader["ID"]);
 			string nome = Convert.ToString((reader["NOME"]));
 			string registroUnico = Convert.ToString((reader["REGISTROUNICO"]));
@@ -141,7 +142,8 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 			string telefone = Convert.ToString(reader["TELEFONE"]);
 			string email = Convert.ToString(reader["EMAIL"]);
 			string cnh = Convert.ToString(reader["CNH"]);
-			DateTime validadeCnh = Convert.ToDateTime(reader["VALIDADECNH"]);
+			if(reader["VALIDADECNH"] != DBNull.Value)
+				validadeCnh = Convert.ToDateTime(reader["VALIDADECNH"]);
 			bool ehPessoaFisica = Convert.ToBoolean(reader["EHPESSOAFISiCA"]);
 
 			Cliente cliente = new Cliente(id, nome, registroUnico, endereco, telefone, email, cnh, validadeCnh, ehPessoaFisica);
