@@ -89,7 +89,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             if (checkLBoxOpcionais.CheckedIndices.Contains(2))
                 possuiFreioAbs = true;
 
-            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, quilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs);
+            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, quilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false);
 
             string resultadoValidacao = veiculo.Validar();
 
