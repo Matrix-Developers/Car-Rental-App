@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
             controlador.InserirNovo(novoVeiculo);
 
             //assert
-            var veiculoEncontrado = controlador.SelecionarPorId(novoVeiculo.Id);
+            Veiculo veiculoEncontrado = controlador.SelecionarPorId(novoVeiculo.Id);
             veiculoEncontrado.Should().Be(novoVeiculo);
         }
 

@@ -50,10 +50,10 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
                 resultadoValidacao += "A taxa diária do Plano Controlado não pode ser nula nem negativa\n";
 
             if (this.limiteKmControlado <= 0)
-                resultadoValidacao += "O limite de KM do plano Controlado não pode ser nulo nem negativo";
+                resultadoValidacao += "O limite de KM do plano Controlado não pode ser nulo nem negativo\n";
 
             if (this.taxaKmExcedidoControlado <= 0f)
-                resultadoValidacao += "A taxa de KM Excedido do plano Controlado não pode ser nulo nem negativo";
+                resultadoValidacao += "A taxa de KM Excedido do plano Controlado não pode ser nulo nem negativo\n";
 
             if (this.taxaPlanoLivre <= 0f)
                 resultadoValidacao += "A taxa diária do do Plano Livre não pode ser nula nem negativa\n";
@@ -93,7 +93,7 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 
         public override string ToString()
         {
-            return nome;
+            return $"GrupoDeVeiculo = [{id},{nome},{taxaPlanoDiario},{taxaPorKmDiario},{taxaPlanoControlado},{limiteKmControlado},{taxaKmExcedidoControlado},{taxaPlanoLivre}]";
         }
     }
 }
