@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temArCondicionado;
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
-        public bool status;
+        public bool estaAlugado;
 
         public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status)
         {
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.temArCondicionado = temArCondicionado;
             this.temDirecaoHidraulica = temDirecaoHidraulica;
             this.temFreiosAbs = temFreiosAbs;
-            this.status = status;
+            this.estaAlugado = status;
         }
 
         public override string Validar()
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                    temArCondicionado == veiculo.temArCondicionado &&
                    temDirecaoHidraulica == veiculo.temDirecaoHidraulica &&
                    temFreiosAbs == veiculo.temFreiosAbs &&
-                   status == veiculo.status;
+                   estaAlugado == veiculo.estaAlugado;
         }
 
         public override int GetHashCode()
@@ -128,6 +128,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             hashCode = hashCode * -1521134295 + temArCondicionado.GetHashCode();
             hashCode = hashCode * -1521134295 + temDirecaoHidraulica.GetHashCode();
             hashCode = hashCode * -1521134295 + temFreiosAbs.GetHashCode();
+            hashCode = hashCode * -1521134295 + estaAlugado.GetHashCode();
             return hashCode;
         }
     }

@@ -28,7 +28,8 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [TAMANHOPORTAMALA],
                 [TEMARCONDICIONADO],
                 [TEMDIRECAOHIDRAULICA],
-                [TEMFREIOSABS]
+                [TEMFREIOSABS],
+                [ESTAALUGADO]
             )
             VALUES
             (
@@ -47,7 +48,8 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 @TAMANHOPORTAMALA,
                 @TEMARCONDICIONADO,
                 @TEMDIRECAOHIDRAULICA,
-                @TEMFREIOSABS
+                @TEMFREIOSABS,
+                @ESTAALUGADO
             )";
         private const string sqlSelecionarTodosVeiculos =
             @"SELECT
@@ -68,6 +70,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 CV.[TEMARCONDICIONADO],
                 CV.[TEMDIRECAOHIDRAULICA],
                 CV.[TEMFREIOSABS],
+                CV.[ESTAALUGADO],
                 CG.[NOME],
                 CG.[TAXAPLANODIARIO],
                 CG.[TAXAKMCONTROLADO],
@@ -78,7 +81,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [TBGRUPOVEICULO] AS CG
             ON
                 CG.ID = CV.ID_GRUPOVEICULO";
-
         private const string sqlSelecionarVeiculoPorId =
             @"SELECT  
                 CV.[ID],
@@ -98,6 +100,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 CV.[TEMARCONDICIONADO],
                 CV.[TEMDIRECAOHIDRAULICA],
                 CV.[TEMFREIOSABS],
+                CV.[ESTAALUGADO],
                 CG.[NOME],
                 CG.[TAXAPLANODIARIO],
                 CG.[TAXAKMCONTROLADO],
@@ -110,7 +113,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 CG.ID = CV.ID_GRUPOVEICULO
             WHERE 
                 CV.[ID] = @ID";
-
         private const string sqlEditarVeiculo =
             @"UPDATE TBVEICULO SET
                 [MODELO] = @MODELO,
@@ -128,7 +130,8 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [TAMANHOPORTAMALA] = @TAMANHOPORTAMALA,
                 [TEMARCONDICIONADO] = @TEMARCONDICIONADO,
                 [TEMDIRECAOHIDRAULICA] = @TEMDIRECAOHIDRAULICA,
-                [TEMFREIOSABS] = @TEMFREIOSABS
+                [TEMFREIOSABS] = @TEMFREIOSABS,
+                [STATUSLOCACAO] = @STATUSLOCACAO
             WHERE
                 [ID] = @ID
             ";
@@ -138,7 +141,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 TBVEICULO 
             WHERE 
                 [ID] = @ID";
-
         private const string sqlExisteVeiculo =
             @"SELECT 
                 COUNT(*) 
@@ -217,6 +219,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             parametros.Add("TEMARCONDICIONADO", veiculo.temArCondicionado);
             parametros.Add("TEMDIRECAOHIDRAULICA", veiculo.temDirecaoHidraulica);
             parametros.Add("TEMFREIOSABS", veiculo.temFreiosAbs);
+            parametros.Add("STATUSLOCACAO", veiculo.estaAlugado);
 
             return parametros;
         }
