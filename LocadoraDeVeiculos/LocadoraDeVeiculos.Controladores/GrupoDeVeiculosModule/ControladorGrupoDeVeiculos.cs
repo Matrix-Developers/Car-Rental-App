@@ -13,17 +13,21 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
                 (
 	                [NOME],
 	                [TAXAPLANODIARIO],
-	                [TAXAKMCONTROLADO],
-	                [TAXAKMLIVRE],
-	                [QUANTIDADEQUILOMETROSKMCONTROLADO]
+	                [TAXAPORKMDIARIO],
+	                [TAXAPLANOCONTROLADO],
+	                [LIMITEKMCONTROLADO],
+	                [TAXAKMEXCEDIDOCONTROLADO]
+	                [TAXAPLANOLIVRE]
                 )
                 VALUES
                 (
 	                @NOME,
 	                @TAXAPLANODIARIO,
-	                @TAXAKMCONTROLADO,
-	                @TAXAKMLIVRE,
-	                @QUANTIDADEQUILOMETROSKMCONTROLADO
+	                @TAXAPORKMDIARIO,
+	                @TAXAPLANOCONTROLADO,
+	                @LIMITEKMCONTROLADO,
+	                @TAXAKMEXCEDIDOCONTROLADO,
+	                @TAXAPLANOLIVRE
                 );";
 
         private const string sqlEditarGrupoDeVeiculos =
@@ -31,9 +35,11 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
                 SET
 	                [NOME] = @NOME,
 	                [TAXAPLANODIARIO] = @TAXAPLANODIARIO,
-	                [TAXAKMCONTROLADO] = @TAXAKMCONTROLADO,
-	                [TAXAKMLIVRE] = @TAXAKMLIVRE,
-	                [QUANTIDADEQUILOMETROSKMCONTROLADO] = @QUANTIDADEQUILOMETROSKMCONTROLADO
+	                [TAXAPORKMDIARIO] = @TAXAPORKMDIARIO,
+	                [TAXAPLANOCONTROLADO] = @TAXAPLANOCONTROLADO,
+	                [LIMITEKMCONTROLADO] = @LIMITEKMCONTROLADO,
+	                [TAXAKMEXCEDIDOCONTROLADO] = @TAXAKMEXCEDIDOCONTROLADO,
+	                [TAXAPLANOLIVRE] = @TAXAPLANOLIVRE
                 WHERE [ID] = @ID;";
 
         private const string sqlExcluirGrupoDeVeiculos =
@@ -128,9 +134,11 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             parametros.Add("ID", grupoDeVeiculos.Id);
             parametros.Add("NOME", grupoDeVeiculos.Nome);
             parametros.Add("TAXAPLANODIARIO", grupoDeVeiculos.TaxaPlanoDiario);
-            parametros.Add("TAXAKMCONTROLADO", grupoDeVeiculos.TaxaKmControlado);
-            parametros.Add("TAXAKMLIVRE", grupoDeVeiculos.TaxaKmLivre);
-            parametros.Add("QUANTIDADEQUILOMETROSKMCONTROLADO", grupoDeVeiculos.QuantidadeQuilometrosKmControlado);
+            parametros.Add("TAXAPORKMDIARIO", grupoDeVeiculos.TaxaPorKmDiario);
+            parametros.Add("TAXAPLANOCONTROLADO", grupoDeVeiculos.TaxaPlanoControlado);
+            parametros.Add("LIMITEKMCONTROLADO", grupoDeVeiculos.LimiteKmControlado);
+            parametros.Add("TAXAKMEXCEDIDOCONTROLADO", grupoDeVeiculos.TaxaKmExcedidoControlado);
+            parametros.Add("TAXAPLANOLIVRE", grupoDeVeiculos.TaxaPlanoLivre);
 
             return parametros;
         }
@@ -140,11 +148,14 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             int id = Convert.ToInt32(reader["ID"]); ;
             string nome = Convert.ToString(reader["NOME"]); ;
             double taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
-            double taxaKmControlado = Convert.ToDouble(reader["TAXAKMCONTROLADO"]);
-            double taxaKmLivre = Convert.ToDouble(reader["TAXAKMLIVRE"]);
-            int quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QUANTIDADEQUILOMETROSKMCONTROLADO"]);
+            double taxaPorKmDiario = Convert.ToDouble(reader["TAXAPORKMDIARIO"]);
+            double taxaPlanoControlado = Convert.ToDouble(reader["TAXAPLANOCONTROLADO"]);
+            int limiteKmControlado = Convert.ToInt32(reader["LIMITEKMCONTROLADO"]);
+            double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
+            double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
+            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado,
+                limiteKmControlado, taxaKmExcedidoControlado,taxaPlanoLivre);
 
             return grupoDeVeiculos;
         }

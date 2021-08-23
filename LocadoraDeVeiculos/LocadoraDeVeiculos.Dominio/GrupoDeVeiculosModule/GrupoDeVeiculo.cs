@@ -21,6 +21,18 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
         public double TaxaKmExcedidoControlado { get => taxaKmExcedidoControlado;}
         public double TaxaPlanoLivre { get => taxaPlanoLivre;}
 
+        public GrupoDeVeiculo(int id, string nome, double taxaPlanoDiario, double taxaPorKmDiario, double taxaPlanoControlado, int limiteKmControlado, double taxaKmExcedidoControlado, double taxaPlanoLivre)
+        {
+            this.id = id;
+            this.nome = nome;
+            this.taxaPlanoDiario = taxaPlanoDiario;
+            this.taxaPorKmDiario = taxaPorKmDiario;
+            this.taxaPlanoControlado = taxaPlanoControlado;
+            this.limiteKmControlado = limiteKmControlado;
+            this.taxaKmExcedidoControlado = taxaKmExcedidoControlado;
+            this.taxaPlanoLivre = taxaPlanoLivre;
+        }
+
         public override string Validar()
         {
             string resultadoValidacao = "";
