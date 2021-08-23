@@ -69,10 +69,12 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 CV.[TEMDIRECAOHIDRAULICA],
                 CV.[TEMFREIOSABS],
                 CG.[NOME],
-                CG.[TAXAPLANODIARIO],
-                CG.[TAXAKMCONTROLADO],
-                CG.[TAXAKMLIVRE],
-                CG.[QUANTIDADEQUILOMETROSKMCONTROLADO]
+	            CG.[TAXAPLANODIARIO],
+	            CG.[TAXAPORKMDIARIO],
+	            CG.[TAXAPLANOCONTROLADO],
+	            CG.[LIMITEKMCONTROLADO],
+	            CG.[TAXAKMEXCEDIDOCONTROLADO]
+	            CG.[TAXAPLANOLIVRE]
             FROM 
                 [TBVEICULO] AS CV LEFT JOIN 
                 [TBGRUPOVEICULO] AS CG
@@ -99,10 +101,12 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 CV.[TEMDIRECAOHIDRAULICA],
                 CV.[TEMFREIOSABS],
                 CG.[NOME],
-                CG.[TAXAPLANODIARIO],
-                CG.[TAXAKMCONTROLADO],
-                CG.[TAXAKMLIVRE],
-                CG.[QUANTIDADEQUILOMETROSKMCONTROLADO]
+	            CG.[TAXAPLANODIARIO],
+	            CG.[TAXAPORKMDIARIO],
+	            CG.[TAXAPLANOCONTROLADO],
+	            CG.[LIMITEKMCONTROLADO],
+	            CG.[TAXAKMEXCEDIDOCONTROLADO]
+	            CG.[TAXAPLANOLIVRE]
             FROM 
                 [TBVEICULO] AS CV LEFT JOIN 
                 [TBGRUPOVEICULO] AS CG
@@ -242,15 +246,17 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             var temDirecaoHidraulica = Convert.ToBoolean(reader["TEMDIRECAOHIDRAULICA"]);
             var temFreioAbs = Convert.ToBoolean(reader["TEMFREIOSABS"]);
 
-            var nome = Convert.ToString(reader["NOME"]);
-            var taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
-            var taxaKmControlado = Convert.ToDouble(reader["TAXAKMCONTROLADO"]);
-            var taxaKmLivre = Convert.ToDouble(reader["TAXAKMLIVRE"]);
-            var quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QUANTIDADEQUILOMETROSKMCONTROLADO"]);
+            string nome = Convert.ToString(reader["NOME"]); ;
+            double taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
+            double taxaPorKmDiario = Convert.ToDouble(reader["TAXAPORKMDIARIO"]);
+            double taxaPlanoControlado = Convert.ToDouble(reader["TAXAPLANOCONTROLADO"]);
+            int limiteKmControlado = Convert.ToInt32(reader["LIMITEKMCONTROLADO"]);
+            double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
+            double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupo = new GrupoDeVeiculo(grupoVeiculos, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
+            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
+            Veiculo veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
 
             veiculo.Id = id;
 

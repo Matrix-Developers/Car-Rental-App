@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             if (textQuantKMControl.Text.Length > 0)
                 QuantidadeQuilometrosKmControlado = Convert.ToInt32(textQuantKMControl.Text);
 
-            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaKmControlado, TaxaKmLivre, QuantidadeQuilometrosKmControlado);
+            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaKmControlado, TaxaKmLivre, QuantidadeQuilometrosKmControlado, 0,0);
 
             string resultadoValidacao = grupoDeVeiculos.Validar();
 
