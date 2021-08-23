@@ -22,8 +22,9 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temArCondicionado;
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
+        public bool status;
 
-        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs)
+        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status)
         {
             this.id = id;
             this.modelo = modelo;
@@ -42,6 +43,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.temArCondicionado = temArCondicionado;
             this.temDirecaoHidraulica = temDirecaoHidraulica;
             this.temFreiosAbs = temFreiosAbs;
+            this.status = status;
         }
 
         public override string Validar()
@@ -102,7 +104,8 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                    tamanhoPortaMala == veiculo.tamanhoPortaMala &&
                    temArCondicionado == veiculo.temArCondicionado &&
                    temDirecaoHidraulica == veiculo.temDirecaoHidraulica &&
-                   temFreiosAbs == veiculo.temFreiosAbs;
+                   temFreiosAbs == veiculo.temFreiosAbs &&
+                   status == veiculo.status;
         }
 
         public override int GetHashCode()
