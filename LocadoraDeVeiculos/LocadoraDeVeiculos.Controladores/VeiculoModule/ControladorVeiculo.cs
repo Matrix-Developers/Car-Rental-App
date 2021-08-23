@@ -73,7 +73,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 	            CG.[TAXAPORKMDIARIO],
 	            CG.[TAXAPLANOCONTROLADO],
 	            CG.[LIMITEKMCONTROLADO],
-	            CG.[TAXAKMEXCEDIDOCONTROLADO]
+	            CG.[TAXAKMEXCEDIDOCONTROLADO],
 	            CG.[TAXAPLANOLIVRE]
             FROM 
                 [TBVEICULO] AS CV LEFT JOIN 
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 	            CG.[TAXAPORKMDIARIO],
 	            CG.[TAXAPLANOCONTROLADO],
 	            CG.[LIMITEKMCONTROLADO],
-	            CG.[TAXAKMEXCEDIDOCONTROLADO]
+	            CG.[TAXAKMEXCEDIDOCONTROLADO],
 	            CG.[TAXAPLANOLIVRE]
             FROM 
                 [TBVEICULO] AS CV LEFT JOIN 
@@ -254,9 +254,9 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
             double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
+            GrupoDeVeiculo grupo = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
+            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
 
             veiculo.Id = id;
 

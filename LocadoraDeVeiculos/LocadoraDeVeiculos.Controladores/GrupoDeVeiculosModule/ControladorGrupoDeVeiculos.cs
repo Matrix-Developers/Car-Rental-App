@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 	                [TAXAPORKMDIARIO],
 	                [TAXAPLANOCONTROLADO],
 	                [LIMITEKMCONTROLADO],
-	                [TAXAKMEXCEDIDOCONTROLADO]
+	                [TAXAKMEXCEDIDOCONTROLADO],
 	                [TAXAPLANOLIVRE]
                 )
                 VALUES
