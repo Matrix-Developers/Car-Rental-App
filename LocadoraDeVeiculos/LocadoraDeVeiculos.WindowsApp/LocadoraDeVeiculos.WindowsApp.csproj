@@ -168,6 +168,9 @@
     <EmbeddedResource Include="Features\GrupoDeVeiculo\TabelaGrupoDeVeiculosControl.resx">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Locacao\TabelaLocacaoControl.resx">
+      <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Serviços\TabelaServicoControl.resx">
       <DependentUpon>TabelaServicoControl.cs</DependentUpon>
     </EmbeddedResource>

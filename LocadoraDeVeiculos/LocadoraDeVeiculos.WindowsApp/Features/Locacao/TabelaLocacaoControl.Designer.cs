@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Locacao
+namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
     partial class TabelaLocacaoControl
     {
@@ -29,10 +29,32 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacao
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.gridLocacao = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLocacao)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // gridLocacao
+            // 
+            this.gridLocacao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridLocacao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridLocacao.Location = new System.Drawing.Point(0, 0);
+            this.gridLocacao.Name = "gridLocacao";
+            this.gridLocacao.Size = new System.Drawing.Size(150, 150);
+            this.gridLocacao.TabIndex = 0;
+            // 
+            // TabelaLocacaoControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gridLocacao);
+            this.Name = "TabelaLocacaoControl";
+            ((System.ComponentModel.ISupportInitialize)(this.gridLocacao)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView gridLocacao;
     }
 }
