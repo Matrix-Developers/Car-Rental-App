@@ -16,9 +16,11 @@
     [TemArCondicionado]    BIT          NOT NULL,
     [TemDirecaoHidraulica] BIT          NOT NULL,
     [TemFreiosAbs]         BIT          NOT NULL,
-    [EstaAlugado]          BIT          NOT NULL,
+    [EstaAlugado]          BIT          NULL,
     CONSTRAINT [PK__tmp_ms_x__3214EC07CEA50E53] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 
 
 

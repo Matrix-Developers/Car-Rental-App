@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
                 controlador.Editar(id, tela.Funcionario);
                 List<Funcionario> funcionarios = controlador.SelecionarTodos();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário [{funcionarioSelecionado.Nome}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] editado com sucesso");
             }
 
         }
@@ -71,7 +71,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
                 controlador.Excluir(id);
                 List<Funcionario> funcionarios = controlador.SelecionarTodos();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário [{funcionarioSelecionado.Nome}] removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
             }
         }
 

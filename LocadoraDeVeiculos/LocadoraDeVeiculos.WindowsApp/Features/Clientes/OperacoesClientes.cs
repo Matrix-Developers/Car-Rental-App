@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
                 tabelaCliente.AtualizarRegistros();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}]editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] editado com sucesso");
             }
         }
         public void ExcluirRegistro()
@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             }
             Cliente clienteSelecionado = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o cliente:[{clienteSelecionado.Nome}]?",
+            if (MessageBox.Show($"Tem certeza que deseja excluir o cliente: [{clienteSelecionado.Nome}] ?",
                 "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controlador.Excluir(id);
@@ -67,7 +67,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
                 tabelaCliente.AtualizarRegistros();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}]removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
             }
         }
         public void InserirNovoRegistro()
@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
                 List<Cliente> clientes = controlador.SelecionarTodos();
 
                 tabelaCliente.AtualizarRegistros();
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente:[{tela.Clientes.Nome}]inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] inserido com sucesso");
             }
         }
 
