@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public Veiculo Veiculo { get => veiculo; }
         public Funcionario FuncionarioLocador { get => funcionarioLocador; }
         public Cliente ClienteContratante { get => clienteContratante; }
-        public Cliente Condutor { get => clienteCondutor; }
+        public Cliente ClienteCondutor { get => clienteCondutor; }
         public DateTime DataDeSaida { get => dataDeSaida; }
         public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; }
         public string TipoDoPlano { get => tipoDoPlano; }
