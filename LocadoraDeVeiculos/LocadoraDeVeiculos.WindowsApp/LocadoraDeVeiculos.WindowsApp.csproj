@@ -171,6 +171,9 @@
     <EmbeddedResource Include="Features\Locacao\TabelaLocacaoControl.resx">
       <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Locacao\TelaLocacaoForm.resx">
+      <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Serviços\TabelaServicoControl.resx">
       <DependentUpon>TabelaServicoControl.cs</DependentUpon>
     </EmbeddedResource>
