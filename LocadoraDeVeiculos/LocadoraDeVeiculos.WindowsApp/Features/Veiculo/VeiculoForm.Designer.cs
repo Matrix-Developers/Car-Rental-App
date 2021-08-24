@@ -87,6 +87,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             this.textPlaca.Location = new System.Drawing.Point(97, 44);
             this.textPlaca.MaxLength = 7;
+
             this.textPlaca.Name = "textPlaca";
             this.textPlaca.Size = new System.Drawing.Size(217, 20);
             this.textPlaca.TabIndex = 1;
