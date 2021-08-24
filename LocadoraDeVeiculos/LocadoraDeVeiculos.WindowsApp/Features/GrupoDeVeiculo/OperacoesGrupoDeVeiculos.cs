@@ -51,7 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos:[{tela.GrupoDeVeiculos.Nome}] editada com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] editado com sucesso");
             }
         }
 
@@ -65,7 +65,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
             }
             GrupoDeVeiculo grupoSelecionado = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos:[{grupoSelecionado.Nome}]?",
+            if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos: [{grupoSelecionado.Nome}]?",
                 "Exclusão de Grupo de Veículos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 controlador.Excluir(id);

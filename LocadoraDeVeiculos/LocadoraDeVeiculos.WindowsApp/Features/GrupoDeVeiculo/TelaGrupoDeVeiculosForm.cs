@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,31 +33,40 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
 
                 textId.Text = grupoDeVeiculos.Id.ToString();
                 textNomeGrupo.Text = grupoDeVeiculos.Nome;
-                txtTaxaPlanoDiario.Text =grupoDeVeiculos.TaxaPlanoDiario.ToString();
-                txtTaxaKMControlado.Text = grupoDeVeiculos.TaxaKmControlado.ToString();
-                txtTaxaKMLivre.Text = grupoDeVeiculos.TaxaKmLivre.ToString();
-                textQuantKMControl.Text = grupoDeVeiculos.QuantidadeQuilometrosKmControlado.ToString();
+                txtTaxaPlanoDiario.Text = grupoDeVeiculos.TaxaPlanoDiario.ToString();
+                txtTaxaPorKmDiario.Text = grupoDeVeiculos.TaxaPorKmDiario.ToString();
+                txtTaxaPlanoControlado.Text = grupoDeVeiculos.TaxaPlanoControlado.ToString();
+                txtLimiteKmControlado.Text = grupoDeVeiculos.LimiteKmControlado.ToString();
+                txtTaxaKmExcedidoControlado.Text = grupoDeVeiculos.TaxaKmExcedidoControlado.ToString();
+                txtTaxaPlanoLivre.Text = grupoDeVeiculos.TaxaPlanoLivre.ToString();
+                
             }
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            double TaxaPlanoDiario = 0;
-            double TaxaKmControlado = 0;
-            double TaxaKmLivre = 0;
-            int QuantidadeQuilometrosKmControlado = 0;
             int Id = Convert.ToInt32(textId.Text);
             string Nome = textNomeGrupo.Text;
-            if(txtTaxaPlanoDiario.Text.Length > 0)
-                TaxaPlanoDiario = Convert.ToDouble(txtTaxaPlanoDiario.Text);
-            if (txtTaxaKMControlado.Text.Length > 0)
-                TaxaKmControlado = Convert.ToDouble(txtTaxaKMControlado.Text);
-            if (txtTaxaKMLivre.Text.Length > 0)
-                TaxaKmLivre = Convert.ToDouble(txtTaxaKMLivre.Text);
-            if (textQuantKMControl.Text.Length > 0)
-                QuantidadeQuilometrosKmControlado = Convert.ToInt32(textQuantKMControl.Text);
+            double TaxaPlanoDiario = 0;
+            double TaxaPorKmDiario = 0;
+            double TaxaPlanoControlado = 0;
+            int LimiteKmControlado = 0;
+            double TaxaKmExcedidoControlado = 0;
+            double TaxaPlanoLivre = 0;
+            if (txtTaxaPlanoDiario.Text.Length > 0)
+                TaxaPlanoDiario = Convert.ToDouble(txtTaxaPlanoDiario.Text, CultureInfo.InvariantCulture);
+            if (txtTaxaPorKmDiario.Text.Length > 0)
+                TaxaPorKmDiario = Convert.ToDouble(txtTaxaPorKmDiario.Text, CultureInfo.InvariantCulture);
+            if (txtTaxaPlanoControlado.Text.Length > 0)
+                TaxaPlanoControlado = Convert.ToDouble(txtTaxaPlanoControlado.Text, CultureInfo.InvariantCulture);
+            if (txtLimiteKmControlado.Text.Length > 0)
+                LimiteKmControlado = Convert.ToInt32(txtLimiteKmControlado.Text);
+            if (txtTaxaKmExcedidoControlado.Text.Length > 0)
+                TaxaKmExcedidoControlado = Convert.ToDouble(txtTaxaKmExcedidoControlado.Text, CultureInfo.InvariantCulture);
+            if (txtTaxaPlanoLivre.Text.Length > 0)
+                TaxaPlanoLivre = Convert.ToDouble(txtTaxaPlanoLivre.Text, CultureInfo.InvariantCulture);
 
-            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaKmControlado, TaxaKmLivre, QuantidadeQuilometrosKmControlado);
+            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado,TaxaKmExcedidoControlado,TaxaPlanoLivre);
 
             string resultadoValidacao = grupoDeVeiculos.Validar();
 
@@ -68,10 +78,9 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
 
                 DialogResult = DialogResult.None;
             }
-
-
         }
 
+        //Esses eventos tem muito código duplicado. Podemos abstrair através de extração de método
         private void txtTaxaPlanoDiario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
@@ -87,11 +96,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             }
         }
 
-        private void txtTaxaKMControlado_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTaxaKmDiario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaKMControlado.Text.IndexOf(".") >= 0 || txtTaxaKMControlado.Text.Length == 0)
+                if (txtTaxaPorKmDiario.Text.IndexOf(".") >= 0 || txtTaxaPorKmDiario.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -102,11 +111,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             }
         }
 
-        private void txtTaxaKMLivre_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTaxaPlanoControlado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaKMLivre.Text.IndexOf(".") >= 0 || txtTaxaKMLivre.Text.Length == 0)
+                if (txtTaxaPlanoControlado.Text.IndexOf(".") >= 0 || txtTaxaPlanoControlado.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -117,11 +126,34 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             }
         }
 
-        private void textQuantKMControl_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtLimiteKmControlado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTaxaKmExcedidoControlado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (textQuantKMControl.Text.IndexOf(".") >= 0 || textQuantKMControl.Text.Length == 0)
+                if (txtTaxaKmExcedidoControlado.Text.IndexOf(".") >= 0 || txtTaxaKmExcedidoControlado.Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+            }
+            else if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTaxaPlanoLivre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.')
+            {
+                if (txtTaxaPlanoLivre.Text.IndexOf(".") >= 0 || txtTaxaPlanoLivre.Text.Length == 0)
                 {
                     e.Handled = true;
                 }

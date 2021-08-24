@@ -83,7 +83,6 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         {
             return $"Veiculo = [{id}, {modelo}, {grupoVeiculos}, {placa}, {chassi}, {marca}, {cor}, {tipoCombustivel}, {capacidadeTanque}, {ano}, {quilometragem}, {numeroPortas}, {capacidadePessoas}, {tamanhoPortaMala}]";
         }
-        
 
         public override bool Equals(object obj)
         {

@@ -72,10 +72,12 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 CV.[TEMFREIOSABS],
                 CV.[ESTAALUGADO],
                 CG.[NOME],
-                CG.[TAXAPLANODIARIO],
-                CG.[TAXAKMCONTROLADO],
-                CG.[TAXAKMLIVRE],
-                CG.[QUANTIDADEQUILOMETROSKMCONTROLADO]
+	            CG.[TAXAPLANODIARIO],
+	            CG.[TAXAPORKMDIARIO],
+	            CG.[TAXAPLANOCONTROLADO],
+	            CG.[LIMITEKMCONTROLADO],
+	            CG.[TAXAKMEXCEDIDOCONTROLADO],
+	            CG.[TAXAPLANOLIVRE]
             FROM 
                 [TBVEICULO] AS CV LEFT JOIN 
                 [TBGRUPOVEICULO] AS CG
@@ -102,10 +104,12 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 CV.[TEMFREIOSABS],
                 CV.[ESTAALUGADO],
                 CG.[NOME],
-                CG.[TAXAPLANODIARIO],
-                CG.[TAXAKMCONTROLADO],
-                CG.[TAXAKMLIVRE],
-                CG.[QUANTIDADEQUILOMETROSKMCONTROLADO]
+	            CG.[TAXAPLANODIARIO],
+	            CG.[TAXAPORKMDIARIO],
+	            CG.[TAXAPLANOCONTROLADO],
+	            CG.[LIMITEKMCONTROLADO],
+	            CG.[TAXAKMEXCEDIDOCONTROLADO],
+	            CG.[TAXAPLANOLIVRE]
             FROM 
                 [TBVEICULO] AS CV LEFT JOIN 
                 [TBGRUPOVEICULO] AS CG
@@ -228,7 +232,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         {
             var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);
-            var grupoVeiculos = Convert.ToInt32(reader["ID_GRUPOVEICULO"]);
+            var id_grupoveiculo = Convert.ToInt32(reader["ID_GRUPOVEICULO"]);
             var placa = Convert.ToString(reader["PLACA"]);
             var chassi = Convert.ToString(reader["CHASSI"]);
             var marca = Convert.ToString(reader["MARCA"]);
@@ -246,14 +250,15 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             var temFreioAbs = Convert.ToBoolean(reader["TEMFREIOSABS"]);
             var estaAlugado = Convert.ToBoolean(reader["ESTAALUGADO"]);
 
-            var nome = Convert.ToString(reader["NOME"]);
-            var taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
-            var taxaKmControlado = Convert.ToDouble(reader["TAXAKMCONTROLADO"]);
-            var taxaKmLivre = Convert.ToDouble(reader["TAXAKMLIVRE"]);
-            var quantidadeQuilometrosKmControlado = Convert.ToInt32(reader["QUANTIDADEQUILOMETROSKMCONTROLADO"]);
-            
+            string nome = Convert.ToString(reader["NOME"]); ;
+            double taxaPlanoDiario = Convert.ToDouble(reader["TAXAPLANODIARIO"]);
+            double taxaPorKmDiario = Convert.ToDouble(reader["TAXAPORKMDIARIO"]);
+            double taxaPlanoControlado = Convert.ToDouble(reader["TAXAPLANOCONTROLADO"]);
+            int limiteKmControlado = Convert.ToInt32(reader["LIMITEKMCONTROLADO"]);
+            double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
+            double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupo = new GrupoDeVeiculo(grupoVeiculos, nome, taxaPlanoDiario, taxaKmControlado, taxaKmLivre, quantidadeQuilometrosKmControlado);
+            GrupoDeVeiculo grupo = new GrupoDeVeiculo(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
             Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado);
 
