@@ -41,22 +41,22 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
                 resultadoValidacao  = "O nome não pode ser nulo\n";
 
             if (this.taxaPlanoDiario <=0f)
-                resultadoValidacao += "A taxa diaria do Plano Diário não pode ser nula nem negativa\n";
+                resultadoValidacao += "A taxa diaria do Plano Diário não pode ser nula\n";
 
             if (this.taxaPorKmDiario <= 0f)
-                resultadoValidacao += "A taxa por KM do Plano Diário não pode ser nula nem negativa\n";
+                resultadoValidacao += "A taxa por KM do Plano Diário não pode ser nula\n";
 
             if (this.taxaPlanoControlado <= 0f)
-                resultadoValidacao += "A taxa diária do Plano Controlado não pode ser nula nem negativa\n";
+                resultadoValidacao += "A taxa diária do Plano Controlado não pode ser nula\n";
 
             if (this.limiteKmControlado <= 0)
-                resultadoValidacao += "O limite de KM do plano Controlado não pode ser nulo nem negativo\n";
+                resultadoValidacao += "O limite de KM do plano Controlado não pode ser nulo\n";
 
             if (this.taxaKmExcedidoControlado <= 0f)
-                resultadoValidacao += "A taxa de KM Excedido do plano Controlado não pode ser nulo nem negativo\n";
+                resultadoValidacao += "A taxa de KM Excedido do plano Controlado não pode ser nulo\n";
 
             if (this.taxaPlanoLivre <= 0f)
-                resultadoValidacao += "A taxa diária do do Plano Livre não pode ser nula nem negativa\n";
+                resultadoValidacao += "A taxa diária do do Plano Livre não pode ser nula\n";
 
             if (resultadoValidacao.Length == 0)
                 resultadoValidacao = "VALIDO";
