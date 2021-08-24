@@ -51,8 +51,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             if(!this.clienteContratante.EhPessoaFisica && this.condutor == null)
                 resultadoValidacao += "O condutor não pode ser nulo quando o cliente contratante é pessoa juridica\n";
 
-            if (this.clienteContratante.EhPessoaFisica && this.condutor != null)
-                resultadoValidacao += "Não pode haver condutor quando o cliente contratante é pessoa física\n";
+            if (!this.condutor.EhPessoaFisica)
+                resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
 
             if(!this.tipoDoPlano.Equals("PlanoDiario") || !this.tipoDoPlano.Equals("KmControlado") || !this.tipoDoPlano.Equals("KmLivre"))
                 resultadoValidacao += "O tipo do plano é inválido.\n";
