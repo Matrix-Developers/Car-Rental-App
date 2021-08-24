@@ -45,7 +45,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbMatInt = new System.Windows.Forms.Label();
             this.lbDataAdmissao = new System.Windows.Forms.Label();
             this.textUsuarioAcesso = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mskTxtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.mskTxtCpf = new System.Windows.Forms.MaskedTextBox();
             this.textNome = new System.Windows.Forms.TextBox();
@@ -56,7 +55,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.textCargo = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textSalario)).BeginInit();
@@ -65,77 +63,77 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // lbId
             // 
             this.lbId.AutoSize = true;
-            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbId.ForeColor = System.Drawing.Color.Red;
-            this.lbId.Location = new System.Drawing.Point(12, 13);
+            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbId.ForeColor = System.Drawing.Color.Black;
+            this.lbId.Location = new System.Drawing.Point(55, 15);
             this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(25, 24);
+            this.lbId.Size = new System.Drawing.Size(16, 13);
             this.lbId.TabIndex = 23;
             this.lbId.Text = "Id";
             // 
             // lbNome
             // 
             this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNome.ForeColor = System.Drawing.Color.Red;
-            this.lbNome.Location = new System.Drawing.Point(12, 40);
+            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbNome.ForeColor = System.Drawing.Color.Black;
+            this.lbNome.Location = new System.Drawing.Point(36, 41);
             this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(62, 24);
+            this.lbNome.Size = new System.Drawing.Size(35, 13);
             this.lbNome.TabIndex = 24;
             this.lbNome.Text = "Nome";
             // 
             // lbCPF
             // 
             this.lbCPF.AutoSize = true;
-            this.lbCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCPF.ForeColor = System.Drawing.Color.Red;
-            this.lbCPF.Location = new System.Drawing.Point(12, 67);
+            this.lbCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbCPF.ForeColor = System.Drawing.Color.Black;
+            this.lbCPF.Location = new System.Drawing.Point(48, 67);
             this.lbCPF.Name = "lbCPF";
-            this.lbCPF.Size = new System.Drawing.Size(38, 24);
+            this.lbCPF.Size = new System.Drawing.Size(23, 13);
             this.lbCPF.TabIndex = 25;
             this.lbCPF.Text = "Cpf";
             // 
             // lbEndereco
             // 
             this.lbEndereco.AutoSize = true;
-            this.lbEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEndereco.ForeColor = System.Drawing.Color.Red;
-            this.lbEndereco.Location = new System.Drawing.Point(12, 92);
+            this.lbEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbEndereco.ForeColor = System.Drawing.Color.Black;
+            this.lbEndereco.Location = new System.Drawing.Point(18, 93);
             this.lbEndereco.Name = "lbEndereco";
-            this.lbEndereco.Size = new System.Drawing.Size(94, 24);
+            this.lbEndereco.Size = new System.Drawing.Size(53, 13);
             this.lbEndereco.TabIndex = 26;
             this.lbEndereco.Text = "Endereço";
             // 
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEmail.ForeColor = System.Drawing.Color.Red;
-            this.lbEmail.Location = new System.Drawing.Point(12, 144);
+            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbEmail.ForeColor = System.Drawing.Color.Black;
+            this.lbEmail.Location = new System.Drawing.Point(36, 145);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(63, 24);
+            this.lbEmail.Size = new System.Drawing.Size(35, 13);
             this.lbEmail.TabIndex = 28;
             this.lbEmail.Text = "E-mail";
             // 
             // lbTelefone
             // 
             this.lbTelefone.AutoSize = true;
-            this.lbTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTelefone.ForeColor = System.Drawing.Color.Red;
-            this.lbTelefone.Location = new System.Drawing.Point(12, 121);
+            this.lbTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbTelefone.ForeColor = System.Drawing.Color.Black;
+            this.lbTelefone.Location = new System.Drawing.Point(22, 119);
             this.lbTelefone.Name = "lbTelefone";
-            this.lbTelefone.Size = new System.Drawing.Size(85, 24);
+            this.lbTelefone.Size = new System.Drawing.Size(49, 13);
             this.lbTelefone.TabIndex = 27;
             this.lbTelefone.Text = "Telefone";
             // 
             // lbTituloCadastroDeFuncionarios
             // 
             this.lbTituloCadastroDeFuncionarios.AutoSize = true;
-            this.lbTituloCadastroDeFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTituloCadastroDeFuncionarios.ForeColor = System.Drawing.Color.Red;
-            this.lbTituloCadastroDeFuncionarios.Location = new System.Drawing.Point(168, 43);
+            this.lbTituloCadastroDeFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTituloCadastroDeFuncionarios.ForeColor = System.Drawing.Color.Black;
+            this.lbTituloCadastroDeFuncionarios.Location = new System.Drawing.Point(114, 35);
             this.lbTituloCadastroDeFuncionarios.Name = "lbTituloCadastroDeFuncionarios";
-            this.lbTituloCadastroDeFuncionarios.Size = new System.Drawing.Size(226, 24);
+            this.lbTituloCadastroDeFuncionarios.Size = new System.Drawing.Size(215, 20);
             this.lbTituloCadastroDeFuncionarios.TabIndex = 29;
             this.lbTituloCadastroDeFuncionarios.Text = "Cadastro de Funcionários";
             // 
@@ -143,24 +141,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textId.Enabled = false;
-            this.textId.Location = new System.Drawing.Point(111, 19);
+            this.textId.Location = new System.Drawing.Point(77, 12);
             this.textId.MaxLength = 200;
             this.textId.Name = "textId";
             this.textId.ReadOnly = true;
-            this.textId.Size = new System.Drawing.Size(100, 20);
+            this.textId.Size = new System.Drawing.Size(45, 20);
             this.textId.TabIndex = 32;
             this.textId.Text = "0";
             // 
             // textEmail
             // 
-            this.textEmail.Location = new System.Drawing.Point(111, 149);
+            this.textEmail.Location = new System.Drawing.Point(77, 142);
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(100, 20);
             this.textEmail.TabIndex = 5;
             // 
             // textEndereco
             // 
-            this.textEndereco.Location = new System.Drawing.Point(111, 97);
+            this.textEndereco.Location = new System.Drawing.Point(77, 90);
             this.textEndereco.Name = "textEndereco";
             this.textEndereco.Size = new System.Drawing.Size(100, 20);
             this.textEndereco.TabIndex = 3;
@@ -168,88 +166,68 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // lbCargo
             // 
             this.lbCargo.AutoSize = true;
-            this.lbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCargo.ForeColor = System.Drawing.Color.Red;
-            this.lbCargo.Location = new System.Drawing.Point(6, 107);
+            this.lbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbCargo.ForeColor = System.Drawing.Color.Black;
+            this.lbCargo.Location = new System.Drawing.Point(257, 119);
             this.lbCargo.Name = "lbCargo";
-            this.lbCargo.Size = new System.Drawing.Size(61, 24);
+            this.lbCargo.Size = new System.Drawing.Size(35, 13);
             this.lbCargo.TabIndex = 44;
             this.lbCargo.Text = "Cargo";
             // 
             // lbSalario
             // 
             this.lbSalario.AutoSize = true;
-            this.lbSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSalario.ForeColor = System.Drawing.Color.Red;
-            this.lbSalario.Location = new System.Drawing.Point(6, 132);
+            this.lbSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbSalario.ForeColor = System.Drawing.Color.Black;
+            this.lbSalario.Location = new System.Drawing.Point(253, 144);
             this.lbSalario.Name = "lbSalario";
-            this.lbSalario.Size = new System.Drawing.Size(67, 24);
+            this.lbSalario.Size = new System.Drawing.Size(39, 13);
             this.lbSalario.TabIndex = 43;
             this.lbSalario.Text = "Salário";
             // 
             // lbUsuAcesso
             // 
             this.lbUsuAcesso.AutoSize = true;
-            this.lbUsuAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsuAcesso.ForeColor = System.Drawing.Color.Red;
-            this.lbUsuAcesso.Location = new System.Drawing.Point(6, 55);
+            this.lbUsuAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbUsuAcesso.ForeColor = System.Drawing.Color.Black;
+            this.lbUsuAcesso.Location = new System.Drawing.Point(196, 67);
             this.lbUsuAcesso.Name = "lbUsuAcesso";
-            this.lbUsuAcesso.Size = new System.Drawing.Size(169, 24);
+            this.lbUsuAcesso.Size = new System.Drawing.Size(96, 13);
             this.lbUsuAcesso.TabIndex = 42;
             this.lbUsuAcesso.Text = "Usuário de Acesso";
             // 
             // lbMatInt
             // 
             this.lbMatInt.AutoSize = true;
-            this.lbMatInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMatInt.ForeColor = System.Drawing.Color.Red;
-            this.lbMatInt.Location = new System.Drawing.Point(6, 31);
+            this.lbMatInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbMatInt.ForeColor = System.Drawing.Color.Black;
+            this.lbMatInt.Location = new System.Drawing.Point(242, 40);
             this.lbMatInt.Name = "lbMatInt";
-            this.lbMatInt.Size = new System.Drawing.Size(85, 24);
+            this.lbMatInt.Size = new System.Drawing.Size(50, 13);
             this.lbMatInt.TabIndex = 41;
             this.lbMatInt.Text = "Matricula";
             // 
             // lbDataAdmissao
             // 
             this.lbDataAdmissao.AutoSize = true;
-            this.lbDataAdmissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDataAdmissao.ForeColor = System.Drawing.Color.Red;
-            this.lbDataAdmissao.Location = new System.Drawing.Point(6, 84);
+            this.lbDataAdmissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbDataAdmissao.ForeColor = System.Drawing.Color.Black;
+            this.lbDataAdmissao.Location = new System.Drawing.Point(199, 96);
             this.lbDataAdmissao.Name = "lbDataAdmissao";
-            this.lbDataAdmissao.Size = new System.Drawing.Size(162, 24);
+            this.lbDataAdmissao.Size = new System.Drawing.Size(93, 13);
             this.lbDataAdmissao.TabIndex = 45;
             this.lbDataAdmissao.Text = "Data de Admissão";
             // 
             // textUsuarioAcesso
             // 
-            this.textUsuarioAcesso.Location = new System.Drawing.Point(181, 60);
+            this.textUsuarioAcesso.Location = new System.Drawing.Point(298, 64);
             this.textUsuarioAcesso.Name = "textUsuarioAcesso";
             this.textUsuarioAcesso.Size = new System.Drawing.Size(100, 20);
             this.textUsuarioAcesso.TabIndex = 7;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.mskTxtTelefone);
-            this.groupBox1.Controls.Add(this.mskTxtCpf);
-            this.groupBox1.Controls.Add(this.lbId);
-            this.groupBox1.Controls.Add(this.lbTelefone);
-            this.groupBox1.Controls.Add(this.lbEmail);
-            this.groupBox1.Controls.Add(this.lbEndereco);
-            this.groupBox1.Controls.Add(this.lbCPF);
-            this.groupBox1.Controls.Add(this.lbNome);
-            this.groupBox1.Controls.Add(this.textId);
-            this.groupBox1.Controls.Add(this.textEmail);
-            this.groupBox1.Controls.Add(this.textEndereco);
-            this.groupBox1.Controls.Add(this.textNome);
-            this.groupBox1.Location = new System.Drawing.Point(12, 102);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 180);
-            this.groupBox1.TabIndex = 51;
-            this.groupBox1.TabStop = false;
-            // 
             // mskTxtTelefone
             // 
-            this.mskTxtTelefone.Location = new System.Drawing.Point(111, 123);
+            this.mskTxtTelefone.Location = new System.Drawing.Point(77, 116);
             this.mskTxtTelefone.Mask = "(00) 00000-0000";
             this.mskTxtTelefone.Name = "mskTxtTelefone";
             this.mskTxtTelefone.Size = new System.Drawing.Size(100, 20);
@@ -257,7 +235,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // mskTxtCpf
             // 
-            this.mskTxtCpf.Location = new System.Drawing.Point(111, 71);
+            this.mskTxtCpf.Location = new System.Drawing.Point(77, 64);
             this.mskTxtCpf.Mask = "000.000.000-00";
             this.mskTxtCpf.Name = "mskTxtCpf";
             this.mskTxtCpf.Size = new System.Drawing.Size(100, 20);
@@ -265,47 +243,59 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // textNome
             // 
-            this.textNome.Location = new System.Drawing.Point(111, 45);
+            this.textNome.Location = new System.Drawing.Point(77, 38);
             this.textNome.Name = "textNome";
             this.textNome.Size = new System.Drawing.Size(100, 20);
             this.textNome.TabIndex = 1;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.mskTxtTelefone);
             this.groupBox2.Controls.Add(this.mskTxtDataAdmissao);
+            this.groupBox2.Controls.Add(this.mskTxtCpf);
             this.groupBox2.Controls.Add(this.textMatriculaInterna);
+            this.groupBox2.Controls.Add(this.lbId);
             this.groupBox2.Controls.Add(this.textSalario);
+            this.groupBox2.Controls.Add(this.lbTelefone);
             this.groupBox2.Controls.Add(this.lbDataAdmissao);
+            this.groupBox2.Controls.Add(this.lbEmail);
             this.groupBox2.Controls.Add(this.lbMatInt);
+            this.groupBox2.Controls.Add(this.lbEndereco);
             this.groupBox2.Controls.Add(this.textUsuarioAcesso);
+            this.groupBox2.Controls.Add(this.lbCPF);
             this.groupBox2.Controls.Add(this.lbUsuAcesso);
+            this.groupBox2.Controls.Add(this.lbNome);
             this.groupBox2.Controls.Add(this.lbSalario);
+            this.groupBox2.Controls.Add(this.textId);
+            this.groupBox2.Controls.Add(this.textEmail);
             this.groupBox2.Controls.Add(this.textCargo);
+            this.groupBox2.Controls.Add(this.textEndereco);
             this.groupBox2.Controls.Add(this.lbCargo);
-            this.groupBox2.Location = new System.Drawing.Point(248, 102);
+            this.groupBox2.Controls.Add(this.textNome);
+            this.groupBox2.Location = new System.Drawing.Point(12, 79);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(287, 180);
+            this.groupBox2.Size = new System.Drawing.Size(419, 180);
             this.groupBox2.TabIndex = 52;
             this.groupBox2.TabStop = false;
             // 
             // mskTxtDataAdmissao
             // 
             this.mskTxtDataAdmissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(181, 86);
+            this.mskTxtDataAdmissao.Location = new System.Drawing.Point(298, 90);
             this.mskTxtDataAdmissao.Name = "mskTxtDataAdmissao";
             this.mskTxtDataAdmissao.Size = new System.Drawing.Size(99, 20);
             this.mskTxtDataAdmissao.TabIndex = 8;
             // 
             // textMatriculaInterna
             // 
-            this.textMatriculaInterna.Location = new System.Drawing.Point(181, 34);
+            this.textMatriculaInterna.Location = new System.Drawing.Point(298, 38);
             this.textMatriculaInterna.Name = "textMatriculaInterna";
             this.textMatriculaInterna.Size = new System.Drawing.Size(99, 20);
             this.textMatriculaInterna.TabIndex = 6;
             // 
             // textSalario
             // 
-            this.textSalario.Location = new System.Drawing.Point(181, 138);
+            this.textSalario.Location = new System.Drawing.Point(298, 142);
             this.textSalario.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -317,7 +307,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             // textCargo
             // 
-            this.textCargo.Location = new System.Drawing.Point(181, 112);
+            this.textCargo.Location = new System.Drawing.Point(298, 116);
             this.textCargo.Name = "textCargo";
             this.textCargo.Size = new System.Drawing.Size(100, 20);
             this.textCargo.TabIndex = 9;
@@ -325,10 +315,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(454, 288);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnCancelar.Location = new System.Drawing.Point(356, 265);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(81, 28);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -337,10 +327,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // btnConfirmar
             // 
             this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.Location = new System.Drawing.Point(12, 288);
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnConfirmar.Location = new System.Drawing.Point(275, 265);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(90, 28);
+            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmar.TabIndex = 11;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -350,12 +340,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(547, 326);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(443, 299);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbTituloCadastroDeFuncionarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -364,9 +353,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Funcionario";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Text = "Locadora de Veículo";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).EndInit();
@@ -394,7 +381,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private System.Windows.Forms.Label lbMatInt;
         private System.Windows.Forms.Label lbDataAdmissao;
         private System.Windows.Forms.TextBox textUsuarioAcesso;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnConfirmar;

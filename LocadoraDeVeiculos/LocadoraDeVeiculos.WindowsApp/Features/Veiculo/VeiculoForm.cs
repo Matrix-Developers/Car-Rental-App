@@ -15,7 +15,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         {            
             InitializeComponent();
             CarregarGruposDeVeiculos();
-            this.Text = titulo;
             labelTitulo.Text = titulo;
             cBoxPortaMalas.SelectedIndex = 0;
         }
@@ -39,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
                 textPlaca.Text = veiculo.placa;
                 textChassi.Text = veiculo.chassi;
                 textMarca.Text = veiculo.marca;
-                textCor.Text = veiculo.marca;
+                textCor.Text = veiculo.cor;
                 cBoxCombustivel.Text = veiculo.tipoCombustivel;
                 numUpDownCapTanque.Text = veiculo.capacidadeTanque.ToString();
                 textAno.Text = veiculo.ano.ToString();

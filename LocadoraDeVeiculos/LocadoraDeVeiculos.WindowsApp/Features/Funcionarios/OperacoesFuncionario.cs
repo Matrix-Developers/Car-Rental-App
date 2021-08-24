@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void AgruparRegistros()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void EditarRegistro()
@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para editar","Exclusao de Funcionários",MessageBoxButtons.OK , MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Funcionário para excluir","Exclusão de Funcionários",MessageBoxButtons.OK , MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -77,7 +77,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void FiltrarRegistros()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void InserirNovoRegistro()
