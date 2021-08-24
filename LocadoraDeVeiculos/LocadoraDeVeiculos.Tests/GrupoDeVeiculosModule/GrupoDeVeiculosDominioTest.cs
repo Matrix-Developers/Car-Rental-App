@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
 
             string resultado = grupoDeVeiculos.Validar();
             //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o modelo.
-            Assert.AreEqual("O nome não pode ser nulo\nA taxa diaria do Plano Diário não pode ser nula nem negativa\nA taxa por KM do Plano Diário não pode ser nula nem negativa\nA taxa diária do Plano Controlado não pode ser nula nem negativa\nO limite de KM do plano Controlado não pode ser nulo nem negativo\nA taxa de KM Excedido do plano Controlado não pode ser nulo nem negativo\nA taxa diária do do Plano Livre não pode ser nula nem negativa\n", 
+            Assert.AreEqual("O nome não pode ser nulo\nA taxa diaria do Plano Diário não pode ser nula\nA taxa por KM do Plano Diário não pode ser nula\nA taxa diária do Plano Controlado não pode ser nula\nO limite de KM do plano Controlado não pode ser nulo\nA taxa de KM Excedido do plano Controlado não pode ser nulo\nA taxa diária do do Plano Livre não pode ser nula\n", 
                             resultado);
         }
 
@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
 
             string resultado = grupoDeVeiculos.Validar();
             //testes com todas as mensagens de invalidez são complicados para dar manutencao. talvez vale a pena mudarmos o modelo.
-            Assert.AreEqual("A taxa diaria do Plano Diário não pode ser nula nem negativa\nA taxa por KM do Plano Diário não pode ser nula nem negativa\nA taxa diária do Plano Controlado não pode ser nula nem negativa\nO limite de KM do plano Controlado não pode ser nulo nem negativo\nA taxa de KM Excedido do plano Controlado não pode ser nulo nem negativo\nA taxa diária do do Plano Livre não pode ser nula nem negativa\n",
+            Assert.AreEqual("A taxa diaria do Plano Diário não pode ser nula\nA taxa por KM do Plano Diário não pode ser nula\nA taxa diária do Plano Controlado não pode ser nula\nO limite de KM do plano Controlado não pode ser nulo\nA taxa de KM Excedido do plano Controlado não pode ser nulo\nA taxa diária do do Plano Livre não pode ser nula\n",
                             resultado);
         }
 
