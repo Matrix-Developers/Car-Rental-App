@@ -17,6 +17,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         {
             controlador = new ControladorGrupoDeVeiculos();
             Db.Update("DELETE FROM [TBGRUPOVEICULO]");
+            Db.Update("DBCC CHECKIDENT('TBGRUPOVEICULO', RESEED, 0)");
         }
 
         [TestMethod]

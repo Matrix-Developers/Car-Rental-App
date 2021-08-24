@@ -229,7 +229,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         {
             var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);
-            var grupoVeiculos = Convert.ToInt32(reader["ID_GRUPOVEICULO"]);
+            var id_grupoveiculo = Convert.ToInt32(reader["ID_GRUPOVEICULO"]);
             var placa = Convert.ToString(reader["PLACA"]);
             var chassi = Convert.ToString(reader["CHASSI"]);
             var marca = Convert.ToString(reader["MARCA"]);
@@ -254,7 +254,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
             double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupo = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
+            GrupoDeVeiculo grupo = new GrupoDeVeiculo(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
             Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs);
 

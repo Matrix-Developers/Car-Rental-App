@@ -66,15 +66,15 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 
         public override bool Equals(object obj)
         {
-            return obj is GrupoDeVeiculo veiculo &&
-                   id == veiculo.id &&
-                   nome == veiculo.nome &&
-                   taxaPlanoDiario == veiculo.taxaPlanoDiario &&
-                   taxaPorKmDiario == veiculo.taxaPorKmDiario &&
-                   taxaPlanoControlado == veiculo.taxaPlanoControlado &&
-                   limiteKmControlado == veiculo.limiteKmControlado &&
-                   taxaKmExcedidoControlado == veiculo.taxaKmExcedidoControlado &&
-                   taxaPlanoLivre == veiculo.taxaPlanoLivre;
+            return obj is GrupoDeVeiculo grupoDeVeiculo &&
+                   id == grupoDeVeiculo.id &&
+                   nome == grupoDeVeiculo.nome &&
+                   taxaPlanoDiario == grupoDeVeiculo.taxaPlanoDiario &&
+                   taxaPorKmDiario == grupoDeVeiculo.taxaPorKmDiario &&
+                   taxaPlanoControlado == grupoDeVeiculo.taxaPlanoControlado &&
+                   limiteKmControlado == grupoDeVeiculo.limiteKmControlado &&
+                   taxaKmExcedidoControlado == grupoDeVeiculo.taxaKmExcedidoControlado &&
+                   taxaPlanoLivre == grupoDeVeiculo.taxaPlanoLivre;
         }
 
         public override int GetHashCode()
