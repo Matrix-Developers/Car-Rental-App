@@ -91,6 +91,12 @@
     <Compile Include="Features\GrupoDeVeiculo\TabelaGrupoDeVeiculosControl.Designer.cs">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\ImagemVeiculo\ImagemVeiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\ImagemVeiculo\ImagemVeiculoForm.Designer.cs">
+      <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Serviços\ConfiguracaoServicoToolBox.cs" />
     <Compile Include="Features\Serviços\OperacoesServico.cs" />
     <Compile Include="Features\Serviços\TabelaServicoControl.cs">
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GrupoDeVeiculo\TabelaGrupoDeVeiculosControl.resx">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\ImagemVeiculo\ImagemVeiculoForm.resx">
+      <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Serviços\TabelaServicoControl.resx">
       <DependentUpon>TabelaServicoControl.cs</DependentUpon>
@@ -231,5 +240,6 @@
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo;
 
 namespace LocadoraDeVeiculos.WindowsApp.Veiculos
 {
@@ -70,7 +71,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
                 ano = Convert.ToInt32(textAno.Text);
             string cor = textCor.Text;
             grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
-            //string imagem = textImagem.Text;
             int capTanque = Convert.ToInt32(numUpDownCapTanque.Value);
             string combustivel = cBoxCombustivel.Text;
             int numPortas = Convert.ToInt32(numUpDownQtdPortas.Value);
@@ -130,6 +130,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             {
                 e.Handled = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ImagemVeiculoForm telaImagem = new ImagemVeiculoForm();
+            telaImagem.Show();
         }
     }
 }
