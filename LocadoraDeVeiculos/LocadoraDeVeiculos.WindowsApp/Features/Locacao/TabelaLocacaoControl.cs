@@ -1,13 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
@@ -52,8 +45,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             foreach (Locacao locacao in locacoes)
             {
-                //gridLocacao.Rows.Add(locacao.Id, locacao., locacao.TaxaPlanoDiario, locacao.TaxaKmControlado,
-                //    locacao.TaxaKmLivre, locacao.QuantidadeQuilometrosKmControlado);
+                gridLocacao.Rows.Add(locacao.Id, locacao.Veiculo, locacao.ClienteContratante, locacao.Condutor,
+                    locacao.DataDeSaida, locacao.DataPrevistaDeChegada);
             }
         }
     }
