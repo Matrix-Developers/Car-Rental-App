@@ -58,20 +58,20 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             if (this.clienteContratante == null)
                 resultadoValidacao += "O cliente contratante não pode ser nulo\n";
 
-            if (!this.clienteContratante.EhPessoaFisica && this.clienteCondutor == null)
+            else if (!this.clienteContratante.EhPessoaFisica && this.clienteCondutor == null)
                 resultadoValidacao += "O condutor não pode ser nulo quando o cliente contratante é pessoa juridica\n";
 
-            if (!this.clienteCondutor.EhPessoaFisica)
-                resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
+            if (this.clienteCondutor != null)
+            {
+                if (!this.clienteCondutor.EhPessoaFisica)
+                    resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
+            }
 
             if (!this.tipoDoPlano.Equals("PlanoDiario") && !this.tipoDoPlano.Equals("KmControlado") && !this.tipoDoPlano.Equals("KmLivre"))
                 resultadoValidacao += "O tipo do plano é inválido.\n";
 
             if (!this.tipoDeSeguro.Equals("SeguroCliente") && !this.tipoDeSeguro.Equals("SeguroTerceiro") && !this.tipoDeSeguro.Equals("Nenhum"))
                 resultadoValidacao += "O tipo do seguro é inválido.\n";
-
-            if (this.precoLocacao <= 0f)
-                resultadoValidacao += "A o preço da locação não pode ser nula nem negativa\n";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "VALIDO";
