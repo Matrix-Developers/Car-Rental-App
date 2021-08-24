@@ -12,6 +12,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 {
     public partial class ImagemVeiculoForm : Form
     {
+        private const int voltar = -1;
+        private const int avancar = 1;
         private int imagemAtual = 0;
         public List<Bitmap> imagens;
         public ImagemVeiculoForm()
@@ -43,13 +45,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 
         private void MudarImagemAtual(int indice)
         {
-            if (imagemAtual == 0 && indice == -1) // ir para a ultima
+            if (imagemAtual == 0 && indice == voltar) //<=======================|ir    para    a   ultima
                 imagemAtual = imagens.Count() - 1;
-            else if (imagemAtual + 1 == imagens.Count() && indice == 1) // ir para a primeira
+            else if (imagemAtual + 1 == imagens.Count() && indice == avancar) //|ir    para   a  primeira
                 imagemAtual = 0;
-            else if (indice == 0)
-                imagemAtual = 0;
-            else // só move no meio da list
+            else if (indice != 1 && indice != -1) //<===========================| vai  para  o   index  0
+                imagemAtual = indice;
+            else //<============================================================| só move no meio da list
                 imagemAtual = imagemAtual + indice;
 
             AtualizarImagem();
@@ -63,13 +65,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             if (imagens.Count() != 0)
-                MudarImagemAtual(-1);
+                MudarImagemAtual(voltar);
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
             if (imagens.Count() != 0)
-                MudarImagemAtual(1);
+                MudarImagemAtual(avancar);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -79,6 +81,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                 imagens.RemoveAt(imagemAtual - 1);
                 MudarImagemAtual(0);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -117,6 +117,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             this.btnConfirmar.TabIndex = 6;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -128,6 +129,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // openFileDialog
             // 
