@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LocadoraDeVeiculos.WindowsApp.Shared;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacao
 {
-    class ConfiguracaoLocacaoToolBox
+    public class ConfiguracaoLocacaoToolBox : IConfiguracaoToolBox
     {
+        public string TipoCadastro
+        {
+            get { return "Registro Locação de Veiculo"; }
+        }
+
+        public string ToolTipAdicionar
+        {
+            get { return "Realizar Locação de Veiculo"; }
+        }
+
+        public string ToolTipEditar
+        {
+            get { return "Editar Locação de Veiculo"; }
+        }
+
+        public string ToolTipExcluir
+        {
+            get { return "Excluir uma Locação de Veiculo"; }
+        }
     }
 }
