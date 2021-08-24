@@ -345,6 +345,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.Name = "TarefaGrupoDeVeiculosForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locadora de Veículos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
