@@ -15,19 +15,29 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private Veiculo veiculo;
         private Funcionario funcionarioLocador;
         private Cliente clienteContratante;
-        private Cliente condutor;
+        private Cliente clienteCondutor;
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
         private string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
         private string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
         private double precoLocacao;
 
-        public Locacao(Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente condutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro)
+        public Veiculo Veiculo { get => veiculo; }
+        public Funcionario FuncionarioLocador { get => funcionarioLocador; }
+        public Cliente ClienteContratante { get => clienteContratante; }
+        public Cliente Condutor { get => clienteCondutor; }
+        public DateTime DataDeSaida { get => dataDeSaida; }
+        public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; }
+        public string TipoDoPlano { get => tipoDoPlano; }
+        public string TipoDeSeguro { get => tipoDeSeguro; }
+        public double PrecoLocacao { get => precoLocacao; }
+
+        public Locacao(Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro)
         {
             this.veiculo = veiculo;
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
-            this.condutor = condutor;
+            this.clienteCondutor = clienteCondutor;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
             this.tipoDoPlano = tipoDoPlano;
@@ -39,29 +49,32 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public override string Validar()
         {
             string resultadoValidacao = "";
-            if(this.veiculo == null)
+            if (this.veiculo == null)
                 resultadoValidacao = "O veiculo não pode ser nulo\n";
 
-            if(this.funcionarioLocador == null)
+            if (this.funcionarioLocador == null)
                 resultadoValidacao += "O funcionário locador não pode ser nulo\n";
 
-            if(this.clienteContratante == null)
+            if (this.clienteContratante == null)
                 resultadoValidacao += "O cliente contratante não pode ser nulo\n";
 
-            if(!this.clienteContratante.EhPessoaFisica && this.condutor == null)
+            if (!this.clienteContratante.EhPessoaFisica && this.clienteCondutor == null)
                 resultadoValidacao += "O condutor não pode ser nulo quando o cliente contratante é pessoa juridica\n";
 
-            if (!this.condutor.EhPessoaFisica)
+            if (!this.clienteCondutor.EhPessoaFisica)
                 resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
 
-            if(!this.tipoDoPlano.Equals("PlanoDiario") || !this.tipoDoPlano.Equals("KmControlado") || !this.tipoDoPlano.Equals("KmLivre"))
+            if (!this.tipoDoPlano.Equals("PlanoDiario") && !this.tipoDoPlano.Equals("KmControlado") && !this.tipoDoPlano.Equals("KmLivre"))
                 resultadoValidacao += "O tipo do plano é inválido.\n";
 
-            if (!this.tipoDoPlano.Equals("SeguroCliente") || !this.tipoDoPlano.Equals("SeguroTerceiro") || !this.tipoDoPlano.Equals("Nenhum"))
+            if (!this.tipoDeSeguro.Equals("SeguroCliente") && !this.tipoDeSeguro.Equals("SeguroTerceiro") && !this.tipoDeSeguro.Equals("Nenhum"))
                 resultadoValidacao += "O tipo do seguro é inválido.\n";
 
             if (this.precoLocacao <= 0f)
                 resultadoValidacao += "A o preço da locação não pode ser nula nem negativa\n";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "VALIDO";
 
             return resultadoValidacao;
         }
@@ -73,7 +86,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                    EqualityComparer<Veiculo>.Default.Equals(veiculo, locacao.veiculo) &&
                    EqualityComparer<Funcionario>.Default.Equals(funcionarioLocador, locacao.funcionarioLocador) &&
                    EqualityComparer<Cliente>.Default.Equals(clienteContratante, locacao.clienteContratante) &&
-                   EqualityComparer<Cliente>.Default.Equals(condutor, locacao.condutor) &&
+                   EqualityComparer<Cliente>.Default.Equals(clienteCondutor, locacao.clienteCondutor) &&
                    dataDeSaida == locacao.dataDeSaida &&
                    dataPrevistaDeChegada == locacao.dataPrevistaDeChegada &&
                    tipoDoPlano == locacao.tipoDoPlano &&
@@ -83,12 +96,12 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public override int GetHashCode()
         {
-            int hashCode = -1438477573;
+            int hashCode = -562312921;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Veiculo>.Default.GetHashCode(veiculo);
             hashCode = hashCode * -1521134295 + EqualityComparer<Funcionario>.Default.GetHashCode(funcionarioLocador);
             hashCode = hashCode * -1521134295 + EqualityComparer<Cliente>.Default.GetHashCode(clienteContratante);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Cliente>.Default.GetHashCode(condutor);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Cliente>.Default.GetHashCode(clienteCondutor);
             hashCode = hashCode * -1521134295 + dataDeSaida.GetHashCode();
             hashCode = hashCode * -1521134295 + dataPrevistaDeChegada.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(tipoDoPlano);
