@@ -1,5 +1,11 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
+﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.Shared;
+using LocadoraDeVeiculos.Controladores.VeiculoModule;
+using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,8 +15,19 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
-    class ControladorLocacao : Controlador<Locacao>
+    public class ControladorLocacao : Controlador<Locacao>
     {
+        private ControladorVeiculo controladorVeiculo = null;
+        private ControladorFuncionario controladorFuncionario = null;
+        private ControladorCliente controladorCliente = null;
+
+        public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, ControladorCliente controladorCliente)
+        {
+            this.controladorVeiculo = controladorVeiculo;
+            this.controladorFuncionario = controladorFuncionario;
+            this.controladorCliente = controladorCliente;
+        }
+
         #region queries
         private const string sqlInserirLocacao =
                 @"INSERT INTO[DBO].[TBLOCACAO]
@@ -76,11 +93,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         }
         public override List<Locacao> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosLocacaos, ConverterEmVeiculo);
+            return Db.GetAll(sqlSelecionarTodosLocacaos, ConverterEmLocacao);
         }
         public override Locacao SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
         public override string Editar(int id, Locacao registro)
         {
@@ -131,9 +148,28 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             return parametros;
         }
 
-        private Locacao ConverterEmVeiculo(IDataReader reader)
+        private Locacao ConverterEmLocacao(IDataReader reader)
         {
-            throw new NotImplementedException();
+            var id = Convert.ToInt32(reader["ID"]);
+            var id_veiculo = Convert.ToInt32(reader["ID_VEICULO"]);
+            var id_funcionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
+            var id_clienteContratante = Convert.ToInt32(reader["ID_CLIENTECONTRATANTE"]);
+            var id_clienteCondutor = Convert.ToInt32(reader["ID_CLIENTECONDUTOR"]);
+            //pode haver problemas com retorno null. caso ocorrer, fazer algo como:
+            //if (!int.TryParse(reader["ID_CLIENTECONDUTOR"].ToString(), out int id_clienteCondutor))
+            //    id_clienteCondutor = -1;
+            var dataDeSaida = Convert.ToDateTime(reader["DATADESAIDA"]);
+            var dataPrevistaDeChegada = Convert.ToDateTime(reader["DATAPREVISTADECHEGADA"]);
+            var tipoDePlano = Convert.ToString(reader["TIPODOPLANO"]);
+            var tipoDeSeguro = Convert.ToString(reader["TIPODOSEGURO"]);
+            var precoLocacao = Convert.ToDouble(reader["PRECOLOCACAO"]);
+
+            Veiculo veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
+            Funcionario funcionario = controladorFuncionario.SelecionarPorId(id_funcionario);
+            Cliente clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
+            Cliente clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
+
+            return new Locacao(id,veiculo,funcionario,clienteContratante,clienteCondutor,dataDeSaida,dataPrevistaDeChegada, tipoDePlano,tipoDeSeguro);
         }
     }
 }
