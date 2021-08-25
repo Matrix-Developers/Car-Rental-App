@@ -102,8 +102,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            
-            telaBase.AtualizarListaDeFotos(imagens);
+                telaBase.AtualizarListaDeFotos(imagens);
+            this.Close();
         }
     }
 }
