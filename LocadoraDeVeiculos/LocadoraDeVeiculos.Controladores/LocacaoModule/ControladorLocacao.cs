@@ -162,7 +162,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var dataPrevistaDeChegada = Convert.ToDateTime(reader["DATAPREVISTADECHEGADA"]);
             var tipoDePlano = Convert.ToString(reader["TIPODOPLANO"]);
             var tipoDeSeguro = Convert.ToString(reader["TIPODESEGURO"]);
-            var precoLocacao = Convert.ToDouble(reader["PRECOLOCACAO"]);
+            var precoLocacao = Convert.ToDouble(reader["PRECOLOCACAO"]);        //esse atributo nao esta sendo carregado na classe. pode gerar problemas no futuro
 
             Veiculo veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
             Funcionario funcionario = controladorFuncionario.SelecionarPorId(id_funcionario);
