@@ -17,7 +17,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         public void DeveInserirFuncionarioNoBanco()
         {
             //arrange
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             //action
             ctr.InserirNovo(funcionario);
@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         public void DeveExcluirFuncionarioNoBanco()
         {
             //arrange
-            funcionario = new Funcionario(0, "Nome Teste removido", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Funcionario(0, "Nome Teste removido", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             
             //action
             ctr.InserirNovo(funcionario);
@@ -45,8 +45,8 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         public void DeveEditarFuncionarioNoBanco()
         {
             //arrange
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            Funcionario funcionarioEditado = new Funcionario(0, "Nome Teste2", "954.746.736-04", "Endereco Funcionario2", "4932518000", "teste2@email.com", 001, "user2 acesso", new DateTime(2021, 01, 01), "Vendedor2", 1000f, true);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            Funcionario funcionarioEditado = new Funcionario(0, "Nome Teste2", "954.746.736-04", "Endereco Funcionario2", "4932518000", "teste2@email.com", 001, "user2 acesso", "12345", new DateTime(2021, 01, 01), "Vendedor2", 1000f, true);
 
             //action
             ctr.InserirNovo(funcionario);
@@ -60,8 +60,8 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         public void DeveSelecionarTodosFuncionarioNoBanco()
         {
             //arrange
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            funcionario2 = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            funcionario2 = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             //action
             ctr.InserirNovo(funcionario);

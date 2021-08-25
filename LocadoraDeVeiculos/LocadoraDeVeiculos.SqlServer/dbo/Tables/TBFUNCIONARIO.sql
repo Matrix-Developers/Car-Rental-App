@@ -8,7 +8,7 @@
     [EhPessoaFisica]   BIT          NOT NULL,
     [MatriculaInterna] VARCHAR (50) NOT NULL,
     [UsuarioAcesso]    VARCHAR (50) NOT NULL,
-    [Senha]            VARCHAR (50) NULL,
+    [Senha]    VARCHAR (50) NOT NULL,
     [Cargo]            VARCHAR (50) NOT NULL,
     [Salario]          FLOAT (53)   NOT NULL,
     [dataAdmissao]     DATETIME     NOT NULL,

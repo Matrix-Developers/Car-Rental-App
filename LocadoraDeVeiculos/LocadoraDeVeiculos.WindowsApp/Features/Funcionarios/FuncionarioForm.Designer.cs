@@ -55,6 +55,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.textCargo = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textSenha = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textMatriculaInterna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textSalario)).BeginInit();
@@ -251,6 +254,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.mskTxtTelefone);
+            this.groupBox2.Controls.Add(this.textSenha);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.mskTxtDataAdmissao);
             this.groupBox2.Controls.Add(this.mskTxtCpf);
             this.groupBox2.Controls.Add(this.textMatriculaInterna);
@@ -336,6 +341,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(6, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 24);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Senha";
+            // 
+            // textSenha
+            // 
+            this.textSenha.Location = new System.Drawing.Point(180, 71);
+            this.textSenha.Name = "textSenha";
+            this.textSenha.PasswordChar = '*';
+            this.textSenha.Size = new System.Drawing.Size(100, 20);
+            this.textSenha.TabIndex = 47;
+            // 
             // FuncionarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,5 +415,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         private System.Windows.Forms.NumericUpDown textMatriculaInterna;
         private System.Windows.Forms.DateTimePicker mskTxtDataAdmissao;
         private System.Windows.Forms.TextBox textCargo;
+        private System.Windows.Forms.TextBox textSenha;
+        private System.Windows.Forms.Label label1;
     }
 }
