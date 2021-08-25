@@ -25,33 +25,40 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
+            if (textUsuario.Text == "admin" && textSenha.Text == "admin")
+                EfetuarLogin();
 
-            //bool loginValido = false;
-            foreach (Funcionario funcionario in controlador.SelecionarTodos())
+            else
             {
-                if (textUsuario.Text == funcionario.UsuarioAcesso && textSenha.Text == funcionario.Senha || textUsuario.Text == "admin" && textSenha.Text == "admin")
+                foreach (Funcionario funcionario in controlador.SelecionarTodos())
                 {
-
-                    MessageBox.Show("Bem vindo " + textUsuario.Text);
-                    thread = new Thread(ChamarTelaPrincipal);
-                    thread.SetApartmentState(ApartmentState.STA);
-                    thread.Start();
-
-                    
-                    TelaLogin login = new TelaLogin();
-                    this.Dispose();
-                    login.Close();
-
-                    return;
+                    if (textUsuario.Text == funcionario.UsuarioAcesso && textSenha.Text == funcionario.Senha)
+                    {
+                        EfetuarLogin();
+                        return;
+                    }
                 }
-                
-                
-            }
+
                 textUsuario.Clear();
                 textSenha.Clear();
                 MessageBox.Show("Login ou senha inválidos");
-          
+            }
+
         }
+
+        private void EfetuarLogin()
+        {
+            MessageBox.Show("Bem vindo " + textUsuario.Text);
+            thread = new Thread(ChamarTelaPrincipal);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+
+
+            TelaLogin login = new TelaLogin();
+            this.Dispose();
+            login.Close();
+        }
+
         public void ChamarTelaPrincipal()
         {
             Application.Run(new TelaPrincipalForm()); ;
