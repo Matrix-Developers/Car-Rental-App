@@ -32,8 +32,9 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public string TipoDeSeguro { get => tipoDeSeguro; }
         public double PrecoLocacao { get => precoLocacao; }
 
-        public Locacao(Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro)
+        public Locacao(int id,Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro)
         {
+            this.id = id;
             this.veiculo = veiculo;
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
