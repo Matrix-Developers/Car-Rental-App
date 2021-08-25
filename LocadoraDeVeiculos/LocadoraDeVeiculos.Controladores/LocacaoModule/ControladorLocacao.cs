@@ -138,11 +138,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             parametros.Add("ID_VEICULO",locacao.Veiculo.Id);
             parametros.Add("ID_FUNCIONARIO", locacao.FuncionarioLocador.Id);
             parametros.Add("ID_CLIENTECONTRATANTE", locacao.ClienteContratante.Id);
-            parametros.Add("ID_CLIENTECONDUTOR", locacao.ClienteCondutor);
-            parametros.Add("DATADESAIDA", locacao.DataDeSaida.ToString());
-            parametros.Add("DATAPREVISTADECHEGADA", locacao.DataPrevistaDeChegada.ToString());
+            parametros.Add("ID_CLIENTECONDUTOR", locacao.ClienteCondutor.Id);
+            parametros.Add("DATADESAIDA", locacao.DataDeSaida);
+            parametros.Add("DATAPREVISTADECHEGADA", locacao.DataPrevistaDeChegada);
             parametros.Add("TIPODOPLANO", locacao.TipoDoPlano);
-            parametros.Add("TIPODOSEGURO", locacao.TipoDeSeguro);
+            parametros.Add("TIPODESEGURO", locacao.TipoDeSeguro);
             parametros.Add("PRECOLOCACAO", locacao.PrecoLocacao);
 
             return parametros;
@@ -161,7 +161,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var dataDeSaida = Convert.ToDateTime(reader["DATADESAIDA"]);
             var dataPrevistaDeChegada = Convert.ToDateTime(reader["DATAPREVISTADECHEGADA"]);
             var tipoDePlano = Convert.ToString(reader["TIPODOPLANO"]);
-            var tipoDeSeguro = Convert.ToString(reader["TIPODOSEGURO"]);
+            var tipoDeSeguro = Convert.ToString(reader["TIPODESEGURO"]);
             var precoLocacao = Convert.ToDouble(reader["PRECOLOCACAO"]);
 
             Veiculo veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
