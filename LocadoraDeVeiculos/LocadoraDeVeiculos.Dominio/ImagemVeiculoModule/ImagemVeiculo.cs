@@ -21,10 +21,6 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
             this.imagem = imagem;
         }
 
-        public override bool Equals(object obj)
-        {
-            throw new NotImplementedException();
-        }
 
         public override int GetHashCode()
         {
@@ -43,6 +39,14 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
         public override string Validar()
         {
             throw new NotImplementedException();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ImagemVeiculo imagemVeiculo &&
+                   EqualityComparer<Veiculo>.Default.Equals(this.veiculo, imagemVeiculo.veiculo) &&
+                   EqualityComparer<Bitmap>.Default.Equals(imagem, imagemVeiculo.imagem) &&
+                   EqualityComparer<int>.Default.Equals(Id, imagemVeiculo.id);
         }
     }
 }

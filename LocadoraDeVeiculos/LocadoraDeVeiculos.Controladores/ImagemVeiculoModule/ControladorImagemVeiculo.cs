@@ -13,7 +13,11 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
     public class ControladorImagemVeiculo : Controlador<ImagemVeiculo>
     {
         #region Queries
-
+        private const string ComandoInserir = @"";
+        private const string ComandoEditar = @"";
+        private const string ComandoExcluir = @"";
+        private const string ComandoSelecionarTodosDoVeiculo = "";
+        private const string ComandoSelecionarPorId = "";
         #endregion
         public override string Editar(int id, ImagemVeiculo registro)
         {
