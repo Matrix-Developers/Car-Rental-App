@@ -13,21 +13,55 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
     {
         #region queries
         private const string sqlInserirLocacao =
-            @"";
-
-        private const string sqlSelecionarTodosLocacaos =
-            @"";
-
-        private const string sqlSelecionarLocacaoPorId =
-            @"";
+                @"INSERT INTO[DBO].[TBLOCACAO]
+                (
+                    [ID_VEICULO],
+                    [ID_FUNCIONARIO],
+                    [ID_CLIENTECONTRATANTE],
+                    [ID_CLIENTECONDUTOR],
+                    [DATADESAIDA],
+                    [DATAPREVISTADECHEGADA],
+                    [TIPODOPLANO],
+                    [TIPODESEGURO],
+                    [PRECOLOCACAO]
+                )
+                VALUES
+                (
+                    @ID_VEICULO,
+                    @ID_FUNCIONARIO,
+                    @ID_CLIENTECONTRATANTE,
+                    @ID_CLIENTECONDUTOR,
+                    @DATADESAIDA,
+                    @DATAPREVISTADECHEGADA,
+                    @TIPODOPLANO,
+                    @TIPODESEGURO,
+                    @PRECOLOCACAO
+                );";
 
         private const string sqlEditarLocacao =
-            @"";
-        private const string sqlDeletarLocacao =
-            @"";
+        @"UPDATE [DBO].[TBLOCACAO] 
+                SET
+                    [ID_VEICULO] = @ID_VEICULO,
+                    [ID_FUNCIONARIO] = @ID_FUNCIONARIO,
+                    [ID_CLIENTECONTRATANTE] = @ID_CLIENTECONTRATANTE,
+                    [ID_CLIENTECONDUTOR] = @ID_CLIENTECONDUTOR,
+                    [DATADESAIDA] = @DATADESAIDA,
+                    [DATAPREVISTADECHEGADA] = @DATAPREVISTADECHEGADA,
+                    [TIPODOPLANO] = @TIPODOPLANO,
+                    [TIPODESEGURO] = @TIPODESEGURO,
+                    [PRECOLOCACAO] = @PRECOLOCACAO
+                WHERE 
+                    [ID] = @ID;";
 
-        private const string sqlExisteLocacao =
-            @"";
+        private const string sqlSelecionarTodosLocacaos =
+            @"SELECT * FROM [DBO].[TBLOCACAO];";
+
+        private const string sqlSelecionarLocacaoPorId =
+            @"SELECT * FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
+
+
+        private const string sqlDeletarLocacao =
+                @"DELETE FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
 
         #endregion 
 
@@ -76,7 +110,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
         public override bool Existe(int id)
         {
-            return Db.Exists(sqlExisteLocacao, AdicionarParametro("ID", id));
+            return Db.Exists(sqlSelecionarLocacaoPorId, AdicionarParametro("ID", id));
         }
 
         private Dictionary<string, object> ObtemParametrosLocacao(Locacao locacao)
