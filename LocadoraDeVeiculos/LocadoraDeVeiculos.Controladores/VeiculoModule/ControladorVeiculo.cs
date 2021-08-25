@@ -1,14 +1,18 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 
 namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
     public class ControladorVeiculo : Controlador<Veiculo>
     {
+        private ControladorImagemVeiculo controladorImagem = new ControladorImagemVeiculo();
         #region queries
         private const string sqlInserirVeiculo =
             @"INSERT INTO TBVEICULO
@@ -158,7 +162,14 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
+            {
                 registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
+                foreach (Bitmap imagem in registro.imagens)
+                {
+                    ImagemVeiculo imagemVeiculo = new ImagemVeiculo(0, registro.Id, imagem);
+                    controladorImagem.InserirNovo(imagemVeiculo);
+                }
+            }
 
             return resultadoValidacao;
         }
@@ -266,5 +277,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return veiculo;
         }
+
+
     }
 }

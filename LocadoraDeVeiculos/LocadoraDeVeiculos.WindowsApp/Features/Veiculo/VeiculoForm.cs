@@ -84,6 +84,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             bool possuiArCondicionado = false;
             bool possuiDirecaoHidraulica = false;
             bool possuiFreioAbs = false;
+            
 
             if (checkLBoxOpcionais.CheckedIndices.Contains(0))
                 possuiArCondicionado = true;
@@ -92,7 +93,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             if (checkLBoxOpcionais.CheckedIndices.Contains(2))
                 possuiFreioAbs = true;
 
-            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, quilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false);
+            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, quilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false,imagens);
 
             string resultadoValidacao = veiculo.Validar();
 

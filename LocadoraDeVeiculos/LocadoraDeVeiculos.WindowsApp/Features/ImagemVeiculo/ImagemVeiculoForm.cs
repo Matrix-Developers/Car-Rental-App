@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,13 +39,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 
             if (openFileDialog.ShowDialog()  == DialogResult.OK)
                 {
-                imagens.Add((Bitmap)Image.FromFile(openFileDialog.FileName));
-                if (imagens.Count == 1)
-                    AtualizarImagem();
-                else
+                var imagem = openFileDialog.FileName;
+                var tamanho = new FileInfo(imagem).Length;
+                if (tamanho <= 2097152)
                 {
-                    MudarImagemAtual((imagens.Count() - 1));
+                    imagens.Add((Bitmap)Image.FromFile(imagem));
+                    if (imagens.Count == 1)
+                        AtualizarImagem();
+                    else
+                    {
+                        MudarImagemAtual((imagens.Count() - 1));
+                    }
                 }
+                else
+                    MessageBox.Show("A imagem deve ser no máximo de 2MB!","Locadora de Veículos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -84,14 +93,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (imagens.Count() != 0)
+            MessageBox.Show("Tem certeza que deseja excluir a imagem?", "Locadora de veículos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (DialogResult == DialogResult.OK)
             {
-                imagens.RemoveAt(imagemAtual);
-                MudarImagemAtual(0);
-            }
-            else
-            {
-                pctBoxImagem.Image = default;
+                if (imagens.Count() != 0)
+                {
+                    imagens.RemoveAt(imagemAtual);
+                    MudarImagemAtual(0);
+                }
+                else
+                {
+                    pctBoxImagem.Image = default;
+                }
             }
         }
 

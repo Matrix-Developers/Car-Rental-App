@@ -21,7 +21,8 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         #endregion
         public override string Editar(int id, ImagemVeiculo registro)
         {
-            throw new NotImplementedException();
+            registro.Id = Db.Insert(ComandoInserir,ObtemParametrosImagem(registro));
+            return "a";
         }
 
         public override bool Excluir(int id)
@@ -36,7 +37,10 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
         public override string InserirNovo(ImagemVeiculo registro)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "VALIDO";
+            registro.Id = Db.Insert(ComandoInserir, ObtemParametrosImagem(registro));
+
+            return resultadoValidacao;
         }
 
         public override ImagemVeiculo SelecionarPorId(int id)
@@ -47,6 +51,17 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         public override List<ImagemVeiculo> SelecionarTodos()
         {
             throw new NotImplementedException();
+        }
+
+        private Dictionary<string, object> ObtemParametrosImagem(ImagemVeiculo imagemVeiculo)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", imagemVeiculo.Id);
+            parametros.Add("ID_VEICULO", imagemVeiculo.idVeiculo);
+            parametros.Add("IMAGEM", imagemVeiculo.imagem);
+
+            return parametros;
         }
     }
 }

@@ -6,29 +6,21 @@ using System.Text;
 using System.Threading.Tasks;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using System.IO;
 
 namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
 {
     public class ImagemVeiculo : EntidadeBase
     {
-        public Veiculo veiculo { get; set; }
+        public int idVeiculo { get; set; }
         public Bitmap imagem { get; set; }
 
-        public ImagemVeiculo(int id, Veiculo veiculo, Bitmap imagem)
+        public ImagemVeiculo() { }
+        public ImagemVeiculo(int id, int idVeiculo, Bitmap imagem)
         {
             this.id = id;
-            this.veiculo = veiculo;
+            this.idVeiculo = idVeiculo;
             this.imagem = imagem;
-        }
-
-
-        public override int GetHashCode()
-        {
-            int hashCode = 1584103619;
-            hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<Veiculo>.Default.GetHashCode(veiculo);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Bitmap>.Default.GetHashCode(imagem);
-            return hashCode;
         }
 
         public override string ToString()
@@ -38,15 +30,26 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+
+            return resultadoValidacao;
         }
 
         public override bool Equals(object obj)
         {
             return obj is ImagemVeiculo imagemVeiculo &&
-                   EqualityComparer<Veiculo>.Default.Equals(this.veiculo, imagemVeiculo.veiculo) &&
+                   EqualityComparer<int>.Default.Equals(this.idVeiculo, imagemVeiculo.idVeiculo) &&
                    EqualityComparer<Bitmap>.Default.Equals(imagem, imagemVeiculo.imagem) &&
                    EqualityComparer<int>.Default.Equals(Id, imagemVeiculo.id);
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 155997214;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + idVeiculo.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Bitmap>.Default.GetHashCode(imagem);
+            return hashCode;
         }
     }
 }
