@@ -7,7 +7,7 @@
     [Marca]                VARCHAR (50) NOT NULL,
     [Cor]                  VARCHAR (50) NOT NULL,
     [TipoCombustivel]      VARCHAR (50) NOT NULL,
-    [CapacidadeTanque] FLOAT NOT NULL, 
+    [CapacidadeTanque]     FLOAT (53)   NOT NULL,
     [Ano]                  INT          NOT NULL,
     [Kilometragem]         FLOAT (53)   NOT NULL,
     [NumeroPortas]         INT          NOT NULL,
@@ -16,10 +16,13 @@
     [TemArCondicionado]    BIT          NOT NULL,
     [TemDirecaoHidraulica] BIT          NOT NULL,
     [TemFreiosAbs]         BIT          NOT NULL,
-    [Imagem] IMAGE NULL, 
-    PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_TBVEICULO_TBGRUPOVEICULO] FOREIGN KEY ([Id_GrupoVeiculo]) REFERENCES [dbo].[TBGRUPOVEICULO] ([Id]) ON DELETE CASCADE
+    [EstaAlugado]          BIT          NULL,
+    CONSTRAINT [PK__tmp_ms_x__3214EC07CEA50E53] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
+
+
 
 
 

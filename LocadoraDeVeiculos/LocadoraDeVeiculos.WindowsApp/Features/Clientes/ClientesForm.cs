@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 
@@ -29,7 +23,18 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             set
             {
                 cliente = value;
-
+                
+                if (cliente.EhPessoaFisica)
+                {
+                    radioButton1.Checked = true;
+                    radioButton2.Checked = false;
+                }
+                else
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = true;
+                    dtpValidade.Text = cliente.ValidadeCnh.ToString();
+                }
                 textId.Text = cliente.Id.ToString();
 
                 textNome.Text = cliente.Nome;
@@ -38,13 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                 maskTelefone.Text = cliente.Telefone;
                 tetxtEmail.Text = cliente.Email;
                 maskedCNH.Text = cliente.Cnh;
-                dtpValidade.Text = cliente.ValidadeCnh.ToShortDateString();
-                if (cliente.EhPessoaFisica)
-                {
-                    radioButton1.Checked = true;
-                    radioButton2.Checked = false;
-                }
-                
+                //dtpValidade.Text = cliente.ValidadeCnh.ToShortDateString();
             }
         }
 
@@ -52,42 +51,43 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
         {
             labelRegistro.Text = "CPF";
             maskRegistro.Mask =  "000.000.000-00";
-
+            maskedCNH.Enabled = true;
+            dtpValidade.Enabled = true;
+            maskRegistro.Size = new Size(90, 20);
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             labelRegistro.Text = "CNPJ";
             maskRegistro.Mask = "00.000.000/0000-00";
-
-        }
-
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-       
+            maskedCNH.Enabled = false;
+            dtpValidade.Enabled = false;
+            maskRegistro.Size = new Size(113, 20);
+        }       
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
+            DateTime? validade = null;
+            bool ehPessoaFisica = false;
+            string CNH = "";
             int Id = Convert.ToInt32(textId.Text);
             string Nome = textNome.Text;
-            string Registro = maskRegistro.Text;
+            string Registro = maskRegistro.Text.Replace("-", "").Replace(".", "").Replace("/", "").Replace(" ", "");
             string Endereco = textEndereco.Text;
-            string TeleFone = maskTelefone.Text;
-            string Email = tetxtEmail.Text;
-            string CNH = maskedCNH.Text;
-            DateTime Validade = Convert.ToDateTime(dtpValidade.Text);
-            bool ehPessoaFisica = false;
-            if (radioButton1.Checked == true)       
+            string TeleFone = maskTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
+            string Email = tetxtEmail.Text;            
+            if (radioButton1.Checked == true)
+            {
                 ehPessoaFisica = true;
-
+                validade = Convert.ToDateTime(dtpValidade.Text);
+                CNH = maskedCNH.Text.Replace("-", "").Replace(" ", "");
+            }
 
             Id = 0;
-            cliente = new Cliente(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, Validade, ehPessoaFisica);
+            cliente = new Cliente(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, validade, ehPessoaFisica);
 
             string resultadoValidacao = cliente.Validar();
+
 
             if (resultadoValidacao != "VALIDO")
             {
@@ -96,11 +96,8 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                 TelaPrincipalForm.Instancia.AtualizarRodape(erro);
 
                 DialogResult = DialogResult.None;
-
             }
-        }
-
-        
+        }        
     }
   
 }

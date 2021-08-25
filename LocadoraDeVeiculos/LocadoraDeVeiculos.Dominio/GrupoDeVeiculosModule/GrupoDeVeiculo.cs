@@ -7,24 +7,30 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
     {
         private string nome;
         private double taxaPlanoDiario;
-        private double taxaKmControlado;
-        private int quantidadeQuilometrosKmControlado;
-        private double taxaKmLivre;
+        private double taxaPorKmDiario;
+        private double taxaPlanoControlado;
+        private int limiteKmControlado;
+        private double taxaKmExcedidoControlado;
+        private double taxaPlanoLivre;
 
-        public string Nome { get => nome; set => nome = value; }
-        public double TaxaPlanoDiario { get => taxaPlanoDiario; set => taxaPlanoDiario = value; }
-        public double TaxaKmControlado { get => taxaKmControlado; set => taxaKmControlado = value; }
-        public int QuantidadeQuilometrosKmControlado { get => quantidadeQuilometrosKmControlado; set => quantidadeQuilometrosKmControlado = value; }
-        public double TaxaKmLivre { get => taxaKmLivre; set => taxaKmLivre = value; }
+        public string Nome { get => nome;}
+        public double TaxaPlanoDiario { get => taxaPlanoDiario;}
+        public double TaxaPorKmDiario { get => taxaPorKmDiario;}
+        public double TaxaPlanoControlado { get => taxaPlanoControlado;}
+        public int LimiteKmControlado { get => limiteKmControlado;}
+        public double TaxaKmExcedidoControlado { get => taxaKmExcedidoControlado;}
+        public double TaxaPlanoLivre { get => taxaPlanoLivre;}
 
-        public GrupoDeVeiculo(int id,string nome, double taxaPlanoDiario, double taxaKmControlado, double taxaKmLivre, int quantidadeQuilometrosKmControlado)
+        public GrupoDeVeiculo(int id, string nome, double taxaPlanoDiario, double taxaPorKmDiario, double taxaPlanoControlado, int limiteKmControlado, double taxaKmExcedidoControlado, double taxaPlanoLivre)
         {
             this.id = id;
             this.nome = nome;
             this.taxaPlanoDiario = taxaPlanoDiario;
-            this.taxaKmControlado = taxaKmControlado;
-            this.taxaKmLivre = taxaKmLivre;
-            this.quantidadeQuilometrosKmControlado = quantidadeQuilometrosKmControlado;
+            this.taxaPorKmDiario = taxaPorKmDiario;
+            this.taxaPlanoControlado = taxaPlanoControlado;
+            this.limiteKmControlado = limiteKmControlado;
+            this.taxaKmExcedidoControlado = taxaKmExcedidoControlado;
+            this.taxaPlanoLivre = taxaPlanoLivre;
         }
 
         public override string Validar()
@@ -34,17 +40,23 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
             if (this.nome.Length <= 0)
                 resultadoValidacao  = "O nome não pode ser nulo\n";
 
-            if (this.taxaKmControlado <= 0f)
-                resultadoValidacao += "A taxa do Quilometro Controlado não pode ser nula nem negativa\n";
-
             if (this.taxaPlanoDiario <=0f)
-                resultadoValidacao += "A taxa do Plano Diário não pode ser nula nem negativa\n";
+                resultadoValidacao += "A taxa diaria do Plano Diário não pode ser nula\n";
 
-            if (this.taxaKmLivre <= 0f)
-                resultadoValidacao += "A taxa do Quilometro Livre não pode ser nula nem negativa\n";
+            if (this.taxaPorKmDiario <= 0f)
+                resultadoValidacao += "A taxa por KM do Plano Diário não pode ser nula\n";
 
-            if (this.quantidadeQuilometrosKmControlado <= 0)
-                resultadoValidacao += "A quantidade de quilômetros não pode ser nulo nem negativo";
+            if (this.taxaPlanoControlado <= 0f)
+                resultadoValidacao += "A taxa diária do Plano Controlado não pode ser nula\n";
+
+            if (this.limiteKmControlado <= 0)
+                resultadoValidacao += "O limite de KM do plano Controlado não pode ser nulo\n";
+
+            if (this.taxaKmExcedidoControlado <= 0f)
+                resultadoValidacao += "A taxa de KM Excedido do plano Controlado não pode ser nulo\n";
+
+            if (this.taxaPlanoLivre <= 0f)
+                resultadoValidacao += "A taxa diária do do Plano Livre não pode ser nula\n";
 
             if (resultadoValidacao.Length == 0)
                 resultadoValidacao = "VALIDO";
@@ -54,30 +66,34 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 
         public override bool Equals(object obj)
         {
-            return obj is GrupoDeVeiculo veiculos &&
-                   id == veiculos.id &&
-                   nome == veiculos.nome &&
-                   taxaPlanoDiario == veiculos.taxaPlanoDiario &&
-                   taxaKmControlado == veiculos.taxaKmControlado &&
-                   quantidadeQuilometrosKmControlado == veiculos.quantidadeQuilometrosKmControlado &&
-                   taxaKmLivre == veiculos.taxaKmLivre;
+            return obj is GrupoDeVeiculo grupoDeVeiculo &&
+                   id == grupoDeVeiculo.id &&
+                   nome == grupoDeVeiculo.nome &&
+                   taxaPlanoDiario == grupoDeVeiculo.taxaPlanoDiario &&
+                   taxaPorKmDiario == grupoDeVeiculo.taxaPorKmDiario &&
+                   taxaPlanoControlado == grupoDeVeiculo.taxaPlanoControlado &&
+                   limiteKmControlado == grupoDeVeiculo.limiteKmControlado &&
+                   taxaKmExcedidoControlado == grupoDeVeiculo.taxaKmExcedidoControlado &&
+                   taxaPlanoLivre == grupoDeVeiculo.taxaPlanoLivre;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 1038375158;
+            int hashCode = -1513818721;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(nome);
             hashCode = hashCode * -1521134295 + taxaPlanoDiario.GetHashCode();
-            hashCode = hashCode * -1521134295 + taxaKmControlado.GetHashCode();
-            hashCode = hashCode * -1521134295 + quantidadeQuilometrosKmControlado.GetHashCode();
-            hashCode = hashCode * -1521134295 + taxaKmLivre.GetHashCode();
+            hashCode = hashCode * -1521134295 + taxaPorKmDiario.GetHashCode();
+            hashCode = hashCode * -1521134295 + taxaPlanoControlado.GetHashCode();
+            hashCode = hashCode * -1521134295 + limiteKmControlado.GetHashCode();
+            hashCode = hashCode * -1521134295 + taxaKmExcedidoControlado.GetHashCode();
+            hashCode = hashCode * -1521134295 + taxaPlanoLivre.GetHashCode();
             return hashCode;
         }
 
         public override string ToString()
         {
-            return nome;
+            return $"GrupoDeVeiculo = [{id},{nome},{taxaPlanoDiario},{taxaPorKmDiario},{taxaPlanoControlado},{limiteKmControlado},{taxaKmExcedidoControlado},{taxaPlanoLivre}]";
         }
     }
 }
