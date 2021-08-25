@@ -22,8 +22,9 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temArCondicionado;
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
+        public bool estaAlugado;
 
-        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs)
+        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status)
         {
             this.id = id;
             this.modelo = modelo;
@@ -42,6 +43,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.temArCondicionado = temArCondicionado;
             this.temDirecaoHidraulica = temDirecaoHidraulica;
             this.temFreiosAbs = temFreiosAbs;
+            this.estaAlugado = status;
         }
 
         public override string Validar()
@@ -81,7 +83,6 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         {
             return $"Veiculo = [{id}, {modelo}, {grupoVeiculos}, {placa}, {chassi}, {marca}, {cor}, {tipoCombustivel}, {capacidadeTanque}, {ano}, {quilometragem}, {numeroPortas}, {capacidadePessoas}, {tamanhoPortaMala}]";
         }
-        
 
         public override bool Equals(object obj)
         {
@@ -102,7 +103,8 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                    tamanhoPortaMala == veiculo.tamanhoPortaMala &&
                    temArCondicionado == veiculo.temArCondicionado &&
                    temDirecaoHidraulica == veiculo.temDirecaoHidraulica &&
-                   temFreiosAbs == veiculo.temFreiosAbs;
+                   temFreiosAbs == veiculo.temFreiosAbs &&
+                   estaAlugado == veiculo.estaAlugado;
         }
 
         public override int GetHashCode()
@@ -125,6 +127,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             hashCode = hashCode * -1521134295 + temArCondicionado.GetHashCode();
             hashCode = hashCode * -1521134295 + temDirecaoHidraulica.GetHashCode();
             hashCode = hashCode * -1521134295 + temFreiosAbs.GetHashCode();
+            hashCode = hashCode * -1521134295 + estaAlugado.GetHashCode();
             return hashCode;
         }
     }

@@ -12,7 +12,9 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         public string Cargo { get; }
         public double Salario { get; }
 
-        public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matriculaInterna, string usuarioAcesso, DateTime dataAdmissao, string cargo, double salario,bool ehPessoaFisica)
+        public string Senha { get; }
+
+        public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matriculaInterna, string usuarioAcesso,string senha, DateTime dataAdmissao, string cargo, double salario,bool ehPessoaFisica)
         {
             this.id = id;
             Nome = nome;
@@ -23,6 +25,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             EhPessoaFisica = true;
             MatriculaInterna = matriculaInterna;
             UsuarioAcesso = usuarioAcesso;
+            Senha = senha;
             DataAdmissao = dataAdmissao;
             Cargo = cargo;
             Salario = salario;
@@ -42,6 +45,8 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
                 resultadoValidação += "O funcionário deve possuir um cargo\n";
             if (DataAdmissao > DateTime.Now.AddMonths(2))
                 resultadoValidação += "Data de admissão inválida\n";
+            if (Senha.Length <= 3)
+                resultadoValidação += "A senha não pode ser menor que três caracteres\n";
             if (base.ValidarPessoa() != "VALIDO")
                 resultadoValidação += base.ValidarPessoa();
             if (resultadoValidação == "")
@@ -49,10 +54,19 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             return resultadoValidação;
         }
 
+       
+
+       
+
+        public override string ToString()
+        {
+            return $"Funcionario = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {MatriculaInterna}, {UsuarioAcesso}, {Senha}, {DataAdmissao}, {Cargo}, {Salario}]";
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Funcionario funcionario &&
-                   id == funcionario.id &&
+                   Id == funcionario.Id &&
                    Nome == funcionario.Nome &&
                    RegistroUnico == funcionario.RegistroUnico &&
                    Endereco == funcionario.Endereco &&
@@ -63,13 +77,14 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
                    UsuarioAcesso == funcionario.UsuarioAcesso &&
                    DataAdmissao == funcionario.DataAdmissao &&
                    Cargo == funcionario.Cargo &&
-                   Salario == funcionario.Salario;
+                   Salario == funcionario.Salario &&
+                   Senha == funcionario.Senha;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = 367286739;
-            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            int hashCode = 1294455568;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RegistroUnico);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
@@ -81,12 +96,8 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             hashCode = hashCode * -1521134295 + DataAdmissao.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Cargo);
             hashCode = hashCode * -1521134295 + Salario.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Senha);
             return hashCode;
-        }
-
-        public override string ToString()
-        {
-            return $"Funcionario = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {MatriculaInterna}, {UsuarioAcesso}, {DataAdmissao}, {Cargo}, {Salario}]";
         }
     }
 }

@@ -4,10 +4,14 @@
     [RegistroUnico]  VARCHAR (50) NOT NULL,
     [Endereco]       VARCHAR (50) NULL,
     [Telefone]       VARCHAR (50) NULL,
-    [Email]          VARCHAR (50) NOT NULL,
+    [Email]          VARCHAR (50) NULL,
     [EhPessoaFisica] BIT          NOT NULL,
-    [Cnh]            VARCHAR (50) NOT NULL,
-    [ValidadeCnh]    DATETIME     NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+    [Cnh]            VARCHAR (50) NULL,
+    [ValidadeCnh]    DATETIME     NULL,
+    CONSTRAINT [PK__TBCLIENT__3214EC07279494AB] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
+
+
 

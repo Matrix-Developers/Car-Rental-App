@@ -104,6 +104,11 @@
     </Compile>
     <Compile Include="Features\Locacao\TelaLocacaoForm.Designer.cs">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+    <Compile Include="Features\Login\TelaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Login\TelaLogin.Designer.cs">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Serviços\ConfiguracaoServicoToolBox.cs" />
     <Compile Include="Features\Serviços\OperacoesServico.cs" />
@@ -173,6 +178,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Locacao\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Features\Login\TelaLogin.resx">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Serviços\TabelaServicoControl.resx">
       <DependentUpon>TabelaServicoControl.cs</DependentUpon>
