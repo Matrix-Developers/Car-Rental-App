@@ -145,11 +145,11 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarToolBox(configuracao);
 
-            AtualizarRodape(configuracao.TipoCadastro);
+            //AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesLocacao(new ControladorLocacao());
+            operacoes = new OperacoesLocacao();//new ControladorLocacao());
 
-            ConfigurarPainelRegistros();
+            //ConfigurarPainelRegistros();
         }
 
         private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
