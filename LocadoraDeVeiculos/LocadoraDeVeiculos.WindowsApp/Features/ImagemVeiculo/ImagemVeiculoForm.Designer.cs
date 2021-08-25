@@ -134,7 +134,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
-            this.openFileDialog.Filter = "JPEG|*.JPG|PNG|*.png";
+            this.openFileDialog.Filter = "JPEG|*.jpeg|PNG|*.png|JPG|*.jpg";
             // 
             // ImagemVeiculoForm
             // 

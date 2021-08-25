@@ -4,7 +4,10 @@ using System.IO;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace LocadoraDeVeiculos.WindowsApp.Veiculos
 {
@@ -17,8 +20,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             InitializeComponent();
             CarregarGruposDeVeiculos();
             labelTitulo.Text = titulo;
-            cBoxPortaMalas.SelectedIndex = 0;
+            cBoxPortaMalas.SelectedIndex = 0;           
         }
+        private List<Bitmap> imagens = new List<Bitmap>();
 
         private void CarregarGruposDeVeiculos()
         {
@@ -134,8 +138,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ImagemVeiculoForm telaImagem = new ImagemVeiculoForm();
+            ImagemVeiculoForm telaImagem = new ImagemVeiculoForm(this);
             telaImagem.Show();
+        }
+
+        public void AtualizarListaDeFotos(List<Bitmap> imagens)
+        {
+            this.imagens = imagens;
         }
     }
 }

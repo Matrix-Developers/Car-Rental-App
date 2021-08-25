@@ -54,6 +54,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.gBoxDados = new System.Windows.Forms.GroupBox();
+            this.btnImagem = new System.Windows.Forms.Button();
             this.cBoxCombustivel = new System.Windows.Forms.ComboBox();
             this.textAno = new System.Windows.Forms.TextBox();
             this.numUpDownCapTanque = new System.Windows.Forms.NumericUpDown();
@@ -64,7 +65,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.lbPlaca = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkLBoxOpcionais = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.gBoxDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownCapTanque)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).BeginInit();
@@ -316,7 +316,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             // gBoxDados
             // 
-            this.gBoxDados.Controls.Add(this.button1);
+            this.gBoxDados.Controls.Add(this.btnImagem);
             this.gBoxDados.Controls.Add(this.cBoxCombustivel);
             this.gBoxDados.Controls.Add(this.textAno);
             this.gBoxDados.Controls.Add(this.numUpDownCapTanque);
@@ -353,6 +353,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.gBoxDados.TabIndex = 94;
             this.gBoxDados.TabStop = false;
             this.gBoxDados.Text = "Dados Obrigatórios";
+            // 
+            // btnImagem
+            // 
+            this.btnImagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnImagem.Location = new System.Drawing.Point(97, 199);
+            this.btnImagem.Name = "btnImagem";
+            this.btnImagem.Size = new System.Drawing.Size(216, 23);
+            this.btnImagem.TabIndex = 8;
+            this.btnImagem.Text = "Inserir imagens";
+            this.btnImagem.UseVisualStyleBackColor = true;
+            this.btnImagem.Click += new System.EventHandler(this.button1_Click);
             // 
             // cBoxCombustivel
             // 
@@ -455,17 +466,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.checkLBoxOpcionais.Size = new System.Drawing.Size(355, 124);
             this.checkLBoxOpcionais.TabIndex = 15;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button1.Location = new System.Drawing.Point(97, 199);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Inserir imagens";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // VeiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -533,6 +533,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private System.Windows.Forms.TextBox textAno;
         private System.Windows.Forms.ComboBox cBoxCombustivel;
         private System.Windows.Forms.Label lbPlaca;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImagem;
     }
 }

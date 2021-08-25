@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
+using LocadoraDeVeiculos.WindowsApp.Veiculos;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 {
@@ -16,16 +18,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         private const int avancar = 1;
         private int imagemAtual = 0;
         public List<Bitmap> imagens;
-        public ImagemVeiculoForm()
+        private readonly VeiculoForm telaBase;
+        public ImagemVeiculoForm(VeiculoForm telaBase)
         {
             imagens = imagens = new List<Bitmap>();
             InitializeComponent();
+            this.telaBase = telaBase;
         }
-        public ImagemVeiculoForm(List<Bitmap> imagens)
+        public ImagemVeiculoForm(VeiculoForm telaBase,List<Bitmap> imagens)
         {
             this.imagens = imagens;
             InitializeComponent();
             pctBoxImagem.Image = imagens[0];
+            this.telaBase = telaBase;
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -59,7 +64,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 
         private void AtualizarImagem()
         {
-            pctBoxImagem.Image = imagens[imagemAtual];
+            if (imagens.Count != 0)
+                pctBoxImagem.Image = imagens[imagemAtual];
+            else
+                pctBoxImagem.Image = default;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -78,8 +86,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         {
             if (imagens.Count() != 0)
             {
-                imagens.RemoveAt(imagemAtual - 1);
+                imagens.RemoveAt(imagemAtual);
                 MudarImagemAtual(0);
+            }
+            else
+            {
+                pctBoxImagem.Image = default;
             }
         }
 
@@ -91,6 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             
+            telaBase.AtualizarListaDeFotos(imagens);
         }
     }
 }
