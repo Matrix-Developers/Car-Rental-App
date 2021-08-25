@@ -28,9 +28,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             InitializeComponent();
             CarregarDados();
-            //CarregaCondutor();
+            CarregaCondutor();
             this.Text = titulo;
             lblTitulo.Text = titulo;
+            cBoxPlano.SelectedIndex = 0;
         }
 
         private void CarregarDados()
@@ -42,12 +43,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void CarregaCondutor()
         {
-            List<Cliente> clientesPf = null;
+            List<Cliente> clientesPf = new List<Cliente>();
             foreach (Cliente cliente in controladorCliente.SelecionarTodos())
-            {
                 if (cliente.EhPessoaFisica)
                     clientesPf.Add(cliente);
-            }
             cBoxCondutor.DataSource = clientesPf;
         }
 

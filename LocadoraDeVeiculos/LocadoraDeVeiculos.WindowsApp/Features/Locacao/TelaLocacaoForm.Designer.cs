@@ -124,7 +124,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             // cBoxPlano
             // 
+            this.cBoxPlano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxPlano.FormattingEnabled = true;
+            this.cBoxPlano.Items.AddRange(new object[] {
+            "Plano Diario",
+            "Plano Km Controlado",
+            "Plano Km Livre"});
             this.cBoxPlano.Location = new System.Drawing.Point(89, 99);
             this.cBoxPlano.Name = "cBoxPlano";
             this.cBoxPlano.Size = new System.Drawing.Size(170, 21);
@@ -231,6 +236,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             // cBoxCondutor
             // 
+            this.cBoxCondutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxCondutor.FormattingEnabled = true;
             this.cBoxCondutor.Location = new System.Drawing.Point(89, 153);
             this.cBoxCondutor.Name = "cBoxCondutor";
@@ -239,6 +245,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             // cBoxCliente
             // 
+            this.cBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxCliente.FormattingEnabled = true;
             this.cBoxCliente.Location = new System.Drawing.Point(89, 126);
             this.cBoxCliente.Name = "cBoxCliente";
@@ -247,6 +254,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             // cBoxFuncionario
             // 
+            this.cBoxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxFuncionario.FormattingEnabled = true;
             this.cBoxFuncionario.Location = new System.Drawing.Point(89, 45);
             this.cBoxFuncionario.Name = "cBoxFuncionario";
@@ -255,6 +263,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             // cBoxVeiculo
             // 
+            this.cBoxVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxVeiculo.FormattingEnabled = true;
             this.cBoxVeiculo.Location = new System.Drawing.Point(89, 72);
             this.cBoxVeiculo.Name = "cBoxVeiculo";
