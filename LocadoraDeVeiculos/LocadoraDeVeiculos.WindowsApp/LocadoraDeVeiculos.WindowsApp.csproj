@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Features\Locacao\TelaLocacaoForm.Designer.cs">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+	</Compile>
     <Compile Include="Features\Login\TelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +179,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Locacao\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="Features\Login\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>

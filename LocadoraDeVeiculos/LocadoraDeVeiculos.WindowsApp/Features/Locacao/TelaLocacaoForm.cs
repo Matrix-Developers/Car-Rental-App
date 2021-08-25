@@ -4,7 +4,7 @@ using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.WindowsApp.Serviços;
+using LocadoraDeVeiculos.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
