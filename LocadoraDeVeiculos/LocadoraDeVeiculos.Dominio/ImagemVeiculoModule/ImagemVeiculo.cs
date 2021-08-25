@@ -30,8 +30,7 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
 
         public override string Validar()
         {
-            string resultadoValidacao = "";
-
+            string resultadoValidacao = "VALIDO";
             return resultadoValidacao;
         }
 

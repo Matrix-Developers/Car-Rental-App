@@ -175,7 +175,14 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public override List<Veiculo> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
+            List<Veiculo>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
+
+            foreach (Veiculo veiculo in veiculos)
+            {
+                veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
+            }
+
+            return veiculos;
         }
         public override Veiculo SelecionarPorId(int id)
         {
@@ -222,7 +229,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             parametros.Add("PLACA", veiculo.placa);
             parametros.Add("CHASSI", veiculo.chassi);
             parametros.Add("MARCA", veiculo.marca);
-            //parametros.Add("IMAGEM", veiculo.imagem);
             parametros.Add("COR", veiculo.cor);
             parametros.Add("TIPOCOMBUSTIVEL", veiculo.tipoCombustivel);
             parametros.Add("CAPACIDADETANQUE", veiculo.capacidadeTanque);
@@ -247,7 +253,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             var placa = Convert.ToString(reader["PLACA"]);
             var chassi = Convert.ToString(reader["CHASSI"]);
             var marca = Convert.ToString(reader["MARCA"]);
-            //string imagem = Convert.(reader["IMAGEM"]);
             var cor = Convert.ToString(reader["COR"]);
             var tipoCombustivel = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
             var capacidadeTanque = Convert.ToDouble(reader["capacidadeTanque"]);

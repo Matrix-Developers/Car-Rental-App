@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         private const string ComandoInserir = @"";
         private const string ComandoEditar = @"";
         private const string ComandoExcluir = @"";
-        private const string ComandoSelecionarTodosDoVeiculo = "";
+        private const string ComandoSelecionarTodosDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO;";
         private const string ComandoSelecionarPorId = "";
         #endregion
         public override string Editar(int id, ImagemVeiculo registro)
@@ -38,6 +40,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         public override string InserirNovo(ImagemVeiculo registro)
         {
             string resultadoValidacao = "VALIDO";
+
             registro.Id = Db.Insert(ComandoInserir, ObtemParametrosImagem(registro));
 
             return resultadoValidacao;
@@ -53,6 +56,11 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
             throw new NotImplementedException();
         }
 
+        public List<Bitmap> SelecioanrTodasImagensDeUmVeiculo(int id)
+        {
+            return Db.GetAll(ComandoSelecionarTodosDoVeiculo, ConverteEmImagem,AdicionarParametro("ID_VEICULO",id));
+        }
+
         private Dictionary<string, object> ObtemParametrosImagem(ImagemVeiculo imagemVeiculo)
         {
             var parametros = new Dictionary<string, object>();
@@ -62,6 +70,15 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
             parametros.Add("IMAGEM", imagemVeiculo.imagem);
 
             return parametros;
+        }
+
+        private Bitmap ConverteEmImagem(IDataReader reader)
+        {
+            var a = new Bitmap(Convert.ToString(reader["IMAGEM"]));
+            //string img = Convert.ToString(reader["IMAGEM"]);
+            //byte[] imagem = Convert.FromBase64String(img);
+
+            return a;
         }
     }
 }

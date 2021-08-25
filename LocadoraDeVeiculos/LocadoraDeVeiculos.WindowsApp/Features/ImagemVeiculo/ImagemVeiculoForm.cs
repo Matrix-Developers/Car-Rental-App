@@ -93,9 +93,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tem certeza que deseja excluir a imagem?", "Locadora de veículos",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            if (DialogResult == DialogResult.OK)
+            if (MessageBox.Show("Tem certeza que deseja excluir a imagem?", "Locadora de veículos",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 if (imagens.Count() != 0)
                 {
