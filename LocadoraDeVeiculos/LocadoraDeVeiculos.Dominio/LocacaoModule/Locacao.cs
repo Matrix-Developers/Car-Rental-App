@@ -113,7 +113,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"Locacao = [{id}, {veiculo.modelo}, [{funcionarioLocador}], [{clienteContratante}], [{clienteCondutor}], {dataDeSaida}, {dataPrevistaDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}]";
         }
     }
 }

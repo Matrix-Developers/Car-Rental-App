@@ -12,6 +12,7 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Tests.LocacaoModule
 {
@@ -45,7 +46,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void DeveInserirUmaLocacao()
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
@@ -55,7 +56,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             controladorFuncionario.InserirNovo(funcionario);
             clienteContratante = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controladorCliente.InserirNovo(clienteContratante);
-            clienteCondutor = new Cliente(0, "Arnaldo", "888.777.666.55", "Rua Laguna", "97777-6666", "arnaldo@test.com", "98765432103", new DateTime(2020, 11, 11), true);
+            clienteCondutor = new Cliente(0, "Nardolindo", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controladorCliente.InserirNovo(clienteCondutor);
 
             locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum");
@@ -63,7 +64,75 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             var locacaoEncontrada = controlador.SelecionarPorId(locacao.Id);
             locacaoEncontrada.Should().Be(locacao);
-
         }
+
+        [TestMethod]
+        public void DeveSelecionarDuasLocacoes()
+        {
+            grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100);
+            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, "30000", 4, 5, 'G', true, true, true);
+            controladorVeiculo.InserirNovo(veiculo);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            controladorFuncionario.InserirNovo(funcionario);
+            clienteContratante = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            controladorCliente.InserirNovo(clienteContratante);
+            clienteCondutor = new Cliente(0, "Nardolindo", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            controladorCliente.InserirNovo(clienteCondutor);
+
+            locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum");
+            controlador.InserirNovo(locacao);
+            Locacao outraLocacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today.AddDays(-10), DateTime.Today.AddDays(15), "PlanoDiario", "SeguroCliente");
+            controlador.InserirNovo(outraLocacao);
+
+            List<Locacao> locacaoEncontrado = controlador.SelecionarTodos();
+            locacaoEncontrado.Count.Should().Be(2);
+        }
+
+        [TestMethod]
+        public void DeveEditarUmaLocacao()
+        {
+            grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100);
+            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, "30000", 4, 5, 'G', true, true, true);
+            controladorVeiculo.InserirNovo(veiculo);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            controladorFuncionario.InserirNovo(funcionario);
+            clienteContratante = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            controladorCliente.InserirNovo(clienteContratante);
+            clienteCondutor = new Cliente(0, "Nardolindo", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            controladorCliente.InserirNovo(clienteCondutor);
+
+            locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum");
+            controlador.InserirNovo(locacao);
+            Locacao outraLocacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today.AddDays(-10), DateTime.Today.AddDays(15), "PlanoDiario", "SeguroCliente");
+            controlador.Editar(locacao.Id, outraLocacao);
+
+            var locacaoEncontrada = controlador.SelecionarPorId(locacao.Id);
+            locacaoEncontrada.Should().Be(outraLocacao);
+        }
+
+        [TestMethod]
+        public void DeveExcluirUmVeiculo()
+        {
+            grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100);
+            controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
+            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, "30000", 4, 5, 'G', true, true, true);
+            controladorVeiculo.InserirNovo(veiculo);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            controladorFuncionario.InserirNovo(funcionario);
+            clienteContratante = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            controladorCliente.InserirNovo(clienteContratante);
+            clienteCondutor = new Cliente(0, "Nardolindo", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+            controladorCliente.InserirNovo(clienteCondutor);
+
+            locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum");
+            controlador.InserirNovo(locacao);
+            controlador.Excluir(locacao.Id);
+
+            List<Locacao> locacaoEncontrado = controlador.SelecionarTodos();
+            locacaoEncontrado.Count.Should().Be(0);
+        }
+
     }
 }
