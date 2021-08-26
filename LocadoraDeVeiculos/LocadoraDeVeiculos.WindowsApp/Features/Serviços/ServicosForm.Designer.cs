@@ -104,6 +104,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnCancelar.Location = new System.Drawing.Point(169, 293);
             this.btnCancelar.Name = "btnCancelar";
@@ -114,6 +115,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnConfirmar.Location = new System.Drawing.Point(88, 293);
             this.btnConfirmar.Name = "btnConfirmar";

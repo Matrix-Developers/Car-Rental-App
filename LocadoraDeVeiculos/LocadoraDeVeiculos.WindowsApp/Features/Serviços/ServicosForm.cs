@@ -50,7 +50,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
         {
             TelaServicoForm telaServicoForm = new TelaServicoForm("Cadastro de Serviços");
             if (telaServicoForm.ShowDialog() == DialogResult.OK)
+            {
+                controladorServico.InserirNovo(telaServicoForm.Servico);
                 AtualizarListCheckBox();
+            }
         }
     }
 }

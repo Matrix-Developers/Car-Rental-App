@@ -25,8 +25,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private Locacao locacao;
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
-
         private ControladorCliente controladorCliente = new ControladorCliente();
+        List<Servico> sevicosSelecionados = new List<Servico>();
         public TelaLocacaoForm(string titulo)
         {
             InitializeComponent();
@@ -84,6 +84,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             Cliente condutor = cBoxCondutor.SelectedItem as Cliente;
             DateTime dataDeSaida = dateTPDataSaida.Value;
             DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
+            List<Servico> servicos = sevicosSelecionados;
 
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro);
 
@@ -99,9 +100,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
-            //List<Servico> servicosSelecionados = 
             ServicosForm telaServico = new ServicosForm();
-            telaServico.Show();
+            if (telaServico.ShowDialog() == DialogResult.OK)
+                sevicosSelecionados = telaServico.servicosSelecionados;
         }
     }
 }
