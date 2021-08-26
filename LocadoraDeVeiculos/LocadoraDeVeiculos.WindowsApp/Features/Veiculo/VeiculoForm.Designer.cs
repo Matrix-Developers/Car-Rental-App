@@ -34,7 +34,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textChassi = new System.Windows.Forms.TextBox();
             this.textMarca = new System.Windows.Forms.TextBox();
             this.textModelo = new System.Windows.Forms.TextBox();
-            this.textImagem = new System.Windows.Forms.TextBox();
             this.textId = new System.Windows.Forms.TextBox();
             this.lbGrupo = new System.Windows.Forms.Label();
             this.lbImagem = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.gBoxDados = new System.Windows.Forms.GroupBox();
+            this.btnImagem = new System.Windows.Forms.Button();
             this.cBoxCombustivel = new System.Windows.Forms.ComboBox();
             this.textAno = new System.Windows.Forms.TextBox();
             this.numUpDownCapTanque = new System.Windows.Forms.NumericUpDown();
@@ -87,7 +87,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             this.textPlaca.Location = new System.Drawing.Point(97, 44);
             this.textPlaca.MaxLength = 7;
-
             this.textPlaca.Name = "textPlaca";
             this.textPlaca.Size = new System.Drawing.Size(217, 20);
             this.textPlaca.TabIndex = 1;
@@ -112,14 +111,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textModelo.Name = "textModelo";
             this.textModelo.Size = new System.Drawing.Size(217, 20);
             this.textModelo.TabIndex = 4;
-            // 
-            // textImagem
-            // 
-            this.textImagem.Enabled = false;
-            this.textImagem.Location = new System.Drawing.Point(97, 201);
-            this.textImagem.Name = "textImagem";
-            this.textImagem.Size = new System.Drawing.Size(216, 20);
-            this.textImagem.TabIndex = 8;
             // 
             // textId
             // 
@@ -325,6 +316,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             // 
             // gBoxDados
             // 
+            this.gBoxDados.Controls.Add(this.btnImagem);
             this.gBoxDados.Controls.Add(this.cBoxCombustivel);
             this.gBoxDados.Controls.Add(this.textAno);
             this.gBoxDados.Controls.Add(this.numUpDownCapTanque);
@@ -347,7 +339,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.gBoxDados.Controls.Add(this.lbNome);
             this.gBoxDados.Controls.Add(this.textModelo);
             this.gBoxDados.Controls.Add(this.textPlaca);
-            this.gBoxDados.Controls.Add(this.textImagem);
             this.gBoxDados.Controls.Add(this.lbMarca);
             this.gBoxDados.Controls.Add(this.lbModelo);
             this.gBoxDados.Controls.Add(this.lbGrupo);
@@ -362,6 +353,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.gBoxDados.TabIndex = 94;
             this.gBoxDados.TabStop = false;
             this.gBoxDados.Text = "Dados Obrigatórios";
+            // 
+            // btnImagem
+            // 
+            this.btnImagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnImagem.Location = new System.Drawing.Point(97, 199);
+            this.btnImagem.Name = "btnImagem";
+            this.btnImagem.Size = new System.Drawing.Size(216, 23);
+            this.btnImagem.TabIndex = 8;
+            this.btnImagem.Text = "Inserir imagens";
+            this.btnImagem.UseVisualStyleBackColor = true;
+            this.btnImagem.Click += new System.EventHandler(this.button1_Click);
             // 
             // cBoxCombustivel
             // 
@@ -501,7 +503,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private System.Windows.Forms.TextBox textChassi;
         private System.Windows.Forms.TextBox textMarca;
         private System.Windows.Forms.TextBox textModelo;
-        private System.Windows.Forms.TextBox textImagem;
         private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.Label lbGrupo;
         private System.Windows.Forms.Label lbImagem;
@@ -532,5 +533,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private System.Windows.Forms.TextBox textAno;
         private System.Windows.Forms.ComboBox cBoxCombustivel;
         private System.Windows.Forms.Label lbPlaca;
+        private System.Windows.Forms.Button btnImagem;
     }
 }

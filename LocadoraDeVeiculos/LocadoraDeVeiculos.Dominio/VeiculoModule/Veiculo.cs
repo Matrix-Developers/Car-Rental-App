@@ -1,6 +1,8 @@
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace LocadoraDeVeiculos.Dominio.VeiculoModule
 {
@@ -23,8 +25,9 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
         public bool estaAlugado;
+        public List<ImagemVeiculo> imagens;
 
-        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status)
+        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status, List<ImagemVeiculo> imagens)
         {
             this.id = id;
             this.modelo = modelo;
@@ -44,6 +47,29 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.temDirecaoHidraulica = temDirecaoHidraulica;
             this.temFreiosAbs = temFreiosAbs;
             this.estaAlugado = status;
+            this.imagens = imagens;
+        }
+
+        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool estaAlugado)
+        {
+            this.id = id;
+            this.modelo = modelo;
+            this.grupoVeiculos = grupoVeiculos;
+            this.placa = placa;
+            this.chassi = chassi;
+            this.marca = marca;
+            this.cor = cor;
+            this.tipoCombustivel = tipoCombustivel;
+            this.capacidadeTanque = capacidadeTanque;
+            this.ano = ano;
+            this.quilometragem = quilometragem;
+            this.numeroPortas = numeroPortas;
+            this.capacidadePessoas = capacidadePessoas;
+            this.tamanhoPortaMala = tamanhoPortaMala;
+            this.temArCondicionado = temArCondicionado;
+            this.temDirecaoHidraulica = temDirecaoHidraulica;
+            this.temFreiosAbs = temFreiosAbs;
+            this.estaAlugado = estaAlugado;
         }
 
         public override string Validar()
@@ -104,7 +130,8 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                    temArCondicionado == veiculo.temArCondicionado &&
                    temDirecaoHidraulica == veiculo.temDirecaoHidraulica &&
                    temFreiosAbs == veiculo.temFreiosAbs &&
-                   estaAlugado == veiculo.estaAlugado;
+                   estaAlugado == veiculo.estaAlugado &&
+                   imagens == imagens;
         }
 
         public override int GetHashCode()
@@ -128,6 +155,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             hashCode = hashCode * -1521134295 + temDirecaoHidraulica.GetHashCode();
             hashCode = hashCode * -1521134295 + temFreiosAbs.GetHashCode();
             hashCode = hashCode * -1521134295 + estaAlugado.GetHashCode();
+            hashCode = hashCode * -1521134295 + imagens.GetHashCode();
             return hashCode;
         }
     }
