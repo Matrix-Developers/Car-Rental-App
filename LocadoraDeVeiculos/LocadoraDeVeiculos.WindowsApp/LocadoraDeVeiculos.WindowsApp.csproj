@@ -97,6 +97,20 @@
     <Compile Include="Features\ImagemVeiculo\ImagemVeiculoForm.Designer.cs">
       <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Locacao\ConfiguracaoLocacaoToolBox.cs" />
+    <Compile Include="Features\Locacao\OperacoesLocacao.cs" />
+    <Compile Include="Features\Locacao\TabelaLocacaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Locacao\TabelaLocacaoControl.Designer.cs">
+      <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Locacao\TelaLocacaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Locacao\TelaLocacaoForm.Designer.cs">
+      <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Features\Login\TelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +183,12 @@
     <EmbeddedResource Include="Features\ImagemVeiculo\ImagemVeiculoForm.resx">
       <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Locacao\TabelaLocacaoControl.resx">
+      <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Locacao\TelaLocacaoForm.resx">
+      <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+	  </EmbeddedResource>
     <EmbeddedResource Include="Features\Login\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>

@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
             if (this.Nome.Length == 0)
                 resultadoValidacao = "O nome não pode ser nulo\n";
             if (this.Valor <= 0)
-                resultadoValidacao += "O valor não pode ser nulo ou negativo";
+                resultadoValidacao += "O valor não pode ser nulo";
             if (resultadoValidacao.Length == 0)
                 resultadoValidacao = "VALIDO";
             return resultadoValidacao;
@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
 
         public override string ToString()
         {
-            return $"Serviço = [{id}, {Nome}, {Tipo}, {Valor}]";
+            return $"{id} {Nome} {Tipo} {Valor}";
         }
     }
 }

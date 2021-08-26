@@ -37,6 +37,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.cBoxSeguro = new System.Windows.Forms.ComboBox();
+            this.lblSeguro = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,11 +55,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblSeguro);
+            this.groupBox1.Controls.Add(this.cBoxSeguro);
             this.groupBox1.Controls.Add(this.cLBoxServicos);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(232, 217);
+            this.groupBox1.Size = new System.Drawing.Size(232, 275);
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
             // 
@@ -66,7 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             this.cLBoxServicos.FormattingEnabled = true;
             this.cLBoxServicos.Location = new System.Drawing.Point(6, 19);
             this.cLBoxServicos.Name = "cLBoxServicos";
-            this.cLBoxServicos.Size = new System.Drawing.Size(220, 154);
+            this.cLBoxServicos.Size = new System.Drawing.Size(220, 184);
             this.cLBoxServicos.TabIndex = 1;
             this.cLBoxServicos.SelectedIndexChanged += new System.EventHandler(this.cLBoxServicos_SelectedIndexChanged);
             // 
@@ -86,7 +92,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(71, 260);
+            this.label4.Location = new System.Drawing.Point(65, 251);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 66;
@@ -97,15 +103,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox1.Location = new System.Drawing.Point(132, 257);
+            this.textBox1.Location = new System.Drawing.Point(126, 248);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 67;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(169, 293);
+            this.btnCancelar.Location = new System.Drawing.Point(169, 351);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 69;
@@ -114,8 +121,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(88, 293);
+            this.btnConfirmar.Location = new System.Drawing.Point(88, 351);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
             this.btnConfirmar.TabIndex = 68;
@@ -123,22 +131,48 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
+            // cBoxSeguro
+            // 
+            this.cBoxSeguro.FormattingEnabled = true;
+            this.cBoxSeguro.Items.AddRange(new object[] {
+            "Nenhum",
+            "Seguro Cliente",
+            "Seguro Terceiro"});
+            this.cBoxSeguro.Location = new System.Drawing.Point(105, 209);
+            this.cBoxSeguro.Name = "cBoxSeguro";
+            this.cBoxSeguro.Size = new System.Drawing.Size(121, 21);
+            this.cBoxSeguro.TabIndex = 68;
+            this.cBoxSeguro.SelectedIndexChanged += new System.EventHandler(this.cBoxSeguro_SelectedIndexChanged);
+            // 
+            // lblSeguro
+            // 
+            this.lblSeguro.AutoSize = true;
+            this.lblSeguro.Location = new System.Drawing.Point(58, 212);
+            this.lblSeguro.Name = "lblSeguro";
+            this.lblSeguro.Size = new System.Drawing.Size(41, 13);
+            this.lblSeguro.TabIndex = 69;
+            this.lblSeguro.Text = "Seguro";
+            // 
             // ServicosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(256, 329);
+            this.ClientSize = new System.Drawing.Size(256, 385);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ServicosForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Locadora de Veículo";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +187,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.CheckedListBox cLBoxServicos;
+        private System.Windows.Forms.Label lblSeguro;
+        private System.Windows.Forms.ComboBox cBoxSeguro;
     }
 }

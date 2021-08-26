@@ -93,7 +93,7 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 
         public override string ToString()
         {
-            return $"GrupoDeVeiculo = [{id},{nome},{taxaPlanoDiario},{taxaPorKmDiario},{taxaPlanoControlado},{limiteKmControlado},{taxaKmExcedidoControlado},{taxaPlanoLivre}]";
+            return $"{id} {nome}";
         }
     }
 }
