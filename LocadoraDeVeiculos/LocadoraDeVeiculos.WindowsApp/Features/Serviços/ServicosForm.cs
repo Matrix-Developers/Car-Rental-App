@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
     {
         public double valorFinal = 0;
         public List<Servico> servicosSelecionados = new List<Servico>();
-        public string seguro = "";
+        public string seguro = "Nenhum";
         ControladorServico controladorServico = new ControladorServico();
         double valorTotal = 00.00;
         public ServicosForm()

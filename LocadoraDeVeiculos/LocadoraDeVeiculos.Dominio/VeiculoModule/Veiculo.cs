@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
 
         public override string ToString()
         {
-            return $"Veiculo = [{id}, {modelo}, {grupoVeiculos}, {placa}, {chassi}, {marca}, {cor}, {tipoCombustivel}, {capacidadeTanque}, {ano}, {quilometragem}, {numeroPortas}, {capacidadePessoas}, {tamanhoPortaMala}]";
+            return $"{id} {modelo} {grupoVeiculos.Nome} {placa}";
         }
 
         public override bool Equals(object obj)
