@@ -147,6 +147,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         public void AtualizarListaDeFotos(List<ImagemVeiculo> imagens)
         {
             this.imagensVeiculo = imagens;
+            veiculo.imagens = imagens;
         }
     }
 }

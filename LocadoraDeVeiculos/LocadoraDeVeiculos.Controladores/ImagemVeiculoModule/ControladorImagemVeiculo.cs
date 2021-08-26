@@ -5,13 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
 
 namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 {
@@ -20,25 +15,38 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
         private Bitmap bmp;
         #region Queries
-        private const string comandoInserir = @"insert into [dbo].[TBIMAGEMVEICULO] 
+        private const string comandoInserir = @"INSERT INTO [DBO].[TBIMAGEMVEICULO] 
                                                 (
-                                                 [id_veiculo],
-                                                 [imagem]
-                                                )values
+                                                 [ID_VEICULO],
+                                                 [IMAGEM]
+                                                )VALUES
                                                 (
-                                                @id_veiculo,
-                                                @imagem
+                                                @ID_VEICULO,
+                                                @IMAGEM
                                                 );";
         private const string comandoEditar = @"UPDATE [DBO].[TBIMAGEMVEICULO] SET [IMAGEM] = @IMAGEM WHERE [ID] = @ID";
         private const string comandoExcluir = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
+        private const string comandoExcluirPorId = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
+        private const string comandoExcluirTodosPorIdDoVeiculo = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecionarTodosDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO;";
         private const string comandoSelecionarPorId = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
+        private const string comandoSelecionarPorIdDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecioarTodos = "SELECT * FROM DBO].[TBIMAGEMVEICULO]";
         #endregion
         public override string Editar(int id, ImagemVeiculo registro)
         {
             registro.Id = Db.Insert(comandoInserir,ObtemParametrosImagem(registro));
-            return "a";
+            return "";
+        }
+
+        public void EditarLista(List<ImagemVeiculo> registros)
+        {
+            if (registros.Count != 0)
+                ExcluirPorIdDoVeiculo(registros[0].idVeiculo);
+            foreach (ImagemVeiculo imagem in registros)
+            {
+                InserirNovo(imagem);
+            }
         }
 
         public override bool Excluir(int id)
@@ -46,6 +54,19 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
             try
             {
                 Db.Delete(comandoExcluir, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool ExcluirPorIdDoVeiculo(int idVeiculo)
+        {
+            try
+            {
+                Db.Delete(comandoExcluirTodosPorIdDoVeiculo, AdicionarParametro("ID_Veiculo", idVeiculo));
             }
             catch (Exception)
             {
@@ -72,6 +93,10 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         public override ImagemVeiculo SelecionarPorId(int id)
         {
             return Db.Get(comandoSelecionarPorId,ConverteEmImagemVeiculo,AdicionarParametro("ID",id));
+        }
+        public List<ImagemVeiculo> SelecionarPorIdDoVeiculo(int id)
+        {
+            return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverteEmImagemVeiculo, AdicionarParametro("ID_VEICULO", id));
         }
 
         public override List<ImagemVeiculo> SelecionarTodos()

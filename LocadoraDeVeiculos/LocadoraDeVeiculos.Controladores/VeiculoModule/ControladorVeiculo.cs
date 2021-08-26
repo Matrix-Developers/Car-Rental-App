@@ -185,7 +185,9 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public override Veiculo SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
+            Veiculo veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
+            veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
+            return veiculo;
         }
         public override string Editar(int id, Veiculo registro)
         {
@@ -195,7 +197,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             {
                 registro.Id = id;
                 Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
-
+                    controladorImagem.EditarLista(registro.imagens);
             }
 
             return resultadoValidacao;
