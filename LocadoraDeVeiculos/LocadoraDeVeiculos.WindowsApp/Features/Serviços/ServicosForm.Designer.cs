@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Serviços
+namespace LocadoraDeVeiculos.WindowsApp.Servicos
 {
     partial class ServicosForm
     {
@@ -31,12 +31,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
         {
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cLBoxServicos = new System.Windows.Forms.CheckedListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,13 +53,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.cLBoxServicos);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(232, 217);
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
+            // 
+            // cLBoxServicos
+            // 
+            this.cLBoxServicos.FormattingEnabled = true;
+            this.cLBoxServicos.Location = new System.Drawing.Point(6, 19);
+            this.cLBoxServicos.Name = "cLBoxServicos";
+            this.cLBoxServicos.Size = new System.Drawing.Size(220, 154);
+            this.cLBoxServicos.TabIndex = 1;
+            this.cLBoxServicos.SelectedIndexChanged += new System.EventHandler(this.cLBoxServicos_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -70,6 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
             this.button1.TabIndex = 65;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -92,33 +102,26 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 67;
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button2.Location = new System.Drawing.Point(169, 293);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 69;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnCancelar.Location = new System.Drawing.Point(169, 293);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 69;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnConfirmar
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button3.Location = new System.Drawing.Point(88, 293);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 68;
-            this.button3.Text = "Confirmar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(220, 160);
-            this.listBox1.TabIndex = 0;
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnConfirmar.Location = new System.Drawing.Point(88, 293);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmar.TabIndex = 68;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // ServicosForm
             // 
@@ -126,8 +129,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(256, 329);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -147,8 +150,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Serviços
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.CheckedListBox cLBoxServicos;
     }
 }

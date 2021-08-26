@@ -163,5 +163,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             //ConfigurarPainelRegistros();
         }
+
+
     }
 }

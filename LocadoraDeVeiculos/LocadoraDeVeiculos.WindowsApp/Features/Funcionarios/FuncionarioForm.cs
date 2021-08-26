@@ -39,6 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
                 textEmail.Text = funcionario.Email.ToString();
                 textMatriculaInterna.Text = funcionario.MatriculaInterna.ToString();
                 textUsuarioAcesso.Text = funcionario.UsuarioAcesso.ToString();
+                textSenha.Text = funcionario.Senha.ToString();
                 mskTxtDataAdmissao.Text = funcionario.DataAdmissao.ToString();
                 textCargo.Text = funcionario.Cargo.ToString();
                 textSalario.Text = funcionario.Salario.ToString();
@@ -55,6 +56,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             string email = textEmail.Text;
             int matriculaInterna = Convert.ToInt32(textMatriculaInterna.Text);
             string usuarioAcesso = textUsuarioAcesso.Text;
+            string senha = textSenha.Text;
             DateTime dataAdmissao;
             if (mskTxtDataAdmissao.Text == null)
                 dataAdmissao = DateTime.Now;
@@ -63,7 +65,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             string cargo = textCargo.Text;
             double salario = Convert.ToDouble(textSalario.Text);
              
-            funcionario = new Funcionario(0,nome,registroUnico,endereco,telefone,email,matriculaInterna,usuarioAcesso,dataAdmissao,cargo,salario,true);
+            funcionario = new Funcionario(0,nome,registroUnico,endereco,telefone,email,matriculaInterna,usuarioAcesso,senha,dataAdmissao,cargo,salario,true);
 
             string resultadoValidacao = funcionario.Validar();
 

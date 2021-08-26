@@ -97,6 +97,12 @@
     <Compile Include="Features\ImagemVeiculo\ImagemVeiculoForm.Designer.cs">
       <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Login\TelaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Login\TelaLogin.Designer.cs">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Serviços\ConfiguracaoServicoToolBox.cs" />
     <Compile Include="Features\Serviços\OperacoesServico.cs" />
     <Compile Include="Features\Serviços\TabelaServicoControl.cs">
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\ImagemVeiculo\ImagemVeiculoForm.resx">
       <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Login\TelaLogin.resx">
+      <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Serviços\TabelaServicoControl.resx">
       <DependentUpon>TabelaServicoControl.cs</DependentUpon>

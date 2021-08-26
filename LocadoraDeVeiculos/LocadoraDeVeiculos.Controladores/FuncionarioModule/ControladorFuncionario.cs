@@ -20,6 +20,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 											[EHPESSOAFISICA],
 											[MATRICULAINTERNA],
 											[USUARIOACESSO],
+                                            [SENHA],
 											[CARGO],
 											[SALARIO],
                                             [DATAADMISSAO]
@@ -34,6 +35,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 											@EHPESSOAFISICA,
 											@MATRICULAINTERNA,
 											@USUARIOACESSO,
+                                            @SENHA,
 											@CARGO,
 											@SALARIO,
                                             @DATAADMISSAO
@@ -48,6 +50,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 									    	[EHPESSOAFISICA] = @EHPESSOAFISICA,
 									    	[MATRICULAINTERNA] = @MATRICULAINTERNA,
 									    	[USUARIOACESSO] = @USUARIOACESSO,
+                                            [SENHA] = @SENHA,
 									    	[CARGO] = @CARGO,
 									    	[SALARIO] = @SALARIO,
                                             [DATAADMISSAO] = @DATAADMISSAO
@@ -117,6 +120,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             parametros.Add("EMAIL", funcionario.Email);
             parametros.Add("MATRICULAINTERNA", funcionario.MatriculaInterna);
             parametros.Add("USUARIOACESSO", funcionario.UsuarioAcesso);
+            parametros.Add("SENHA", funcionario.Senha);
             parametros.Add("DATAADMISSAO", funcionario.DataAdmissao);
             parametros.Add("CARGO", funcionario.Cargo);
             parametros.Add("SALARIO", float.Parse(Convert.ToString(funcionario.Salario)));
@@ -135,12 +139,13 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             string email = Convert.ToString(reader["EMAIL"]);
             int matriculaInterna = Convert.ToInt32(reader["MATRICULAINTERNA"]);
             string usuarioAcesso = Convert.ToString(reader["USUARIOACESSO"]);
+            string senha = Convert.ToString(reader["SENHA"]);
             DateTime dataAdmissao = Convert.ToDateTime(reader["DATAADMISSAO"]);
             string cargo = Convert.ToString(reader["CARGO"]);
             double salario = Convert.ToDouble(Convert.ToString(reader["SALARIO"]));
             bool ehPessoaFisica = Convert.ToBoolean(reader["EHPESSOAFISICA"]);
 
-            Funcionario funcionario = new Funcionario(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso, dataAdmissao, cargo, salario, ehPessoaFisica);
+            Funcionario funcionario = new Funcionario(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso,senha, dataAdmissao, cargo, salario, ehPessoaFisica);
 
             funcionario.Id = id;
 
