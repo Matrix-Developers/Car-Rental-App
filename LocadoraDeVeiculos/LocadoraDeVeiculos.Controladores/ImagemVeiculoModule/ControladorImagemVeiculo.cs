@@ -41,11 +41,14 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
         public void EditarLista(List<ImagemVeiculo> registros)
         {
-            if (registros.Count != 0)
-                ExcluirPorIdDoVeiculo(registros[0].idVeiculo);
-            foreach (ImagemVeiculo imagem in registros)
+            if (registros != null)
             {
-                InserirNovo(imagem);
+                if (registros.Count != 0)
+                    ExcluirPorIdDoVeiculo(registros[0].idVeiculo);
+                foreach (ImagemVeiculo imagem in registros)
+                {
+                    InserirNovo(imagem);
+                }
             }
         }
 

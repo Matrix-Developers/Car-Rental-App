@@ -164,10 +164,13 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
-                foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
+                if (registro.imagens != null)
                 {
-                    imagemVeiculo.idVeiculo = registro.Id;
-                    controladorImagem.InserirNovo(imagemVeiculo);
+                    foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
+                    {
+                        imagemVeiculo.idVeiculo = registro.Id;
+                        controladorImagem.InserirNovo(imagemVeiculo);
+                    }
                 }
             }
             return resultadoValidacao;
