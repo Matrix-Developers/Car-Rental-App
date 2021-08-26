@@ -63,6 +63,13 @@
     <Compile Include="Features\Clientes\TabelaClientesControl.Designer.cs">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Dashboards\DashControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Dashboards\DashControl.Designer.cs">
+      <DependentUpon>DashControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Dashboards\OperacoesDashboard.cs" />
     <Compile Include="Features\Funcionarios\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\Funcionarios\FuncionarioForm.cs">
       <SubType>Form</SubType>
@@ -142,6 +149,9 @@
     <EmbeddedResource Include="Features\Clientes\TabelaClientesControl.resx">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Dashboards\DashControl.resx">
+      <DependentUpon>DashControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Funcionarios\FuncionarioForm.resx">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +181,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Features\Serviços\ServicosForm.resx">
       <DependentUpon>ServicosForm.cs</DependentUpon>
@@ -197,6 +208,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-serviços-100.png" />
+    <None Include="Resources\icons8-hoje-100.png" />
+    <None Include="Resources\icons8-calendário-100.png" />
+    <None Include="Resources\icons8-aluguel-de-carro-96.png" />
+    <None Include="Resources\icons8-chamada-em-conferência-100.png" />
+    <None Include="Resources\icons8-usuário-1001.png" />
+    <None Include="Resources\icons8-usuário-100.png" />
+    <None Include="Resources\carKey.png" />
+    <None Include="Resources\car2.png" />
+    <None Include="Resources\car.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>

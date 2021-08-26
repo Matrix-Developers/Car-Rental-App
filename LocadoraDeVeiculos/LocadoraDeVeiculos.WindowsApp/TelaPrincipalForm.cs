@@ -163,5 +163,18 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             //ConfigurarPainelRegistros();
         }
+
+        private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
+
+            //ConfigurarToolBox(configuracao);
+
+            //AtualizarRodape(configuracao.TipoCadastro);
+
+            //operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
+
+            //ConfigurarPainelRegistros();
+        }
     }
 }
