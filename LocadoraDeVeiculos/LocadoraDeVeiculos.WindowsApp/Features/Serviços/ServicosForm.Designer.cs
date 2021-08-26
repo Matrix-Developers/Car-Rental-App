@@ -138,7 +138,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ServicosForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Locadora de Veículo";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
