@@ -27,6 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
         private ControladorCliente controladorCliente = new ControladorCliente();
         List<Servico> sevicosSelecionados = new List<Servico>();
+        ServicosForm telaServico = new ServicosForm();
         public TelaLocacaoForm(string titulo)
         {
             InitializeComponent();
@@ -77,7 +78,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (txtId.Text.Length > 0)
                 id = Convert.ToInt32(txtId.Text);
             string tipoDoPlano = "PlanoDiario";
-            string tipoDeSeguro = "SeguroCliente";
+
             Veiculo veiculo = cBoxVeiculo.SelectedItem as Veiculo;
             Funcionario funcionarioLocador = cBoxFuncionario.SelectedItem as Funcionario;
             Cliente clienteContratante = cBoxCliente.SelectedItem as Cliente;
@@ -85,6 +86,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             DateTime dataDeSaida = dateTPDataSaida.Value;
             DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
             List<Servico> servicos = sevicosSelecionados;
+            string tipoDeSeguro = telaServico.seguro;
 
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro);
 
@@ -100,9 +102,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
-            ServicosForm telaServico = new ServicosForm();
             if (telaServico.ShowDialog() == DialogResult.OK)
+            {
                 sevicosSelecionados = telaServico.servicosSelecionados;
+                txtTotal.Text = Convert.ToString(telaServico.valorFinal);
+            }
         }
     }
 }
