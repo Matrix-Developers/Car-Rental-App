@@ -25,15 +25,16 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public Veiculo Veiculo { get => veiculo; }
         public Funcionario FuncionarioLocador { get => funcionarioLocador; }
         public Cliente ClienteContratante { get => clienteContratante; }
-        public Cliente Condutor { get => clienteCondutor; }
+        public Cliente ClienteCondutor { get => clienteCondutor; }
         public DateTime DataDeSaida { get => dataDeSaida; }
         public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; }
         public string TipoDoPlano { get => tipoDoPlano; }
         public string TipoDeSeguro { get => tipoDeSeguro; }
         public double PrecoLocacao { get => precoLocacao; }
 
-        public Locacao(Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro)
+        public Locacao(int id,Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro)
         {
+            this.id = id;
             this.veiculo = veiculo;
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
@@ -58,11 +59,14 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             if (this.clienteContratante == null)
                 resultadoValidacao += "O cliente contratante não pode ser nulo\n";
 
-            if (!this.clienteContratante.EhPessoaFisica && this.clienteCondutor == null)
+            else if (!this.clienteContratante.EhPessoaFisica && this.clienteCondutor == null)
                 resultadoValidacao += "O condutor não pode ser nulo quando o cliente contratante é pessoa juridica\n";
 
-            if (!this.clienteCondutor.EhPessoaFisica)
-                resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
+            if (this.clienteCondutor != null)
+            {
+                if (!this.clienteCondutor.EhPessoaFisica)
+                    resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
+            }
 
             if (!this.tipoDoPlano.Equals("PlanoDiario") && !this.tipoDoPlano.Equals("KmControlado") && !this.tipoDoPlano.Equals("KmLivre"))
                 resultadoValidacao += "O tipo do plano é inválido.\n";
@@ -70,8 +74,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             if (!this.tipoDeSeguro.Equals("SeguroCliente") && !this.tipoDeSeguro.Equals("SeguroTerceiro") && !this.tipoDeSeguro.Equals("Nenhum"))
                 resultadoValidacao += "O tipo do seguro é inválido.\n";
 
-            if (this.precoLocacao <= 0f)
-                resultadoValidacao += "A o preço da locação não pode ser nula nem negativa\n";
+            if (resultadoValidacao == "")
+                resultadoValidacao = "VALIDO";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "VALIDO";
@@ -112,7 +116,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"Locacao = [{id}, {veiculo.modelo}, [{funcionarioLocador}], [{clienteContratante}], [{clienteCondutor}], {dataDeSaida}, {dataPrevistaDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}]";
         }
     }
 }

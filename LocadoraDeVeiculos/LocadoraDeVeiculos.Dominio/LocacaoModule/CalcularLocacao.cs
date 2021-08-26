@@ -1,34 +1,28 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.Shared
 {
     public static class CalcularLocacao
     {
+        public const double VALOR_SEGURO_CLIENTE = 250.50f;
+        public const double VALOR_SEGURO_TERCEIRO = 500.75f;
+        public const double VALOR_GARANTIA = 1000f;
+
         public static double CalcularGarantia()
         {
-            return 1000;
+            return VALOR_GARANTIA;
         }
 
         public static double CalcularSeguro(string tipoSeguro)
         {
-            double valorFinal = 0;
-            switch (tipoSeguro)
-            {
-                case "SeguroCliente":
-
-                    break;
-                case "SeguroTerceiro":
-
-                    break;
-                case "Nenhum":
-
-                    break;
-            }
+            double valorFinal;
+            if (tipoSeguro.Equals("SeguroCliente"))
+                    valorFinal = VALOR_SEGURO_CLIENTE;
+            else if(tipoSeguro.Equals("SeguroTerceiro"))
+                valorFinal = VALOR_SEGURO_TERCEIRO;
+            else
+                valorFinal = 0;
             return valorFinal;
         }
 
