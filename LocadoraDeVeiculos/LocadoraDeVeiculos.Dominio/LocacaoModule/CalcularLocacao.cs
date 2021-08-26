@@ -1,5 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.SevicosModule;
 using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.Shared
 {
@@ -42,6 +44,19 @@ namespace LocadoraDeVeiculos.Dominio.Shared
                     break;
             }
             return valorFinal;
+        }
+
+        internal static double CalcularServicos(List<Servico> servicos, DateTime dataInicial, DateTime dataFinal)
+        {
+            double resultado = 0;
+            foreach(Servico servico in servicos)
+            {
+                if (servico.Tipo == "TaxaDiaria")
+                    resultado += servico.Valor * (dataFinal.ToDays() - dataInicial.ToDays());
+                else
+                    resultado += servico.Valor;
+            }
+            return resultado;
         }
     }
 }

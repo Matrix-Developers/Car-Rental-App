@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
@@ -17,20 +18,42 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private Cliente clienteContratante;
         private Cliente clienteCondutor;
         private DateTime dataDeSaida;
-        private DateTime dataPrevistaDeChegada;
+        private DateTime dataDeChegada;
         private string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
         private string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
         private double precoLocacao;
+        private double precoDevolucao;
+        private List<Servico> servicos;
+        private bool estaAberta;
+
+        public void AbrirLocacao(DateTime dataAbertura)
+        {
+            estaAberta = true;
+            dataDeChegada = dataAbertura;
+            precoLocacao = CalcularLocacao.CalcularSeguro(tipoDeSeguro);
+            precoLocacao += CalcularLocacao.CalcularGarantia();
+        }
+
+        public void FecharLocacao(DateTime dataFechamento)
+        {
+            estaAberta = false;
+            dataDeChegada = dataFechamento;
+            precoLocacao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, veiculo.quilometragem, DataDeSaida, dataDeChegada);
+            precoLocacao += CalcularLocacao.CalcularServicos(servicos, dataDeSaida, dataDeChegada);
+        }
 
         public Veiculo Veiculo { get => veiculo; }
         public Funcionario FuncionarioLocador { get => funcionarioLocador; }
         public Cliente ClienteContratante { get => clienteContratante; }
         public Cliente ClienteCondutor { get => clienteCondutor; }
         public DateTime DataDeSaida { get => dataDeSaida; }
-        public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; }
+        public DateTime DataDeChegada { get => dataDeChegada; }
         public string TipoDoPlano { get => tipoDoPlano; }
         public string TipoDeSeguro { get => tipoDeSeguro; }
         public double PrecoLocacao { get => precoLocacao; }
+        public double PrecoDevolucao { get => precoDevolucao; }
+        public List<Servico> Servicos { get => servicos; }
+        public bool EstaAberta { get => estaAberta; }
 
         public Locacao(int id,Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro)
         {
@@ -40,11 +63,13 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
             this.dataDeSaida = dataDeSaida;
-            this.dataPrevistaDeChegada = dataPrevistaDeChegada;
+            this.dataDeChegada = dataPrevistaDeChegada;
             this.tipoDoPlano = tipoDoPlano;
             this.tipoDeSeguro = tipoDeSeguro;
-            precoLocacao = CalcularLocacao.CalcularSeguro(tipoDeSeguro);
-            precoLocacao += CalcularLocacao.CalcularGarantia();
+            if (estaAberta)
+            {
+                AbrirLocacao(dataDeSaida);
+            }
         }
 
         public override string Validar()
@@ -80,6 +105,13 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             return resultadoValidacao;
         }
 
+       
+
+        public override string ToString()
+        {
+            return $"Locacao = [{id}, {veiculo.modelo}, [{funcionarioLocador}], [{clienteContratante}], [{clienteCondutor}], {dataDeSaida}, {dataDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}]";
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Locacao locacao &&
@@ -89,31 +121,32 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                    EqualityComparer<Cliente>.Default.Equals(clienteContratante, locacao.clienteContratante) &&
                    EqualityComparer<Cliente>.Default.Equals(clienteCondutor, locacao.clienteCondutor) &&
                    dataDeSaida == locacao.dataDeSaida &&
-                   dataPrevistaDeChegada == locacao.dataPrevistaDeChegada &&
+                   dataDeChegada == locacao.dataDeChegada &&
                    tipoDoPlano == locacao.tipoDoPlano &&
                    tipoDeSeguro == locacao.tipoDeSeguro &&
-                   precoLocacao == locacao.precoLocacao;
+                   precoLocacao == locacao.precoLocacao &&
+                   precoDevolucao == locacao.precoDevolucao &&
+                   EqualityComparer<List<Servico>>.Default.Equals(servicos, locacao.servicos) &&
+                   estaAberta == locacao.estaAberta;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = -562312921;
+            int hashCode = 127495649;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Veiculo>.Default.GetHashCode(veiculo);
             hashCode = hashCode * -1521134295 + EqualityComparer<Funcionario>.Default.GetHashCode(funcionarioLocador);
             hashCode = hashCode * -1521134295 + EqualityComparer<Cliente>.Default.GetHashCode(clienteContratante);
             hashCode = hashCode * -1521134295 + EqualityComparer<Cliente>.Default.GetHashCode(clienteCondutor);
             hashCode = hashCode * -1521134295 + dataDeSaida.GetHashCode();
-            hashCode = hashCode * -1521134295 + dataPrevistaDeChegada.GetHashCode();
+            hashCode = hashCode * -1521134295 + dataDeChegada.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(tipoDoPlano);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(tipoDeSeguro);
             hashCode = hashCode * -1521134295 + precoLocacao.GetHashCode();
+            hashCode = hashCode * -1521134295 + precoDevolucao.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<Servico>>.Default.GetHashCode(servicos);
+            hashCode = hashCode * -1521134295 + estaAberta.GetHashCode();
             return hashCode;
-        }
-
-        public override string ToString()
-        {
-            return $"Locacao = [{id}, {veiculo.modelo}, [{funcionarioLocador}], [{clienteContratante}], [{clienteCondutor}], {dataDeSaida}, {dataPrevistaDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}]";
         }
     }
 }

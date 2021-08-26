@@ -140,7 +140,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             parametros.Add("ID_CLIENTECONTRATANTE", locacao.ClienteContratante.Id);
             parametros.Add("ID_CLIENTECONDUTOR", locacao.ClienteCondutor.Id);
             parametros.Add("DATADESAIDA", locacao.DataDeSaida);
-            parametros.Add("DATAPREVISTADECHEGADA", locacao.DataPrevistaDeChegada);
+            parametros.Add("DATAPREVISTADECHEGADA", locacao.DataDeChegada);
             parametros.Add("TIPODOPLANO", locacao.TipoDoPlano);
             parametros.Add("TIPODESEGURO", locacao.TipoDeSeguro);
             parametros.Add("PRECOLOCACAO", locacao.PrecoLocacao);
