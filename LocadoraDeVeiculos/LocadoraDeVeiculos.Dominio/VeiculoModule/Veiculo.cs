@@ -25,9 +25,9 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
         public bool estaAlugado;
-        public List<Bitmap> imagens;
+        public List<ImagemVeiculo> imagens;
 
-        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status, List<Bitmap> imagens)
+        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status, List<ImagemVeiculo> imagens)
         {
             this.id = id;
             this.modelo = modelo;

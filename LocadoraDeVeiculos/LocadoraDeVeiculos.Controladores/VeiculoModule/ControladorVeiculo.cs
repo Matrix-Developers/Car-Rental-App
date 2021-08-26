@@ -164,13 +164,12 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
-                foreach (Bitmap imagem in registro.imagens)
+                foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
                 {
-                    ImagemVeiculo imagemVeiculo = new ImagemVeiculo(0, registro.Id, imagem);
+                    imagemVeiculo.idVeiculo = registro.Id;
                     controladorImagem.InserirNovo(imagemVeiculo);
                 }
             }
-
             return resultadoValidacao;
         }
         public override List<Veiculo> SelecionarTodos()
@@ -196,6 +195,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             {
                 registro.Id = id;
                 Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
+
             }
 
             return resultadoValidacao;

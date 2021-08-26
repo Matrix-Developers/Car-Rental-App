@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             labelTitulo.Text = titulo;
             cBoxPortaMalas.SelectedIndex = 0;           
         }
-        private List<Bitmap> imagens = new List<Bitmap>();
+        public List<ImagemVeiculo> imagensVeiculo = new List<ImagemVeiculo>();
 
         private void CarregarGruposDeVeiculos()
         {
@@ -37,6 +37,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             {
                 veiculo = value;
 
+                imagensVeiculo = veiculo.imagens;
                 textId.Text = veiculo.Id.ToString();
                 textModelo.Text = veiculo.modelo;
                 cBoxGrupo.Text = veiculo.grupoVeiculos.Nome;
@@ -93,7 +94,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             if (checkLBoxOpcionais.CheckedIndices.Contains(2))
                 possuiFreioAbs = true;
 
-            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, quilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false,imagens);
+            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, quilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
 
             string resultadoValidacao = veiculo.Validar();
 
@@ -143,9 +144,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             telaImagem.Show();
         }
 
-        public void AtualizarListaDeFotos(List<Bitmap> imagens)
+        public void AtualizarListaDeFotos(List<ImagemVeiculo> imagens)
         {
-            this.imagens = imagens;
+            this.imagensVeiculo = imagens;
         }
     }
 }

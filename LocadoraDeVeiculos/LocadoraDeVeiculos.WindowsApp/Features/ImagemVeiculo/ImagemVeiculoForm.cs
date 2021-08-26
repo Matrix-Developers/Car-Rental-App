@@ -9,31 +9,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Veiculos;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 {
     public partial class ImagemVeiculoForm : Form
     {
+        private const long doisMB = 2097152;
         private const int voltar = -1;
         private const int avancar = 1;
         private int imagemAtual = 0;
-        public List<Bitmap> imagens;
+        public List<Dominio.ImagemVeiculoModule.ImagemVeiculo> imagens;
         private readonly VeiculoForm telaBase;
         public ImagemVeiculoForm(VeiculoForm telaBase)
         {
-            imagens = imagens = new List<Bitmap>();
-            InitializeComponent();
             this.telaBase = telaBase;
-        }
-        public ImagemVeiculoForm(VeiculoForm telaBase,List<Bitmap> imagens)
-        {
-            this.imagens = imagens;
+            if (telaBase.imagensVeiculo == null)
+                imagens = new List<Dominio.ImagemVeiculoModule.ImagemVeiculo>();
+            else
+                imagens = telaBase.imagensVeiculo;
             InitializeComponent();
-            pctBoxImagem.Image = imagens[0];
-            this.telaBase = telaBase;
-        }
+            if (imagens.Count != 0)
+                pctBoxImagem.Image = imagens[0].imagem;
 
+        }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
 
@@ -41,9 +41,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                 {
                 var imagem = openFileDialog.FileName;
                 var tamanho = new FileInfo(imagem).Length;
-                if (tamanho <= 2097152)
+                if (tamanho <= doisMB)
                 {
-                    imagens.Add((Bitmap)Image.FromFile(imagem));
+
+                    imagens.Add(new Dominio.ImagemVeiculoModule.ImagemVeiculo(0, 0, (Bitmap)Image.FromFile(imagem)));
                     if (imagens.Count == 1)
                         AtualizarImagem();
                     else
@@ -74,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         private void AtualizarImagem()
         {
             if (imagens.Count != 0)
-                pctBoxImagem.Image = imagens[imagemAtual];
+                pctBoxImagem.Image = imagens[imagemAtual].imagem;
             else
                 pctBoxImagem.Image = default;
         }
