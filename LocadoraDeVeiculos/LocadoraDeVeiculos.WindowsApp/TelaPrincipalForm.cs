@@ -22,6 +22,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -128,6 +129,13 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
+        private void ConfigurarPainelDashBoard()
+        {
+            UserControl tabela = new DashControl();
+            tabela.Dock = DockStyle.Fill;
+            panelRegistros.Controls.Clear();
+            panelRegistros.Controls.Add(tabela);
+        }
 
         private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
         {
@@ -166,15 +174,14 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
+            toolBoxAcoes.Enabled = false;
+            ConfiguracaoDashboardToolBox configuracao = new ConfiguracaoDashboardToolBox();
 
-            //ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao);
 
-            //AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
-
-            //ConfigurarPainelRegistros();
+            ConfigurarPainelDashBoard();
         }
     }
 }

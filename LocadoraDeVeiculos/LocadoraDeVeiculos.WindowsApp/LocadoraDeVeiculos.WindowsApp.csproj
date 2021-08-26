@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +64,7 @@
     <Compile Include="Features\Clientes\TabelaClientesControl.Designer.cs">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Dashboards\ConfiguracaoDashboardToolBox.cs" />
     <Compile Include="Features\Dashboards\DashControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

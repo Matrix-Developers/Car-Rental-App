@@ -9,12 +9,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 {
     public class OperacoesDashboard
     {
-        ControladorVeiculo controladorVeiculo;
+        private readonly ControladorVeiculo controladorVeiculo = null;
+        //private readonly ControladorLocacao controladorLocacao = null;
+        //private readonly DashboardControl dashboardControl = null;
 
-        public OperacoesDashboard()
+        public OperacoesDashboard(ControladorVeiculo controladorVeiculo) //ControladorLocacao controladorLocacao)
         {
-
+            //this.controladorLocacao = controladorLocacao;
+            this.controladorVeiculo = controladorVeiculo;
+            //dashboardControl = new DashboardControl();
         }
-
     }
 }
