@@ -1,8 +1,10 @@
 ﻿CREATE TABLE [dbo].[TBIMAGEMVEICULO] (
     [Id]         INT             IDENTITY (1, 1) NOT NULL,
-    [id_veiculo] INT             NOT NULL,
-    [imagem]     VARBINARY (MAX) NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC),
+    [id_veiculo] INT             NULL,
+    [imagem]     VARBINARY (MAX) NULL,
+    CONSTRAINT [PK__TBIMAGEM__3214EC0752AB9400] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_TBIMAGEMVEICULO_TBVEICULO] FOREIGN KEY ([id_veiculo]) REFERENCES [dbo].[TBVEICULO] ([Id]) ON DELETE CASCADE
 );
+
+
 
