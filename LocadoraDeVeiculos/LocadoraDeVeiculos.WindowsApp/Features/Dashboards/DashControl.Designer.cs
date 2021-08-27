@@ -31,9 +31,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
         {
             this.panelDashboard = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lbRetornam7 = new System.Windows.Forms.Label();
+            this.lbRetornoHJ = new System.Windows.Forms.Label();
+            this.lbCarrosAlugados = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -42,12 +42,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lbServicos = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbClientesPJ = new System.Windows.Forms.Label();
+            this.lbClientesPF = new System.Windows.Forms.Label();
+            this.lbClientesTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -94,9 +94,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.lbRetornam7);
+            this.groupBox3.Controls.Add(this.lbRetornoHJ);
+            this.groupBox3.Controls.Add(this.lbCarrosAlugados);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
@@ -111,35 +111,35 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Locação";
             // 
-            // label18
+            // lbRetornam7
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(309, 248);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 13);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "25";
+            this.lbRetornam7.AutoSize = true;
+            this.lbRetornam7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRetornam7.Location = new System.Drawing.Point(309, 248);
+            this.lbRetornam7.Name = "lbRetornam7";
+            this.lbRetornam7.Size = new System.Drawing.Size(14, 13);
+            this.lbRetornam7.TabIndex = 21;
+            this.lbRetornam7.Text = "0";
             // 
-            // label17
+            // lbRetornoHJ
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(47, 248);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(21, 13);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "10";
+            this.lbRetornoHJ.AutoSize = true;
+            this.lbRetornoHJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRetornoHJ.Location = new System.Drawing.Point(47, 248);
+            this.lbRetornoHJ.Name = "lbRetornoHJ";
+            this.lbRetornoHJ.Size = new System.Drawing.Size(14, 13);
+            this.lbRetornoHJ.TabIndex = 20;
+            this.lbRetornoHJ.Text = "0";
             // 
-            // label16
+            // lbCarrosAlugados
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(176, 130);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(25, 13);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "25 ";
+            this.lbCarrosAlugados.AutoSize = true;
+            this.lbCarrosAlugados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCarrosAlugados.Location = new System.Drawing.Point(176, 130);
+            this.lbCarrosAlugados.Name = "lbCarrosAlugados";
+            this.lbCarrosAlugados.Size = new System.Drawing.Size(14, 13);
+            this.lbCarrosAlugados.TabIndex = 19;
+            this.lbCarrosAlugados.Text = "0";
             // 
             // label15
             // 
@@ -204,9 +204,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.groupBox4);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.lbClientesPJ);
+            this.groupBox2.Controls.Add(this.lbClientesPF);
+            this.groupBox2.Controls.Add(this.lbClientesTotal);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
@@ -224,7 +224,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.White;
-            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.lbServicos);
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.pictureBox10);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -235,15 +235,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Serviços";
             // 
-            // label20
+            // lbServicos
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(202, 193);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(25, 13);
-            this.label20.TabIndex = 26;
-            this.label20.Text = "25 ";
+            this.lbServicos.AutoSize = true;
+            this.lbServicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbServicos.Location = new System.Drawing.Point(208, 193);
+            this.lbServicos.Name = "lbServicos";
+            this.lbServicos.Size = new System.Drawing.Size(14, 13);
+            this.lbServicos.TabIndex = 26;
+            this.lbServicos.Text = "0";
             // 
             // label19
             // 
@@ -265,35 +265,35 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             this.pictureBox10.TabIndex = 24;
             this.pictureBox10.TabStop = false;
             // 
-            // label12
+            // lbClientesPJ
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(333, 230);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(14, 13);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "5";
+            this.lbClientesPJ.AutoSize = true;
+            this.lbClientesPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientesPJ.Location = new System.Drawing.Point(333, 230);
+            this.lbClientesPJ.Name = "lbClientesPJ";
+            this.lbClientesPJ.Size = new System.Drawing.Size(14, 13);
+            this.lbClientesPJ.TabIndex = 23;
+            this.lbClientesPJ.Text = "0";
             // 
-            // label11
+            // lbClientesPF
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(82, 230);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(14, 13);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "5";
+            this.lbClientesPF.AutoSize = true;
+            this.lbClientesPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientesPF.Location = new System.Drawing.Point(82, 230);
+            this.lbClientesPF.Name = "lbClientesPF";
+            this.lbClientesPF.Size = new System.Drawing.Size(14, 13);
+            this.lbClientesPF.TabIndex = 22;
+            this.lbClientesPF.Text = "0";
             // 
-            // label10
+            // lbClientesTotal
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(196, 137);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 13);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "10";
+            this.lbClientesTotal.AutoSize = true;
+            this.lbClientesTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClientesTotal.Location = new System.Drawing.Point(196, 137);
+            this.lbClientesTotal.Name = "lbClientesTotal";
+            this.lbClientesTotal.Size = new System.Drawing.Size(14, 13);
+            this.lbClientesTotal.TabIndex = 21;
+            this.lbClientesTotal.Text = "0";
             // 
             // label9
             // 
@@ -499,9 +499,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 
         private System.Windows.Forms.Panel panelDashboard;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbRetornam7;
+        private System.Windows.Forms.Label lbRetornoHJ;
+        private System.Windows.Forms.Label lbCarrosAlugados;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -510,12 +510,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lbServicos;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbClientesPJ;
+        private System.Windows.Forms.Label lbClientesPF;
+        private System.Windows.Forms.Label lbClientesTotal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
