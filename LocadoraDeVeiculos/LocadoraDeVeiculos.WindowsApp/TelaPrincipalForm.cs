@@ -162,7 +162,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesDevolucao(new ControladorDevolucao());
+            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente()));
 
             //ConfigurarPainelRegistros();
         }
