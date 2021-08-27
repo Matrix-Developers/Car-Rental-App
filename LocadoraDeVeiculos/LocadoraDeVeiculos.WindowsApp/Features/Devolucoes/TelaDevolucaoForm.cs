@@ -54,6 +54,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 txtTotal.Text = Convert.ToString(telaServico.valorFinal);
             }
         }
+        private void brnConfirmar_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region rButton e cBox do combustivel
@@ -132,5 +136,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             }
         }
         #endregion
+
+        
     }
 }

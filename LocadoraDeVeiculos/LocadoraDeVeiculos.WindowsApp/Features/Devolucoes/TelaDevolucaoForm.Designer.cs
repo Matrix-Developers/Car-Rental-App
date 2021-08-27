@@ -72,6 +72,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.cBoxQtdTanque = new System.Windows.Forms.ComboBox();
             this.lblValorCombustivel = new System.Windows.Forms.Label();
             this.txtValorCombustivel = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblEncerrar = new System.Windows.Forms.Label();
             this.gBoxLocacao.SuspendLayout();
             this.gBoxDevolucao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,6 +98,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.brnConfirmar.TabIndex = 22;
             this.brnConfirmar.Text = "Confirmar";
             this.brnConfirmar.UseVisualStyleBackColor = true;
+            this.brnConfirmar.Click += new System.EventHandler(this.brnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -242,11 +245,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblDataDevolucao
             // 
             this.lblDataDevolucao.AutoSize = true;
-            this.lblDataDevolucao.Location = new System.Drawing.Point(216, 178);
+            this.lblDataDevolucao.Location = new System.Drawing.Point(230, 178);
             this.lblDataDevolucao.Name = "lblDataDevolucao";
-            this.lblDataDevolucao.Size = new System.Drawing.Size(62, 13);
+            this.lblDataDevolucao.Size = new System.Drawing.Size(48, 13);
             this.lblDataDevolucao.TabIndex = 11;
-            this.lblDataDevolucao.Text = "Devolução ";
+            this.lblDataDevolucao.Text = "Previsao";
             // 
             // lblDataLocacao
             // 
@@ -323,6 +326,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             // gBoxDevolucao
             // 
+            this.gBoxDevolucao.Controls.Add(this.lblEncerrar);
+            this.gBoxDevolucao.Controls.Add(this.dateTimePicker1);
             this.gBoxDevolucao.Controls.Add(this.rBtn01);
             this.gBoxDevolucao.Controls.Add(this.lblFull);
             this.gBoxDevolucao.Controls.Add(this.lblEmpty);
@@ -501,17 +506,35 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.lblValorCombustivel.AutoSize = true;
             this.lblValorCombustivel.Location = new System.Drawing.Point(19, 204);
             this.lblValorCombustivel.Name = "lblValorCombustivel";
-            this.lblValorCombustivel.Size = new System.Drawing.Size(129, 13);
+            this.lblValorCombustivel.Size = new System.Drawing.Size(123, 13);
             this.lblValorCombustivel.TabIndex = 19;
-            this.lblValorCombustivel.Text = "Valor do Combustivel   R$";
+            this.lblValorCombustivel.Text = "Valor do Combustivel R$";
             // 
             // txtValorCombustivel
             // 
-            this.txtValorCombustivel.Location = new System.Drawing.Point(154, 201);
+            this.txtValorCombustivel.Location = new System.Drawing.Point(148, 201);
             this.txtValorCombustivel.Name = "txtValorCombustivel";
             this.txtValorCombustivel.Size = new System.Drawing.Size(75, 20);
             this.txtValorCombustivel.TabIndex = 18;
             this.txtValorCombustivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorCombustivel_KeyPress);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(298, 201);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(129, 20);
+            this.dateTimePicker1.TabIndex = 32;
+            // 
+            // lblEncerrar
+            // 
+            this.lblEncerrar.AutoSize = true;
+            this.lblEncerrar.Location = new System.Drawing.Point(233, 204);
+            this.lblEncerrar.Name = "lblEncerrar";
+            this.lblEncerrar.Size = new System.Drawing.Size(59, 13);
+            this.lblEncerrar.TabIndex = 33;
+            this.lblEncerrar.Text = "Devolução";
             // 
             // TelaDevolucaoForm
             // 
@@ -585,5 +608,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         private System.Windows.Forms.RadioButton rBtn12;
         private System.Windows.Forms.RadioButton rBtn34;
         private System.Windows.Forms.RadioButton rBtn11;
+        private System.Windows.Forms.Label lblEncerrar;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

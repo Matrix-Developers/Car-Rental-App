@@ -64,6 +64,13 @@
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Devolucoes\ConfiguracaoDevolucaoToolBox.cs" />
+    <Compile Include="Features\Devolucoes\FiltroDevolucaoEnum.cs" />
+    <Compile Include="Features\Devolucoes\FiltroDevolucaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Devolucoes\FiltroDevolucaoForm.Designer.cs">
+      <DependentUpon>FiltroDevolucaoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Devolucoes\OperacoesDevolucao.cs" />
     <Compile Include="Features\Devolucoes\TabelaDevolucaoControl.cs">
       <SubType>UserControl</SubType>
@@ -180,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Clientes\TabelaClientesControl.resx">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Devolucoes\FiltroDevolucaoForm.resx">
+      <DependentUpon>FiltroDevolucaoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Devolucoes\TabelaDevolucaoControl.resx">
       <DependentUpon>TabelaDevolucaoControl.cs</DependentUpon>

@@ -3,9 +3,6 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
@@ -64,7 +61,47 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
         public void FiltrarRegistros()
         {
-            throw new NotImplementedException();
+            FiltroDevolucaoForm telaFiltro = new FiltroDevolucaoForm();
+
+            if (telaFiltro.ShowDialog() == DialogResult.OK)
+            {
+                List<Locacao> devolucoes = controlador.SelecionarTodos();
+                string tipoLocacao = "";
+
+                switch (telaFiltro.TipoFiltro)
+                {
+                    case FiltroDevolucaoEnum.TodasDevolucoes:
+                        break;
+
+                    case FiltroDevolucaoEnum.DevolucoesPendentes:
+                        {
+                            List<Locacao> filtro = new List<Locacao>();
+                            //foreach (Locacao devolucao in devolucoes)
+                            //    if (devolucao.Status)
+                            //        filtro.Add(devolucao);
+                            devolucoes = filtro;
+                            tipoLocacao = "pendente(s)";
+                            break;
+                        }
+
+                    case FiltroDevolucaoEnum.DevolucoesFinalizadas:
+                        {
+                            List<Locacao> filtro = new List<Locacao>();
+                            //foreach (Locacao devolucao in devolucoes)
+                            //    if (!devolucao.Status)
+                            //        filtro.Add(devolucao);
+                            devolucoes = filtro;
+                            tipoLocacao = "concluída(s)";
+                            break;
+                        }
+
+                    default:
+                        break;
+                }
+
+                tabelaDevolucao.AtualizarRegistros(devolucoes);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {devolucoes.Count} devolucao(s) {tipoLocacao}");
+            }
         }
 
         public void AgruparRegistros()
@@ -74,7 +111,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
         public UserControl ObterTabela()
         {
-            throw new NotImplementedException();
+            List<Locacao> locacoes = new List<Locacao>();
+
+            tabelaDevolucao.AtualizarRegistros(locacoes);
+
+            return tabelaDevolucao;
         }
     }
 }

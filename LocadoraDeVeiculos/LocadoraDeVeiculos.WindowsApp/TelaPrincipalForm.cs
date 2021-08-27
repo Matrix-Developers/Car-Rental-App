@@ -164,7 +164,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente()));
 
-            //ConfigurarPainelRegistros();
+            ConfigurarPainelRegistros();
         }
     }
 }
