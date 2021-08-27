@@ -45,6 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             }
         }
 
+        #region Eventos dos botões
         private void btnSelecionarServicos_Click(object sender, EventArgs e)
         {
             if (telaServico.ShowDialog() == DialogResult.OK)
@@ -53,7 +54,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 txtTotal.Text = Convert.ToString(telaServico.valorFinal);
             }
         }
+        #endregion
 
+        #region rButton e cBox do combustivel
         private void cBoxQtdTanque_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cBoxQtdTanque.SelectedIndex == 0)
@@ -67,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             else if (cBoxQtdTanque.SelectedIndex == 4)
                 rBtn11.Checked = true;
         }
-
+        
         private void rBtn01_CheckedChanged(object sender, EventArgs e)
         {
             if(rBtn01.Checked)
@@ -97,7 +100,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             if (rBtn11.Checked)
                 cBoxQtdTanque.SelectedIndex = 4;
         }
+        #endregion
 
+        #region Validação para aceitar apenas números
         private void txtValorCombustivel_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
@@ -112,7 +117,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 e.Handled = true;
             }
         }
-
         private void txtKmFinal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
@@ -127,5 +131,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 e.Handled = true;
             }
         }
+        #endregion
     }
 }
