@@ -69,5 +69,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_filter_alt_black_36dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_filter_alt_black_36dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

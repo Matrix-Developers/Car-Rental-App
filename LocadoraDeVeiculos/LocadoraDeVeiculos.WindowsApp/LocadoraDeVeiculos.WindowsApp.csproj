@@ -257,6 +257,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\outline_filter_alt_black_36dp.png" />
     <None Include="Resources\FuelGauge1.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>

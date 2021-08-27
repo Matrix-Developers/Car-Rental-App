@@ -106,6 +106,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
 
+        #region Ações dos botões
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             operacoes.InserirNovoRegistro();
@@ -120,6 +121,12 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             operacoes.ExcluirRegistro();
         }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            operacoes.FiltrarRegistros();
+        }
+        #endregion
 
         private void ConfigurarPainelRegistros()
         {
@@ -166,5 +173,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarPainelRegistros();
         }
+
+        
     }
 }
