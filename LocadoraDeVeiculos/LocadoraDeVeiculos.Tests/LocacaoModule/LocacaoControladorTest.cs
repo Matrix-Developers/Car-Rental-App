@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             clienteCondutor = new Cliente(0, "Nardolindo", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controladorCliente.InserirNovo(clienteCondutor);
 
-            locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", null);
+            locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", 0,0,false,null);
             controlador.InserirNovo(locacao);
 
             var locacaoEncontrada = controlador.SelecionarPorId(locacao.Id);
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", null);
             controlador.InserirNovo(locacao);
-            Locacao outraLocacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today.AddDays(-10), DateTime.Today.AddDays(15), "PlanoDiario", "SeguroCliente", null);
+            Locacao outraLocacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", 0, 0, false, null);
             controlador.Editar(locacao.Id, outraLocacao);
 
             var locacaoEncontrada = controlador.SelecionarPorId(locacao.Id);

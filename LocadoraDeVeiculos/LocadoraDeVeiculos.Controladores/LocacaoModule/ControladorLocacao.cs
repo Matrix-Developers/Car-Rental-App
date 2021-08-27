@@ -38,9 +38,12 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [ID_CLIENTECONDUTOR],
                     [DATADESAIDA],
                     [DATAPREVISTADECHEGADA],
+                    [DATADECHEGADA],
                     [TIPODOPLANO],
                     [TIPODESEGURO],
-                    [PRECOLOCACAO]
+                    [PRECOLOCACAO],
+                    [PRECODEVOLUCAO],
+                    [ESTAABERTA]
                 )
                 VALUES
                 (
@@ -50,9 +53,12 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     @ID_CLIENTECONDUTOR,
                     @DATADESAIDA,
                     @DATAPREVISTADECHEGADA,
+                    @DATADECHEGADA,
                     @TIPODOPLANO,
                     @TIPODESEGURO,
-                    @PRECOLOCACAO
+                    @PRECOLOCACAO,
+                    @PRECODEVOLUCAO,
+                    @ESTAABERTA
                 );";
 
         private const string sqlEditarLocacao =
@@ -64,9 +70,12 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [ID_CLIENTECONDUTOR] = @ID_CLIENTECONDUTOR,
                     [DATADESAIDA] = @DATADESAIDA,
                     [DATAPREVISTADECHEGADA] = @DATAPREVISTADECHEGADA,
+                    [DATADECHEGADA] = @DATADECHEGADA,
                     [TIPODOPLANO] = @TIPODOPLANO,
                     [TIPODESEGURO] = @TIPODESEGURO,
-                    [PRECOLOCACAO] = @PRECOLOCACAO
+                    [PRECOLOCACAO] = @PRECOLOCACAO,
+                    [PRECODEVOLUCAO] = @PRECODEVOLUCAO,
+                    [ESTAABERTA] = @ESTAABERTA
                 WHERE 
                     [ID] = @ID;";
 
@@ -146,8 +155,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             parametros.Add("TIPODESEGURO", locacao.TipoDeSeguro);
             parametros.Add("PRECOLOCACAO", locacao.PrecoLocacao);
             parametros.Add("PRECODEVOLUCAO", locacao.PrecoDevolucao);
-            parametros.Add("ESTAABERTA", locacao.EstaAberta); 
-
+            parametros.Add("ESTAABERTA", locacao.EstaAberta);
             return parametros;
         }
 
@@ -175,7 +183,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             Cliente clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
             Cliente clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
 
-            return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, null); //List <Servico> servicos)
+            return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta,null);
         }
     }
 }

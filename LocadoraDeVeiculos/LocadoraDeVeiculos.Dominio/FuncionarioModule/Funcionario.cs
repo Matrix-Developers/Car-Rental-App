@@ -54,10 +54,6 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             return resultadoValidação;
         }
 
-       
-
-       
-
         public override string ToString()
         {
             return $"Funcionario = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {MatriculaInterna}, {UsuarioAcesso}, {Senha}, {DataAdmissao}, {Cargo}, {Salario}]";
@@ -66,7 +62,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         public override bool Equals(object obj)
         {
             return obj is Funcionario funcionario &&
-                   Id == funcionario.Id &&
+                   id == funcionario.id &&
                    Nome == funcionario.Nome &&
                    RegistroUnico == funcionario.RegistroUnico &&
                    Endereco == funcionario.Endereco &&
@@ -83,8 +79,8 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
 
         public override int GetHashCode()
         {
-            int hashCode = 1294455568;
-            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            int hashCode = 497940720;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RegistroUnico);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);

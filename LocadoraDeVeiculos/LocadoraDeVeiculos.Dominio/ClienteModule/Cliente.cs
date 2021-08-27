@@ -72,6 +72,11 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
             return EhValida;
         }
 
+        public override string ToString()
+        {
+            return $"Cliente = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {Cnh}, {ValidadeCnh}, {EhPessoaFisica}]";
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Cliente cliente &&
@@ -99,11 +104,6 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Cnh);
             hashCode = hashCode * -1521134295 + ValidadeCnh.GetHashCode();
             return hashCode;
-        }
-
-        public override string ToString()
-        {
-            return $"Cliente = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {Cnh}, {ValidadeCnh}, {EhPessoaFisica}]";
         }
     }
 }

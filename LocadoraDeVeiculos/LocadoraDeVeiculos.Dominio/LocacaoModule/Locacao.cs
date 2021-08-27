@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private bool estaAberta;
         private List<Servico> servicos;
 
-        //Construtor para uso comum
+        //Construtor para uso comum (PROBLEMAS NOS TESTES. EQUALS SAI DIFERENTE)
         public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Servico> servicos)
         {
             this.id = id;
@@ -133,7 +133,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public override string ToString()
         {
-            return $"Locacao = {id}, {veiculo}, {funcionarioLocador}, {clienteContratante}, {clienteCondutor}, {dataDeSaida}, {dataPrevistaDeChegada}, {dataDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}, {precoDevolucao}, {estaAberta}, Numero de servicos ={servicos.Count}";
+            return $"Locacao = {id}, {veiculo}, {funcionarioLocador}, {clienteContratante}, {clienteCondutor}, {dataDeSaida}, {dataPrevistaDeChegada}, {dataDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}, {precoDevolucao}, {estaAberta}";
         }
 
         public override bool Equals(object obj)
