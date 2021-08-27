@@ -35,8 +35,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             InitializeComponent();
 
             Instancia = this;
+            MostrarDashBoard();
         }
-      
+
+        
+
         private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {           
             ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
@@ -174,15 +177,15 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
+            MostrarDashBoard();
+        }
+        private void MostrarDashBoard()
+        {
             ConfiguracaoDashboardToolBox configuracao = new ConfiguracaoDashboardToolBox();
-
             ConfigurarToolBox(configuracao);
-
             toolBoxAcoes.Enabled = false;
-
             AtualizarRodape(configuracao.TipoCadastro);
-
             ConfigurarPainelDashBoard();
         }
     }
