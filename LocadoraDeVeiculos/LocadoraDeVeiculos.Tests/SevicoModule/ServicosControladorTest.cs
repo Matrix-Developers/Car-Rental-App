@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
         public void DeveInserirUmServico()
         {
             //arrange
-            novoServico = new Servico(0, "nome", "tipo", 100);
+            novoServico = new Servico(0, "nome", true, 100);
 
             //action
             controlador.InserirNovo(novoServico);
@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
         public void DeveSelecionarDoisServicos()
         {
             //arrange
-            novoServico = new Servico(0, "nome", "tipo", 100);
+            novoServico = new Servico(0, "nome", true, 100);
 
             //action
             controlador.InserirNovo(novoServico);
@@ -49,8 +49,8 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
         public void DeveEditarUmServico()
         {
             //arrange
-            novoServico = new Servico(0, "nome", "tipo", 100);
-            Servico servicoEditado = new Servico(0, "Lavar Carro", "Fixo", 80);
+            novoServico = new Servico(0, "nome", true, 100);
+            Servico servicoEditado = new Servico(0, "Lavar Carro", false, 80);
             //action
             controlador.InserirNovo(novoServico);
             controlador.Editar(novoServico.Id, servicoEditado);
@@ -64,7 +64,7 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
         public void DeveExcluirUmServico()
         {
             //arrange
-            novoServico = new Servico(0, "nome", "tipo", 100);
+            novoServico = new Servico(0, "nome", true, 100);
 
             //action
             controlador.InserirNovo(novoServico);

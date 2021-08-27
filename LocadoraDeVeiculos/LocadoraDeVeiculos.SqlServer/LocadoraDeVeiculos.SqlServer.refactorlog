@@ -7,4 +7,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="DataAdmissao" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="2d63e31d-8278-4d24-80b0-cba466f45a37" ChangeDateTime="08/27/2021 18:03:20">
+    <Property Name="ElementName" Value="[dbo].[TBSERVICO].[tipo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TBSERVICO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ehTaxadoDiario" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b040658d-14ef-4e2e-b50b-fe3bd1c4da27" ChangeDateTime="08/27/2021 20:00:27">
+    <Property Name="ElementName" Value="[dbo].[TBLOCACAO].[tipoDeSeguro]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TBLOCACAO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="tipoDoPlano" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6fd92c97-8413-4179-a69c-608afd42026a" ChangeDateTime="08/27/2021 20:01:05">
+    <Property Name="ElementName" Value="[dbo].[TBLOCACAO].[precoLocacao]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TBLOCACAO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="tipoDeSeguro" />
+  </Operation>
 </Operations>

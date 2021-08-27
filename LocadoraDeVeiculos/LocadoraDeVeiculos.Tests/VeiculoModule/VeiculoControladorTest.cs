@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
             //arrange
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, "30000", 4, 5, 'G', true, true, true,true);
+            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true,true, null);
 
             //action
             controlador.InserirNovo(novoVeiculo);
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
             //arrange
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, "30000", 4, 5, 'G', true, true, true,true);
+            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true,true, null);
 
             //action
             controlador.InserirNovo(novoVeiculo);
@@ -65,11 +65,11 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
             //arrange
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, "30000", 4, 5, 'G', true, true, true, true);
+            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
 
             GrupoDeVeiculo grupoEditado = new GrupoDeVeiculo(0, "Pique Velozes e Furiosos", 100, 60.5, 40, 300, 45.2, 500);
             controladorGrupoDeVeiculos.InserirNovo(grupoEditado);
-            Veiculo veiculoEditado = new Veiculo(0, "Monza Tubarão Turbão Rebaixado", grupoEditado, "ABC1234", "1ABCD12A12AB1AB1ABC", "Chevrolet", "Bordo", "Etanol", 60.5, 1996, "240000", 4, 5, 'G', false, false, false, false);
+            Veiculo veiculoEditado = new Veiculo(0, "Monza Tubarão Turbão Rebaixado", grupoEditado, "ABC1234", "1ABCD12A12AB1AB1ABC", "Chevrolet", "Bordo", "Etanol", 60.5, 1996, 240000, 4, 5, 'G', false, false, false, false, null);
             //action
             controlador.InserirNovo(novoVeiculo);
             controlador.Editar(novoVeiculo.Id, veiculoEditado);
@@ -85,7 +85,7 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
             //arrange
             grupoVeiculos = new GrupoDeVeiculo(0, "SUV", 10.0, 10.5, 10, 100, 15.5, 45.8);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, "30000", 4, 5, 'G', true, true, true, true);
+            novoVeiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
 
             //action
             controlador.InserirNovo(novoVeiculo);

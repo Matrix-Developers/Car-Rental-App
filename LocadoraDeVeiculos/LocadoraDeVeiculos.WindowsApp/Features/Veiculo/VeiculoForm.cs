@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
                 cBoxCombustivel.Text = veiculo.tipoCombustivel;
                 numUpDownCapTanque.Text = veiculo.capacidadeTanque.ToString();
                 textAno.Text = veiculo.ano.ToString();
-                textKM.Text = veiculo.quilometragem.ToString();
+                textKM.Text = veiculo.kilometragem.ToString();
                 numUpDownQtdPortas.Text = veiculo.numeroPortas.ToString();
                 numUpDownQtdPessoas.Text = veiculo.capacidadePessoas.ToString();
                 cBoxPortaMalas.Text = veiculo.tamanhoPortaMala.ToString();
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             string combustivel = cBoxCombustivel.Text;
             int numPortas = Convert.ToInt32(numUpDownQtdPortas.Value);
             int numPessoas = Convert.ToInt32(numUpDownQtdPessoas.Value);
-            string quilometragem = textKM.Text;
+            double kilometragem = Convert.ToDouble(textKM.Text);
             char tamPortaMalas = Convert.ToChar(cBoxPortaMalas.Text);
             bool possuiArCondicionado = false;
             bool possuiDirecaoHidraulica = false;
@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             if (checkLBoxOpcionais.CheckedIndices.Contains(2))
                 possuiFreioAbs = true;
 
-            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, quilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
+            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
 
             string resultadoValidacao = veiculo.Validar();
 

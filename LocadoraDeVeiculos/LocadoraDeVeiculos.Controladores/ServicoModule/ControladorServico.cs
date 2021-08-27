@@ -13,20 +13,20 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             @"INSERT INTO TBSERVICO
             (
                 [NOME],
-                [TIPO],
+                [EHTAXADODIARIO],
                 [VALOR]
             )
             VALUES
             (
                 @NOME,
-                @TIPO,
+                @EHTAXADODIARIO,
                 @VALOR
             )";
         private const string sqlSelecionarTodosServicos =
             @"SELECT 
                 [ID],
                 [NOME],
-                [TIPO],
+                [EHTAXADODIARIO],
                 [VALOR]
             FROM 
                 TBSERVICO ORDER BY ID;";
@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             @"SELECT  
                 [ID],
                 [NOME],
-                [TIPO],
+                [EHTAXADODIARIO],
                 [VALOR]
             FROM
                 TBSERVICO 
@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
         private const string sqlEditarServico =
             @"UPDATE TBSERVICO SET
                 [NOME] = @NOME,
-                [TIPO] = @TIPO,
+                [EHTAXADODIARIO] = @EHTAXADODIARIO,
                 [VALOR] = @VALOR
             WHERE
                 [ID] = @ID
@@ -119,20 +119,20 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
 
             parametros.Add("ID", servico.Id);
             parametros.Add("NOME", servico.Nome);
-            parametros.Add("TIPO", servico.Tipo);
+            parametros.Add("EHTAXADODIARIO", servico.EhTaxadoDiario);
             parametros.Add("VALOR", servico.Valor);
 
             return parametros;
         }
-
+        
         private Servico ConverterEmServico(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
-            string tipo = Convert.ToString(reader["TIPO"]);
+            bool ehTaxadoDiario = Convert.ToBoolean(reader["EHTAXADODIARIO"]);
             double valor = Convert.ToDouble(reader["VALOR"]);
 
-            Servico servico = new Servico(id, nome, tipo, valor);
+            Servico servico = new Servico(id, nome, ehTaxadoDiario, valor);
 
             servico.Id = id;
 

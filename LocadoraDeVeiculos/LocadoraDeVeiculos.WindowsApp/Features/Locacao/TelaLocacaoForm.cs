@@ -87,8 +87,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
             List<Servico> servicos = sevicosSelecionados;
             string tipoDeSeguro = telaServico.seguro;
-
-            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro);
+            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, servicos);
 
             string resultadoValidacao = locacao.Validar();
 
