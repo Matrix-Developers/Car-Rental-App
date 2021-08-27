@@ -24,6 +24,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Locacoes;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -155,17 +156,15 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
+            ConfiguracaoDevolucaoToolBox configuracao = new ConfiguracaoDevolucaoToolBox();
 
-            //ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao);
 
-            //AtualizarRodape(configuracao.TipoCadastro);
+            AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
+            //operacoes = new OperacoesDevolucao(new ControladorDevolucao());
 
             //ConfigurarPainelRegistros();
         }
-
-
     }
 }

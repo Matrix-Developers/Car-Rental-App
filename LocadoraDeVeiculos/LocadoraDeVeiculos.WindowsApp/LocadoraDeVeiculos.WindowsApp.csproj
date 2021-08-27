@@ -63,6 +63,14 @@
     <Compile Include="Features\Clientes\TabelaClientesControl.Designer.cs">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Devolucoes\ConfiguracaoDevolucaoToolBox.cs" />
+    <Compile Include="Features\Devolucoes\OperacoesDevolucao.cs" />
+    <Compile Include="Features\Devolucoes\TabelaDevolucaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Devolucoes\TabelaDevolucaoControl.Designer.cs">
+      <DependentUpon>TabelaDevolucaoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Funcionarios\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\Funcionarios\FuncionarioForm.cs">
       <SubType>Form</SubType>
@@ -104,7 +112,7 @@
     </Compile>
     <Compile Include="Features\Locacao\TelaLocacaoForm.Designer.cs">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="Features\Login\TelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +170,9 @@
     <EmbeddedResource Include="Features\Clientes\TabelaClientesControl.resx">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Devolucoes\TabelaDevolucaoControl.resx">
+      <DependentUpon>TabelaDevolucaoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Funcionarios\FuncionarioForm.resx">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,7 +190,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Locacao\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Login\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
