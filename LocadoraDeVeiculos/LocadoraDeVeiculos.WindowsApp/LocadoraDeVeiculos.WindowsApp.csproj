@@ -210,6 +210,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-empresa-cliente-100.png" />
     <None Include="Resources\icons8-serviços-100.png" />
     <None Include="Resources\icons8-hoje-100.png" />
     <None Include="Resources\icons8-calendário-100.png" />
