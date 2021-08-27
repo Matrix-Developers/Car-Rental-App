@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[TBSERVICO_LOCACAO] (
-    [id]         INT NOT NULL,
+    [id]         INT NOT NULL IDENTITY,
     [id_locacao] INT NOT NULL,
     [id_sevico]  INT NOT NULL,
     CONSTRAINT [id_locacao] FOREIGN KEY ([id_locacao]) REFERENCES [dbo].[TBLOCACAO] ([Id]),
