@@ -93,6 +93,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             lbCarTotal.Text = carrosNoTotal.ToString();
         }
 
-
+  
     }
 }

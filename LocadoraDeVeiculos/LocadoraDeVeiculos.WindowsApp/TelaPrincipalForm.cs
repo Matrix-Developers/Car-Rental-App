@@ -174,10 +174,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolBoxAcoes.Enabled = false;
+           
             ConfiguracaoDashboardToolBox configuracao = new ConfiguracaoDashboardToolBox();
 
             ConfigurarToolBox(configuracao);
+
+            toolBoxAcoes.Enabled = false;
 
             AtualizarRodape(configuracao.TipoCadastro);
 
