@@ -38,9 +38,10 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             Instancia = this;
         }
-      
+
+        #region Opções do menu strip
         private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {           
+        {
             ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
 
             ConfigurarToolBox(configuracao);
@@ -103,51 +104,6 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarPainelRegistros();
         }
-
-        public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
-
-        #region Ações dos botões
-        private void btnAdicionar_Click(object sender, EventArgs e)
-        {
-            operacoes.InserirNovoRegistro();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            operacoes.EditarRegistro();
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            operacoes.ExcluirRegistro();
-        }
-
-        private void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            operacoes.FiltrarRegistros();
-        }
-        #endregion
-
-        private void ConfigurarPainelRegistros()
-        {
-            UserControl tabela = operacoes.ObterTabela();
-
-            tabela.Dock = DockStyle.Fill;
-
-            panelRegistros.Controls.Clear();
-
-            panelRegistros.Controls.Add(tabela);
-        }
-
-        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
-        {
-            toolBoxAcoes.Enabled = true;
-            labelTipoCadastro.Text = configuracao.TipoCadastro;
-            btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
-            btnEditar.ToolTipText = configuracao.ToolTipEditar;
-            btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
-        }
-
         private void locarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
@@ -173,7 +129,50 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarPainelRegistros();
         }
+        #endregion
 
-        
+        #region Ações dos botões
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            operacoes.InserirNovoRegistro();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            operacoes.EditarRegistro();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            operacoes.ExcluirRegistro();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            operacoes.FiltrarRegistros();
+        }
+        #endregion
+
+        #region Métodos privados
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
+        }
+        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
+        {
+            toolBoxAcoes.Enabled = true;
+            labelTipoCadastro.Text = configuracao.TipoCadastro;
+            btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
+            btnEditar.ToolTipText = configuracao.ToolTipEditar;
+            btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
+        }
+        #endregion
+        public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
     }
 }
