@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.WindowsApp.Veiculos;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -22,6 +23,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
+                if(tela.Veiculo.imagens.Count !=0)
+                    foreach (Dominio.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
+                        imagem.idVeiculo = tela.Veiculo.Id;
+                
                 controlador.InserirNovo(tela.Veiculo);
 
                 List<Veiculo> veiculos = controlador.SelecionarTodos();

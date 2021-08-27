@@ -245,6 +245,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textKM.Name = "textKM";
             this.textKM.Size = new System.Drawing.Size(119, 20);
             this.textKM.TabIndex = 13;
+            this.textKM.Text = "0";
             this.textKM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textKM_KeyPress);
             // 
             // label12
