@@ -1,4 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     public partial class TelaDevolucaoForm : Form
     {
         private Locacao devolucao;
+        List<Servico> adicionarSevicos = new List<Servico>();
+        ServicosForm telaServico = new ServicosForm();
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();
@@ -28,14 +32,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             {
                 devolucao = value;
 
-                //txtId.Text = devolucao.Id.ToString();
-                //cBoxVeiculo.SelectedItem = devolucao.Veiculo;
-                //cBoxFuncionario.SelectedItem = devolucao.FuncionarioLocador;
-                //cBoxCliente.SelectedItem = devolucao.ClienteContratante;
-                //cBoxCondutor.SelectedItem = devolucao.ClienteCondutor;
-                //cBoxPlano.SelectedItem = devolucao.TipoDoPlano;
-                //dateTPDataSaida.Text = devolucao.DataDeSaida.ToLongDateString();
-                //dateTPDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToLongDateString();
+                txtId.Text = devolucao.Id.ToString();
+                txtKmInicial.Text = devolucao.Veiculo.quilometragem.ToString();
+                txtVeiculo.Text = devolucao.Veiculo.ToString();
+                txtFuncionario.Text = devolucao.ToString();
+                txtCliente.Text = devolucao.ToString();
+                txtCondutor.Text = devolucao.ToString();
+                txtPlano.Text = devolucao.TipoDoPlano;
+                txtDataLocacao.Text = devolucao.DataDeSaida.ToLongDateString();
+                txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToLongDateString();
+            }
+        }
+
+        private void btnSelecionarServicos_Click(object sender, EventArgs e)
+        {
+            if (telaServico.ShowDialog() == DialogResult.OK)
+            {
+                adicionarSevicos = telaServico.servicosSelecionados;
+                txtTotal.Text = Convert.ToString(telaServico.valorFinal);
             }
         }
     }

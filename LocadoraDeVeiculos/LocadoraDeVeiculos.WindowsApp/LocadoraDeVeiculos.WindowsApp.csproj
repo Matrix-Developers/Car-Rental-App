@@ -220,6 +220,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Features\Serviços\ServicosForm.resx">
       <DependentUpon>ServicosForm.cs</DependentUpon>
@@ -254,6 +255,7 @@
       <Project>{7f169e59-39e2-4908-be88-38206b8983f7}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
+    <None Include="FuelGauge.png" />
     <Content Include="Libraries\DataGridViewGrouper.dll" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
       <Project>{7F169E59-39E2-4908-BE88-38206B8983F7}</Project>
