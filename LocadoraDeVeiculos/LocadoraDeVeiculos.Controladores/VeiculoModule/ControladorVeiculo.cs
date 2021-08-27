@@ -1,14 +1,18 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 
 namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
     public class ControladorVeiculo : Controlador<Veiculo>
     {
+        private ControladorImagemVeiculo controladorImagem = new ControladorImagemVeiculo();
         #region queries
         private const string sqlInserirVeiculo =
             @"INSERT INTO TBVEICULO
@@ -158,17 +162,35 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
+            {
                 registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
-
+                if (registro.imagens != null)
+                {
+                    foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
+                    {
+                        imagemVeiculo.idVeiculo = registro.Id;
+                        controladorImagem.InserirNovo(imagemVeiculo);
+                    }
+                }
+            }
             return resultadoValidacao;
         }
         public override List<Veiculo> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
+            List<Veiculo>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
+
+            foreach (Veiculo veiculo in veiculos)
+            {
+                veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
+            }
+
+            return veiculos;
         }
         public override Veiculo SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
+            Veiculo veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
+            veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
+            return veiculo;
         }
         public override string Editar(int id, Veiculo registro)
         {
@@ -178,6 +200,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             {
                 registro.Id = id;
                 Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
+                    controladorImagem.EditarLista(registro.imagens);
             }
 
             return resultadoValidacao;
@@ -211,7 +234,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             parametros.Add("PLACA", veiculo.placa);
             parametros.Add("CHASSI", veiculo.chassi);
             parametros.Add("MARCA", veiculo.marca);
-            //parametros.Add("IMAGEM", veiculo.imagem);
             parametros.Add("COR", veiculo.cor);
             parametros.Add("TIPOCOMBUSTIVEL", veiculo.tipoCombustivel);
             parametros.Add("CAPACIDADETANQUE", veiculo.capacidadeTanque);
@@ -236,7 +258,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             var placa = Convert.ToString(reader["PLACA"]);
             var chassi = Convert.ToString(reader["CHASSI"]);
             var marca = Convert.ToString(reader["MARCA"]);
-            //string imagem = Convert.(reader["IMAGEM"]);
             var cor = Convert.ToString(reader["COR"]);
             var tipoCombustivel = Convert.ToString(reader["TIPOCOMBUSTIVEL"]);
             var capacidadeTanque = Convert.ToDouble(reader["capacidadeTanque"]);
@@ -266,5 +287,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return veiculo;
         }
+
+
     }
 }

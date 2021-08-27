@@ -4,6 +4,10 @@ using System.IO;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace LocadoraDeVeiculos.WindowsApp.Veiculos
 {
@@ -16,8 +20,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             InitializeComponent();
             CarregarGruposDeVeiculos();
             labelTitulo.Text = titulo;
-            cBoxPortaMalas.SelectedIndex = 0;
+            cBoxPortaMalas.SelectedIndex = 0;           
         }
+        public List<ImagemVeiculo> imagensVeiculo = new List<ImagemVeiculo>();
 
         private void CarregarGruposDeVeiculos()
         {
@@ -32,6 +37,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             {
                 veiculo = value;
 
+                imagensVeiculo = veiculo.imagens;
                 textId.Text = veiculo.Id.ToString();
                 textModelo.Text = veiculo.modelo;
                 cBoxGrupo.Text = veiculo.grupoVeiculos.Nome;
@@ -70,7 +76,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
                 ano = Convert.ToInt32(textAno.Text);
             string cor = textCor.Text;
             grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
-            //string imagem = textImagem.Text;
             int capTanque = Convert.ToInt32(numUpDownCapTanque.Value);
             string combustivel = cBoxCombustivel.Text;
             int numPortas = Convert.ToInt32(numUpDownQtdPortas.Value);
@@ -80,6 +85,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             bool possuiArCondicionado = false;
             bool possuiDirecaoHidraulica = false;
             bool possuiFreioAbs = false;
+            
 
             if (checkLBoxOpcionais.CheckedIndices.Contains(0))
                 possuiArCondicionado = true;
@@ -88,7 +94,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             if (checkLBoxOpcionais.CheckedIndices.Contains(2))
                 possuiFreioAbs = true;
 
-            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false);
+            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
 
             string resultadoValidacao = veiculo.Validar();
 
@@ -130,6 +136,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             {
                 e.Handled = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ImagemVeiculoForm telaImagem = new ImagemVeiculoForm(this);
+            telaImagem.Show();
+        }
+
+        public void AtualizarListaDeFotos(List<ImagemVeiculo> imagens)
+        {
+            this.imagensVeiculo = imagens;
+            veiculo.imagens = imagens;
         }
     }
 }

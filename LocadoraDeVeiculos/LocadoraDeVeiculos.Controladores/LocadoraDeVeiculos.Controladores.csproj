@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
+    <Compile Include="ImagemVeiculoModule\ControladorImagemVeiculo.cs" />
     <Compile Include="LocacaoModule\ControladorLocacao.cs" />
     <Compile Include="ServicoModule\ControladorServico.cs" />
     <Compile Include="ClientesModule\ControladorClientes.cs" />

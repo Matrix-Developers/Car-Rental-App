@@ -112,16 +112,17 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 resultadoValidacao += "O condutor não pode ser nulo quando o cliente contratante é pessoa juridica\n";
 
             if (this.clienteCondutor != null)
-            {
                 if (!this.clienteCondutor.EhPessoaFisica)
                     resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
-            }
 
             if (!this.tipoDoPlano.Equals("PlanoDiario") && !this.tipoDoPlano.Equals("KmControlado") && !this.tipoDoPlano.Equals("KmLivre"))
                 resultadoValidacao += "O tipo do plano é inválido.\n";
 
             if (!this.tipoDeSeguro.Equals("SeguroCliente") && !this.tipoDeSeguro.Equals("SeguroTerceiro") && !this.tipoDeSeguro.Equals("Nenhum"))
                 resultadoValidacao += "O tipo do seguro é inválido.\n";
+
+            if (this.DataDeSaida >= this.DataPrevistaDeChegada)
+                resultadoValidacao += "A data de entrega não pode ser anterior à data de locação.\n";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "VALIDO";
