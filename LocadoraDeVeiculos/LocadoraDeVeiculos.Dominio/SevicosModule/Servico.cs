@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
 
         public override string ToString()
         {
-            return $"[{id}, {Nome}, {Tipo}, {Valor}]";
+            return $"[{id}, {Nome}, {EhTaxadoDiario}, {Valor}]";
         }
     }
 }

@@ -50,28 +50,6 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.imagens = imagens;
         }
 
-        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, string quilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool estaAlugado)
-        {
-            this.id = id;
-            this.modelo = modelo;
-            this.grupoVeiculos = grupoVeiculos;
-            this.placa = placa;
-            this.chassi = chassi;
-            this.marca = marca;
-            this.cor = cor;
-            this.tipoCombustivel = tipoCombustivel;
-            this.capacidadeTanque = capacidadeTanque;
-            this.ano = ano;
-            this.quilometragem = quilometragem;
-            this.numeroPortas = numeroPortas;
-            this.capacidadePessoas = capacidadePessoas;
-            this.tamanhoPortaMala = tamanhoPortaMala;
-            this.temArCondicionado = temArCondicionado;
-            this.temDirecaoHidraulica = temDirecaoHidraulica;
-            this.temFreiosAbs = temFreiosAbs;
-            this.estaAlugado = estaAlugado;
-        }
-
         public override string Validar()
         {
             string resultadoValidacao = "";
