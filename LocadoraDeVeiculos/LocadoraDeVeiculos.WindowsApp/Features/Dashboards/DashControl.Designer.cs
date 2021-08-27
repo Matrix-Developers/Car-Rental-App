@@ -160,7 +160,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // 
             this.lbRetornam7.AutoSize = true;
             this.lbRetornam7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRetornam7.Location = new System.Drawing.Point(304, 185);
+            this.lbRetornam7.Location = new System.Drawing.Point(304, 199);
             this.lbRetornam7.Name = "lbRetornam7";
             this.lbRetornam7.Size = new System.Drawing.Size(14, 13);
             this.lbRetornam7.TabIndex = 21;
@@ -170,7 +170,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // 
             this.lbRetornoHJ.AutoSize = true;
             this.lbRetornoHJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRetornoHJ.Location = new System.Drawing.Point(52, 185);
+            this.lbRetornoHJ.Location = new System.Drawing.Point(52, 199);
             this.lbRetornoHJ.Name = "lbRetornoHJ";
             this.lbRetornoHJ.Size = new System.Drawing.Size(14, 13);
             this.lbRetornoHJ.TabIndex = 20;
@@ -180,7 +180,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // 
             this.lbCarrosAlugados.AutoSize = true;
             this.lbCarrosAlugados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCarrosAlugados.Location = new System.Drawing.Point(187, 107);
+            this.lbCarrosAlugados.Location = new System.Drawing.Point(187, 121);
             this.lbCarrosAlugados.Name = "lbCarrosAlugados";
             this.lbCarrosAlugados.Size = new System.Drawing.Size(14, 13);
             this.lbCarrosAlugados.TabIndex = 19;
@@ -190,7 +190,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(258, 90);
+            this.label15.Location = new System.Drawing.Point(258, 104);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(119, 13);
             this.label15.TabIndex = 18;
@@ -200,7 +200,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(22, 90);
+            this.label14.Location = new System.Drawing.Point(22, 104);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(89, 13);
             this.label14.TabIndex = 17;
@@ -210,7 +210,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(147, 16);
+            this.label13.Location = new System.Drawing.Point(147, 30);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 13);
             this.label13.TabIndex = 16;
@@ -219,7 +219,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox9
             // 
             this.pictureBox9.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_calendário_100;
-            this.pictureBox9.Location = new System.Drawing.Point(277, 110);
+            this.pictureBox9.Location = new System.Drawing.Point(277, 124);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(72, 72);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,7 +229,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox8
             // 
             this.pictureBox8.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_hoje_100;
-            this.pictureBox8.Location = new System.Drawing.Point(25, 110);
+            this.pictureBox8.Location = new System.Drawing.Point(25, 124);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(72, 72);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -239,7 +239,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             // pictureBox7
             // 
             this.pictureBox7.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_aluguel_de_carro_96;
-            this.pictureBox7.Location = new System.Drawing.Point(161, 32);
+            this.pictureBox7.Location = new System.Drawing.Point(161, 46);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(72, 72);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
