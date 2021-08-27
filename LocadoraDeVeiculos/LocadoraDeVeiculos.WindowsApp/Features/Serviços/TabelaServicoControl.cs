@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Tipo", HeaderText = "Tipo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "EhTaxadoDiario", HeaderText = "É taxado diário"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Valor"},
             };
@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             foreach (Servico servico in servicos)
             {
-                gridServicos.Rows.Add(servico.Id, servico.Nome, servico.Tipo, servico.Valor);
+                gridServicos.Rows.Add(servico.Id, servico.Nome, servico.EhTaxadoDiario, servico.Valor);
             }
         }
     }

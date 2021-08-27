@@ -51,7 +51,7 @@ namespace LocadoraDeVeiculos.Dominio.Shared
             double resultado = 0;
             foreach(Servico servico in servicos)
             {
-                if (servico.Tipo == "TaxaDiaria")
+                if (servico.EhTaxadoDiario)
                     resultado += servico.Valor * (dataFinal - dataInicial).TotalDays;
                 else
                     resultado += servico.Valor;

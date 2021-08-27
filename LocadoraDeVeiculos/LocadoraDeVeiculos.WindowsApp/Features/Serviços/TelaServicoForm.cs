@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
                 txtId.Text = servico.Id.ToString();
                 txtNome.Text = servico.Nome.ToString();
                 txtValor.Text = servico.Valor.ToString();
-                if (servico.Tipo == "Calculo Diario")
+                if (servico.EhTaxadoDiario)
                     rdbCalcDiaria.Checked = true;
                 else
                     rdbTaxaFixa.Checked = true;
@@ -47,13 +47,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             string nome = txtNome.Text;
             if (!double.TryParse(txtValor.Text, out double valor))
                 valor = 0;
-            string tipo = "";
-            if (rdbCalcDiaria.Checked)
-                tipo = "Calculo Diario";
-            else
-                tipo = "Calculo Fixo";
+            bool ehTaxadoDiario = rdbCalcDiaria.Checked;
 
-            servico = new Servico(id, nome, tipo, valor);
+            servico = new Servico(id, nome, ehTaxadoDiario, valor);
 
             string resultadoValidacao = servico.Validar();
 
