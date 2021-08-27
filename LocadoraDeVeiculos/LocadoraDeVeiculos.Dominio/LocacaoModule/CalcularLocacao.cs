@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.Dominio.Shared
             foreach(Servico servico in servicos)
             {
                 if (servico.Tipo == "TaxaDiaria")
-                    resultado += servico.Valor * (dataFinal.ToDays() - dataInicial.ToDays());
+                    resultado += servico.Valor * (dataFinal - dataInicial).TotalDays;
                 else
                     resultado += servico.Valor;
             }
