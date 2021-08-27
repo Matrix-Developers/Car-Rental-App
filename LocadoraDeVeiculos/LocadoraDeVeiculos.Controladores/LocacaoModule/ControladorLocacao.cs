@@ -140,10 +140,13 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             parametros.Add("ID_CLIENTECONTRATANTE", locacao.ClienteContratante.Id);
             parametros.Add("ID_CLIENTECONDUTOR", locacao.ClienteCondutor.Id);
             parametros.Add("DATADESAIDA", locacao.DataDeSaida);
-            parametros.Add("DATAPREVISTADECHEGADA", locacao.DataDeChegada);
+            parametros.Add("DATAPREVISTADECHEGADA", locacao.DataPrevistaDeChegada);
+            parametros.Add("DATADECHEGADA", locacao.DataDeChegada);
             parametros.Add("TIPODOPLANO", locacao.TipoDoPlano);
             parametros.Add("TIPODESEGURO", locacao.TipoDeSeguro);
             parametros.Add("PRECOLOCACAO", locacao.PrecoLocacao);
+            parametros.Add("PRECODEVOLUCAO", locacao.PrecoDevolucao);
+            parametros.Add("ESTAABERTA", locacao.EstaAberta); 
 
             return parametros;
         }
@@ -160,16 +163,19 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             //    id_clienteCondutor = -1;
             var dataDeSaida = Convert.ToDateTime(reader["DATADESAIDA"]);
             var dataPrevistaDeChegada = Convert.ToDateTime(reader["DATAPREVISTADECHEGADA"]);
-            var tipoDePlano = Convert.ToString(reader["TIPODOPLANO"]);
+            var dataDeChegada = Convert.ToDateTime(reader["DATADECHEGADA"]);
+            var tipoDoPlano = Convert.ToString(reader["TIPODOPLANO"]);
             var tipoDeSeguro = Convert.ToString(reader["TIPODESEGURO"]);
-            var precoLocacao = Convert.ToDouble(reader["PRECOLOCACAO"]);        //esse atributo nao esta sendo carregado na classe. pode gerar problemas no futuro
+            var precoLocacao = Convert.ToDouble(reader["PRECOLOCACAO"]);
+            var precoDevolucao = Convert.ToDouble(reader["PRECODEVOLUCAO"]);
+            var estaAberta = Convert.ToBoolean(reader["ESTAABERTA"]);
 
             Veiculo veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
-            Funcionario funcionario = controladorFuncionario.SelecionarPorId(id_funcionario);
+            Funcionario funcionarioLocador = controladorFuncionario.SelecionarPorId(id_funcionario);
             Cliente clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
             Cliente clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
 
-            return new Locacao(id,veiculo,funcionario,clienteContratante,clienteCondutor,dataDeSaida,dataPrevistaDeChegada, tipoDePlano,tipoDeSeguro);
+            return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, null); //List <Servico> servicos)
         }
     }
 }
