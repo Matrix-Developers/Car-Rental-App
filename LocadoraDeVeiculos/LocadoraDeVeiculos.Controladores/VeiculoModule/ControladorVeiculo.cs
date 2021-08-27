@@ -156,6 +156,9 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 [TBVEICULO]
             WHERE 
                 [ID] = @ID";
+
+        private const string sqlVeiculoTotal =
+            @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         #endregion
         public override string InserirNovo(Veiculo registro)
         {
@@ -218,7 +221,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return true;
         }
-
+     
         public override bool Existe(int id)
         {
             return Db.Exists(sqlExisteVeiculo, AdicionarParametro("ID", id));
@@ -287,7 +290,9 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return veiculo;
         }
-
-
+        private int ConverterDados(IDataReader reader)
+        {
+            return Convert.ToInt32(reader["qtd"]);
+        }
     }
 }

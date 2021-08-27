@@ -8,7 +8,7 @@
     [EhPessoaFisica] BIT          NOT NULL,
     [Cnh]            VARCHAR (50) NULL,
     [ValidadeCnh]    DATETIME     NULL,
-    CONSTRAINT [PK__TBCLIENT__3214EC07279494AB] PRIMARY KEY CLUSTERED ([Id] ASC)
+    PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 
