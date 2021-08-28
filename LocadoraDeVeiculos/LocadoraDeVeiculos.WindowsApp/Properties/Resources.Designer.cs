@@ -66,6 +66,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Properties {
         internal static System.Drawing.Bitmap FuelGauge1 {
             get {
                 object obj = ResourceManager.GetObject("FuelGauge1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.

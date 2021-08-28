@@ -18,7 +18,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         }
         public void InserirNovoRegistro()
         {
+            int id = tabelaDevolucao.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um registro para realizar a devolução!", "Registrar Devolução",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+
             TelaDevolucaoForm tela = new TelaDevolucaoForm("Devolução de Veículo");
+
+            tela.Devolucao = locacaoSelecionada;
+
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.Devolucao);
@@ -76,9 +90,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                     case FiltroDevolucaoEnum.DevolucoesPendentes:
                         {
                             List<Locacao> filtro = new List<Locacao>();
-                            //foreach (Locacao devolucao in devolucoes)
-                            //    if (devolucao.Status)
-                            //        filtro.Add(devolucao);
+                            foreach (Locacao devolucao in devolucoes)
+                                if (devolucao.EstaAberta)
+                                    filtro.Add(devolucao);
                             devolucoes = filtro;
                             tipoLocacao = "pendente(s)";
                             break;
@@ -87,9 +101,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                     case FiltroDevolucaoEnum.DevolucoesFinalizadas:
                         {
                             List<Locacao> filtro = new List<Locacao>();
-                            //foreach (Locacao devolucao in devolucoes)
-                            //    if (!devolucao.Status)
-                            //        filtro.Add(devolucao);
+                            foreach (Locacao devolucao in devolucoes)
+                                if (!devolucao.EstaAberta)
+                                    filtro.Add(devolucao);
                             devolucoes = filtro;
                             tipoLocacao = "concluída(s)";
                             break;
@@ -111,7 +125,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
         public UserControl ObterTabela()
         {
-            List<Locacao> locacoes = new List<Locacao>();
+            List<Locacao> locacoes = controlador.SelecionarTodos();
 
             tabelaDevolucao.AtualizarRegistros(locacoes);
 

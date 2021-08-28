@@ -34,14 +34,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 devolucao = value;
 
                 txtId.Text = devolucao.Id.ToString();
-                txtKmInicial.Text = devolucao.Veiculo.quilometragem.ToString();
-                txtVeiculo.Text = devolucao.Veiculo.ToString();
-                txtFuncionario.Text = devolucao.ToString();
-                txtCliente.Text = devolucao.ToString();
-                txtCondutor.Text = devolucao.ToString();
+                txtKmInicial.Text = devolucao.Veiculo.kilometragem.ToString();
+                txtVeiculo.Text = devolucao.Veiculo.modelo;
+                txtFuncionario.Text = devolucao.FuncionarioLocador.Nome;
+                txtCliente.Text = devolucao.ClienteContratante.Nome;
+                txtCondutor.Text = devolucao.ClienteCondutor.Nome;
                 txtPlano.Text = devolucao.TipoDoPlano;
-                txtDataLocacao.Text = devolucao.DataDeSaida.ToLongDateString();
-                txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToLongDateString();
+                txtDataLocacao.Text = devolucao.DataDeSaida.ToString();
+                txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToString();
             }
         }
 
@@ -136,7 +136,5 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             }
         }
         #endregion
-
-        
     }
 }

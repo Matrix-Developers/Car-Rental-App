@@ -185,20 +185,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
         #endregion
         public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
-
-        private void locarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
-
-            ConfigurarToolBox(configuracao);
-
-            AtualizarRodape(configuracao.TipoCadastro);
-
-            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente()));
-
-            ConfigurarPainelRegistros();
-        }
-
         private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

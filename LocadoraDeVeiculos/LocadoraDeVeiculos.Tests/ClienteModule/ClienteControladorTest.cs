@@ -16,8 +16,8 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
         public ClienteControladorTest()
         {
             controlador = new ControladorCliente();
-            Db.Update("DELETE FROM [TBCLIENTE]");
             Db.Update("DELETE FROM [TBLOCACAO]");
+            Db.Update("DELETE FROM [TBCLIENTE]");            
             Db.Update("DBCC CHECKIDENT('TBLOCACAO', RESEED, 0)");
             Db.Update("DBCC CHECKIDENT('TBCLIENTE', RESEED, 0)");
 
