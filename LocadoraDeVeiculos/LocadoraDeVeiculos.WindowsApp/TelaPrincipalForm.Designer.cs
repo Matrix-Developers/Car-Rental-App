@@ -51,6 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStripRodape = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            this.inícioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolBoxAcoes.SuspendLayout();
             this.statusStripRodape.SuspendLayout();
@@ -122,6 +123,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inícioToolStripMenuItem,
             this.toolStripMenuItem1,
             this.locaçaoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -260,6 +262,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelRodape.Size = new System.Drawing.Size(73, 17);
             this.labelRodape.Text = "Tudo certo :D";
             // 
+            // inícioToolStripMenuItem
+            // 
+            this.inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
+            this.inícioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.inícioToolStripMenuItem.Text = "Início";
+            this.inícioToolStripMenuItem.Click += new System.EventHandler(this.inícioToolStripMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +317,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem locarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devoluçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnFiltrar;
+        private System.Windows.Forms.ToolStripMenuItem inícioToolStripMenuItem;
     }
 }
 

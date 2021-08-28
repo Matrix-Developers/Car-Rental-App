@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +85,14 @@
     <Compile Include="Features\Devolucoes\TelaDevolucaoForm.Designer.cs">
       <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Dashboards\ConfiguracaoDashboardToolBox.cs" />
+    <Compile Include="Features\Dashboards\DashControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Dashboards\DashControl.Designer.cs">
+      <DependentUpon>DashControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Dashboards\OperacoesDashboard.cs" />
     <Compile Include="Features\Funcionarios\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\Funcionarios\FuncionarioForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +120,12 @@
     </Compile>
     <Compile Include="Features\GrupoDeVeiculo\TabelaGrupoDeVeiculosControl.Designer.cs">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ImagemVeiculo\ImagemVeiculoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\ImagemVeiculo\ImagemVeiculoForm.Designer.cs">
+      <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Locacao\ConfiguracaoLocacaoToolBox.cs" />
     <Compile Include="Features\Locacao\OperacoesLocacao.cs" />
@@ -197,6 +212,9 @@
     <EmbeddedResource Include="Features\Devolucoes\TelaDevolucaoForm.resx">
       <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Dashboards\DashControl.resx">
+      <DependentUpon>DashControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Funcionarios\FuncionarioForm.resx">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,12 +227,15 @@
     <EmbeddedResource Include="Features\GrupoDeVeiculo\TabelaGrupoDeVeiculosControl.resx">
       <DependentUpon>TabelaGrupoDeVeiculosControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\ImagemVeiculo\ImagemVeiculoForm.resx">
+      <DependentUpon>ImagemVeiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Locacao\TabelaLocacaoControl.resx">
       <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Locacao\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
-    </EmbeddedResource>
+	  </EmbeddedResource>
     <EmbeddedResource Include="Features\Login\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +253,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <EmbeddedResource Include="Features\Serviços\ServicosForm.resx">
       <DependentUpon>ServicosForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +285,17 @@
   <ItemGroup>
     <None Include="Resources\outline_filter_alt_black_36dp.png" />
     <None Include="Resources\FuelGauge1.png" />
+    <None Include="Resources\icons8-empresa-cliente-100.png" />
+    <None Include="Resources\icons8-serviços-100.png" />
+    <None Include="Resources\icons8-hoje-100.png" />
+    <None Include="Resources\icons8-calendário-100.png" />
+    <None Include="Resources\icons8-aluguel-de-carro-96.png" />
+    <None Include="Resources\icons8-chamada-em-conferência-100.png" />
+    <None Include="Resources\icons8-usuário-1001.png" />
+    <None Include="Resources\icons8-usuário-100.png" />
+    <None Include="Resources\carKey.png" />
+    <None Include="Resources\car2.png" />
+    <None Include="Resources\car.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>
@@ -293,5 +330,6 @@
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

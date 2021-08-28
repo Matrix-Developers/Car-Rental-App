@@ -117,44 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="FuelGauge1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FuelGauge1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="pctBoxImagem.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAvancar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAN9JREFUSEvt
+        1T+uAVEcxfFRKGjtQG8LdNbAKqxFaRf2IITCKjRKKpU/5ycmufnlnJEfkykm95t8iveceyUvvClyuda3
+        hSOM3j99L7qXPT9usIAOVBXdy8qLSmsYgCq6l/mLzBmmwIruZewi84AldCGNbY3ay9glqQMMoYxtUn4v
+        Y4e9K8zBYq976V7GDior8rsqtu8BjR2o0w5obFynWt74lz91H2jsgHeBGVjsdc/2f3+49hD5Ovm9jB02
+        d4j8A1F7GbvkBGNgqf0EQvlLGn9INP5Y3EDkwR7d53KtrShebPwKizfQtMQAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="outline_filter_alt_black_36dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\outline_filter_alt_black_36dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnVoltar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAMhJREFUSEvt
+        lcEJAjEQRRc86cUKLMG7ZWgD1mIZ2oFtqKAnW7ADj94EfREDw+YvcSDsIuTBOyz8P4clyTSVSgXmeMXT
+        5yuPNy9Z4wNfX3N48wlT3GMckBvkzUsWeMP2kK5B3nzCCDf4RDUkaPHmJTM8oipbI968ZIV3VMW2AW8+
+        YYI7VIUuvXnJBVW4pJIzqnBJJWPcoip0WeRXR5bY6+GyhOtxQFW2Ropcp8ggD4il9yfTMsiSsPS+Fi1x
+        sYfD9AvefKXylzTNG+m6CQ+jGhpoAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="car" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\car.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnAdicionar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAU5JREFUSEvt
+        1klKBDEYxfG6hAtHPIfDAQQVr+F8Fpeiblz23uEmKp7CYaei/wcGJLwvlU45LfrBD5oKSUj6q6S6Sf5j
+        FrCPa9zi+ZN+69ke5vFtmcUxXvHe4w0jLGJQtvAEN0nJIzbRlENoBW7gGup7gLGilQ6ZNNEY1SufQ8v2
+        RrTtM+jNGdwAuSWsZM8iJyhGr0xN9UqKa8tpTO1kGBWD6+ikuDZnF2Gu4Do5Ka7NuUCYe7hOToprc3TC
+        hVEFuk4qpNpEBaexw0QTL6M2q3BjFCe+g+vkpLg25wZh/qy4dLW5Tk6Ka3O2EUb36U8cIC8oHiDKKVzn
+        nAouKqSc7vPe6OKPqrvFA6ZRlTXUbnmJrsUNjBWd20M/BPSN1hRd4i3bru1dx6BM4QiqTDfJV1rlOar/
+        05roddDVdgmdQvpKEf3W4bCD3ldmkl9O130ABjCWDVeaCgIAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="icons8-calendário-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-calendário-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnExcluir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAZdJREFUSEvt
+        lrsuBVEUhqcTDQ1C0KgUVHRodKITWpXKCyhdX8GbCNFrFC6PIEiEyq3G98fsyW/2cM4+cw6NL/kyO3ut
+        2Suzb5nsn39+g0W8xfcOeYMLGKFA1Qvt9BojqhI7YURVUqse4DCO4GHeF4zwYF1VMDCKHovwYF3/rLCm
+        V8VV9CjvC0Z4MLiPgziUt6tyUo0oJ2ximQ0s56Ua4cEtdXyDYp7rnuAaTmIvduMYruIxvmGED9CIcvEr
+        nMdGzOTPL/hAzRCKn2KPOmAA9/ACX3PPcRcVqyS1sFjHvs9mtoLP6OO4ii1jhCeloqJaPx+jSuVExT0h
+        BU3hT19a9gn7scCDKWhN/V1toCm8z1V7Fj1nBws8kMIl+rsqJCZyxTR6jjZcgQeasQvFC3r/A+ocB8bx
+        Dj1HS1OQ+iOgC0KU11fTG75UqK0+z9E6F+i3JKV4GFxn1vuTp7pVdDn4oNpIKhQ2l9pz6DnbWJvU4/SI
+        4dKpjS6FZi+QJWwrKq5NU1VQ6kvbXjSgG0mXwxnqmEm1taY2vVn2ARlOoJbzhGZ9AAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="icons8-usuário-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-usuário-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-usuário-1001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-usuário-1001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-serviços-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-serviços-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-aluguel-de-carro-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-aluguel-de-carro-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-hoje-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-hoje-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="car2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\car2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-chamada-em-conferência-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-chamada-em-conferência-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="carKey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\carKey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-empresa-cliente-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-empresa-cliente-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="openFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

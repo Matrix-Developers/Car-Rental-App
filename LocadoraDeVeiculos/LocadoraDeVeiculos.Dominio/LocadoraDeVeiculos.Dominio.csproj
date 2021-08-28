@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,7 @@
     <Compile Include="ClienteModule\Cliente.cs" />
     <Compile Include="FuncionarioModule\Funcionario.cs" />
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculo.cs" />
+    <Compile Include="ImagemVeiculoModule\ImagemVeiculo.cs" />
     <Compile Include="LocacaoModule\Locacao.cs" />
     <Compile Include="PessoaModule\Pessoa.cs" />
     <Compile Include="SevicosModule\Servico.cs" />

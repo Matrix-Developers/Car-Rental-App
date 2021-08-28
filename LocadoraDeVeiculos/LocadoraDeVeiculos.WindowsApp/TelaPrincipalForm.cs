@@ -25,6 +25,7 @@ using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Locacoes;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
+using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -37,6 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             InitializeComponent();
 
             Instancia = this;
+            MostrarDashBoard();
         }
 
         #region Opções do menu strip
@@ -164,6 +166,15 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
+        
+        private void ConfigurarPainelDashBoard()
+        {
+            UserControl tabela = new DashControl();
+            tabela.Dock = DockStyle.Fill;
+            panelRegistros.Controls.Clear();
+            panelRegistros.Controls.Add(tabela);
+        }
+
         private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
         {
             toolBoxAcoes.Enabled = true;
@@ -174,5 +185,32 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
         #endregion
         public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
+
+        private void locarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
+
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente()));
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            MostrarDashBoard();
+        }
+        private void MostrarDashBoard()
+        {
+            ConfiguracaoDashboardToolBox configuracao = new ConfiguracaoDashboardToolBox();
+            ConfigurarToolBox(configuracao);
+            toolBoxAcoes.Enabled = false;
+            AtualizarRodape(configuracao.TipoCadastro);
+            ConfigurarPainelDashBoard();
+        }
     }
 }
