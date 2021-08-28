@@ -38,6 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.veiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grupoDeVeículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.inícioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.locaçaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.locarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStripRodape = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
-            this.inícioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolBoxAcoes.SuspendLayout();
             this.statusStripRodape.SuspendLayout();
@@ -129,9 +129,16 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(795, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // inícioToolStripMenuItem
+            // 
+            this.inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
+            this.inícioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.inícioToolStripMenuItem.Text = "Início";
+            this.inícioToolStripMenuItem.Click += new System.EventHandler(this.inícioToolStripMenuItem_Click);
             // 
             // locaçaoToolStripMenuItem
             // 
@@ -173,7 +180,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelTipoCadastro});
             this.toolBoxAcoes.Location = new System.Drawing.Point(0, 24);
             this.toolBoxAcoes.Name = "toolBoxAcoes";
-            this.toolBoxAcoes.Size = new System.Drawing.Size(800, 45);
+            this.toolBoxAcoes.Size = new System.Drawing.Size(795, 45);
             this.toolBoxAcoes.TabIndex = 5;
             // 
             // btnAdicionar
@@ -240,7 +247,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros.Location = new System.Drawing.Point(0, 70);
             this.panelRegistros.Margin = new System.Windows.Forms.Padding(2);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(800, 421);
+            this.panelRegistros.Size = new System.Drawing.Size(795, 491);
             this.panelRegistros.TabIndex = 6;
             // 
             // statusStripRodape
@@ -248,10 +255,10 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.statusStripRodape.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripRodape.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelRodape});
-            this.statusStripRodape.Location = new System.Drawing.Point(0, 493);
+            this.statusStripRodape.Location = new System.Drawing.Point(0, 563);
             this.statusStripRodape.Name = "statusStripRodape";
             this.statusStripRodape.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStripRodape.Size = new System.Drawing.Size(800, 22);
+            this.statusStripRodape.Size = new System.Drawing.Size(795, 22);
             this.statusStripRodape.TabIndex = 7;
             this.statusStripRodape.Text = "statusStrip1";
             // 
@@ -262,19 +269,12 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelRodape.Size = new System.Drawing.Size(73, 17);
             this.labelRodape.Text = "Tudo certo :D";
             // 
-            // inícioToolStripMenuItem
-            // 
-            this.inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
-            this.inícioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.inícioToolStripMenuItem.Text = "Início";
-            this.inícioToolStripMenuItem.Click += new System.EventHandler(this.inícioToolStripMenuItem_Click);
-            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 515);
+            this.ClientSize = new System.Drawing.Size(795, 585);
             this.Controls.Add(this.statusStripRodape);
             this.Controls.Add(this.panelRegistros);
             this.Controls.Add(this.toolBoxAcoes);
