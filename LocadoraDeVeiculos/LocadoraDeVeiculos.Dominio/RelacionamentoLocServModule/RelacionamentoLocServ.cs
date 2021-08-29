@@ -33,14 +33,6 @@ namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
             return resultadoValidacao;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is RelacionamentoLocServ serv &&
-                   Id == serv.Id &&
-                   EqualityComparer<Locacao>.Default.Equals(Locacao, serv.Locacao) &&
-                   EqualityComparer<List<Servico>>.Default.Equals(Servicos, serv.Servicos);
-        }
-
         public override int GetHashCode()
         {
             int hashCode = 1438320420;
@@ -54,5 +46,12 @@ namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
             return $"{id} {Locacao} {Servicos}";
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is RelacionamentoLocServ serv &&
+                   Id == serv.Id &&
+                   EqualityComparer<Locacao>.Default.Equals(Locacao, serv.Locacao) &&
+                   EqualityComparer<List<Servico>>.Default.Equals(Servicos, serv.Servicos);
+        }
     }
 }

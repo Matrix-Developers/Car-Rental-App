@@ -84,7 +84,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
                 foreach (Servico servico in registro.Servicos)
                 {
                     id = servico.Id;
-                    Db.Insert(sqlInserirRelacao, ObtemParametrosRelacao(registro));
+                    registro.Id = Db.Insert(sqlInserirRelacao, ObtemParametrosRelacao(registro));
                 }
 
             return resultadoValidacao;

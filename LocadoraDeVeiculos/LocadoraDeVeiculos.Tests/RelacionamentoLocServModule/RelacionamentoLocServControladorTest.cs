@@ -71,13 +71,13 @@ namespace LocadoraDeVeiculos.Tests.RelacionamentoLocServModule
             InserirUmaLocacao();
             InserirUmServico();
             listServicos.Add(servico);
-            novoRelacionamento = new RelacionamentoLocServ(0, locacao, listServicos);
 
             //action
+            novoRelacionamento = new RelacionamentoLocServ(0, locacao, listServicos);
             controladorRelacionamento.InserirNovo(novoRelacionamento);
 
             //assert
-            RelacionamentoLocServ relacionamentoEncontrado = controladorRelacionamento.SelecionarPorId(novoRelacionamento.Id);
+            var relacionamentoEncontrado = controladorRelacionamento.SelecionarPorId(novoRelacionamento.Id);
             relacionamentoEncontrado.Should().Be(novoRelacionamento);
         }
 
