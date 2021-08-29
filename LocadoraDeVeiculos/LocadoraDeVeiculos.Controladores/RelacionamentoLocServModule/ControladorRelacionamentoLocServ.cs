@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
         {
             var id = Convert.ToInt32(reader["ID"]);
             var id_locacao = Convert.ToInt32(reader["ID_LOCACAO"]);
-            var id_servico = Convert.ToInt32(reader["ID_LOCACAO"]);
+            var id_servico = Convert.ToInt32(reader["ID_SERVICO"]);
 
             List<Servico> todosBanco = new List<Servico>();
             foreach (Servico item in controladorServico.SelecionarTodos())

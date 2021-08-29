@@ -21,10 +21,14 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
         {
             controlador = new ControladorVeiculo();
             controladorGrupoDeVeiculos = new ControladorGrupoDeVeiculos();
+
+            Db.Update("DELETE FROM [TBSERVICO_LOCACAO]");
+            Db.Update("DELETE FROM [TBLOCACAO]");
             Db.Update("DELETE FROM [TBVEICULO]");
-            Db.Update("DELETE FROM [TBGRUPOVEICULO]");
+
+            Db.Update("DBCC CHECKIDENT('TBSERVICO_LOCACAO', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('TBLOCACAO', RESEED, 0)");
             Db.Update("DBCC CHECKIDENT('TBVEICULO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBGRUPOVEICULO', RESEED, 0)");
         }
         [TestMethod]
         public void DeveInserirUmVeiculo()

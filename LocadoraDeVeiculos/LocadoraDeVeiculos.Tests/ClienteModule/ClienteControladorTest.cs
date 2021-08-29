@@ -16,11 +16,15 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
         public ClienteControladorTest()
         {
             controlador = new ControladorCliente();
+            Db.Update("DELETE FROM [TBSERVICO_LOCACAO]");
+            Db.Update("DELETE FROM [TBSERVICO]");
             Db.Update("DELETE FROM [TBLOCACAO]");
-            Db.Update("DELETE FROM [TBCLIENTE]");            
+            Db.Update("DELETE FROM [TBCLIENTE]");
+
+            Db.Update("DBCC CHECKIDENT('TBSERVICO_LOCACAO', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('TBSERVICO', RESEED, 0)");
             Db.Update("DBCC CHECKIDENT('TBLOCACAO', RESEED, 0)");
             Db.Update("DBCC CHECKIDENT('TBCLIENTE', RESEED, 0)");
-
         }
         [TestMethod]
         public void DeveInserir_NovoCliente()
