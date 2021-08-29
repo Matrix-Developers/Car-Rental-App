@@ -1,9 +1,15 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
+﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.LocacaoModule;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
+using LocadoraDeVeiculos.Controladores.Shared;
+using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +19,8 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
     public class ControladorRelacionamentoLocServ : Controlador<RelacionamentoLocServ>
     {
         private int id = 0;
+        ControladorServico controladorServico = new ControladorServico();
+        ControladorLocacao controladorLocacao = new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente());
         #region queries Relacionamento
         private const string sqlInserirRelacao =
                 @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]
@@ -51,12 +59,21 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(sqlDeletarRelacao, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return Db.Exists(sqlSelecionarRelacaoPorId, AdicionarParametro("ID", id));
         }
 
         public override string InserirNovo(RelacionamentoLocServ registro)
@@ -75,14 +92,27 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 
         public override RelacionamentoLocServ SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecionarRelacaoPorId, ConverterEmRelacionamento, AdicionarParametro("ID", id));
         }
 
         public override List<RelacionamentoLocServ> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return Db.GetAll(sqlSelecionarTodasRelacoes, ConverterEmRelacionamento);
         }
+        private RelacionamentoLocServ ConverterEmRelacionamento(IDataReader reader)
+        {
+            var id = Convert.ToInt32(reader["ID"]);
+            var id_locacao = Convert.ToInt32(reader["ID_LOCACAO"]);
+            var id_servico = Convert.ToInt32(reader["ID_LOCACAO"]);
 
+            List<Servico> todosBanco = new List<Servico>();
+            foreach (Servico item in controladorServico.SelecionarTodos())
+                if (item.Id == id_servico)
+                    todosBanco.Add(item);
+            Locacao locacao = controladorLocacao.SelecionarPorId(id_locacao);
+
+            return new RelacionamentoLocServ(id, locacao, todosBanco);
+        }
         private Dictionary<string, object> ObtemParametrosRelacao(RelacionamentoLocServ relacionamento)
         {
             var parametros = new Dictionary<string, object>();
