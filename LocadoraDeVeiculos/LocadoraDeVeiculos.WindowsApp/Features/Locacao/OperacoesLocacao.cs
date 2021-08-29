@@ -1,5 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.LocacaoModule;
+using LocadoraDeVeiculos.Controladores.ServicoLocacaoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.WindowsApp.Servicos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -24,9 +26,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             TelaLocacaoForm tela = new TelaLocacaoForm("Locação de Veiculos");
 
+            ServicosForm telaServico = new ServicosForm();
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.Locacao);
+
+                if (telaServico.servicosSelecionados.Count > 0)
+                    controlador.InserirRelacionamento(tela.Locacao, telaServico.servicosSelecionados);
 
                 List<Locacao> veiculos = controlador.SelecionarTodos();
 
