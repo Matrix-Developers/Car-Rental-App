@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.ServicoLocacaoModule;
+using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.WindowsApp.Servicos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -15,10 +16,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
     public class OperacoesLocacao : ICadastravel
     {
         private readonly ControladorLocacao controlador = null;
+        private readonly ControladorRelacionamentoLocServ controladorRelacionamento = null;
+        private RelacionamentoLocServ relacionamento;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
         public OperacoesLocacao(ControladorLocacao ctrlLocacao)
         {
             controlador = ctrlLocacao;
+            controladorRelacionamento = new ControladorRelacionamentoLocServ();
             tabelaLocacao = new TabelaLocacaoControl();
         }
 
@@ -31,8 +35,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             {
                 controlador.InserirNovo(tela.Locacao);
 
-                if (telaServico.servicosSelecionados.Count > 0)
-                    controlador.InserirRelacionamento(tela.Locacao, telaServico.servicosSelecionados);
+                relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
+                controladorRelacionamento.InserirNovo(relacionamento);
 
                 List<Locacao> veiculos = controlador.SelecionarTodos();
 

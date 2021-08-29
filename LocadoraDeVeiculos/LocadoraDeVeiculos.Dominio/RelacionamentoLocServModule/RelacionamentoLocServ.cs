@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +11,48 @@ namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
 {
     public class RelacionamentoLocServ : EntidadeBase
     {
-        public override bool Equals(object obj)
-        {
-            throw new NotImplementedException();
-        }
+        public Locacao Locacao { get; }
+        public List<Servico> Servicos { get; }
 
-        public override int GetHashCode()
+        public RelacionamentoLocServ(int id, Locacao locacao, List<Servico> servicos)
         {
-            throw new NotImplementedException();
-        }
-
-        public override string ToString()
-        {
-            throw new NotImplementedException();
+            this.Id = id;
+            Locacao = locacao;
+            Servicos = servicos;
         }
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+            if (Locacao.Id == 0)
+                resultadoValidacao = "ID de locação inválido";
+            if (Servicos == null)
+                resultadoValidacao = "Nenhum serviço selecionado";
+            if (resultadoValidacao == "")
+                resultadoValidacao = "VALIDO";
+            return resultadoValidacao;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is RelacionamentoLocServ serv &&
+                   Id == serv.Id &&
+                   EqualityComparer<Locacao>.Default.Equals(Locacao, serv.Locacao) &&
+                   EqualityComparer<List<Servico>>.Default.Equals(Servicos, serv.Servicos);
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1438320420;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Locacao>.Default.GetHashCode(Locacao);
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<Servico>>.Default.GetHashCode(Servicos);
+            return hashCode;
+        }
+        public override string ToString()
+        {
+            return $"{id} {Locacao} {Servicos}";
+        }
+
     }
 }
