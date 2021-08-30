@@ -15,7 +15,12 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
         public ServicosControladorTest()
         {
             controlador = new ControladorServico();
+
+            Db.Update("DELETE FROM [TBSERVICO_LOCACAO]");
             Db.Update("DELETE FROM [TBSERVICO]");
+
+            Db.Update("DBCC CHECKIDENT('TBSERVICO_LOCACAO', RESEED, 0)");
+            Db.Update("DBCC CHECKIDENT('TBSERVICO', RESEED, 0)");
         }
         [TestMethod]
         public void DeveInserirUmServico()

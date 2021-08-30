@@ -46,6 +46,7 @@
     <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
     <Compile Include="ImagemVeiculoModule\ControladorImagemVeiculo.cs" />
     <Compile Include="LocacaoModule\ControladorLocacao.cs" />
+    <Compile Include="RelacionamentoLocServModule\ControladorRelacionamentoLocServ.cs" />
     <Compile Include="ServicoModule\ControladorServico.cs" />
     <Compile Include="ClientesModule\ControladorClientes.cs" />
     <Compile Include="GrupoDeVeiculosModule\ControladorGrupoDeVeiculos.cs" />

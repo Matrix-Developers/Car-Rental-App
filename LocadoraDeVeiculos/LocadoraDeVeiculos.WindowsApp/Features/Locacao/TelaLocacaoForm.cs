@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Servicos;
@@ -26,7 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
         private ControladorCliente controladorCliente = new ControladorCliente();
-        List<Servico> sevicosSelecionados = new List<Servico>();
+        public List<Servico> Servicos = new List<Servico>();
         ServicosForm telaServico = new ServicosForm();
         public TelaLocacaoForm(string titulo)
         {
@@ -37,6 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             lblTitulo.Text = titulo;
             cBoxPlano.SelectedIndex = 0;
         }
+
         public Locacao Locacao
         {
             get { return locacao; }
@@ -85,10 +87,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             Cliente condutor = cBoxCondutor.SelectedItem as Cliente;
             DateTime dataDeSaida = dateTPDataSaida.Value;
             DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
-            List<Servico> servicos = sevicosSelecionados;
-            string tipoDeSeguro = telaServico.seguro;
-            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, servicos);
-
+            string tipoDeSeguro = telaServico.seguro;            
+            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
             string resultadoValidacao = locacao.Validar();
 
             if (resultadoValidacao != "VALIDO")
@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
-                sevicosSelecionados = telaServico.servicosSelecionados;
+                Servicos = telaServico.servicosSelecionados;
                 txtTotal.Text = Convert.ToString(telaServico.valorFinal);
             }
         }
