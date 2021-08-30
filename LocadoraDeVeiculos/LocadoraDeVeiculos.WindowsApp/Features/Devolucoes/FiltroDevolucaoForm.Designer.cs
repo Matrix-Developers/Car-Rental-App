@@ -41,10 +41,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.rdbDevolucoesConcluidas.AutoSize = true;
             this.rdbDevolucoesConcluidas.Location = new System.Drawing.Point(49, 106);
             this.rdbDevolucoesConcluidas.Name = "rdbDevolucoesConcluidas";
-            this.rdbDevolucoesConcluidas.Size = new System.Drawing.Size(203, 17);
+            this.rdbDevolucoesConcluidas.Size = new System.Drawing.Size(226, 17);
             this.rdbDevolucoesConcluidas.TabIndex = 9;
             this.rdbDevolucoesConcluidas.TabStop = true;
-            this.rdbDevolucoesConcluidas.Text = "Visualizar somente tarefas concluídas";
+            this.rdbDevolucoesConcluidas.Text = "Visualizar somente devoluções concluídas";
             this.rdbDevolucoesConcluidas.UseVisualStyleBackColor = true;
             // 
             // rdbDevolucoesPendentes
@@ -52,10 +52,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.rdbDevolucoesPendentes.AutoSize = true;
             this.rdbDevolucoesPendentes.Location = new System.Drawing.Point(49, 72);
             this.rdbDevolucoesPendentes.Name = "rdbDevolucoesPendentes";
-            this.rdbDevolucoesPendentes.Size = new System.Drawing.Size(200, 17);
+            this.rdbDevolucoesPendentes.Size = new System.Drawing.Size(223, 17);
             this.rdbDevolucoesPendentes.TabIndex = 8;
             this.rdbDevolucoesPendentes.TabStop = true;
-            this.rdbDevolucoesPendentes.Text = "Visualizar somente tarefas pendentes";
+            this.rdbDevolucoesPendentes.Text = "Visualizar somente devoluções pendentes";
             this.rdbDevolucoesPendentes.UseVisualStyleBackColor = true;
             // 
             // rdbTodasDevolucoes
@@ -63,10 +63,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.rdbTodasDevolucoes.AutoSize = true;
             this.rdbTodasDevolucoes.Location = new System.Drawing.Point(49, 38);
             this.rdbTodasDevolucoes.Name = "rdbTodasDevolucoes";
-            this.rdbTodasDevolucoes.Size = new System.Drawing.Size(151, 17);
+            this.rdbTodasDevolucoes.Size = new System.Drawing.Size(170, 17);
             this.rdbTodasDevolucoes.TabIndex = 7;
             this.rdbTodasDevolucoes.TabStop = true;
-            this.rdbTodasDevolucoes.Text = "Visualizar todas as Tarefas";
+            this.rdbTodasDevolucoes.Text = "Visualizar todas as devoluções";
             this.rdbTodasDevolucoes.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.Name = "FiltroDevolucaoForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "FiltroDevolucaoForm";
+            this.Text = "Filtrar Devolucao";
             this.ResumeLayout(false);
             this.PerformLayout();
 
