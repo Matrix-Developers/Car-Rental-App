@@ -24,9 +24,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
                                                 @ID_VEICULO,
                                                 @IMAGEM
                                                 );";
-        private const string comandoEditar = @"UPDATE [DBO].[TBIMAGEMVEICULO] SET [IMAGEM] = @IMAGEM WHERE [ID] = @ID";
         private const string comandoExcluir = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
-        private const string comandoExcluirPorId = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
         private const string comandoExcluirTodosPorIdDoVeiculo = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecionarTodosDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO;";
         private const string comandoSelecionarPorId = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
