@@ -48,6 +48,9 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
         private const string sqlSelecionarRelacaoPorId =
             @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
+        private const string sqlSelecionarRelacaoPorLocacao =
+            @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID_LOCACAO] = @ID_LOCACAO;";
+
         private const string sqlDeletarRelacao =
             @"DELETE FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
@@ -95,6 +98,11 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
             return Db.Get(sqlSelecionarRelacaoPorId, ConverterEmRelacionamento, AdicionarParametro("ID", id));
         }
 
+        public object SelecionarPorLocacao(int id)
+        {
+            return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmRelacionamento, AdicionarParametro("ID_LOCACAO", id));
+        }
+
         public override List<RelacionamentoLocServ> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodasRelacoes, ConverterEmRelacionamento);
@@ -105,13 +113,13 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
             var id_locacao = Convert.ToInt32(reader["ID_LOCACAO"]);
             var id_servico = Convert.ToInt32(reader["ID_SERVICO"]);
 
-            List<Servico> todosBanco = new List<Servico>();
+            List<Servico> filtrado = new List<Servico>();
             foreach (Servico item in controladorServico.SelecionarTodos())
                 if (item.Id == id_servico)
-                    todosBanco.Add(item);
+                    filtrado.Add(item);
             Locacao locacao = controladorLocacao.SelecionarPorId(id_locacao);
 
-            return new RelacionamentoLocServ(id, locacao, todosBanco);
+            return new RelacionamentoLocServ(id, locacao, filtrado);
         }
         private Dictionary<string, object> ObtemParametrosRelacao(RelacionamentoLocServ relacionamento)
         {

@@ -42,6 +42,7 @@ namespace LocadoraDeVeiculos.Tests.RelacionamentoLocServModule
         Cliente clienteCondutor;
         Locacao locacao;
         Servico servico;
+        Servico servico2;
         RelacionamentoLocServ novoRelacionamento;
 
         public RelacionamentoLocServControladorTest()
@@ -70,22 +71,30 @@ namespace LocadoraDeVeiculos.Tests.RelacionamentoLocServModule
             //arrange
             InserirUmaLocacao();
             InserirUmServico();
+            InserirServicoDois();
             listServicos.Add(servico);
+            listServicos.Add(servico2);
 
             //action
             novoRelacionamento = new RelacionamentoLocServ(0, locacao, listServicos);
             controladorRelacionamento.InserirNovo(novoRelacionamento);
 
             //assert
-            var relacionamentoEncontrado = controladorRelacionamento.SelecionarPorId(novoRelacionamento.Id);
+            var relacionamentoEncontrado = controladorRelacionamento.SelecionarPorLocacao(novoRelacionamento.Locacao.Id);
             relacionamentoEncontrado.Should().Be(novoRelacionamento);
         }
 
         #region Métodos Privados
         private void InserirUmServico()
         {
-            servico = new Servico(0, "nome", true, 100);
+            servico = new Servico(0, "nome1", true, 100);
             controladorServico.InserirNovo(servico);
+        }
+
+        private void InserirServicoDois()
+        {
+            servico2 = new Servico(0, "nome2", false, 200);
+            controladorServico.InserirNovo(servico2);
         }
         private void InserirUmaLocacao()
         {
