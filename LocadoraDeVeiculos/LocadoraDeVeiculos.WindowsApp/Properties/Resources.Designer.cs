@@ -61,6 +61,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FuelGauge1 {
+            get {
+                object obj = ResourceManager.GetObject("FuelGauge1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap car {
@@ -71,6 +79,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap outline_filter_alt_black_36dp {
+            get {
+                object obj = ResourceManager.GetObject("outline_filter_alt_black_36dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap car2 {

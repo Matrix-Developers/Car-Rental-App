@@ -38,7 +38,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +71,27 @@
       <DependentUpon>DashControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Dashboards\OperacoesDashboard.cs" />
+    <Compile Include="Features\Devolucoes\ConfiguracaoDevolucaoToolBox.cs" />
+    <Compile Include="Features\Devolucoes\FiltroDevolucaoEnum.cs" />
+    <Compile Include="Features\Devolucoes\FiltroDevolucaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Devolucoes\FiltroDevolucaoForm.Designer.cs">
+      <DependentUpon>FiltroDevolucaoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Devolucoes\OperacoesDevolucao.cs" />
+    <Compile Include="Features\Devolucoes\TabelaDevolucaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Devolucoes\TabelaDevolucaoControl.Designer.cs">
+      <DependentUpon>TabelaDevolucaoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Devolucoes\TelaDevolucaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Devolucoes\TelaDevolucaoForm.Designer.cs">
+      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Funcionarios\ConfiguracaoFuncionarioToolBox.cs" />
     <Compile Include="Features\Funcionarios\FuncionarioForm.cs">
       <SubType>Form</SubType>
@@ -119,7 +139,7 @@
     </Compile>
     <Compile Include="Features\Locacao\TelaLocacaoForm.Designer.cs">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
-	  </Compile>
+    </Compile>
     <Compile Include="Features\Login\TelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +174,11 @@
     <Compile Include="Features\Veiculo\TabelaVeiculoControl.Designer.cs">
       <DependentUpon>TabelaVeiculoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Shared\DataGridViewExtensions.cs" />
     <Compile Include="Shared\ICadastravel.cs" />
     <Compile Include="Shared\IConfiguracaoToolBox.cs" />
@@ -180,6 +205,15 @@
     <EmbeddedResource Include="Features\Dashboards\DashControl.resx">
       <DependentUpon>DashControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Devolucoes\FiltroDevolucaoForm.resx">
+      <DependentUpon>FiltroDevolucaoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Devolucoes\TabelaDevolucaoControl.resx">
+      <DependentUpon>TabelaDevolucaoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Devolucoes\TelaDevolucaoForm.resx">
+      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Funcionarios\FuncionarioForm.resx">
       <DependentUpon>FuncionarioForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,7 +234,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Locacao\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
-	  </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Login\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,14 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Features\Serviços\ServicosForm.resx">
       <DependentUpon>ServicosForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,17 +277,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-empresa-cliente-100.png" />
-    <None Include="Resources\icons8-serviços-100.png" />
-    <None Include="Resources\icons8-hoje-100.png" />
-    <None Include="Resources\icons8-calendário-100.png" />
-    <None Include="Resources\icons8-aluguel-de-carro-96.png" />
-    <None Include="Resources\icons8-chamada-em-conferência-100.png" />
-    <None Include="Resources\icons8-usuário-1001.png" />
-    <None Include="Resources\icons8-usuário-100.png" />
-    <None Include="Resources\carKey.png" />
-    <None Include="Resources\car2.png" />
-    <None Include="Resources\car.png" />
+    <None Include="Resources\outline_filter_alt_black_36dp.png" />
+    <None Include="Resources\FuelGauge1.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{35789073-23e1-426d-bbc2-e1af3db9935e}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>
@@ -293,6 +313,5 @@
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

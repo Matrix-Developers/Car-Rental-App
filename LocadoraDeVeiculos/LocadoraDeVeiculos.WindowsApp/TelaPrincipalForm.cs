@@ -24,6 +24,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Locacoes;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
 using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
 
 namespace LocadoraDeVeiculos.WindowsApp
@@ -40,10 +41,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             MostrarDashBoard();
         }
 
-        
-
+        #region Opções do menu strip
         private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {           
+        {
             ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
 
             ConfigurarToolBox(configuracao);
@@ -106,9 +106,34 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarPainelRegistros();
         }
+        private void locarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
 
-        public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
+            ConfigurarToolBox(configuracao);
 
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente()));
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoDevolucaoToolBox configuracao = new ConfiguracaoDevolucaoToolBox();
+
+            ConfigurarToolBox(configuracao);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente()));
+
+            ConfigurarPainelRegistros();
+        }
+        #endregion
+
+        #region Ações dos botões
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             operacoes.InserirNovoRegistro();
@@ -124,6 +149,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoes.ExcluirRegistro();
         }
 
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            operacoes.FiltrarRegistros();
+        }
+        #endregion
+
+        #region Métodos privados
         private void ConfigurarPainelRegistros()
         {
             UserControl tabela = operacoes.ObterTabela();
@@ -134,6 +166,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
+        
         private void ConfigurarPainelDashBoard()
         {
             UserControl tabela = new DashControl();
@@ -150,33 +183,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             btnEditar.ToolTipText = configuracao.ToolTipEditar;
             btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
         }
-
-        private void locarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
-
-            ConfigurarToolBox(configuracao);
-
-            AtualizarRodape(configuracao.TipoCadastro);
-
-            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente()));
-
-            ConfigurarPainelRegistros();
-        }
-
-        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
-
-            //ConfigurarToolBox(configuracao);
-
-            //AtualizarRodape(configuracao.TipoCadastro);
-
-            //operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
-
-            //ConfigurarPainelRegistros();
-        }
-
+        #endregion
+        public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
         private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
