@@ -92,7 +92,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         {
             estaAberta = false;
             dataDeChegada = dataFechamento;
-            precoDevolucao = CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, veiculo.kilometragem, DataDeSaida, dataDeChegada);
+            precoDevolucao = precoLocacao;
+            precoDevolucao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, veiculo.kilometragem, DataDeSaida, dataDeChegada);
             precoDevolucao += CalcularLocacao.CalcularServicos(servicos, dataDeSaida, dataDeChegada);
         }
 

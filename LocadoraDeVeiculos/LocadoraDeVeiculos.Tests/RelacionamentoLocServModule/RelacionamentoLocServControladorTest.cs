@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.Tests.RelacionamentoLocServModule
             controladorVeiculo = new ControladorVeiculo();
             controladorFuncionario = new ControladorFuncionario();
             controladorCliente = new ControladorCliente();
-            controladorLocacao = new ControladorLocacao(controladorVeiculo, controladorFuncionario, controladorCliente);
+            controladorLocacao = new ControladorLocacao(controladorVeiculo, controladorFuncionario, controladorCliente, new ControladorServico());
             
             Db.Update("DELETE FROM [TBSERVICO_LOCACAO]");
             Db.Update("DELETE FROM [TBSERVICO]");

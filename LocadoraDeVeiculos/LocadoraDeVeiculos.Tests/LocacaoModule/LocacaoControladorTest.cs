@@ -3,6 +3,7 @@ using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
@@ -24,6 +25,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         ControladorVeiculo controladorVeiculo = null;
         ControladorFuncionario controladorFuncionario = null;
         ControladorCliente controladorCliente = null;
+        ControladorServico controladorServico = null;
         GrupoDeVeiculo grupoVeiculos;
         Veiculo veiculo;
         Funcionario funcionario;
@@ -37,7 +39,8 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             controladorVeiculo = new ControladorVeiculo();
             controladorFuncionario = new ControladorFuncionario();
             controladorCliente = new ControladorCliente();
-            controlador = new ControladorLocacao(controladorVeiculo,controladorFuncionario,controladorCliente);
+            controladorServico = new ControladorServico();
+            controlador = new ControladorLocacao(controladorVeiculo,controladorFuncionario,controladorCliente,controladorServico);
             Db.Update("DELETE FROM [TBVEICULO]");
             Db.Update("DELETE FROM [TBGRUPOVEICULO]");
             Db.Update("DELETE FROM [TBFUNCIONARIO]");

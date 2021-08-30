@@ -27,6 +27,7 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
             Db.Update("DELETE FROM [TBSERVICO_LOCACAO]");
             Db.Update("DELETE FROM [TBLOCACAO]");
             Db.Update("DELETE FROM [TBVEICULO]");
+            Db.Update("DELETE FROM [TBGRUPOVEICULO]");
 
             Db.Update("DBCC CHECKIDENT('TBSERVICO_LOCACAO', RESEED, 0)");
             Db.Update("DBCC CHECKIDENT('TBLOCACAO', RESEED, 0)");
