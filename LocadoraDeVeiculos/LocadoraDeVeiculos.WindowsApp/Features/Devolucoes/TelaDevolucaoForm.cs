@@ -23,6 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             InitializeComponent();
             lblTitulo.Text = titulo;
             cBoxQtdTanque.SelectedIndex = 0;
+            AtualizarListBox();
         }
 
         public Locacao Devolucao
@@ -42,6 +43,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 txtPlano.Text = devolucao.TipoDoPlano;
                 txtDataLocacao.Text = devolucao.DataDeSaida.ToString();
                 txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToString();
+                adicionarSevicos = Devolucao.Servicos;
+                AtualizarListBox();
             }
         }
 
@@ -52,6 +55,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             {
                 adicionarSevicos = telaServico.servicosSelecionados;
                 txtTotal.Text = Convert.ToString(telaServico.valorFinal);
+                AtualizarListBox();
             }
         }
         private void brnConfirmar_Click(object sender, EventArgs e)
@@ -133,6 +137,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             else if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
             {
                 e.Handled = true;
+            }
+        }
+        #endregion
+
+        #region Atualizar lista
+        private void AtualizarListBox()
+        {
+            if (this.adicionarSevicos != null)
+            {
+                cLBoxServicosSelecionados.Items.Clear();
+                foreach (Servico servico in this.adicionarSevicos)
+                    cLBoxServicosSelecionados.Items.Add(servico);
             }
         }
         #endregion
