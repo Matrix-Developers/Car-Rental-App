@@ -85,7 +85,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             bool possuiArCondicionado = false;
             bool possuiDirecaoHidraulica = false;
             bool possuiFreioAbs = false;
-            
+            List<ImagemVeiculo> imagens = imagensVeiculo;
+
+
 
             if (checkLBoxOpcionais.CheckedIndices.Contains(0))
                 possuiArCondicionado = true;
@@ -147,7 +149,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         public void AtualizarListaDeFotos(List<ImagemVeiculo> imagens)
         {
             this.imagensVeiculo = imagens;
-            veiculo.imagens = imagens;
         }
     }
 }

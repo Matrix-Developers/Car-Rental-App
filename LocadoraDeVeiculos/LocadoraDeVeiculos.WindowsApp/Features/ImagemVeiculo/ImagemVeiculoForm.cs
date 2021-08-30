@@ -44,7 +44,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                 if (tamanho <= doisMB)
                 {
 
-                    imagens.Add(new Dominio.ImagemVeiculoModule.ImagemVeiculo(0, telaBase.Veiculo.Id, (Bitmap)Image.FromFile(imagem)));
+                    imagens.Add(new Dominio.ImagemVeiculoModule.ImagemVeiculo(0, 0, (Bitmap)Image.FromFile(imagem)));
                     if (imagens.Count == 1)
                         AtualizarImagem();
                     else
