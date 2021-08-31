@@ -90,7 +90,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(396, 274);
+            this.txtTotal.Location = new System.Drawing.Point(412, 276);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(132, 22);
@@ -100,7 +100,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             this.lblValorInicial.AutoSize = true;
             this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorInicial.Location = new System.Drawing.Point(244, 276);
+            this.lblValorInicial.Location = new System.Drawing.Point(260, 276);
             this.lblValorInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValorInicial.Name = "lblValorInicial";
             this.lblValorInicial.Size = new System.Drawing.Size(144, 20);

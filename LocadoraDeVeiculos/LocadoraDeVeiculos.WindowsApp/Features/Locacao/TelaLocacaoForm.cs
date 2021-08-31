@@ -28,10 +28,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
         private ControladorCliente controladorCliente = new ControladorCliente();
-        public List<Servico> Servicos = new List<Servico>();
+        public List<Servico> Servicos;
+        public string TipoSeguro = "Nenhum";
         ServicosForm telaServico;
         public TelaLocacaoForm(string titulo)
         {
+            Servicos = new List<Servico>();
             InitializeComponent();
             CarregarDados();
             CarregaCondutor();
@@ -58,6 +60,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 dateTPDataSaida.Text = locacao.DataDeSaida.ToLongDateString();
                 dateTPDataDevolucao.Text = locacao.DataPrevistaDeChegada.ToLongDateString();
                 txtTotal.Text = locacao.PrecoLocacao.ToString();
+                Servicos = locacao.Servicos;
+                TipoSeguro = locacao.TipoDeSeguro;
 
             }
         }
@@ -104,12 +108,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void btnServicos_Click(object sender, EventArgs e)
         {
             telaServico = new ServicosForm();
-            if (Locacao != null)
-                telaServico.InicializarCampos(Locacao.Servicos, Locacao.TipoDeSeguro);
+            telaServico.InicializarCampos(Servicos, TipoSeguro);
 
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
                 Servicos = telaServico.servicosSelecionados;
+                TipoSeguro = telaServico.seguro;
                 double precoGarantia = CalcularLocacao.CalcularGarantia();
                 double precoSeguro = CalcularLocacao.CalcularSeguro(telaServico.seguro);
                 txtTotal.Text = Convert.ToString(precoGarantia+precoSeguro);
