@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.lblFuncionario = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.gBoxDevolucao = new System.Windows.Forms.GroupBox();
             this.txtValorInicial = new System.Windows.Forms.TextBox();
@@ -333,16 +333,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtId.TabIndex = 2;
             this.txtId.Text = "0";
             // 
-            // txtTotal
+            // txtValorTotal
             // 
-            this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(436, 342);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(132, 22);
-            this.txtTotal.TabIndex = 17;
-            this.txtTotal.Text = "0";
+            this.txtValorTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtValorTotal.Enabled = false;
+            this.txtValorTotal.Location = new System.Drawing.Point(436, 342);
+            this.txtValorTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(132, 22);
+            this.txtValorTotal.TabIndex = 17;
+            this.txtValorTotal.Text = "0";
             // 
             // lblValorTotal
             // 
@@ -377,7 +377,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.gBoxDevolucao.Controls.Add(this.cBoxQtdTanque);
             this.gBoxDevolucao.Controls.Add(this.lblValorCombustivel);
             this.gBoxDevolucao.Controls.Add(this.txtValorCombustivel);
-            this.gBoxDevolucao.Controls.Add(this.txtTotal);
+            this.gBoxDevolucao.Controls.Add(this.txtValorTotal);
             this.gBoxDevolucao.Controls.Add(this.lblValorTotal);
             this.gBoxDevolucao.Location = new System.Drawing.Point(601, 102);
             this.gBoxDevolucao.Margin = new System.Windows.Forms.Padding(4);
@@ -429,6 +429,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.dtDevolucao.Name = "dtDevolucao";
             this.dtDevolucao.Size = new System.Drawing.Size(171, 22);
             this.dtDevolucao.TabIndex = 32;
+            this.dtDevolucao.ValueChanged += new System.EventHandler(this.dtDevolucao_ValueChanged);
             // 
             // rBtn01
             // 
@@ -665,7 +666,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         private System.Windows.Forms.Label lblFuncionario;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.Label lblValorTotal;
         private System.Windows.Forms.GroupBox gBoxDevolucao;
         private System.Windows.Forms.Label lblServicos;

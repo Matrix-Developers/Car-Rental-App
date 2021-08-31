@@ -44,6 +44,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 txtPlano.Text = devolucao.TipoDoPlano;
                 txtDataLocacao.Text = devolucao.DataDeSaida.ToString();
                 txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToString();
+                dtDevolucao.Value = devolucao.DataPrevistaDeChegada;
                 txtValorInicial.Text = devolucao.PrecoLocacao.ToString();
                 telaServico.InicializarCampos(Devolucao.Servicos, devolucao.TipoDeSeguro, false);
                 AtualizarListBox();
@@ -63,6 +64,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         }
         private void brnConfirmar_Click(object sender, EventArgs e)
         {
+            double precoCombustivel = ReceberPrecoCombustivel();
+            Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
+
+            string resultadoValidacao = Devolucao.Validar();
+
+            MessageBox.Show("Devolucao " + Devolucao.PrecoDevolucao);
+
+            if (resultadoValidacao != "VALIDO")
+            {
+                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                DialogResult = DialogResult.None;
+            }
+        }
+
+        private double ReceberPrecoCombustivel()
+        {
             double porcentagemTanque = 0;
             switch (cBoxQtdTanque.SelectedItem.ToString())
             {
@@ -79,21 +97,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                     porcentagemTanque = 1;
                     break;
             }
-            double valorPorLitro = Convert.ToDouble(txtValorCombustivel.Text);
+            if (!double.TryParse(txtValorCombustivel.Text, out double valorPorLitro))
+                valorPorLitro = 0;
             double precoCombustivel = CalcularLocacao.CalcularDiferencaCombustivel(Devolucao.Veiculo.capacidadeTanque, porcentagemTanque, valorPorLitro);
-            Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
-
-            string resultadoValidacao = Devolucao.Validar();
-
-            MessageBox.Show("Devolucao " + Devolucao.PrecoDevolucao);
-
-            if (resultadoValidacao != "VALIDO")
-            {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
-                DialogResult = DialogResult.None;
-            }
-
+            return precoCombustivel;
         }
         #endregion
 
@@ -110,6 +117,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 rBtn34.Checked = true;
             else if (cBoxQtdTanque.SelectedIndex == 4)
                 rBtn11.Checked = true;
+
+            if (Devolucao != null)
+                SimularCalculoDevolucao();
         }
         
         private void rBtn01_CheckedChanged(object sender, EventArgs e)
@@ -157,6 +167,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             {
                 e.Handled = true;
             }
+
+            SimularCalculoDevolucao();
         }
         private void txtKmFinal_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -171,12 +183,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             {
                 e.Handled = true;
             }
+
+            SimularCalculoDevolucao();
+        }
+
+        private void dtDevolucao_ValueChanged(object sender, EventArgs e)
+        {
+            SimularCalculoDevolucao();
         }
         #endregion
 
         #region Atualizar lista
         private void AtualizarListBox()
         {
+            if (string.IsNullOrEmpty(txtKmFinal.Text))
+                txtKmFinal.Text = "0";
+            if (string.IsNullOrEmpty(txtValorCombustivel.Text))
+                txtValorCombustivel.Text = "0";
             if (Devolucao.Servicos != null)
             {
                 cLBoxServicosSelecionados.Items.Clear();
@@ -187,7 +210,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                     cLBoxServicosSelecionados.SetItemChecked(i++, true);
                 }
             }
+            SimularCalculoDevolucao();
         }
         #endregion
+
+        private void SimularCalculoDevolucao()
+        {
+            if (!double.TryParse(txtValorInicial.Text, out double precoDevolucao))
+                precoDevolucao = 0;
+            if (!double.TryParse(txtKmFinal.Text, out double kilometrosRodados))
+                precoDevolucao = 0;
+
+            precoDevolucao += ReceberPrecoCombustivel();
+            precoDevolucao += CalcularLocacao.CalcularPlano(Devolucao.TipoDoPlano, Devolucao.Veiculo.grupoVeiculos, kilometrosRodados, Devolucao.DataDeSaida, dtDevolucao.Value);
+            precoDevolucao += CalcularLocacao.CalcularServicos(Devolucao.Servicos, Devolucao.DataDeSaida, dtDevolucao.Value);
+            txtValorTotal.Text = Math.Round(precoDevolucao, 2).ToString();
+        }
     }
 }
