@@ -17,13 +17,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     {
         private Locacao devolucao;
         List<Servico> adicionarSevicos = new List<Servico>();
-        ServicosForm telaServico = new ServicosForm();
+        ServicosForm telaServico;
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();
             lblTitulo.Text = titulo;
             cBoxQtdTanque.SelectedIndex = 0;
             AtualizarListBox();
+            telaServico = new ServicosForm();
         }
 
         public Locacao Devolucao
@@ -45,6 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToString();
                 adicionarSevicos = Devolucao.Servicos;
                 AtualizarListBox();
+                telaServico.InicializarCampos(devolucao.Servicos, devolucao.TipoDeSeguro);
             }
         }
 

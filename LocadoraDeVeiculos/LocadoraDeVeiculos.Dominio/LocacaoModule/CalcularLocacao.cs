@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.Dominio.Shared
             return precoPorDia + precoPorKm;
         }
 
-        internal static double CalcularServicos(List<Servico> servicos, DateTime dataInicial, DateTime dataFinal)
+        public static double CalcularServicos(List<Servico> servicos, DateTime dataInicial, DateTime dataFinal)
         {
             double resultado = 0;
             double intervaloDeDias = (dataFinal - dataInicial).TotalDays;

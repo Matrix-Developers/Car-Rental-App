@@ -28,6 +28,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             cBoxSeguro.SelectedIndex = 0;
         }
 
+        public void InicializarCampos(List<Servico> servicosIniciais, string seguroInicial)
+        {
+            if (seguroInicial.Contains("Terceiro"))
+                cBoxSeguro.SelectedIndex = 2;
+            else if (seguroInicial.Contains("Cliente"))
+                cBoxSeguro.SelectedIndex = 1;
+
+            if (servicosIniciais != null)
+            {
+                for (int index = 0; index < cLBoxServicos.Items.Count; index++)
+                {
+                    cLBoxServicos.SetItemChecked(index, servicosIniciais.Contains(cLBoxServicos.Items[index]));
+                }
+            }
+            CalcularValorServicos();
+        }
+
         private void AtualizarListCheckBox()
         {
             cLBoxServicos.Items.Clear();
@@ -53,6 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
         private void CalcularValorServicos()
         {
             valorTotal = CalcularLocacao.CalcularSeguro(cBoxSeguro.SelectedItem.ToString().Replace(" ", ""));
+            //o calculo de serviços está errado. não está considerando serviços com taxas diarias.
             for (int i = 0; i < cLBoxServicos.Items.Count; i++)
                 if (cLBoxServicos.GetItemChecked(i))
                     valorTotal += (cLBoxServicos.Items[i] as Servico).Valor;

@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
         private ControladorCliente controladorCliente = new ControladorCliente();
         public List<Servico> Servicos = new List<Servico>();
-        ServicosForm telaServico = new ServicosForm();
+        ServicosForm telaServico;
         public TelaLocacaoForm(string titulo)
         {
             InitializeComponent();
@@ -37,6 +37,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.Text = titulo;
             lblTitulo.Text = titulo;
             cBoxPlano.SelectedIndex = 0;
+            
         }
 
         public Locacao Locacao
@@ -101,6 +102,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
+            telaServico = new ServicosForm();
+            if (Locacao != null)
+                telaServico.InicializarCampos(Locacao.Servicos, Locacao.TipoDeSeguro);
+
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
                 Servicos = telaServico.servicosSelecionados;
