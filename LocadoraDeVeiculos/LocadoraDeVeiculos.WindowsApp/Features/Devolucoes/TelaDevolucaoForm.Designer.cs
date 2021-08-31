@@ -56,8 +56,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.gBoxDevolucao = new System.Windows.Forms.GroupBox();
+            this.txtValorInicial = new System.Windows.Forms.TextBox();
+            this.lblValorInicial = new System.Windows.Forms.Label();
             this.lblEncerrar = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtDevolucao = new System.Windows.Forms.DateTimePicker();
             this.rBtn01 = new System.Windows.Forms.RadioButton();
             this.lblFull = new System.Windows.Forms.Label();
             this.lblEmpty = new System.Windows.Forms.Label();
@@ -74,8 +76,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.cBoxQtdTanque = new System.Windows.Forms.ComboBox();
             this.lblValorCombustivel = new System.Windows.Forms.Label();
             this.txtValorCombustivel = new System.Windows.Forms.TextBox();
-            this.lblValorInicial = new System.Windows.Forms.Label();
-            this.txtValorInicial = new System.Windows.Forms.TextBox();
             this.gBoxLocacao.SuspendLayout();
             this.gBoxDevolucao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,7 +96,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.brnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.brnConfirmar.Location = new System.Drawing.Point(972, 502);
-            this.brnConfirmar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.brnConfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.brnConfirmar.Name = "brnConfirmar";
             this.brnConfirmar.Size = new System.Drawing.Size(100, 28);
             this.brnConfirmar.TabIndex = 22;
@@ -108,7 +108,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(1080, 502);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 23;
@@ -139,9 +139,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.gBoxLocacao.Controls.Add(this.txtId);
             this.gBoxLocacao.Enabled = false;
             this.gBoxLocacao.Location = new System.Drawing.Point(16, 102);
-            this.gBoxLocacao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxLocacao.Margin = new System.Windows.Forms.Padding(4);
             this.gBoxLocacao.Name = "gBoxLocacao";
-            this.gBoxLocacao.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxLocacao.Padding = new System.Windows.Forms.Padding(4);
             this.gBoxLocacao.Size = new System.Drawing.Size(577, 384);
             this.gBoxLocacao.TabIndex = 20;
             this.gBoxLocacao.TabStop = false;
@@ -152,7 +152,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtKmInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtKmInicial.Enabled = false;
             this.txtKmInicial.Location = new System.Drawing.Point(379, 23);
-            this.txtKmInicial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKmInicial.Margin = new System.Windows.Forms.Padding(4);
             this.txtKmInicial.Name = "txtKmInicial";
             this.txtKmInicial.Size = new System.Drawing.Size(187, 22);
             this.txtKmInicial.TabIndex = 25;
@@ -181,7 +181,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.cLBoxServicosSelecionados.FormattingEnabled = true;
             this.cLBoxServicosSelecionados.Location = new System.Drawing.Point(119, 251);
-            this.cLBoxServicosSelecionados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cLBoxServicosSelecionados.Margin = new System.Windows.Forms.Padding(4);
             this.cLBoxServicosSelecionados.Name = "cLBoxServicosSelecionados";
             this.cLBoxServicosSelecionados.Size = new System.Drawing.Size(449, 106);
             this.cLBoxServicosSelecionados.TabIndex = 30;
@@ -189,7 +189,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // txtDataDevolucao
             // 
             this.txtDataDevolucao.Location = new System.Drawing.Point(379, 215);
-            this.txtDataDevolucao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDataDevolucao.Margin = new System.Windows.Forms.Padding(4);
             this.txtDataDevolucao.Name = "txtDataDevolucao";
             this.txtDataDevolucao.Size = new System.Drawing.Size(189, 22);
             this.txtDataDevolucao.TabIndex = 25;
@@ -197,7 +197,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // txtDataLocacao
             // 
             this.txtDataLocacao.Location = new System.Drawing.Point(119, 215);
-            this.txtDataLocacao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDataLocacao.Margin = new System.Windows.Forms.Padding(4);
             this.txtDataLocacao.Name = "txtDataLocacao";
             this.txtDataLocacao.Size = new System.Drawing.Size(160, 22);
             this.txtDataLocacao.TabIndex = 29;
@@ -205,7 +205,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // txtCondutor
             // 
             this.txtCondutor.Location = new System.Drawing.Point(119, 183);
-            this.txtCondutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCondutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtCondutor.Name = "txtCondutor";
             this.txtCondutor.Size = new System.Drawing.Size(449, 22);
             this.txtCondutor.TabIndex = 28;
@@ -213,7 +213,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // txtCliente
             // 
             this.txtCliente.Location = new System.Drawing.Point(119, 151);
-            this.txtCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(449, 22);
             this.txtCliente.TabIndex = 27;
@@ -221,7 +221,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // txtPlano
             // 
             this.txtPlano.Location = new System.Drawing.Point(119, 119);
-            this.txtPlano.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPlano.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlano.Name = "txtPlano";
             this.txtPlano.Size = new System.Drawing.Size(449, 22);
             this.txtPlano.TabIndex = 26;
@@ -229,7 +229,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // txtVeiculo
             // 
             this.txtVeiculo.Location = new System.Drawing.Point(119, 87);
-            this.txtVeiculo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVeiculo.Margin = new System.Windows.Forms.Padding(4);
             this.txtVeiculo.Name = "txtVeiculo";
             this.txtVeiculo.Size = new System.Drawing.Size(449, 22);
             this.txtVeiculo.TabIndex = 25;
@@ -237,7 +237,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // txtFuncionario
             // 
             this.txtFuncionario.Location = new System.Drawing.Point(119, 55);
-            this.txtFuncionario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFuncionario.Margin = new System.Windows.Forms.Padding(4);
             this.txtFuncionario.Name = "txtFuncionario";
             this.txtFuncionario.Size = new System.Drawing.Size(449, 22);
             this.txtFuncionario.TabIndex = 16;
@@ -327,7 +327,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(119, 23);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(160, 22);
             this.txtId.TabIndex = 2;
@@ -338,7 +338,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(436, 342);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(132, 22);
             this.txtTotal.TabIndex = 17;
@@ -359,7 +359,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.gBoxDevolucao.Controls.Add(this.txtValorInicial);
             this.gBoxDevolucao.Controls.Add(this.lblValorInicial);
             this.gBoxDevolucao.Controls.Add(this.lblEncerrar);
-            this.gBoxDevolucao.Controls.Add(this.dateTimePicker1);
+            this.gBoxDevolucao.Controls.Add(this.dtDevolucao);
             this.gBoxDevolucao.Controls.Add(this.rBtn01);
             this.gBoxDevolucao.Controls.Add(this.lblFull);
             this.gBoxDevolucao.Controls.Add(this.lblEmpty);
@@ -379,13 +379,34 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.gBoxDevolucao.Controls.Add(this.txtTotal);
             this.gBoxDevolucao.Controls.Add(this.lblValorTotal);
             this.gBoxDevolucao.Location = new System.Drawing.Point(601, 102);
-            this.gBoxDevolucao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxDevolucao.Margin = new System.Windows.Forms.Padding(4);
             this.gBoxDevolucao.Name = "gBoxDevolucao";
-            this.gBoxDevolucao.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxDevolucao.Padding = new System.Windows.Forms.Padding(4);
             this.gBoxDevolucao.Size = new System.Drawing.Size(577, 384);
             this.gBoxDevolucao.TabIndex = 24;
             this.gBoxDevolucao.TabStop = false;
             this.gBoxDevolucao.Text = "Devolução";
+            // 
+            // txtValorInicial
+            // 
+            this.txtValorInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtValorInicial.Enabled = false;
+            this.txtValorInicial.Location = new System.Drawing.Point(436, 310);
+            this.txtValorInicial.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValorInicial.Name = "txtValorInicial";
+            this.txtValorInicial.Size = new System.Drawing.Size(132, 22);
+            this.txtValorInicial.TabIndex = 35;
+            // 
+            // lblValorInicial
+            // 
+            this.lblValorInicial.AutoSize = true;
+            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorInicial.Location = new System.Drawing.Point(287, 312);
+            this.lblValorInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblValorInicial.Name = "lblValorInicial";
+            this.lblValorInicial.Size = new System.Drawing.Size(144, 20);
+            this.lblValorInicial.TabIndex = 34;
+            this.lblValorInicial.Text = "Valor Inicial: R$";
             // 
             // lblEncerrar
             // 
@@ -397,21 +418,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.lblEncerrar.TabIndex = 33;
             this.lblEncerrar.Text = "Devolução";
             // 
-            // dateTimePicker1
+            // dtDevolucao
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(397, 247);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 22);
-            this.dateTimePicker1.TabIndex = 32;
+            this.dtDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDevolucao.Location = new System.Drawing.Point(397, 247);
+            this.dtDevolucao.Margin = new System.Windows.Forms.Padding(4);
+            this.dtDevolucao.Name = "dtDevolucao";
+            this.dtDevolucao.Size = new System.Drawing.Size(171, 22);
+            this.dtDevolucao.TabIndex = 32;
             // 
             // rBtn01
             // 
             this.rBtn01.AutoSize = true;
             this.rBtn01.Location = new System.Drawing.Point(247, 177);
-            this.rBtn01.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBtn01.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn01.Name = "rBtn01";
             this.rBtn01.Size = new System.Drawing.Size(17, 16);
             this.rBtn01.TabIndex = 25;
@@ -447,7 +468,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.rBtn11.AutoSize = true;
             this.rBtn11.Location = new System.Drawing.Point(529, 177);
-            this.rBtn11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBtn11.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn11.Name = "rBtn11";
             this.rBtn11.Size = new System.Drawing.Size(17, 16);
             this.rBtn11.TabIndex = 29;
@@ -459,7 +480,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.rBtn34.AutoSize = true;
             this.rBtn34.Location = new System.Drawing.Point(469, 126);
-            this.rBtn34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBtn34.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn34.Name = "rBtn34";
             this.rBtn34.Size = new System.Drawing.Size(17, 16);
             this.rBtn34.TabIndex = 28;
@@ -471,7 +492,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.rBtn12.AutoSize = true;
             this.rBtn12.Location = new System.Drawing.Point(388, 107);
-            this.rBtn12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBtn12.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn12.Name = "rBtn12";
             this.rBtn12.Size = new System.Drawing.Size(17, 16);
             this.rBtn12.TabIndex = 27;
@@ -483,7 +504,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.rBtn14.AutoSize = true;
             this.rBtn14.Location = new System.Drawing.Point(308, 126);
-            this.rBtn14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rBtn14.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn14.Name = "rBtn14";
             this.rBtn14.Size = new System.Drawing.Size(17, 16);
             this.rBtn14.TabIndex = 26;
@@ -495,7 +516,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.pictureBox1.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.FuelGauge1;
             this.pictureBox1.Location = new System.Drawing.Point(260, 123);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(283, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -505,17 +526,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblKmFinal
             // 
             this.lblKmFinal.AutoSize = true;
-            this.lblKmFinal.Location = new System.Drawing.Point(25, 59);
+            this.lblKmFinal.Location = new System.Drawing.Point(8, 59);
             this.lblKmFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKmFinal.Name = "lblKmFinal";
-            this.lblKmFinal.Size = new System.Drawing.Size(62, 17);
+            this.lblKmFinal.Size = new System.Drawing.Size(77, 17);
             this.lblKmFinal.TabIndex = 25;
-            this.lblKmFinal.Text = "Km Final";
+            this.lblKmFinal.Text = "Km rodado";
             // 
             // txtKmFinal
             // 
             this.txtKmFinal.Location = new System.Drawing.Point(96, 55);
-            this.txtKmFinal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKmFinal.Margin = new System.Windows.Forms.Padding(4);
             this.txtKmFinal.Name = "txtKmFinal";
             this.txtKmFinal.Size = new System.Drawing.Size(187, 22);
             this.txtKmFinal.TabIndex = 24;
@@ -524,7 +545,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblServicos
             // 
             this.lblServicos.AutoSize = true;
-            this.lblServicos.Location = new System.Drawing.Point(296, 59);
+            this.lblServicos.Location = new System.Drawing.Point(330, 58);
             this.lblServicos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServicos.Name = "lblServicos";
             this.lblServicos.Size = new System.Drawing.Size(130, 17);
@@ -533,8 +554,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             // btnSelecionarServicos
             // 
-            this.btnSelecionarServicos.Location = new System.Drawing.Point(436, 53);
-            this.btnSelecionarServicos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelecionarServicos.Location = new System.Drawing.Point(468, 53);
+            this.btnSelecionarServicos.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelecionarServicos.Name = "btnSelecionarServicos";
             this.btnSelecionarServicos.Size = new System.Drawing.Size(100, 28);
             this.btnSelecionarServicos.TabIndex = 22;
@@ -545,7 +566,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblQtdTanque
             // 
             this.lblQtdTanque.AutoSize = true;
-            this.lblQtdTanque.Location = new System.Drawing.Point(25, 160);
+            this.lblQtdTanque.Location = new System.Drawing.Point(9, 158);
             this.lblQtdTanque.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQtdTanque.Name = "lblQtdTanque";
             this.lblQtdTanque.Size = new System.Drawing.Size(88, 17);
@@ -562,8 +583,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             "1/2",
             "3/4",
             "1/1"});
-            this.cBoxQtdTanque.Location = new System.Drawing.Point(129, 155);
-            this.cBoxQtdTanque.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cBoxQtdTanque.Location = new System.Drawing.Point(105, 152);
+            this.cBoxQtdTanque.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxQtdTanque.Name = "cBoxQtdTanque";
             this.cBoxQtdTanque.Size = new System.Drawing.Size(99, 24);
             this.cBoxQtdTanque.TabIndex = 20;
@@ -572,7 +593,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblValorCombustivel
             // 
             this.lblValorCombustivel.AutoSize = true;
-            this.lblValorCombustivel.Location = new System.Drawing.Point(25, 251);
+            this.lblValorCombustivel.Location = new System.Drawing.Point(9, 250);
             this.lblValorCombustivel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValorCombustivel.Name = "lblValorCombustivel";
             this.lblValorCombustivel.Size = new System.Drawing.Size(163, 17);
@@ -581,33 +602,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             // txtValorCombustivel
             // 
-            this.txtValorCombustivel.Location = new System.Drawing.Point(197, 247);
-            this.txtValorCombustivel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValorCombustivel.Location = new System.Drawing.Point(180, 247);
+            this.txtValorCombustivel.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorCombustivel.Name = "txtValorCombustivel";
             this.txtValorCombustivel.Size = new System.Drawing.Size(99, 22);
             this.txtValorCombustivel.TabIndex = 18;
             this.txtValorCombustivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorCombustivel_KeyPress);
-            // 
-            // lblValorInicial
-            // 
-            this.lblValorInicial.AutoSize = true;
-            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorInicial.Location = new System.Drawing.Point(287, 312);
-            this.lblValorInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblValorInicial.Name = "lblValorInicial";
-            this.lblValorInicial.Size = new System.Drawing.Size(144, 20);
-            this.lblValorInicial.TabIndex = 34;
-            this.lblValorInicial.Text = "Valor Inicial: R$";
-            // 
-            // txtValorInicial
-            // 
-            this.txtValorInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtValorInicial.Enabled = false;
-            this.txtValorInicial.Location = new System.Drawing.Point(436, 310);
-            this.txtValorInicial.Margin = new System.Windows.Forms.Padding(4);
-            this.txtValorInicial.Name = "txtValorInicial";
-            this.txtValorInicial.Size = new System.Drawing.Size(132, 22);
-            this.txtValorInicial.TabIndex = 35;
             // 
             // TelaDevolucaoForm
             // 
@@ -620,7 +620,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.Controls.Add(this.gBoxLocacao);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaDevolucaoForm";
@@ -683,7 +683,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         private System.Windows.Forms.RadioButton rBtn34;
         private System.Windows.Forms.RadioButton rBtn11;
         private System.Windows.Forms.Label lblEncerrar;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtDevolucao;
         private System.Windows.Forms.Label lblValorInicial;
         private System.Windows.Forms.TextBox txtValorInicial;
     }

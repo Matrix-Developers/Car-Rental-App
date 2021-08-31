@@ -1,11 +1,13 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 txtPlano.Text = devolucao.TipoDoPlano;
                 txtDataLocacao.Text = devolucao.DataDeSaida.ToString();
                 txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToString();
+                txtValorInicial.Text = devolucao.PrecoLocacao.ToString();
                 adicionarSevicos = Devolucao.Servicos;
                 AtualizarListBox();
                 telaServico.InicializarCampos(devolucao.Servicos, devolucao.TipoDeSeguro);
@@ -56,12 +59,42 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
                 adicionarSevicos = telaServico.servicosSelecionados;
-                txtTotal.Text = Convert.ToString(telaServico.valorFinal);
+                //txtTotal.Text = Convert.ToString(telaServico.valorFinal);
                 AtualizarListBox();
             }
         }
         private void brnConfirmar_Click(object sender, EventArgs e)
         {
+            double porcentagemTanque = 0;
+            switch (cBoxQtdTanque.SelectedItem.ToString())
+            {
+                case "1/4":
+                    porcentagemTanque = 0.25;
+                    break;
+                case "1/2":
+                    porcentagemTanque = 0.5;
+                    break;
+                case "3/4":
+                    porcentagemTanque = 0.75;
+                    break;
+                case "1/1":
+                    porcentagemTanque = 1;
+                    break;
+            }
+            double valorPorLitro = Convert.ToDouble(txtValorCombustivel.Text);
+            double precoCombustivel = CalcularLocacao.CalcularDiferencaCombustivel(Devolucao.Veiculo.capacidadeTanque, porcentagemTanque, valorPorLitro);
+            Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
+
+            string resultadoValidacao = Devolucao.Validar();
+
+            MessageBox.Show("Devolucao " + Devolucao.PrecoDevolucao);
+
+            if (resultadoValidacao != "VALIDO")
+            {
+                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                DialogResult = DialogResult.None;
+            }
 
         }
         #endregion

@@ -66,5 +66,14 @@ namespace LocadoraDeVeiculos.Dominio.Shared
             }
             return resultado;
         }
+
+        public static double CalcularDiferencaCombustivel(double qtdTotalTanque, double porcentCombustivelAtual, double valorPorLitro)
+        {
+            double medidaAtualDoTanque = qtdTotalTanque * porcentCombustivelAtual;
+            double diferencaDoTanque = qtdTotalTanque - medidaAtualDoTanque;
+            double valorAPagar = diferencaDoTanque * valorPorLitro;
+
+            return valorAPagar;
+        }
     }
 }

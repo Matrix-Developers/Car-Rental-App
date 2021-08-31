@@ -86,15 +86,19 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             dataDeSaida = dataAbertura;
             precoLocacao = CalcularLocacao.CalcularSeguro(tipoDeSeguro);
             precoLocacao += CalcularLocacao.CalcularGarantia();
+            precoLocacao = Math.Round(precoLocacao, 2);
         }
 
-        public void FecharLocacao(DateTime dataFechamento)
+        public void FecharLocacao(DateTime dataFechamento, double adicionalDoCombustivel, double kilometragemRodada)
         {
             estaAberta = false;
             dataDeChegada = dataFechamento;
+            veiculo.kilometragem += kilometragemRodada;
             precoDevolucao = precoLocacao;
-            precoDevolucao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, veiculo.kilometragem, DataDeSaida, dataDeChegada);
+            precoDevolucao += adicionalDoCombustivel;
+            precoDevolucao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, kilometragemRodada, DataDeSaida, dataDeChegada);
             precoDevolucao += CalcularLocacao.CalcularServicos(servicos, dataDeSaida, dataDeChegada);
+            precoDevolucao = Math.Round(precoDevolucao, 2);
         }
 
         public override string Validar()
@@ -153,13 +157,12 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                    tipoDeSeguro == locacao.tipoDeSeguro &&
                    precoLocacao == locacao.precoLocacao &&
                    precoDevolucao == locacao.precoDevolucao &&
-                   estaAberta == locacao.estaAberta &&
-                   EqualityComparer<List<Servico>>.Default.Equals(servicos, locacao.servicos);
+                   estaAberta == locacao.estaAberta;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = -1224135602;
+            int hashCode = 1457090499;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Veiculo>.Default.GetHashCode(veiculo);
             hashCode = hashCode * -1521134295 + EqualityComparer<Funcionario>.Default.GetHashCode(funcionarioLocador);
@@ -173,7 +176,6 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             hashCode = hashCode * -1521134295 + precoLocacao.GetHashCode();
             hashCode = hashCode * -1521134295 + precoDevolucao.GetHashCode();
             hashCode = hashCode * -1521134295 + estaAberta.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<List<Servico>>.Default.GetHashCode(servicos);
             return hashCode;
         }
     }
