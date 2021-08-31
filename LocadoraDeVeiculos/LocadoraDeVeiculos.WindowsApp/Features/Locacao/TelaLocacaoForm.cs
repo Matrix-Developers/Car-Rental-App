@@ -6,6 +6,7 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Servicos;
 using System;
@@ -56,6 +57,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 cBoxPlano.SelectedItem = locacao.TipoDoPlano;
                 dateTPDataSaida.Text = locacao.DataDeSaida.ToLongDateString();
                 dateTPDataDevolucao.Text = locacao.DataPrevistaDeChegada.ToLongDateString();
+                txtTotal.Text = locacao.PrecoLocacao.ToString();
+
             }
         }
 
@@ -77,19 +80,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void brnConfirmar_Click(object sender, EventArgs e)
         {
-            int id = 0;
-            if (txtId.Text.Length > 0)
-                id = Convert.ToInt32(txtId.Text);
-            string tipoDoPlano = "PlanoDiario";
-
+            int id = Convert.ToInt32(txtId.Text);
+            string tipoDoPlano = cBoxPlano.Text.Replace(" ", "");
             Veiculo veiculo = cBoxVeiculo.SelectedItem as Veiculo;
             Funcionario funcionarioLocador = cBoxFuncionario.SelectedItem as Funcionario;
             Cliente clienteContratante = cBoxCliente.SelectedItem as Cliente;
             Cliente condutor = cBoxCondutor.SelectedItem as Cliente;
             DateTime dataDeSaida = dateTPDataSaida.Value;
             DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
-            string tipoDeSeguro = telaServico.seguro;            
+            string tipoDeSeguro = telaServico.seguro;
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
+
             string resultadoValidacao = locacao.Validar();
 
             if (resultadoValidacao != "VALIDO")
@@ -109,7 +110,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
                 Servicos = telaServico.servicosSelecionados;
-                txtTotal.Text = Convert.ToString(telaServico.valorFinal);
+                double precoGarantia = CalcularLocacao.CalcularGarantia();
+                double precoSeguro = CalcularLocacao.CalcularSeguro(telaServico.seguro);
+                txtTotal.Text = Convert.ToString(precoGarantia+precoSeguro);
             }
         }
     }
