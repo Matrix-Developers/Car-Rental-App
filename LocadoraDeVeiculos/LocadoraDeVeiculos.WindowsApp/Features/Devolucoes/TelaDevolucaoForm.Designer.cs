@@ -342,6 +342,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(132, 22);
             this.txtTotal.TabIndex = 17;
+            this.txtTotal.Text = "0";
             // 
             // lblValorTotal
             // 
@@ -396,6 +397,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtValorInicial.Name = "txtValorInicial";
             this.txtValorInicial.Size = new System.Drawing.Size(132, 22);
             this.txtValorInicial.TabIndex = 35;
+            this.txtValorInicial.Text = "0";
             // 
             // lblValorInicial
             // 
@@ -411,7 +413,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblEncerrar
             // 
             this.lblEncerrar.AutoSize = true;
-            this.lblEncerrar.Location = new System.Drawing.Point(311, 251);
+            this.lblEncerrar.Location = new System.Drawing.Point(11, 267);
             this.lblEncerrar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEncerrar.Name = "lblEncerrar";
             this.lblEncerrar.Size = new System.Drawing.Size(75, 17);
@@ -422,7 +424,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             this.dtDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dtDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDevolucao.Location = new System.Drawing.Point(397, 247);
+            this.dtDevolucao.Location = new System.Drawing.Point(97, 263);
             this.dtDevolucao.Margin = new System.Windows.Forms.Padding(4);
             this.dtDevolucao.Name = "dtDevolucao";
             this.dtDevolucao.Size = new System.Drawing.Size(171, 22);
@@ -431,7 +433,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // rBtn01
             // 
             this.rBtn01.AutoSize = true;
-            this.rBtn01.Location = new System.Drawing.Point(247, 177);
+            this.rBtn01.Location = new System.Drawing.Point(150, 195);
             this.rBtn01.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn01.Name = "rBtn01";
             this.rBtn01.Size = new System.Drawing.Size(17, 16);
@@ -445,7 +447,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.lblFull.AutoSize = true;
             this.lblFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFull.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFull.Location = new System.Drawing.Point(511, 209);
+            this.lblFull.Location = new System.Drawing.Point(169, 218);
             this.lblFull.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFull.Name = "lblFull";
             this.lblFull.Size = new System.Drawing.Size(20, 20);
@@ -457,7 +459,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.lblEmpty.AutoSize = true;
             this.lblEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpty.ForeColor = System.Drawing.Color.Red;
-            this.lblEmpty.Location = new System.Drawing.Point(271, 209);
+            this.lblEmpty.Location = new System.Drawing.Point(420, 212);
             this.lblEmpty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmpty.Name = "lblEmpty";
             this.lblEmpty.Size = new System.Drawing.Size(21, 20);
@@ -467,7 +469,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // rBtn11
             // 
             this.rBtn11.AutoSize = true;
-            this.rBtn11.Location = new System.Drawing.Point(529, 177);
+            this.rBtn11.Location = new System.Drawing.Point(432, 195);
             this.rBtn11.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn11.Name = "rBtn11";
             this.rBtn11.Size = new System.Drawing.Size(17, 16);
@@ -479,7 +481,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // rBtn34
             // 
             this.rBtn34.AutoSize = true;
-            this.rBtn34.Location = new System.Drawing.Point(469, 126);
+            this.rBtn34.Location = new System.Drawing.Point(372, 144);
             this.rBtn34.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn34.Name = "rBtn34";
             this.rBtn34.Size = new System.Drawing.Size(17, 16);
@@ -491,7 +493,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // rBtn12
             // 
             this.rBtn12.AutoSize = true;
-            this.rBtn12.Location = new System.Drawing.Point(388, 107);
+            this.rBtn12.Location = new System.Drawing.Point(291, 125);
             this.rBtn12.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn12.Name = "rBtn12";
             this.rBtn12.Size = new System.Drawing.Size(17, 16);
@@ -503,7 +505,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // rBtn14
             // 
             this.rBtn14.AutoSize = true;
-            this.rBtn14.Location = new System.Drawing.Point(308, 126);
+            this.rBtn14.Location = new System.Drawing.Point(211, 144);
             this.rBtn14.Margin = new System.Windows.Forms.Padding(4);
             this.rBtn14.Name = "rBtn14";
             this.rBtn14.Size = new System.Drawing.Size(17, 16);
@@ -515,7 +517,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.FuelGauge1;
-            this.pictureBox1.Location = new System.Drawing.Point(260, 123);
+            this.pictureBox1.Location = new System.Drawing.Point(163, 141);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(283, 98);
@@ -526,7 +528,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblKmFinal
             // 
             this.lblKmFinal.AutoSize = true;
-            this.lblKmFinal.Location = new System.Drawing.Point(8, 59);
+            this.lblKmFinal.Location = new System.Drawing.Point(11, 58);
             this.lblKmFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKmFinal.Name = "lblKmFinal";
             this.lblKmFinal.Size = new System.Drawing.Size(77, 17);
@@ -540,12 +542,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtKmFinal.Name = "txtKmFinal";
             this.txtKmFinal.Size = new System.Drawing.Size(187, 22);
             this.txtKmFinal.TabIndex = 24;
+            this.txtKmFinal.Text = "0";
             this.txtKmFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKmFinal_KeyPress);
             // 
             // lblServicos
             // 
             this.lblServicos.AutoSize = true;
-            this.lblServicos.Location = new System.Drawing.Point(330, 58);
+            this.lblServicos.Location = new System.Drawing.Point(320, 58);
             this.lblServicos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServicos.Name = "lblServicos";
             this.lblServicos.Size = new System.Drawing.Size(130, 17);
@@ -554,7 +557,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             // btnSelecionarServicos
             // 
-            this.btnSelecionarServicos.Location = new System.Drawing.Point(468, 53);
+            this.btnSelecionarServicos.Location = new System.Drawing.Point(458, 53);
             this.btnSelecionarServicos.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelecionarServicos.Name = "btnSelecionarServicos";
             this.btnSelecionarServicos.Size = new System.Drawing.Size(100, 28);
@@ -566,7 +569,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblQtdTanque
             // 
             this.lblQtdTanque.AutoSize = true;
-            this.lblQtdTanque.Location = new System.Drawing.Point(9, 158);
+            this.lblQtdTanque.Location = new System.Drawing.Point(362, 98);
             this.lblQtdTanque.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQtdTanque.Name = "lblQtdTanque";
             this.lblQtdTanque.Size = new System.Drawing.Size(88, 17);
@@ -583,7 +586,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             "1/2",
             "3/4",
             "1/1"});
-            this.cBoxQtdTanque.Location = new System.Drawing.Point(105, 152);
+            this.cBoxQtdTanque.Location = new System.Drawing.Point(458, 98);
             this.cBoxQtdTanque.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxQtdTanque.Name = "cBoxQtdTanque";
             this.cBoxQtdTanque.Size = new System.Drawing.Size(99, 24);
@@ -593,7 +596,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // lblValorCombustivel
             // 
             this.lblValorCombustivel.AutoSize = true;
-            this.lblValorCombustivel.Location = new System.Drawing.Point(9, 250);
+            this.lblValorCombustivel.Location = new System.Drawing.Point(11, 98);
             this.lblValorCombustivel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValorCombustivel.Name = "lblValorCombustivel";
             this.lblValorCombustivel.Size = new System.Drawing.Size(163, 17);
@@ -602,11 +605,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             // 
             // txtValorCombustivel
             // 
-            this.txtValorCombustivel.Location = new System.Drawing.Point(180, 247);
+            this.txtValorCombustivel.Location = new System.Drawing.Point(182, 98);
             this.txtValorCombustivel.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorCombustivel.Name = "txtValorCombustivel";
             this.txtValorCombustivel.Size = new System.Drawing.Size(99, 22);
             this.txtValorCombustivel.TabIndex = 18;
+            this.txtValorCombustivel.Text = "0";
             this.txtValorCombustivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorCombustivel_KeyPress);
             // 
             // TelaDevolucaoForm

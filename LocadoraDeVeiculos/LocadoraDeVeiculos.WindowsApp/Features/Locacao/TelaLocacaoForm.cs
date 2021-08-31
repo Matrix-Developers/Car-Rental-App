@@ -108,7 +108,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void btnServicos_Click(object sender, EventArgs e)
         {
             telaServico = new ServicosForm();
-            telaServico.InicializarCampos(Servicos, TipoSeguro);
+            telaServico.InicializarCampos(Servicos, TipoSeguro,true);
 
             if (telaServico.ShowDialog() == DialogResult.OK)
             {

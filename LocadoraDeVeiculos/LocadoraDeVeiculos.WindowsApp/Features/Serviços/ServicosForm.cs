@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             cBoxSeguro.SelectedIndex = 0; 
         }
 
-        public void InicializarCampos(List<Servico> servicosIniciais, string seguroInicial)
+        public void InicializarCampos(List<Servico> servicosIniciais, string seguroInicial, bool campoSeguroEhEditavel)
         {
             if (seguroInicial.Contains("Terceiro"))
                 cBoxSeguro.SelectedIndex = 2;
@@ -42,6 +42,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
                     cLBoxServicos.SetItemChecked(index, servicosIniciais.Contains(cLBoxServicos.Items[index]));
                 }
             }
+
+            cBoxSeguro.Enabled = campoSeguroEhEditavel;
         }
 
         private void AtualizarListCheckBox()

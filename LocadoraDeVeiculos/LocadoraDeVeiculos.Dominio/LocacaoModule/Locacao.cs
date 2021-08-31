@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public double PrecoLocacao { get => precoLocacao; }
         public double PrecoDevolucao { get => precoDevolucao; }
         public bool EstaAberta { get => estaAberta; }
-        public List<Servico> Servicos { get => servicos; }
+        public List<Servico> Servicos { get => servicos; set => servicos = value; }
 
         public void AbrirLocacao(DateTime dataAbertura)
         {

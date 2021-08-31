@@ -18,14 +18,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     public partial class TelaDevolucaoForm : Form
     {
         private Locacao devolucao;
-        List<Servico> adicionarSevicos = new List<Servico>();
         ServicosForm telaServico;
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();
             lblTitulo.Text = titulo;
             cBoxQtdTanque.SelectedIndex = 0;
-            AtualizarListBox();
             telaServico = new ServicosForm();
         }
 
@@ -47,19 +45,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 txtDataLocacao.Text = devolucao.DataDeSaida.ToString();
                 txtDataDevolucao.Text = devolucao.DataPrevistaDeChegada.ToString();
                 txtValorInicial.Text = devolucao.PrecoLocacao.ToString();
-                adicionarSevicos = Devolucao.Servicos;
+                telaServico.InicializarCampos(Devolucao.Servicos, devolucao.TipoDeSeguro, false);
                 AtualizarListBox();
-                telaServico.InicializarCampos(devolucao.Servicos, devolucao.TipoDeSeguro);
             }
         }
 
         #region Eventos dos botões
         private void btnSelecionarServicos_Click(object sender, EventArgs e)
         {
+            telaServico.InicializarCampos(Devolucao.Servicos, devolucao.TipoDeSeguro, false);
+            Devolucao.Servicos.Clear();
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
-                adicionarSevicos = telaServico.servicosSelecionados;
-                //txtTotal.Text = Convert.ToString(telaServico.valorFinal);
+                Devolucao.Servicos = telaServico.servicosSelecionados;
                 AtualizarListBox();
             }
         }
@@ -179,11 +177,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         #region Atualizar lista
         private void AtualizarListBox()
         {
-            if (this.adicionarSevicos != null)
+            if (Devolucao.Servicos != null)
             {
                 cLBoxServicosSelecionados.Items.Clear();
-                foreach (Servico servico in this.adicionarSevicos)
+                int i = 0;
+                foreach (Servico servico in Devolucao.Servicos)
+                {
                     cLBoxServicosSelecionados.Items.Add(servico);
+                    cLBoxServicosSelecionados.SetItemChecked(i++, true);
+                }
             }
         }
         #endregion
