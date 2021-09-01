@@ -30,7 +30,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             TelaLocacaoForm tela = new TelaLocacaoForm("Locação de Veiculos");
 
-            ServicosForm telaServico = new ServicosForm();
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.Locacao);

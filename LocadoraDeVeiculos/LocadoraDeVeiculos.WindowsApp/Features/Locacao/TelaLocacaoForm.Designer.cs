@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             this.gBoxRegistro = new System.Windows.Forms.GroupBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblValorInicial = new System.Windows.Forms.Label();
             this.btnServicos = new System.Windows.Forms.Button();
             this.lblServicos = new System.Windows.Forms.Label();
             this.cBoxPlano = new System.Windows.Forms.ComboBox();
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // gBoxRegistro
             // 
             this.gBoxRegistro.Controls.Add(this.txtTotal);
-            this.gBoxRegistro.Controls.Add(this.lblTotal);
+            this.gBoxRegistro.Controls.Add(this.lblValorInicial);
             this.gBoxRegistro.Controls.Add(this.btnServicos);
             this.gBoxRegistro.Controls.Add(this.lblServicos);
             this.gBoxRegistro.Controls.Add(this.cBoxPlano);
@@ -78,9 +78,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.gBoxRegistro.Controls.Add(this.cBoxCliente);
             this.gBoxRegistro.Controls.Add(this.cBoxFuncionario);
             this.gBoxRegistro.Controls.Add(this.cBoxVeiculo);
-            this.gBoxRegistro.Location = new System.Drawing.Point(12, 87);
+            this.gBoxRegistro.Location = new System.Drawing.Point(16, 107);
+            this.gBoxRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.gBoxRegistro.Name = "gBoxRegistro";
-            this.gBoxRegistro.Size = new System.Drawing.Size(433, 260);
+            this.gBoxRegistro.Padding = new System.Windows.Forms.Padding(4);
+            this.gBoxRegistro.Size = new System.Drawing.Size(577, 320);
             this.gBoxRegistro.TabIndex = 0;
             this.gBoxRegistro.TabStop = false;
             // 
@@ -88,26 +90,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(297, 223);
+            this.txtTotal.Location = new System.Drawing.Point(412, 276);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.Size = new System.Drawing.Size(132, 22);
             this.txtTotal.TabIndex = 17;
             // 
-            // lblTotal
+            // lblValorInicial
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(222, 224);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(71, 16);
-            this.lblTotal.TabIndex = 2;
-            this.lblTotal.Text = "Total: R$";
+            this.lblValorInicial.AutoSize = true;
+            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorInicial.Location = new System.Drawing.Point(260, 276);
+            this.lblValorInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblValorInicial.Name = "lblValorInicial";
+            this.lblValorInicial.Size = new System.Drawing.Size(144, 20);
+            this.lblValorInicial.TabIndex = 2;
+            this.lblValorInicial.Text = "Valor Inicial: R$";
             // 
             // btnServicos
             // 
-            this.btnServicos.Location = new System.Drawing.Point(334, 99);
+            this.btnServicos.Location = new System.Drawing.Point(445, 122);
+            this.btnServicos.Margin = new System.Windows.Forms.Padding(4);
             this.btnServicos.Name = "btnServicos";
-            this.btnServicos.Size = new System.Drawing.Size(75, 23);
+            this.btnServicos.Size = new System.Drawing.Size(100, 28);
             this.btnServicos.TabIndex = 16;
             this.btnServicos.Text = "Selecionar";
             this.btnServicos.UseVisualStyleBackColor = true;
@@ -116,9 +121,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // lblServicos
             // 
             this.lblServicos.AutoSize = true;
-            this.lblServicos.Location = new System.Drawing.Point(280, 104);
+            this.lblServicos.Location = new System.Drawing.Point(373, 128);
+            this.lblServicos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServicos.Name = "lblServicos";
-            this.lblServicos.Size = new System.Drawing.Size(48, 13);
+            this.lblServicos.Size = new System.Drawing.Size(62, 17);
             this.lblServicos.TabIndex = 15;
             this.lblServicos.Text = "Serviços";
             // 
@@ -128,82 +134,91 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.cBoxPlano.FormattingEnabled = true;
             this.cBoxPlano.Items.AddRange(new object[] {
             "Plano Diario",
-            "Plano Km Controlado",
-            "Plano Km Livre"});
-            this.cBoxPlano.Location = new System.Drawing.Point(89, 99);
+            "Km Controlado",
+            "Km Livre"});
+            this.cBoxPlano.Location = new System.Drawing.Point(119, 122);
+            this.cBoxPlano.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxPlano.Name = "cBoxPlano";
-            this.cBoxPlano.Size = new System.Drawing.Size(170, 21);
+            this.cBoxPlano.Size = new System.Drawing.Size(225, 24);
             this.cBoxPlano.TabIndex = 14;
             // 
             // lblPlano
             // 
             this.lblPlano.AutoSize = true;
-            this.lblPlano.Location = new System.Drawing.Point(49, 104);
+            this.lblPlano.Location = new System.Drawing.Point(65, 128);
+            this.lblPlano.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlano.Name = "lblPlano";
-            this.lblPlano.Size = new System.Drawing.Size(34, 13);
+            this.lblPlano.Size = new System.Drawing.Size(44, 17);
             this.lblPlano.TabIndex = 13;
             this.lblPlano.Text = "Plano";
             // 
             // lblVeiculo
             // 
             this.lblVeiculo.AutoSize = true;
-            this.lblVeiculo.Location = new System.Drawing.Point(39, 75);
+            this.lblVeiculo.Location = new System.Drawing.Point(52, 92);
+            this.lblVeiculo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVeiculo.Name = "lblVeiculo";
-            this.lblVeiculo.Size = new System.Drawing.Size(44, 13);
+            this.lblVeiculo.Size = new System.Drawing.Size(54, 17);
             this.lblVeiculo.TabIndex = 12;
             this.lblVeiculo.Text = "Veículo";
             // 
             // lblDataDevolucao
             // 
             this.lblDataDevolucao.AutoSize = true;
-            this.lblDataDevolucao.Location = new System.Drawing.Point(216, 183);
+            this.lblDataDevolucao.Location = new System.Drawing.Point(288, 225);
+            this.lblDataDevolucao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataDevolucao.Name = "lblDataDevolucao";
-            this.lblDataDevolucao.Size = new System.Drawing.Size(62, 13);
+            this.lblDataDevolucao.Size = new System.Drawing.Size(79, 17);
             this.lblDataDevolucao.TabIndex = 11;
             this.lblDataDevolucao.Text = "Devolução ";
             // 
             // lblDataLocacao
             // 
             this.lblDataLocacao.AutoSize = true;
-            this.lblDataLocacao.Location = new System.Drawing.Point(34, 183);
+            this.lblDataLocacao.Location = new System.Drawing.Point(45, 225);
+            this.lblDataLocacao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataLocacao.Name = "lblDataLocacao";
-            this.lblDataLocacao.Size = new System.Drawing.Size(49, 13);
+            this.lblDataLocacao.Size = new System.Drawing.Size(62, 17);
             this.lblDataLocacao.TabIndex = 10;
             this.lblDataLocacao.Text = "Locação";
             // 
             // lblCondutor
             // 
             this.lblCondutor.AutoSize = true;
-            this.lblCondutor.Location = new System.Drawing.Point(33, 156);
+            this.lblCondutor.Location = new System.Drawing.Point(44, 192);
+            this.lblCondutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCondutor.Name = "lblCondutor";
-            this.lblCondutor.Size = new System.Drawing.Size(50, 13);
+            this.lblCondutor.Size = new System.Drawing.Size(66, 17);
             this.lblCondutor.TabIndex = 9;
             this.lblCondutor.Text = "Condutor";
             // 
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(44, 129);
+            this.lblCliente.Location = new System.Drawing.Point(59, 159);
+            this.lblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
+            this.lblCliente.Size = new System.Drawing.Size(51, 17);
             this.lblCliente.TabIndex = 8;
             this.lblCliente.Text = "Cliente";
             // 
             // lblFuncionario
             // 
             this.lblFuncionario.AutoSize = true;
-            this.lblFuncionario.Location = new System.Drawing.Point(21, 48);
+            this.lblFuncionario.Location = new System.Drawing.Point(28, 59);
+            this.lblFuncionario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFuncionario.Name = "lblFuncionario";
-            this.lblFuncionario.Size = new System.Drawing.Size(62, 13);
+            this.lblFuncionario.Size = new System.Drawing.Size(82, 17);
             this.lblFuncionario.TabIndex = 7;
             this.lblFuncionario.Text = "Funcionário";
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(65, 22);
+            this.lblId.Location = new System.Drawing.Point(87, 27);
+            this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(18, 13);
+            this.lblId.Size = new System.Drawing.Size(21, 17);
             this.lblId.TabIndex = 6;
             this.lblId.Text = "ID";
             // 
@@ -211,81 +226,91 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // 
             this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(89, 19);
+            this.txtId.Location = new System.Drawing.Point(119, 23);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(68, 20);
+            this.txtId.Size = new System.Drawing.Size(89, 22);
             this.txtId.TabIndex = 2;
+            this.txtId.Text = "0";
             // 
             // dateTPDataDevolucao
             // 
             this.dateTPDataDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateTPDataDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPDataDevolucao.Location = new System.Drawing.Point(284, 180);
+            this.dateTPDataDevolucao.Location = new System.Drawing.Point(379, 222);
+            this.dateTPDataDevolucao.Margin = new System.Windows.Forms.Padding(4);
             this.dateTPDataDevolucao.Name = "dateTPDataDevolucao";
-            this.dateTPDataDevolucao.Size = new System.Drawing.Size(125, 20);
+            this.dateTPDataDevolucao.Size = new System.Drawing.Size(165, 22);
             this.dateTPDataDevolucao.TabIndex = 5;
             // 
             // dateTPDataSaida
             // 
             this.dateTPDataSaida.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateTPDataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPDataSaida.Location = new System.Drawing.Point(89, 180);
+            this.dateTPDataSaida.Location = new System.Drawing.Point(119, 222);
+            this.dateTPDataSaida.Margin = new System.Windows.Forms.Padding(4);
             this.dateTPDataSaida.Name = "dateTPDataSaida";
-            this.dateTPDataSaida.Size = new System.Drawing.Size(121, 20);
+            this.dateTPDataSaida.Size = new System.Drawing.Size(160, 22);
             this.dateTPDataSaida.TabIndex = 4;
             // 
             // cBoxCondutor
             // 
             this.cBoxCondutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxCondutor.FormattingEnabled = true;
-            this.cBoxCondutor.Location = new System.Drawing.Point(89, 153);
+            this.cBoxCondutor.Location = new System.Drawing.Point(119, 188);
+            this.cBoxCondutor.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxCondutor.Name = "cBoxCondutor";
-            this.cBoxCondutor.Size = new System.Drawing.Size(320, 21);
+            this.cBoxCondutor.Size = new System.Drawing.Size(425, 24);
             this.cBoxCondutor.TabIndex = 3;
             // 
             // cBoxCliente
             // 
             this.cBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxCliente.FormattingEnabled = true;
-            this.cBoxCliente.Location = new System.Drawing.Point(89, 126);
+            this.cBoxCliente.Location = new System.Drawing.Point(119, 155);
+            this.cBoxCliente.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxCliente.Name = "cBoxCliente";
-            this.cBoxCliente.Size = new System.Drawing.Size(320, 21);
+            this.cBoxCliente.Size = new System.Drawing.Size(425, 24);
             this.cBoxCliente.TabIndex = 2;
             // 
             // cBoxFuncionario
             // 
             this.cBoxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxFuncionario.FormattingEnabled = true;
-            this.cBoxFuncionario.Location = new System.Drawing.Point(89, 45);
+            this.cBoxFuncionario.Location = new System.Drawing.Point(119, 55);
+            this.cBoxFuncionario.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxFuncionario.Name = "cBoxFuncionario";
-            this.cBoxFuncionario.Size = new System.Drawing.Size(320, 21);
+            this.cBoxFuncionario.Size = new System.Drawing.Size(425, 24);
             this.cBoxFuncionario.TabIndex = 1;
             // 
             // cBoxVeiculo
             // 
             this.cBoxVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxVeiculo.FormattingEnabled = true;
-            this.cBoxVeiculo.Location = new System.Drawing.Point(89, 72);
+            this.cBoxVeiculo.Location = new System.Drawing.Point(119, 89);
+            this.cBoxVeiculo.Margin = new System.Windows.Forms.Padding(4);
             this.cBoxVeiculo.Name = "cBoxVeiculo";
-            this.cBoxVeiculo.Size = new System.Drawing.Size(320, 21);
+            this.cBoxVeiculo.Size = new System.Drawing.Size(425, 24);
             this.cBoxVeiculo.TabIndex = 0;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(150, 39);
+            this.lblTitulo.Location = new System.Drawing.Point(200, 48);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(156, 20);
+            this.lblTitulo.Size = new System.Drawing.Size(186, 25);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Registrar Locação";
             // 
             // brnConfirmar
             // 
             this.brnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.brnConfirmar.Location = new System.Drawing.Point(291, 353);
+            this.brnConfirmar.Location = new System.Drawing.Point(388, 434);
+            this.brnConfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.brnConfirmar.Name = "brnConfirmar";
-            this.brnConfirmar.Size = new System.Drawing.Size(75, 23);
+            this.brnConfirmar.Size = new System.Drawing.Size(100, 28);
             this.brnConfirmar.TabIndex = 18;
             this.brnConfirmar.Text = "Confirmar";
             this.brnConfirmar.UseVisualStyleBackColor = true;
@@ -294,23 +319,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(372, 353);
+            this.btnCancelar.Location = new System.Drawing.Point(496, 434);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // TelaLocacaoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 390);
+            this.ClientSize = new System.Drawing.Size(612, 480);
             this.Controls.Add(this.brnConfirmar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.gBoxRegistro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaLocacaoForm";
@@ -347,8 +374,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private System.Windows.Forms.ComboBox cBoxPlano;
         private System.Windows.Forms.Label lblPlano;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button brnConfirmar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblValorInicial;
     }
 }

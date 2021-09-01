@@ -1,10 +1,12 @@
 ﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
@@ -20,12 +22,14 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         private ControladorVeiculo controladorVeiculo = null;
         private ControladorFuncionario controladorFuncionario = null;
         private ControladorCliente controladorCliente = null;
+        ControladorServico controladorServico = null;
 
-        public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, ControladorCliente controladorCliente)
+        public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, ControladorCliente controladorCliente, ControladorServico controladorServico)
         {
             this.controladorVeiculo = controladorVeiculo;
             this.controladorFuncionario = controladorFuncionario;
             this.controladorCliente = controladorCliente;
+            this.controladorServico = controladorServico;
         }
 
         #region queries
@@ -89,8 +93,12 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         private const string sqlDeletarLocacao =
                 @"DELETE FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
 
-        #endregion 
+        string sqlSelecionarIdServicoPorIdLocacao =
+            @"SELECT [ID_SERVICO] FROM [TBSERVICO_LOCACAO]
+               WHERE [ID_LOCACAO] = @ID_LOCACAO";
 
+
+        #endregion
         public override string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -108,6 +116,18 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
+
+        private List<Servico> SelecionarServicosComIdLocacao(int idLocacao)
+        {
+            List<Servico> servicosDaLocacao = new List<Servico>();
+            List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AdicionarParametro("ID_LOCACAO", idLocacao));
+            foreach (int idServico in idsDeServicos)
+            {
+                servicosDaLocacao.Add(controladorServico.SelecionarPorId(idServico));
+            }
+            return servicosDaLocacao;
+        }
+
         public override string Editar(int id, Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -159,6 +179,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             return parametros;
         }
 
+        private int ConverterEmInteiro(IDataReader reader)
+        {
+            return Convert.ToInt32(reader["ID_SERVICO"]);
+        }
+
         private Locacao ConverterEmLocacao(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -178,12 +203,20 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var precoDevolucao = Convert.ToDouble(reader["PRECODEVOLUCAO"]);
             var estaAberta = Convert.ToBoolean(reader["ESTAABERTA"]);
 
+            List <Servico>  servicosDaLocacao = SelecionarServicosComIdLocacao(id);
+            //foreach (Servico servico in controladorServico.SelecionarTodos())
+            //{
+            //    List<int> idsDeServicos = SelecionarServicosComIdLocacao(id);
+            //    if (idsDeServicos.Contains(servico.Id))
+            //        servicosDaLocacao.Add(servico);
+            //}
+
             Veiculo veiculo = controladorVeiculo.SelecionarPorId(id_veiculo);
             Funcionario funcionarioLocador = controladorFuncionario.SelecionarPorId(id_funcionario);
             Cliente clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
             Cliente clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
 
-            return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta,null);
+            return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, servicosDaLocacao);
         }
     }
 }

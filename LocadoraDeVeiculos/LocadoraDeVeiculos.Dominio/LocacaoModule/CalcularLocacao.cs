@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.Dominio.Shared
             return precoPorDia + precoPorKm;
         }
 
-        internal static double CalcularServicos(List<Servico> servicos, DateTime dataInicial, DateTime dataFinal)
+        public static double CalcularServicos(List<Servico> servicos, DateTime dataInicial, DateTime dataFinal)
         {
             double resultado = 0;
             double intervaloDeDias = (dataFinal - dataInicial).TotalDays;
@@ -65,6 +65,15 @@ namespace LocadoraDeVeiculos.Dominio.Shared
                     resultado += servico.Valor;
             }
             return resultado;
+        }
+
+        public static double CalcularDiferencaCombustivel(double qtdTotalTanque, double porcentCombustivelAtual, double valorPorLitro)
+        {
+            double medidaAtualDoTanque = qtdTotalTanque * porcentCombustivelAtual;
+            double diferencaDoTanque = qtdTotalTanque - medidaAtualDoTanque;
+            double valorAPagar = diferencaDoTanque * valorPorLitro;
+
+            return valorAPagar;
         }
     }
 }

@@ -16,16 +16,34 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
 {
     public partial class ServicosForm : Form
     {
-        public double valorFinal = 0;
-        public List<Servico> servicosSelecionados = new List<Servico>();
+        public List<Servico> servicosSelecionados;
         public string seguro = "Nenhum";
-        ControladorServico controladorServico = new ControladorServico();
-        double valorTotal = 00.00;
+        ControladorServico controladorServico;
         public ServicosForm()
         {
+            controladorServico = new ControladorServico();
+            servicosSelecionados = new List<Servico>();
             InitializeComponent();
             AtualizarListCheckBox();
-            cBoxSeguro.SelectedIndex = 0;
+            cBoxSeguro.SelectedIndex = 0; 
+        }
+
+        public void InicializarCampos(List<Servico> servicosIniciais, string seguroInicial, bool campoSeguroEhEditavel)
+        {
+            if (seguroInicial.Contains("Terceiro"))
+                cBoxSeguro.SelectedIndex = 2;
+            else if (seguroInicial.Contains("Cliente"))
+                cBoxSeguro.SelectedIndex = 1;
+
+            if (servicosIniciais != null)
+            {
+                for (int index = 0; index < cLBoxServicos.Items.Count; index++)
+                {
+                    cLBoxServicos.SetItemChecked(index, servicosIniciais.Contains(cLBoxServicos.Items[index]));
+                }
+            }
+
+            cBoxSeguro.Enabled = campoSeguroEhEditavel;
         }
 
         private void AtualizarListCheckBox()
@@ -37,25 +55,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            valorFinal = Convert.ToDouble(textBox1.Text);
             seguro = cBoxSeguro.SelectedItem.ToString().Replace(" ", "");
             foreach (Servico servico in cLBoxServicos.CheckedItems)
                 servicosSelecionados.Add(servico);
-        }
-
-        private void cLBoxServicos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CalcularValorServicos();
-            textBox1.Text = Convert.ToString(valorTotal);
-            valorTotal = 0;
-        }
-
-        private void CalcularValorServicos()
-        {
-            valorTotal = CalcularLocacao.CalcularSeguro(cBoxSeguro.SelectedItem.ToString().Replace(" ", ""));
-            for (int i = 0; i < cLBoxServicos.Items.Count; i++)
-                if (cLBoxServicos.GetItemChecked(i))
-                    valorTotal += (cLBoxServicos.Items[i] as Servico).Valor;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,13 +68,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
                 controladorServico.InserirNovo(telaServicoForm.Servico);
                 AtualizarListCheckBox();                
             }
-        }
-
-        private void cBoxSeguro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CalcularValorServicos();
-
-            textBox1.Text = Convert.ToString(valorTotal);
         }
     }
 }
