@@ -32,13 +32,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         public string TipoSeguro = "Nenhum";
         ServicosForm telaServico = new ServicosForm();
         public TelaLocacaoForm(string titulo)
-        {
+        {            
             Servicos = new List<Servico>();
             InitializeComponent();
+            lblTitulo.Text = titulo;
             CarregarDados();
             CarregaCondutor();
             cBoxPlano.SelectedIndex = 0;
-
         }
 
         public Locacao Locacao
@@ -67,8 +67,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void CarregarDados()
         {
             cBoxFuncionario.DataSource = controladorFuncionario.SelecionarTodos();
-            cBoxVeiculo.DataSource = controladorVeiculo.SelecionarTodos();
+            List<Veiculo> veiculosDisponiveis = new List<Veiculo>();
+            if (lblTitulo.Text.Contains("Edição"))
+                veiculosDisponiveis = controladorVeiculo.SelecionarTodos();
+            else
+                AdicionaApenasVeiculoDisponivel(veiculosDisponiveis);
+            cBoxVeiculo.DataSource = veiculosDisponiveis;
             cBoxCliente.DataSource = controladorCliente.SelecionarTodos();
+        }
+
+        private void AdicionaApenasVeiculoDisponivel(List<Veiculo> veiculosDisponiveis)
+        {
+            foreach (Veiculo item in controladorVeiculo.SelecionarTodos())
+                if (!item.estaAlugado)
+                    veiculosDisponiveis.Add(item);
         }
 
         private void CarregaCondutor()
