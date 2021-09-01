@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
 
-            ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao, false);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
 
-            ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao, false);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -72,7 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             ConfiguracaoClienteToolBox configuracao = new ConfiguracaoClienteToolBox();
 
-            ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao, false);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -85,7 +85,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
 
-            ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao, false);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -98,7 +98,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
 
-            ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao, false);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -110,11 +110,11 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
 
-            ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao, false);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(),new ControladorServico()));
+            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico()));
 
             ConfigurarPainelRegistros();
         }
@@ -123,7 +123,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             ConfiguracaoDevolucaoToolBox configuracao = new ConfiguracaoDevolucaoToolBox();
 
-            ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao, true);
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -166,7 +166,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
-        
+
         private void ConfigurarPainelDashBoard()
         {
             UserControl tabela = new DashControl();
@@ -175,9 +175,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             panelRegistros.Controls.Add(tabela);
         }
 
-        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao)
+        private void ConfigurarToolBox(IConfiguracaoToolBox configuracao, bool possivelFiltrar)
         {
             toolBoxAcoes.Enabled = true;
+            if (possivelFiltrar)
+                btnFiltrar.Enabled = true;
+            else
+                btnFiltrar.Enabled = false;
             labelTipoCadastro.Text = configuracao.TipoCadastro;
             btnAdicionar.ToolTipText = configuracao.ToolTipAdicionar;
             btnEditar.ToolTipText = configuracao.ToolTipEditar;
@@ -193,7 +197,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void MostrarDashBoard()
         {
             ConfiguracaoDashboardToolBox configuracao = new ConfiguracaoDashboardToolBox();
-            ConfigurarToolBox(configuracao);
+            ConfigurarToolBox(configuracao, false);
             toolBoxAcoes.Enabled = false;
             AtualizarRodape(configuracao.TipoCadastro);
             ConfigurarPainelDashBoard();

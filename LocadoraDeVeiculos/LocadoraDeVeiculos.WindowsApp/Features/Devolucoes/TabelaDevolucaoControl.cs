@@ -33,7 +33,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "ClienteContratante", HeaderText = "Cliente"},
 
+                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoLocacao", HeaderText = "Preço Inicial"},
+
                 new DataGridViewTextBoxColumn { DataPropertyName = "EstaAberta", HeaderText = "Locação Ativa"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoDevolucao", HeaderText = "Preço Final"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "DataPrevistaDeChegada", HeaderText = "Devolução"}
            };
@@ -51,7 +55,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             gridDevolucoes.Rows.Clear();
 
             foreach (Locacao devolucao in devolucoes)
-                gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Veiculo.modelo, devolucao.Veiculo.placa, devolucao.ClienteContratante.Nome, devolucao.EstaAberta, devolucao.DataPrevistaDeChegada);
+                gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Veiculo.modelo, devolucao.Veiculo.placa, devolucao.ClienteContratante.Nome, devolucao.PrecoLocacao, devolucao.EstaAberta, devolucao.PrecoDevolucao, devolucao.DataPrevistaDeChegada);
         }
     }
 }

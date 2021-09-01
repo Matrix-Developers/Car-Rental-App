@@ -26,6 +26,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
 
+                new DataGridViewTextBoxColumn {DataPropertyName = "PrecoLocacao", HeaderText = "Valor Inicial"},
+
                 new DataGridViewTextBoxColumn {DataPropertyName = "DataDeSaida", HeaderText = "Data de Locação"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "DataPrevistaDeChegada", HeaderText = "Devolução"}
@@ -45,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             foreach (Locacao locacao in locacoes)
             {
-                gridLocacao.Rows.Add(locacao.Id, locacao.Veiculo, locacao.ClienteContratante, locacao.ClienteCondutor,
+                gridLocacao.Rows.Add(locacao.Id, locacao.Veiculo, locacao.ClienteContratante, locacao.ClienteCondutor, locacao.PrecoLocacao,
                     locacao.DataDeSaida, locacao.DataPrevistaDeChegada);
             }
         }

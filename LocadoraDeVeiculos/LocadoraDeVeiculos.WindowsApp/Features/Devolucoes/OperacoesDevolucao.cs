@@ -44,7 +44,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
         public void EditarRegistro()
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Não é possivel editar uma devolução encerrada!! \nPara editar uma locação em aberta, vá ao menu Locação");
         }
 
         public void ExcluirRegistro()

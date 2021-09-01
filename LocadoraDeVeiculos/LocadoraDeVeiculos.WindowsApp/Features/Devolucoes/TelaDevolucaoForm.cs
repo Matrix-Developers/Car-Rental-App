@@ -64,18 +64,26 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         }
         private void brnConfirmar_Click(object sender, EventArgs e)
         {
-            double precoCombustivel = ReceberPrecoCombustivel();
-            Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
-
-            string resultadoValidacao = Devolucao.Validar();
-
-            MessageBox.Show("Devolucao " + Devolucao.PrecoDevolucao);
-
-            if (resultadoValidacao != "VALIDO")
+            if (dtDevolucao.Value <= devolucao.DataDeSaida)
             {
-                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
-                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                TelaPrincipalForm.Instancia.AtualizarRodape("Data de entrega menor que a de saída");
                 DialogResult = DialogResult.None;
+            }
+            else
+            {
+                double precoCombustivel = ReceberPrecoCombustivel();
+                Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
+
+                string resultadoValidacao = Devolucao.Validar();
+
+                MessageBox.Show("Devolução " + Devolucao.PrecoDevolucao);
+
+                if (resultadoValidacao != "VALIDO")
+                {
+                    string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+                    TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+                    DialogResult = DialogResult.None;
+                }
             }
         }
 
@@ -121,10 +129,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             if (Devolucao != null)
                 SimularCalculoDevolucao();
         }
-        
+
         private void rBtn01_CheckedChanged(object sender, EventArgs e)
         {
-            if(rBtn01.Checked)
+            if (rBtn01.Checked)
                 cBoxQtdTanque.SelectedIndex = 0;
         }
 
