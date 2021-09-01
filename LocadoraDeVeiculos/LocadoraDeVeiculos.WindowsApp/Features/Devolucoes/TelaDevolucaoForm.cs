@@ -1,6 +1,8 @@
-﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+﻿using LocadoraDeVeiculos.Controladores.VeiculoModule;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     {
         private Locacao devolucao;
         ServicosForm telaServico;
+        ControladorVeiculo controladorVeiculo =  new ControladorVeiculo();
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();
@@ -75,6 +78,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 Devolucao.FecharLocacao(dtDevolucao.Value, precoCombustivel, Convert.ToDouble(txtKmFinal.Text));
 
                 string resultadoValidacao = Devolucao.Validar();
+                Veiculo veiculoAtualizado = devolucao.Veiculo;
+                controladorVeiculo.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
 
                 MessageBox.Show("Devolução " + Devolucao.PrecoDevolucao);
 

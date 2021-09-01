@@ -106,7 +106,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (telaServico.seguro.Length > 0)
                 tipoDeSeguro = telaServico.seguro;
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
-
+            Veiculo veiculoAtualizado = locacao.Veiculo;
+            controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validar();
 
             if (resultadoValidacao != "VALIDO")
