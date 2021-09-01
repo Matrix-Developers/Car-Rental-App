@@ -61,7 +61,6 @@
     <Compile Include="FuncionarioModule\FuncionarioControladorTest.cs" />
     <Compile Include="LocacaoModule\LocacaoDominioTest.cs" />
     <Compile Include="LocacaoModule\LocacaoControladorTest.cs" />
-    <Compile Include="RelacionamentoLocServModule\RelacionamentoLocServControladorTest.cs" />
     <Compile Include="SevicoModule\ServicosControladorTest.cs" />
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosDominioTest.cs" />
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosControladorTest.cs" />

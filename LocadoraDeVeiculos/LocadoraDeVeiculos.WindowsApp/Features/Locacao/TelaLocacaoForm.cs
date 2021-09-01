@@ -30,17 +30,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private ControladorCliente controladorCliente = new ControladorCliente();
         public List<Servico> Servicos;
         public string TipoSeguro = "Nenhum";
-        ServicosForm telaServico;
+        ServicosForm telaServico = new ServicosForm();
         public TelaLocacaoForm(string titulo)
-        {
+        {            
             Servicos = new List<Servico>();
             InitializeComponent();
+            lblTitulo.Text = titulo;
             CarregarDados();
             CarregaCondutor();
-            this.Text = titulo;
-            lblTitulo.Text = titulo;
             cBoxPlano.SelectedIndex = 0;
-            
         }
 
         public Locacao Locacao
@@ -69,8 +67,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void CarregarDados()
         {
             cBoxFuncionario.DataSource = controladorFuncionario.SelecionarTodos();
-            cBoxVeiculo.DataSource = controladorVeiculo.SelecionarTodos();
+            List<Veiculo> veiculosDisponiveis = new List<Veiculo>();
+            if (lblTitulo.Text.Contains("Edição"))
+                veiculosDisponiveis = controladorVeiculo.SelecionarTodos();
+            else
+                AdicionaApenasVeiculoDisponivel(veiculosDisponiveis);
+            cBoxVeiculo.DataSource = veiculosDisponiveis;
             cBoxCliente.DataSource = controladorCliente.SelecionarTodos();
+        }
+
+        private void AdicionaApenasVeiculoDisponivel(List<Veiculo> veiculosDisponiveis)
+        {
+            foreach (Veiculo item in controladorVeiculo.SelecionarTodos())
+                if (!item.estaAlugado)
+                    veiculosDisponiveis.Add(item);
         }
 
         private void CarregaCondutor()
@@ -92,7 +102,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             Cliente condutor = cBoxCondutor.SelectedItem as Cliente;
             DateTime dataDeSaida = dateTPDataSaida.Value;
             DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
-            string tipoDeSeguro = telaServico.seguro;
+            string tipoDeSeguro = "Nenhum";
+            if (telaServico.seguro.Length > 0)
+                tipoDeSeguro = telaServico.seguro;
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
 
             string resultadoValidacao = locacao.Validar();
@@ -108,7 +120,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void btnServicos_Click(object sender, EventArgs e)
         {
             telaServico = new ServicosForm();
-            telaServico.InicializarCampos(Servicos, TipoSeguro,true);
+            telaServico.InicializarCampos(Servicos, TipoSeguro, true);
 
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
@@ -116,7 +128,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 TipoSeguro = telaServico.seguro;
                 double precoGarantia = CalcularLocacao.CalcularGarantia();
                 double precoSeguro = CalcularLocacao.CalcularSeguro(telaServico.seguro);
-                txtTotal.Text = Convert.ToString(precoGarantia+precoSeguro);
+                txtTotal.Text = Convert.ToString(precoGarantia + precoSeguro);
             }
         }
     }
