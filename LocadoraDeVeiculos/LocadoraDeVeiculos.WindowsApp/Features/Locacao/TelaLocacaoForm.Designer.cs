@@ -317,6 +317,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.Name = "TelaLocacaoForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locadora de Veiculo";
             this.gBoxRegistro.ResumeLayout(false);
             this.gBoxRegistro.PerformLayout();
