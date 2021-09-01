@@ -84,6 +84,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         {
             estaAberta = true;
             dataDeSaida = dataAbertura;
+            veiculo.estaAlugado = true;
             precoLocacao = CalcularLocacao.CalcularSeguro(tipoDeSeguro);
             precoLocacao += CalcularLocacao.CalcularGarantia();
             precoLocacao = Math.Round(precoLocacao, 2);
@@ -94,6 +95,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             estaAberta = false;
             dataDeChegada = dataFechamento;
             veiculo.kilometragem += kilometragemRodada;
+            veiculo.estaAlugado = false;
             precoDevolucao = precoLocacao;
             precoDevolucao += adicionalDoCombustivel;
             precoDevolucao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, kilometragemRodada, DataDeSaida, dataDeChegada);

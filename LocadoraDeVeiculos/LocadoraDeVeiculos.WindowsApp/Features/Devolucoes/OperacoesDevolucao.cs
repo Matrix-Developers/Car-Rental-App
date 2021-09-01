@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Devolucao);
+                controlador.Editar(tela.Devolucao.Id , tela.Devolucao);
                 List<Locacao> funcionarios = controlador.SelecionarTodos();
                 tabelaDevolucao.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Devolução: [{tela.Devolucao.Id}] realizada com sucesso");
