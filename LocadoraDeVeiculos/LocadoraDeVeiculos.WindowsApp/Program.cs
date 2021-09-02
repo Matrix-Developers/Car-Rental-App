@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Features.Login;
+﻿using LocadoraDeVeiculos.Controladores.Shared;
+using LocadoraDeVeiculos.WindowsApp.Features.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         [STAThread]
         static void Main()
         {
+            ConversorParaPdf.GerarPdf();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaLogin());
