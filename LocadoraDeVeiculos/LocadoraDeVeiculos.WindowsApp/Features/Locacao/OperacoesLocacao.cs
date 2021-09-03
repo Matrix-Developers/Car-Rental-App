@@ -7,6 +7,7 @@ using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,10 +33,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Locacao);
+                string resultadoLocacao = controlador.InserirNovo(tela.Locacao);
 
                 relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
                 controladorRelacionamento.InserirNovo(relacionamento);
+                if (resultadoLocacao == "VALIDO")
+                {
+                    try
+                    {
+                        EnviarEmail(tela);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro ao tentar enviar os dados de locação por e-mail.\nO recibo está salvo na pasta Recibos e deverá ser enviado manualmente assim que possível!!\n" + ex.Message, "Erro ao enviar e-mail");
+                    }
+                }
 
                 List<Locacao> veiculos = controlador.SelecionarTodos();
 
@@ -113,6 +125,33 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             tabelaLocacao.AtualizarRegistros(locacoes);
 
             return tabelaLocacao;
+        }
+
+        private void EnviarEmail(TelaLocacaoForm tela)
+        {
+            using (SmtpClient smtp = new SmtpClient())
+            {
+                using (MailMessage email = new MailMessage())
+                {
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new System.Net.NetworkCredential("matriquisdevelopers@gmail.com", "matrixadm");
+                    smtp.Port = 587;
+                    smtp.EnableSsl = true;
+
+                    email.From = new MailAddress("matriquisdevelopers@gmail.com");
+                    email.To.Add(tela.Locacao.ClienteContratante.Email);
+
+                    email.Subject = "Matrix";
+                    email.IsBodyHtml = false;
+                    email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
+
+
+                    email.Attachments.Add(new Attachment($@"..\..\..\Recibos\recibo{tela.Locacao.Id}.pdf"));
+
+                    smtp.Send(email);
+                }
+            }
         }
     }
 }

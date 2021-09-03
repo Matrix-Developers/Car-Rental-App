@@ -101,23 +101,13 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         }
 
         [TestMethod]
-        public void DeveCriarPessoa_SemEmail()
-        {
-            funcionario = new Funcionario(1, "nome", "11111111111", "endereco", "999999999", "", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-
-            string resultado = funcionario.Validar();
-
-            Assert.AreEqual("VALIDO", resultado);
-        }
-
-        [TestMethod]
         public void DeveApresentarErroPessoa_PessoaTotalmenteInvalida()
         {
             funcionario = new Funcionario(1, "", "", "", "", "", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nÉ obrigatório inserir Telefone ou E-mail\nO CPF não é válido\n", resultado);
+            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultado);
         }
 
         [TestMethod]
@@ -127,7 +117,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO telefone deve ter no mínimo 9 dígitos\nO email está incorreto\nO CPF não é válido\n", resultado);
+            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultado);
         }
 
         [TestMethod]
@@ -137,7 +127,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O telefone deve ter no mínimo 9 dígitos\nO email está incorreto\n", resultado);
+            Assert.AreEqual("O e-mail é obrigatório está incorreto e deve estar correto\n", resultado);
         }
 
         [TestMethod]
@@ -147,7 +137,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O telefone deve ter no mínimo 9 dígitos\n", resultado);
+            Assert.AreEqual("VALIDO", resultado);
         }
         #endregion
     }

@@ -40,23 +40,13 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
         }
 
         [TestMethod]
-        public void DeveCriarClienteCorreto_SemEmail()
-        {
-            cliente = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "", "978545956-90", new DateTime(2030, 01, 01), true);
-
-            string resultadoValidaca = cliente.Validar();
-
-            Assert.AreEqual("VALIDO", resultadoValidaca);
-        }
-
-        [TestMethod]
         public void DeveApresentarErro_SemEmailETelefone()
         {
             cliente = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "", "", "978545956-90", new DateTime(2030, 01, 01), true);
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("É obrigatório inserir Telefone ou E-mail\n", resultadoValidaca);
+            Assert.AreEqual("O e-mail é obrigatório está incorreto e deve estar correto\n", resultadoValidaca);
         }
 
         [TestMethod]
@@ -66,7 +56,7 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("CNH inválida\nCNH fora do prazo de validade\nO nome não pode ser nulo\nO endereço não pode ser nulo\nÉ obrigatório inserir Telefone ou E-mail\nO CPF não é válido\n", resultadoValidaca);
+            Assert.AreEqual("CNH inválida\nCNH fora do prazo de validade\nO nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultadoValidaca);
         }
 
         [TestMethod]
@@ -96,7 +86,7 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nÉ obrigatório inserir Telefone ou E-mail\nO CNPJ não é válido\n", resultadoValidaca);
+            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CNPJ não é válido\n", resultadoValidaca);
         }
 
         #region Testes para as propriedades herdadas de Pessoa
@@ -121,23 +111,13 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
         }
 
         [TestMethod]
-        public void DeveCriarPessoa_SemEmail()
-        {
-            cliente = new Cliente(1, "nome", "11111111111", "endereco", "999999999", "", "978545956-90", new DateTime(2030, 01, 01), true);
-
-            string resultado = cliente.Validar();
-
-            Assert.AreEqual("VALIDO", resultado);
-        }
-
-        [TestMethod]
         public void DeveApresentarErroPessoa_PessoaTotalmenteInvalida()
         {
             cliente = new Cliente(1, "", "", "", "", "", "978545956-90", new DateTime(2030, 01, 01), true);
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nÉ obrigatório inserir Telefone ou E-mail\nO CPF não é válido\n", resultado);
+            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultado);
         }
 
         [TestMethod]
@@ -147,7 +127,7 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO telefone deve ter no mínimo 9 dígitos\nO email está incorreto\nO CPF não é válido\n", resultado);
+            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultado);
         }
 
         [TestMethod]
@@ -157,7 +137,7 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("O telefone deve ter no mínimo 9 dígitos\nO email está incorreto\n", resultado);
+            Assert.AreEqual("O e-mail é obrigatório está incorreto e deve estar correto\n", resultado);
         }
 
         [TestMethod]
@@ -167,7 +147,7 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("O telefone deve ter no mínimo 9 dígitos\n", resultado);
+            Assert.AreEqual("VALIDO", resultado);
         }
         #endregion
     }

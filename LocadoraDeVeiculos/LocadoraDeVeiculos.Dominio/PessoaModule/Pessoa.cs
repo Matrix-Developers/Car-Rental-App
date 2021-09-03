@@ -29,16 +29,8 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
                 resultadoValidacao = "O nome não pode ser nulo\n";
             if (this.Endereco.Length <= 0)
                 resultadoValidacao += "O endereço não pode ser nulo\n";
-            if (this.Telefone.Length == 0 && this.Email.Length == 0)
-                resultadoValidacao += "É obrigatório inserir Telefone ou E-mail\n";
-            else
-            {
-                if (this.Telefone.Length > 0 && this.Telefone.Length < 9)
-                    resultadoValidacao += "O telefone deve ter no mínimo 9 dígitos\n";
-                if (this.Email.Length > 0 && !(this.Email.Contains('@')))
-                    resultadoValidacao += "O email está incorreto\n";
-            }
-
+            if (this.Email.Length == 0 || (!this.Email.Contains('@')))
+                resultadoValidacao += "O e-mail é obrigatório está incorreto e deve estar correto\n";
             if (!resultadoValidacaoRegistroUnico)
             {
                 if (EhPessoaFisica)
