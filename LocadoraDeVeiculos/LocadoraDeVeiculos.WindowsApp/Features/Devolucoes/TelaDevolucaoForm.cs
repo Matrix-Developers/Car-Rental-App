@@ -237,6 +237,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             precoDevolucao += ReceberPrecoCombustivel();
             precoDevolucao += CalcularLocacao.CalcularPlano(Devolucao.TipoDoPlano, Devolucao.Veiculo.grupoVeiculos, kilometrosRodados, Devolucao.DataDeSaida, dtDevolucao.Value);
             precoDevolucao += CalcularLocacao.CalcularServicos(Devolucao.Servicos, Devolucao.DataDeSaida, dtDevolucao.Value);
+            precoDevolucao +=  CalcularLocacao.CalcularMultaDevolucaoAtrasada(Devolucao.PrecoDevolucao, Devolucao.DataPrevistaDeChegada, Devolucao.DataDeChegada);
             txtValorTotal.Text = Math.Round(precoDevolucao, 2).ToString();
         }
     }
