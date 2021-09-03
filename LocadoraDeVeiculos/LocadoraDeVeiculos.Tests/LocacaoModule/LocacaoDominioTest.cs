@@ -26,7 +26,8 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             clienteContratante = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             clienteCondutor = new Cliente(1, "Arnaldo", "888.777.666.55", "Rua Laguna", "97777-6666", "arnaldo@test.com", "98765432103", new DateTime(2020, 11, 11), true);
             locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum",null);
-            ConversorParaPdf.ConverterLocacaoEmPdf(locacao);
+            ConversorParaPdf conversor = new ConversorParaPdf(10, 18);
+            conversor.ConverterLocacaoEmPdf(locacao);
 
             string resultado = locacao.Validar();
 
