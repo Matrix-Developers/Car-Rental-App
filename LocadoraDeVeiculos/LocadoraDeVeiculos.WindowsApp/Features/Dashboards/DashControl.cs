@@ -48,12 +48,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
         private void CarregarDashBoardLocacao()
         {
             List<Locacao> todasLocacao = controladorLocacao.SelecionarTodos();
-            int locacaoTotal = todasLocacao.Count;
+            List<Locacao> locacoesAbertas = new List<Locacao>();
+            foreach (Locacao locacao in todasLocacao)
+                if (locacao.EstaAberta)
+                    locacoesAbertas.Add(locacao);
+
             int retornamHJ = 0;
             int retornam7dias = 0;
             
 
-            foreach (Locacao locacao in todasLocacao)
+            foreach (Locacao locacao in locacoesAbertas)
             {
                 if (locacao.DataDeChegada.Date == DateTime.Today )
                 {
@@ -65,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
                 }
             }
             lbRetornoHJ.Text = retornamHJ.ToString();
-            lbCarrosAlugados.Text = locacaoTotal.ToString();
+            lbCarrosAlugados.Text = locacoesAbertas.Count.ToString();
             lbRetornam7.Text = retornam7dias.ToString();
            
         }
