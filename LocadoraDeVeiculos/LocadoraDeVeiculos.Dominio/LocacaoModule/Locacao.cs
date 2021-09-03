@@ -100,6 +100,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             precoDevolucao += adicionalDoCombustivel;
             precoDevolucao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, kilometragemRodada, DataDeSaida, dataDeChegada);
             precoDevolucao += CalcularLocacao.CalcularServicos(servicos, dataDeSaida, dataDeChegada);
+            precoDevolucao += CalcularLocacao.CalcularMultaDevolucaoAtrasada(PrecoDevolucao, dataPrevistaDeChegada, dataDeChegada);
             precoDevolucao = Math.Round(precoDevolucao, 2);
         }
 

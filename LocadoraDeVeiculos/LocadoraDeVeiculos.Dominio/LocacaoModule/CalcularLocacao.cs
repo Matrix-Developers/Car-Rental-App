@@ -10,6 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.Shared
         public const double VALOR_SEGURO_CLIENTE = 250.50f;
         public const double VALOR_SEGURO_TERCEIRO = 500.75f;
         public const double VALOR_GARANTIA = 1000f;
+        public const double PORCENT_MULTA_DE_ATRASO_DIARIA = 0.1f;
 
         public static double CalcularGarantia()
         {
@@ -74,6 +75,18 @@ namespace LocadoraDeVeiculos.Dominio.Shared
             double valorAPagar = diferencaDoTanque * valorPorLitro;
 
             return valorAPagar;
+        }
+
+        public static double CalcularMultaDevolucaoAtrasada(double precoTotal, DateTime dataPrevistaDeChegada, DateTime dataRealDeChegada)
+        {
+            double resultado = 0;
+            if (dataRealDeChegada > dataPrevistaDeChegada) 
+            {
+                double diferencaDeDias = (dataRealDeChegada - dataPrevistaDeChegada).TotalDays;
+                double fracaoDoPrecoTotal = precoTotal * PORCENT_MULTA_DE_ATRASO_DIARIA;
+                resultado = fracaoDoPrecoTotal * diferencaDeDias;
+            }
+            return resultado;
         }
     }
 }
