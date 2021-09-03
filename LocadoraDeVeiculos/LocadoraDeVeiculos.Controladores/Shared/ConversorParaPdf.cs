@@ -15,38 +15,51 @@ namespace LocadoraDeVeiculos.Controladores.Shared
         const string fontFamily = "Verdana";
         const double textFontSize = 10;
         const double titleFontSize = 18;
+        
+        public static void ConverterLocacaoEmPdf(Locacao locacao)
+        {
+            string arquivo = $"recibo{locacao.Id}.pdf";
+            string titulo = $"Recibo Locadora de Veículos - Locação {locacao.Id}";
 
-        public static void GerarPdf(Locacao locacao) 
+            List<string> linhas = new List<string>
+            {
+                $"Cliente contratante: {locacao.ClienteContratante.Nome}, {locacao.ClienteContratante.RegistroUnico}",
+                $"Veículo locado: {locacao.Veiculo.modelo},  {locacao.Veiculo.placa}",
+                $"Seguro selecionado: {locacao.TipoDeSeguro}",
+                $"Plano selecionado: {locacao.TipoDoPlano}",
+                $"Data de locação: {locacao.DataDeSaida.Date}",
+                $"Data prevista de devolução: {locacao.DataPrevistaDeChegada.Date}",
+                $"Preco inicial da locação: R${locacao.PrecoLocacao}"
+            };
+
+            GerarPdf(arquivo, titulo, linhas);
+        }
+
+        private static void GerarPdf(string nomeArquivo, string textoTitulo, List<string> textoLinhas) 
         {
             double lineXPosition = 50;
             double lineYPosition = 30;
-           
-            PdfDocument pdf = new PdfDocument();
-            pdf.Info.Title = "My First PDF";
-            PdfPage pdfPage = pdf.AddPage();
-            XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont titleFont = new XFont(fontFamily, titleFontSize, XFontStyle.Bold);
             XFont textFont = new XFont(fontFamily, textFontSize, XFontStyle.Regular);
 
-            graph.DrawString($"Recibo Locadora de Veículos - Locação {locacao.Id}", titleFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            lineYPosition += titleFontSize + textFontSize;
-            graph.DrawString($"Cliente contratante: {locacao.ClienteContratante.Nome}, {locacao.ClienteContratante.RegistroUnico}", textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            lineYPosition += textFontSize;
-            graph.DrawString($"Veículo locado: {locacao.Veiculo.modelo},  {locacao.Veiculo.placa}", textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            lineYPosition += textFontSize;
-            graph.DrawString($"Seguro selecionado: {locacao.TipoDeSeguro}", textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            lineYPosition += textFontSize;
-            graph.DrawString($"Plano selecionado: {locacao.TipoDoPlano}", textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            lineYPosition += textFontSize;
-            graph.DrawString($"Data de locação: {locacao.DataDeSaida.Date}", textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            lineYPosition += textFontSize;
-            graph.DrawString($"Data prevista de devolução: {locacao.DataPrevistaDeChegada.Date}", textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            lineYPosition += textFontSize;
-            graph.DrawString($"Preco inicial da locação: R${locacao.PrecoLocacao}", textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            PdfDocument pdf = new PdfDocument();
+            pdf.Info.Title = textoTitulo;
+            PdfPage pdfPage = pdf.AddPage();
+            XGraphics graph = XGraphics.FromPdfPage(pdfPage);
 
-            string pdfFilename = $"recibo{locacao.Id}.pdf";
-            pdf.Save(pdfFilename);
-            Process.Start(pdfFilename);
+            //titulo
+            graph.DrawString(textoTitulo, titleFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            lineYPosition += titleFontSize + textFontSize;
+
+            //linhas
+            foreach(string linha in textoLinhas)
+            {
+                graph.DrawString(linha, textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+                lineYPosition += textFontSize;
+            }
+
+            pdf.Save(nomeArquivo);
+            Process.Start(nomeArquivo);
         }
     }
 }
