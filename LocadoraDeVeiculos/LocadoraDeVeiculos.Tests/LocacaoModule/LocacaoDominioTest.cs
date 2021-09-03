@@ -59,19 +59,6 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         }
 
         [TestMethod]
-        public void DeveApresentarErro_ComVeiculoNulo()
-        {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            clienteContratante = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            clienteCondutor = new Cliente(1, "Arnaldo", "888.777.666.55", "Rua Laguna", "97777-6666", "arnaldo@test.com", "98765432103", new DateTime(2020, 11, 11), true);
-            locacao = new Locacao(0, null, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", null);
-
-            string resultado = locacao.Validar();
-
-            resultado.Should().Be("O veiculo não pode ser nulo\n");
-        }
-
-        [TestMethod]
         public void DeveApresentarErro_ComFuncionarioNull()
         {
             veiculo = new Veiculo(0, "Ecosport", null, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true,null);
