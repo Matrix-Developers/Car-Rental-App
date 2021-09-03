@@ -1,7 +1,10 @@
 ﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
@@ -21,12 +24,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
         ControladorVeiculo controladorVeiculo;
         ControladorCliente controladorCliente;
         ControladorServico controladorServicos;
+        ControladorLocacao controladorLocacao;
+        ControladorFuncionario controladorFuncionario;
         public DashControl()
         {
             InitializeComponent();
             controladorVeiculo = new ControladorVeiculo();
             controladorCliente = new ControladorCliente();
             controladorServicos = new ControladorServico();
+            controladorFuncionario = new ControladorFuncionario();
+            controladorLocacao = new ControladorLocacao(controladorVeiculo, controladorFuncionario,controladorCliente, controladorServicos);
             MudaLabels();
         }
 
@@ -35,6 +42,32 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             CarregaDashBoardVeiculo();
             CarregaDashBoardCliente();
             CarregarDashBoardServicos();
+            CarregarDashBoardLocacao();
+        }
+
+        private void CarregarDashBoardLocacao()
+        {
+            List<Locacao> todasLocacao = controladorLocacao.SelecionarTodos();
+            int locacaoTotal = todasLocacao.Count;
+            int retornamHJ = 0;
+            int retornam7dias = 0;
+            
+
+            foreach (Locacao locacao in todasLocacao)
+            {
+                if (locacao.DataDeChegada.Date == DateTime.Today )
+                {
+                    retornamHJ++;
+                }
+                else if (locacao.DataDeChegada.Date <= DateTime.Today.AddDays(7))
+                {
+                    retornam7dias++;
+                }
+            }
+            lbRetornoHJ.Text = retornamHJ.ToString();
+            lbCarrosAlugados.Text = locacaoTotal.ToString();
+            lbRetornam7.Text = retornam7dias.ToString();
+           
         }
 
         private void CarregarDashBoardServicos()
