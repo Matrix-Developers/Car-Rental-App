@@ -43,6 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
                     controladorRelacionamento.InserirNovo(relacionamento);
                     conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
+
                     try
                     {
                         EnviarEmail(tela);
