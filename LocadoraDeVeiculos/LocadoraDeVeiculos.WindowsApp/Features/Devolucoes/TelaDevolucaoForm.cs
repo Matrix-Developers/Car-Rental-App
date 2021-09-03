@@ -81,7 +81,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 Veiculo veiculoAtualizado = devolucao.Veiculo;
                 controladorVeiculo.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
 
-                MessageBox.Show("Devolução " + Devolucao.PrecoDevolucao);
 
                 if (resultadoValidacao != "VALIDO")
                 {

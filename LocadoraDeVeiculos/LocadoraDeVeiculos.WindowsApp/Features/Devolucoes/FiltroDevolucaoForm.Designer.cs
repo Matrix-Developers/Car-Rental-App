@@ -105,6 +105,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.Name = "FiltroDevolucaoForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Filtrar Devolucao";
             this.ResumeLayout(false);
             this.PerformLayout();
