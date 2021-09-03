@@ -36,14 +36,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Locacao);
-                conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
                 string resultadoLocacao = controlador.InserirNovo(tela.Locacao);
 
-                relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
-                controladorRelacionamento.InserirNovo(relacionamento);
                 if (resultadoLocacao == "VALIDO")
                 {
+                    relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
+                    controladorRelacionamento.InserirNovo(relacionamento);
+                    conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
                     try
                     {
                         EnviarEmail(tela);
