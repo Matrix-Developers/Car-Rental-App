@@ -47,6 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
 
             ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -60,6 +61,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
 
             ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -73,6 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoClienteToolBox configuracao = new ConfiguracaoClienteToolBox();
 
             ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -86,6 +89,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
 
             ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -99,6 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
 
             ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -111,6 +116,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
 
             ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.TipoCadastro);
 
@@ -124,6 +130,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoDevolucaoToolBox configuracao = new ConfiguracaoDevolucaoToolBox();
 
             ConfigurarToolBox(configuracao, true);
+            btnAdicionar.Image = Properties.Resources.car_32px;
 
             AtualizarRodape(configuracao.TipoCadastro);
 

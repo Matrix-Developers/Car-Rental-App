@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
@@ -17,7 +18,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         Cliente clienteCondutor;
         Locacao locacao;
 
-       [TestMethod]
+        [TestMethod]
         public void DeveCriarLocacao_ComContratantePFeCondutorPF()
         {
             veiculo = new Veiculo(0, "Ecosport", null, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true,null);

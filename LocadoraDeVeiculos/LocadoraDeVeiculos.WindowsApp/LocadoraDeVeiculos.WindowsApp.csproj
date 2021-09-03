@@ -277,6 +277,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\car-32px.png" />
+    <None Include="Resources\36x1.png" />
+    <None Include="Resources\outline_add_black_24dp1.png" />
+    <None Include="Resources\outline_add_black_24dp.png" />
     <None Include="Resources\outline_filter_alt_black_36dp.png" />
     <None Include="Resources\FuelGauge1.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
