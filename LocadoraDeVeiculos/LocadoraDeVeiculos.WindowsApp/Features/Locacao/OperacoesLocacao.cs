@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
 
-            TelaLocacaoForm tela = new TelaLocacaoForm("Edição de Veiculos");
+            TelaLocacaoForm tela = new TelaLocacaoForm("Edição de Locação");
 
             tela.Locacao = locacaoSelecionada;
 
