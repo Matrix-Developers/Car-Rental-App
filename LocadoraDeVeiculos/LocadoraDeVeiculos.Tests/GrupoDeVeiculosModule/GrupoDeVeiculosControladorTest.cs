@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
         public GrupoDeVeiculosControladorTest()
         {
             controlador = new ControladorGrupoDeVeiculos();
-            Db.Update("DELETE FROM [TBGRUPOVEICULO]");
-            Db.Update("DBCC CHECKIDENT('TBGRUPOVEICULO', RESEED, 0)");
+            ResetarBanco.ResetarTabelas();
         }
 
         [TestMethod]
