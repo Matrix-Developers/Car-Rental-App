@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
+using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.WindowsApp.Servicos;
@@ -20,8 +21,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private readonly ControladorRelacionamentoLocServ controladorRelacionamento = null;
         private RelacionamentoLocServ relacionamento;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
+        ConversorParaPdf conversorPdf;
         public OperacoesLocacao(ControladorLocacao ctrlLocacao)
         {
+            conversorPdf = new ConversorParaPdf(10, 18);
             controlador = ctrlLocacao;
             controladorRelacionamento = new ControladorRelacionamentoLocServ();
             tabelaLocacao = new TabelaLocacaoControl();
@@ -35,10 +38,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             {
                 string resultadoLocacao = controlador.InserirNovo(tela.Locacao);
 
-                relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
-                controladorRelacionamento.InserirNovo(relacionamento);
                 if (resultadoLocacao == "VALIDO")
                 {
+                    relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
+                    controladorRelacionamento.InserirNovo(relacionamento);
+                    conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
+
                     try
                     {
                         EnviarEmail(tela);
