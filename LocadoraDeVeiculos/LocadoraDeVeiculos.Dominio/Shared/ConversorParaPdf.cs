@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
                 $"      - Ano: {locacao.Veiculo.ano}",
                 $"      - Cor: {locacao.Veiculo.cor}",
                 $"      - Número de portas: {locacao.Veiculo.numeroPortas}",
-                $"      - Kilometragem atual: {locacao.Veiculo.kilometragem}"
+                $"      - Kilometragem atual: {locacao.Veiculo.kilometragem} km"
             };
 
             GerarPdf(arquivo, titulo, linhas);
