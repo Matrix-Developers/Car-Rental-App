@@ -34,16 +34,29 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
             List<string> linhas = new List<string>
             {
-                $"• Cliente contratante: {locacao.ClienteContratante.Nome}, {locacao.ClienteContratante.RegistroUnico}",
-                $"\t\t▹ Nome: {locacao.ClienteContratante.Nome}",
-                $"\t\t▹ Registro Único: {locacao.ClienteContratante.RegistroUnico}",
-                $"\t\t▹ Email: {locacao.ClienteContratante.Email}",
-                $"• Veículo locado: {locacao.Veiculo.modelo},  {locacao.Veiculo.placa}",
-                $"• Seguro selecionado: {locacao.TipoDeSeguro}",
-                $"• Plano selecionado: {locacao.TipoDoPlano}",
-                $"• Data de locação: {locacao.DataDeSaida.Date}",
-                $"• Data prevista de devolução: {locacao.DataPrevistaDeChegada.Date}",
-                $"• Preco inicial da locação: R${locacao.PrecoLocacao}"
+                $"• Detalhes da Locação:",
+                $"      - Seguro selecionado: {locacao.TipoDeSeguro}",
+                $"      - Plano selecionado: {locacao.TipoDoPlano}",
+                $"      - Data de locação: {locacao.DataDeSaida.Date.ToString("dd/MM/yyyy")}",
+                $"      - Data prevista de devolução: {locacao.DataPrevistaDeChegada.Date.ToString("dd/MM/yyyy")}",
+                $"      - Preco inicial da locação: R${locacao.PrecoLocacao}",
+                $"• Cliente contratante:",
+                $"      - Nome: {locacao.ClienteContratante.Nome}",
+                $"      - Registro Único: {locacao.ClienteContratante.RegistroUnico}",
+                $"      - Email: {locacao.ClienteContratante.Email}",
+                $"• Cliente condutor:",
+                $"      - Nome: {locacao.ClienteCondutor.Nome}",
+                $"      - Registro Único: {locacao.ClienteCondutor.RegistroUnico}",
+                $"      - Email: {locacao.ClienteCondutor.Email}",
+                $"      - CNH: {locacao.ClienteCondutor.Cnh}",
+                $"• Veículo locado:",
+                $"      - Modelo: {locacao.Veiculo.modelo}",
+                $"      - Marca: {locacao.Veiculo.marca}",
+                $"      - Placa: {locacao.Veiculo.placa}",
+                $"      - Ano: {locacao.Veiculo.ano}",
+                $"      - Cor: {locacao.Veiculo.cor}",
+                $"      - Número de portas: {locacao.Veiculo.numeroPortas}",
+                $"      - Kilometragem atual: {locacao.Veiculo.kilometragem}"
             };
 
             GerarPdf(arquivo, titulo, linhas);
