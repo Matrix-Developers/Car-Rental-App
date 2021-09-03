@@ -98,9 +98,9 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             veiculo.estaAlugado = false;
             precoDevolucao = precoLocacao;
             precoDevolucao += adicionalDoCombustivel;
-            precoDevolucao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, kilometragemRodada, DataDeSaida, dataDeChegada);
+            precoDevolucao += CalcularLocacao.CalcularPlano(tipoDoPlano, veiculo.grupoVeiculos, kilometragemRodada, dataDeSaida, dataDeChegada);
             precoDevolucao += CalcularLocacao.CalcularServicos(servicos, dataDeSaida, dataDeChegada);
-            precoDevolucao += CalcularLocacao.CalcularMultaDevolucaoAtrasada(PrecoDevolucao, dataPrevistaDeChegada, dataDeChegada);
+            precoDevolucao += CalcularLocacao.CalcularMultaDevolucaoAtrasada(precoDevolucao, dataPrevistaDeChegada, dataDeChegada);
             precoDevolucao = Math.Round(precoDevolucao, 2);
         }
 
