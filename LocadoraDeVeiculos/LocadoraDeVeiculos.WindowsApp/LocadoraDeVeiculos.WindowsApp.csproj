@@ -146,6 +146,20 @@
     <Compile Include="Features\Login\TelaLogin.Designer.cs">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Parceiros\ConfiguracaoParceiroToolBox.cs" />
+    <Compile Include="Features\Parceiros\OperacoesParceiro.cs" />
+    <Compile Include="Features\Parceiros\TabelaParceiroControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Parceiros\TabelaParceiroControl.Designer.cs">
+      <DependentUpon>TabelaParceiroControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Parceiros\TelaParceiroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Parceiros\TelaParceiroForm.Designer.cs">
+      <DependentUpon>TelaParceiroForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Serviços\ConfiguracaoServicoToolBox.cs" />
     <Compile Include="Features\Serviços\OperacoesServico.cs" />
     <Compile Include="Features\Serviços\TabelaServicoControl.cs">
