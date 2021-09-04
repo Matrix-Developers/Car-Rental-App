@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         public string TipoSeguro = "Nenhum";
         ServicosForm telaServico = new ServicosForm();
         public TelaLocacaoForm(string titulo)
-        {            
+        {
             Servicos = new List<Servico>();
             InitializeComponent();
             lblTitulo.Text = titulo;
@@ -111,7 +111,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             Cupom cupom = null;
             bool existe = controladorCupom.ExisteCodigo(txtCupom.Text);
             if (existe)
+            {
                 cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+                if (cupom.Validade < DateTime.Now)
+                    cupom = null;
+            }
 
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
             Veiculo veiculoAtualizado = locacao.Veiculo;
@@ -126,7 +130,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             }
         }
 
-        
+
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
