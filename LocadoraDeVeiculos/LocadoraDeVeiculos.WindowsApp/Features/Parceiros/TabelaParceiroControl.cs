@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         public TabelaParceiroControl()
         {
             InitializeComponent();
+        }
+
+        internal void AtualizarRegistros(List<Parceiro> parceiros)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal int ObtemIdSelecionado()
+        {
+            throw new NotImplementedException();
         }
     }
 }
