@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LocadoraDeVeiculos.WindowsApp.Shared;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 {
-    class ConfiguracaoCupomToolBox
+    public class ConfiguracaoCupomToolBox : IConfiguracaoToolBox
     {
+        public string ToolTipAdicionar
+        {
+            get { return "Cadastro de Cupom de Desconto"; }
+        }
+
+        public string TipoCadastro
+        {
+            get { return "Cadastro de um novo Cupom"; }
+        }
+
+        public string ToolTipEditar
+        {
+            get { return "Editar um Cupom existente"; }
+        }
+
+        public string ToolTipExcluir
+        {
+            get { return "Excluir um Cupom existente"; }
+        }
     }
 }
