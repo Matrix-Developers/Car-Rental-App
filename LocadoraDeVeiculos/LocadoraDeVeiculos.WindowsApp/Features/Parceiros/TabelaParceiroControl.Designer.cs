@@ -29,10 +29,32 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.gridParceiros = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridParceiros)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // gridParceiros
+            // 
+            this.gridParceiros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridParceiros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridParceiros.Location = new System.Drawing.Point(0, 0);
+            this.gridParceiros.Name = "gridParceiros";
+            this.gridParceiros.Size = new System.Drawing.Size(150, 150);
+            this.gridParceiros.TabIndex = 0;
+            // 
+            // TabelaParceiroControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gridParceiros);
+            this.Name = "TabelaParceiroControl";
+            ((System.ComponentModel.ISupportInitialize)(this.gridParceiros)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView gridParceiros;
     }
 }
