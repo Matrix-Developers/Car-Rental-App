@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
@@ -20,7 +21,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
     {
         private int id = 0;
         ControladorServico controladorServico = new ControladorServico();
-        ControladorLocacao controladorLocacao = new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico());
+        ControladorLocacao controladorLocacao = new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom());
         #region queries Relacionamento
         private const string sqlInserirRelacao =
                 @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]

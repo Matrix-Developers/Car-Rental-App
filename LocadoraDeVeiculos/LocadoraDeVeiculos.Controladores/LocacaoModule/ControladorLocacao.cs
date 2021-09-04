@@ -1,9 +1,11 @@
 ﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
@@ -22,14 +24,16 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         private ControladorVeiculo controladorVeiculo = null;
         private ControladorFuncionario controladorFuncionario = null;
         private ControladorCliente controladorCliente = null;
-        ControladorServico controladorServico = null;
+        private ControladorServico controladorServico = null;
+        private ControladorCupom controladorCupom = null;
 
-        public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, ControladorCliente controladorCliente, ControladorServico controladorServico)
+        public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, ControladorCliente controladorCliente, ControladorServico controladorServico, ControladorCupom controladorCupom)
         {
             this.controladorVeiculo = controladorVeiculo;
             this.controladorFuncionario = controladorFuncionario;
             this.controladorCliente = controladorCliente;
             this.controladorServico = controladorServico;
+            this.controladorCupom = controladorCupom;
         }
 
         #region queries
@@ -40,6 +44,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [ID_FUNCIONARIO],
                     [ID_CLIENTECONTRATANTE],
                     [ID_CLIENTECONDUTOR],
+                    [ID_CUPOM],
                     [DATADESAIDA],
                     [DATAPREVISTADECHEGADA],
                     [DATADECHEGADA],
@@ -55,6 +60,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     @ID_FUNCIONARIO,
                     @ID_CLIENTECONTRATANTE,
                     @ID_CLIENTECONDUTOR,
+                    @ID_CUPOM,
                     @DATADESAIDA,
                     @DATAPREVISTADECHEGADA,
                     @DATADECHEGADA,
@@ -72,6 +78,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [ID_FUNCIONARIO] = @ID_FUNCIONARIO,
                     [ID_CLIENTECONTRATANTE] = @ID_CLIENTECONTRATANTE,
                     [ID_CLIENTECONDUTOR] = @ID_CLIENTECONDUTOR,
+                    [ID_CUPOM] = @ID_CUPOM,
                     [DATADESAIDA] = @DATADESAIDA,
                     [DATAPREVISTADECHEGADA] = @DATAPREVISTADECHEGADA,
                     [DATADECHEGADA] = @DATADECHEGADA,
@@ -168,6 +175,10 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             parametros.Add("ID_FUNCIONARIO", locacao.FuncionarioLocador.Id);
             parametros.Add("ID_CLIENTECONTRATANTE", locacao.ClienteContratante.Id);
             parametros.Add("ID_CLIENTECONDUTOR", locacao.ClienteCondutor.Id);
+            if(locacao.Cupom != null)
+                parametros.Add("ID_CUPOM", locacao.Cupom.Id);
+            else
+                parametros.Add("ID_CUPOM", null);
             parametros.Add("DATADESAIDA", locacao.DataDeSaida);
             parametros.Add("DATAPREVISTADECHEGADA", locacao.DataPrevistaDeChegada);
             parametros.Add("DATADECHEGADA", locacao.DataDeChegada);
@@ -191,6 +202,9 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var id_funcionario = Convert.ToInt32(reader["ID_FUNCIONARIO"]);
             var id_clienteContratante = Convert.ToInt32(reader["ID_CLIENTECONTRATANTE"]);
             var id_clienteCondutor = Convert.ToInt32(reader["ID_CLIENTECONDUTOR"]);
+            var id_cupom = 0;
+            if (reader["ID_CUPOM"] != DBNull.Value)
+                id_cupom = Convert.ToInt32(reader["ID_CUPOM"]);
             //pode haver problemas com retorno null. caso ocorrer, fazer algo como:
             //if (!int.TryParse(reader["ID_CLIENTECONDUTOR"].ToString(), out int id_clienteCondutor))
             //    id_clienteCondutor = -1;
@@ -215,8 +229,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             Funcionario funcionarioLocador = controladorFuncionario.SelecionarPorId(id_funcionario);
             Cliente clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
             Cliente clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
+            Cupom cupom = null;
+            if(id_cupom != 0)
+                cupom = controladorCupom.SelecionarPorId(id_cupom); 
 
-            return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, servicosDaLocacao);
+            return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, cupom, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, servicosDaLocacao);
         }
     }
 }

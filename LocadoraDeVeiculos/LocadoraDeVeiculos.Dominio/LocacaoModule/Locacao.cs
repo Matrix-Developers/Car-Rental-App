@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
@@ -17,6 +18,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private Funcionario funcionarioLocador;
         private Cliente clienteContratante;
         private Cliente clienteCondutor;
+        private Cupom cupom;
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
         private DateTime dataDeChegada;
@@ -28,13 +30,14 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private List<Servico> servicos;
 
         //Construtor para uso comum (PROBLEMAS NOS TESTES. EQUALS SAI DIFERENTE)
-        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Servico> servicos)
+        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, Cupom cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, string tipoDoPlano, string tipoDeSeguro, List<Servico> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
+            this.cupom = cupom;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
             this.tipoDoPlano = tipoDoPlano;
@@ -48,13 +51,14 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         }
 
         //Construtor SOMENTE para carregar do banco
-        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Servico> servicos)
+        public Locacao(int id, Veiculo veiculo, Funcionario funcionarioLocador, Cliente clienteContratante, Cliente clienteCondutor, Cupom cupom, DateTime dataDeSaida, DateTime dataPrevistaDeChegada, DateTime dataDeChegada, string tipoDoPlano, string tipoDeSeguro, double precoLocacao, double precoDevolucao, bool estaAberta, List<Servico> servicos)
         {
             this.id = id;
             this.veiculo = veiculo;
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
+            this.cupom = cupom;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
             this.dataDeChegada = dataDeChegada;
@@ -70,6 +74,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public Funcionario FuncionarioLocador { get => funcionarioLocador; }
         public Cliente ClienteContratante { get => clienteContratante; }
         public Cliente ClienteCondutor { get => clienteCondutor; }
+        public Cupom Cupom { get => cupom; }
         public DateTime DataDeSaida { get => dataDeSaida; }
         public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; }
         public DateTime DataDeChegada { get => dataDeChegada; }

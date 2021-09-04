@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico()));
+            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom()));
 
             ConfigurarPainelRegistros();
         }
@@ -138,7 +138,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico()));
+            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom()));
 
             ConfigurarPainelRegistros();
         }
