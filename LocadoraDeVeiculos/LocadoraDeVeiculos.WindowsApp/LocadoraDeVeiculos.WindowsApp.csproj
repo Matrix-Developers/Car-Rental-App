@@ -252,6 +252,9 @@
     <EmbeddedResource Include="Features\Login\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Parceiros\TelaParceiroForm.resx">
+      <DependentUpon>TelaParceiroForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Serviços\TabelaServicoControl.resx">
       <DependentUpon>TabelaServicoControl.cs</DependentUpon>
     </EmbeddedResource>

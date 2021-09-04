@@ -12,9 +12,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 {
     public partial class TelaParceiroForm : Form
     {
-        public TelaParceiroForm()
+        public TelaParceiroForm(string titulo)
         {
             InitializeComponent();
+            labelTitulo.Text = titulo;
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
