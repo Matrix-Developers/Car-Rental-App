@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
             Parceiro parceiroSelecionado = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{parceiroSelecionado.Nome}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Tem certeza que deseja excluir o Parceiro: [{parceiroSelecionado.Nome}] ?", "Exclusão de Parceiros", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controlador.Excluir(id);
                 List<Parceiro> funcionarios = controlador.SelecionarTodos();
