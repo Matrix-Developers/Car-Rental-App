@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         private ControladorFuncionario controladorFuncionario = null;
         private ControladorCliente controladorCliente = null;
         private ControladorServico controladorServico = null;
-        private ControladorCupom controladorCupom = null;
+        private ControladorCupom controladorCupom = new ControladorCupom();
 
         public ControladorLocacao(ControladorVeiculo controladorVeiculo, ControladorFuncionario controladorFuncionario, ControladorCliente controladorCliente, ControladorServico controladorServico, ControladorCupom controladorCupom)
         {
@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             this.controladorFuncionario = controladorFuncionario;
             this.controladorCliente = controladorCliente;
             this.controladorServico = controladorServico;
-            this.controladorCupom = controladorCupom;
+            //this.controladorCupom = controladorCupom;
         }
 
         #region queries
@@ -229,9 +229,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             Funcionario funcionarioLocador = controladorFuncionario.SelecionarPorId(id_funcionario);
             Cliente clienteContratante = controladorCliente.SelecionarPorId(id_clienteContratante);
             Cliente clienteCondutor = controladorCliente.SelecionarPorId(id_clienteCondutor);
-            Cupom cupom = null;
-            if(id_cupom != 0)
-                cupom = controladorCupom.SelecionarPorId(id_cupom); 
+            Cupom cupom;
+            if (id_cupom != 0)
+                cupom = controladorCupom.SelecionarPorId(id_cupom);
+            else
+                cupom = null;
 
             return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, cupom, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, servicosDaLocacao);
         }
