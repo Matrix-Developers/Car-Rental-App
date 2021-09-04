@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Dominio.ParceiroModule
             string resultadoValidacao = "";
 
             if (string.IsNullOrEmpty(Nome))
-                resultadoValidacao += "O campo Nome está inválido";
+                resultadoValidacao += "O campo nome é obrigatório";
             if (resultadoValidacao == "")
                 resultadoValidacao = "VALIDO";
 
