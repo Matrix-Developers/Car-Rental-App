@@ -230,6 +230,9 @@
     <EmbeddedResource Include="Features\Clientes\TabelaClientesControl.resx">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Cupons\TabelaCupomControl.resx">
+      <DependentUpon>TabelaCupomControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Cupons\TelaCupomForm.resx">
       <DependentUpon>TelaCupomForm.cs</DependentUpon>
     </EmbeddedResource>

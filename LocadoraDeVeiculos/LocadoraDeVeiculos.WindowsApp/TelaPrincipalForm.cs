@@ -28,6 +28,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
 using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
 using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
 using LocadoraDeVeiculos.Controladores.ParceiroModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -143,7 +145,15 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void cuponsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ConfiguracaoCupomToolBox configuracao = new ConfiguracaoCupomToolBox();
 
+            ConfigurarToolBox(configuracao, false);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesCupom(new ControladorCupom());
+
+            ConfigurarPainelRegistros();
         }
 
         private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)

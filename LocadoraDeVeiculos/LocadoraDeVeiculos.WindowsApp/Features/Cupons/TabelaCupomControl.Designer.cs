@@ -29,10 +29,32 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.gridCupons = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCupons)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // gridCupons
+            // 
+            this.gridCupons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCupons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridCupons.Location = new System.Drawing.Point(0, 0);
+            this.gridCupons.Name = "gridCupons";
+            this.gridCupons.Size = new System.Drawing.Size(150, 150);
+            this.gridCupons.TabIndex = 0;
+            // 
+            // TabelaCupomControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gridCupons);
+            this.Name = "TabelaCupomControl";
+            ((System.ComponentModel.ISupportInitialize)(this.gridCupons)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView gridCupons;
     }
 }
