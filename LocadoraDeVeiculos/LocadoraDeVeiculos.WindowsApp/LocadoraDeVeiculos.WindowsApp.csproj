@@ -63,6 +63,20 @@
     <Compile Include="Features\Clientes\TabelaClientesControl.Designer.cs">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Cupons\ConfiguracaoCupomToolBox.cs" />
+    <Compile Include="Features\Cupons\OperacoesCupom.cs" />
+    <Compile Include="Features\Cupons\TabelaCupomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Cupons\TabelaCupomControl.Designer.cs">
+      <DependentUpon>TabelaCupomControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Cupons\TelaCupomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Cupons\TelaCupomForm.Designer.cs">
+      <DependentUpon>TelaCupomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Dashboards\ConfiguracaoDashboardToolBox.cs" />
     <Compile Include="Features\Dashboards\DashControl.cs">
       <SubType>UserControl</SubType>
@@ -215,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Clientes\TabelaClientesControl.resx">
       <DependentUpon>TabelaClientesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Cupons\TelaCupomForm.resx">
+      <DependentUpon>TelaCupomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Dashboards\DashControl.resx">
       <DependentUpon>DashControl.cs</DependentUpon>

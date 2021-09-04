@@ -57,6 +57,8 @@
   <ItemGroup>
     <Compile Include="ClienteModule\ClienteDominioTest.cs" />
     <Compile Include="ClienteModule\ClienteControladorTest.cs" />
+    <Compile Include="CupomModule\CupomControladorTest.cs" />
+    <Compile Include="CupomModule\CupomDominioTest.cs" />
     <Compile Include="FuncionarioModule\FuncionarioDominioTest.cs" />
     <Compile Include="FuncionarioModule\FuncionarioControladorTest.cs" />
     <Compile Include="LocacaoModule\LocacaoDominioTest.cs" />

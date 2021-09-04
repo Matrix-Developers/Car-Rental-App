@@ -140,10 +140,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarPainelRegistros();
         }
+
         private void cuponsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
         private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoParceiroToolBox configuracao = new ConfiguracaoParceiroToolBox();
