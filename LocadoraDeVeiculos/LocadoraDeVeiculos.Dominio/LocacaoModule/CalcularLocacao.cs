@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+﻿using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using System;
 using System.Collections.Generic;
@@ -85,6 +86,28 @@ namespace LocadoraDeVeiculos.Dominio.Shared
                 double diferencaDeDias = (dataRealDeChegada - dataPrevistaDeChegada).TotalDays;
                 double fracaoDoPrecoTotal = precoTotal * PORCENT_MULTA_DE_ATRASO_DIARIA;
                 resultado = fracaoDoPrecoTotal * diferencaDeDias;
+            }
+            return resultado;
+        }
+
+        public static double CalcularCupomDesconto(double precoTotal, Cupom cupom)
+        {
+            double resultado = 0;
+            if (cupom != null)
+            {
+                bool ehAindaValidoHoje = DateTime.Now <= cupom.Validade;
+                bool ehValorMaiorQuePrecoMinimo = precoTotal >= cupom.ValorMinimo;
+
+                if (ehAindaValidoHoje && ehValorMaiorQuePrecoMinimo)
+                {
+                    if (cupom.EhDescontoFixo)
+                        resultado = cupom.Valor;
+                    else
+                    {
+                        double porcentagemDeDesconto = cupom.Valor / 100;
+                        resultado = precoTotal * porcentagemDeDesconto;
+                    }
+                }
             }
             return resultado;
         }
