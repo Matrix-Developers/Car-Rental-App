@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     [VALOR], 
                     [EHDESCONTOFIXO],
                     [VALIDADE],                    
-                    [ID_PARCEIRO], 
+                    [ID_PARCEIRO] 
                 )
             VALUES
                 (
@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     D.[VALIDADE],
                     D.[ID_PARCEIRO],
                     P.[ID],
-                    P.[NOME_PARCEIRO]
+                    P.[NOMEPARCEIRO]
             FROM
                 [TBCUPOM_DESCONTO] AS D INNER JOIN
                 [TBPARCEIRO] AS P
@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     D.[VALIDADE],
                     D.[ID_PARCEIRO],
                     P.[ID],
-                    P.[NOME_PARCEIRO]
+                    P.[NOMEPARCEIRO]
             FROM
                 [TBCUPOM_DESCONTO] AS D INNER JOIN
                 [TBPARCEIRO] AS P
@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     D.[VALIDADE],
                     D.[ID_PARCEIRO],
                     P.[ID],
-                    P.[NOME_PARCEIRO]
+                    P.[NOMEPARCEIRO]
             FROM
                 [TBCUPOM_DESCONTO] AS D INNER JOIN
                 [TBPARCEIRO] AS P
@@ -205,14 +205,14 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         private Cupom ConverterEmCupom(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
-            string nome = Convert.ToString(reader["NOMEPARCEIRO"]);
+            string nome = Convert.ToString(reader["NOMECUPOM"]);
             string codigo = Convert.ToString(reader["CODIGO"]);
             double valorMinimo = Convert.ToDouble(reader["VALORMINIMO"]);
             double valor = Convert.ToDouble(reader["VALOR"]);            
             bool ehDescontoFixo = Convert.ToBoolean(reader["EHDESCONTOFIXO"]);
             DateTime validade = Convert.ToDateTime(reader["VALIDADE"]);
 
-            int idParceiro = Convert.ToInt32(reader["IDPARCEIRO"]);
+            int idParceiro = Convert.ToInt32(reader["ID_PARCEIRO"]);
             string nomeParceiro = Convert.ToString(reader["NOMEPARCEIRO"]);
             Parceiro parceiro = new Parceiro(idParceiro, nomeParceiro);
 

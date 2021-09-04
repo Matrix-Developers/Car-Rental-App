@@ -20,7 +20,9 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
         {
             controlador = new ControladorParceiro();
 
+            Db.Update("DELETE FROM [TBCUPOM_DESCONTO]");
             Db.Update("DELETE FROM [TBPARCEIRO]");
+            Db.Update("DBCC CHECKIDENT('TBCUPOM_DESCONTO', RESEED, 0)");
             Db.Update("DBCC CHECKIDENT('TBPARCEIRO', RESEED, 0)");
         }
 
