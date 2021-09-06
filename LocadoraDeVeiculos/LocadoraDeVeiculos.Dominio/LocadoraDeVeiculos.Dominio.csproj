@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteModule\Cliente.cs" />
+    <Compile Include="CupomModule\Cupom.cs" />
     <Compile Include="FuncionarioModule\Funcionario.cs" />
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculo.cs" />
     <Compile Include="ImagemVeiculoModule\ImagemVeiculo.cs" />

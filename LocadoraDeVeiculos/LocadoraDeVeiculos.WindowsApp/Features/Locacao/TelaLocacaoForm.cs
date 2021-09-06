@@ -1,7 +1,9 @@
 ﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
@@ -28,11 +30,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
         private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
         private ControladorCliente controladorCliente = new ControladorCliente();
+        private ControladorCupom controladorCupom = new ControladorCupom();
         public List<Servico> Servicos;
         public string TipoSeguro = "Nenhum";
         ServicosForm telaServico = new ServicosForm();
         public TelaLocacaoForm(string titulo)
-        {            
+        {
             Servicos = new List<Servico>();
             InitializeComponent();
             lblTitulo.Text = titulo;
@@ -105,7 +108,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             string tipoDeSeguro = "Nenhum";
             if (telaServico.seguro.Length > 0)
                 tipoDeSeguro = telaServico.seguro;
-            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
+            Cupom cupom = null;
+            bool existe = controladorCupom.ExisteCodigo(txtCupom.Text);
+            if (existe)
+            {
+                cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+                if (cupom.Validade < DateTime.Now)
+                    cupom = null;
+            }
+
+            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
             Veiculo veiculoAtualizado = locacao.Veiculo;
             controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validar();
@@ -118,7 +130,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             }
         }
 
-        
+
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
@@ -133,6 +145,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 double precoSeguro = CalcularLocacao.CalcularSeguro(telaServico.seguro);
                 txtTotal.Text = Convert.ToString(precoGarantia + precoSeguro);
             }
+        }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            string cupom = txtCupom.Text;
+            bool existe = controladorCupom.ExisteCodigo(cupom);
+            if (existe)
+                txtCupom.BackColor = Color.Green;
+            else
+                txtCupom.BackColor = Color.Red;
         }
     }
 }

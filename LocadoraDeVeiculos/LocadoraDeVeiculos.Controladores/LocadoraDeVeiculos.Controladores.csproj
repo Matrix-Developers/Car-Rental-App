@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CupomModule\ControladorCupom.cs" />
     <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
     <Compile Include="ImagemVeiculoModule\ControladorImagemVeiculo.cs" />
     <Compile Include="LocacaoModule\ControladorLocacao.cs" />

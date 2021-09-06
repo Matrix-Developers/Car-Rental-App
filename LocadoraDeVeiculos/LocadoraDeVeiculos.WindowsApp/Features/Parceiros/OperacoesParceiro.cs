@@ -44,16 +44,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 return;
             }
 
-            Parceiro funcionarioSelecionado = controlador.SelecionarPorId(id);
+            Parceiro parceiroSelecionado = controlador.SelecionarPorId(id);
             TelaParceiroForm tela = new TelaParceiroForm("Edição de Parceiro");
-            tela.Parceiro = funcionarioSelecionado;
+            tela.Parceiro = parceiroSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.Editar(id, tela.Parceiro);
-                List<Parceiro> funcionarios = controlador.SelecionarTodos();
-                tabela.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{funcionarioSelecionado.Nome}] editado com sucesso");
+                List<Parceiro> parceiros = controlador.SelecionarTodos();
+                tabela.AtualizarRegistros(parceiros);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] editado com sucesso");
             }
         }
 
@@ -72,8 +72,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             if (MessageBox.Show($"Tem certeza que deseja excluir o Parceiro: [{parceiroSelecionado.Nome}] ?", "Exclusão de Parceiros", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 controlador.Excluir(id);
-                List<Parceiro> funcionarios = controlador.SelecionarTodos();
-                tabela.AtualizarRegistros(funcionarios);
+                List<Parceiro> parceiros = controlador.SelecionarTodos();
+                tabela.AtualizarRegistros(parceiros);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] removido com sucesso");
             }
         }
@@ -88,8 +88,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         }
         public UserControl ObterTabela()
         {
-            List<Parceiro> funcionarios = controlador.SelecionarTodos();
-            tabela.AtualizarRegistros(funcionarios);
+            List<Parceiro> cupons = controlador.SelecionarTodos();
+            tabela.AtualizarRegistros(cupons);
             return tabela;
         }
     }

@@ -28,6 +28,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
 using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
 using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
 using LocadoraDeVeiculos.Controladores.ParceiroModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -122,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico()));
+            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom()));
 
             ConfigurarPainelRegistros();
         }
@@ -136,14 +138,24 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico()));
+            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom()));
 
             ConfigurarPainelRegistros();
         }
+
         private void cuponsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ConfiguracaoCupomToolBox configuracao = new ConfiguracaoCupomToolBox();
 
+            ConfigurarToolBox(configuracao, false);
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesCupom(new ControladorCupom());
+
+            ConfigurarPainelRegistros();
         }
+
         private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoParceiroToolBox configuracao = new ConfiguracaoParceiroToolBox();

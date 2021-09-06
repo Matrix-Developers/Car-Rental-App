@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
@@ -26,6 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
         ControladorServico controladorServicos;
         ControladorLocacao controladorLocacao;
         ControladorFuncionario controladorFuncionario;
+        ControladorCupom controladorCupom;
         public DashControl()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             controladorCliente = new ControladorCliente();
             controladorServicos = new ControladorServico();
             controladorFuncionario = new ControladorFuncionario();
-            controladorLocacao = new ControladorLocacao(controladorVeiculo, controladorFuncionario,controladorCliente, controladorServicos);
+            controladorLocacao = new ControladorLocacao(controladorVeiculo, controladorFuncionario,controladorCliente, controladorServicos, controladorCupom);
             MudaLabels();
         }
 
