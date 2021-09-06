@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -16,15 +17,7 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
         public ClienteControladorTest()
         {
             controlador = new ControladorCliente();
-            Db.Update("DELETE FROM [TBSERVICO_LOCACAO]");
-            Db.Update("DELETE FROM [TBSERVICO]");
-            Db.Update("DELETE FROM [TBLOCACAO]");
-            Db.Update("DELETE FROM [TBCLIENTE]");
-
-            Db.Update("DBCC CHECKIDENT('TBSERVICO_LOCACAO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBSERVICO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBLOCACAO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBCLIENTE', RESEED, 0)");
+            ResetarBanco.ResetarTabelas();
         }
         [TestMethod]
         public void DeveInserir_NovoCliente()
@@ -74,6 +67,22 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
         }
 
         [TestMethod]
+        public void DeveSelecionar_TodosClientes()
+        {
+            Cliente c1 = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
+
+            controlador.InserirNovo(c1);
+            controlador.InserirNovo(c1);
+
+            var clientes = controlador.SelecionarTodos();
+
+            clientes.Should().HaveCount(2);
+            clientes[0].Nome.Should().Be("Nome Teste");
+            clientes[1].Nome.Should().Be("Nome Teste");
+            ResetarBanco.ResetarTabelas();
+        }
+
+        [TestMethod]
         public void DeveSelecionar_Cliente_PorID()
         {
             //arrange
@@ -85,24 +94,6 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
 
             //assert
             clienteEncontrado.Should().NotBeNull();
-        }
-
-        [TestMethod]
-        public void DeveSelecionar_TodosClientes()
-        {
-            Cliente c1 = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
-            controlador.InserirNovo(c1);
-
-    
-            controlador.InserirNovo(c1);
-
-            var clientes = controlador.SelecionarTodos();
-
-            clientes.Should().HaveCount(2);
-            clientes[0].Nome.Should().Be("Nome Teste");
-            clientes[1].Nome.Should().Be("Nome Teste");
-            
-
-        }
+        }        
     }
 }

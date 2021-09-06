@@ -11,6 +11,7 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using LocadoraDeVeiculos.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -40,12 +41,8 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             controladorFuncionario = new ControladorFuncionario();
             controladorCliente = new ControladorCliente();
             controladorServico = new ControladorServico();
-            controlador = new ControladorLocacao(controladorVeiculo,controladorFuncionario,controladorCliente,controladorServico);
-            Db.Update("DELETE FROM [TBVEICULO]");
-            Db.Update("DELETE FROM [TBGRUPOVEICULO]");
-            Db.Update("DELETE FROM [TBFUNCIONARIO]");
-            Db.Update("DELETE FROM [TBCLIENTE]");
-            Db.Update("DELETE FROM [TBLOCACAO]");
+            controlador = new ControladorLocacao(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServico);
+            ResetarBanco.ResetarTabelas();
         }
 
         [TestMethod]
@@ -53,7 +50,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true,null);
+            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
             funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
@@ -62,7 +59,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             clienteCondutor = new Cliente(0, "Nardolindo", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), true);
             controladorCliente.InserirNovo(clienteCondutor);
 
-            locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", 0,0,false,null);
+            locacao = new Locacao(0, veiculo, funcionario, clienteContratante, clienteCondutor, DateTime.Today, DateTime.Today.AddDays(5f), DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", 0, 0, false, null);
             controlador.InserirNovo(locacao);
 
             var locacaoEncontrada = controlador.SelecionarPorId(locacao.Id);
@@ -74,7 +71,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true,null);
+            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
             funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
@@ -97,7 +94,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true,null);
+            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
             funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
@@ -120,7 +117,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             grupoVeiculos = new GrupoDeVeiculo(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
             controladorGrupoDeVeiculos.InserirNovo(grupoVeiculos);
-            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true,null);
+            veiculo = new Veiculo(0, "Ecosport", grupoVeiculos, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
             controladorVeiculo.InserirNovo(veiculo);
             funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
             controladorFuncionario.InserirNovo(funcionario);
