@@ -43,7 +43,8 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             controladorFuncionario = new ControladorFuncionario();
             controladorCliente = new ControladorCliente();
             controladorServico = new ControladorServico();
-            controlador = new ControladorLocacao(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServico);
+            controladorCupom = new ControladorCupom();
+            controlador = new ControladorLocacao(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServico, controladorCupom);
             ResetarBanco.ResetarTabelas();
         }
 
