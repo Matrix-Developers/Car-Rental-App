@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             controlador = new ControladorCupom();
             controladorParceiro = new ControladorParceiro();
-
-            Db.Update("DELETE FROM [TBCUPOM_DESCONTO]");
-            Db.Update("DELETE FROM [TBPARCEIRO]");            
-            Db.Update("DBCC CHECKIDENT('TBCUPOM_DESCONTO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBPARCEIRO', RESEED, 0)");
+            ResetarBanco.ResetarTabelas();            
         }
 
         [TestMethod]
