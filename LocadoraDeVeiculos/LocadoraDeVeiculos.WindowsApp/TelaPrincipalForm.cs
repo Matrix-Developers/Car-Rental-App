@@ -161,6 +161,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoParceiroToolBox configuracao = new ConfiguracaoParceiroToolBox();
 
             ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.TipoCadastro);
 
