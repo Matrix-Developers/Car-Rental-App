@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using System.Collections.Generic;
 using System;
+using LocadoraDeVeiculos.Tests.Shared;
 
 namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 {
@@ -11,7 +12,13 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
     {
         Funcionario funcionario;
         Funcionario funcionario2;
-        ControladorFuncionario ctr = new ControladorFuncionario();
+        ControladorFuncionario ctr; 
+
+        public FuncionarioControladorTest()
+        {
+            ctr = new ControladorFuncionario();
+            ResetarBanco.ResetarTabelas();
+        }
 
         [TestMethod]
         public void DeveInserirFuncionarioNoBanco()

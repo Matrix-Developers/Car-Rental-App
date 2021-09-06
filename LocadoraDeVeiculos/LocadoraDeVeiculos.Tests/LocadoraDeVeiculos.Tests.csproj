@@ -67,6 +67,7 @@
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosDominioTest.cs" />
     <Compile Include="GrupoDeVeiculosModule\GrupoDeVeiculosControladorTest.cs" />
     <Compile Include="SevicoModule\ServicoDominioTest.cs" />
+    <Compile Include="Shared\ResetarBanco.cs" />
     <Compile Include="VeiculoModule\VeiculoControladorTest.cs" />
     <Compile Include="VeiculoModule\VeiculoDominioTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

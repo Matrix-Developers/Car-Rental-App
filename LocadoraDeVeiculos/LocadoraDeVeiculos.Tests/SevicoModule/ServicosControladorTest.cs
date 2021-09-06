@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.Tests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -15,12 +16,7 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
         public ServicosControladorTest()
         {
             controlador = new ControladorServico();
-
-            Db.Update("DELETE FROM [TBSERVICO_LOCACAO]");
-            Db.Update("DELETE FROM [TBSERVICO]");
-
-            Db.Update("DBCC CHECKIDENT('TBSERVICO_LOCACAO', RESEED, 0)");
-            Db.Update("DBCC CHECKIDENT('TBSERVICO', RESEED, 0)");
+            ResetarBanco.ResetarTabelas();
         }
         [TestMethod]
         public void DeveInserirUmServico()
