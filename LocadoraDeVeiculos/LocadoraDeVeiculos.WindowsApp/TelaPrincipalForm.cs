@@ -26,6 +26,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Locacoes;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
 using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
+using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
+using LocadoraDeVeiculos.Controladores.ParceiroModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -135,6 +137,23 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracao.TipoCadastro);
 
             operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico()));
+
+            ConfigurarPainelRegistros();
+        }
+        private void cuponsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoParceiroToolBox configuracao = new ConfiguracaoParceiroToolBox();
+
+            ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
+
+            AtualizarRodape(configuracao.TipoCadastro);
+
+            operacoes = new OperacoesParceiro(new ControladorParceiro());
 
             ConfigurarPainelRegistros();
         }
