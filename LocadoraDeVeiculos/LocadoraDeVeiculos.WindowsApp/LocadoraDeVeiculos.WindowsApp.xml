@@ -1,0 +1,522 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LocadoraDeVeiculos.WindowsApp</name>
+    </assembly>
+    <members>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.ClientesModule.ClientesForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.ClientesModule.ClientesForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.ClientesModule.ClientesForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Cupons.TabelaCupomControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Cupons.TabelaCupomControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Cupons.TabelaCupomControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Cupons.TelaCupomForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Cupons.TelaCupomForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Cupons.TelaCupomForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Dashboards.DashControl.components">
+            <summary> 
+            Variável de designer necessária.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Dashboards.DashControl.Dispose(System.Boolean)">
+            <summary> 
+            Limpar os recursos que estão sendo usados.
+            </summary>
+            <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Dashboards.DashControl.InitializeComponent">
+            <summary> 
+            Método necessário para suporte ao Designer - não modifique 
+            o conteúdo deste método com o editor de código.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.FiltroDevolucaoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.FiltroDevolucaoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.FiltroDevolucaoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.TabelaDevolucaoControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.TabelaDevolucaoControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.TabelaDevolucaoControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.TelaDevolucaoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.TelaDevolucaoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Devolucoes.TelaDevolucaoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Funcionarios.TabelaFuncionarioControl.components">
+            <summary> 
+            Variável de designer necessária.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Funcionarios.TabelaFuncionarioControl.Dispose(System.Boolean)">
+            <summary> 
+            Limpar os recursos que estão sendo usados.
+            </summary>
+            <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Funcionarios.TabelaFuncionarioControl.InitializeComponent">
+            <summary> 
+            Método necessário para suporte ao Designer - não modifique 
+            o conteúdo deste método com o editor de código.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos.TabelaGrupoDeVeiculosControl.components">
+            <summary> 
+            Variável de designer necessária.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos.TabelaGrupoDeVeiculosControl.Dispose(System.Boolean)">
+            <summary> 
+            Limpar os recursos que estão sendo usados.
+            </summary>
+            <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos.TabelaGrupoDeVeiculosControl.InitializeComponent">
+            <summary> 
+            Método necessário para suporte ao Designer - não modifique 
+            o conteúdo deste método com o editor de código.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo.ImagemVeiculoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo.ImagemVeiculoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo.ImagemVeiculoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Locacoes.TabelaLocacaoControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Locacoes.TabelaLocacaoControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Locacoes.TabelaLocacaoControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Locacoes.TelaLocacaoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Locacoes.TelaLocacaoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Locacoes.TelaLocacaoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Login.TelaLogin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Login.TelaLogin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Login.TelaLogin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Parceiros.TabelaParceiroControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Parceiros.TabelaParceiroControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Parceiros.TabelaParceiroControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Parceiros.TelaParceiroForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Parceiros.TelaParceiroForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Parceiros.TelaParceiroForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Servicos.TabelaServicoControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Servicos.TabelaServicoControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Servicos.TabelaServicoControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Servicos.TelaServicoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Servicos.TelaServicoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Servicos.TelaServicoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Features.Veiculos.TabelaVeiculoControl.components">
+            <summary> 
+            Variável de designer necessária.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Veiculos.TabelaVeiculoControl.Dispose(System.Boolean)">
+            <summary> 
+            Limpar os recursos que estão sendo usados.
+            </summary>
+            <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Features.Veiculos.TabelaVeiculoControl.InitializeComponent">
+            <summary> 
+            Método necessário para suporte ao Designer - não modifique 
+            o conteúdo deste método com o editor de código.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Clientes.TabelaClientesControl.components">
+            <summary> 
+            Variável de designer necessária.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Clientes.TabelaClientesControl.Dispose(System.Boolean)">
+            <summary> 
+            Limpar os recursos que estão sendo usados.
+            </summary>
+            <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Clientes.TabelaClientesControl.InitializeComponent">
+            <summary> 
+            Método necessário para suporte ao Designer - não modifique 
+            o conteúdo deste método com o editor de código.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Funcionarios.FuncionarioForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Funcionarios.FuncionarioForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Funcionarios.FuncionarioForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos.TarefaGrupoDeVeiculosForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos.TarefaGrupoDeVeiculosForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos.TarefaGrupoDeVeiculosForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Servicos.ServicosForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Servicos.ServicosForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Servicos.ServicosForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.Veiculos.VeiculoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Veiculos.VeiculoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Veiculos.VeiculoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:LocadoraDeVeiculos.WindowsApp.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources._36x1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.car">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.car_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.car2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.carKey">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.FuelGauge1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_aluguel_de_carro_96">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_calendário_100">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_chamada_em_conferência_100">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_empresa_cliente_100">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_hoje_100">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_serviços_100">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_usuário_100">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.icons8_usuário_1001">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.outline_add_black_24dp">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.outline_add_black_24dp1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:LocadoraDeVeiculos.WindowsApp.Properties.Resources.outline_filter_alt_black_36dp">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="F:LocadoraDeVeiculos.WindowsApp.TelaPrincipalForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.TelaPrincipalForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LocadoraDeVeiculos.WindowsApp.TelaPrincipalForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

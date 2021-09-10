@@ -152,7 +152,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
 
 
-                    email.Attachments.Add(new Attachment($@"..\..\..\Recibos\recibo{tela.Locacao.Id}.pdf"));
+                    email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo{tela.Locacao.Id}.pdf"));
 
                     smtp.Send(email);
                 }

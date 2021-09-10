@@ -1,6 +1,8 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+//using PdfSharp.Drawing;
+//using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,7 +31,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
         public void ConverterLocacaoEmPdf(Locacao locacao)
         {
-            string arquivo = $@"..\..\..\Recibos\recibo{locacao.Id}.pdf";
+            string arquivo = $@"..\..\..\..\Recibos\recibo{locacao.Id}.pdf";
             string titulo = $"Recibo Locadora de Veículos - Locação {locacao.Id}";
 
             List<string> linhas = new List<string>
@@ -68,12 +70,12 @@ namespace LocadoraDeVeiculos.Controladores.Shared
             double lineYPosition = 15;
             XFont titleFont = new XFont(fontFamily, tamanhoFonteTitulo, XFontStyle.Bold);
             XFont textFont = new XFont(fontFamily, tamanhoFonteTexto, XFontStyle.Regular);
-
+            
             PdfDocument pdf = new PdfDocument();
             pdf.Info.Title = textoTitulo;
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
-
+            
             //titulo e cabeçalho
             graph.DrawString(textoTitulo, titleFont, XBrushes.Black, new XRect(lineXPosition*0.60, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             lineYPosition += tamanhoFonteTitulo*0.5;
@@ -86,9 +88,9 @@ namespace LocadoraDeVeiculos.Controladores.Shared
                 graph.DrawString(linha, textFont, XBrushes.Black, new XRect(lineXPosition, lineYPosition, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
                 lineYPosition += tamanhoFonteTexto * 2;
             }
-
+            
             pdf.Save(nomeArquivo);
-            Process.Start(nomeArquivo);
+            //Process.Start(nomeArquivo);
         }
     }
 }
