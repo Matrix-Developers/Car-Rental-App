@@ -13,18 +13,20 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
     public static class Db
     {
-        private static readonly string bancoDeDados;
-        private static readonly string connectionString = "";
-        private static readonly string nomeProvider;
-        private static readonly DbProviderFactory fabricaProvedor;
+        private static string bancoDeDados;
+        private static string connectionString = "";
+        private static string nomeProvider;
+        private static DbProviderFactory fabricaProvedor;
 
         static Db()
         {
-            bancoDeDados = ConfigurationManager.AppSettings["bancoDeDados"];
+            bancoDeDados = "bancoDeDados";
 
-            connectionString = ConfigurationManager.ConnectionStrings[bancoDeDados].ConnectionString;
+            connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=DBLocadoraDeVeiculos;Integrated Security=True;Pooling=False";
 
-            nomeProvider = ConfigurationManager.ConnectionStrings[bancoDeDados].ProviderName;
+            nomeProvider = "System.Data.SqlClient";
+
+            DbProviderFactories.RegisterFactory("System.Data.SqlClient", System.Data.SqlClient.SqlClientFactory.Instance);
 
             fabricaProvedor = DbProviderFactories.GetFactory(nomeProvider);
         }
