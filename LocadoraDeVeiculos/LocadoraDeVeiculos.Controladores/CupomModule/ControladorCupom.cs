@@ -64,7 +64,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     D.[EHDESCONTOFIXO],                                                           
                     D.[VALIDADE],
                     D.[ID_PARCEIRO],
-                    D.[QTDUTILIZADA]
+                    D.[QTDUTILIZADA],
                     P.[ID],
                     P.[NOMEPARCEIRO]
             FROM
