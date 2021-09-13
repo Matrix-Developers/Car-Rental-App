@@ -55,9 +55,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // labelTitulo
             // 
             this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelTitulo.ForeColor = System.Drawing.Color.Black;
-            this.labelTitulo.Location = new System.Drawing.Point(81, 33);
+            this.labelTitulo.Location = new System.Drawing.Point(94, 38);
+            this.labelTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(173, 20);
             this.labelTitulo.TabIndex = 66;
@@ -66,17 +67,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // dtpValidade
             // 
             this.dtpValidade.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpValidade.Location = new System.Drawing.Point(107, 265);
+            this.dtpValidade.Location = new System.Drawing.Point(125, 306);
+            this.dtpValidade.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dtpValidade.Name = "dtpValidade";
-            this.dtpValidade.Size = new System.Drawing.Size(155, 20);
+            this.dtpValidade.Size = new System.Drawing.Size(180, 23);
             this.dtpValidade.TabIndex = 73;
             // 
             // lbValidade
             // 
             this.lbValidade.AutoSize = true;
-            this.lbValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbValidade.ForeColor = System.Drawing.Color.Black;
-            this.lbValidade.Location = new System.Drawing.Point(53, 271);
+            this.lbValidade.Location = new System.Drawing.Point(66, 313);
+            this.lbValidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbValidade.Name = "lbValidade";
             this.lbValidade.Size = new System.Drawing.Size(48, 13);
             this.lbValidade.TabIndex = 82;
@@ -86,18 +89,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(107, 100);
+            this.txtId.Location = new System.Drawing.Point(125, 115);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(54, 20);
+            this.txtId.Size = new System.Drawing.Size(62, 23);
             this.txtId.TabIndex = 80;
             this.txtId.Text = "0";
             // 
             // lbValorMinimo
             // 
             this.lbValorMinimo.AutoSize = true;
-            this.lbValorMinimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbValorMinimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbValorMinimo.ForeColor = System.Drawing.Color.Black;
-            this.lbValorMinimo.Location = new System.Drawing.Point(32, 241);
+            this.lbValorMinimo.Location = new System.Drawing.Point(45, 279);
+            this.lbValorMinimo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbValorMinimo.Name = "lbValorMinimo";
             this.lbValorMinimo.Size = new System.Drawing.Size(69, 13);
             this.lbValorMinimo.TabIndex = 78;
@@ -106,20 +111,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // lbValor
             // 
             this.lbValor.AutoSize = true;
-            this.lbValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbValor.ForeColor = System.Drawing.Color.Black;
-            this.lbValor.Location = new System.Drawing.Point(31, 215);
+            this.lbValor.Location = new System.Drawing.Point(83, 249);
+            this.lbValor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbValor.Name = "lbValor";
-            this.lbValor.Size = new System.Drawing.Size(70, 13);
+            this.lbValor.Size = new System.Drawing.Size(31, 13);
             this.lbValor.TabIndex = 77;
-            this.lbValor.Text = "Porcentagem";
+            this.lbValor.Text = "Valor";
             // 
             // labelCodigo
             // 
             this.labelCodigo.AutoSize = true;
-            this.labelCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelCodigo.ForeColor = System.Drawing.Color.Black;
-            this.labelCodigo.Location = new System.Drawing.Point(66, 155);
+            this.labelCodigo.Location = new System.Drawing.Point(77, 179);
+            this.labelCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCodigo.Name = "labelCodigo";
             this.labelCodigo.Size = new System.Drawing.Size(40, 13);
             this.labelCodigo.TabIndex = 76;
@@ -128,9 +135,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // lbNome
             // 
             this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbNome.ForeColor = System.Drawing.Color.Black;
-            this.lbNome.Location = new System.Drawing.Point(71, 129);
+            this.lbNome.Location = new System.Drawing.Point(83, 149);
+            this.lbNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(35, 13);
             this.lbNome.TabIndex = 75;
@@ -139,9 +147,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // lbId
             // 
             this.lbId.AutoSize = true;
-            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbId.ForeColor = System.Drawing.Color.Black;
-            this.lbId.Location = new System.Drawing.Point(90, 103);
+            this.lbId.Location = new System.Drawing.Point(105, 119);
+            this.lbId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(16, 13);
             this.lbId.TabIndex = 74;
@@ -149,17 +158,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(107, 126);
+            this.txtNome.Location = new System.Drawing.Point(125, 145);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(155, 20);
+            this.txtNome.Size = new System.Drawing.Size(180, 23);
             this.txtNome.TabIndex = 1;
             // 
             // rBtnPorcentagem
             // 
             this.rBtnPorcentagem.AutoSize = true;
-            this.rBtnPorcentagem.Location = new System.Drawing.Point(165, 186);
+            this.rBtnPorcentagem.Location = new System.Drawing.Point(192, 215);
+            this.rBtnPorcentagem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rBtnPorcentagem.Name = "rBtnPorcentagem";
-            this.rBtnPorcentagem.Size = new System.Drawing.Size(88, 17);
+            this.rBtnPorcentagem.Size = new System.Drawing.Size(96, 19);
             this.rBtnPorcentagem.TabIndex = 4;
             this.rBtnPorcentagem.TabStop = true;
             this.rBtnPorcentagem.Text = "Porcentagem";
@@ -169,9 +180,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // rBtnValorFixo
             // 
             this.rBtnValorFixo.AutoSize = true;
-            this.rBtnValorFixo.Location = new System.Drawing.Point(79, 186);
+            this.rBtnValorFixo.Location = new System.Drawing.Point(92, 215);
+            this.rBtnValorFixo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rBtnValorFixo.Name = "rBtnValorFixo";
-            this.rBtnValorFixo.Size = new System.Drawing.Size(71, 17);
+            this.rBtnValorFixo.Size = new System.Drawing.Size(76, 19);
             this.rBtnValorFixo.TabIndex = 3;
             this.rBtnValorFixo.TabStop = true;
             this.rBtnValorFixo.Text = "Valor Fixo";
@@ -180,41 +192,45 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(107, 152);
+            this.txtCodigo.Location = new System.Drawing.Point(125, 175);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(155, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(180, 23);
             this.txtCodigo.TabIndex = 2;
             // 
             // numUpDownValor
             // 
-            this.numUpDownValor.Location = new System.Drawing.Point(107, 213);
+            this.numUpDownValor.Location = new System.Drawing.Point(125, 246);
+            this.numUpDownValor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.numUpDownValor.Maximum = new decimal(new int[] {
             15000,
             0,
             0,
             0});
             this.numUpDownValor.Name = "numUpDownValor";
-            this.numUpDownValor.Size = new System.Drawing.Size(155, 20);
+            this.numUpDownValor.Size = new System.Drawing.Size(181, 23);
             this.numUpDownValor.TabIndex = 5;
             // 
             // numUpDownValorMinimo
             // 
-            this.numUpDownValorMinimo.Location = new System.Drawing.Point(107, 239);
+            this.numUpDownValorMinimo.Location = new System.Drawing.Point(125, 276);
+            this.numUpDownValorMinimo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.numUpDownValorMinimo.Maximum = new decimal(new int[] {
             15000,
             0,
             0,
             0});
             this.numUpDownValorMinimo.Name = "numUpDownValorMinimo";
-            this.numUpDownValorMinimo.Size = new System.Drawing.Size(155, 20);
+            this.numUpDownValorMinimo.Size = new System.Drawing.Size(181, 23);
             this.numUpDownValorMinimo.TabIndex = 6;
             // 
             // lblParceiro
             // 
             this.lblParceiro.AutoSize = true;
-            this.lblParceiro.Location = new System.Drawing.Point(55, 299);
+            this.lblParceiro.Location = new System.Drawing.Point(64, 345);
+            this.lblParceiro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblParceiro.Name = "lblParceiro";
-            this.lblParceiro.Size = new System.Drawing.Size(46, 13);
+            this.lblParceiro.Size = new System.Drawing.Size(50, 15);
             this.lblParceiro.TabIndex = 83;
             this.lblParceiro.Text = "Parceiro";
             // 
@@ -222,18 +238,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             this.cBoxParceiro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxParceiro.FormattingEnabled = true;
-            this.cBoxParceiro.Location = new System.Drawing.Point(107, 296);
+            this.cBoxParceiro.Location = new System.Drawing.Point(125, 342);
+            this.cBoxParceiro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cBoxParceiro.Name = "cBoxParceiro";
-            this.cBoxParceiro.Size = new System.Drawing.Size(155, 21);
+            this.cBoxParceiro.Size = new System.Drawing.Size(180, 23);
             this.cBoxParceiro.TabIndex = 84;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(248, 349);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.Location = new System.Drawing.Point(289, 403);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(88, 27);
             this.btnCancelar.TabIndex = 86;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -241,10 +259,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // btnConfirmar
             // 
             this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(167, 349);
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConfirmar.Location = new System.Drawing.Point(195, 403);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmar.Size = new System.Drawing.Size(88, 27);
             this.btnConfirmar.TabIndex = 85;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -252,9 +271,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             // TelaCupomForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 384);
+            this.ClientSize = new System.Drawing.Size(391, 443);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.cBoxParceiro);
@@ -275,6 +294,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.labelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaCupomForm";

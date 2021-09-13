@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
+            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro, 1);
 
             //action
             controlador.InserirNovo(cupom);
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
+            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro, 1);
 
             //action
             controlador.InserirNovo(cupom);
@@ -64,8 +64,8 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
-            Cupom cupomEditado = new Cupom(0, "CupomEditado", "EDITADO", 50, 2000, false, DateTime.Today.AddDays(10), parceiro);
+            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro, 0);
+            Cupom cupomEditado = new Cupom(0, "CupomEditado", "EDITADO", 50, 2000, false, DateTime.Today.AddDays(10), parceiro, 0);
 
             //action
             controlador.InserirNovo(cupom);
@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro);
+            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro, 0);
 
             //action
             controlador.InserirNovo(cupom);

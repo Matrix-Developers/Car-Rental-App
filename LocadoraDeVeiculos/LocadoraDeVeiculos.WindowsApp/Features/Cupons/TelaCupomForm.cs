@@ -12,6 +12,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
     {
         Cupom cupom;
         ControladorParceiro controladorParceiro;
+        int qtdUtilizada = 0;
         public TelaCupomForm(string titulo)
         {
             controladorParceiro = new ControladorParceiro();
@@ -53,6 +54,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
                 numUpDownValorMinimo.Value = Convert.ToDecimal(cupom.ValorMinimo);
                 dtpValidade.Value = cupom.Validade;
                 cBoxParceiro.SelectedItem = cupom.Parceiro;
+                if (cupom.QtdUtilizada > 0)
+                    qtdUtilizada = cupom.QtdUtilizada;
             }
         }
         #region Radio Buttons
@@ -61,7 +64,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             if (rBtnValorFixo.Checked == true)
             {
                 lbValor.Text = "Valor";
-                lbValor.Location = new Point(70, 215);
+                lbValor.Location = new Point(83, 249);
                 numUpDownValor.Maximum = 15000;
             }
         }
@@ -71,7 +74,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             if (rBtnPorcentagem.Checked == true)
             {
                 lbValor.Text = "Porcentagem";
-                lbValor.Location = new Point(31, 215);
+                lbValor.Location = new Point(44, 249);
                 numUpDownValor.Maximum = 100;
             }
         }
@@ -93,7 +96,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             Parceiro parceiro = cBoxParceiro.SelectedItem as Parceiro;
 
-            cupom = new Cupom(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro);
+            cupom = new Cupom(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro, qtdUtilizada);
 
             string resultadoValidacao = cupom.Validar();
 

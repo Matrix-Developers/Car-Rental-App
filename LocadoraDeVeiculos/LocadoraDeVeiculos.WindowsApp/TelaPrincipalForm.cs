@@ -148,6 +148,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguracaoCupomToolBox configuracao = new ConfiguracaoCupomToolBox();
 
             ConfigurarToolBox(configuracao, false);
+            btnAdicionar.Image = Properties.Resources._36x1;
 
             AtualizarRodape(configuracao.TipoCadastro);
 

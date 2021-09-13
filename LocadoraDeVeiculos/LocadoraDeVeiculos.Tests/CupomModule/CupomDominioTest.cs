@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         public void DeveCriarCupom_Completo_Porcentagem()
         {
             //arrange
-            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 10, 2000, false, DateTime.Now.AddDays(10), parceiro);
+            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 10, 2000, false, DateTime.Now.AddDays(10), parceiro, 0);
 
             //action
             string resultadoValidacao = cupom.Validar();
@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         public void DeveCriarCupom_Completo_Fixo()
         {
             //arrange
-            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), parceiro);
+            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), parceiro, 0);
 
             //action
             string resultadoValidacao = cupom.Validar();
@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         public void DeveCriarCupom_TotalmenteIncorreto_Porcentagem()
         {
             //arrange
-            Cupom cupom = new Cupom(0, "", "", 101, 0, false, DateTime.Now.AddDays(10), null);
+            Cupom cupom = new Cupom(0, "", "", 101, 0, false, DateTime.Now.AddDays(10), null, 0);
 
             //action
             string resultadoValidacao = cupom.Validar();
@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         public void DeveCriarCupom_TotalmenteIncorreto_Fixo()
         {
             //arrange
-            Cupom cupom = new Cupom(0, "", "", 0, 0, true, DateTime.Now.AddDays(10), null);
+            Cupom cupom = new Cupom(0, "", "", 0, 0, true, DateTime.Now.AddDays(10), null, 0);
 
             //action
             string resultadoValidacao = cupom.Validar();
@@ -67,7 +67,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         public void DeveApresentarErro_ValorZero_Fixo()
         {
             //arrange
-            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 0, 2000, true, DateTime.Now.AddDays(10), parceiro);
+            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 0, 2000, true, DateTime.Now.AddDays(10), parceiro, 0);
 
             //action
             string resultadoValidacao = cupom.Validar();
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         public void DeveApresentarErro_PorcentagemMaiorDeCem_Porcentagem()
         {
             //arrange
-            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 101, 2000, false, DateTime.Now.AddDays(10), parceiro);
+            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 101, 2000, false, DateTime.Now.AddDays(10), parceiro, 0);
 
             //action
             string resultadoValidacao = cupom.Validar();
@@ -93,7 +93,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         public void DeveApresentarErro_NomeVazio()
         {
             //arrange
-            Cupom cupom = new Cupom(0, "", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), parceiro);
+            Cupom cupom = new Cupom(0, "", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), parceiro, 0);
 
             //action
             string resultadoValidacao = cupom.Validar();
@@ -106,7 +106,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         public void DeveApresentarErro_ParceiroNulo()
         {
             //arrange
-            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), null);
+            Cupom cupom = new Cupom(0, "Nome Cupom", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), null, 0);
 
             //action
             string resultadoValidacao = cupom.Validar();
