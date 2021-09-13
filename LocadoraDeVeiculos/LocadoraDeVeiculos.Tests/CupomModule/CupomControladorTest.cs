@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro, 0);
+            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro, 1);
 
             //action
             controlador.InserirNovo(cupom);
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         {
             //arrange
             InserirParceiro();
-            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro, 0);
+            cupom = new Cupom(0, "Cupom001", "CODIGOCUPOM", 500, 2000, true, DateTime.Today.AddDays(30), parceiro, 1);
 
             //action
             controlador.InserirNovo(cupom);

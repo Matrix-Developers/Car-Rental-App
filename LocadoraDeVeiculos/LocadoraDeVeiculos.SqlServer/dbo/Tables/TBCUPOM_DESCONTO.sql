@@ -8,6 +8,7 @@
     [EhDescontoFixo]        BIT          NOT NULL,
     [Validade]    DATE         NOT NULL,
     [Id_Parceiro] INT          NOT NULL,        
+    [QtdUtilizada] INT NOT NULL, 
     CONSTRAINT [PK_TBCUPOM_DESCONTO] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_TBDesconto_TBParceiros] FOREIGN KEY ([Id_Parceiro]) REFERENCES [dbo].[TBPARCEIRO] ([Id])
 )
