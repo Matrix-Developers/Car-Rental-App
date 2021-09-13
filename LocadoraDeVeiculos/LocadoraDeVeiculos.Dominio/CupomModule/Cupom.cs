@@ -17,8 +17,8 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public bool EhDescontoFixo { get; }
         public DateTime Validade { get; }
         public Parceiro Parceiro { get; }
-
-        public Cupom(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro)
+        public int QtdUtilizada { get; }
+        public Cupom(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro, int qtdUtilizada)
         {
             Id = id;
             Nome = nome;
@@ -28,6 +28,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
             EhDescontoFixo = ehDescontoFixo;
             Validade = validade;
             Parceiro = parceiro;
+            QtdUtilizada = qtdUtilizada;
         }
         public override string Validar()
         {
@@ -49,7 +50,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         }
         public override string ToString()
         {
-            return $"[{id}, {Nome}, {Codigo}, {EhDescontoFixo}, {Valor}]";
+            return $"[{id}, {Nome}, {Codigo}, {EhDescontoFixo}, {Valor}, {QtdUtilizada}]";
         }
 
         public override bool Equals(object obj)
@@ -62,21 +63,23 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
                    ValorMinimo == cupom.ValorMinimo &&
                    EhDescontoFixo == cupom.EhDescontoFixo &&
                    Validade == cupom.Validade &&
-                   EqualityComparer<Parceiro>.Default.Equals(Parceiro, cupom.Parceiro);
+                   EqualityComparer<Parceiro>.Default.Equals(Parceiro, cupom.Parceiro) &&
+                   QtdUtilizada == cupom.QtdUtilizada;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = -1097376669;
-            hashCode = hashCode * -1521134295 + Id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Codigo);
-            hashCode = hashCode * -1521134295 + Valor.GetHashCode();
-            hashCode = hashCode * -1521134295 + ValorMinimo.GetHashCode();
-            hashCode = hashCode * -1521134295 + EhDescontoFixo.GetHashCode();
-            hashCode = hashCode * -1521134295 + Validade.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<Parceiro>.Default.GetHashCode(Parceiro);
-            return hashCode;
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(Nome);
+            hash.Add(Codigo);
+            hash.Add(Valor);
+            hash.Add(ValorMinimo);
+            hash.Add(EhDescontoFixo);
+            hash.Add(Validade);
+            hash.Add(Parceiro);
+            hash.Add(QtdUtilizada);
+            return hash.ToHashCode();
         }
     }
 }
