@@ -50,6 +50,12 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     [QTDUTILIZADA] = @QTDUTILIZADA
                 WHERE [ID] = @ID";
 
+        private const string sqlEditarQtdUtilizadaCupom =
+            @" UPDATE [TBCUPOM_DESCONTO]
+                SET 
+                    [QTDUTILIZADA] = @QTDUTILIZADA
+                WHERE [ID] = @ID";
+
         private const string sqlDeletarCupom =
             @"DELETE FROM [TBCUPOM_DESCONTO] 
                 WHERE [ID] = @ID";
@@ -170,7 +176,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         public void AtualizarQtdUtilizada(int id, int qtdUtilizada)
         {
-            Db.Update(sqlEditarCupom, ObtemParametrosQtdUtilizada(id, qtdUtilizada));
+            Db.Update(sqlEditarQtdUtilizadaCupom, ObtemParametrosQtdUtilizada(id, qtdUtilizada));
         }        
 
         public override bool Excluir(int id)
