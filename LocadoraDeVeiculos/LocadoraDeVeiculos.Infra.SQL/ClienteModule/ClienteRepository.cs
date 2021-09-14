@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.ClientesModule
 {
-    public class ControladorCliente : Controlador<Cliente>
+    public class ClienteRepository : IRepository<Cliente>
     {
         #region Queries
             private const string sqlInserirClientes =
@@ -77,7 +78,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 
 		#endregion
 
-		public override string Editar(int id, Cliente registro)
+		public string Editar(int id, Cliente registro)
 		{
 			string resultadoValidacao = registro.Validar();
 
@@ -89,8 +90,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 
 			return resultadoValidacao;
 		}
-
-		public override bool Excluir(int id)
+		public bool Excluir(int id)
 		{
 			try
 			{
@@ -103,13 +103,11 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 
 			return true;
 		}
-
-		public override bool Existe(int id)
+		public bool Existe(int id)
 		{
 			return Db.Exists(sqlExisteCliente, AdicionarParametro("ID", id));
 		}
-
-		public override string InserirNovo(Cliente registro)
+		public string InserirNovo(Cliente registro)
 		{
 			string resultadoValidacao = registro.Validar();
 
@@ -119,15 +117,11 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 			}
 			return resultadoValidacao;
 		}
-
-       
-
-        public override Cliente SelecionarPorId(int id)
+        public Cliente SelecionarPorId(int id)
 		{
 			return Db.Get(sqlSelecionarClientesPorId, ConverterEmClientes, AdicionarParametro("ID", id));
 		}
-
-		public override List<Cliente> SelecionarTodos()
+		public List<Cliente> SelecionarTodos()
 		{
 			return Db.GetAll(sqlSelecionarTodosClientes, ConverterEmClientes);
 		}
@@ -150,7 +144,6 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 			cliente.Id = id;
 			return cliente;
 		}
-
         private Dictionary<string, object> ObtemParametrosClientes(Cliente cliente)
 		{
 			var parametros = new Dictionary<string, object>();
@@ -166,6 +159,10 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 			parametros.Add("EHPESSOAFISICA", cliente.EhPessoaFisica);
 
 			return parametros;
+		}
+		protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
+		{
+			return new Dictionary<string, object>() { { campo, valor } };
 		}
 	}
 }

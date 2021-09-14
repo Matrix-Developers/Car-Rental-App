@@ -1,13 +1,15 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 {
-    public class ControladorGrupoDeVeiculos : Controlador<GrupoDeVeiculo>
+    public class GrupoDeVeiculosRepository : IRepository<GrupoDeVeiculo>
     {
+        #region queries
         private const string sqlInserirGrupoDeVeiculos =
                 @"INSERT INTO TBGRUPOVEICULO
                 (
@@ -58,8 +60,9 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
                     [TBGRUPOVEICULO]
                 WHERE 
                     [ID] = @ID";
+        #endregion
 
-        public override string InserirNovo(GrupoDeVeiculo registro)
+        public string InserirNovo(GrupoDeVeiculo registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -77,8 +80,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
             return resultadoValidacao;
         }
-
-        public override string Editar(int id, GrupoDeVeiculo registro)
+        public string Editar(int id, GrupoDeVeiculo registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -97,8 +99,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
             return resultadoValidacao;
         }
-
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -111,18 +112,15 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
             return true;
         }
-
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteGrupoDeVeiculos, AdicionarParametro("ID", id));
         }
-
-        public override GrupoDeVeiculo SelecionarPorId(int id)
+        public GrupoDeVeiculo SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmGrupoDeVeiculos, AdicionarParametro("ID", id));
         }
-
-        public override List<GrupoDeVeiculo> SelecionarTodos()
+        public List<GrupoDeVeiculo> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosGrupoDeVeiculoss, ConverterEmGrupoDeVeiculos);
         }
@@ -142,7 +140,6 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
             return parametros;
         }
-
         private GrupoDeVeiculo ConverterEmGrupoDeVeiculos(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]); ;
@@ -158,6 +155,10 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
                 limiteKmControlado, taxaKmExcedidoControlado,taxaPlanoLivre);
 
             return grupoDeVeiculos;
+        }
+        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
+        {
+            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

@@ -11,11 +11,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
     public partial class TelaCupomForm : Form
     {
         Cupom cupom;
-        ControladorParceiro controladorParceiro;
+        ParceiroRepository controladorParceiro;
         int qtdUtilizada = 0;
         public TelaCupomForm(string titulo)
         {
-            controladorParceiro = new ControladorParceiro();
+            controladorParceiro = new ParceiroRepository();
             InitializeComponent();
             rBtnValorFixo.Checked = true;
             labelTitulo.Text = titulo;

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.CupomModule
 {
-    public class ControladorCupom : Controlador<Cupom>
+    public class CupomRepository : ICupomRepository
     {
         #region queries
         private const string sqlInserirCupom =
@@ -136,7 +136,8 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             WHERE 
                 [CODIGO] = @CODIGO";
         #endregion
-        public override string InserirNovo(Cupom registro)
+
+        public string InserirNovo(Cupom registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -145,23 +146,15 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             return resultadoValidacao;
         }
-
-        public override List<Cupom> SelecionarTodos()
+        public List<Cupom> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
         }
-
-        public override Cupom SelecionarPorId(int id)
+        public Cupom SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
         }
-
-        public Cupom SelecionarPorCodigo(string codigo)
-        {
-            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
-        }
-
-        public override string Editar(int id, Cupom registro)
+        public string Editar(int id, Cupom registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -173,13 +166,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             return resultadoValidacao;
         }
-
-        public void AtualizarQtdUtilizada(int id, int qtdUtilizada)
-        {
-            Db.Update(sqlEditarQtdUtilizadaCupom, ObtemParametrosQtdUtilizada(id, qtdUtilizada));
-        }        
-
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -192,15 +179,22 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             return true;
         }
-
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteCupom, AdicionarParametro("ID", id));
         }
-
         public bool ExisteCodigo(string codigo)
         {
             return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
+        }
+
+        public Cupom SelecionarPorCodigo(string codigo)
+        {
+            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
+        }
+        public void AtualizarQtdUtilizada(int id, int qtdUtilizada)
+        {
+            Db.Update(sqlEditarQtdUtilizadaCupom, ObtemParametrosQtdUtilizada(id, qtdUtilizada));
         }
         private Dictionary<string, object> ObtemParametrosQtdUtilizada(int id, int qtdUtilizada)
         {
@@ -211,23 +205,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             return parametros;
         }
-        private Dictionary<string, object> ObtemParametrosCupom(Cupom registro)
-        {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", registro.Id);
-            parametros.Add("NOMECUPOM", registro.Nome);
-            parametros.Add("CODIGO", registro.Codigo);
-            parametros.Add("VALORMINIMO", registro.ValorMinimo);
-            parametros.Add("VALOR", registro.Valor);
-            parametros.Add("EHDESCONTOFIXO", registro.EhDescontoFixo);
-            parametros.Add("VALIDADE", registro.Validade);
-            parametros.Add("ID_PARCEIRO", registro.Parceiro.Id);
-            parametros.Add("QTDUTILIZADA", registro.QtdUtilizada);
-
-            return parametros;
-        }
-
+        
         private Cupom ConverterEmCupom(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
@@ -249,6 +227,26 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             cupom.Id = id;
 
             return cupom;
+        }
+        private Dictionary<string, object> ObtemParametrosCupom(Cupom registro)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", registro.Id);
+            parametros.Add("NOMECUPOM", registro.Nome);
+            parametros.Add("CODIGO", registro.Codigo);
+            parametros.Add("VALORMINIMO", registro.ValorMinimo);
+            parametros.Add("VALOR", registro.Valor);
+            parametros.Add("EHDESCONTOFIXO", registro.EhDescontoFixo);
+            parametros.Add("VALIDADE", registro.Validade);
+            parametros.Add("ID_PARCEIRO", registro.Parceiro.Id);
+            parametros.Add("QTDUTILIZADA", registro.QtdUtilizada);
+
+            return parametros;
+        }
+        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
+        {
+            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

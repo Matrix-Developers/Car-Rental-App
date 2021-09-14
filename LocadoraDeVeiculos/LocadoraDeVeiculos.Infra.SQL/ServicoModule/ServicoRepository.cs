@@ -1,12 +1,13 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.ServicoModule
 {
-    public class ControladorServico : Controlador<Servico>
+    public class ServicoRepository : IRepository<Servico>
     {
         #region queries
         private const string sqlInserirServico =
@@ -65,7 +66,8 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             WHERE 
                 [ID] = @ID";
         #endregion
-        public override string InserirNovo(Servico registro)
+
+        public string InserirNovo(Servico registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -74,15 +76,15 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
 
             return resultadoValidacao;
         }
-        public override List<Servico> SelecionarTodos()
+        public List<Servico> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosServicos, ConverterEmServico);
         }
-        public override Servico SelecionarPorId(int id)
+        public Servico SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarServicoPorId, ConverterEmServico, AdicionarParametro("ID", id));
         }
-        public override string Editar(int id, Servico registro)
+        public string Editar(int id, Servico registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -94,7 +96,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
 
             return resultadoValidacao;
         }
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -107,8 +109,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
 
             return true;
         }
-
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteServico, AdicionarParametro("ID", id));
         }
@@ -124,7 +125,6 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
 
             return parametros;
         }
-        
         private Servico ConverterEmServico(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
@@ -137,6 +137,10 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             servico.Id = id;
 
             return servico;
+        }
+        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
+        {
+            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

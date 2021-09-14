@@ -13,10 +13,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 {
     public class OperacoesGrupoDeVeiculos : ICadastravel
     {
-        private readonly ControladorGrupoDeVeiculos controlador = null;
+        private readonly GrupoDeVeiculosRepository controlador = null;
         private readonly TabelaGrupoDeVeiculosControl tabelaGrupoDeVeiculos = null;
 
-        public OperacoesGrupoDeVeiculos(ControladorGrupoDeVeiculos ctrlGrupoDeVeiculos)
+        public OperacoesGrupoDeVeiculos(GrupoDeVeiculosRepository ctrlGrupoDeVeiculos)
         {
             controlador = ctrlGrupoDeVeiculos;
             tabelaGrupoDeVeiculos = new TabelaGrupoDeVeiculosControl();

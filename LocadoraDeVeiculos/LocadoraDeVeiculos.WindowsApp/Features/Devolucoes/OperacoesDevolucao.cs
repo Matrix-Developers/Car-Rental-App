@@ -9,9 +9,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 {
     public class OperacoesDevolucao : ICadastravel
     {
-        private readonly ControladorLocacao controlador = null;
+        private readonly LocacaoRepository controlador = null;
         private readonly TabelaDevolucaoControl tabelaDevolucao = null;
-        public OperacoesDevolucao(ControladorLocacao ctrlDevolucao)
+        public OperacoesDevolucao(LocacaoRepository ctrlDevolucao)
         {
             controlador = ctrlDevolucao;
             tabelaDevolucao = new TabelaDevolucaoControl();

@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesFuncionario(new ControladorFuncionario());
+            operacoes = new OperacoesFuncionario(new FuncionarioRepository());
 
             ConfigurarPainelRegistros();
         }
@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesServico(new ControladorServico());
+            operacoes = new OperacoesServico(new ServicoRepository());
 
             ConfigurarPainelRegistros();
         }
@@ -83,7 +83,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesClientes(new ControladorCliente());
+            operacoes = new OperacoesClientes(new Controladores.ClientesModule.ClienteRepository());
 
             ConfigurarPainelRegistros();
         }
@@ -111,7 +111,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesGrupoDeVeiculos(new ControladorGrupoDeVeiculos());
+            operacoes = new OperacoesGrupoDeVeiculos(new GrupoDeVeiculosRepository());
 
             ConfigurarPainelRegistros();
         }
@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom()));
+            operacoes = new OperacoesLocacao(new LocacaoRepository(new ControladorVeiculo(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository()));
 
             ConfigurarPainelRegistros();
         }
@@ -138,7 +138,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesDevolucao(new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom()));
+            operacoes = new OperacoesDevolucao(new LocacaoRepository(new ControladorVeiculo(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository()));
 
             ConfigurarPainelRegistros();
         }
@@ -152,7 +152,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesCupom(new ControladorCupom());
+            operacoes = new OperacoesCupom(new CupomRepository());
 
             ConfigurarPainelRegistros();
         }
@@ -166,7 +166,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesParceiro(new ControladorParceiro());
+            operacoes = new OperacoesParceiro(new ParceiroRepository());
 
             ConfigurarPainelRegistros();
         }

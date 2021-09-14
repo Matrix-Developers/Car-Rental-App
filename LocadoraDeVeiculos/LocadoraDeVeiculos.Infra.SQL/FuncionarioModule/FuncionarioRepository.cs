@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 {
-    public class ControladorFuncionario : Controlador<Funcionario>
+    public class FuncionarioRepository : IRepository<Funcionario>
     {
-
-        #region Queries
+        #region queries
         private const string comandoInserir = @"INSERT INTO TBFUNCIONARIO
 										(
 											[NOME],
@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         private const string comandoSelecionarPorId = "SELECT * FROM TBFUNCIONARIO WHERE [ID] = @ID;";
         #endregion
 
-        public override string Editar(int id, Funcionario registro)
+        public string Editar(int id, Funcionario registro)
         {
             string resultadoValidacao = registro.Validar();
             if (resultadoValidacao == "VALIDO")
@@ -70,8 +70,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             }
             return resultadoValidacao;
         }
-
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -83,13 +82,11 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             }
             return true;
         }
-
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(comandoSelecionarPorId, AdicionarParametro("ID", id));
         }
-
-        public override string InserirNovo(Funcionario registro)
+        public string InserirNovo(Funcionario registro)
         {
             string resultadoValidacao = registro.Validar();
             if (resultadoValidacao == "VALIDO")
@@ -97,13 +94,11 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 
             return resultadoValidacao;
         }
-
-        public override Funcionario SelecionarPorId(int id)
+        public Funcionario SelecionarPorId(int id)
         {
             return Db.Get(comandoSelecionarPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
         }
-
-        public override List<Funcionario> SelecionarTodos()
+        public List<Funcionario> SelecionarTodos()
         {
             return Db.GetAll(comandoSelecionarTodos, ConverterEmFuncionario);
         }
@@ -128,7 +123,6 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 
             return parametros;
         }
-
         private Funcionario ConverterEmFuncionario(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
@@ -150,6 +144,10 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             funcionario.Id = id;
 
             return funcionario;
+        }
+        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
+        {
+            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

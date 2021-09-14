@@ -7,12 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using LocadoraDeVeiculos.Dominio.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
-    public class ControladorVeiculo : Controlador<Veiculo>
+    public class ControladorVeiculo : IRepository<Veiculo>
     {
-        private ControladorImagemVeiculo controladorImagem = new ControladorImagemVeiculo();
+        private ImagemVeiculoRepository controladorImagem = new ImagemVeiculoRepository();
+
         #region queries
         private const string sqlInserirVeiculo =
             @"INSERT INTO TBVEICULO
@@ -160,7 +162,8 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         private const string sqlVeiculoTotal =
             @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         #endregion
-        public override string InserirNovo(Veiculo registro)
+
+        public string InserirNovo(Veiculo registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -178,7 +181,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             }
             return resultadoValidacao;
         }
-        public override List<Veiculo> SelecionarTodos()
+        public List<Veiculo> SelecionarTodos()
         {
             List<Veiculo>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
 
@@ -189,13 +192,13 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return veiculos;
         }
-        public override Veiculo SelecionarPorId(int id)
+        public Veiculo SelecionarPorId(int id)
         {
             Veiculo veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
             veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
             return veiculo;
         }
-        public override string Editar(int id, Veiculo registro)
+        public string Editar(int id, Veiculo registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -210,7 +213,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return resultadoValidacao;
         }
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -223,11 +226,15 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return true;
         }
-     
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteVeiculo, AdicionarParametro("ID", id));
         }
+
+        //private int ConverterDados(IDataReader reader)
+        //{
+        //    return Convert.ToInt32(reader["qtd"]);
+        //}
 
         private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
         {
@@ -254,7 +261,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return parametros;
         }
-
         private Veiculo ConverterEmVeiculo(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
@@ -292,9 +298,9 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             return veiculo;
         }
-        private int ConverterDados(IDataReader reader)
+        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
         {
-            return Convert.ToInt32(reader["qtd"]);
+            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

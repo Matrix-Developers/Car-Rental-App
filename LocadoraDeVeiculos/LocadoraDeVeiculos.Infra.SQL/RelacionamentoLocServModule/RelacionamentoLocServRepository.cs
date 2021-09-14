@@ -8,6 +8,7 @@ using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,12 +18,13 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 {
-    public class ControladorRelacionamentoLocServ : Controlador<RelacionamentoLocServ>
+    public class RelacionamentoLocServRepository : IRepository<RelacionamentoLocServ>       //essa classe está parcialmente obsoleta
     {
         private int id = 0;
-        ControladorServico controladorServico = new ControladorServico();
-        ControladorLocacao controladorLocacao = new ControladorLocacao(new ControladorVeiculo(), new ControladorFuncionario(), new ControladorCliente(), new ControladorServico(), new ControladorCupom());
-        #region queries Relacionamento
+        ServicoRepository controladorServico = new ServicoRepository();
+        LocacaoRepository controladorLocacao = new LocacaoRepository(new ControladorVeiculo(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository());
+
+        #region queries
         private const string sqlInserirRelacao =
                 @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]
                 (
@@ -56,12 +58,12 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
             @"DELETE FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
         #endregion
-        public override string Editar(int id, RelacionamentoLocServ registro)
+
+        public string Editar(int id, RelacionamentoLocServ registro)
         {
             throw new NotImplementedException();
         }
-
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -74,13 +76,11 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 
             return true;
         }
-
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlSelecionarRelacaoPorId, AdicionarParametro("ID", id));
         }
-
-        public override string InserirNovo(RelacionamentoLocServ registro)
+        public string InserirNovo(RelacionamentoLocServ registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -93,8 +93,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 
             return resultadoValidacao;
         }
-
-        public override RelacionamentoLocServ SelecionarPorId(int id)
+        public RelacionamentoLocServ SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarRelacaoPorId, ConverterEmRelacionamento, AdicionarParametro("ID", id));
         }
@@ -103,8 +102,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
         {
             return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmRelacionamento, AdicionarParametro("ID_LOCACAO", id));
         }
-
-        public override List<RelacionamentoLocServ> SelecionarTodos()
+        public List<RelacionamentoLocServ> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodasRelacoes, ConverterEmRelacionamento);
         }
@@ -130,6 +128,10 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
             parametros.Add("ID_SERVICO", id);
 
             return parametros;
+        }
+        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
+        {
+            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

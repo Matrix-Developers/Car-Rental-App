@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 {
-    public class ControladorParceiro : Controlador<Parceiro>
+    public class ParceiroRepository : IRepository<Parceiro>
     {
         #region queries
         private const string sqlInserirParceiro =
@@ -60,7 +61,8 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
                 WHERE 
                     [ID] = @ID";
         #endregion
-        public override string InserirNovo(Parceiro registro)
+
+        public string InserirNovo(Parceiro registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -69,17 +71,15 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 
             return resultadoValidacao;
         }
-
-        public override List<Parceiro> SelecionarTodos()
+        public List<Parceiro> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosParceiros, ConverterEmParceiro);
         }       
-
-        public override Parceiro SelecionarPorId(int id)
+        public Parceiro SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
         }        
-        public override string Editar(int id, Parceiro registro)
+        public string Editar(int id, Parceiro registro)
         {
             string resultadoValidacao = registro.Validar();
 
@@ -92,7 +92,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             return resultadoValidacao;
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -106,7 +106,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteParceiro, AdicionarParametro("ID", id));
         }
@@ -130,6 +130,10 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             parceiro.Id = id;
 
             return parceiro;
+        }
+        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
+        {
+            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }
