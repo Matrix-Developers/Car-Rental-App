@@ -13,9 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{64FE4CE7-CB4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B5FF9914-940C-4669-9210-678F28FAD18D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Dominio", "LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj", "{145CEEA3-4780-4B45-B114-4AE321DF2572}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Dominio", "LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj", "{145CEEA3-4780-4B45-B114-4AE321DF2572}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Controladores", "LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj", "{B1DA947F-C4AB-48EA-B552-DEED432B8C20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Controladores", "LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj", "{B1DA947F-C4AB-48EA-B552-DEED432B8C20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Camada de Dominio", "3 - Camada de Dominio", "{4DFD1954-6A6E-4248-BAFE-E7012C37936A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Camada de Apresentacao", "1 - Camada de Apresentacao", "{BA070A21-DDB0-46E3-9003-EFEFA613FA37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Camada de Aplicacao", "2 - Camada de Aplicacao", "{2B4C22C6-37D3-4A4F-BD40-A4EC504EB8CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Camada de Infra", "4 - Camada de Infra", "{7AB9AE2E-9F55-4449-A48F-2C16DA0F556D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,7 +61,7 @@ Global
 		{8427D6A0-2FF3-4DF6-81D7-7015CE22DA56} = {64FE4CE7-CB4E-44D2-86D3-4214491988B4}
 		{5DEF9302-2DDF-456E-92E0-09774B401F45} = {B5FF9914-940C-4669-9210-678F28FAD18D}
 		{22C0B170-9B97-4D20-B23B-3810DD8B9260} = {64FE4CE7-CB4E-44D2-86D3-4214491988B4}
-		{145CEEA3-4780-4B45-B114-4AE321DF2572} = {64FE4CE7-CB4E-44D2-86D3-4214491988B4}
+		{145CEEA3-4780-4B45-B114-4AE321DF2572} = {4DFD1954-6A6E-4248-BAFE-E7012C37936A}
 		{B1DA947F-C4AB-48EA-B552-DEED432B8C20} = {64FE4CE7-CB4E-44D2-86D3-4214491988B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
