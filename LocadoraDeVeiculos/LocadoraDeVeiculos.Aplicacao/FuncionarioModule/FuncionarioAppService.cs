@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.FuncionarioModule
 {
-    class FuncionarioAppService
+    public class FuncionarioAppService
     {
     }
 }
