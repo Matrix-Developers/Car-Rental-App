@@ -1,14 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
@@ -39,7 +32,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
                 txtLimiteKmControlado.Text = grupoDeVeiculos.LimiteKmControlado.ToString();
                 txtTaxaKmExcedidoControlado.Text = grupoDeVeiculos.TaxaKmExcedidoControlado.ToString();
                 txtTaxaPlanoLivre.Text = grupoDeVeiculos.TaxaPlanoLivre.ToString();
-                
+
             }
         }
 
@@ -66,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             if (txtTaxaPlanoLivre.Text.Length > 0)
                 TaxaPlanoLivre = Convert.ToDouble(txtTaxaPlanoLivre.Text, CultureInfo.InvariantCulture);
 
-            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado,TaxaKmExcedidoControlado,TaxaPlanoLivre);
+            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado, TaxaKmExcedidoControlado, TaxaPlanoLivre);
 
             string resultadoValidacao = grupoDeVeiculos.Validar();
 

@@ -1,16 +1,10 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.WindowsApp.Veiculos;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Veiculos;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 {
@@ -31,14 +25,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                 imagens = telaBase.imagensVeiculo;
             InitializeComponent();
             if (imagens.Count != 0)
-                pctBoxImagem.Image = imagens[0].imagem;
+                pctBoxImagem.Image = imagens[0].Imagem;
 
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
 
-            if (openFileDialog.ShowDialog()  == DialogResult.OK)
-                {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
                 var imagem = openFileDialog.FileName;
                 var tamanho = new FileInfo(imagem).Length;
                 if (tamanho <= doisMB)
@@ -53,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                     }
                 }
                 else
-                    MessageBox.Show("A imagem deve ser no máximo de 2MB!","Locadora de Veículos",
+                    MessageBox.Show("A imagem deve ser no máximo de 2MB!", "Locadora de Veículos",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -75,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         private void AtualizarImagem()
         {
             if (imagens.Count != 0)
-                pctBoxImagem.Image = imagens[imagemAtual].imagem;
+                pctBoxImagem.Image = imagens[imagemAtual].Imagem;
             else
                 pctBoxImagem.Image = default;
         }
@@ -116,7 +110,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-                telaBase.AtualizarListaDeFotos(imagens);
+            telaBase.AtualizarListaDeFotos(imagens);
             this.Close();
         }
     }

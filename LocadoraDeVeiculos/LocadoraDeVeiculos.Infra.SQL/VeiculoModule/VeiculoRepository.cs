@@ -1,20 +1,19 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
+﻿using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using LocadoraDeVeiculos.Dominio.Shared;
-using LocadoraDeVeiculos.Infra.SQL.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
     public class VeiculoRepository : RepositoryBase<Veiculo>, IRepository<Veiculo>
     {
-        private ImagemVeiculoRepository controladorImagem = new ImagemVeiculoRepository();
+        private ImagemVeiculoRepository controladorImagem = new();
 
         #region queries
         protected override string SqlInserirEntidade
@@ -191,9 +190,8 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             }
         }
 
-        //chamadas unicas do Veiculo
-        private const string sqlVeiculoTotal =
-            @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
+        //chamadas unicas do Veiculo não utilizadas. Obsoleto?
+        //private const string sqlVeiculoTotal = @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         //
         #endregion
 
@@ -208,7 +206,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 {
                     foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
                     {
-                        imagemVeiculo.idVeiculo = registro.Id;
+                        imagemVeiculo.IdVeiculo = registro.Id;
                         controladorImagem.InserirNovo(imagemVeiculo);
                     }
                 }
@@ -217,7 +215,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public List<Veiculo> SelecionarTodos()
         {
-            List<Veiculo>veiculos = Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
+            List<Veiculo> veiculos = Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
 
             foreach (Veiculo veiculo in veiculos)
             {
@@ -241,7 +239,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
                 registro.Id = id;
                 Db.Update(SqlEditarEntidade, ObtemParametros(registro));
                 foreach (ImagemVeiculo imagem in registro.imagens)
-                    imagem.idVeiculo = registro.Id;
+                    imagem.IdVeiculo = registro.Id;
                 controladorImagem.EditarLista(registro.imagens);
             }
 
@@ -273,26 +271,27 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
         protected override Dictionary<string, object> ObtemParametros(Veiculo entidade)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("MODELO", entidade.modelo);
-            parametros.Add("ID_GRUPOVEICULO", entidade.grupoVeiculos.Id);
-            parametros.Add("PLACA", entidade.placa);
-            parametros.Add("CHASSI", entidade.chassi);
-            parametros.Add("MARCA", entidade.marca);
-            parametros.Add("COR", entidade.cor);
-            parametros.Add("TIPOCOMBUSTIVEL", entidade.tipoCombustivel);
-            parametros.Add("CAPACIDADETANQUE", entidade.capacidadeTanque);
-            parametros.Add("ANO", entidade.ano);
-            parametros.Add("KILOMETRAGEM", entidade.kilometragem);
-            parametros.Add("NUMEROPORTAS", entidade.numeroPortas);
-            parametros.Add("CAPACIDADEPESSOAS", entidade.capacidadePessoas);
-            parametros.Add("TAMANHOPORTAMALA", entidade.tamanhoPortaMala);
-            parametros.Add("TEMARCONDICIONADO", entidade.temArCondicionado);
-            parametros.Add("TEMDIRECAOHIDRAULICA", entidade.temDirecaoHidraulica);
-            parametros.Add("TEMFREIOSABS", entidade.temFreiosAbs);
-            parametros.Add("ESTAALUGADO", entidade.estaAlugado);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "MODELO", entidade.modelo },
+                { "ID_GRUPOVEICULO", entidade.grupoVeiculos.Id },
+                { "PLACA", entidade.placa },
+                { "CHASSI", entidade.chassi },
+                { "MARCA", entidade.marca },
+                { "COR", entidade.cor },
+                { "TIPOCOMBUSTIVEL", entidade.tipoCombustivel },
+                { "CAPACIDADETANQUE", entidade.capacidadeTanque },
+                { "ANO", entidade.ano },
+                { "KILOMETRAGEM", entidade.kilometragem },
+                { "NUMEROPORTAS", entidade.numeroPortas },
+                { "CAPACIDADEPESSOAS", entidade.capacidadePessoas },
+                { "TAMANHOPORTAMALA", entidade.tamanhoPortaMala },
+                { "TEMARCONDICIONADO", entidade.temArCondicionado },
+                { "TEMDIRECAOHIDRAULICA", entidade.temDirecaoHidraulica },
+                { "TEMFREIOSABS", entidade.temFreiosAbs },
+                { "ESTAALUGADO", entidade.estaAlugado }
+            };
 
             return parametros;
         }
@@ -325,11 +324,12 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
             double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupo = new GrupoDeVeiculo(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
+            GrupoDeVeiculo grupo = new(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado,null);
-
-            veiculo.Id = id;
+            Veiculo veiculo = new(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado, null)
+            {
+                Id = id
+            };
 
             return veiculo;
         }

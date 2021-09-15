@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         }
         #endregion
         private void btnConfirmar_Click(object sender, EventArgs e)
-        {            
+        {
             bool ehDescontoFixo = false;
 
             int id = 0;

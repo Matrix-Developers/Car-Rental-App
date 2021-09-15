@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.Shared;
-using LocadoraDeVeiculos.Dominio.PessoaModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.WindowsApp.Funcionarios;
+using LocadoraDeVeiculos.WindowsApp.Shared;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
@@ -36,12 +30,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para poder Editar!","Edição de Funcionários",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Funcionário para poder Editar!", "Edição de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
-            FuncionarioForm tela = new FuncionarioForm("Edição de Funcionário");
+            FuncionarioForm tela = new("Edição de Funcionário");
             tela.Funcionario = funcionarioSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -60,7 +54,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para excluir","Exclusão de Funcionários",MessageBoxButtons.OK , MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Funcionário para excluir", "Exclusão de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -82,7 +76,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void InserirNovoRegistro()
         {
-            FuncionarioForm tela = new FuncionarioForm("Cadastro de Funcionário");           
+            FuncionarioForm tela = new("Cadastro de Funcionário");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {

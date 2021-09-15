@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using LocadoraDeVeiculos.Controladores.Shared;
+﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 {
@@ -154,21 +154,22 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 
         protected override Dictionary<string, object> ObtemParametros(Funcionario entidade)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("NOME", entidade.Nome);
-            parametros.Add("REGISTROUNICO", entidade.RegistroUnico);
-            parametros.Add("ENDERECO", entidade.Endereco);
-            parametros.Add("TELEFONE", entidade.Telefone);
-            parametros.Add("EMAIL", entidade.Email);
-            parametros.Add("MATRICULAINTERNA", entidade.MatriculaInterna);
-            parametros.Add("USUARIOACESSO", entidade.UsuarioAcesso);
-            parametros.Add("SENHA", entidade.Senha);
-            parametros.Add("DATAADMISSAO", entidade.DataAdmissao);
-            parametros.Add("CARGO", entidade.Cargo);
-            parametros.Add("SALARIO", float.Parse(Convert.ToString(entidade.Salario)));
-            parametros.Add("EHPESSOAFISICA", Convert.ToBoolean(entidade.EhPessoaFisica));
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "NOME", entidade.Nome },
+                { "REGISTROUNICO", entidade.RegistroUnico },
+                { "ENDERECO", entidade.Endereco },
+                { "TELEFONE", entidade.Telefone },
+                { "EMAIL", entidade.Email },
+                { "MATRICULAINTERNA", entidade.MatriculaInterna },
+                { "USUARIOACESSO", entidade.UsuarioAcesso },
+                { "SENHA", entidade.Senha },
+                { "DATAADMISSAO", entidade.DataAdmissao },
+                { "CARGO", entidade.Cargo },
+                { "SALARIO", float.Parse(Convert.ToString(entidade.Salario)) },
+                { "EHPESSOAFISICA", Convert.ToBoolean(entidade.EhPessoaFisica) }
+            };
 
             return parametros;
         }
@@ -188,7 +189,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             double salario = Convert.ToDouble(Convert.ToString(reader["SALARIO"]));
             bool ehPessoaFisica = Convert.ToBoolean(reader["EHPESSOAFISICA"]);
 
-            Funcionario funcionario = new Funcionario(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso,senha, dataAdmissao, cargo, salario, ehPessoaFisica);
+            Funcionario funcionario = new(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso, senha, dataAdmissao, cargo, salario, ehPessoaFisica);
 
             funcionario.Id = id;
 

@@ -5,9 +5,6 @@ using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 {
@@ -92,11 +89,11 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
         public List<Parceiro> SelecionarTodos()
         {
             return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }       
+        }
         public Parceiro SelecionarPorId(int id)
         {
             return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }        
+        }
         public string Editar(int id, Parceiro registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -129,10 +126,11 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 
         protected override Dictionary<string, object> ObtemParametros(Parceiro entidade)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("NOMEPARCEIRO", entidade.Nome);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "NOMEPARCEIRO", entidade.Nome }
+            };
 
             return parametros;
         }
@@ -141,9 +139,10 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOMEPARCEIRO"]);
 
-            Parceiro parceiro = new Parceiro(id, nome);
-
-            parceiro.Id = id;
+            Parceiro parceiro = new(id, nome)
+            {
+                Id = id
+            };
 
             return parceiro;
         }

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Controladores.Shared;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Infra.SQL.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 {
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
         public string Editar(int id, ImagemVeiculo registro)
         {
-            registro.Id = Db.Insert(SqlInserirEntidade,ObtemParametros(registro));
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
             return "";
         }
         public bool Excluir(int id)
@@ -110,11 +110,11 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         }
         public ImagemVeiculo SelecionarPorId(int id)
         {
-            return Db.Get(SqlSelecionarEntidadePorId,ConverterEmEntidade,AdicionarParametro("ID",id));
+            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<ImagemVeiculo> SelecionarTodos()
         {
-            return Db.GetAll(SqlSelecionarTodasEntidades,ConverterEmEntidade);
+            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
         }
 
         //metodos unicos do ImagemVeiculo
@@ -123,7 +123,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
             if (registros != null)
             {
                 if (registros.Count != 0)
-                    ExcluirPorIdDoVeiculo(registros[0].idVeiculo);
+                    ExcluirPorIdDoVeiculo(registros[0].IdVeiculo);
                 foreach (ImagemVeiculo imagem in registros)
                 {
                     InserirNovo(imagem);
@@ -149,7 +149,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         }
         public List<ImagemVeiculo> SelecioanrTodasImagensDeUmVeiculo(int id)
         {
-            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverterEmEntidade,AdicionarParametro("ID_VEICULO",id));
+            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverterEmEntidade, AdicionarParametro("ID_VEICULO", id));
         }
         //
 
@@ -167,30 +167,31 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
         protected override Dictionary<string, object> ObtemParametros(ImagemVeiculo entidade)
         {
-            bmp = entidade.imagem;
-            MemoryStream memoria = new MemoryStream();
+            bmp = entidade.Imagem;
+            MemoryStream memoria = new();
             bmp.Save(memoria, ImageFormat.Bmp);
             byte[] imagemByte = memoria.ToArray();
 
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("ID_VEICULO", entidade.idVeiculo);
-            parametros.Add("IMAGEM", imagemByte);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "ID_VEICULO", entidade.IdVeiculo },
+                { "IMAGEM", imagemByte }
+            };
 
             return parametros;
         }
         protected override ImagemVeiculo ConverterEmEntidade(IDataReader reader)
         {
-            byte[] byteArray= (byte[])(reader["IMAGEM"]);
+            byte[] byteArray = (byte[])(reader["IMAGEM"]);
             var id = Convert.ToInt32(reader["ID"]);
             var idVeiculo = Convert.ToInt32(reader["ID_VEICULO"]);
 
             TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
             bmp = (Bitmap)tc.ConvertFrom(byteArray);
-            Bitmap imagem = new Bitmap(bmp);
+            Bitmap imagem = new(bmp);
 
-            return new ImagemVeiculo(id,idVeiculo, imagem);
+            return new ImagemVeiculo(id, idVeiculo, imagem);
 
         }
     }

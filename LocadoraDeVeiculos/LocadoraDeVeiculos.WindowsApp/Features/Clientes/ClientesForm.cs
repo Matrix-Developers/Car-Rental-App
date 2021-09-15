@@ -1,8 +1,8 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Dominio.ClienteModule;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
 {
@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             set
             {
                 cliente = value;
-                
+
                 if (cliente.EhPessoaFisica)
                 {
                     radioButton1.Checked = true;
@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             labelRegistro.Text = "CPF";
-            maskRegistro.Mask =  "000.000.000-00";
+            maskRegistro.Mask = "000.000.000-00";
             maskedCNH.Enabled = true;
             dtpValidade.Enabled = true;
             maskRegistro.Size = new Size(90, 20);
@@ -63,7 +63,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             maskedCNH.Enabled = false;
             dtpValidade.Enabled = false;
             maskRegistro.Size = new Size(113, 20);
-        }       
+        }
 
         private void btnConfirmar_Click_1(object sender, EventArgs e)
         {
@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             string Registro = maskRegistro.Text.Replace("-", "").Replace(".", "").Replace("/", "").Replace(" ", "");
             string Endereco = textEndereco.Text;
             string TeleFone = maskTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
-            string Email = tetxtEmail.Text;            
+            string Email = tetxtEmail.Text;
             if (radioButton1.Checked == true)
             {
                 ehPessoaFisica = true;
@@ -97,7 +97,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
 
                 DialogResult = DialogResult.None;
             }
-        }        
+        }
     }
-  
+
 }

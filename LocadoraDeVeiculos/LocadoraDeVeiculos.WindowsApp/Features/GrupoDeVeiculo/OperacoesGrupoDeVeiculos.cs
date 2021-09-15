@@ -4,9 +4,6 @@ using LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
@@ -39,7 +36,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
             GrupoDeVeiculo grupoSelecionado = controlador.SelecionarPorId(id);
 
-            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Edição de Grupo de Veiculos");
+            TarefaGrupoDeVeiculosForm tela = new("Edição de Grupo de Veiculos");
 
             tela.GrupoDeVeiculos = grupoSelecionado;
 
@@ -85,7 +82,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
         public void InserirNovoRegistro()
         {
-            TarefaGrupoDeVeiculosForm tela = new TarefaGrupoDeVeiculosForm("Cadastro de Grupo de Veiculos");
+            TarefaGrupoDeVeiculosForm tela = new("Cadastro de Grupo de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {

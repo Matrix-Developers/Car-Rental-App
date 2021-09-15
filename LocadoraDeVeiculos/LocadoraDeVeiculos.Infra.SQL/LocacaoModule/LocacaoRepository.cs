@@ -15,9 +15,6 @@ using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
@@ -190,11 +187,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             return Db.Exists(SqlSelecionarEntidadePorId, AdicionarParametro("ID", id));
         }
-        
+
         //metodos unicos do Locacao
         private List<Servico> SelecionarServicosComIdLocacao(int idLocacao)
         {
-            List<Servico> servicosDaLocacao = new List<Servico>();
+            List<Servico> servicosDaLocacao = new();
             List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AdicionarParametro("ID_LOCACAO", idLocacao));
             foreach (int idServico in idsDeServicos)
             {
@@ -210,13 +207,14 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
         protected override Dictionary<string, object> ObtemParametros(Locacao entidade)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("ID_VEICULO", entidade.Veiculo.Id);
-            parametros.Add("ID_FUNCIONARIO", entidade.FuncionarioLocador.Id);
-            parametros.Add("ID_CLIENTECONTRATANTE", entidade.ClienteContratante.Id);
-            parametros.Add("ID_CLIENTECONDUTOR", entidade.ClienteCondutor.Id);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "ID_VEICULO", entidade.Veiculo.Id },
+                { "ID_FUNCIONARIO", entidade.FuncionarioLocador.Id },
+                { "ID_CLIENTECONTRATANTE", entidade.ClienteContratante.Id },
+                { "ID_CLIENTECONDUTOR", entidade.ClienteCondutor.Id }
+            };
             if (entidade.Cupom != null)
                 parametros.Add("ID_CUPOM", entidade.Cupom.Id);
             else

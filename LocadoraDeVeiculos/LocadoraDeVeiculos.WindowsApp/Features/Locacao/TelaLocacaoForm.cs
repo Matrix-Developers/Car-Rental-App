@@ -6,20 +6,14 @@ using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Servicos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
@@ -27,13 +21,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
     public partial class TelaLocacaoForm : Form
     {
         private Locacao locacao;
-        private FuncionarioRepository controladorFuncionario = new FuncionarioRepository();
-        private VeiculoRepository controladorVeiculo = new VeiculoRepository();
-        private ClienteRepository controladorCliente = new ClienteRepository();
-        private CupomRepository controladorCupom = new CupomRepository();
+        private FuncionarioRepository controladorFuncionario = new();
+        private VeiculoRepository controladorVeiculo = new();
+        private ClienteRepository controladorCliente = new();
+        private CupomRepository controladorCupom = new();
         public List<Servico> Servicos;
         public string TipoSeguro = "Nenhum";
-        ServicosForm telaServico = new ServicosForm();
+        ServicosForm telaServico = new();
         public TelaLocacaoForm(string titulo)
         {
             Servicos = new List<Servico>();
@@ -70,7 +64,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void CarregarDados()
         {
             cBoxFuncionario.DataSource = controladorFuncionario.SelecionarTodos();
-            List<Veiculo> veiculosDisponiveis = new List<Veiculo>();
+            List<Veiculo> veiculosDisponiveis = new();
             if (lblTitulo.Text.Contains("Edição"))
                 veiculosDisponiveis = controladorVeiculo.SelecionarTodos();
             else

@@ -159,16 +159,17 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
         protected override Dictionary<string, object> ObtemParametros(GrupoDeVeiculo entidade)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("NOME", entidade.Nome);
-            parametros.Add("TAXAPLANODIARIO", entidade.TaxaPlanoDiario);
-            parametros.Add("TAXAPORKMDIARIO", entidade.TaxaPorKmDiario);
-            parametros.Add("TAXAPLANOCONTROLADO", entidade.TaxaPlanoControlado);
-            parametros.Add("LIMITEKMCONTROLADO", entidade.LimiteKmControlado);
-            parametros.Add("TAXAKMEXCEDIDOCONTROLADO", entidade.TaxaKmExcedidoControlado);
-            parametros.Add("TAXAPLANOLIVRE", entidade.TaxaPlanoLivre);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "NOME", entidade.Nome },
+                { "TAXAPLANODIARIO", entidade.TaxaPlanoDiario },
+                { "TAXAPORKMDIARIO", entidade.TaxaPorKmDiario },
+                { "TAXAPLANOCONTROLADO", entidade.TaxaPlanoControlado },
+                { "LIMITEKMCONTROLADO", entidade.LimiteKmControlado },
+                { "TAXAKMEXCEDIDOCONTROLADO", entidade.TaxaKmExcedidoControlado },
+                { "TAXAPLANOLIVRE", entidade.TaxaPlanoLivre }
+            };
 
             return parametros;
         }
@@ -183,8 +184,8 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             double taxaKmExcedidoControlado = Convert.ToDouble(reader["TAXAKMEXCEDIDOCONTROLADO"]);
             double taxaPlanoLivre = Convert.ToDouble(reader["TAXAPLANOLIVRE"]);
 
-            GrupoDeVeiculo grupoDeVeiculos = new GrupoDeVeiculo(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado,
-                limiteKmControlado, taxaKmExcedidoControlado,taxaPlanoLivre);
+            GrupoDeVeiculo grupoDeVeiculos = new(id, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado,
+                limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
             return grupoDeVeiculos;
         }

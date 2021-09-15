@@ -1,35 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using LocadoraDeVeiculos.WindowsApp.Clientes;
-using LocadoraDeVeiculos.WindowsApp.Funcionarios;
-using LocadoraDeVeiculos.WindowsApp.ClientesModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.WindowsApp.Shared;
-using LocadoraDeVeiculos.WindowsApp.Features.Funcionarios;
-using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
-using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos;
-using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Locacoes;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
-using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
-using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
-using LocadoraDeVeiculos.Controladores.ParceiroModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
+﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.CupomModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Controladores.LocacaoModule;
+using LocadoraDeVeiculos.Controladores.ParceiroModule;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
+using LocadoraDeVeiculos.Controladores.VeiculoModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
+using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
+using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
+using LocadoraDeVeiculos.WindowsApp.Features.Devolucoes;
+using LocadoraDeVeiculos.WindowsApp.Features.Funcionarios;
+using LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos;
+using LocadoraDeVeiculos.WindowsApp.Features.Locacoes;
+using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
+using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
+using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
+using LocadoraDeVeiculos.WindowsApp.Shared;
+using System;
+using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -48,7 +37,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         #region Opções do menu strip
         private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoFuncionarioToolBox configuracao = new ConfiguracaoFuncionarioToolBox();
+            ConfiguracaoFuncionarioToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
@@ -62,7 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoServicoToolBox configuracao = new ConfiguracaoServicoToolBox();
+            ConfiguracaoServicoToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
@@ -76,7 +65,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoClienteToolBox configuracao = new ConfiguracaoClienteToolBox();
+            ConfiguracaoClienteToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
@@ -90,7 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoVeiculoToolBox configuracao = new ConfiguracaoVeiculoToolBox();
+            ConfiguracaoVeiculoToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
@@ -104,7 +93,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void grupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoGrupoDeVeiculosToolBox configuracao = new ConfiguracaoGrupoDeVeiculosToolBox();
+            ConfiguracaoGrupoDeVeiculosToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
@@ -117,7 +106,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
         private void locarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
+            ConfiguracaoLocacaoToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
@@ -131,7 +120,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoDevolucaoToolBox configuracao = new ConfiguracaoDevolucaoToolBox();
+            ConfiguracaoDevolucaoToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, true);
             btnAdicionar.Image = Properties.Resources.car_32px;
@@ -145,7 +134,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void cuponsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoCupomToolBox configuracao = new ConfiguracaoCupomToolBox();
+            ConfiguracaoCupomToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
@@ -159,7 +148,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoParceiroToolBox configuracao = new ConfiguracaoParceiroToolBox();
+            ConfiguracaoParceiroToolBox configuracao = new();
 
             ConfigurarToolBox(configuracao, false);
             btnAdicionar.Image = Properties.Resources._36x1;
@@ -208,7 +197,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfigurarPainelDashBoard()
         {
-            UserControl tabela = new DashControl();
+            UserControl tabela = new();
             tabela.Dock = DockStyle.Fill;
             panelRegistros.Controls.Clear();
             panelRegistros.Controls.Add(tabela);
@@ -235,7 +224,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
         private void MostrarDashBoard()
         {
-            ConfiguracaoDashboardToolBox configuracao = new ConfiguracaoDashboardToolBox();
+            ConfiguracaoDashboardToolBox configuracao = new();
             ConfigurarToolBox(configuracao, false);
             toolBoxAcoes.Enabled = false;
             AtualizarRodape(configuracao.TipoCadastro);

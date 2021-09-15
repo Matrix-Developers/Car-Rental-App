@@ -2,9 +2,6 @@
 using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.CupomModule
 {
@@ -40,7 +37,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
                 resultadoValicadacao += "O campo código é obrigatório\n";
             if (Valor <= 0)
                 resultadoValicadacao += "O valor não pode ser negativo ou 0(zero)\n";
-            if(!EhDescontoFixo && Valor > 100)
+            if (!EhDescontoFixo && Valor > 100)
                 resultadoValicadacao += "A porcentagem de desconto não pode ser maior que 100%\n";
             if (Parceiro == null)
                 resultadoValicadacao += "É obrigatório possuir um parceiro vinculado\n";
@@ -69,7 +66,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
 
         public override int GetHashCode()
         {
-            HashCode hash = new HashCode();
+            HashCode hash = new();
             hash.Add(Id);
             hash.Add(Nome);
             hash.Add(Codigo);

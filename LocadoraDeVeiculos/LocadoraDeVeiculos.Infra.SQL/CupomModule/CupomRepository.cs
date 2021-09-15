@@ -5,9 +5,6 @@ using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.CupomModule
 {
@@ -215,12 +212,12 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         {
             return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
         }
+
+        //metodos unicos do cupom
         public bool ExisteCodigo(string codigo)
         {
             return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
         }
-
-        //metodos unicos do cupom
         public Cupom SelecionarPorCodigo(string codigo)
         {
             return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmEntidade, AdicionarParametro("CODIGO", codigo));
@@ -231,10 +228,11 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         }
         private Dictionary<string, object> ObtemParametrosQtdUtilizada(int id, int qtdUtilizada)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", id);
-            parametros.Add("QTDUTILIZADA", qtdUtilizada);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", id },
+                { "QTDUTILIZADA", qtdUtilizada }
+            };
 
             return parametros;
         }
@@ -242,17 +240,18 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         protected override Dictionary<string, object> ObtemParametros(Cupom entidade)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("NOMECUPOM", entidade.Nome);
-            parametros.Add("CODIGO", entidade.Codigo);
-            parametros.Add("VALORMINIMO", entidade.ValorMinimo);
-            parametros.Add("VALOR", entidade.Valor);
-            parametros.Add("EHDESCONTOFIXO", entidade.EhDescontoFixo);
-            parametros.Add("VALIDADE", entidade.Validade);
-            parametros.Add("ID_PARCEIRO", entidade.Parceiro.Id);
-            parametros.Add("QTDUTILIZADA", entidade.QtdUtilizada);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "NOMECUPOM", entidade.Nome },
+                { "CODIGO", entidade.Codigo },
+                { "VALORMINIMO", entidade.ValorMinimo },
+                { "VALOR", entidade.Valor },
+                { "EHDESCONTOFIXO", entidade.EhDescontoFixo },
+                { "VALIDADE", entidade.Validade },
+                { "ID_PARCEIRO", entidade.Parceiro.Id },
+                { "QTDUTILIZADA", entidade.QtdUtilizada }
+            };
 
             return parametros;
         }
@@ -269,15 +268,15 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             int idParceiro = Convert.ToInt32(reader["ID_PARCEIRO"]);
             string nomeParceiro = Convert.ToString(reader["NOMEPARCEIRO"]);
-            Parceiro parceiro = new Parceiro(idParceiro, nomeParceiro);
+            Parceiro parceiro = new(idParceiro, nomeParceiro);
 
 
-            Cupom cupom = new Cupom(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro, qtdUtilizada);
+            Cupom cupom = new(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro, qtdUtilizada);
 
             cupom.Id = id;
 
             return cupom;
         }
-        
+
     }
 }

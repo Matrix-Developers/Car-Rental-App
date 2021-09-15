@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace LocadoraDeVeiculos.Dominio.SevicosModule
 {
     public class Servico : EntidadeBase
-    {    
+    {
         public Servico(int id, string nome, bool EhTaxadoDiario, double valor)
         {
             this.id = id;

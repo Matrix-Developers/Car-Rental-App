@@ -2,7 +2,6 @@ using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace LocadoraDeVeiculos.Dominio.VeiculoModule
 {
@@ -27,7 +26,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool estaAlugado;
         public List<ImagemVeiculo> imagens;
 
-        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status, List<ImagemVeiculo> imagens)
+        public Veiculo(int id, string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status, List<ImagemVeiculo> imagens)
         {
             this.id = id;
             this.modelo = modelo;
@@ -80,7 +79,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                 resultadoValidacao += "O campo tamanho do porta mala não pode ser vazio!\n";
             if (resultadoValidacao == "")
                 resultadoValidacao = "VALIDO";
-                return resultadoValidacao;
+            return resultadoValidacao;
         }
 
         public override string ToString()

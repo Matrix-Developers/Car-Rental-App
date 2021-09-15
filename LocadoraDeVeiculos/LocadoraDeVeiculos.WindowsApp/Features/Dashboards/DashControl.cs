@@ -10,12 +10,6 @@ using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
@@ -36,7 +30,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             controladorServicos = new ServicoRepository();
             controladorFuncionario = new FuncionarioRepository();
             controladorCupom = new();
-            controladorLocacao = new LocacaoRepository(controladorVeiculo, controladorFuncionario,controladorCliente, controladorServicos, controladorCupom);
+            controladorLocacao = new LocacaoRepository(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServicos, controladorCupom);
             MudaLabels();
         }
 
@@ -51,18 +45,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
         private void CarregarDashBoardLocacao()
         {
             List<Locacao> todasLocacao = controladorLocacao.SelecionarTodos();
-            List<Locacao> locacoesAbertas = new List<Locacao>();
+            List<Locacao> locacoesAbertas = new();
             foreach (Locacao locacao in todasLocacao)
                 if (locacao.EstaAberta)
                     locacoesAbertas.Add(locacao);
 
             int retornamHJ = 0;
             int retornam7dias = 0;
-            
+
 
             foreach (Locacao locacao in locacoesAbertas)
             {
-                if (locacao.DataDeChegada.Date == DateTime.Today )
+                if (locacao.DataDeChegada.Date == DateTime.Today)
                 {
                     retornamHJ++;
                 }
@@ -74,7 +68,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             lbRetornoHJ.Text = retornamHJ.ToString();
             lbCarrosAlugados.Text = locacoesAbertas.Count.ToString();
             lbRetornam7.Text = retornam7dias.ToString();
-           
+
         }
 
         private void CarregarDashBoardServicos()
@@ -106,7 +100,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             lbClientesPJ.Text = clientesPJ.ToString();
             lbClientesPF.Text = clientesPF.ToString();
             lbClientesTotal.Text = clientesTotal.ToString();
-          
+
         }
 
         private void CarregaDashBoardVeiculo()

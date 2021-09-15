@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.Shared
 {
@@ -13,14 +9,14 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
     public static class Db
     {
-        private static string bancoDeDados;
+        //private static string bancoDeDados;
         private static string connectionString = "";
         private static string nomeProvider;
         private static DbProviderFactory fabricaProvedor;
 
         static Db()
         {
-            bancoDeDados = "bancoDeDados";
+            //bancoDeDados = "bancoDeDados";
 
             connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=DBLocadoraDeVeiculos;Integrated Security=True;Pooling=False";
 

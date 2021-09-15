@@ -1,14 +1,10 @@
 ﻿using LocadoraDeVeiculos.Dominio.Shared;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.SQL.Shared
 {
-    public abstract class RepositoryBase <T> where T : EntidadeBase
+    public abstract class RepositoryBase<T> where T : EntidadeBase
     {
         protected abstract string SqlInserirEntidade { get; }
         protected abstract string SqlEditarEntidade { get; }

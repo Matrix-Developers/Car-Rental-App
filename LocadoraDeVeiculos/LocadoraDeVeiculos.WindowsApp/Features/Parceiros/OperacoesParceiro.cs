@@ -20,7 +20,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
         public void InserirNovoRegistro()
         {
-            TelaParceiroForm tela = new TelaParceiroForm("Cadastro de Parceiro");
+            TelaParceiroForm tela = new("Cadastro de Parceiro");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] inserido com sucesso");
             }
-        }        
+        }
 
         public void EditarRegistro()
         {
@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             }
 
             Parceiro parceiroSelecionado = controlador.SelecionarPorId(id);
-            TelaParceiroForm tela = new TelaParceiroForm("Edição de Parceiro");
+            TelaParceiroForm tela = new("Edição de Parceiro");
             tela.Parceiro = parceiroSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)

@@ -29,13 +29,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
 
-            TelaDevolucaoForm tela = new TelaDevolucaoForm("Devolução de Veículo");
+            TelaDevolucaoForm tela = new("Devolução de Veículo");
 
             tela.Devolucao = locacaoSelecionada;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(tela.Devolucao.Id , tela.Devolucao);
+                controlador.Editar(tela.Devolucao.Id, tela.Devolucao);
                 List<Locacao> funcionarios = controlador.SelecionarTodos();
                 tabelaDevolucao.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Devolução: [{tela.Devolucao.Id}] realizada com sucesso");
@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
         public void FiltrarRegistros()
         {
-            FiltroDevolucaoForm telaFiltro = new FiltroDevolucaoForm();
+            FiltroDevolucaoForm telaFiltro = new();
 
             if (telaFiltro.ShowDialog() == DialogResult.OK)
             {
@@ -89,7 +89,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
                     case FiltroDevolucaoEnum.DevolucoesPendentes:
                         {
-                            List<Locacao> filtro = new List<Locacao>();
+                            List<Locacao> filtro = new();
                             foreach (Locacao devolucao in devolucoes)
                                 if (devolucao.EstaAberta)
                                     filtro.Add(devolucao);
@@ -100,7 +100,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
                     case FiltroDevolucaoEnum.DevolucoesFinalizadas:
                         {
-                            List<Locacao> filtro = new List<Locacao>();
+                            List<Locacao> filtro = new();
                             foreach (Locacao devolucao in devolucoes)
                                 if (!devolucao.EstaAberta)
                                     filtro.Add(devolucao);

@@ -5,9 +5,6 @@ using LocadoraDeVeiculos.WindowsApp.ClientesModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
@@ -16,7 +13,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
     {
         private readonly ClienteRepository controlador = null;
         private readonly TabelaClientesControl tabelaCliente = null;
-        public OperacoesClientes (ClienteRepository ctrlCliente)
+        public OperacoesClientes(ClienteRepository ctrlCliente)
         {
             controlador = ctrlCliente;
             tabelaCliente = new TabelaClientesControl();
@@ -33,9 +30,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             }
             Cliente clienteSelecionado = controlador.SelecionarPorId(id);
 
-            ClientesForm tela = new ClientesForm("Edição de Clientes");
-
-            tela.Clientes = clienteSelecionado;
+            ClientesForm tela = new("Edição de Clientes")
+            {
+                Clientes = clienteSelecionado
+            };
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -72,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         }
         public void InserirNovoRegistro()
         {
-            ClientesForm tela = new ClientesForm("Cadastro de Clientes");
+            ClientesForm tela = new("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.Clientes);

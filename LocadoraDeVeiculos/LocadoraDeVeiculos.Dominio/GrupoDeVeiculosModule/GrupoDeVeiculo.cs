@@ -13,13 +13,13 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
         private double taxaKmExcedidoControlado;
         private double taxaPlanoLivre;
 
-        public string Nome { get => nome;}
-        public double TaxaPlanoDiario { get => taxaPlanoDiario;}
-        public double TaxaPorKmDiario { get => taxaPorKmDiario;}
-        public double TaxaPlanoControlado { get => taxaPlanoControlado;}
-        public int LimiteKmControlado { get => limiteKmControlado;}
-        public double TaxaKmExcedidoControlado { get => taxaKmExcedidoControlado;}
-        public double TaxaPlanoLivre { get => taxaPlanoLivre;}
+        public string Nome { get => nome; }
+        public double TaxaPlanoDiario { get => taxaPlanoDiario; }
+        public double TaxaPorKmDiario { get => taxaPorKmDiario; }
+        public double TaxaPlanoControlado { get => taxaPlanoControlado; }
+        public int LimiteKmControlado { get => limiteKmControlado; }
+        public double TaxaKmExcedidoControlado { get => taxaKmExcedidoControlado; }
+        public double TaxaPlanoLivre { get => taxaPlanoLivre; }
 
         public GrupoDeVeiculo(int id, string nome, double taxaPlanoDiario, double taxaPorKmDiario, double taxaPlanoControlado, int limiteKmControlado, double taxaKmExcedidoControlado, double taxaPlanoLivre)
         {
@@ -38,9 +38,9 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
             string resultadoValidacao = "";
 
             if (this.nome.Length <= 0)
-                resultadoValidacao  = "O nome não pode ser nulo\n";
+                resultadoValidacao = "O nome não pode ser nulo\n";
 
-            if (this.taxaPlanoDiario <=0f)
+            if (this.taxaPlanoDiario <= 0f)
                 resultadoValidacao += "A taxa diaria do Plano Diário não pode ser nula\n";
 
             if (this.taxaPorKmDiario <= 0f)

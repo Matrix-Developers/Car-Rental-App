@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.WindowsApp.Funcionarios;
 
 namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
 {
@@ -43,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
                 mskTxtDataAdmissao.Text = funcionario.DataAdmissao.ToString();
                 textCargo.Text = funcionario.Cargo.ToString();
                 textSalario.Text = funcionario.Salario.ToString();
-                
+
             }
         }
 
@@ -64,8 +56,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
                 dataAdmissao = Convert.ToDateTime(mskTxtDataAdmissao.Text);
             string cargo = textCargo.Text;
             double salario = Convert.ToDouble(textSalario.Text);
-             
-            funcionario = new Funcionario(0,nome,registroUnico,endereco,telefone,email,matriculaInterna,usuarioAcesso,senha,dataAdmissao,cargo,salario,true);
+
+            funcionario = new Funcionario(0, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso, senha, dataAdmissao, cargo, salario, true);
 
             string resultadoValidacao = funcionario.Validar();
 

@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
 
         public string Senha { get; }
 
-        public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matriculaInterna, string usuarioAcesso,string senha, DateTime dataAdmissao, string cargo, double salario,bool ehPessoaFisica)
+        public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matriculaInterna, string usuarioAcesso, string senha, DateTime dataAdmissao, string cargo, double salario, bool ehPessoaFisica)
         {
             this.id = id;
             Nome = nome;
@@ -37,11 +37,11 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             string resultadoValidação = "";
             if (UsuarioAcesso.Length == 0)
                 resultadoValidação += "O usuário de acesso não pode estar vazio\n";
-            if(MatriculaInterna <= 0)
+            if (MatriculaInterna <= 0)
                 resultadoValidação += "Matricula inválida\n";
             if (Salario <= 0)
                 resultadoValidação += "O salário deve ser maior que R$ 0,00\n";
-            if(Cargo.Length == 0)
+            if (Cargo.Length == 0)
                 resultadoValidação += "O funcionário deve possuir um cargo\n";
             if (DataAdmissao > DateTime.Now.AddMonths(2))
                 resultadoValidação += "Data de admissão inválida\n";

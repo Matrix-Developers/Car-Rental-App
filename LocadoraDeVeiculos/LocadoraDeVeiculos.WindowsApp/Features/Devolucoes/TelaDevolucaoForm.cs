@@ -5,14 +5,7 @@ using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Servicos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
@@ -21,7 +14,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     {
         private Locacao devolucao;
         ServicosForm telaServico;
-        VeiculoRepository controladorVeiculo =  new VeiculoRepository();
+        VeiculoRepository controladorVeiculo = new VeiculoRepository();
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();
@@ -236,7 +229,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             precoDevolucao += ReceberPrecoCombustivel();
             precoDevolucao += CalcularLocacao.CalcularPlano(Devolucao.TipoDoPlano, Devolucao.Veiculo.grupoVeiculos, kilometrosRodados, Devolucao.DataDeSaida, dtDevolucao.Value);
             precoDevolucao += CalcularLocacao.CalcularServicos(Devolucao.Servicos, Devolucao.DataDeSaida, dtDevolucao.Value);
-            precoDevolucao +=  CalcularLocacao.CalcularMultaDevolucaoAtrasada(Devolucao.PrecoDevolucao, Devolucao.DataPrevistaDeChegada, Devolucao.DataDeChegada);
+            precoDevolucao += CalcularLocacao.CalcularMultaDevolucaoAtrasada(Devolucao.PrecoDevolucao, Devolucao.DataPrevistaDeChegada, Devolucao.DataDeChegada);
             precoDevolucao -= CalcularLocacao.CalcularCupomDesconto(precoDevolucao, Devolucao.Cupom);
             txtValorTotal.Text = Math.Round(precoDevolucao, 2).ToString();
         }

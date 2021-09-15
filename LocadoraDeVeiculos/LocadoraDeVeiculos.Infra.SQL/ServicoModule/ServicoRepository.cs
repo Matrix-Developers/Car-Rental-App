@@ -87,7 +87,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
         {
             get
             {
-                return 
+                return
                 @"SELECT 
                     COUNT(*) 
                 FROM 
@@ -147,12 +147,13 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
 
         protected override Dictionary<string, object> ObtemParametros(Servico entidade)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("NOME", entidade.Nome);
-            parametros.Add("EHTAXADODIARIO", entidade.EhTaxadoDiario);
-            parametros.Add("VALOR", entidade.Valor);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "NOME", entidade.Nome },
+                { "EHTAXADODIARIO", entidade.EhTaxadoDiario },
+                { "VALOR", entidade.Valor }
+            };
 
             return parametros;
         }
@@ -163,7 +164,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             bool ehTaxadoDiario = Convert.ToBoolean(reader["EHTAXADODIARIO"]);
             double valor = Convert.ToDouble(reader["VALOR"]);
 
-            Servico servico = new Servico(id, nome, ehTaxadoDiario, valor);
+            Servico servico = new(id, nome, ehTaxadoDiario, valor);
 
             servico.Id = id;
 

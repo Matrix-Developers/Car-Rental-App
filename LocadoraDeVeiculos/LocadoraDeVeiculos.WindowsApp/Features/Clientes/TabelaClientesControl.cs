@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using LocadoraDeVeiculos.Controladores.ClientesModule;
+﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Clientes
 {
@@ -46,7 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Clientes
                 new DataGridViewTextBoxColumn {DataPropertyName = "ValidadeCnh", HeaderText = "Validade CHN"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "ehpessoafisica", HeaderText = "É pessoa física "}
-               
+
            };
 
             return colunas;

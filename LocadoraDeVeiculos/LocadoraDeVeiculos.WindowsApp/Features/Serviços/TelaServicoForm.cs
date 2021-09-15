@@ -1,14 +1,6 @@
-﻿using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
+﻿using LocadoraDeVeiculos.Dominio.SevicosModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos

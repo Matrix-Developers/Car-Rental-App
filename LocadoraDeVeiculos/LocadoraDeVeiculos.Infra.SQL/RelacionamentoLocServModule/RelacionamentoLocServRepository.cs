@@ -13,17 +13,14 @@ using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 {
     public class RelacionamentoLocServRepository : RepositoryBase<RelacionamentoLocServ>, IRepository<RelacionamentoLocServ>       //essa classe está parcialmente obsoleta
     {
         private int id = 0;
-        ServicoRepository controladorServico = new ServicoRepository();
-        LocacaoRepository controladorLocacao = new LocacaoRepository(new VeiculoRepository(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository());
+        ServicoRepository controladorServico = new();
+        LocacaoRepository controladorLocacao = new(new VeiculoRepository(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository());
 
         #region queries
         protected override string SqlInserirEntidade
@@ -148,10 +145,12 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 
         protected override Dictionary<string, object> ObtemParametros(RelacionamentoLocServ entidade)
         {
-            var parametros = new Dictionary<string, object>();
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("ID_LOCACAO", entidade.Locacao.Id);
-            parametros.Add("ID_SERVICO", id);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "ID_LOCACAO", entidade.Locacao.Id },
+                { "ID_SERVICO", id }
+            };
 
             return parametros;
         }
@@ -161,7 +160,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
             var id_locacao = Convert.ToInt32(reader["ID_LOCACAO"]);
             var id_servico = Convert.ToInt32(reader["ID_SERVICO"]);
 
-            List<Servico> filtrado = new List<Servico>();
+            List<Servico> filtrado = new();
             foreach (Servico item in controladorServico.SelecionarTodos())
                 if (item.Id == id_servico)
                     filtrado.Add(item);
