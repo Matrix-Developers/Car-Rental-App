@@ -9,11 +9,11 @@ using System.Collections.Generic;
 namespace LocadoraDeVeiculos.Tests.SevicoModule
 {
     [TestClass]
-    public class ServicosControladorTest
+    public class ServicoControladorTest
     {
         ServicoRepository controlador = null;
         Servico novoServico;
-        public ServicosControladorTest()
+        public ServicoControladorTest()
         {
             controlador = new ServicoRepository();
             ResetarBanco.ResetarTabelas();

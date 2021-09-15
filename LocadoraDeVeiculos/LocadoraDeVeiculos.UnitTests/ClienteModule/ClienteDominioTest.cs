@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using System;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 
