@@ -29,6 +29,6 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
         }
         public void ExcluirCupom(int id) { cupomRepository.Excluir(id);}
         public bool ExisteCupom(int id) { return cupomRepository.Existe(id);}
-        public bool ExisteCodigo(string codigo) { return cupomRepository.ExisteCodigo(codigo); }
+        public bool ExisteCodigo(string codigo) { return cupomRepository.ExisteCodigo(codigo);}
     }
 }
