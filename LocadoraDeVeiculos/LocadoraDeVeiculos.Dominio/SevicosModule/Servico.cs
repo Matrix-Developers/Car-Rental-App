@@ -12,9 +12,13 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
             this.EhTaxadoDiario = EhTaxadoDiario;
             this.Valor = valor;
         }
-        public string Nome { get; }
-        public bool EhTaxadoDiario { get; }
-        public double Valor { get; }
+        public Servico()
+        {
+        }
+
+        public string Nome { get; set; }
+        public bool EhTaxadoDiario { get; set; }
+        public double Valor { get; set; }
 
         public override string Validar()
         {
