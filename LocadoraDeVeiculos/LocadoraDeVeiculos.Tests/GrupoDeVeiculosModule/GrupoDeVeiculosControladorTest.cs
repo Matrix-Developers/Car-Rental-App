@@ -12,11 +12,11 @@ namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
     [TestClass]
     public class GrupoDeVeiculosControladorTest
     {
-        ControladorGrupoDeVeiculos controlador = null;
+        GrupoDeVeiculosRepository controlador = null;
 
         public GrupoDeVeiculosControladorTest()
         {
-            controlador = new ControladorGrupoDeVeiculos();
+            controlador = new GrupoDeVeiculosRepository();
             ResetarBanco.ResetarTabelas();
         }
 

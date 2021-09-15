@@ -15,12 +15,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 {
     public partial class TelaLogin : Form
     {
-        private readonly ControladorFuncionario controlador;
+        private readonly FuncionarioRepository controlador;
         Thread thread;
         public TelaLogin()
         {
             InitializeComponent();
-            controlador = new ControladorFuncionario();
+            controlador = new FuncionarioRepository();
         }
         private void btnConfirmar_Click(object sender, EventArgs e)
         {

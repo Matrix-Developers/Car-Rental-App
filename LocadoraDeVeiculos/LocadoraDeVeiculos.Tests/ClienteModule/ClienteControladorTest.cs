@@ -12,11 +12,11 @@ namespace LocadoraDeVeiculos.Tests.ClienteModule
     [TestCategory("Controladores")]
     public class ClienteControladorTest
     {
-        ControladorCliente controlador = null;
+        ClienteRepository controlador = null;
         Cliente cliente;
         public ClienteControladorTest()
         {
-            controlador = new ControladorCliente();
+            controlador = new ClienteRepository();
             ResetarBanco.ResetarTabelas();
         }
         [TestMethod]

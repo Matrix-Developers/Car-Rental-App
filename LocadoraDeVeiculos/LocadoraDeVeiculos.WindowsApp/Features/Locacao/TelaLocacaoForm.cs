@@ -27,10 +27,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
     public partial class TelaLocacaoForm : Form
     {
         private Locacao locacao;
-        private ControladorFuncionario controladorFuncionario = new ControladorFuncionario();
-        private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
-        private ControladorCliente controladorCliente = new ControladorCliente();
-        private ControladorCupom controladorCupom = new ControladorCupom();
+        private FuncionarioRepository controladorFuncionario = new FuncionarioRepository();
+        private VeiculoRepository controladorVeiculo = new VeiculoRepository();
+        private ClienteRepository controladorCliente = new ClienteRepository();
+        private CupomRepository controladorCupom = new CupomRepository();
         public List<Servico> Servicos;
         public string TipoSeguro = "Nenhum";
         ServicosForm telaServico = new ServicosForm();

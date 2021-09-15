@@ -16,10 +16,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 {
     public class OperacoesFuncionario : ICadastravel
     {
-        private readonly ControladorFuncionario controlador = null;
+        private readonly FuncionarioRepository controlador = null;
         private readonly TabelaFuncionarioControl tabelaFuncionarios = null;
 
-        public OperacoesFuncionario(ControladorFuncionario ctrlFuncionario)
+        public OperacoesFuncionario(FuncionarioRepository ctrlFuncionario)
         {
             controlador = ctrlFuncionario;
             tabelaFuncionarios = new TabelaFuncionarioControl();

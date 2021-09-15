@@ -12,11 +12,11 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
     {
         Funcionario funcionario;
         Funcionario funcionario2;
-        ControladorFuncionario ctr; 
+        FuncionarioRepository ctr; 
 
         public FuncionarioControladorTest()
         {
-            ctr = new ControladorFuncionario();
+            ctr = new FuncionarioRepository();
             ResetarBanco.ResetarTabelas();
         }
 

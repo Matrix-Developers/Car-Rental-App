@@ -18,10 +18,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
     {
         public List<Servico> servicosSelecionados;
         public string seguro = "Nenhum";
-        ControladorServico controladorServico;
+        ServicoRepository controladorServico;
         public ServicosForm()
         {
-            controladorServico = new ControladorServico();
+            controladorServico = new ServicoRepository();
             servicosSelecionados = new List<Servico>();
             InitializeComponent();
             AtualizarListCheckBox();
