@@ -11,6 +11,7 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,21 +21,21 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
-    public class LocacaoRepository : IRepository<Locacao>
+    public class LocacaoRepository : RepositoryBase<Locacao>, IRepository<Locacao>
     {
-        private ControladorVeiculo controladorVeiculo = null;
+        private VeiculoRepository controladorVeiculo = null;
         private FuncionarioRepository controladorFuncionario = null;
         private ClienteRepository controladorCliente = null;
         private ServicoRepository controladorServico = null;
-        private CupomRepository controladorCupom = new CupomRepository();
+        private CupomRepository controladorCupom = null;
 
-        public LocacaoRepository(ControladorVeiculo controladorVeiculo, FuncionarioRepository controladorFuncionario, ClientesModule.ClienteRepository controladorCliente, ServicoRepository controladorServico, CupomRepository controladorCupom)
+        public LocacaoRepository(VeiculoRepository controladorVeiculo, FuncionarioRepository controladorFuncionario, ClienteRepository controladorCliente, ServicoRepository controladorServico, CupomRepository controladorCupom)
         {
             this.controladorVeiculo = controladorVeiculo;
             this.controladorFuncionario = controladorFuncionario;
             this.controladorCliente = controladorCliente;
             this.controladorServico = controladorServico;
-            //this.controladorCupom = controladorCupom;
+            this.controladorCupom = controladorCupom;
         }
 
         #region queries
@@ -113,17 +114,17 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
+                registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public List<Locacao> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosLocacaos, ConverterEmLocacao);
+            return Db.GetAll(sqlSelecionarTodosLocacaos, ConverterEmEntidade);
         }
         public Locacao SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public string Editar(int id, Locacao registro)
         {
@@ -132,7 +133,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(registro));
+                Db.Update(sqlEditarLocacao, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
@@ -165,12 +166,35 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             }
             return servicosDaLocacao;
         }
-
         private int ConverterEmInteiro(IDataReader reader)
         {
             return Convert.ToInt32(reader["ID_SERVICO"]);
         }
-        private Locacao ConverterEmLocacao(IDataReader reader)
+
+        protected override Dictionary<string, object> ObtemParametros(Locacao entidade)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("ID_VEICULO", entidade.Veiculo.Id);
+            parametros.Add("ID_FUNCIONARIO", entidade.FuncionarioLocador.Id);
+            parametros.Add("ID_CLIENTECONTRATANTE", entidade.ClienteContratante.Id);
+            parametros.Add("ID_CLIENTECONDUTOR", entidade.ClienteCondutor.Id);
+            if (entidade.Cupom != null)
+                parametros.Add("ID_CUPOM", entidade.Cupom.Id);
+            else
+                parametros.Add("ID_CUPOM", null);
+            parametros.Add("DATADESAIDA", entidade.DataDeSaida);
+            parametros.Add("DATAPREVISTADECHEGADA", entidade.DataPrevistaDeChegada);
+            parametros.Add("DATADECHEGADA", entidade.DataDeChegada);
+            parametros.Add("TIPODOPLANO", entidade.TipoDoPlano);
+            parametros.Add("TIPODESEGURO", entidade.TipoDeSeguro);
+            parametros.Add("PRECOLOCACAO", entidade.PrecoLocacao);
+            parametros.Add("PRECODEVOLUCAO", entidade.PrecoDevolucao);
+            parametros.Add("ESTAABERTA", entidade.EstaAberta);
+            return parametros;
+        }
+        protected override Locacao ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var id_veiculo = Convert.ToInt32(reader["ID_VEICULO"]);
@@ -192,7 +216,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var precoDevolucao = Convert.ToDouble(reader["PRECODEVOLUCAO"]);
             var estaAberta = Convert.ToBoolean(reader["ESTAABERTA"]);
 
-            List <Servico>  servicosDaLocacao = SelecionarServicosComIdLocacao(id);
+            List<Servico> servicosDaLocacao = SelecionarServicosComIdLocacao(id);
             //foreach (Servico servico in controladorServico.SelecionarTodos())
             //{
             //    List<int> idsDeServicos = SelecionarServicosComIdLocacao(id);
@@ -211,33 +235,6 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                 cupom = null;
 
             return new Locacao(id, veiculo, funcionarioLocador, clienteContratante, clienteCondutor, cupom, dataDeSaida, dataPrevistaDeChegada, dataDeChegada, tipoDoPlano, tipoDeSeguro, precoLocacao, precoDevolucao, estaAberta, servicosDaLocacao);
-        }
-        private Dictionary<string, object> ObtemParametrosLocacao(Locacao locacao)
-        {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", locacao.Id);
-            parametros.Add("ID_VEICULO", locacao.Veiculo.Id);
-            parametros.Add("ID_FUNCIONARIO", locacao.FuncionarioLocador.Id);
-            parametros.Add("ID_CLIENTECONTRATANTE", locacao.ClienteContratante.Id);
-            parametros.Add("ID_CLIENTECONDUTOR", locacao.ClienteCondutor.Id);
-            if (locacao.Cupom != null)
-                parametros.Add("ID_CUPOM", locacao.Cupom.Id);
-            else
-                parametros.Add("ID_CUPOM", null);
-            parametros.Add("DATADESAIDA", locacao.DataDeSaida);
-            parametros.Add("DATAPREVISTADECHEGADA", locacao.DataPrevistaDeChegada);
-            parametros.Add("DATADECHEGADA", locacao.DataDeChegada);
-            parametros.Add("TIPODOPLANO", locacao.TipoDoPlano);
-            parametros.Add("TIPODESEGURO", locacao.TipoDeSeguro);
-            parametros.Add("PRECOLOCACAO", locacao.PrecoLocacao);
-            parametros.Add("PRECODEVOLUCAO", locacao.PrecoDevolucao);
-            parametros.Add("ESTAABERTA", locacao.EstaAberta);
-            return parametros;
-        }
-        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
     {
         LocacaoRepository controlador = null;
         GrupoDeVeiculosRepository controladorGrupoDeVeiculos = null;
-        ControladorVeiculo controladorVeiculo = null;
+        VeiculoRepository controladorVeiculo = null;
         FuncionarioRepository controladorFuncionario = null;
         ClienteRepository controladorCliente = null;
         ServicoRepository controladorServico = null;
@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         public LocacaoControladorTest()
         {
             controladorGrupoDeVeiculos = new GrupoDeVeiculosRepository();
-            controladorVeiculo = new ControladorVeiculo();
+            controladorVeiculo = new VeiculoRepository();
             controladorFuncionario = new FuncionarioRepository();
             controladorCliente = new ClienteRepository();
             controladorServico = new ServicoRepository();

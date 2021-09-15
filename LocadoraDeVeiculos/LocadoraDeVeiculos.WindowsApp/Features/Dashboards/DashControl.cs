@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 {
     public partial class DashControl : UserControl
     {
-        ControladorVeiculo controladorVeiculo;
+        VeiculoRepository controladorVeiculo;
         ClienteRepository controladorCliente;
         ServicoRepository controladorServicos;
         LocacaoRepository controladorLocacao;
@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
         public DashControl()
         {
             InitializeComponent();
-            controladorVeiculo = new ControladorVeiculo();
+            controladorVeiculo = new VeiculoRepository();
             controladorCliente = new ClienteRepository();
             controladorServicos = new ServicoRepository();
             controladorFuncionario = new FuncionarioRepository();

@@ -4,10 +4,11 @@ using System.Data;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 {
-    public class FuncionarioRepository : IRepository<Funcionario>
+    public class FuncionarioRepository : RepositoryBase<Funcionario>, IRepository<Funcionario>
     {
         #region queries
         private const string comandoInserir = @"INSERT INTO TBFUNCIONARIO
@@ -66,7 +67,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(comandoEditar, ObtemParametrosFuncionario(registro));
+                Db.Update(comandoEditar, ObtemParametros(registro));
             }
             return resultadoValidacao;
         }
@@ -90,40 +91,40 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         {
             string resultadoValidacao = registro.Validar();
             if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(comandoInserir, ObtemParametrosFuncionario(registro));
+                registro.Id = Db.Insert(comandoInserir, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public Funcionario SelecionarPorId(int id)
         {
-            return Db.Get(comandoSelecionarPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
+            return Db.Get(comandoSelecionarPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<Funcionario> SelecionarTodos()
         {
-            return Db.GetAll(comandoSelecionarTodos, ConverterEmFuncionario);
+            return Db.GetAll(comandoSelecionarTodos, ConverterEmEntidade);
         }
 
-        private Dictionary<string, object> ObtemParametrosFuncionario(Funcionario funcionario)
+        protected override Dictionary<string, object> ObtemParametros(Funcionario entidade)
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", funcionario.Id);
-            parametros.Add("NOME", funcionario.Nome);
-            parametros.Add("REGISTROUNICO", funcionario.RegistroUnico);
-            parametros.Add("ENDERECO", funcionario.Endereco);
-            parametros.Add("TELEFONE", funcionario.Telefone);
-            parametros.Add("EMAIL", funcionario.Email);
-            parametros.Add("MATRICULAINTERNA", funcionario.MatriculaInterna);
-            parametros.Add("USUARIOACESSO", funcionario.UsuarioAcesso);
-            parametros.Add("SENHA", funcionario.Senha);
-            parametros.Add("DATAADMISSAO", funcionario.DataAdmissao);
-            parametros.Add("CARGO", funcionario.Cargo);
-            parametros.Add("SALARIO", float.Parse(Convert.ToString(funcionario.Salario)));
-            parametros.Add("EHPESSOAFISICA", Convert.ToBoolean(funcionario.EhPessoaFisica));
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("NOME", entidade.Nome);
+            parametros.Add("REGISTROUNICO", entidade.RegistroUnico);
+            parametros.Add("ENDERECO", entidade.Endereco);
+            parametros.Add("TELEFONE", entidade.Telefone);
+            parametros.Add("EMAIL", entidade.Email);
+            parametros.Add("MATRICULAINTERNA", entidade.MatriculaInterna);
+            parametros.Add("USUARIOACESSO", entidade.UsuarioAcesso);
+            parametros.Add("SENHA", entidade.Senha);
+            parametros.Add("DATAADMISSAO", entidade.DataAdmissao);
+            parametros.Add("CARGO", entidade.Cargo);
+            parametros.Add("SALARIO", float.Parse(Convert.ToString(entidade.Salario)));
+            parametros.Add("EHPESSOAFISICA", Convert.ToBoolean(entidade.EhPessoaFisica));
 
             return parametros;
         }
-        private Funcionario ConverterEmFuncionario(IDataReader reader)
+        protected override Funcionario ConverterEmEntidade(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
@@ -144,10 +145,6 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             funcionario.Id = id;
 
             return funcionario;
-        }
-        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

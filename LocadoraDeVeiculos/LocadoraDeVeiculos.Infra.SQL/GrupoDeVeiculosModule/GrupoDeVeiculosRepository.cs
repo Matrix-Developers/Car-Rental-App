@@ -1,13 +1,14 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 {
-    public class GrupoDeVeiculosRepository : IRepository<GrupoDeVeiculo>
+    public class GrupoDeVeiculosRepository : RepositoryBase<GrupoDeVeiculo>, IRepository<GrupoDeVeiculo>
     {
         #region queries
         private const string sqlInserirGrupoDeVeiculos =
@@ -75,7 +76,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
             if (resultadoValidacao == "VALIDO")
             {
-                registro.Id = Db.Insert(sqlInserirGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));
+                registro.Id = Db.Insert(sqlInserirGrupoDeVeiculos, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
@@ -94,7 +95,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarGrupoDeVeiculos, ObtemParametrosGrupoDeVeiculos(registro));
+                Db.Update(sqlEditarGrupoDeVeiculos, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
@@ -118,29 +119,29 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         }
         public GrupoDeVeiculo SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmGrupoDeVeiculos, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<GrupoDeVeiculo> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosGrupoDeVeiculoss, ConverterEmGrupoDeVeiculos);
+            return Db.GetAll(sqlSelecionarTodosGrupoDeVeiculoss, ConverterEmEntidade);
         }
 
-        private Dictionary<string, object> ObtemParametrosGrupoDeVeiculos(GrupoDeVeiculo grupoDeVeiculos)
+        protected override Dictionary<string, object> ObtemParametros(GrupoDeVeiculo entidade)
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", grupoDeVeiculos.Id);
-            parametros.Add("NOME", grupoDeVeiculos.Nome);
-            parametros.Add("TAXAPLANODIARIO", grupoDeVeiculos.TaxaPlanoDiario);
-            parametros.Add("TAXAPORKMDIARIO", grupoDeVeiculos.TaxaPorKmDiario);
-            parametros.Add("TAXAPLANOCONTROLADO", grupoDeVeiculos.TaxaPlanoControlado);
-            parametros.Add("LIMITEKMCONTROLADO", grupoDeVeiculos.LimiteKmControlado);
-            parametros.Add("TAXAKMEXCEDIDOCONTROLADO", grupoDeVeiculos.TaxaKmExcedidoControlado);
-            parametros.Add("TAXAPLANOLIVRE", grupoDeVeiculos.TaxaPlanoLivre);
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("NOME", entidade.Nome);
+            parametros.Add("TAXAPLANODIARIO", entidade.TaxaPlanoDiario);
+            parametros.Add("TAXAPORKMDIARIO", entidade.TaxaPorKmDiario);
+            parametros.Add("TAXAPLANOCONTROLADO", entidade.TaxaPlanoControlado);
+            parametros.Add("LIMITEKMCONTROLADO", entidade.LimiteKmControlado);
+            parametros.Add("TAXAKMEXCEDIDOCONTROLADO", entidade.TaxaKmExcedidoControlado);
+            parametros.Add("TAXAPLANOLIVRE", entidade.TaxaPlanoLivre);
 
             return parametros;
         }
-        private GrupoDeVeiculo ConverterEmGrupoDeVeiculos(IDataReader reader)
+        protected override GrupoDeVeiculo ConverterEmEntidade(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]); ;
             string nome = Convert.ToString(reader["NOME"]); ;
@@ -155,10 +156,6 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
                 limiteKmControlado, taxaKmExcedidoControlado,taxaPlanoLivre);
 
             return grupoDeVeiculos;
-        }
-        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

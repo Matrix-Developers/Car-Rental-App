@@ -9,6 +9,7 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,14 +19,14 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 {
-    public class RelacionamentoLocServRepository : IRepository<RelacionamentoLocServ>       //essa classe está parcialmente obsoleta
+    public class RelacionamentoLocServRepository : RepositoryBase<RelacionamentoLocServ>, IRepository<RelacionamentoLocServ>       //essa classe está parcialmente obsoleta
     {
         private int id = 0;
         ServicoRepository controladorServico = new ServicoRepository();
-        LocacaoRepository controladorLocacao = new LocacaoRepository(new ControladorVeiculo(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository());
+        LocacaoRepository controladorLocacao = new LocacaoRepository(new VeiculoRepository(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository());
 
         #region queries
-        private const string sqlInserirRelacao =
+        private const string sqlInserirEntidade =
                 @"INSERT INTO[DBO].[TBSERVICO_LOCACAO]
                 (
                     [ID_LOCACAO],
@@ -37,7 +38,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
                     @ID_SERVICO
                 );";
 
-        private const string sqlEditarRelacao =
+        private const string sqlEditarEntidade =
         @"UPDATE [DBO].[TBSERVICO_LOCACAO] 
                 SET
                     [ID_LOCACAO] = @ID_LOCACAO,
@@ -45,17 +46,17 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
                 WHERE 
                     [ID] = @ID;";
 
-        private const string sqlSelecionarTodasRelacoes =
+        private const string sqlSelecionarTodasEntidades =
             @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO];";
 
-        private const string sqlSelecionarRelacaoPorId =
+        private const string sqlSelecionarEntidadesPorId =
             @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
+
+        private const string sqlDeletarEntidade =
+            @"DELETE FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
         private const string sqlSelecionarRelacaoPorLocacao =
             @"SELECT * FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID_LOCACAO] = @ID_LOCACAO;";
-
-        private const string sqlDeletarRelacao =
-            @"DELETE FROM [DBO].[TBSERVICO_LOCACAO] WHERE [ID] = @ID;";
 
         #endregion
 
@@ -67,7 +68,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
         {
             try
             {
-                Db.Delete(sqlDeletarRelacao, AdicionarParametro("ID", id));
+                Db.Delete(sqlDeletarEntidade, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -78,7 +79,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
         }
         public bool Existe(int id)
         {
-            return Db.Exists(sqlSelecionarRelacaoPorId, AdicionarParametro("ID", id));
+            return Db.Exists(sqlSelecionarEntidadesPorId, AdicionarParametro("ID", id));
         }
         public string InserirNovo(RelacionamentoLocServ registro)
         {
@@ -88,25 +89,35 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
                 foreach (Servico servico in registro.Servicos)
                 {
                     id = servico.Id;
-                    registro.Id = Db.Insert(sqlInserirRelacao, ObtemParametrosRelacao(registro));
+                    registro.Id = Db.Insert(sqlInserirEntidade, ObtemParametros(registro));
                 }
 
             return resultadoValidacao;
         }
         public RelacionamentoLocServ SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarRelacaoPorId, ConverterEmRelacionamento, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarEntidadesPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
 
         public object SelecionarPorLocacao(int id)
         {
-            return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmRelacionamento, AdicionarParametro("ID_LOCACAO", id));
+            return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmEntidade, AdicionarParametro("ID_LOCACAO", id));
         }
         public List<RelacionamentoLocServ> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodasRelacoes, ConverterEmRelacionamento);
+            return Db.GetAll(sqlSelecionarTodasEntidades, ConverterEmEntidade);
         }
-        private RelacionamentoLocServ ConverterEmRelacionamento(IDataReader reader)
+
+        protected override Dictionary<string, object> ObtemParametros(RelacionamentoLocServ entidade)
+        {
+            var parametros = new Dictionary<string, object>();
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("ID_LOCACAO", entidade.Locacao.Id);
+            parametros.Add("ID_SERVICO", id);
+
+            return parametros;
+        }
+        protected override RelacionamentoLocServ ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var id_locacao = Convert.ToInt32(reader["ID_LOCACAO"]);
@@ -119,19 +130,6 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
             Locacao locacao = controladorLocacao.SelecionarPorId(id_locacao);
 
             return new RelacionamentoLocServ(id, locacao, filtrado);
-        }
-        private Dictionary<string, object> ObtemParametrosRelacao(RelacionamentoLocServ relacionamento)
-        {
-            var parametros = new Dictionary<string, object>();
-            parametros.Add("ID", relacionamento.Id);
-            parametros.Add("ID_LOCACAO", relacionamento.Locacao.Id);
-            parametros.Add("ID_SERVICO", id);
-
-            return parametros;
-        }
-        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

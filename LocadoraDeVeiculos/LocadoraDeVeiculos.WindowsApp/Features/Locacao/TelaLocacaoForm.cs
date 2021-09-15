@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
     {
         private Locacao locacao;
         private FuncionarioRepository controladorFuncionario = new FuncionarioRepository();
-        private ControladorVeiculo controladorVeiculo = new ControladorVeiculo();
+        private VeiculoRepository controladorVeiculo = new VeiculoRepository();
         private ClienteRepository controladorCliente = new ClienteRepository();
         private CupomRepository controladorCupom = new CupomRepository();
         public List<Servico> Servicos;

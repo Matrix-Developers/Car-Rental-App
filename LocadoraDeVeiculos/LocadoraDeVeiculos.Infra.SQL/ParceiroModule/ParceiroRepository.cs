@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 {
-    public class ParceiroRepository : IRepository<Parceiro>
+    public class ParceiroRepository : RepositoryBase<Parceiro>, IRepository<Parceiro>
     {
         #region queries
         private const string sqlInserirParceiro =
@@ -67,17 +68,17 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(sqlInserirParceiro, ObtemParametrosParceiro(registro));
+                registro.Id = Db.Insert(sqlInserirParceiro, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public List<Parceiro> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosParceiros, ConverterEmParceiro);
+            return Db.GetAll(sqlSelecionarTodosParceiros, ConverterEmEntidade);
         }       
         public Parceiro SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarParceiroPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }        
         public string Editar(int id, Parceiro registro)
         {
@@ -86,12 +87,11 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarParceiro, ObtemParametrosParceiro(registro));
+                Db.Update(sqlEditarParceiro, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
         }
-
         public bool Excluir(int id)
         {
             try
@@ -105,22 +105,21 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 
             return true;
         }
-
         public bool Existe(int id)
         {
             return Db.Exists(sqlExisteParceiro, AdicionarParametro("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosParceiro(Parceiro registro)
+        protected override Dictionary<string, object> ObtemParametros(Parceiro entidade)
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", registro.Id);
-            parametros.Add("NOMEPARCEIRO", registro.Nome);
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("NOMEPARCEIRO", entidade.Nome);
 
             return parametros;
         }
-        private Parceiro ConverterEmParceiro(IDataReader reader)
+        protected override Parceiro ConverterEmEntidade(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOMEPARCEIRO"]);
@@ -130,10 +129,6 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             parceiro.Id = id;
 
             return parceiro;
-        }
-        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

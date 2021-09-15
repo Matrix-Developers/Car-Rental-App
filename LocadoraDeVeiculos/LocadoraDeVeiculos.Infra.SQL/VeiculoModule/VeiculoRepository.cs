@@ -8,10 +8,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
-    public class ControladorVeiculo : IRepository<Veiculo>
+    public class VeiculoRepository : RepositoryBase<Veiculo>, IRepository<Veiculo>
     {
         private ImagemVeiculoRepository controladorImagem = new ImagemVeiculoRepository();
 
@@ -169,7 +170,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             if (resultadoValidacao == "VALIDO")
             {
-                registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametrosVeiculo(registro));
+                registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametros(registro));
                 if (registro.imagens != null)
                 {
                     foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
@@ -183,7 +184,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public List<Veiculo> SelecionarTodos()
         {
-            List<Veiculo>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmVeiculo);
+            List<Veiculo>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmEntidade);
 
             foreach (Veiculo veiculo in veiculos)
             {
@@ -194,7 +195,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public Veiculo SelecionarPorId(int id)
         {
-            Veiculo veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmVeiculo, AdicionarParametro("ID", id));
+            Veiculo veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
             veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
             return veiculo;
         }
@@ -205,7 +206,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarVeiculo, ObtemParametrosVeiculo(registro));
+                Db.Update(sqlEditarVeiculo, ObtemParametros(registro));
                 foreach (ImagemVeiculo imagem in registro.imagens)
                     imagem.idVeiculo = registro.Id;
                 controladorImagem.EditarLista(registro.imagens);
@@ -236,32 +237,32 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         //    return Convert.ToInt32(reader["qtd"]);
         //}
 
-        private Dictionary<string, object> ObtemParametrosVeiculo(Veiculo veiculo)
+        protected override Dictionary<string, object> ObtemParametros(Veiculo entidade)
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", veiculo.Id);
-            parametros.Add("MODELO", veiculo.modelo);
-            parametros.Add("ID_GRUPOVEICULO", veiculo.grupoVeiculos.Id);
-            parametros.Add("PLACA", veiculo.placa);
-            parametros.Add("CHASSI", veiculo.chassi);
-            parametros.Add("MARCA", veiculo.marca);
-            parametros.Add("COR", veiculo.cor);
-            parametros.Add("TIPOCOMBUSTIVEL", veiculo.tipoCombustivel);
-            parametros.Add("CAPACIDADETANQUE", veiculo.capacidadeTanque);
-            parametros.Add("ANO", veiculo.ano);
-            parametros.Add("KILOMETRAGEM", veiculo.kilometragem);
-            parametros.Add("NUMEROPORTAS", veiculo.numeroPortas);
-            parametros.Add("CAPACIDADEPESSOAS", veiculo.capacidadePessoas);
-            parametros.Add("TAMANHOPORTAMALA", veiculo.tamanhoPortaMala);
-            parametros.Add("TEMARCONDICIONADO", veiculo.temArCondicionado);
-            parametros.Add("TEMDIRECAOHIDRAULICA", veiculo.temDirecaoHidraulica);
-            parametros.Add("TEMFREIOSABS", veiculo.temFreiosAbs);
-            parametros.Add("ESTAALUGADO", veiculo.estaAlugado);
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("MODELO", entidade.modelo);
+            parametros.Add("ID_GRUPOVEICULO", entidade.grupoVeiculos.Id);
+            parametros.Add("PLACA", entidade.placa);
+            parametros.Add("CHASSI", entidade.chassi);
+            parametros.Add("MARCA", entidade.marca);
+            parametros.Add("COR", entidade.cor);
+            parametros.Add("TIPOCOMBUSTIVEL", entidade.tipoCombustivel);
+            parametros.Add("CAPACIDADETANQUE", entidade.capacidadeTanque);
+            parametros.Add("ANO", entidade.ano);
+            parametros.Add("KILOMETRAGEM", entidade.kilometragem);
+            parametros.Add("NUMEROPORTAS", entidade.numeroPortas);
+            parametros.Add("CAPACIDADEPESSOAS", entidade.capacidadePessoas);
+            parametros.Add("TAMANHOPORTAMALA", entidade.tamanhoPortaMala);
+            parametros.Add("TEMARCONDICIONADO", entidade.temArCondicionado);
+            parametros.Add("TEMDIRECAOHIDRAULICA", entidade.temDirecaoHidraulica);
+            parametros.Add("TEMFREIOSABS", entidade.temFreiosAbs);
+            parametros.Add("ESTAALUGADO", entidade.estaAlugado);
 
             return parametros;
         }
-        private Veiculo ConverterEmVeiculo(IDataReader reader)
+        protected override Veiculo ConverterEmEntidade(IDataReader reader)
         {
             var id = Convert.ToInt32(reader["ID"]);
             var modelo = Convert.ToString(reader["MODELO"]);
@@ -297,10 +298,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             veiculo.Id = id;
 
             return veiculo;
-        }
-        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

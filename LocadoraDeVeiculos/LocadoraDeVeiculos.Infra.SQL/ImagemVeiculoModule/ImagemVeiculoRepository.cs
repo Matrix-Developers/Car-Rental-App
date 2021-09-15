@@ -7,12 +7,12 @@ using System.Drawing.Imaging;
 using System.IO;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 {
-    public class ImagemVeiculoRepository : IImagemVeiculoRepository
+    public class ImagemVeiculoRepository : RepositoryBase<ImagemVeiculo>, IImagemVeiculoRepository
     {
-
         private Bitmap bmp;
 
         #region queries
@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
         public string Editar(int id, ImagemVeiculo registro)
         {
-            registro.Id = Db.Insert(comandoInserir,ObtemParametrosImagem(registro));
+            registro.Id = Db.Insert(comandoInserir,ObtemParametros(registro));
             return "";
         }
         public bool Excluir(int id)
@@ -59,17 +59,17 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         {
             string resultadoValidacao = "VALIDO";
 
-            registro.Id = Db.Insert(comandoInserir, ObtemParametrosImagem(registro));
+            registro.Id = Db.Insert(comandoInserir, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public ImagemVeiculo SelecionarPorId(int id)
         {
-            return Db.Get(comandoSelecionarPorId,ConverteEmImagemVeiculo,AdicionarParametro("ID",id));
+            return Db.Get(comandoSelecionarPorId,ConverterEmEntidade,AdicionarParametro("ID",id));
         }
         public List<ImagemVeiculo> SelecionarTodos()
         {
-            return Db.GetAll(comandoSelecioarTodos,ConverteEmImagemVeiculo);
+            return Db.GetAll(comandoSelecioarTodos,ConverterEmEntidade);
         }
 
         public void EditarLista(List<ImagemVeiculo> registros)
@@ -99,11 +99,11 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         }
         public List<ImagemVeiculo> SelecionarPorIdDoVeiculo(int id)
         {
-            return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverteEmImagemVeiculo, AdicionarParametro("ID_VEICULO", id));
+            return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverterEmEntidade, AdicionarParametro("ID_VEICULO", id));
         }
         public List<ImagemVeiculo> SelecioanrTodasImagensDeUmVeiculo(int id)
         {
-            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverteEmImagemVeiculo,AdicionarParametro("ID_VEICULO",id));
+            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverterEmEntidade,AdicionarParametro("ID_VEICULO",id));
         }
 
         //private Bitmap ConverteEmImagem(IDataReader reader)
@@ -117,22 +117,22 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         //    return bmp;
         //}
 
-        private Dictionary<string, object> ObtemParametrosImagem(ImagemVeiculo imagemVeiculo)
+        protected override Dictionary<string, object> ObtemParametros(ImagemVeiculo entidade)
         {
-            bmp = imagemVeiculo.imagem;
+            bmp = entidade.imagem;
             MemoryStream memoria = new MemoryStream();
             bmp.Save(memoria, ImageFormat.Bmp);
             byte[] imagemByte = memoria.ToArray();
 
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", imagemVeiculo.Id);
-            parametros.Add("ID_VEICULO", imagemVeiculo.idVeiculo);
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("ID_VEICULO", entidade.idVeiculo);
             parametros.Add("IMAGEM", imagemByte);
 
             return parametros;
         }
-        private ImagemVeiculo ConverteEmImagemVeiculo(IDataReader reader)
+        protected override ImagemVeiculo ConverterEmEntidade(IDataReader reader)
         {
             byte[] byteArray= (byte[])(reader["IMAGEM"]);
             var id = Convert.ToInt32(reader["ID"]);
@@ -144,10 +144,6 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
             return new ImagemVeiculo(id,idVeiculo, imagem);
 
-        }
-        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
         }
     }
 }

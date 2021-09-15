@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.CupomModule
 {
-    public class CupomRepository : ICupomRepository
+    public class CupomRepository : RepositoryBase<Cupom>, ICupomRepository
     {
         #region queries
         private const string sqlInserirCupom =
@@ -142,17 +143,17 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(sqlInserirCupom, ObtemParametrosCupom(registro));
+                registro.Id = Db.Insert(sqlInserirCupom, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public List<Cupom> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
+            return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmEntidade);
         }
         public Cupom SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarCupomPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public string Editar(int id, Cupom registro)
         {
@@ -161,7 +162,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarCupom, ObtemParametrosCupom(registro));
+                Db.Update(sqlEditarCupom, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
@@ -190,7 +191,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         public Cupom SelecionarPorCodigo(string codigo)
         {
-            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
+            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmEntidade, AdicionarParametro("CODIGO", codigo));
         }
         public void AtualizarQtdUtilizada(int id, int qtdUtilizada)
         {
@@ -205,8 +206,24 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             return parametros;
         }
-        
-        private Cupom ConverterEmCupom(IDataReader reader)
+
+        protected override Dictionary<string, object> ObtemParametros(Cupom entidade)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("NOMECUPOM", entidade.Nome);
+            parametros.Add("CODIGO", entidade.Codigo);
+            parametros.Add("VALORMINIMO", entidade.ValorMinimo);
+            parametros.Add("VALOR", entidade.Valor);
+            parametros.Add("EHDESCONTOFIXO", entidade.EhDescontoFixo);
+            parametros.Add("VALIDADE", entidade.Validade);
+            parametros.Add("ID_PARCEIRO", entidade.Parceiro.Id);
+            parametros.Add("QTDUTILIZADA", entidade.QtdUtilizada);
+
+            return parametros;
+        }
+        protected override Cupom ConverterEmEntidade(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOMECUPOM"]);
@@ -228,25 +245,6 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             return cupom;
         }
-        private Dictionary<string, object> ObtemParametrosCupom(Cupom registro)
-        {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", registro.Id);
-            parametros.Add("NOMECUPOM", registro.Nome);
-            parametros.Add("CODIGO", registro.Codigo);
-            parametros.Add("VALORMINIMO", registro.ValorMinimo);
-            parametros.Add("VALOR", registro.Valor);
-            parametros.Add("EHDESCONTOFIXO", registro.EhDescontoFixo);
-            parametros.Add("VALIDADE", registro.Validade);
-            parametros.Add("ID_PARCEIRO", registro.Parceiro.Id);
-            parametros.Add("QTDUTILIZADA", registro.QtdUtilizada);
-
-            return parametros;
-        }
-        protected Dictionary<string, object> AdicionarParametro(string campo, object valor)
-        {
-            return new Dictionary<string, object>() { { campo, valor } };
-        }
+        
     }
 }

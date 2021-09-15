@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
     [TestClass]
     public class VeiculoControladorTest
     {
-        ControladorVeiculo controlador = null;
+        VeiculoRepository controlador = null;
         GrupoDeVeiculosRepository controladorGrupoDeVeiculos = null;        
         Veiculo novoVeiculo;
         GrupoDeVeiculo grupoVeiculos;
@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
 
         public VeiculoControladorTest()
         {
-            controlador = new ControladorVeiculo();
+            controlador = new VeiculoRepository();
             controladorGrupoDeVeiculos = new GrupoDeVeiculosRepository();
 
             ResetarBanco.ResetarTabelas();

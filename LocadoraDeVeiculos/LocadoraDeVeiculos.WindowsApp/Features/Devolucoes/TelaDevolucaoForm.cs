@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     {
         private Locacao devolucao;
         ServicosForm telaServico;
-        ControladorVeiculo controladorVeiculo =  new ControladorVeiculo();
+        VeiculoRepository controladorVeiculo =  new VeiculoRepository();
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();

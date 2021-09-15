@@ -10,9 +10,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 {
     public class OperacoesVeiculo : ICadastravel
     {
-        private readonly ControladorVeiculo controlador = null;
+        private readonly VeiculoRepository controlador = null;
         private readonly TabelaVeiculoControl tabelaVeiculo = null;
-        public OperacoesVeiculo(ControladorVeiculo ctrlVeiculo)
+        public OperacoesVeiculo(VeiculoRepository ctrlVeiculo)
         {
             controlador = ctrlVeiculo;
             tabelaVeiculo = new TabelaVeiculoControl();
