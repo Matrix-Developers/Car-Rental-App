@@ -20,8 +20,8 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             {
                 return
                     @"INSERT INTO [TBCUPOM_DESCONTO]
-                    [NOMECUPOM],
                     (
+                        [NOMECUPOM],
                         [CODIGO],      
                         [VALORMINIMO],
                         [VALOR], 
@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     @"DELETE FROM [TBCUPOM_DESCONTO] WHERE [ID] = @ID";
             }
         }
-        protected override string SqlSelecionarEntidade
+        protected override string SqlSelecionarEntidadePorId
         {
             get
             {
@@ -184,7 +184,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         }
         public Cupom SelecionarPorId(int id)
         {
-            return Db.Get(SqlSelecionarEntidade, ConverterEmEntidade, AdicionarParametro("ID", id));
+            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public string Editar(int id, Cupom registro)
         {

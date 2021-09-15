@@ -17,151 +17,184 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         private ImagemVeiculoRepository controladorImagem = new ImagemVeiculoRepository();
 
         #region queries
-        private const string sqlInserirVeiculo =
-            @"INSERT INTO TBVEICULO
-            (
-                [MODELO],
-                [ID_GRUPOVEICULO],
-                [PLACA],
-                [CHASSI],      
-                [MARCA], 
-                [COR],
-                [TIPOCOMBUSTIVEL],
-                [CAPACIDADETANQUE],
-                [ANO],
-                [KILOMETRAGEM],
-                [NUMEROPORTAS],
-                [CAPACIDADEPESSOAS],
-                [TAMANHOPORTAMALA],
-                [TEMARCONDICIONADO],
-                [TEMDIRECAOHIDRAULICA],
-                [TEMFREIOSABS],
-                [ESTAALUGADO]
-            )
-            VALUES
-            (
-                @MODELO,
-                @ID_GRUPOVEICULO,
-                @PLACA,
-                @CHASSI,      
-                @MARCA,
-                @COR,
-                @TIPOCOMBUSTIVEL,
-                @CAPACIDADETANQUE,
-                @ANO,
-                @KILOMETRAGEM,
-                @NUMEROPORTAS,
-                @CAPACIDADEPESSOAS,
-                @TAMANHOPORTAMALA,
-                @TEMARCONDICIONADO,
-                @TEMDIRECAOHIDRAULICA,
-                @TEMFREIOSABS,
-                @ESTAALUGADO
-            )";
-        private const string sqlSelecionarTodosVeiculos =
-            @"SELECT
-                CV.[ID],
-                CV.[MODELO],
-                CV.[ID_GRUPOVEICULO],
-                CV.[PLACA],
-                CV.[CHASSI],      
-                CV.[MARCA], 
-                CV.[COR],
-                CV.[TIPOCOMBUSTIVEL],
-                CV.[CAPACIDADETANQUE],
-                CV.[ANO],
-                CV.[KILOMETRAGEM],
-                CV.[NUMEROPORTAS],
-                CV.[CAPACIDADEPESSOAS],
-                CV.[TAMANHOPORTAMALA],
-                CV.[TEMARCONDICIONADO],
-                CV.[TEMDIRECAOHIDRAULICA],
-                CV.[TEMFREIOSABS],
-                CV.[ESTAALUGADO],
-                CG.[NOME],
-	            CG.[TAXAPLANODIARIO],
-	            CG.[TAXAPORKMDIARIO],
-	            CG.[TAXAPLANOCONTROLADO],
-	            CG.[LIMITEKMCONTROLADO],
-	            CG.[TAXAKMEXCEDIDOCONTROLADO],
-	            CG.[TAXAPLANOLIVRE]
-            FROM 
-                [TBVEICULO] AS CV LEFT JOIN 
-                [TBGRUPOVEICULO] AS CG
-            ON
-                CG.ID = CV.ID_GRUPOVEICULO";
-        private const string sqlSelecionarVeiculoPorId =
-            @"SELECT  
-                CV.[ID],
-                CV.[MODELO],
-                CV.[ID_GRUPOVEICULO],
-                CV.[PLACA],
-                CV.[CHASSI],      
-                CV.[MARCA], 
-                CV.[COR],
-                CV.[TIPOCOMBUSTIVEL],
-                CV.[CAPACIDADETANQUE],
-                CV.[ANO],
-                CV.[KILOMETRAGEM],
-                CV.[NUMEROPORTAS],
-                CV.[CAPACIDADEPESSOAS],
-                CV.[TAMANHOPORTAMALA],
-                CV.[TEMARCONDICIONADO],
-                CV.[TEMDIRECAOHIDRAULICA],
-                CV.[TEMFREIOSABS],
-                CV.[ESTAALUGADO],
-                CG.[NOME],
-	            CG.[TAXAPLANODIARIO],
-	            CG.[TAXAPORKMDIARIO],
-	            CG.[TAXAPLANOCONTROLADO],
-	            CG.[LIMITEKMCONTROLADO],
-	            CG.[TAXAKMEXCEDIDOCONTROLADO],
-	            CG.[TAXAPLANOLIVRE]
-            FROM 
-                [TBVEICULO] AS CV LEFT JOIN 
-                [TBGRUPOVEICULO] AS CG
-            ON
-                CG.ID = CV.ID_GRUPOVEICULO
-            WHERE 
-                CV.[ID] = @ID";
-        private const string sqlEditarVeiculo =
-            @"UPDATE TBVEICULO SET
-                [MODELO] = @MODELO,
-                [ID_GRUPOVEICULO] = @ID_GRUPOVEICULO,
-                [PLACA] = @PLACA,
-                [CHASSI] = @CHASSI,
-                [MARCA] = @MARCA,
-                [COR] = @COR,
-                [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
-                [CAPACIDADETANQUE] = @CAPACIDADETANQUE,
-                [ANO] = @ANO,
-                [KILOMETRAGEM] = @KILOMETRAGEM,
-                [NUMEROPORTAS] = @NUMEROPORTAS,
-                [CAPACIDADEPESSOAS] = @CAPACIDADEPESSOAS,
-                [TAMANHOPORTAMALA] = @TAMANHOPORTAMALA,
-                [TEMARCONDICIONADO] = @TEMARCONDICIONADO,
-                [TEMDIRECAOHIDRAULICA] = @TEMDIRECAOHIDRAULICA,
-                [TEMFREIOSABS] = @TEMFREIOSABS,
-                [ESTAALUGADO] = @ESTAALUGADO
-            WHERE
-                [ID] = @ID
-            ";
-        private const string sqlDeletarVeiculo =
-            @"DELETE 
+        protected override string SqlInserirEntidade
+        {
+            get
+            {
+                return
+                @"INSERT INTO TBVEICULO
+                (
+                    [MODELO],
+                    [ID_GRUPOVEICULO],
+                    [PLACA],
+                    [CHASSI],      
+                    [MARCA], 
+                    [COR],
+                    [TIPOCOMBUSTIVEL],
+                    [CAPACIDADETANQUE],
+                    [ANO],
+                    [KILOMETRAGEM],
+                    [NUMEROPORTAS],
+                    [CAPACIDADEPESSOAS],
+                    [TAMANHOPORTAMALA],
+                    [TEMARCONDICIONADO],
+                    [TEMDIRECAOHIDRAULICA],
+                    [TEMFREIOSABS],
+                    [ESTAALUGADO]
+                )
+                VALUES
+                (
+                    @MODELO,
+                    @ID_GRUPOVEICULO,
+                    @PLACA,
+                    @CHASSI,      
+                    @MARCA,
+                    @COR,
+                    @TIPOCOMBUSTIVEL,
+                    @CAPACIDADETANQUE,
+                    @ANO,
+                    @KILOMETRAGEM,
+                    @NUMEROPORTAS,
+                    @CAPACIDADEPESSOAS,
+                    @TAMANHOPORTAMALA,
+                    @TEMARCONDICIONADO,
+                    @TEMDIRECAOHIDRAULICA,
+                    @TEMFREIOSABS,
+                    @ESTAALUGADO
+                )";
+            }
+        }
+        protected override string SqlEditarEntidade
+        {
+            get
+            {
+                return
+                @"UPDATE TBVEICULO SET
+                    [MODELO] = @MODELO,
+                    [ID_GRUPOVEICULO] = @ID_GRUPOVEICULO,
+                    [PLACA] = @PLACA,
+                    [CHASSI] = @CHASSI,
+                    [MARCA] = @MARCA,
+                    [COR] = @COR,
+                    [TIPOCOMBUSTIVEL] = @TIPOCOMBUSTIVEL,
+                    [CAPACIDADETANQUE] = @CAPACIDADETANQUE,
+                    [ANO] = @ANO,
+                    [KILOMETRAGEM] = @KILOMETRAGEM,
+                    [NUMEROPORTAS] = @NUMEROPORTAS,
+                    [CAPACIDADEPESSOAS] = @CAPACIDADEPESSOAS,
+                    [TAMANHOPORTAMALA] = @TAMANHOPORTAMALA,
+                    [TEMARCONDICIONADO] = @TEMARCONDICIONADO,
+                    [TEMDIRECAOHIDRAULICA] = @TEMDIRECAOHIDRAULICA,
+                    [TEMFREIOSABS] = @TEMFREIOSABS,
+                    [ESTAALUGADO] = @ESTAALUGADO
+                WHERE
+                    [ID] = @ID";
+            }
+        }
+        protected override string SqlExcluirEntidade
+        {
+            get
+            {
+                return
+                @"DELETE FROM [TBVEICULO] WHERE [ID] = @ID";
+            }
+        }
+        protected override string SqlSelecionarEntidadePorId
+        {
+            get
+            {
+                return
+                @"SELECT  
+                    CV.[ID],
+                    CV.[MODELO],
+                    CV.[ID_GRUPOVEICULO],
+                    CV.[PLACA],
+                    CV.[CHASSI],      
+                    CV.[MARCA], 
+                    CV.[COR],
+                    CV.[TIPOCOMBUSTIVEL],
+                    CV.[CAPACIDADETANQUE],
+                    CV.[ANO],
+                    CV.[KILOMETRAGEM],
+                    CV.[NUMEROPORTAS],
+                    CV.[CAPACIDADEPESSOAS],
+                    CV.[TAMANHOPORTAMALA],
+                    CV.[TEMARCONDICIONADO],
+                    CV.[TEMDIRECAOHIDRAULICA],
+                    CV.[TEMFREIOSABS],
+                    CV.[ESTAALUGADO],
+                    CG.[NOME],
+	                CG.[TAXAPLANODIARIO],
+	                CG.[TAXAPORKMDIARIO],
+	                CG.[TAXAPLANOCONTROLADO],
+	                CG.[LIMITEKMCONTROLADO],
+	                CG.[TAXAKMEXCEDIDOCONTROLADO],
+	                CG.[TAXAPLANOLIVRE]
                 FROM 
-                TBVEICULO 
-            WHERE 
-                [ID] = @ID";
-        private const string sqlExisteVeiculo =
-            @"SELECT 
-                COUNT(*) 
-            FROM 
-                [TBVEICULO]
-            WHERE 
-                [ID] = @ID";
+                    [TBVEICULO] AS CV LEFT JOIN 
+                    [TBGRUPOVEICULO] AS CG
+                ON
+                    CG.ID = CV.ID_GRUPOVEICULO
+                WHERE 
+                    CV.[ID] = @ID";
+            }
+        }
+        protected override string SqlSelecionarTodasEntidades
+        {
+            get
+            {
+                return
+                @"SELECT
+                    CV.[ID],
+                    CV.[MODELO],
+                    CV.[ID_GRUPOVEICULO],
+                    CV.[PLACA],
+                    CV.[CHASSI],      
+                    CV.[MARCA], 
+                    CV.[COR],
+                    CV.[TIPOCOMBUSTIVEL],
+                    CV.[CAPACIDADETANQUE],
+                    CV.[ANO],
+                    CV.[KILOMETRAGEM],
+                    CV.[NUMEROPORTAS],
+                    CV.[CAPACIDADEPESSOAS],
+                    CV.[TAMANHOPORTAMALA],
+                    CV.[TEMARCONDICIONADO],
+                    CV.[TEMDIRECAOHIDRAULICA],
+                    CV.[TEMFREIOSABS],
+                    CV.[ESTAALUGADO],
+                    CG.[NOME],
+	                CG.[TAXAPLANODIARIO],
+	                CG.[TAXAPORKMDIARIO],
+	                CG.[TAXAPLANOCONTROLADO],
+	                CG.[LIMITEKMCONTROLADO],
+	                CG.[TAXAKMEXCEDIDOCONTROLADO],
+	                CG.[TAXAPLANOLIVRE]
+                FROM 
+                    [TBVEICULO] AS CV LEFT JOIN 
+                    [TBGRUPOVEICULO] AS CG
+                ON
+                    CG.ID = CV.ID_GRUPOVEICULO";
+            }
+        }
+        protected override string SqlExisteEntidade
+        {
+            get
+            {
+                return
+                @"SELECT 
+                    COUNT(*) 
+                FROM 
+                    [TBVEICULO]
+                WHERE 
+                    [ID] = @ID";
+            }
+        }
 
+        //chamadas unicas do Veiculo
         private const string sqlVeiculoTotal =
             @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
+        //
         #endregion
 
         public string InserirNovo(Veiculo registro)
@@ -170,7 +203,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             if (resultadoValidacao == "VALIDO")
             {
-                registro.Id = Db.Insert(sqlInserirVeiculo, ObtemParametros(registro));
+                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
                 if (registro.imagens != null)
                 {
                     foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
@@ -184,7 +217,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public List<Veiculo> SelecionarTodos()
         {
-            List<Veiculo>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmEntidade);
+            List<Veiculo>veiculos = Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
 
             foreach (Veiculo veiculo in veiculos)
             {
@@ -195,7 +228,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public Veiculo SelecionarPorId(int id)
         {
-            Veiculo veiculo = Db.Get(sqlSelecionarVeiculoPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+            Veiculo veiculo = Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
             veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
             return veiculo;
         }
@@ -206,7 +239,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarVeiculo, ObtemParametros(registro));
+                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
                 foreach (ImagemVeiculo imagem in registro.imagens)
                     imagem.idVeiculo = registro.Id;
                 controladorImagem.EditarLista(registro.imagens);
@@ -218,7 +251,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         {
             try
             {
-                Db.Delete(sqlDeletarVeiculo, AdicionarParametro("ID", id));
+                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -229,9 +262,10 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public bool Existe(int id)
         {
-            return Db.Exists(sqlExisteVeiculo, AdicionarParametro("ID", id));
+            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
         }
 
+        //Metodo sem referencias ou usos. Esta obsoleto?
         //private int ConverterDados(IDataReader reader)
         //{
         //    return Convert.ToInt32(reader["qtd"]);

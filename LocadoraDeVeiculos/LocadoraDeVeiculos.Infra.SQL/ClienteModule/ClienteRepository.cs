@@ -13,70 +13,87 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 {
     public class ClienteRepository : RepositoryBase<Cliente>, IRepository<Cliente>
     {
-        #region Queries
-            private const string sqlInserirClientes =
-            @"
-               INSERT INTO [TBCLIENTE]
-            (
-	            [NOME],
-	            [REGISTROUNICO],
-	            [ENDERECO],
-	            [EMAIL],
-	            [TELEFONE],
-	            [EHPESSOAFISICA],
-	            [CNH],
-	            [VALIDADECNH]
-            )
-            VALUES
-            (
-	            @NOME,
-	            @REGISTROUNICO,
-	            @ENDERECO,
-	            @EMAIL,
-	            @TELEFONE,
-	            @EHPESSOAFISICA,
-	            @CNH,
-	            @VALIDADECNH
-            )";
+		#region queries
 
-		private const string sqlEditarClientes =
-		@"
-				UPDATE [TBCLIENTE] 
-				 SET
-					[NOME] = @NOME,
-					[REGISTROUNICO] = @REGISTROUNICO,
-					[ENDERECO] = @ENDERECO,
-					[TELEFONE] = @TELEFONE,
-					[EMAIL] = @EMAIL,
-					[EHPESSOAFISICA] = @EHPESSOAFISICA,
-					[CNH] = @CNH,
-					[VALIDADECNH] = @VALIDADECNH
-				WHERE [ID] = @ID;
-            ";
-
-		private const string sqlExcluirClientes =
-		@"
-				DELETE FROM [TBCLIENTE] WHERE [ID] = @ID
-			";
-
-		private const string sqlSelecionarTodosClientes =
-		@"
-			SELECT * FROM [TBCLIENTE]
-			";
-
-		private const string sqlSelecionarClientesPorId =
-		@"
-			SELECT * FROM [TBCLIENTE] WHERE [ID] = @ID;
-			";
-
-			private const string sqlExisteCliente =
-			@"SELECT 
-                COUNT(*) 
-            FROM 
-                [TBCLIENTE]
-            WHERE 
-                [ID] = @ID";
-
+		protected override string SqlInserirEntidade
+		{
+			get
+			{
+				return
+					@"INSERT INTO [TBCLIENTE]
+					(
+					    [NOME],
+					    [REGISTROUNICO],
+					    [ENDERECO],
+					    [EMAIL],
+					    [TELEFONE],
+					    [EHPESSOAFISICA],
+					    [CNH],
+					    [VALIDADECNH]
+					)
+					VALUES
+					(
+					    @NOME,
+					    @REGISTROUNICO,
+					    @ENDERECO,
+					    @EMAIL,
+					    @TELEFONE,
+					    @EHPESSOAFISICA,
+					    @CNH,
+					    @VALIDADECNH
+					)";
+			}
+		}
+		protected override string SqlEditarEntidade
+		{
+			get
+			{
+				return
+					@"UPDATE [TBCLIENTE] 
+					SET
+						[NOME] = @NOME,
+						[REGISTROUNICO] = @REGISTROUNICO,
+						[ENDERECO] = @ENDERECO,
+						[TELEFONE] = @TELEFONE,
+						[EMAIL] = @EMAIL,
+						[EHPESSOAFISICA] = @EHPESSOAFISICA,
+						[CNH] = @CNH,
+						[VALIDADECNH] = @VALIDADECNH
+					WHERE [ID] = @ID;";
+			}
+		}
+		protected override string SqlExcluirEntidade
+		{
+			get
+			{
+				return
+					@"DELETE FROM [TBCLIENTE] WHERE [ID] = @ID";
+			}
+		}
+		protected override string SqlSelecionarEntidadePorId
+		{
+			get
+			{
+				return
+					@"SELECT * FROM [TBCLIENTE] WHERE [ID] = @ID;";
+			}
+		}
+		protected override string SqlSelecionarTodasEntidades
+		{
+			get
+			{
+				return
+					@" SELECT * FROM [TBCLIENTE]";
+			}
+		}
+		protected override string SqlExisteEntidade
+		{
+			get
+			{
+				return
+					@"SELECT COUNT(*) FROM [TBCLIENTE] WHERE [ID] = @ID";
+			}
+		}
 		#endregion
 
 		public string Editar(int id, Cliente registro)
@@ -86,7 +103,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 			if (resultadoValidacao == "VALIDO")
 			{
 				registro.Id = id;
-				Db.Update(sqlEditarClientes, ObtemParametros(registro));
+				Db.Update(SqlEditarEntidade, ObtemParametros(registro));
 			}
 
 			return resultadoValidacao;
@@ -95,7 +112,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 		{
 			try
 			{
-				Db.Delete(sqlExcluirClientes, AdicionarParametro("ID", id));
+				Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
 			}
 			catch (Exception)
 			{
@@ -106,7 +123,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 		}
 		public bool Existe(int id)
 		{
-			return Db.Exists(sqlExisteCliente, AdicionarParametro("ID", id));
+			return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
 		}
 		public string InserirNovo(Cliente registro)
 		{
@@ -114,17 +131,17 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 
 			if (resultadoValidacao == "VALIDO")
 			{
-				registro.Id = Db.Insert(sqlInserirClientes, ObtemParametros(registro));
+				registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
 			}
 			return resultadoValidacao;
 		}
         public Cliente SelecionarPorId(int id)
 		{
-			return Db.Get(sqlSelecionarClientesPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+			return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
 		}
 		public List<Cliente> SelecionarTodos()
 		{
-			return Db.GetAll(sqlSelecionarTodosClientes, ConverterEmEntidade);
+			return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
 		}
 
         protected override Dictionary<string, object> ObtemParametros(Cliente entidade)

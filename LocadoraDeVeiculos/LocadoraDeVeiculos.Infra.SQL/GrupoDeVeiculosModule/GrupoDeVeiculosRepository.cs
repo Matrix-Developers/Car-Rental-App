@@ -63,7 +63,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
                     @"DELETE FROM [TBGRUPOVEICULO]  WHERE [ID] = @ID;";
             }
         }
-        protected override string SqlSelecionarEntidade
+        protected override string SqlSelecionarEntidadePorId
         {
             get
             {
@@ -150,7 +150,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         }
         public GrupoDeVeiculo SelecionarPorId(int id)
         {
-            return Db.Get(SqlSelecionarEntidade, ConverterEmEntidade, AdicionarParametro("ID", id));
+            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<GrupoDeVeiculo> SelecionarTodos()
         {

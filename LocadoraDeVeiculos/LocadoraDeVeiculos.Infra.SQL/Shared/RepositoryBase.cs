@@ -13,7 +13,7 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
         protected abstract string SqlInserirEntidade { get; }
         protected abstract string SqlEditarEntidade { get; }
         protected abstract string SqlExcluirEntidade { get; }
-        protected abstract string SqlSelecionarEntidade { get; }
+        protected abstract string SqlSelecionarEntidadePorId { get; }
         protected abstract string SqlSelecionarTodasEntidades { get; }
         protected abstract string SqlExisteEntidade { get; }
 

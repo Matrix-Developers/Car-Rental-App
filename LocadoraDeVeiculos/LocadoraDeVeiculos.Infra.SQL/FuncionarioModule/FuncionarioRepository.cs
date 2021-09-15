@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
                     @"DELETE FROM TBFUNCIONARIO WHERE [ID] = @ID;";
             }
         }
-        protected override string SqlSelecionarEntidade
+        protected override string SqlSelecionarEntidadePorId
         {
             get
             {
@@ -133,7 +133,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         }
         public bool Existe(int id)
         {
-            return Db.Exists(SqlSelecionarEntidade, AdicionarParametro("ID", id));
+            return Db.Exists(SqlSelecionarEntidadePorId, AdicionarParametro("ID", id));
         }
         public string InserirNovo(Funcionario registro)
         {
@@ -145,7 +145,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         }
         public Funcionario SelecionarPorId(int id)
         {
-            return Db.Get(SqlSelecionarEntidade, ConverterEmEntidade, AdicionarParametro("ID", id));
+            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<Funcionario> SelecionarTodos()
         {

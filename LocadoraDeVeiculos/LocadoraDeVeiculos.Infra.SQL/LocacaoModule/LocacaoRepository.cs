@@ -39,7 +39,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         }
 
         #region queries
-        private const string sqlInserirLocacao =
+        protected override string SqlInserirEntidade
+        {
+            get
+            {
+                return
                 @"INSERT INTO[DBO].[TBLOCACAO]
                 (
                     [ID_VEICULO],
@@ -72,9 +76,14 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     @PRECODEVOLUCAO,
                     @ESTAABERTA
                 );";
-
-        private const string sqlEditarLocacao =
-        @"UPDATE [DBO].[TBLOCACAO] 
+            }
+        }
+        protected override string SqlEditarEntidade
+        {
+            get
+            {
+                return
+                @"UPDATE [DBO].[TBLOCACAO] 
                 SET
                     [ID_VEICULO] = @ID_VEICULO,
                     [ID_FUNCIONARIO] = @ID_FUNCIONARIO,
@@ -91,22 +100,48 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [ESTAABERTA] = @ESTAABERTA
                 WHERE 
                     [ID] = @ID;";
+            }
+        }
+        protected override string SqlExcluirEntidade
+        {
+            get
+            {
+                return @"DELETE FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
+            }
+        }
+        protected override string SqlSelecionarEntidadePorId
+        {
+            get
+            {
+                return @"SELECT * FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
+            }
+        }
+        protected override string SqlSelecionarTodasEntidades
+        {
+            get
+            {
+                return @"SELECT * FROM [DBO].[TBLOCACAO];";
+            }
+        }
+        protected override string SqlExisteEntidade
+        {
+            get
+            {
+                return
+                    @"SELECT 
+                        COUNT(*) 
+                    FROM 
+                        [TBLOCACAO]
+                    WHERE 
+                        [ID] = @ID";
+            }
+        }
 
-        private const string sqlSelecionarTodosLocacaos =
-            @"SELECT * FROM [DBO].[TBLOCACAO];";
-
-        private const string sqlSelecionarLocacaoPorId =
-            @"SELECT * FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
-
-
-        private const string sqlDeletarLocacao =
-                @"DELETE FROM [DBO].[TBLOCACAO] WHERE [ID] = @ID;";
-
+        //chamada unica do Locacao
         string sqlSelecionarIdServicoPorIdLocacao =
             @"SELECT [ID_SERVICO] FROM [TBSERVICO_LOCACAO]
                WHERE [ID_LOCACAO] = @ID_LOCACAO";
-
-
+        //
         #endregion
 
         public string InserirNovo(Locacao registro)
@@ -114,17 +149,17 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(sqlInserirLocacao, ObtemParametros(registro));
+                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public List<Locacao> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosLocacaos, ConverterEmEntidade);
+            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
         }
         public Locacao SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public string Editar(int id, Locacao registro)
         {
@@ -133,7 +168,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarLocacao, ObtemParametros(registro));
+                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
@@ -142,7 +177,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             try
             {
-                Db.Delete(sqlDeletarLocacao, AdicionarParametro("ID", id));
+                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -153,9 +188,10 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         }
         public bool Existe(int id)
         {
-            return Db.Exists(sqlSelecionarLocacaoPorId, AdicionarParametro("ID", id));
+            return Db.Exists(SqlSelecionarEntidadePorId, AdicionarParametro("ID", id));
         }
-
+        
+        //metodos unicos do Locacao
         private List<Servico> SelecionarServicosComIdLocacao(int idLocacao)
         {
             List<Servico> servicosDaLocacao = new List<Servico>();
@@ -170,6 +206,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             return Convert.ToInt32(reader["ID_SERVICO"]);
         }
+        //
 
         protected override Dictionary<string, object> ObtemParametros(Locacao entidade)
         {
