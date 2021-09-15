@@ -11,54 +11,102 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
     public class FuncionarioRepository : RepositoryBase<Funcionario>, IRepository<Funcionario>
     {
         #region queries
-        private const string comandoInserir = @"INSERT INTO TBFUNCIONARIO
-										(
-											[NOME],
-											[REGISTROUNICO],
-											[ENDERECO],
-											[TELEFONE],
-											[EMAIL],
-											[EHPESSOAFISICA],
-											[MATRICULAINTERNA],
-											[USUARIOACESSO],
-                                            [SENHA],
-											[CARGO],
-											[SALARIO],
-                                            [DATAADMISSAO]
-										)
-										VALUES
-										(
-											@NOME,
-											@REGISTROUNICO,
-											@ENDERECO,
-											@TELEFONE,
-											@EMAIL,
-											@EHPESSOAFISICA,
-											@MATRICULAINTERNA,
-											@USUARIOACESSO,
-                                            @SENHA,
-											@CARGO,
-											@SALARIO,
-                                            @DATAADMISSAO
-										);";
-        private const string comandoEditar = @"UPDATE TBFUNCIONARIO 
-									    SET
-									    	[NOME] = @NOME,
-									    	[REGISTROUNICO] = @REGISTROUNICO,
-									    	[ENDERECO] = @ENDERECO,
-									    	[TELEFONE] = @TELEFONE,
-									    	[EMAIL] = @EMAIL,
-									    	[EHPESSOAFISICA] = @EHPESSOAFISICA,
-									    	[MATRICULAINTERNA] = @MATRICULAINTERNA,
-									    	[USUARIOACESSO] = @USUARIOACESSO,
-                                            [SENHA] = @SENHA,
-									    	[CARGO] = @CARGO,
-									    	[SALARIO] = @SALARIO,
-                                            [DATAADMISSAO] = @DATAADMISSAO
-									    WHERE [ID] = @ID;";
-        private const string comandoExcluir = @"DELETE FROM TBFUNCIONARIO WHERE [ID] = @ID;";
-        private const string comandoSelecionarTodos = "SELECT * FROM TBFUNCIONARIO;";
-        private const string comandoSelecionarPorId = "SELECT * FROM TBFUNCIONARIO WHERE [ID] = @ID;";
+        protected override string SqlInserirEntidade
+        {
+            get
+            {
+                return
+                    @"INSERT INTO TBFUNCIONARIO
+					(
+					    [NOME],
+					    [REGISTROUNICO],
+					    [ENDERECO],
+					    [TELEFONE],
+					    [EMAIL],
+					    [EHPESSOAFISICA],
+					    [MATRICULAINTERNA],
+					    [USUARIOACESSO],
+                        [SENHA],
+					    [CARGO],
+					    [SALARIO],
+                        [DATAADMISSAO]
+					)
+					VALUES
+					(
+					    @NOME,
+					    @REGISTROUNICO,
+					    @ENDERECO,
+					    @TELEFONE,
+					    @EMAIL,
+					    @EHPESSOAFISICA,
+					    @MATRICULAINTERNA,
+					    @USUARIOACESSO,
+                        @SENHA,
+					    @CARGO,
+					    @SALARIO,
+                        @DATAADMISSAO
+					);";
+            }
+        }
+        protected override string SqlEditarEntidade
+        {
+            get
+            {
+                return
+                    @"UPDATE [TBFUNCIONARIO]
+					SET
+					    [NOME] = @NOME,
+						[REGISTROUNICO] = @REGISTROUNICO,
+						[ENDERECO] = @ENDERECO,
+						[TELEFONE] = @TELEFONE,
+						[EMAIL] = @EMAIL,
+						[EHPESSOAFISICA] = @EHPESSOAFISICA,
+						[MATRICULAINTERNA] = @MATRICULAINTERNA,
+						[USUARIOACESSO] = @USUARIOACESSO,
+                        [SENHA] = @SENHA,
+						[CARGO] = @CARGO,
+						[SALARIO] = @SALARIO,
+                        [DATAADMISSAO] = @DATAADMISSAO
+					WHERE [ID] = @ID;";
+            }
+        }
+        protected override string SqlExcluirEntidade
+        {
+            get
+            {
+                return
+                    @"DELETE FROM TBFUNCIONARIO WHERE [ID] = @ID;";
+            }
+        }
+        protected override string SqlSelecionarEntidade
+        {
+            get
+            {
+                return
+                    "SELECT * FROM [TBFUNCIONARIO] WHERE [ID] = @ID;";
+            }
+        }
+        protected override string SqlSelecionarTodasEntidades
+        {
+            get
+            {
+                return
+                    @"SELECT * FROM [TBFUNCIONARIO];";
+            }
+        }
+        protected override string SqlExisteEntidade
+        {
+            get
+            {
+                return
+                    @"SELECT 
+                        COUNT(*) 
+                    FROM 
+                        [TBFUNCIONARIO]
+                    WHERE 
+                        [ID] = @ID";
+            }
+        }
         #endregion
 
         public string Editar(int id, Funcionario registro)
@@ -67,7 +115,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(comandoEditar, ObtemParametros(registro));
+                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
             }
             return resultadoValidacao;
         }
@@ -75,7 +123,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         {
             try
             {
-                Db.Delete(comandoExcluir, AdicionarParametro("ID", id));
+                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -85,23 +133,23 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         }
         public bool Existe(int id)
         {
-            return Db.Exists(comandoSelecionarPorId, AdicionarParametro("ID", id));
+            return Db.Exists(SqlSelecionarEntidade, AdicionarParametro("ID", id));
         }
         public string InserirNovo(Funcionario registro)
         {
             string resultadoValidacao = registro.Validar();
             if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(comandoInserir, ObtemParametros(registro));
+                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public Funcionario SelecionarPorId(int id)
         {
-            return Db.Get(comandoSelecionarPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+            return Db.Get(SqlSelecionarEntidade, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<Funcionario> SelecionarTodos()
         {
-            return Db.GetAll(comandoSelecionarTodos, ConverterEmEntidade);
+            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
         }
 
         protected override Dictionary<string, object> ObtemParametros(Funcionario entidade)

@@ -11,56 +11,87 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
     public class GrupoDeVeiculosRepository : RepositoryBase<GrupoDeVeiculo>, IRepository<GrupoDeVeiculo>
     {
         #region queries
-        private const string sqlInserirGrupoDeVeiculos =
-                @"INSERT INTO TBGRUPOVEICULO
-                (
-	                [NOME],
-	                [TAXAPLANODIARIO],
-	                [TAXAPORKMDIARIO],
-	                [TAXAPLANOCONTROLADO],
-	                [LIMITEKMCONTROLADO],
-	                [TAXAKMEXCEDIDOCONTROLADO],
-	                [TAXAPLANOLIVRE]
-                )
-                VALUES
-                (
-	                @NOME,
-	                @TAXAPLANODIARIO,
-	                @TAXAPORKMDIARIO,
-	                @TAXAPLANOCONTROLADO,
-	                @LIMITEKMCONTROLADO,
-	                @TAXAKMEXCEDIDOCONTROLADO,
-	                @TAXAPLANOLIVRE
-                );";
-
-        private const string sqlEditarGrupoDeVeiculos =
-                @"UPDATE TBGRUPOVEICULO 
-                SET
-	                [NOME] = @NOME,
-	                [TAXAPLANODIARIO] = @TAXAPLANODIARIO,
-	                [TAXAPORKMDIARIO] = @TAXAPORKMDIARIO,
-	                [TAXAPLANOCONTROLADO] = @TAXAPLANOCONTROLADO,
-	                [LIMITEKMCONTROLADO] = @LIMITEKMCONTROLADO,
-	                [TAXAKMEXCEDIDOCONTROLADO] = @TAXAKMEXCEDIDOCONTROLADO,
-	                [TAXAPLANOLIVRE] = @TAXAPLANOLIVRE
-                WHERE [ID] = @ID;";
-
-        private const string sqlExcluirGrupoDeVeiculos =
-                @"DELETE FROM TBGRUPOVEICULO  WHERE [ID] = @ID;";
-
-        private const string sqlSelecionarGrupoDeVeiculosPorId =
-                @"SELECT * FROM TBGRUPOVEICULO WHERE [ID] = @ID;";
-
-        private const string sqlSelecionarTodosGrupoDeVeiculoss =
-                @"SELECT * FROM TBGRUPOVEICULO;";
-
-        private const string sqlExisteGrupoDeVeiculos =
-                @"SELECT 
-                    COUNT(*) 
-                FROM 
-                    [TBGRUPOVEICULO]
-                WHERE 
-                    [ID] = @ID";
+        protected override string SqlInserirEntidade
+        {
+            get
+            {
+                return
+                    @"INSERT INTO [TBGRUPOVEICULO]
+                    (
+	                    [NOME],
+	                    [TAXAPLANODIARIO],
+	                    [TAXAPORKMDIARIO],
+	                    [TAXAPLANOCONTROLADO],
+	                    [LIMITEKMCONTROLADO],
+	                    [TAXAKMEXCEDIDOCONTROLADO],
+	                    [TAXAPLANOLIVRE]
+                    )
+                    VALUES
+                    (
+	                    @NOME,
+	                    @TAXAPLANODIARIO,
+	                    @TAXAPORKMDIARIO,
+	                    @TAXAPLANOCONTROLADO,
+	                    @LIMITEKMCONTROLADO,
+	                    @TAXAKMEXCEDIDOCONTROLADO,
+	                    @TAXAPLANOLIVRE
+                    );";
+            }
+        }
+        protected override string SqlEditarEntidade
+        {
+            get
+            {
+                return
+                    @"UPDATE [TBGRUPOVEICULO] 
+                    SET
+	                    [NOME] = @NOME,
+	                    [TAXAPLANODIARIO] = @TAXAPLANODIARIO,
+	                    [TAXAPORKMDIARIO] = @TAXAPORKMDIARIO,
+	                    [TAXAPLANOCONTROLADO] = @TAXAPLANOCONTROLADO,
+	                    [LIMITEKMCONTROLADO] = @LIMITEKMCONTROLADO,
+	                    [TAXAKMEXCEDIDOCONTROLADO] = @TAXAKMEXCEDIDOCONTROLADO,
+	                    [TAXAPLANOLIVRE] = @TAXAPLANOLIVRE
+                    WHERE [ID] = @ID;";
+            }
+        }
+        protected override string SqlExcluirEntidade
+        {
+            get
+            {
+                return
+                    @"DELETE FROM [TBGRUPOVEICULO]  WHERE [ID] = @ID;";
+            }
+        }
+        protected override string SqlSelecionarEntidade
+        {
+            get
+            {
+                return
+                    @"SELECT * FROM [TBGRUPOVEICULO] WHERE [ID] = @ID;";
+            }
+        }
+        protected override string SqlSelecionarTodasEntidades
+        {
+            get
+            {
+                return
+                    @"SELECT * FROM [TBGRUPOVEICULO];";
+            }
+        }
+        protected override string SqlExisteEntidade
+        {
+            get
+            {
+                return
+                    @"SELECT 
+                        COUNT(*) 
+                    FROM 
+                        [TBGRUPOVEICULO]
+                    WHERE 
+                        [ID] = @ID";
+            }
+        }
         #endregion
 
         public string InserirNovo(GrupoDeVeiculo registro)
@@ -76,7 +107,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
             if (resultadoValidacao == "VALIDO")
             {
-                registro.Id = Db.Insert(sqlInserirGrupoDeVeiculos, ObtemParametros(registro));
+                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
@@ -95,7 +126,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarGrupoDeVeiculos, ObtemParametros(registro));
+                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
@@ -104,7 +135,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         {
             try
             {
-                Db.Delete(sqlExcluirGrupoDeVeiculos, AdicionarParametro("ID", id));
+                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -115,15 +146,15 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         }
         public bool Existe(int id)
         {
-            return Db.Exists(sqlExisteGrupoDeVeiculos, AdicionarParametro("ID", id));
+            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
         }
         public GrupoDeVeiculo SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarGrupoDeVeiculosPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+            return Db.Get(SqlSelecionarEntidade, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<GrupoDeVeiculo> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosGrupoDeVeiculoss, ConverterEmEntidade);
+            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
         }
 
         protected override Dictionary<string, object> ObtemParametros(GrupoDeVeiculo entidade)
