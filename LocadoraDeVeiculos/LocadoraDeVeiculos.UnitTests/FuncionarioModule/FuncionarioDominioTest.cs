@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace LocadoraDeVeiculos.Tests.FuncionarioModule
+namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 {
     [TestClass]
     public class FuncionarioDominioTest

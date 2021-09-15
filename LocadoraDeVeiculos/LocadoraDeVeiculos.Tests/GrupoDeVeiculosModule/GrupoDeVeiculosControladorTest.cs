@@ -2,12 +2,12 @@
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using LocadoraDeVeiculos.IntegrationTests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Tests.GrupoDeVeiculosModule
+namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
 {
     [TestClass]
     public class GrupoDeVeiculosControladorTest

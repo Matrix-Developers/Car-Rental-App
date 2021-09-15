@@ -2,7 +2,7 @@
 using System;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 
-namespace LocadoraDeVeiculos.Tests.VeiculoModule
+namespace LocadoraDeVeiculos.UnitTests.VeiculoModule
 {
     [TestClass]
     public class VeiculoTest

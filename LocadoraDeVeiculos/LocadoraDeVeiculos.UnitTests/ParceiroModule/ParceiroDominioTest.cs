@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Tests.ParceiroModule
+namespace LocadoraDeVeiculos.UnitTests.ParceiroModule
 {
     [TestClass]
     [TestCategory("Domínio")]

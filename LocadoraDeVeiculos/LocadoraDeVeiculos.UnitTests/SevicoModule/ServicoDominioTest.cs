@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 
-namespace LocadoraDeVeiculos.Tests.SevicoModule
+namespace LocadoraDeVeiculos.UnitTests.SevicoModule
 {
 
     [TestClass]

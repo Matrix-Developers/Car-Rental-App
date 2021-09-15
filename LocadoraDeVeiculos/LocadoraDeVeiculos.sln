@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.WindowsApp", "LocadoraDeVeiculos.WindowsApp\LocadoraDeVeiculos.WindowsApp.csproj", "{8427D6A0-2FF3-4DF6-81D7-7015CE22DA56}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Tests", "LocadoraDeVeiculos.Tests\LocadoraDeVeiculos.Tests.csproj", "{5DEF9302-2DDF-456E-92E0-09774B401F45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.IntegrationTests", "LocadoraDeVeiculos.Tests\LocadoraDeVeiculos.IntegrationTests.csproj", "{5DEF9302-2DDF-456E-92E0-09774B401F45}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LocadoraDeVeiculos.SqlServer", "LocadoraDeVeiculos.SqlServer\LocadoraDeVeiculos.SqlServer.sqlproj", "{22C0B170-9B97-4D20-B23B-3810DD8B9260}"
 EndProject
@@ -39,7 +39,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2 Testes Unitarios", "3.2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.3 Testes de Integração", "3.3 Testes de Integração", "{0434AE1D-F1F7-4160-9EC2-CF1193523A17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.UnitTests", "LocadoraDeVeiculos.UnitTests\LocadoraDeVeiculos.UnitTests.csproj", "{751D9A5C-1C06-447E-B520-98BBFB0077BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.UnitTests", "LocadoraDeVeiculos.UnitTests\LocadoraDeVeiculos.UnitTests.csproj", "{751D9A5C-1C06-447E-B520-98BBFB0077BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,7 +87,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8427D6A0-2FF3-4DF6-81D7-7015CE22DA56} = {BA070A21-DDB0-46E3-9003-EFEFA613FA37}
-		{5DEF9302-2DDF-456E-92E0-09774B401F45} = {B5FF9914-940C-4669-9210-678F28FAD18D}
+		{5DEF9302-2DDF-456E-92E0-09774B401F45} = {0434AE1D-F1F7-4160-9EC2-CF1193523A17}
 		{22C0B170-9B97-4D20-B23B-3810DD8B9260} = {64FE4CE7-CB4E-44D2-86D3-4214491988B4}
 		{145CEEA3-4780-4B45-B114-4AE321DF2572} = {4DFD1954-6A6E-4248-BAFE-E7012C37936A}
 		{4DFD1954-6A6E-4248-BAFE-E7012C37936A} = {64FE4CE7-CB4E-44D2-86D3-4214491988B4}
