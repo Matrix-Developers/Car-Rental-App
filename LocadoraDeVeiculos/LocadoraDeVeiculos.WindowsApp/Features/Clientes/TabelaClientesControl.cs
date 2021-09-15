@@ -15,10 +15,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Clientes
 {
     public partial class TabelaClientesControl : UserControl
     {
-        private ControladorCliente controladorCliente = null;
+        private ClienteRepository controladorCliente = null;
         public TabelaClientesControl()
         {
-            controladorCliente = new ControladorCliente();
+            controladorCliente = new ClienteRepository();
             InitializeComponent();
             gridClientes.ConfigurarGridZebrado();
             gridClientes.ConfigurarGridSomenteLeitura();

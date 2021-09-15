@@ -14,16 +14,16 @@ namespace LocadoraDeVeiculos.Tests.VeiculoModule
     [TestClass]
     public class VeiculoControladorTest
     {
-        ControladorVeiculo controlador = null;
-        ControladorGrupoDeVeiculos controladorGrupoDeVeiculos = null;        
+        VeiculoRepository controlador = null;
+        GrupoDeVeiculosRepository controladorGrupoDeVeiculos = null;        
         Veiculo novoVeiculo;
         GrupoDeVeiculo grupoVeiculos;
         List<ImagemVeiculo> imagem;
 
         public VeiculoControladorTest()
         {
-            controlador = new ControladorVeiculo();
-            controladorGrupoDeVeiculos = new ControladorGrupoDeVeiculos();
+            controlador = new VeiculoRepository();
+            controladorGrupoDeVeiculos = new GrupoDeVeiculosRepository();
 
             ResetarBanco.ResetarTabelas();
         }

@@ -1,12 +1,14 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.ServicoModule
 {
-    public class ControladorServico : Controlador<Servico>
+    public class ServicoRepository : RepositoryBase<Servico>, IRepository<Servico>
     {
         #region queries
         private const string sqlInserirServico =
@@ -65,36 +67,37 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             WHERE 
                 [ID] = @ID";
         #endregion
-        public override string InserirNovo(Servico registro)
+
+        public string InserirNovo(Servico registro)
         {
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(sqlInserirServico, ObtemParametrosServico(registro));
+                registro.Id = Db.Insert(sqlInserirServico, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
-        public override List<Servico> SelecionarTodos()
+        public List<Servico> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosServicos, ConverterEmServico);
+            return Db.GetAll(sqlSelecionarTodosServicos, ConverterEmEntidade);
         }
-        public override Servico SelecionarPorId(int id)
+        public Servico SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarServicoPorId, ConverterEmServico, AdicionarParametro("ID", id));
+            return Db.Get(sqlSelecionarServicoPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
-        public override string Editar(int id, Servico registro)
+        public string Editar(int id, Servico registro)
         {
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarServico, ObtemParametrosServico(registro));
+                Db.Update(sqlEditarServico, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
         }
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -107,25 +110,23 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
 
             return true;
         }
-
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteServico, AdicionarParametro("ID", id));
         }
 
-        private Dictionary<string, object> ObtemParametrosServico(Servico servico)
+        protected override Dictionary<string, object> ObtemParametros(Servico entidade)
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", servico.Id);
-            parametros.Add("NOME", servico.Nome);
-            parametros.Add("EHTAXADODIARIO", servico.EhTaxadoDiario);
-            parametros.Add("VALOR", servico.Valor);
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("NOME", entidade.Nome);
+            parametros.Add("EHTAXADODIARIO", entidade.EhTaxadoDiario);
+            parametros.Add("VALOR", entidade.Valor);
 
             return parametros;
         }
-        
-        private Servico ConverterEmServico(IDataReader reader)
+        protected override Servico ConverterEmEntidade(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);

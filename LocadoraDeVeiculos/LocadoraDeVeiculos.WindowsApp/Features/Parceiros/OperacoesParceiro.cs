@@ -9,10 +9,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 {
     public class OperacoesParceiro : ICadastravel
     {
-        private readonly ControladorParceiro controlador;
+        private readonly ParceiroRepository controlador;
         private readonly TabelaParceiroControl tabela;
 
-        public OperacoesParceiro(ControladorParceiro controladorParceiro)
+        public OperacoesParceiro(ParceiroRepository controladorParceiro)
         {
             controlador = controladorParceiro;
             tabela = new TabelaParceiroControl();

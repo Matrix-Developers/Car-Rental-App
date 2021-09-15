@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.LocacaoModule;
+﻿
+using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
@@ -17,16 +18,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
     public class OperacoesLocacao : ICadastravel
     {
-        private readonly ControladorLocacao controlador = null;
-        private readonly ControladorRelacionamentoLocServ controladorRelacionamento = null;
+        private readonly LocacaoRepository controlador = null;
+        private readonly RelacionamentoLocServRepository controladorRelacionamento = null;
         private RelacionamentoLocServ relacionamento;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
         ConversorParaPdf conversorPdf;
-        public OperacoesLocacao(ControladorLocacao ctrlLocacao)
+        public OperacoesLocacao(LocacaoRepository ctrlLocacao)
         {
             conversorPdf = new ConversorParaPdf(10, 18);
             controlador = ctrlLocacao;
-            controladorRelacionamento = new ControladorRelacionamentoLocServ();
+            controladorRelacionamento = new RelacionamentoLocServRepository();
             tabelaLocacao = new TabelaLocacaoControl();
         }
 

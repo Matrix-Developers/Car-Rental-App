@@ -17,14 +17,14 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
     [TestClass]
     public class CupomControladorTest
     {
-        ControladorCupom controlador = null;
-        ControladorParceiro controladorParceiro = null;
+        CupomRepository controlador = null;
+        ParceiroRepository controladorParceiro = null;
         Cupom cupom;
         Parceiro parceiro;
         public CupomControladorTest()
         {
-            controlador = new ControladorCupom();
-            controladorParceiro = new ControladorParceiro();
+            controlador = new CupomRepository();
+            controladorParceiro = new ParceiroRepository();
             ResetarBanco.ResetarTabelas();            
         }
 

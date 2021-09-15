@@ -11,11 +11,11 @@ namespace LocadoraDeVeiculos.Tests.SevicoModule
     [TestClass]
     public class ServicosControladorTest
     {
-        ControladorServico controlador = null;
+        ServicoRepository controlador = null;
         Servico novoServico;
         public ServicosControladorTest()
         {
-            controlador = new ControladorServico();
+            controlador = new ServicoRepository();
             ResetarBanco.ResetarTabelas();
         }
         [TestMethod]

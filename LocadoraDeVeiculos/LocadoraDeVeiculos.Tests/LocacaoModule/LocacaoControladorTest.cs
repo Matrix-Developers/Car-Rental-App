@@ -22,13 +22,13 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
     [TestClass]
     public class LocacaoControladorTest
     {
-        ControladorLocacao controlador = null;
-        ControladorGrupoDeVeiculos controladorGrupoDeVeiculos = null;
-        ControladorVeiculo controladorVeiculo = null;
-        ControladorFuncionario controladorFuncionario = null;
-        ControladorCliente controladorCliente = null;
-        ControladorServico controladorServico = null;
-        ControladorCupom controladorCupom = null;
+        LocacaoRepository controlador = null;
+        GrupoDeVeiculosRepository controladorGrupoDeVeiculos = null;
+        VeiculoRepository controladorVeiculo = null;
+        FuncionarioRepository controladorFuncionario = null;
+        ClienteRepository controladorCliente = null;
+        ServicoRepository controladorServico = null;
+        CupomRepository controladorCupom = null;
         GrupoDeVeiculo grupoVeiculos;
         Veiculo veiculo;
         Funcionario funcionario;
@@ -38,13 +38,13 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
         public LocacaoControladorTest()
         {
-            controladorGrupoDeVeiculos = new ControladorGrupoDeVeiculos();
-            controladorVeiculo = new ControladorVeiculo();
-            controladorFuncionario = new ControladorFuncionario();
-            controladorCliente = new ControladorCliente();
-            controladorServico = new ControladorServico();
-            controladorCupom = new ControladorCupom();
-            controlador = new ControladorLocacao(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServico, controladorCupom);
+            controladorGrupoDeVeiculos = new GrupoDeVeiculosRepository();
+            controladorVeiculo = new VeiculoRepository();
+            controladorFuncionario = new FuncionarioRepository();
+            controladorCliente = new ClienteRepository();
+            controladorServico = new ServicoRepository();
+            controladorCupom = new CupomRepository();
+            controlador = new LocacaoRepository(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServico, controladorCupom);
             ResetarBanco.ResetarTabelas();
         }
 

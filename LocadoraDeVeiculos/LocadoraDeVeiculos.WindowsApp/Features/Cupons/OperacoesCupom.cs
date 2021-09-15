@@ -12,10 +12,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 {
     public class OperacoesCupom : ICadastravel
     {
-        private ControladorCupom controlador;
+        private CupomRepository controlador;
         private readonly TabelaCupomControl tabela;
 
-        public OperacoesCupom(ControladorCupom controladorCupom)
+        public OperacoesCupom(CupomRepository controladorCupom)
         {
             controlador = controladorCupom;
             tabela = new TabelaCupomControl();

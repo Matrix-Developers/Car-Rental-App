@@ -15,11 +15,11 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
     [TestClass]
     public class ParceiroControladorTest
     {
-        ControladorParceiro controlador = null;
+        ParceiroRepository controlador = null;
         Parceiro parceiro;
         public ParceiroControladorTest()
         {
-            controlador = new ControladorParceiro();
+            controlador = new ParceiroRepository();
             ResetarBanco.ResetarTabelas();
         }
 

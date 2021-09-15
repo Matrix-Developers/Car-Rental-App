@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
     public partial class VeiculoForm : Form
     {
         private Veiculo veiculo;
-        private ControladorGrupoDeVeiculos controladorGrupoVeiculos = new ControladorGrupoDeVeiculos();
+        private GrupoDeVeiculosRepository controladorGrupoVeiculos = new GrupoDeVeiculosRepository();
         public VeiculoForm(string titulo)
         {            
             InitializeComponent();

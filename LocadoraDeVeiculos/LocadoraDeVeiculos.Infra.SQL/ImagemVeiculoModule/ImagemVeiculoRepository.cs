@@ -7,14 +7,15 @@ using System.Drawing.Imaging;
 using System.IO;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 {
-    public class ControladorImagemVeiculo : Controlador<ImagemVeiculo>
+    public class ImagemVeiculoRepository : RepositoryBase<ImagemVeiculo>, IImagemVeiculoRepository
     {
-
         private Bitmap bmp;
-        #region Queries
+
+        #region queries
         private const string comandoInserir = @"INSERT INTO [DBO].[TBIMAGEMVEICULO] 
                                                 (
                                                  [ID_VEICULO],
@@ -31,10 +32,44 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         private const string comandoSelecionarPorIdDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecioarTodos = "SELECT * FROM DBO].[TBIMAGEMVEICULO]";
         #endregion
-        public override string Editar(int id, ImagemVeiculo registro)
+
+        public string Editar(int id, ImagemVeiculo registro)
         {
-            registro.Id = Db.Insert(comandoInserir,ObtemParametrosImagem(registro));
+            registro.Id = Db.Insert(comandoInserir,ObtemParametros(registro));
             return "";
+        }
+        public bool Excluir(int id)
+        {
+            try
+            {
+                Db.Delete(comandoExcluir, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public bool Existe(int id)
+        {
+            throw new NotImplementedException();
+        }
+        public string InserirNovo(ImagemVeiculo registro)
+        {
+            string resultadoValidacao = "VALIDO";
+
+            registro.Id = Db.Insert(comandoInserir, ObtemParametros(registro));
+
+            return resultadoValidacao;
+        }
+        public ImagemVeiculo SelecionarPorId(int id)
+        {
+            return Db.Get(comandoSelecionarPorId,ConverterEmEntidade,AdicionarParametro("ID",id));
+        }
+        public List<ImagemVeiculo> SelecionarTodos()
+        {
+            return Db.GetAll(comandoSelecioarTodos,ConverterEmEntidade);
         }
 
         public void EditarLista(List<ImagemVeiculo> registros)
@@ -49,20 +84,6 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
                 }
             }
         }
-
-        public override bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(comandoExcluir, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
         public bool ExcluirPorIdDoVeiculo(int idVeiculo)
         {
             try
@@ -76,68 +97,42 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
             return true;
         }
-
-        public override bool Existe(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string InserirNovo(ImagemVeiculo registro)
-        {
-            string resultadoValidacao = "VALIDO";
-
-            registro.Id = Db.Insert(comandoInserir, ObtemParametrosImagem(registro));
-
-            return resultadoValidacao;
-        }
-
-        public override ImagemVeiculo SelecionarPorId(int id)
-        {
-            return Db.Get(comandoSelecionarPorId,ConverteEmImagemVeiculo,AdicionarParametro("ID",id));
-        }
         public List<ImagemVeiculo> SelecionarPorIdDoVeiculo(int id)
         {
-            return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverteEmImagemVeiculo, AdicionarParametro("ID_VEICULO", id));
+            return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverterEmEntidade, AdicionarParametro("ID_VEICULO", id));
         }
-
-        public override List<ImagemVeiculo> SelecionarTodos()
-        {
-            return Db.GetAll(comandoSelecioarTodos,ConverteEmImagemVeiculo);
-        }
-
         public List<ImagemVeiculo> SelecioanrTodasImagensDeUmVeiculo(int id)
         {
-            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverteEmImagemVeiculo,AdicionarParametro("ID_VEICULO",id));
+            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverterEmEntidade,AdicionarParametro("ID_VEICULO",id));
         }
 
-        private Dictionary<string, object> ObtemParametrosImagem(ImagemVeiculo imagemVeiculo)
+        //private Bitmap ConverteEmImagem(IDataReader reader)
+        //{
+
+        //    byte[] a = (byte[])(reader["IMAGEM"]);
+
+        //    TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
+        //    bmp = (Bitmap)tc.ConvertFrom(a);
+
+        //    return bmp;
+        //}
+
+        protected override Dictionary<string, object> ObtemParametros(ImagemVeiculo entidade)
         {
-            bmp = imagemVeiculo.imagem;
+            bmp = entidade.imagem;
             MemoryStream memoria = new MemoryStream();
-            bmp.Save(memoria,ImageFormat.Bmp);
+            bmp.Save(memoria, ImageFormat.Bmp);
             byte[] imagemByte = memoria.ToArray();
 
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", imagemVeiculo.Id);
-            parametros.Add("ID_VEICULO", imagemVeiculo.idVeiculo);
+            parametros.Add("ID", entidade.Id);
+            parametros.Add("ID_VEICULO", entidade.idVeiculo);
             parametros.Add("IMAGEM", imagemByte);
 
             return parametros;
         }
-
-        private Bitmap ConverteEmImagem(IDataReader reader)
-        {
-
-            byte[] a = (byte[])(reader["IMAGEM"]);
-
-            TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
-            bmp = (Bitmap)tc.ConvertFrom(a);
-
-            return bmp;
-        }
-
-        private ImagemVeiculo ConverteEmImagemVeiculo(IDataReader reader)
+        protected override ImagemVeiculo ConverterEmEntidade(IDataReader reader)
         {
             byte[] byteArray= (byte[])(reader["IMAGEM"]);
             var id = Convert.ToInt32(reader["ID"]);

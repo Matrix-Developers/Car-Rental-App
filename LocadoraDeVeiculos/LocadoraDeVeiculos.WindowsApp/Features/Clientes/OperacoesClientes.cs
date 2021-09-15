@@ -14,9 +14,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 {
     public class OperacoesClientes : ICadastravel
     {
-        private readonly ControladorCliente controlador = null;
+        private readonly ClienteRepository controlador = null;
         private readonly TabelaClientesControl tabelaCliente = null;
-        public OperacoesClientes (ControladorCliente ctrlCliente)
+        public OperacoesClientes (ClienteRepository ctrlCliente)
         {
             controlador = ctrlCliente;
             tabelaCliente = new TabelaClientesControl();

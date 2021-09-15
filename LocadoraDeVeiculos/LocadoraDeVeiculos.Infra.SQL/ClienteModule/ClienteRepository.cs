@@ -1,5 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.ClientesModule
 {
-    public class ControladorCliente : Controlador<Cliente>
+    public class ClienteRepository : RepositoryBase<Cliente>, IRepository<Cliente>
     {
         #region Queries
             private const string sqlInserirClientes =
@@ -77,20 +79,19 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 
 		#endregion
 
-		public override string Editar(int id, Cliente registro)
+		public string Editar(int id, Cliente registro)
 		{
 			string resultadoValidacao = registro.Validar();
 
 			if (resultadoValidacao == "VALIDO")
 			{
 				registro.Id = id;
-				Db.Update(sqlEditarClientes, ObtemParametrosClientes(registro));
+				Db.Update(sqlEditarClientes, ObtemParametros(registro));
 			}
 
 			return resultadoValidacao;
 		}
-
-		public override bool Excluir(int id)
+		public bool Excluir(int id)
 		{
 			try
 			{
@@ -103,37 +104,47 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 
 			return true;
 		}
-
-		public override bool Existe(int id)
+		public bool Existe(int id)
 		{
 			return Db.Exists(sqlExisteCliente, AdicionarParametro("ID", id));
 		}
-
-		public override string InserirNovo(Cliente registro)
+		public string InserirNovo(Cliente registro)
 		{
 			string resultadoValidacao = registro.Validar();
 
 			if (resultadoValidacao == "VALIDO")
 			{
-				registro.Id = Db.Insert(sqlInserirClientes, ObtemParametrosClientes(registro));
+				registro.Id = Db.Insert(sqlInserirClientes, ObtemParametros(registro));
 			}
 			return resultadoValidacao;
 		}
-
-       
-
-        public override Cliente SelecionarPorId(int id)
+        public Cliente SelecionarPorId(int id)
 		{
-			return Db.Get(sqlSelecionarClientesPorId, ConverterEmClientes, AdicionarParametro("ID", id));
+			return Db.Get(sqlSelecionarClientesPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+		}
+		public List<Cliente> SelecionarTodos()
+		{
+			return Db.GetAll(sqlSelecionarTodosClientes, ConverterEmEntidade);
 		}
 
-		public override List<Cliente> SelecionarTodos()
+        protected override Dictionary<string, object> ObtemParametros(Cliente entidade)
 		{
-			return Db.GetAll(sqlSelecionarTodosClientes, ConverterEmClientes);
-		}
+			var parametros = new Dictionary<string, object>();
 
-        private Cliente ConverterEmClientes(IDataReader reader)
-        {
+			parametros.Add("ID", entidade.Id);
+			parametros.Add("NOME", entidade.Nome);
+			parametros.Add("REGISTROUNICO", entidade.RegistroUnico);
+			parametros.Add("ENDERECO", entidade.Endereco);
+			parametros.Add("TELEFONE", entidade.Telefone);
+			parametros.Add("EMAIL", entidade.Email);
+			parametros.Add("CNH", entidade.Cnh);
+			parametros.Add("VALIDADECNH", entidade.ValidadeCnh);
+			parametros.Add("EHPESSOAFISICA", entidade.EhPessoaFisica);
+
+			return parametros;
+		}
+		protected override Cliente ConverterEmEntidade(IDataReader reader)
+		{
 			DateTime? validadeCnh = null;
 			int id = Convert.ToInt32(reader["ID"]);
 			string nome = Convert.ToString((reader["NOME"]));
@@ -142,30 +153,13 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 			string telefone = Convert.ToString(reader["TELEFONE"]);
 			string email = Convert.ToString(reader["EMAIL"]);
 			string cnh = Convert.ToString(reader["CNH"]);
-			if(reader["VALIDADECNH"] != DBNull.Value)
+			if (reader["VALIDADECNH"] != DBNull.Value)
 				validadeCnh = Convert.ToDateTime(reader["VALIDADECNH"]);
 			bool ehPessoaFisica = Convert.ToBoolean(reader["EHPESSOAFISiCA"]);
 
 			Cliente cliente = new Cliente(id, nome, registroUnico, endereco, telefone, email, cnh, validadeCnh, ehPessoaFisica);
 			cliente.Id = id;
 			return cliente;
-		}
-
-        private Dictionary<string, object> ObtemParametrosClientes(Cliente cliente)
-		{
-			var parametros = new Dictionary<string, object>();
-
-			parametros.Add("ID", cliente.Id);
-			parametros.Add("NOME", cliente.Nome);
-			parametros.Add("REGISTROUNICO", cliente.RegistroUnico);
-			parametros.Add("ENDERECO", cliente.Endereco);
-			parametros.Add("TELEFONE", cliente.Telefone);
-			parametros.Add("EMAIL", cliente.Email);
-			parametros.Add("CNH", cliente.Cnh);
-			parametros.Add("VALIDADECNH", cliente.ValidadeCnh);
-			parametros.Add("EHPESSOAFISICA", cliente.EhPessoaFisica);
-
-			return parametros;
 		}
 	}
 }
