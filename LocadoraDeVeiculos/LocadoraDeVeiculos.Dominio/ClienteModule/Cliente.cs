@@ -41,11 +41,9 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
         public bool ValidarCnh()
         {
             bool EhValida = false;
-            var cnhSelecionada = this.Cnh;
-            cnhSelecionada = this.Cnh.Replace(".", "").Replace("-", "").Replace(",", "");
+            var cnhSelecionada = this.Cnh.Replace(".", "").Replace("-", "").Replace(",", "");
             if (cnhSelecionada.Length < 11)
                 return false;
-            var firstChar = cnhSelecionada[0];
             if (cnhSelecionada.Length == 11 && cnhSelecionada != new string('1', 11))
             {
                 var dsc = 0;

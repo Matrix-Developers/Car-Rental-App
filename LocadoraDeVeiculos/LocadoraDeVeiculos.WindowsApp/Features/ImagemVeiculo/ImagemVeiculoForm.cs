@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                         AtualizarImagem();
                     else
                     {
-                        MudarImagemAtual((imagens.Count() - 1));
+                        MudarImagemAtual((imagens.Count - 1));
                     }
                 }
                 else
@@ -55,13 +55,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         private void MudarImagemAtual(int indice)
         {
             if (imagemAtual == 0 && indice == voltar) //<=======================|ir    para    a   ultima
-                imagemAtual = imagens.Count() - 1;
-            else if (imagemAtual + 1 == imagens.Count() && indice == avancar) //|ir    para   a  primeira
+                imagemAtual = imagens.Count - 1;
+            else if (imagemAtual + 1 == imagens.Count && indice == avancar) //|ir    para   a  primeira
                 imagemAtual = 0;
             else if (indice != 1 && indice != -1) //<===========================| vai  para  o   index  0
                 imagemAtual = indice;
             else //<============================================================| só move no meio da list
-                imagemAtual = imagemAtual + indice;
+                imagemAtual += indice;
 
             AtualizarImagem();
         }
@@ -76,13 +76,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            if (imagens.Count() != 0)
+            if (imagens.Count != 0)
                 MudarImagemAtual(voltar);
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            if (imagens.Count() != 0)
+            if (imagens.Count != 0)
                 MudarImagemAtual(avancar);
         }
 
@@ -91,7 +91,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             if (MessageBox.Show("Tem certeza que deseja excluir a imagem?", "Locadora de veículos",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                if (imagens.Count() != 0)
+                if (imagens.Count != 0)
                 {
                     imagens.RemoveAt(imagemAtual);
                     MudarImagemAtual(0);

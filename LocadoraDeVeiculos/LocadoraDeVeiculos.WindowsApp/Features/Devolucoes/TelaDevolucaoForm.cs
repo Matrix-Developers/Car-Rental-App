@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     {
         private Locacao devolucao;
         ServicosForm telaServico;
-        VeiculoRepository controladorVeiculo = new VeiculoRepository();
+        VeiculoRepository controladorVeiculo = new();
         public TelaDevolucaoForm(string titulo)
         {
             InitializeComponent();
@@ -163,7 +163,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         {
             if (e.KeyChar == '.')
             {
-                if (txtValorCombustivel.Text.IndexOf(".") >= 0 || txtValorCombustivel.Text.Length == 0)
+                if (txtValorCombustivel.Text.Contains(".", StringComparison.CurrentCulture) || txtValorCombustivel.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -179,7 +179,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         {
             if (e.KeyChar == '.')
             {
-                if (txtKmFinal.Text.IndexOf(".") >= 0 || txtKmFinal.Text.Length == 0)
+                if (txtKmFinal.Text.Contains(".", StringComparison.CurrentCulture) || txtKmFinal.Text.Length == 0)
                 {
                     e.Handled = true;
                 }

@@ -64,7 +64,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         {
             int id = 0;
             int ano = 0;
-            GrupoDeVeiculo grupoDeVeiculos = null;
             if (textId.Text.Length > 0)
                 id = Convert.ToInt32(textId.Text);
             string placa = textPlaca.Text;
@@ -74,7 +73,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             if (textAno.Text.Length > 0)
                 ano = Convert.ToInt32(textAno.Text);
             string cor = textCor.Text;
-            grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
+            GrupoDeVeiculo grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
             int capTanque = Convert.ToInt32(numUpDownCapTanque.Value);
             string combustivel = cBoxCombustivel.Text;
             int numPortas = Convert.ToInt32(numUpDownQtdPortas.Value);
@@ -84,10 +83,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             bool possuiArCondicionado = false;
             bool possuiDirecaoHidraulica = false;
             bool possuiFreioAbs = false;
-            List<ImagemVeiculo> imagens = imagensVeiculo;
-
-
-
             if (checkLBoxOpcionais.CheckedIndices.Contains(0))
                 possuiArCondicionado = true;
             if (checkLBoxOpcionais.CheckedIndices.Contains(1))
@@ -113,7 +108,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         {
             if (e.KeyChar == '.')
             {
-                if (textAno.Text.IndexOf(".") >= 0 || textAno.Text.Length == 0)
+                if (textAno.Text.Contains(".", StringComparison.CurrentCulture) || textAno.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -128,7 +123,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         {
             if (e.KeyChar == '.')
             {
-                if (textKM.Text.IndexOf(".") >= 0 || textKM.Text.Length == 0)
+                if (textKM.Text.Contains(".", StringComparison.CurrentCulture) || textKM.Text.Length == 0)
                 {
                     e.Handled = true;
                 }

@@ -131,29 +131,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private static void EnviarEmail(TelaLocacaoForm tela)
         {
-            using (SmtpClient smtp = new())
-            {
-                using (MailMessage email = new())
-                {
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = new System.Net.NetworkCredential("matriquisdevelopers@gmail.com", "matrixadm");
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
+            using SmtpClient smtp = new();
+            using MailMessage email = new();
 
-                    email.From = new MailAddress("matriquisdevelopers@gmail.com");
-                    email.To.Add(tela.Locacao.ClienteContratante.Email);
+            smtp.Host = "smtp.gmail.com";
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("matriquisdevelopers@gmail.com", "matrixadm");
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
 
-                    email.Subject = "Matrix";
-                    email.IsBodyHtml = false;
-                    email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
+            email.From = new MailAddress("matriquisdevelopers@gmail.com");
+            email.To.Add(tela.Locacao.ClienteContratante.Email);
 
+            email.Subject = "Matrix";
+            email.IsBodyHtml = false;
+            email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
 
-                    email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo{tela.Locacao.Id}.pdf"));
+            email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo{tela.Locacao.Id}.pdf"));
 
-                    smtp.Send(email);
-                }
-            }
+            smtp.Send(email);
         }
     }
 }

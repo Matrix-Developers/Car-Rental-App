@@ -25,12 +25,15 @@ namespace LocadoraDeVeiculos.WindowsApp
     public partial class TelaPrincipalForm : Form
     {
         private ICadastravel operacoes;
-        public static TelaPrincipalForm Instancia;
+        private static TelaPrincipalForm instancia;
+
+        public static TelaPrincipalForm Instancia { get => instancia; set => instancia = value; }
+
         public TelaPrincipalForm()
         {
             InitializeComponent();
 
-            Instancia = this;
+            instancia = this;
             MostrarDashBoard();
         }
 

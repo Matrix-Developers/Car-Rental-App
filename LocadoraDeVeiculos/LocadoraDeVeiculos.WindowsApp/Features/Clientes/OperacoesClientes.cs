@@ -39,8 +39,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             {
                 controlador.Editar(id, tela.Clientes);
 
-                List<Cliente> contatos = controlador.SelecionarTodos();
-
                 tabelaCliente.AtualizarRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] editado com sucesso");
@@ -61,8 +59,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             {
                 controlador.Excluir(id);
 
-                List<Cliente> contatos = controlador.SelecionarTodos();
-
                 tabelaCliente.AtualizarRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
@@ -74,7 +70,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.Clientes);
-                List<Cliente> clientes = controlador.SelecionarTodos();
 
                 tabelaCliente.AtualizarRegistros();
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] inserido com sucesso");
@@ -83,7 +78,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
         public UserControl ObterTabela()
         {
-            List<Cliente> contatos = controlador.SelecionarTodos();
             tabelaCliente.AtualizarRegistros();
 
             return tabelaCliente;
@@ -97,6 +91,5 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         {
             throw new NotImplementedException();
         }
-
     }
 }

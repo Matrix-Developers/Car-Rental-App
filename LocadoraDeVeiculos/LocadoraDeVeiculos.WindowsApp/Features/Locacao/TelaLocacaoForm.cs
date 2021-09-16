@@ -82,7 +82,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void CarregaCondutor()
         {
-            List<Cliente> clientesPf = new List<Cliente>();
+            List<Cliente> clientesPf = new();
             foreach (Cliente cliente in controladorCliente.SelecionarTodos())
                 if (cliente.EhPessoaFisica)
                     clientesPf.Add(cliente);
