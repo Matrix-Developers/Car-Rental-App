@@ -9,7 +9,7 @@ using System;
 namespace LocadoraDeVeiculos.IntegrationTests.ClienteDAOTest
 {
     [TestClass]
-    [TestCategory("Controladores")]
+    [TestCategory("DAO")]
     public class ClienteDAOTest
     {
         #region atributos privados
