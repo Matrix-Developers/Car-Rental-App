@@ -10,14 +10,14 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
 {
     public class Cupom : EntidadeBase
     {
-        public string Nome { get; }
-        public string Codigo { get; }
-        public double Valor { get; }
-        public double ValorMinimo { get; }
-        public bool EhDescontoFixo { get; }
-        public DateTime Validade { get; }
-        public Parceiro Parceiro { get; }
-        public int QtdUtilizada { get; }
+        public string Nome { get; set; }
+        public string Codigo { get; set; }
+        public double Valor { get; set; }
+        public double ValorMinimo { get; set; }
+        public bool EhDescontoFixo { get; set; }
+        public DateTime Validade { get; set; }
+        public Parceiro Parceiro { get; set; }
+        public int QtdUtilizada { get; set; }
         public Cupom(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro, int qtdUtilizada)
         {
             Id = id;
@@ -30,6 +30,11 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
             Parceiro = parceiro;
             QtdUtilizada = qtdUtilizada;
         }
+
+        public Cupom()
+        {
+        }
+
         public override string Validar()
         {
             string resultadoValicadacao = "";

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Tests.Shared
+namespace LocadoraDeVeiculos.IntegrationTests.Shared
 {
     public static class ResetarBanco
     {    

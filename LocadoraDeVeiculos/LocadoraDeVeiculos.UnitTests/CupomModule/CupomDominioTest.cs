@@ -4,7 +4,7 @@ using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace LocadoraDeVeiculos.Tests.CupomModule
+namespace LocadoraDeVeiculos.UnitTests.CupomModule
 {
     [TestClass]
     [TestCategory("Domínio")]

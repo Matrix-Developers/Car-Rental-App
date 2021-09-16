@@ -2,18 +2,18 @@
 using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using LocadoraDeVeiculos.IntegrationTests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace LocadoraDeVeiculos.Tests.SevicoModule
+namespace LocadoraDeVeiculos.IntegrationTests.SevicoModule
 {
     [TestClass]
-    public class ServicosControladorTest
+    public class ServicoControladorTest
     {
         ServicoRepository controlador = null;
         Servico novoServico;
-        public ServicosControladorTest()
+        public ServicoControladorTest()
         {
             controlador = new ServicoRepository();
             ResetarBanco.ResetarTabelas();

@@ -13,13 +13,13 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
         private double taxaKmExcedidoControlado;
         private double taxaPlanoLivre;
 
-        public string Nome { get => nome;}
-        public double TaxaPlanoDiario { get => taxaPlanoDiario;}
-        public double TaxaPorKmDiario { get => taxaPorKmDiario;}
-        public double TaxaPlanoControlado { get => taxaPlanoControlado;}
-        public int LimiteKmControlado { get => limiteKmControlado;}
-        public double TaxaKmExcedidoControlado { get => taxaKmExcedidoControlado;}
-        public double TaxaPlanoLivre { get => taxaPlanoLivre;}
+        public string Nome { get => nome; set => nome = value; }
+        public double TaxaPlanoDiario { get => taxaPlanoDiario; set => taxaPlanoDiario = value; }
+        public double TaxaPorKmDiario { get => taxaPorKmDiario; set => taxaPorKmDiario = value; }
+        public double TaxaPlanoControlado { get => taxaPlanoControlado; set => taxaPlanoControlado = value; }
+        public int LimiteKmControlado { get => limiteKmControlado; set => limiteKmControlado = value; }
+        public double TaxaKmExcedidoControlado { get => taxaKmExcedidoControlado; set => taxaKmExcedidoControlado = value; }
+        public double TaxaPlanoLivre { get => taxaPlanoLivre; set => taxaPlanoLivre = value; }
 
         public GrupoDeVeiculo(int id, string nome, double taxaPlanoDiario, double taxaPorKmDiario, double taxaPlanoControlado, int limiteKmControlado, double taxaKmExcedidoControlado, double taxaPlanoLivre)
         {
@@ -31,6 +31,9 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
             this.limiteKmControlado = limiteKmControlado;
             this.taxaKmExcedidoControlado = taxaKmExcedidoControlado;
             this.taxaPlanoLivre = taxaPlanoLivre;
+        }
+        public GrupoDeVeiculo()
+        {
         }
 
         public override string Validar()

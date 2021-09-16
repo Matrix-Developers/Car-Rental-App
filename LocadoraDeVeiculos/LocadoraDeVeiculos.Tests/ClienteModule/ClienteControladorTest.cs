@@ -2,11 +2,11 @@
 using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using LocadoraDeVeiculos.IntegrationTests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace LocadoraDeVeiculos.Tests.ClienteModule
+namespace LocadoraDeVeiculos.IntegrationTests.ClienteModule
 {
     [TestClass]
     [TestCategory("Controladores")]

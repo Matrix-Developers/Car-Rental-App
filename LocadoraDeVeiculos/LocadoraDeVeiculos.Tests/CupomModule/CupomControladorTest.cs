@@ -4,7 +4,7 @@ using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
-using LocadoraDeVeiculos.Tests.Shared;
+using LocadoraDeVeiculos.IntegrationTests.Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Tests.CupomModule
+namespace LocadoraDeVeiculos.IntegrationTests.CupomModule
 {
     [TestClass]
     public class CupomControladorTest

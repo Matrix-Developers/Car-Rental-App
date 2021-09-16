@@ -7,9 +7,9 @@ using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using System.Collections.Generic;
-using LocadoraDeVeiculos.Tests.Shared;
+using LocadoraDeVeiculos.IntegrationTests.Shared;
 
-namespace LocadoraDeVeiculos.Tests.VeiculoModule
+namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
 {
     [TestClass]
     public class VeiculoControladorTest
