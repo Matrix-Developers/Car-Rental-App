@@ -1,12 +1,8 @@
 ﻿using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
-using LocadoraDeVeiculos.WindowsApp.Servicos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
@@ -24,7 +20,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
         public void InserirNovoRegistro()
         {
-            TelaServicoForm tela = new TelaServicoForm("Cadastro de Serviços");
+            TelaServicoForm tela = new("Cadastro de Serviços");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -51,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             Servico servicoSelecionada = controlador.SelecionarPorId(id);
 
-            TelaServicoForm tela = new TelaServicoForm("Edição de Serviços");
+            TelaServicoForm tela = new("Edição de Serviços");
 
             tela.Servico = servicoSelecionada;
 

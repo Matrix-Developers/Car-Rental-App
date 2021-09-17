@@ -118,7 +118,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.btnServicos.TabIndex = 16;
             this.btnServicos.Text = "Selecionar";
             this.btnServicos.UseVisualStyleBackColor = true;
-            this.btnServicos.Click += new System.EventHandler(this.btnServicos_Click);
+            this.btnServicos.Click += new System.EventHandler(this.BtnServicos_Click);
             // 
             // lblServicos
             // 
@@ -297,7 +297,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.brnConfirmar.TabIndex = 18;
             this.brnConfirmar.Text = "Confirmar";
             this.brnConfirmar.UseVisualStyleBackColor = true;
-            this.brnConfirmar.Click += new System.EventHandler(this.brnConfirmar_Click);
+            this.brnConfirmar.Click += new System.EventHandler(this.BrnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -334,7 +334,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.btnVerificar.TabIndex = 20;
             this.btnVerificar.Text = "Verificar";
             this.btnVerificar.UseVisualStyleBackColor = true;
-            this.btnVerificar.Click += new System.EventHandler(this.btnVerificar_Click);
+            this.btnVerificar.Click += new System.EventHandler(this.BtnVerificar_Click);
             // 
             // TelaLocacaoForm
             // 

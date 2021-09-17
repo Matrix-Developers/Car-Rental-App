@@ -1,13 +1,13 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Controladores.Shared;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Infra.SQL.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Infra.SQL.Shared;
 
 namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 {
@@ -16,33 +16,78 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         private Bitmap bmp;
 
         #region queries
-        private const string comandoInserir = @"INSERT INTO [DBO].[TBIMAGEMVEICULO] 
-                                                (
-                                                 [ID_VEICULO],
-                                                 [IMAGEM]
-                                                )VALUES
-                                                (
-                                                @ID_VEICULO,
-                                                @IMAGEM
-                                                );";
-        private const string comandoExcluir = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
+        protected override string SqlInserirEntidade
+        {
+            get
+            {
+                return
+                    @"INSERT INTO [DBO].[TBIMAGEMVEICULO] 
+                    (
+                        [ID_VEICULO],
+                        [IMAGEM]
+                    )
+                    VALUES
+                    (
+                        @ID_VEICULO,
+                        @IMAGEM
+                    );";
+            }
+        }
+        protected override string SqlEditarEntidade
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+        protected override string SqlExcluirEntidade
+        {
+            get
+            {
+                return "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
+            }
+        }
+        protected override string SqlSelecionarEntidadePorId
+        {
+            get
+            {
+                return "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
+            }
+        }
+
+        protected override string SqlSelecionarTodasEntidades
+        {
+            get
+            {
+                return "SELECT* FROM DBO].[TBIMAGEMVEICULO]";
+            }
+        }
+
+        protected override string SqlExisteEntidade
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        //chamadas unicas do ImagemVeiculo
+        private const string comandoSelecionarPorIdDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoExcluirTodosPorIdDoVeiculo = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecionarTodosDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO;";
-        private const string comandoSelecionarPorId = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID] = @ID";
-        private const string comandoSelecionarPorIdDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
-        private const string comandoSelecioarTodos = "SELECT * FROM DBO].[TBIMAGEMVEICULO]";
+        //
         #endregion
 
         public string Editar(int id, ImagemVeiculo registro)
         {
-            registro.Id = Db.Insert(comandoInserir,ObtemParametros(registro));
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
             return "";
         }
         public bool Excluir(int id)
         {
             try
             {
-                Db.Delete(comandoExcluir, AdicionarParametro("ID", id));
+                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -59,25 +104,26 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         {
             string resultadoValidacao = "VALIDO";
 
-            registro.Id = Db.Insert(comandoInserir, ObtemParametros(registro));
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public ImagemVeiculo SelecionarPorId(int id)
         {
-            return Db.Get(comandoSelecionarPorId,ConverterEmEntidade,AdicionarParametro("ID",id));
+            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public List<ImagemVeiculo> SelecionarTodos()
         {
-            return Db.GetAll(comandoSelecioarTodos,ConverterEmEntidade);
+            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
         }
 
+        //metodos unicos do ImagemVeiculo
         public void EditarLista(List<ImagemVeiculo> registros)
         {
             if (registros != null)
             {
                 if (registros.Count != 0)
-                    ExcluirPorIdDoVeiculo(registros[0].idVeiculo);
+                    ExcluirPorIdDoVeiculo(registros[0].IdVeiculo);
                 foreach (ImagemVeiculo imagem in registros)
                 {
                     InserirNovo(imagem);
@@ -103,9 +149,11 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         }
         public List<ImagemVeiculo> SelecioanrTodasImagensDeUmVeiculo(int id)
         {
-            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverterEmEntidade,AdicionarParametro("ID_VEICULO",id));
+            return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverterEmEntidade, AdicionarParametro("ID_VEICULO", id));
         }
+        //
 
+        //Metodo sem referencia ou uso. está obsoleto?
         //private Bitmap ConverteEmImagem(IDataReader reader)
         //{
 
@@ -119,30 +167,31 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
         protected override Dictionary<string, object> ObtemParametros(ImagemVeiculo entidade)
         {
-            bmp = entidade.imagem;
-            MemoryStream memoria = new MemoryStream();
+            bmp = entidade.Imagem;
+            MemoryStream memoria = new();
             bmp.Save(memoria, ImageFormat.Bmp);
             byte[] imagemByte = memoria.ToArray();
 
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("ID_VEICULO", entidade.idVeiculo);
-            parametros.Add("IMAGEM", imagemByte);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "ID_VEICULO", entidade.IdVeiculo },
+                { "IMAGEM", imagemByte }
+            };
 
             return parametros;
         }
         protected override ImagemVeiculo ConverterEmEntidade(IDataReader reader)
         {
-            byte[] byteArray= (byte[])(reader["IMAGEM"]);
+            byte[] byteArray = (byte[])(reader["IMAGEM"]);
             var id = Convert.ToInt32(reader["ID"]);
             var idVeiculo = Convert.ToInt32(reader["ID_VEICULO"]);
 
             TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
             bmp = (Bitmap)tc.ConvertFrom(byteArray);
-            Bitmap imagem = new Bitmap(bmp);
+            Bitmap imagem = new(bmp);
 
-            return new ImagemVeiculo(id,idVeiculo, imagem);
+            return new ImagemVeiculo(id, idVeiculo, imagem);
 
         }
     }

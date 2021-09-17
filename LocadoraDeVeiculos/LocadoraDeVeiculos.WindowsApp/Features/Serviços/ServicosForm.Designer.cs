@@ -101,7 +101,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             this.button1.TabIndex = 65;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // btnCancelar
             // 
@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             this.btnConfirmar.TabIndex = 68;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // ServicosForm
             // 

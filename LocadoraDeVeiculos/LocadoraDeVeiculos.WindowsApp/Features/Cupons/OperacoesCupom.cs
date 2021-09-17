@@ -3,9 +3,6 @@ using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
@@ -23,7 +20,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public void InserirNovoRegistro()
         {
-            TelaCupomForm tela = new TelaCupomForm("Cadastro de Cupom");
+            TelaCupomForm tela = new("Cadastro de Cupom");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -48,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             }
 
             Cupom cupomSelecionado = controlador.SelecionarPorId(id);
-            TelaCupomForm tela = new TelaCupomForm("Edição de Cupom");
+            TelaCupomForm tela = new("Edição de Cupom");
             tela.Cupom = cupomSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)

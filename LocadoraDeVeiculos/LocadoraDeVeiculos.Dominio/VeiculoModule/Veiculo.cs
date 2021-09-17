@@ -1,8 +1,8 @@
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace LocadoraDeVeiculos.Dominio.VeiculoModule
 {
@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool estaAlugado;
         public List<ImagemVeiculo> imagens;
 
-        public Veiculo(int id,string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status, List<ImagemVeiculo> imagens)
+        public Veiculo(int id, string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status, List<ImagemVeiculo> imagens)
         {
             this.id = id;
             this.modelo = modelo;
@@ -84,7 +84,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                 resultadoValidacao += "O campo tamanho do porta mala não pode ser vazio!\n";
             if (resultadoValidacao == "")
                 resultadoValidacao = "VALIDO";
-                return resultadoValidacao;
+            return resultadoValidacao;
         }
 
         public override string ToString()
@@ -112,33 +112,31 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
                    temArCondicionado == veiculo.temArCondicionado &&
                    temDirecaoHidraulica == veiculo.temDirecaoHidraulica &&
                    temFreiosAbs == veiculo.temFreiosAbs &&
-                   estaAlugado == veiculo.estaAlugado &&
-                   imagens == imagens;
+                   estaAlugado == veiculo.estaAlugado;
         }
 
         public override int GetHashCode()
         {
-            int hashCode = -1113965374;
-            hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(modelo);
-            hashCode = hashCode * -1521134295 + EqualityComparer<GrupoDeVeiculo>.Default.GetHashCode(grupoVeiculos);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(placa);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(chassi);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(marca);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(cor);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(tipoCombustivel);
-            hashCode = hashCode * -1521134295 + capacidadeTanque.GetHashCode();
-            hashCode = hashCode * -1521134295 + ano.GetHashCode();
-            hashCode = hashCode * -1521134295 + kilometragem.GetHashCode();
-            hashCode = hashCode * -1521134295 + numeroPortas.GetHashCode();
-            hashCode = hashCode * -1521134295 + capacidadePessoas.GetHashCode();
-            hashCode = hashCode * -1521134295 + tamanhoPortaMala.GetHashCode();
-            hashCode = hashCode * -1521134295 + temArCondicionado.GetHashCode();
-            hashCode = hashCode * -1521134295 + temDirecaoHidraulica.GetHashCode();
-            hashCode = hashCode * -1521134295 + temFreiosAbs.GetHashCode();
-            hashCode = hashCode * -1521134295 + estaAlugado.GetHashCode();
-            hashCode = hashCode * -1521134295 + imagens.GetHashCode();
-            return hashCode;
+            HashCode hash = new();
+            hash.Add(id);
+            hash.Add(modelo);
+            hash.Add(grupoVeiculos);
+            hash.Add(placa);
+            hash.Add(chassi);
+            hash.Add(marca);
+            hash.Add(cor);
+            hash.Add(tipoCombustivel);
+            hash.Add(capacidadeTanque);
+            hash.Add(ano);
+            hash.Add(kilometragem);
+            hash.Add(numeroPortas);
+            hash.Add(capacidadePessoas);
+            hash.Add(tamanhoPortaMala);
+            hash.Add(temArCondicionado);
+            hash.Add(temDirecaoHidraulica);
+            hash.Add(temFreiosAbs);
+            hash.Add(estaAlugado);
+            return hash.ToHashCode();
         }
     }
 }

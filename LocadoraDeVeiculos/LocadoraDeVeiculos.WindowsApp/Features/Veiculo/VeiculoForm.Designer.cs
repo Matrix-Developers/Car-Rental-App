@@ -246,7 +246,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textKM.Size = new System.Drawing.Size(119, 20);
             this.textKM.TabIndex = 13;
             this.textKM.Text = "0";
-            this.textKM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textKM_KeyPress);
+            this.textKM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextKM_KeyPress);
             // 
             // label12
             // 
@@ -313,7 +313,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.btnConfirmar.TabIndex = 16;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // gBoxDados
             // 
@@ -364,7 +364,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.btnImagem.TabIndex = 8;
             this.btnImagem.Text = "Inserir imagens";
             this.btnImagem.UseVisualStyleBackColor = true;
-            this.btnImagem.Click += new System.EventHandler(this.button1_Click);
+            this.btnImagem.Click += new System.EventHandler(this.Button1_Click);
             // 
             // cBoxCombustivel
             // 
@@ -388,7 +388,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textAno.Name = "textAno";
             this.textAno.Size = new System.Drawing.Size(51, 20);
             this.textAno.TabIndex = 5;
-            this.textAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAno_KeyPress);
+            this.textAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextAno_KeyPress);
             // 
             // numUpDownCapTanque
             // 

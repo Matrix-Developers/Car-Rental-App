@@ -22,15 +22,15 @@ namespace LocadoraDeVeiculos.Dominio.Shared
         {
             double valorFinal;
             if (tipoSeguro.Equals("SeguroCliente"))
-                    valorFinal = VALOR_SEGURO_CLIENTE;
-            else if(tipoSeguro.Equals("SeguroTerceiro"))
+                valorFinal = VALOR_SEGURO_CLIENTE;
+            else if (tipoSeguro.Equals("SeguroTerceiro"))
                 valorFinal = VALOR_SEGURO_TERCEIRO;
             else
                 valorFinal = 0;
             return valorFinal;
         }
 
-        public static double CalcularPlano(string tipoPlano, GrupoDeVeiculo grupoDeVeiculos, double kilometragemRodada, DateTime dataInicial, DateTime dataFinal) 
+        public static double CalcularPlano(string tipoPlano, GrupoDeVeiculo grupoDeVeiculos, double kilometragemRodada, DateTime dataInicial, DateTime dataFinal)
         {
             double intervaloDeDias = (dataFinal - dataInicial).TotalDays;
             double precoPorDia = 0;
@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Dominio.Shared
         public static double CalcularMultaDevolucaoAtrasada(double precoTotal, DateTime dataPrevistaDeChegada, DateTime dataRealDeChegada)
         {
             double resultado = 0;
-            if (dataRealDeChegada > dataPrevistaDeChegada) 
+            if (dataRealDeChegada > dataPrevistaDeChegada)
             {
                 double diferencaDeDias = (dataRealDeChegada - dataPrevistaDeChegada).TotalDays;
                 double fracaoDoPrecoTotal = precoTotal * PORCENT_MULTA_DE_ATRASO_DIARIA;

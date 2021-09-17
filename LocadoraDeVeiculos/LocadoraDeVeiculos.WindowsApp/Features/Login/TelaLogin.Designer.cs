@@ -48,8 +48,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.btnConfirmar.TabIndex = 26;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
-            this.btnConfirmar.Enter += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
+            this.btnConfirmar.Enter += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // label4
             // 
@@ -122,7 +122,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.linkLabel1.TabIndex = 27;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Esqueceu Sua Senha?";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
             // 
             // TelaLogin
             // 

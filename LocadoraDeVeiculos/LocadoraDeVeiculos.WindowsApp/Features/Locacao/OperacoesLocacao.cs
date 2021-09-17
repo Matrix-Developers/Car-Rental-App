@@ -4,14 +4,10 @@ using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
-using LocadoraDeVeiculos.WindowsApp.Servicos;
+using LocadoraDeVeiculos.Infra.InternetServices;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
@@ -33,7 +29,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         public void InserirNovoRegistro()
         {
-            TelaLocacaoForm tela = new TelaLocacaoForm("Locação de Veiculos");
+            TelaLocacaoForm tela = new("Locação de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -47,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
                     try
                     {
-                        EnviarEmail(tela);
+                        GerenciadorDeEmail.EnviarEmail("matriquisdevelopers@gmail.com", "matrixadm",tela.Locacao);
                     }
                     catch (Exception ex)
                     {
@@ -75,7 +71,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
 
-            TelaLocacaoForm tela = new TelaLocacaoForm("Edição de Locação");
+            TelaLocacaoForm tela = new("Edição de Locação");
 
             tela.Locacao = locacaoSelecionada;
 
@@ -131,33 +127,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             tabelaLocacao.AtualizarRegistros(locacoes);
 
             return tabelaLocacao;
-        }
-
-        private void EnviarEmail(TelaLocacaoForm tela)
-        {
-            using (SmtpClient smtp = new SmtpClient())
-            {
-                using (MailMessage email = new MailMessage())
-                {
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = new System.Net.NetworkCredential("matriquisdevelopers@gmail.com", "matrixadm");
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
-
-                    email.From = new MailAddress("matriquisdevelopers@gmail.com");
-                    email.To.Add(tela.Locacao.ClienteContratante.Email);
-
-                    email.Subject = "Matrix";
-                    email.IsBodyHtml = false;
-                    email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
-
-
-                    email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo{tela.Locacao.Id}.pdf"));
-
-                    smtp.Send(email);
-                }
-            }
         }
     }
 }

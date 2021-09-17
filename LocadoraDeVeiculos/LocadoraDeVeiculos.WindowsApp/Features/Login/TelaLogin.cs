@@ -1,14 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Login
@@ -22,7 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             InitializeComponent();
             controlador = new FuncionarioRepository();
         }
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
 
             if (textUsuario.Text == "admin" && textSenha.Text == "admin")
@@ -54,17 +47,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             thread.Start();
 
 
-            TelaLogin login = new TelaLogin();
+            TelaLogin login = new();
             this.Dispose();
             login.Close();
         }
 
-        public void ChamarTelaPrincipal()
+        public static void ChamarTelaPrincipal()
         {
             Application.Run(new TelaPrincipalForm()); ;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Por favor contatar o usuário administrador para refazer sua senha");
         }
