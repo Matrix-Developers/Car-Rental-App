@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(116, 20);
             this.txtValor.TabIndex = 3;
-            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValor_KeyPress);
             // 
             // labelCalculoFixo
             // 
@@ -154,7 +154,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.btnConfirma.TabIndex = 6;
             this.btnConfirma.Text = "Confirmar";
             this.btnConfirma.UseVisualStyleBackColor = true;
-            this.btnConfirma.Click += new System.EventHandler(this.btnConfirma_Click);
+            this.btnConfirma.Click += new System.EventHandler(this.BtnConfirma_Click);
             // 
             // txtId
             // 

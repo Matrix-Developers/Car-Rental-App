@@ -20,11 +20,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
     public class LocacaoRepository : RepositoryBase<Locacao>, IRepository<Locacao>
     {
-        private VeiculoRepository controladorVeiculo = null;
-        private FuncionarioRepository controladorFuncionario = null;
-        private ClienteRepository controladorCliente = null;
-        private ServicoRepository controladorServico = null;
-        private CupomRepository controladorCupom = null;
+        private readonly VeiculoRepository controladorVeiculo = null;
+        private readonly FuncionarioRepository controladorFuncionario = null;
+        private readonly ClienteRepository controladorCliente = null;
+        private readonly ServicoRepository controladorServico = null;
+        private readonly CupomRepository controladorCupom = null;
 
         public LocacaoRepository(VeiculoRepository controladorVeiculo, FuncionarioRepository controladorFuncionario, ClienteRepository controladorCliente, ServicoRepository controladorServico, CupomRepository controladorCupom)
         {
@@ -135,7 +135,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         }
 
         //chamada unica do Locacao
-        string sqlSelecionarIdServicoPorIdLocacao =
+        readonly string sqlSelecionarIdServicoPorIdLocacao =
             @"SELECT [ID_SERVICO] FROM [TBSERVICO_LOCACAO]
                WHERE [ID_LOCACAO] = @ID_LOCACAO";
         //

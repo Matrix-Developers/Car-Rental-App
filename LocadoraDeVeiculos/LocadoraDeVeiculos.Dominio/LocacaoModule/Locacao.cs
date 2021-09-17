@@ -11,16 +11,16 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 {
     public class Locacao : EntidadeBase
     {
-        private Veiculo veiculo;
-        private Funcionario funcionarioLocador;
-        private Cliente clienteContratante;
-        private Cliente clienteCondutor;
-        private Cupom cupom;
+        private readonly Veiculo veiculo;
+        private readonly Funcionario funcionarioLocador;
+        private readonly Cliente clienteContratante;
+        private readonly Cliente clienteCondutor;
+        private readonly Cupom cupom;
         private DateTime dataDeSaida;
-        private DateTime dataPrevistaDeChegada;
+        private readonly DateTime dataPrevistaDeChegada;
         private DateTime dataDeChegada;
-        private string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
-        private string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
+        private readonly string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
+        private readonly string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
         private double precoLocacao;
         private double precoDevolucao;
         private bool estaAberta;

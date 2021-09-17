@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             this.btnAvancar.Size = new System.Drawing.Size(66, 42);
             this.btnAvancar.TabIndex = 5;
             this.btnAvancar.UseVisualStyleBackColor = true;
-            this.btnAvancar.Click += new System.EventHandler(this.btnAvancar_Click);
+            this.btnAvancar.Click += new System.EventHandler(this.BtnAvancar_Click);
             // 
             // btnVoltar
             // 
@@ -85,7 +85,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             this.btnVoltar.Size = new System.Drawing.Size(67, 42);
             this.btnVoltar.TabIndex = 1;
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            this.btnVoltar.Click += new System.EventHandler(this.BtnVoltar_Click);
             // 
             // btnAdicionar
             // 
@@ -95,7 +95,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             this.btnAdicionar.Size = new System.Drawing.Size(67, 42);
             this.btnAdicionar.TabIndex = 3;
             this.btnAdicionar.UseVisualStyleBackColor = true;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            this.btnAdicionar.Click += new System.EventHandler(this.BtnAdicionar_Click);
             // 
             // btnExcluir
             // 
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             this.btnExcluir.Size = new System.Drawing.Size(67, 42);
             this.btnExcluir.TabIndex = 4;
             this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // btnConfirmar
             // 
@@ -117,7 +117,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             this.btnConfirmar.TabIndex = 6;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -129,7 +129,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // openFileDialog
             // 

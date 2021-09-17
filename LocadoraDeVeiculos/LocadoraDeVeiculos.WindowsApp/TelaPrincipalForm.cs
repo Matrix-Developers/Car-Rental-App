@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
 
         #region Opções do menu strip
-        private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FuncionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoFuncionarioToolBox configuracao = new();
 
@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void servicosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ServicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoServicoToolBox configuracao = new();
 
@@ -66,7 +66,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoClienteToolBox configuracao = new();
 
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void VeiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoVeiculoToolBox configuracao = new();
 
@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void grupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GrupoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoGrupoDeVeiculosToolBox configuracao = new();
 
@@ -107,7 +107,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarPainelRegistros();
         }
-        private void locarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LocarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoLocacaoToolBox configuracao = new();
 
@@ -121,7 +121,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DevoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoDevolucaoToolBox configuracao = new();
 
@@ -135,7 +135,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void cuponsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CuponsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoCupomToolBox configuracao = new();
 
@@ -149,7 +149,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ParceirosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoParceiroToolBox configuracao = new();
 
@@ -165,22 +165,22 @@ namespace LocadoraDeVeiculos.WindowsApp
         #endregion
 
         #region Ações dos botões
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private void BtnAdicionar_Click(object sender, EventArgs e)
         {
             operacoes.InserirNovoRegistro();
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
             operacoes.EditarRegistro();
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void BtnExcluir_Click(object sender, EventArgs e)
         {
             operacoes.ExcluirRegistro();
         }
 
-        private void btnFiltrar_Click(object sender, EventArgs e)
+        private void BtnFiltrar_Click(object sender, EventArgs e)
         {
             operacoes.FiltrarRegistros();
         }
@@ -220,7 +220,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
         #endregion
         public void AtualizarRodape(string mensagem) { labelRodape.Text = mensagem; }
-        private void inícioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void InícioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             MostrarDashBoard();

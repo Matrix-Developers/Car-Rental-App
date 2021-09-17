@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Clientes
             gridClientes.Columns.AddRange(ObterColunas());
         }
 
-        public DataGridViewColumn[] ObterColunas()
+        public static DataGridViewColumn[] ObterColunas()
         {
             var colunas = new DataGridViewColumn[]
            {

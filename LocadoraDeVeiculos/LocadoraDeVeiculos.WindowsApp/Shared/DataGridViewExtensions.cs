@@ -64,7 +64,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
         {
             const int firstLine = 0, firstColumn = 0;
             if (grid.SelectedRows.Count == 0)
-                return default(T);
+                return default;
 
             object value = grid.SelectedRows[firstLine].Cells[firstColumn].Value;
 

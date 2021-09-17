@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         }
 
         #region Eventos dos botões
-        private void btnSelecionarServicos_Click(object sender, EventArgs e)
+        private void BtnSelecionarServicos_Click(object sender, EventArgs e)
         {
             telaServico.InicializarCampos(Devolucao.Servicos, devolucao.TipoDeSeguro, false);
             Devolucao.Servicos.Clear();
@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 AtualizarListBox();
             }
         }
-        private void brnConfirmar_Click(object sender, EventArgs e)
+        private void BrnConfirmar_Click(object sender, EventArgs e)
         {
             if (dtDevolucao.Value <= devolucao.DataDeSaida)
             {
@@ -110,7 +110,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         #endregion
 
         #region rButton e cBox do combustivel
-        private void cBoxQtdTanque_SelectedIndexChanged(object sender, EventArgs e)
+        private void CBoxQtdTanque_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cBoxQtdTanque.SelectedIndex == 0)
                 rBtn01.Checked = true;
@@ -127,31 +127,31 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 SimularCalculoDevolucao();
         }
 
-        private void rBtn01_CheckedChanged(object sender, EventArgs e)
+        private void RBtn01_CheckedChanged(object sender, EventArgs e)
         {
             if (rBtn01.Checked)
                 cBoxQtdTanque.SelectedIndex = 0;
         }
 
-        private void rBtn14_CheckedChanged(object sender, EventArgs e)
+        private void RBtn14_CheckedChanged(object sender, EventArgs e)
         {
             if (rBtn14.Checked)
                 cBoxQtdTanque.SelectedIndex = 1;
         }
 
-        private void rBtn12_CheckedChanged(object sender, EventArgs e)
+        private void RBtn12_CheckedChanged(object sender, EventArgs e)
         {
             if (rBtn12.Checked)
                 cBoxQtdTanque.SelectedIndex = 2;
         }
 
-        private void rBtn34_CheckedChanged(object sender, EventArgs e)
+        private void RBtn34_CheckedChanged(object sender, EventArgs e)
         {
             if (rBtn34.Checked)
                 cBoxQtdTanque.SelectedIndex = 3;
         }
 
-        private void rBtn11_CheckedChanged(object sender, EventArgs e)
+        private void RBtn11_CheckedChanged(object sender, EventArgs e)
         {
             if (rBtn11.Checked)
                 cBoxQtdTanque.SelectedIndex = 4;
@@ -159,7 +159,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         #endregion
 
         #region Validação para aceitar apenas números
-        private void txtValorCombustivel_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtValorCombustivel_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
@@ -175,7 +175,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             SimularCalculoDevolucao();
         }
-        private void txtKmFinal_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtKmFinal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
@@ -192,7 +192,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             SimularCalculoDevolucao();
         }
 
-        private void dtDevolucao_ValueChanged(object sender, EventArgs e)
+        private void DtDevolucao_ValueChanged(object sender, EventArgs e)
         {
             SimularCalculoDevolucao();
         }

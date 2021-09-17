@@ -47,14 +47,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
                 cLBoxServicos.Items.Add(servico);
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             seguro = cBoxSeguro.SelectedItem.ToString().Replace(" ", "");
             foreach (Servico servico in cLBoxServicos.CheckedItems)
                 servicosSelecionados.Add(servico);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             TelaServicoForm telaServicoForm = new("Cadastro de Serviços");
             if (telaServicoForm.ShowDialog() == DialogResult.OK)

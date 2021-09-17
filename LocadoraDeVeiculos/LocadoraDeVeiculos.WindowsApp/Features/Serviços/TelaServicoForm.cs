@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             }
         }
 
-        private void btnConfirma_Click(object sender, EventArgs e)
+        private void BtnConfirma_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtId.Text);
             string nome = txtNome.Text;
@@ -55,11 +55,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             }
         }
 
-        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtValor.Text.IndexOf(".") >= 0 || txtValor.Text.Length == 0)
+                if (txtValor.Text.Contains(".", StringComparison.CurrentCulture) || txtValor.Text.Length == 0)
                 {
                     e.Handled = true;
                 }

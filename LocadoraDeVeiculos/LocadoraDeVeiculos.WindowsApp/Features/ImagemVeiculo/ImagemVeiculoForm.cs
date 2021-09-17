@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                 pctBoxImagem.Image = imagens[0].Imagem;
 
         }
-        private void btnAdicionar_Click(object sender, EventArgs e)
+        private void BtnAdicionar_Click(object sender, EventArgs e)
         {
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -74,19 +74,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
                 pctBoxImagem.Image = default;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void BtnVoltar_Click(object sender, EventArgs e)
         {
             if (imagens.Count != 0)
                 MudarImagemAtual(voltar);
         }
 
-        private void btnAvancar_Click(object sender, EventArgs e)
+        private void BtnAvancar_Click(object sender, EventArgs e)
         {
             if (imagens.Count != 0)
                 MudarImagemAtual(avancar);
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void BtnExcluir_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Tem certeza que deseja excluir a imagem?", "Locadora de veículos",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
@@ -103,12 +103,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             telaBase.AtualizarListaDeFotos(imagens);
             this.Close();

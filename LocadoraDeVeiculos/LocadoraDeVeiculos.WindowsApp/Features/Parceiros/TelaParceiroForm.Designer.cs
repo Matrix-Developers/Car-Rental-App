@@ -110,7 +110,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.btnConfirmar.TabIndex = 78;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // TelaParceiroForm
             // 

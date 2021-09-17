@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
             labelRegistro.Text = "CPF";
             maskRegistro.Mask = "000.000.000-00";
@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             maskRegistro.Size = new Size(90, 20);
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
             labelRegistro.Text = "CNPJ";
             maskRegistro.Mask = "00.000.000/0000-00";
@@ -65,7 +65,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             maskRegistro.Size = new Size(113, 20);
         }
 
-        private void btnConfirmar_Click_1(object sender, EventArgs e)
+        private void BtnConfirmar_Click_1(object sender, EventArgs e)
         {
             DateTime? validade = null;
             bool ehPessoaFisica = false;

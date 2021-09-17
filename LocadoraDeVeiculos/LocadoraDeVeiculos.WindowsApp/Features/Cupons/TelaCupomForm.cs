@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             }
         }
         #region Radio Buttons
-        private void rBtnValorFixo_CheckedChanged(object sender, EventArgs e)
+        private void RBtnValorFixo_CheckedChanged(object sender, EventArgs e)
         {
             if (rBtnValorFixo.Checked == true)
             {
@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             }
         }
 
-        private void rBtnPorcentagem_CheckedChanged(object sender, EventArgs e)
+        private void RBtnPorcentagem_CheckedChanged(object sender, EventArgs e)
         {
             if (rBtnPorcentagem.Checked == true)
             {
@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             }
         }
         #endregion
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             bool ehDescontoFixo = false;
 

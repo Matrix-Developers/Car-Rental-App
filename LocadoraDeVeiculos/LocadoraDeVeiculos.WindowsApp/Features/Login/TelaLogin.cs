@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             InitializeComponent();
             controlador = new FuncionarioRepository();
         }
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
 
             if (textUsuario.Text == "admin" && textSenha.Text == "admin")
@@ -52,12 +52,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             login.Close();
         }
 
-        public void ChamarTelaPrincipal()
+        public static void ChamarTelaPrincipal()
         {
             Application.Run(new TelaPrincipalForm()); ;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Por favor contatar o usuário administrador para refazer sua senha");
         }

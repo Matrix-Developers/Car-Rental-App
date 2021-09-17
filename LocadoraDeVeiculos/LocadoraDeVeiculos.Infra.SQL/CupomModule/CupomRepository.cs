@@ -214,7 +214,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         }
 
         //metodos unicos do cupom
-        public bool ExisteCodigo(string codigo)
+        public static bool ExisteCodigo(string codigo)
         {
             return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
         }
@@ -226,7 +226,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         {
             Db.Update(sqlEditarQtdUtilizadaCupom, ObtemParametrosQtdUtilizada(id, qtdUtilizada));
         }
-        private Dictionary<string, object> ObtemParametrosQtdUtilizada(int id, int qtdUtilizada)
+        private static Dictionary<string, object> ObtemParametrosQtdUtilizada(int id, int qtdUtilizada)
         {
             var parametros = new Dictionary<string, object>
             {

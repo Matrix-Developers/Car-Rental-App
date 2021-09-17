@@ -89,7 +89,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             cBoxCondutor.DataSource = clientesPf;
         }
 
-        private void brnConfirmar_Click(object sender, EventArgs e)
+        private void BrnConfirmar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtId.Text);
             string tipoDoPlano = cBoxPlano.Text.Replace(" ", "");
@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (telaServico.seguro.Length > 0)
                 tipoDeSeguro = telaServico.seguro;
             Cupom cupom = null;
-            bool existe = controladorCupom.ExisteCodigo(txtCupom.Text);
+            bool existe = CupomRepository.ExisteCodigo(txtCupom.Text);
             if (existe)
             {
                 cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
@@ -128,9 +128,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             }
         }
 
-
-
-        private void btnServicos_Click(object sender, EventArgs e)
+        private void BtnServicos_Click(object sender, EventArgs e)
         {
             telaServico = new ServicosForm();
             telaServico.InicializarCampos(Servicos, TipoSeguro, true);
@@ -145,10 +143,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             }
         }
 
-        private void btnVerificar_Click(object sender, EventArgs e)
+        private void BtnVerificar_Click(object sender, EventArgs e)
         {
             string cupom = txtCupom.Text;
-            bool existe = controladorCupom.ExisteCodigo(cupom);
+            bool existe = CupomRepository.ExisteCodigo(cupom);
             if (existe)
                 txtCupom.BackColor = Color.Green;
             else

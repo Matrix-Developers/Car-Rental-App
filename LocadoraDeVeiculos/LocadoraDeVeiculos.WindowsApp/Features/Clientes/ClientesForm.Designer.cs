@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "PF";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -87,7 +87,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "PJ";
             this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
             // 
             // btnConfirmar
             // 
@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.btnConfirmar.TabIndex = 9;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click_1);
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click_1);
             // 
             // btnCancelar
             // 

@@ -5,13 +5,13 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 {
     public class GrupoDeVeiculo : EntidadeBase
     {
-        private string nome;
-        private double taxaPlanoDiario;
-        private double taxaPorKmDiario;
-        private double taxaPlanoControlado;
-        private int limiteKmControlado;
-        private double taxaKmExcedidoControlado;
-        private double taxaPlanoLivre;
+        private readonly string nome;
+        private readonly double taxaPlanoDiario;
+        private readonly double taxaPorKmDiario;
+        private readonly double taxaPlanoControlado;
+        private readonly int limiteKmControlado;
+        private readonly double taxaKmExcedidoControlado;
+        private readonly double taxaPlanoLivre;
 
         public string Nome { get => nome; }
         public double TaxaPlanoDiario { get => taxaPlanoDiario; }

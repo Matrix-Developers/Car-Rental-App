@@ -19,8 +19,8 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
     public class RelacionamentoLocServRepository : RepositoryBase<RelacionamentoLocServ>, IRepository<RelacionamentoLocServ>       //essa classe está parcialmente obsoleta
     {
         private int id = 0;
-        ServicoRepository controladorServico = new();
-        LocacaoRepository controladorLocacao = new(new VeiculoRepository(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository());
+        readonly ServicoRepository controladorServico = new();
+        readonly LocacaoRepository controladorLocacao = new(new VeiculoRepository(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository());
 
         #region queries
         protected override string SqlInserirEntidade

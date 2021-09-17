@@ -13,7 +13,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
     public class VeiculoRepository : RepositoryBase<Veiculo>, IRepository<Veiculo>
     {
-        private ImagemVeiculoRepository controladorImagem = new();
+        private readonly ImagemVeiculoRepository controladorImagem = new();
 
         #region queries
         protected override string SqlInserirEntidade

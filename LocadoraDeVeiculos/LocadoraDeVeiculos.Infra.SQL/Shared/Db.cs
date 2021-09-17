@@ -10,9 +10,9 @@ namespace LocadoraDeVeiculos.Controladores.Shared
     public static class Db
     {
         //private static string bancoDeDados;
-        private static string connectionString = "";
-        private static string nomeProvider;
-        private static DbProviderFactory fabricaProvedor;
+        private static readonly string connectionString = "";
+        private static readonly string nomeProvider;
+        private static readonly DbProviderFactory fabricaProvedor;
 
         static Db()
         {

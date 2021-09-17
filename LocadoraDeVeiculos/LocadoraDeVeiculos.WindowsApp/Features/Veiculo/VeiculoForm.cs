@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             }
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             int id = 0;
             int ano = 0;
@@ -104,7 +104,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             }
         }
 
-        private void textAno_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextAno_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
@@ -119,7 +119,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             }
         }
 
-        private void textKM_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextKM_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
@@ -134,7 +134,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             ImagemVeiculoForm telaImagem = new(this);
             telaImagem.Show();

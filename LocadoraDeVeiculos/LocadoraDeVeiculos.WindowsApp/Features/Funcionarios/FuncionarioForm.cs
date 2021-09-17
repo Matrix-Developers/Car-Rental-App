@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             }
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             string nome = textNome.Text;
             string registroUnico = mskTxtCpf.Text.Replace("-", "").Replace(".", "").Replace(" ", "");
@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
         }

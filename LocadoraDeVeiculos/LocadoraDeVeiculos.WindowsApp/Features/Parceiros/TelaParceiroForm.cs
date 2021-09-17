@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 txtNome.Text = parceiro.Nome;
             }
         }
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             int id = 0;
             string nome = txtNome.Text;
