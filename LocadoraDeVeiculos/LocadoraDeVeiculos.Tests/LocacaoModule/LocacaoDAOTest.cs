@@ -20,7 +20,7 @@ using System.Collections.Generic;
 namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
 {
     [TestClass]
-    public class LocacaoControladorTest
+    public class LocacaoDAOTest
     {
         LocacaoRepository controlador = null;
         GrupoDeVeiculosRepository controladorGrupoDeVeiculos = null;
@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
         Cliente clienteCondutor;
         Locacao locacao;
 
-        public LocacaoControladorTest()
+        public LocacaoDAOTest()
         {
             controladorGrupoDeVeiculos = new GrupoDeVeiculosRepository();
             controladorVeiculo = new VeiculoRepository();

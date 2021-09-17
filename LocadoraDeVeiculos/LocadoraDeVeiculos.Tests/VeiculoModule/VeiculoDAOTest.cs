@@ -10,7 +10,7 @@ using LocadoraDeVeiculos.IntegrationTests.Shared;
 using System;
 using LocadoraDeVeiculos.TestDataBuilders;
 
-namespace LocadoraDeVeiculos.IntegrationTests.VeiculoDAOTest
+namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
 {
     [TestClass]
     [TestCategory("DAO")]

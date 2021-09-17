@@ -6,7 +6,7 @@ using LocadoraDeVeiculos.TestDataBuilders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace LocadoraDeVeiculos.IntegrationTests.ClienteDAOTest
+namespace LocadoraDeVeiculos.IntegrationTests.ClienteModule
 {
     [TestClass]
     [TestCategory("DAO")]

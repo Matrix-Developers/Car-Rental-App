@@ -6,7 +6,7 @@ using LocadoraDeVeiculos.IntegrationTests.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
 using FluentAssertions;
 
-namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioDAOTest
+namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
 {
     [TestClass]
     [TestCategory("DAO")]
