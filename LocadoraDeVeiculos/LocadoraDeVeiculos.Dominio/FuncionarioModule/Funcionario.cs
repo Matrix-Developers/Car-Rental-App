@@ -6,13 +6,12 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
 {
     public class Funcionario : Pessoa
     {
-        public int MatriculaInterna { get; }
-        public string UsuarioAcesso { get; }
-        public DateTime DataAdmissao { get; }
-        public string Cargo { get; }
-        public double Salario { get; }
-
-        public string Senha { get; }
+        public int MatriculaInterna { get; set; }
+        public string UsuarioAcesso { get; set; }
+        public DateTime DataAdmissao { get; set; }
+        public string Cargo { get; set; }
+        public double Salario { get; set; }
+        public string Senha { get; set; }
 
         public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matriculaInterna, string usuarioAcesso, string senha, DateTime dataAdmissao, string cargo, double salario, bool ehPessoaFisica)
         {
@@ -30,6 +29,10 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             Cargo = cargo;
             Salario = salario;
             EhPessoaFisica = ehPessoaFisica;
+        }
+
+        public Funcionario()
+        {
         }
 
         public override string Validar()

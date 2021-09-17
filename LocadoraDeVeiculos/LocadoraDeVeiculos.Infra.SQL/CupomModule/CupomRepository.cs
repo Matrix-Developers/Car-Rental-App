@@ -214,7 +214,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         }
 
         //metodos unicos do cupom
-        public static bool ExisteCodigo(string codigo)
+        public bool ExisteCodigo(string codigo)
         {
             return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
         }

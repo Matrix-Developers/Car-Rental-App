@@ -6,8 +6,8 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
 {
     public class Cliente : Pessoa
     {
-        public string Cnh { get; }
-        public DateTime? ValidadeCnh { get; }
+        public string Cnh { get; set; }
+        public DateTime? ValidadeCnh { get; set; }
 
         public Cliente(int id, string nome, string registroUnico, string endereco, string telefone, string email, string cnh, DateTime? validadeCnh, bool ehPessoaFisica)
         {
@@ -20,6 +20,10 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
             Cnh = cnh;
             ValidadeCnh = validadeCnh;
             EhPessoaFisica = ehPessoaFisica;
+        }
+
+        public Cliente()
+        {
         }
 
         public override string Validar()

@@ -50,6 +50,10 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.imagens = imagens;
         }
 
+        public Veiculo()
+        {
+        }
+
         public override string Validar()
         {
             string resultadoValidacao = "";

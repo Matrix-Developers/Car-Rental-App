@@ -5,12 +5,15 @@ namespace LocadoraDeVeiculos.Dominio.ParceiroModule
 {
     public class Parceiro : EntidadeBase
     {
-        public string Nome { get; }
+        public string Nome { get; set; }
 
         public Parceiro(int id, string nome)
         {
             Id = id;
             Nome = nome;
+        }
+        public Parceiro()
+        {
         }
 
         public override string Validar()

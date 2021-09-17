@@ -11,16 +11,16 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 {
     public class Locacao : EntidadeBase
     {
-        private readonly Veiculo veiculo;
-        private readonly Funcionario funcionarioLocador;
-        private readonly Cliente clienteContratante;
-        private readonly Cliente clienteCondutor;
-        private readonly Cupom cupom;
+        private Veiculo veiculo;
+        private Funcionario funcionarioLocador;
+        private Cliente clienteContratante;
+        private Cliente clienteCondutor;
+        private Cupom cupom;
         private DateTime dataDeSaida;
-        private readonly DateTime dataPrevistaDeChegada;
+        private DateTime dataPrevistaDeChegada;
         private DateTime dataDeChegada;
-        private readonly string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
-        private readonly string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
+        private string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
+        private string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
         private double precoLocacao;
         private double precoDevolucao;
         private bool estaAberta;
@@ -67,19 +67,23 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.servicos = servicos;
         }
 
-        public Veiculo Veiculo { get => veiculo; }
-        public Funcionario FuncionarioLocador { get => funcionarioLocador; }
-        public Cliente ClienteContratante { get => clienteContratante; }
-        public Cliente ClienteCondutor { get => clienteCondutor; }
-        public Cupom Cupom { get => cupom; }
-        public DateTime DataDeSaida { get => dataDeSaida; }
-        public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; }
-        public DateTime DataDeChegada { get => dataDeChegada; }
-        public string TipoDoPlano { get => tipoDoPlano; }
-        public string TipoDeSeguro { get => tipoDeSeguro; }
-        public double PrecoLocacao { get => precoLocacao; }
-        public double PrecoDevolucao { get => precoDevolucao; }
-        public bool EstaAberta { get => estaAberta; }
+        public Locacao()
+        {
+        }
+
+        public Veiculo Veiculo { get => veiculo; set=> veiculo = value; }
+        public Funcionario FuncionarioLocador { get => funcionarioLocador; set => funcionarioLocador = value; }
+        public Cliente ClienteContratante { get => clienteContratante; set => clienteContratante = value; }
+        public Cliente ClienteCondutor { get => clienteCondutor; set => clienteCondutor = value; }
+        public Cupom Cupom { get => cupom; set => cupom = value; }
+        public DateTime DataDeSaida { get => dataDeSaida; set => dataDeSaida = value; }
+        public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; set => dataPrevistaDeChegada = value; }
+        public DateTime DataDeChegada { get => dataDeChegada; set => dataDeChegada = value; }
+        public string TipoDoPlano { get => tipoDoPlano; set => tipoDoPlano = value; }
+        public string TipoDeSeguro { get => tipoDeSeguro; set => tipoDeSeguro = value; }
+        public double PrecoLocacao { get => precoLocacao; set => precoLocacao = value; }
+        public double PrecoDevolucao { get => precoDevolucao; set => precoDevolucao = value; }
+        public bool EstaAberta { get => estaAberta; set => estaAberta = value; }
         public List<Servico> Servicos { get => servicos; set => servicos = value; }
 
         public void AbrirLocacao(DateTime dataAbertura)

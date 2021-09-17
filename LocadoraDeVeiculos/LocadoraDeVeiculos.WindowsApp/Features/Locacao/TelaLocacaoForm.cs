@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (telaServico.seguro.Length > 0)
                 tipoDeSeguro = telaServico.seguro;
             Cupom cupom = null;
-            bool existe = CupomRepository.ExisteCodigo(txtCupom.Text);
+            bool existe = controladorCupom.ExisteCodigo(txtCupom.Text);
             if (existe)
             {
                 cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
@@ -146,7 +146,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void BtnVerificar_Click(object sender, EventArgs e)
         {
             string cupom = txtCupom.Text;
-            bool existe = CupomRepository.ExisteCodigo(cupom);
+            bool existe = controladorCupom.ExisteCodigo(cupom);
             if (existe)
                 txtCupom.BackColor = Color.Green;
             else

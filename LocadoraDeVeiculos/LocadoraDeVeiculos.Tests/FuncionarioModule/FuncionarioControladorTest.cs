@@ -3,9 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using System.Collections.Generic;
 using System;
-using LocadoraDeVeiculos.Tests.Shared;
+using LocadoraDeVeiculos.IntegrationTests.Shared;
 
-namespace LocadoraDeVeiculos.Tests.FuncionarioModule
+namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
 {
     [TestClass]
     public class FuncionarioControladorTest
