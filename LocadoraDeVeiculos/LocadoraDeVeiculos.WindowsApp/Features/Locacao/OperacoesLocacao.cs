@@ -4,10 +4,10 @@ using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
+using LocadoraDeVeiculos.Infra.InternetServices;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
-using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
                     try
                     {
-                        EnviarEmail(tela);
+                        GerenciadorDeEmail.EnviarEmail("matriquisdevelopers@gmail.com", "matrixadm",tela.Locacao);
                     }
                     catch (Exception ex)
                     {
@@ -127,29 +127,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             tabelaLocacao.AtualizarRegistros(locacoes);
 
             return tabelaLocacao;
-        }
-
-        private static void EnviarEmail(TelaLocacaoForm tela)
-        {
-            using SmtpClient smtp = new();
-            using MailMessage email = new();
-
-            smtp.Host = "smtp.gmail.com";
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential("matriquisdevelopers@gmail.com", "matrixadm");
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
-
-            email.From = new MailAddress("matriquisdevelopers@gmail.com");
-            email.To.Add(tela.Locacao.ClienteContratante.Email);
-
-            email.Subject = "Matrix";
-            email.IsBodyHtml = false;
-            email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
-
-            email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo{tela.Locacao.Id}.pdf"));
-
-            smtp.Send(email);
         }
     }
 }

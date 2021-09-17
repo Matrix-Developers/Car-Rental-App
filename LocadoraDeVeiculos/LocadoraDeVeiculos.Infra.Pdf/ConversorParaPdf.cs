@@ -1,8 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
-//using PdfSharp.Drawing;
-//using PdfSharp.Pdf;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Controladores.Shared
