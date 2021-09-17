@@ -184,7 +184,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public List<Veiculo> SelecionarTodos()
         {
-            List<Veiculo>veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmEntidade);
+            List<Veiculo> veiculos = Db.GetAll(sqlSelecionarTodosVeiculos, ConverterEmEntidade);
 
             foreach (Veiculo veiculo in veiculos)
             {
@@ -207,8 +207,9 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             {
                 registro.Id = id;
                 Db.Update(sqlEditarVeiculo, ObtemParametros(registro));
-                foreach (ImagemVeiculo imagem in registro.imagens)
-                    imagem.idVeiculo = registro.Id;
+                if (registro.imagens != null)
+                    foreach (ImagemVeiculo imagem in registro.imagens)
+                        imagem.idVeiculo = registro.Id;
                 controladorImagem.EditarLista(registro.imagens);
             }
 
@@ -293,7 +294,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             GrupoDeVeiculo grupo = new GrupoDeVeiculo(id_grupoveiculo, nome, taxaPlanoDiario, taxaPorKmDiario, taxaPlanoControlado, limiteKmControlado, taxaKmExcedidoControlado, taxaPlanoLivre);
 
-            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado,null);
+            Veiculo veiculo = new Veiculo(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado, null);
 
             veiculo.Id = id;
 
