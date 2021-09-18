@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.SevicosModule;
+using System;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
@@ -25,6 +26,11 @@ namespace LocadoraDeVeiculos.TestDataBuilders
         {
             servico.Valor = valor;
             return this;
+        }
+
+        public Servico Build()
+        {
+            return servico;
         }
     }
 }

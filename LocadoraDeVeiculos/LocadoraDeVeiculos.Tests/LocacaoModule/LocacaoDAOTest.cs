@@ -251,6 +251,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
             controladorLocacao.InserirNovo(locacao);
             controladorLocacao.Excluir(locacao.Id);
 
+            //Assert
             List<Locacao> locacaoEncontrado = controladorLocacao.SelecionarTodos();
             locacaoEncontrado.Count.Should().Be(0);
         }
