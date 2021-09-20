@@ -175,7 +175,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.rBtnPorcentagem.TabStop = true;
             this.rBtnPorcentagem.Text = "Porcentagem";
             this.rBtnPorcentagem.UseVisualStyleBackColor = true;
-            this.rBtnPorcentagem.CheckedChanged += new System.EventHandler(this.rBtnPorcentagem_CheckedChanged);
+            this.rBtnPorcentagem.CheckedChanged += new System.EventHandler(this.RBtnPorcentagem_CheckedChanged);
             // 
             // rBtnValorFixo
             // 
@@ -188,7 +188,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.rBtnValorFixo.TabStop = true;
             this.rBtnValorFixo.Text = "Valor Fixo";
             this.rBtnValorFixo.UseVisualStyleBackColor = true;
-            this.rBtnValorFixo.CheckedChanged += new System.EventHandler(this.rBtnValorFixo_CheckedChanged);
+            this.rBtnValorFixo.CheckedChanged += new System.EventHandler(this.RBtnValorFixo_CheckedChanged);
             // 
             // txtCodigo
             // 
@@ -267,7 +267,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.btnConfirmar.TabIndex = 85;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // TelaCupomForm
             // 

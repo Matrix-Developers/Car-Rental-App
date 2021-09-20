@@ -1,8 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.VeiculoModule;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.WindowsApp.Veiculos;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -19,14 +18,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public void InserirNovoRegistro()
         {
-            VeiculoForm tela = new VeiculoForm("Cadastro de Veiculos");
+            VeiculoForm tela = new("Cadastro de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                if(tela.Veiculo.imagens.Count !=0)
+                if (tela.Veiculo.imagens.Count != 0)
                     foreach (Dominio.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
-                        imagem.idVeiculo = tela.Veiculo.Id;
-                
+                        imagem.IdVeiculo = tela.Veiculo.Id;
+
                 controlador.InserirNovo(tela.Veiculo);
 
                 List<Veiculo> veiculos = controlador.SelecionarTodos();
@@ -48,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 
             Veiculo tarefaSelecionada = controlador.SelecionarPorId(id);
 
-            VeiculoForm tela = new VeiculoForm("Edição de Veiculos");
+            VeiculoForm tela = new("Edição de Veiculos");
 
             tela.Veiculo = tarefaSelecionada;
 

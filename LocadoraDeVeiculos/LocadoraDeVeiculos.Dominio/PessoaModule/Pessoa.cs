@@ -1,9 +1,4 @@
 ﻿using LocadoraDeVeiculos.Dominio.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.PessoaModule
 {
@@ -19,7 +14,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
         public virtual string ValidarPessoa()
         {
             string resultadoValidacao = "";
-            bool resultadoValidacaoRegistroUnico = false;
+            bool resultadoValidacaoRegistroUnico;
             if (EhPessoaFisica)
                 resultadoValidacaoRegistroUnico = ValidarCpf(RegistroUnico);
             else
@@ -67,7 +62,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             else
                 resto = 11 - resto;
             digito = resto.ToString();
-            tempCpf = tempCpf + digito;
+            tempCpf += digito;
             soma = 0;
             for (int i = 0; i < 10; i++)
                 soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
@@ -76,7 +71,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
                 resto = 0;
             else
                 resto = 11 - resto;
-            digito = digito + resto.ToString();
+            digito += resto.ToString();
             return cpf.EndsWith(digito);
         }
 
@@ -102,7 +97,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             else
                 resto = 11 - resto;
             digito = resto.ToString();
-            tempCnpj = tempCnpj + digito;
+            tempCnpj += digito;
             soma = 0;
             for (int i = 0; i < 13; i++)
                 soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
@@ -111,7 +106,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
                 resto = 0;
             else
                 resto = 11 - resto;
-            digito = digito + resto.ToString();
+            digito += resto.ToString();
             return cnpj.EndsWith(digito);
         }
     }

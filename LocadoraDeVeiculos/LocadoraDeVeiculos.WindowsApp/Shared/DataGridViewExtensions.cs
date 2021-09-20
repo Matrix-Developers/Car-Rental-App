@@ -8,9 +8,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
     {
         public static void ConfigurarGridZebrado(this DataGridView grid)
         {
-            Font font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font font = new("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 
-            DataGridViewCellStyle linhaEscura = new DataGridViewCellStyle
+            DataGridViewCellStyle linhaEscura = new()
             {
                 BackColor = Color.LightGray,
                 Font = font,
@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
 
             grid.AlternatingRowsDefaultCellStyle = linhaEscura;
 
-            DataGridViewCellStyle linhaClara = new DataGridViewCellStyle
+            DataGridViewCellStyle linhaClara = new()
             {
                 BackColor = Color.White,
                 Font = font,
@@ -64,7 +64,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
         {
             const int firstLine = 0, firstColumn = 0;
             if (grid.SelectedRows.Count == 0)
-                return default(T);
+                return default;
 
             object value = grid.SelectedRows[firstLine].Cells[firstColumn].Value;
 

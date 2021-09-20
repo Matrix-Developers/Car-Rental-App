@@ -100,7 +100,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.brnConfirmar.TabIndex = 22;
             this.brnConfirmar.Text = "Confirmar";
             this.brnConfirmar.UseVisualStyleBackColor = true;
-            this.brnConfirmar.Click += new System.EventHandler(this.brnConfirmar_Click);
+            this.brnConfirmar.Click += new System.EventHandler(this.BrnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -396,7 +396,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.dtDevolucao.Name = "dtDevolucao";
             this.dtDevolucao.Size = new System.Drawing.Size(129, 20);
             this.dtDevolucao.TabIndex = 32;
-            this.dtDevolucao.ValueChanged += new System.EventHandler(this.dtDevolucao_ValueChanged);
+            this.dtDevolucao.ValueChanged += new System.EventHandler(this.DtDevolucao_ValueChanged);
             // 
             // rBtn01
             // 
@@ -407,7 +407,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.rBtn01.TabIndex = 25;
             this.rBtn01.TabStop = true;
             this.rBtn01.UseVisualStyleBackColor = true;
-            this.rBtn01.CheckedChanged += new System.EventHandler(this.rBtn01_CheckedChanged);
+            this.rBtn01.CheckedChanged += new System.EventHandler(this.RBtn01_CheckedChanged);
             // 
             // lblFull
             // 
@@ -440,7 +440,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.rBtn11.TabIndex = 29;
             this.rBtn11.TabStop = true;
             this.rBtn11.UseVisualStyleBackColor = true;
-            this.rBtn11.CheckedChanged += new System.EventHandler(this.rBtn11_CheckedChanged);
+            this.rBtn11.CheckedChanged += new System.EventHandler(this.RBtn11_CheckedChanged);
             // 
             // rBtn34
             // 
@@ -451,7 +451,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.rBtn34.TabIndex = 28;
             this.rBtn34.TabStop = true;
             this.rBtn34.UseVisualStyleBackColor = true;
-            this.rBtn34.CheckedChanged += new System.EventHandler(this.rBtn34_CheckedChanged);
+            this.rBtn34.CheckedChanged += new System.EventHandler(this.RBtn34_CheckedChanged);
             // 
             // rBtn12
             // 
@@ -462,7 +462,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.rBtn12.TabIndex = 27;
             this.rBtn12.TabStop = true;
             this.rBtn12.UseVisualStyleBackColor = true;
-            this.rBtn12.CheckedChanged += new System.EventHandler(this.rBtn12_CheckedChanged);
+            this.rBtn12.CheckedChanged += new System.EventHandler(this.RBtn12_CheckedChanged);
             // 
             // rBtn14
             // 
@@ -473,7 +473,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.rBtn14.TabIndex = 26;
             this.rBtn14.TabStop = true;
             this.rBtn14.UseVisualStyleBackColor = true;
-            this.rBtn14.CheckedChanged += new System.EventHandler(this.rBtn14_CheckedChanged);
+            this.rBtn14.CheckedChanged += new System.EventHandler(this.RBtn14_CheckedChanged);
             // 
             // pictureBox1
             // 
@@ -501,7 +501,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtKmFinal.Size = new System.Drawing.Size(141, 20);
             this.txtKmFinal.TabIndex = 24;
             this.txtKmFinal.Text = "0";
-            this.txtKmFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKmFinal_KeyPress);
+            this.txtKmFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKmFinal_KeyPress);
             // 
             // lblServicos
             // 
@@ -520,7 +520,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.btnSelecionarServicos.TabIndex = 22;
             this.btnSelecionarServicos.Text = "Selecionar";
             this.btnSelecionarServicos.UseVisualStyleBackColor = true;
-            this.btnSelecionarServicos.Click += new System.EventHandler(this.btnSelecionarServicos_Click);
+            this.btnSelecionarServicos.Click += new System.EventHandler(this.BtnSelecionarServicos_Click);
             // 
             // lblQtdTanque
             // 
@@ -545,7 +545,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.cBoxQtdTanque.Name = "cBoxQtdTanque";
             this.cBoxQtdTanque.Size = new System.Drawing.Size(75, 21);
             this.cBoxQtdTanque.TabIndex = 20;
-            this.cBoxQtdTanque.SelectedIndexChanged += new System.EventHandler(this.cBoxQtdTanque_SelectedIndexChanged);
+            this.cBoxQtdTanque.SelectedIndexChanged += new System.EventHandler(this.CBoxQtdTanque_SelectedIndexChanged);
             // 
             // lblValorCombustivel
             // 
@@ -563,7 +563,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.txtValorCombustivel.Size = new System.Drawing.Size(75, 20);
             this.txtValorCombustivel.TabIndex = 18;
             this.txtValorCombustivel.Text = "0";
-            this.txtValorCombustivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorCombustivel_KeyPress);
+            this.txtValorCombustivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValorCombustivel_KeyPress);
             // 
             // TelaDevolucaoForm
             // 

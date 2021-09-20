@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.Shared
 {
@@ -13,14 +9,14 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
     public static class Db
     {
-        private static string bancoDeDados;
-        private static string connectionString = "";
-        private static string nomeProvider;
-        private static DbProviderFactory fabricaProvedor;
+        //private static string bancoDeDados;
+        private static readonly string connectionString = "";
+        private static readonly string nomeProvider;
+        private static readonly DbProviderFactory fabricaProvedor;
 
         static Db()
         {
-            bancoDeDados = "bancoDeDados";
+            //bancoDeDados = "bancoDeDados";
 
             connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=DBLocadoraDeVeiculos;Integrated Security=True;Pooling=False";
 
@@ -33,44 +29,34 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
         public static int Insert(string sql, Dictionary<string, object> parameters)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
-            {
-                connection.ConnectionString = connectionString;
+            using IDbConnection connection = fabricaProvedor.CreateConnection();
+            connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
-                {
-                    command.CommandText = sql.AppendSelectIdentity();
-                    command.Connection = connection;
-                    command.SetParameters(parameters);
+            using IDbCommand command = fabricaProvedor.CreateCommand();
+            command.CommandText = sql.AppendSelectIdentity();
+            command.Connection = connection;
+            command.SetParameters(parameters);
 
-                    connection.Open();
+            connection.Open();
 
-                    int id = Convert.ToInt32(command.ExecuteScalar());
+            int id = Convert.ToInt32(command.ExecuteScalar());
 
-                    return id;
-                }
-            }
+            return id;
         }
 
         public static void Update(string sql, Dictionary<string, object> parameters = null)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
-            {
-                connection.ConnectionString = connectionString;
+            using IDbConnection connection = fabricaProvedor.CreateConnection();
+            connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
-                {
-                    command.CommandText = sql;
+            using IDbCommand command = fabricaProvedor.CreateCommand();
+            command.CommandText = sql;
+            command.Connection = connection;
+            command.SetParameters(parameters);
 
-                    command.Connection = connection;
+            connection.Open();
 
-                    command.SetParameters(parameters);
-
-                    connection.Open();
-
-                    command.ExecuteNonQuery();
-                }
-            }
+            command.ExecuteNonQuery();
         }
 
         public static void Delete(string sql, Dictionary<string, object> parameters)
@@ -80,87 +66,65 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
         public static List<T> GetAll<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters = null)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
+            using IDbConnection connection = fabricaProvedor.CreateConnection();
+            connection.ConnectionString = connectionString;
+
+            using IDbCommand command = fabricaProvedor.CreateCommand();
+            command.CommandText = sql;
+            command.Connection = connection;
+            command.SetParameters(parameters);
+
+            connection.Open();
+
+            var list = new List<T>();
+
+            using IDataReader reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                connection.ConnectionString = connectionString;
-
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
-                {
-                    command.CommandText = sql;
-
-                    command.Connection = connection;
-
-                    command.SetParameters(parameters);
-
-                    connection.Open();
-
-                    var list = new List<T>();
-
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            var obj = convert(reader);
-                            list.Add(obj);
-                        }
-
-                        return list;
-                    }
-                }
+                var obj = convert(reader);
+                list.Add(obj);
             }
+
+            return list;
         }
 
         public static T Get<T>(string sql, ConverterDelegate<T> convert, Dictionary<string, object> parameters)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
-            {
-                connection.ConnectionString = connectionString;
+            using IDbConnection connection = fabricaProvedor.CreateConnection();
+            connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
-                {
-                    command.CommandText = sql;
+            using IDbCommand command = fabricaProvedor.CreateCommand();
+            command.CommandText = sql;
+            command.Connection = connection;
+            command.SetParameters(parameters);
 
-                    command.Connection = connection;
+            connection.Open();
 
-                    command.SetParameters(parameters);
+            T t = default;
 
-                    connection.Open();
+            using IDataReader reader = command.ExecuteReader();
 
-                    T t = default;
+            if (reader.Read())
+                t = convert(reader);
 
-                    using (IDataReader reader = command.ExecuteReader())
-                    {
-
-                        if (reader.Read())
-                            t = convert(reader);
-
-                        return t;
-                    }
-                }
-            }
+            return t;
         }
 
         public static bool Exists(string sql, Dictionary<string, object> parameters)
         {
-            using (IDbConnection connection = fabricaProvedor.CreateConnection())
-            {
-                connection.ConnectionString = connectionString;
+            using IDbConnection connection = fabricaProvedor.CreateConnection();
+            connection.ConnectionString = connectionString;
 
-                using (IDbCommand command = fabricaProvedor.CreateCommand())
-                {
-                    command.CommandText = sql;
+            using IDbCommand command = fabricaProvedor.CreateCommand();
+            command.CommandText = sql;
+            command.Connection = connection;
+            command.SetParameters(parameters);
 
-                    command.Connection = connection;
+            connection.Open();
 
-                    command.SetParameters(parameters);
+            int numberRows = Convert.ToInt32(command.ExecuteScalar());
 
-                    connection.Open();
-
-                    int numberRows = Convert.ToInt32(command.ExecuteScalar());
-
-                    return numberRows > 0;
-                }
-            }
+            return numberRows > 0;
         }
 
         private static void SetParameters(this IDbCommand command, Dictionary<string, object> parameters)
@@ -197,7 +161,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
         public static bool IsNullOrEmpty(this object value)
         {
-            return (value is string && string.IsNullOrEmpty((string)value)) ||
+            return (value is string @string && string.IsNullOrEmpty(@string)) ||
                     value == null;
         }
 

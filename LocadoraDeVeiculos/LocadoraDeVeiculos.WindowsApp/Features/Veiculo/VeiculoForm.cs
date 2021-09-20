@@ -1,28 +1,27 @@
-﻿using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using System;
-using System.IO;
-using System.Windows.Forms;
-using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
+﻿using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Veiculos
 {
     public partial class VeiculoForm : Form
     {
         private Veiculo veiculo;
-        private GrupoDeVeiculosRepository controladorGrupoVeiculos = new GrupoDeVeiculosRepository();
+        private GrupoDeVeiculosRepository controladorGrupoVeiculos = new();
         public VeiculoForm(string titulo)
-        {            
+        {
             InitializeComponent();
             CarregarGruposDeVeiculos();
             labelTitulo.Text = titulo;
-            cBoxPortaMalas.SelectedIndex = 0;           
+            cBoxPortaMalas.SelectedIndex = 0;
         }
-        public List<ImagemVeiculo> imagensVeiculo = new List<ImagemVeiculo>();
+        public List<ImagemVeiculo> imagensVeiculo = new();
 
         private void CarregarGruposDeVeiculos()
         {
@@ -61,21 +60,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             }
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             int id = 0;
             int ano = 0;
-            GrupoDeVeiculo grupoDeVeiculos = null;
             if (textId.Text.Length > 0)
-                id = Convert.ToInt32(textId.Text);            
+                id = Convert.ToInt32(textId.Text);
             string placa = textPlaca.Text;
             string chassi = textChassi.Text;
             string marca = textMarca.Text;
             string modelo = textModelo.Text;
-            if(textAno.Text.Length > 0)
+            if (textAno.Text.Length > 0)
                 ano = Convert.ToInt32(textAno.Text);
             string cor = textCor.Text;
-            grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
+            GrupoDeVeiculo grupoDeVeiculos = cBoxGrupo.SelectedItem as GrupoDeVeiculo;
             int capTanque = Convert.ToInt32(numUpDownCapTanque.Value);
             string combustivel = cBoxCombustivel.Text;
             int numPortas = Convert.ToInt32(numUpDownQtdPortas.Value);
@@ -85,10 +83,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             bool possuiArCondicionado = false;
             bool possuiDirecaoHidraulica = false;
             bool possuiFreioAbs = false;
-            List<ImagemVeiculo> imagens = imagensVeiculo;
-
-
-
             if (checkLBoxOpcionais.CheckedIndices.Contains(0))
                 possuiArCondicionado = true;
             if (checkLBoxOpcionais.CheckedIndices.Contains(1))
@@ -110,11 +104,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             }
         }
 
-        private void textAno_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextAno_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (textAno.Text.IndexOf(".") >= 0 || textAno.Text.Length == 0)
+                if (textAno.Text.Contains(".", StringComparison.CurrentCulture) || textAno.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -125,11 +119,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             }
         }
 
-        private void textKM_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextKM_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (textKM.Text.IndexOf(".") >= 0 || textKM.Text.Length == 0)
+                if (textKM.Text.Contains(".", StringComparison.CurrentCulture) || textKM.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -140,9 +134,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            ImagemVeiculoForm telaImagem = new ImagemVeiculoForm(this);
+            ImagemVeiculoForm telaImagem = new(this);
             telaImagem.Show();
         }
 

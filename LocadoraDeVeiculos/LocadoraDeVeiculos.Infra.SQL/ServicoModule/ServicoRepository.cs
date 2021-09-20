@@ -11,61 +11,91 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
     public class ServicoRepository : RepositoryBase<Servico>, IRepository<Servico>
     {
         #region queries
-        private const string sqlInserirServico =
-            @"INSERT INTO TBSERVICO
-            (
-                [NOME],
-                [EHTAXADODIARIO],
-                [VALOR]
-            )
-            VALUES
-            (
-                @NOME,
-                @EHTAXADODIARIO,
-                @VALOR
-            )";
-        private const string sqlSelecionarTodosServicos =
-            @"SELECT 
-                [ID],
-                [NOME],
-                [EHTAXADODIARIO],
-                [VALOR]
-            FROM 
-                TBSERVICO ORDER BY ID;";
+        protected override string SqlInserirEntidade
+        {
+            get
+            {
+                return
+                @"INSERT INTO TBSERVICO
+                (
+                    [NOME],
+                    [EHTAXADODIARIO],
+                    [VALOR]
+                )
+                VALUES
+                (
+                    @NOME,
+                    @EHTAXADODIARIO,
+                    @VALOR
+                )";
+            }
+        }
+        protected override string SqlEditarEntidade
+        {
+            get
+            {
+                return
+                @"UPDATE 
+                    [TBSERVICO]
+                SET
+                    [NOME] = @NOME,
+                    [EHTAXADODIARIO] = @EHTAXADODIARIO,
+                    [VALOR] = @VALOR
+                WHERE
+                    [ID] = @ID";
 
-        private const string sqlSelecionarServicoPorId =
-            @"SELECT  
-                [ID],
-                [NOME],
-                [EHTAXADODIARIO],
-                [VALOR]
-            FROM
-                TBSERVICO 
-            WHERE 
-                [ID] = @ID";
-
-        private const string sqlEditarServico =
-            @"UPDATE TBSERVICO SET
-                [NOME] = @NOME,
-                [EHTAXADODIARIO] = @EHTAXADODIARIO,
-                [VALOR] = @VALOR
-            WHERE
-                [ID] = @ID
-            ";
-        private const string sqlDeletarServico =
-            @"DELETE 
+            }
+        }
+        protected override string SqlExcluirEntidade
+        {
+            get
+            {
+                return @"DELETE FROM [TBSERVICO] WHERE[ID] = @ID";
+            }
+        }
+        protected override string SqlSelecionarEntidadePorId
+        {
+            get
+            {
+                return
+                @"SELECT  
+                    [ID],
+                    [NOME],
+                    [EHTAXADODIARIO],
+                    [VALOR]
+                FROM
+                    TBSERVICO 
+                WHERE 
+                    [ID] = @ID";
+            }
+        }
+        protected override string SqlSelecionarTodasEntidades
+        {
+            get
+            {
+                return
+                @"SELECT 
+                    [ID],
+                    [NOME],
+                    [EHTAXADODIARIO],
+                    [VALOR]
                 FROM 
-                TBSERVICO 
-            WHERE 
-                [ID] = @ID";
-
-        private const string sqlExisteServico =
-            @"SELECT 
-                COUNT(*) 
-            FROM 
-                [TBSERVICO]
-            WHERE 
-                [ID] = @ID";
+                    TBSERVICO ORDER BY ID;";
+            }
+        }
+        protected override string SqlExisteEntidade
+        {
+            get
+            {
+                return
+                @"SELECT 
+                    COUNT(*) 
+                FROM 
+                    [TBSERVICO]
+                WHERE 
+                    [ID] = @ID";
+            }
+        }
         #endregion
 
         public string InserirNovo(Servico registro)
@@ -73,17 +103,17 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(sqlInserirServico, ObtemParametros(registro));
+                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
 
             return resultadoValidacao;
         }
         public List<Servico> SelecionarTodos()
         {
-            return Db.GetAll(sqlSelecionarTodosServicos, ConverterEmEntidade);
+            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
         }
         public Servico SelecionarPorId(int id)
         {
-            return Db.Get(sqlSelecionarServicoPorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public string Editar(int id, Servico registro)
         {
@@ -92,7 +122,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarServico, ObtemParametros(registro));
+                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
             }
 
             return resultadoValidacao;
@@ -101,7 +131,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
         {
             try
             {
-                Db.Delete(sqlDeletarServico, AdicionarParametro("ID", id));
+                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -112,17 +142,18 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
         }
         public bool Existe(int id)
         {
-            return Db.Exists(sqlExisteServico, AdicionarParametro("ID", id));
+            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
         }
 
         protected override Dictionary<string, object> ObtemParametros(Servico entidade)
         {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", entidade.Id);
-            parametros.Add("NOME", entidade.Nome);
-            parametros.Add("EHTAXADODIARIO", entidade.EhTaxadoDiario);
-            parametros.Add("VALOR", entidade.Valor);
+            var parametros = new Dictionary<string, object>
+            {
+                { "ID", entidade.Id },
+                { "NOME", entidade.Nome },
+                { "EHTAXADODIARIO", entidade.EhTaxadoDiario },
+                { "VALOR", entidade.Valor }
+            };
 
             return parametros;
         }
@@ -133,7 +164,7 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
             bool ehTaxadoDiario = Convert.ToBoolean(reader["EHTAXADODIARIO"]);
             double valor = Convert.ToDouble(reader["VALOR"]);
 
-            Servico servico = new Servico(id, nome, ehTaxadoDiario, valor);
+            Servico servico = new(id, nome, ehTaxadoDiario, valor);
 
             servico.Id = id;
 

@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;

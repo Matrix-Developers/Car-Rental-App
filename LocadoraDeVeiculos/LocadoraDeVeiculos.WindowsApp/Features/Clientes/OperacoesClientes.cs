@@ -5,9 +5,6 @@ using LocadoraDeVeiculos.WindowsApp.ClientesModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
@@ -16,7 +13,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
     {
         private readonly ClienteRepository controlador = null;
         private readonly TabelaClientesControl tabelaCliente = null;
-        public OperacoesClientes (ClienteRepository ctrlCliente)
+        public OperacoesClientes(ClienteRepository ctrlCliente)
         {
             controlador = ctrlCliente;
             tabelaCliente = new TabelaClientesControl();
@@ -33,15 +30,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             }
             Cliente clienteSelecionado = controlador.SelecionarPorId(id);
 
-            ClientesForm tela = new ClientesForm("Edição de Clientes");
-
-            tela.Clientes = clienteSelecionado;
+            ClientesForm tela = new("Edição de Clientes")
+            {
+                Clientes = clienteSelecionado
+            };
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.Editar(id, tela.Clientes);
-
-                List<Cliente> contatos = controlador.SelecionarTodos();
 
                 tabelaCliente.AtualizarRegistros();
 
@@ -63,8 +59,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             {
                 controlador.Excluir(id);
 
-                List<Cliente> contatos = controlador.SelecionarTodos();
-
                 tabelaCliente.AtualizarRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
@@ -72,11 +66,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         }
         public void InserirNovoRegistro()
         {
-            ClientesForm tela = new ClientesForm("Cadastro de Clientes");
+            ClientesForm tela = new("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.Clientes);
-                List<Cliente> clientes = controlador.SelecionarTodos();
 
                 tabelaCliente.AtualizarRegistros();
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] inserido com sucesso");
@@ -85,7 +78,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
         public UserControl ObterTabela()
         {
-            List<Cliente> contatos = controlador.SelecionarTodos();
             tabelaCliente.AtualizarRegistros();
 
             return tabelaCliente;
@@ -99,6 +91,5 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         {
             throw new NotImplementedException();
         }
-
     }
 }

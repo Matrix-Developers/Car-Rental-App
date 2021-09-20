@@ -1,14 +1,6 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
-using System;
+﻿using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.WindowsApp.Shared;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.Shared;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios

@@ -1,14 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
@@ -39,11 +32,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
                 txtLimiteKmControlado.Text = grupoDeVeiculos.LimiteKmControlado.ToString();
                 txtTaxaKmExcedidoControlado.Text = grupoDeVeiculos.TaxaKmExcedidoControlado.ToString();
                 txtTaxaPlanoLivre.Text = grupoDeVeiculos.TaxaPlanoLivre.ToString();
-                
+
             }
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             int Id = Convert.ToInt32(textId.Text);
             string Nome = textNomeGrupo.Text;
@@ -66,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             if (txtTaxaPlanoLivre.Text.Length > 0)
                 TaxaPlanoLivre = Convert.ToDouble(txtTaxaPlanoLivre.Text, CultureInfo.InvariantCulture);
 
-            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado,TaxaKmExcedidoControlado,TaxaPlanoLivre);
+            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado, TaxaKmExcedidoControlado, TaxaPlanoLivre);
 
             string resultadoValidacao = grupoDeVeiculos.Validar();
 
@@ -81,11 +74,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
         }
 
         //Esses eventos tem muito código duplicado. Podemos abstrair através de extração de método
-        private void txtTaxaPlanoDiario_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtTaxaPlanoDiario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaPlanoDiario.Text.IndexOf(".") >= 0 || txtTaxaPlanoDiario.Text.Length == 0)
+                if (txtTaxaPlanoDiario.Text.Contains(".", StringComparison.CurrentCulture) || txtTaxaPlanoDiario.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -96,11 +89,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             }
         }
 
-        private void txtTaxaKmDiario_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtTaxaKmDiario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaPorKmDiario.Text.IndexOf(".") >= 0 || txtTaxaPorKmDiario.Text.Length == 0)
+                if (txtTaxaPorKmDiario.Text.Contains(".", StringComparison.CurrentCulture) || txtTaxaPorKmDiario.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -111,11 +104,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             }
         }
 
-        private void txtTaxaPlanoControlado_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtTaxaPlanoControlado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaPlanoControlado.Text.IndexOf(".") >= 0 || txtTaxaPlanoControlado.Text.Length == 0)
+                if (txtTaxaPlanoControlado.Text.Contains(".", StringComparison.CurrentCulture) || txtTaxaPlanoControlado.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -126,7 +119,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             }
         }
 
-        private void txtLimiteKmControlado_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtLimiteKmControlado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < '0' || e.KeyChar > '9') && e.KeyChar != '\b')
             {
@@ -134,11 +127,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             }
         }
 
-        private void txtTaxaKmExcedidoControlado_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtTaxaKmExcedidoControlado_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaKmExcedidoControlado.Text.IndexOf(".") >= 0 || txtTaxaKmExcedidoControlado.Text.Length == 0)
+                if (txtTaxaKmExcedidoControlado.Text.Contains(".", StringComparison.CurrentCulture) || txtTaxaKmExcedidoControlado.Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -149,11 +142,11 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             }
         }
 
-        private void txtTaxaPlanoLivre_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtTaxaPlanoLivre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '.')
             {
-                if (txtTaxaPlanoLivre.Text.IndexOf(".") >= 0 || txtTaxaPlanoLivre.Text.Length == 0)
+                if (txtTaxaPlanoLivre.Text.Contains(".", StringComparison.CurrentCulture) || txtTaxaPlanoLivre.Text.Length == 0)
                 {
                     e.Handled = true;
                 }

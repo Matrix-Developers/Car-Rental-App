@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.txtTaxaPlanoDiario.Name = "txtTaxaPlanoDiario";
             this.txtTaxaPlanoDiario.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaPlanoDiario.TabIndex = 3;
-            this.txtTaxaPlanoDiario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaPlanoDiario_KeyPress);
+            this.txtTaxaPlanoDiario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTaxaPlanoDiario_KeyPress);
             // 
             // txtTaxaPorKmDiario
             // 
@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.txtTaxaPorKmDiario.Name = "txtTaxaPorKmDiario";
             this.txtTaxaPorKmDiario.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaPorKmDiario.TabIndex = 4;
-            this.txtTaxaPorKmDiario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaKmDiario_KeyPress);
+            this.txtTaxaPorKmDiario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTaxaKmDiario_KeyPress);
             // 
             // txtTaxaPlanoControlado
             // 
@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.txtTaxaPlanoControlado.Name = "txtTaxaPlanoControlado";
             this.txtTaxaPlanoControlado.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaPlanoControlado.TabIndex = 5;
-            this.txtTaxaPlanoControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaPlanoControlado_KeyPress);
+            this.txtTaxaPlanoControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTaxaPlanoControlado_KeyPress);
             // 
             // textId
             // 
@@ -185,7 +185,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.btnConfirmar.TabIndex = 9;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // groupBox1
             // 
@@ -266,7 +266,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.txtTaxaKmExcedidoControlado.Name = "txtTaxaKmExcedidoControlado";
             this.txtTaxaKmExcedidoControlado.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaKmExcedidoControlado.TabIndex = 7;
-            this.txtTaxaKmExcedidoControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaKmExcedidoControlado_KeyPress);
+            this.txtTaxaKmExcedidoControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTaxaKmExcedidoControlado_KeyPress);
             // 
             // txtTaxaPlanoLivre
             // 
@@ -274,7 +274,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.txtTaxaPlanoLivre.Name = "txtTaxaPlanoLivre";
             this.txtTaxaPlanoLivre.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaPlanoLivre.TabIndex = 8;
-            this.txtTaxaPlanoLivre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxaPlanoLivre_KeyPress);
+            this.txtTaxaPlanoLivre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTaxaPlanoLivre_KeyPress);
             // 
             // label3
             // 
@@ -315,7 +315,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.txtLimiteKmControlado.Name = "txtLimiteKmControlado";
             this.txtLimiteKmControlado.Size = new System.Drawing.Size(100, 20);
             this.txtLimiteKmControlado.TabIndex = 6;
-            this.txtLimiteKmControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimiteKmControlado_KeyPress);
+            this.txtLimiteKmControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLimiteKmControlado_KeyPress);
             // 
             // lbLimiteKmControlado
             // 

@@ -1,10 +1,4 @@
-﻿using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.Dominio.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LocadoraDeVeiculos.Dominio.Shared;
 
 namespace LocadoraDeVeiculos.Dominio.CupomModule
 {

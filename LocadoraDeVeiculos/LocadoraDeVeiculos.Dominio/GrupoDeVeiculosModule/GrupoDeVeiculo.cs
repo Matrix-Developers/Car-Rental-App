@@ -41,9 +41,9 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
             string resultadoValidacao = "";
 
             if (this.nome.Length <= 0)
-                resultadoValidacao  = "O nome não pode ser nulo\n";
+                resultadoValidacao = "O nome não pode ser nulo\n";
 
-            if (this.taxaPlanoDiario <=0f)
+            if (this.taxaPlanoDiario <= 0f)
                 resultadoValidacao += "A taxa diaria do Plano Diário não pode ser nula\n";
 
             if (this.taxaPorKmDiario <= 0f)
