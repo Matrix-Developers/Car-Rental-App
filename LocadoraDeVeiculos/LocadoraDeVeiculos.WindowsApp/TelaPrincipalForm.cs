@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
+﻿using LocadoraDeVeiculos.Aplicacao.CupomModule;
+using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.CupomModule;
@@ -147,8 +148,9 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
+            CupomAppService cupomAppService = new(new CupomRepository());
             ParceiroAppService parceiroRepository = new(new ParceiroRepository());   //da pra colocar no construtor
-            operacoes = new OperacoesCupom(new CupomRepository(),parceiroRepository);
+            operacoes = new OperacoesCupom(cupomAppService, parceiroRepository);
 
             ConfigurarPainelRegistros();
         }
@@ -205,7 +207,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfigurarPainelDashBoard()
         {
-            UserControl tabela = new DashControl();
+            UserControl tabela = new DashControl();     //PASSAR APP SERVICES NO CONSTRUTOR
             tabela.Dock = DockStyle.Fill;
             panelRegistros.Controls.Clear();
             panelRegistros.Controls.Add(tabela);
