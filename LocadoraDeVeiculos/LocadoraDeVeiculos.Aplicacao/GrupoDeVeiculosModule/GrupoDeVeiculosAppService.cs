@@ -12,6 +12,11 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
     {
         private readonly IRepository<GrupoDeVeiculo> grupoDeVeiculoRepository;
 
+        public GrupoDeVeiculosAppService(IRepository<GrupoDeVeiculo> grupoDeVeiculoRepository)
+        {
+            this.grupoDeVeiculoRepository = grupoDeVeiculoRepository;
+        }
+
         public string InserirNovoGrupoDeVeiculo(GrupoDeVeiculo grupoDeVeiculos){
             string resultadoValidacao = grupoDeVeiculos.Validar();
 
