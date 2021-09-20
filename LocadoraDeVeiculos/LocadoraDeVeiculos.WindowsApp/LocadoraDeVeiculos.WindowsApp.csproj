@@ -39,7 +39,7 @@
     <Compile Update="Features\Parceiros\TabelaParceiroControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Features\Serviços\TabelaServicoControl.cs">
+    <Compile Update="Features\Servicos\TabelaServicoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Features\Veiculo\TabelaVeiculoControl.cs">

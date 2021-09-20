@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
+using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
@@ -62,9 +63,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            ServicoRepository repository = new();
-            ServicoAppService appService = new(repository);
-            operacoes = new OperacoesServico(appService);
+            ServicoAppService servicoAppService = new(new ServicoRepository());    //da pra colocar no construtor
+            operacoes = new OperacoesServico(servicoAppService);
 
             ConfigurarPainelRegistros();
         }
@@ -147,7 +147,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesCupom(new CupomRepository());
+            ParceiroAppService parceiroRepository = new(new ParceiroRepository());   //da pra colocar no construtor
+            operacoes = new OperacoesCupom(new CupomRepository(),parceiroRepository);
 
             ConfigurarPainelRegistros();
         }
@@ -161,7 +162,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesParceiro(new ParceiroRepository());
+            ParceiroAppService parceiroRepository = new(new ParceiroRepository());   //da pra colocar no construtor
+            operacoes = new OperacoesParceiro(parceiroRepository);
 
             ConfigurarPainelRegistros();
         }

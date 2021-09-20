@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.ParceiroModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
+using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using System;
@@ -10,12 +11,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 {
     public partial class TelaCupomForm : Form
     {
+        private readonly ParceiroAppService controladorParceiro;
         Cupom cupom;
-        ParceiroRepository controladorParceiro;
+        
         int qtdUtilizada = 0;
-        public TelaCupomForm(string titulo)
+        public TelaCupomForm(string titulo, ParceiroAppService parceiroAppService)
         {
-            controladorParceiro = new ParceiroRepository();
+            this.controladorParceiro = parceiroAppService;
             InitializeComponent();
             rBtnValorFixo.Checked = true;
             labelTitulo.Text = titulo;
@@ -24,7 +26,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         private void CarregarParceiros()
         {
-            cBoxParceiro.DataSource = controladorParceiro.SelecionarTodos();
+            cBoxParceiro.DataSource = controladorParceiro.SelecionarTodosParceiro();
         }
 
         public Cupom Cupom

@@ -10,7 +10,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 {
     class OperacoesServico : ICadastravel
     {
-        private readonly ServicoAppService appService = null;
+        private readonly ServicoAppService appService;
         private readonly TabelaServicoControl tabelaServicos = null;
 
         public OperacoesServico(ServicoAppService servicoAppService)

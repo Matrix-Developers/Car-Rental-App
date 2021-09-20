@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.CupomModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -9,18 +10,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 {
     public class OperacoesCupom : ICadastravel
     {
+        private readonly ParceiroAppService parceiroAppService;
         private CupomRepository controlador;
         private readonly TabelaCupomControl tabela;
 
-        public OperacoesCupom(CupomRepository controladorCupom)
+        public OperacoesCupom(CupomRepository controladorCupom, ParceiroAppService parceiroAppService)
         {
+            this.parceiroAppService = parceiroAppService;
             controlador = controladorCupom;
             tabela = new TabelaCupomControl();
         }
 
         public void InserirNovoRegistro()
         {
-            TelaCupomForm tela = new("Cadastro de Cupom");
+            TelaCupomForm tela = new("Cadastro de Cupom", parceiroAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -36,6 +39,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public void EditarRegistro()
         {
+            TelaCupomForm tela = new("Edição de Cupom", parceiroAppService);
+
             int id = tabela.ObtemIdSelecionado();
 
             if (id == 0)
@@ -45,7 +50,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             }
 
             Cupom cupomSelecionado = controlador.SelecionarPorId(id);
-            TelaCupomForm tela = new("Edição de Cupom");
+            
             tela.Cupom = cupomSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)

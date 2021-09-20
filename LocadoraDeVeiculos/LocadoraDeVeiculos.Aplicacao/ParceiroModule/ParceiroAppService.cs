@@ -12,6 +12,11 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
     {
         private readonly IRepository<Parceiro> parceiroRepository;
 
+        public ParceiroAppService(IRepository<Parceiro> parceiroRepository)
+        {
+            this.parceiroRepository = parceiroRepository;
+        }
+
         public string InserirNovoParceiro(Parceiro parceiro){
             string ResultadoValidacao = parceiro.Validar();
 
