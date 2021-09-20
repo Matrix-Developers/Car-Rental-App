@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
@@ -62,7 +63,9 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesServico(new ServicoRepository());
+            ServicoRepository repository = new();
+            ServicoAppService appService = new(repository);
+            operacoes = new OperacoesServico(appService);
 
             ConfigurarPainelRegistros();
         }

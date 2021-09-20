@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.Controladores.VeiculoModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
+using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
@@ -12,15 +14,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 {
     public partial class TelaDevolucaoForm : Form
     {
+        private readonly TelaSelecionarServicoForm telaServico;
         private Locacao devolucao;
-        ServicosForm telaServico;
         VeiculoRepository controladorVeiculo = new();
-        public TelaDevolucaoForm(string titulo)
+        public TelaDevolucaoForm(string titulo, ServicoAppService servicoAppService)
         {
             InitializeComponent();
             lblTitulo.Text = titulo;
             cBoxQtdTanque.SelectedIndex = 0;
-            telaServico = new ServicosForm();
+            telaServico = new TelaSelecionarServicoForm(servicoAppService);
         }
 
         public Locacao Devolucao

@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
@@ -20,6 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
     public partial class TelaLocacaoForm : Form
     {
+        private readonly TelaSelecionarServicoForm telaServico;
         private Locacao locacao;
         private FuncionarioRepository controladorFuncionario = new();
         private VeiculoRepository controladorVeiculo = new();
@@ -27,8 +29,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private CupomRepository controladorCupom = new();
         public List<Servico> Servicos;
         public string TipoSeguro = "Nenhum";
-        ServicosForm telaServico = new();
-        public TelaLocacaoForm(string titulo)
+
+        public TelaLocacaoForm(string titulo, ServicoAppService servicoAppService)
         {
             Servicos = new List<Servico>();
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             CarregarDados();
             CarregaCondutor();
             cBoxPlano.SelectedIndex = 0;
+            telaServico = new(servicoAppService);
         }
 
         public Locacao Locacao
@@ -130,7 +133,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void BtnServicos_Click(object sender, EventArgs e)
         {
-            telaServico = new ServicosForm();
             telaServico.InicializarCampos(Servicos, TipoSeguro, true);
 
             if (telaServico.ShowDialog() == DialogResult.OK)
