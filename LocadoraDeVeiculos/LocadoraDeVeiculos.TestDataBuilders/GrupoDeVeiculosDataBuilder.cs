@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using System;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
@@ -45,6 +46,11 @@ namespace LocadoraDeVeiculos.TestDataBuilders
         {
             grupoDeVeiculo.TaxaPlanoLivre = taxaPlanoLivre;
             return this;
+        }
+
+        public GrupoDeVeiculo Build()
+        {
+            return grupoDeVeiculo;
         }
     }
 }

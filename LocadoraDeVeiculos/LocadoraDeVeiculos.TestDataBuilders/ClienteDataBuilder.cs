@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.TestDataBuilders
             cliente.Cnh = cnh;
             return this;
         }
-        public ClienteDataBuilder ComValidadeCnh(DateTime validadeCnh)
+        public ClienteDataBuilder ComValidadeCnh(DateTime? validadeCnh)
         {
             cliente.ValidadeCnh = validadeCnh;
             return this;
@@ -56,6 +56,11 @@ namespace LocadoraDeVeiculos.TestDataBuilders
         {
             cliente.EhPessoaFisica = ehPessoaFisica;
             return this;
+        }
+
+        public Cliente Build()
+        {
+            return cliente;
         }
     }
 }

@@ -82,7 +82,7 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
         public override bool Equals(object obj)
         {
             return obj is Cliente cliente &&
-                   id == cliente.id &&
+                   Id == cliente.Id &&
                    Nome == cliente.Nome &&
                    RegistroUnico == cliente.RegistroUnico &&
                    Endereco == cliente.Endereco &&
@@ -95,17 +95,17 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
 
         public override int GetHashCode()
         {
-            int hashCode = -1382064342;
-            hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RegistroUnico);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefone);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
-            hashCode = hashCode * -1521134295 + EhPessoaFisica.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Cnh);
-            hashCode = hashCode * -1521134295 + ValidadeCnh.GetHashCode();
-            return hashCode;
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(Nome);
+            hash.Add(RegistroUnico);
+            hash.Add(Endereco);
+            hash.Add(Telefone);
+            hash.Add(Email);
+            hash.Add(EhPessoaFisica);
+            hash.Add(Cnh);
+            hash.Add(ValidadeCnh);
+            return hash.ToHashCode();
         }
     }
 }

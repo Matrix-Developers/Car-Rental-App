@@ -71,10 +71,15 @@ namespace LocadoraDeVeiculos.TestDataBuilders
             funcionario.Salario = salario;
             return this;
         }
-        public FuncionarioDataBuilder ComEhPessoaFisica(bool ehPessoaFisica)
+        public FuncionarioDataBuilder ComEhPessoaFisica()
         {
-            funcionario.EhPessoaFisica = ehPessoaFisica;
+            funcionario.EhPessoaFisica = true;
             return this;
+        }
+
+        public Funcionario Build()
+        {
+            return funcionario;
         }
     }
 }

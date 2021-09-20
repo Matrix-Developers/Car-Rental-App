@@ -55,9 +55,9 @@ namespace LocadoraDeVeiculos.TestDataBuilders
             locacao.DataPrevistaDeChegada = dataPrevistaDeChegada;
             return this;
         }
-        public LocacaoDataBuilder ComDataDeChegada(DateTime dataDeChegada)
+        public LocacaoDataBuilder ComDataDeChegada()
         {
-            locacao.DataDeChegada = dataDeChegada;
+            locacao.DataDeChegada = DateTime.Today;
             return this;
         }
         public LocacaoDataBuilder ComTipoDoPlano(string tipoDoPlano)
@@ -89,6 +89,11 @@ namespace LocadoraDeVeiculos.TestDataBuilders
         {
             locacao.Servicos = servicos;
             return this;
+        }
+
+        public Locacao Build()
+        {
+            return locacao;
         }
     }
 }

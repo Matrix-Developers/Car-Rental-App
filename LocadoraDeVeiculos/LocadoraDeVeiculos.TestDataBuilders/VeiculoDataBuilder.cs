@@ -98,10 +98,14 @@ namespace LocadoraDeVeiculos.TestDataBuilders
             veiculo.estaAlugado = estaAlugado;
             return this;
         }
-        public VeiculoDataBuilder ComAlocaoAtiva(List<ImagemVeiculo> imagemVeiculos)
+        public VeiculoDataBuilder ComImagem(List<ImagemVeiculo> imagemVeiculos)
         {
             veiculo.imagens = imagemVeiculos;
             return this;
+        }
+        public Veiculo Build()
+        {
+            return veiculo;
         }
     }
 }

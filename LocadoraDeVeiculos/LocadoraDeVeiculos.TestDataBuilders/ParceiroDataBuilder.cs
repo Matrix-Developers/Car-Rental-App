@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using System;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
@@ -14,6 +15,11 @@ namespace LocadoraDeVeiculos.TestDataBuilders
         {
             parceiro.Nome = nome;
             return this;
+        }
+
+        public Parceiro Build()
+        {
+            return parceiro;
         }
     }
 }

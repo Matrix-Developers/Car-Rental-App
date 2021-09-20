@@ -55,5 +55,10 @@ namespace LocadoraDeVeiculos.TestDataBuilders
             cupom.QtdUtilizada = qtdUtilizada;
             return this;
         }
+
+        public Cupom Build()
+        {
+            return cupom;
+        }
     }
 }
