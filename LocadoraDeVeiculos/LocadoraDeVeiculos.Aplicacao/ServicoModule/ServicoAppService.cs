@@ -12,6 +12,11 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
     {
         private readonly IRepository<Servico> servicoRepository;
 
+        public ServicoAppService(IRepository<Servico> servicoRepository)
+        {
+            this.servicoRepository = servicoRepository;
+        }
+
         public string InserirNovoServico(Servico servico) {
             string resultadoValidacao = servico.Validar();
 
@@ -33,7 +38,5 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
         public bool ExisteServico(int id) { return servicoRepository.Existe(id);}
         public Servico SelecionarServicoPorId(int id) { return servicoRepository.SelecionarPorId(id);}
         public List<Servico> SelecionarTodosServico() { return servicoRepository.SelecionarTodos();}
-
-
     }
 }

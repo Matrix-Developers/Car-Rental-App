@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.ServicoModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -9,12 +10,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 {
     class OperacoesServico : ICadastravel
     {
-        private readonly ServicoRepository controlador = null;
+        private readonly ServicoAppService appService = null;
         private readonly TabelaServicoControl tabelaServicos = null;
 
-        public OperacoesServico(ServicoRepository ctrlServico)
+        public OperacoesServico(ServicoAppService servicoAppService)
         {
-            controlador = ctrlServico;
+            appService = servicoAppService;
             tabelaServicos = new TabelaServicoControl();
         }
 
@@ -24,9 +25,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Servico);
+                appService.InserirNovoServico(tela.Servico);
 
-                List<Servico> servicos = controlador.SelecionarTodos();
+                List<Servico> servicos = appService.SelecionarTodosServico();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -45,7 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
                 return;
             }
 
-            Servico servicoSelecionada = controlador.SelecionarPorId(id);
+            Servico servicoSelecionada = appService.SelecionarServicoPorId(id);
 
             TelaServicoForm tela = new("Edição de Serviços");
 
@@ -53,9 +54,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Servico);
+                appService.EditarServico(id, tela.Servico);
 
-                List<Servico> servicos = controlador.SelecionarTodos();
+                List<Servico> servicos = appService.SelecionarTodosServico();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -74,14 +75,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
                 return;
             }
 
-            Servico servicoSelecionada = controlador.SelecionarPorId(id);
+            Servico servicoSelecionada = appService.SelecionarServicoPorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o servico: [{servicoSelecionada.Nome}] ?",
                 "Exclusão de Servicos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                appService.ExcluirServico(id);
 
-                List<Servico> servicos = controlador.SelecionarTodos();
+                List<Servico> servicos = appService.SelecionarTodosServico();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -91,7 +92,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
         public UserControl ObterTabela()
         {
-            List<Servico> servicos = controlador.SelecionarTodos();
+            List<Servico> servicos = appService.SelecionarTodosServico();
 
             tabelaServicos.AtualizarRegistros(servicos);
 

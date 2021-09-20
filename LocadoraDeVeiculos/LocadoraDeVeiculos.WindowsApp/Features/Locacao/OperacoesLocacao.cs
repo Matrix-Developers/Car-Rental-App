@@ -1,6 +1,8 @@
 ﻿
+using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
+using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
@@ -29,7 +31,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         public void InserirNovoRegistro()
         {
-            TelaLocacaoForm tela = new("Locação de Veiculos");
+            ServicoAppService servicoAppService = new(new ServicoRepository());     //talvez pode mudar o lugar onde é instanciado. construtor?
+            TelaLocacaoForm tela = new("Locação de Veiculos", servicoAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -71,7 +74,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
 
-            TelaLocacaoForm tela = new("Edição de Locação");
+            ServicoAppService servicoAppService = new(new ServicoRepository());     //talvez pode mudar o lugar onde é instanciado. construtor?
+            TelaLocacaoForm tela = new("Edição de Locação", servicoAppService);
 
             tela.Locacao = locacaoSelecionada;
 

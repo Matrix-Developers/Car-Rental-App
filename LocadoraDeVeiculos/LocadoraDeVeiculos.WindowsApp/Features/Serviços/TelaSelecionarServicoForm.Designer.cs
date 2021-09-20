@@ -1,7 +1,7 @@
 ﻿
 namespace LocadoraDeVeiculos.WindowsApp.Servicos
 {
-    partial class ServicosForm
+    partial class TelaSelecionarServicoForm
     {
         /// <summary>
         /// Required designer variable.

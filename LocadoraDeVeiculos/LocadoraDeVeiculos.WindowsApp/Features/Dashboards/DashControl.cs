@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
         LocacaoRepository controladorLocacao;
         FuncionarioRepository controladorFuncionario;
         CupomRepository controladorCupom;
-        public DashControl()
+        public DashControl()        //podemos instanciar repositories atraves do appService no construtor
         {
             InitializeComponent();
             controladorVeiculo = new VeiculoRepository();
@@ -126,7 +126,5 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             lbCarInd.Text = carrosAlugados.ToString();
             lbCarTotal.Text = carrosNoTotal.ToString();
         }
-
-
     }
 }
