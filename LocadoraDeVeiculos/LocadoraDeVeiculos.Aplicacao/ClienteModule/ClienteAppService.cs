@@ -10,7 +10,13 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
 {
     public class ClienteAppService
     {
-        private readonly IRepository<Cliente> clienteRepository;
+        private IRepository<Cliente> clienteRepository;
+
+        public ClienteAppService(IRepository<Cliente> clienteRepository)
+        {
+            this.clienteRepository = clienteRepository;
+        }
+
         public string InserirNovoCliente(Cliente cliente){
             string resultadoValidacao = cliente.Validar();
 
