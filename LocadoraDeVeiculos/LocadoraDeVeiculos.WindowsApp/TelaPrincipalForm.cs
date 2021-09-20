@@ -200,7 +200,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfigurarPainelDashBoard()
         {
-            UserControl tabela = new();
+            UserControl tabela = new DashControl();
             tabela.Dock = DockStyle.Fill;
             panelRegistros.Controls.Clear();
             panelRegistros.Controls.Add(tabela);

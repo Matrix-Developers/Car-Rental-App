@@ -237,10 +237,10 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarVeiculo, ObtemParametros(registro));
+                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
                 if (registro.imagens != null)
                     foreach (ImagemVeiculo imagem in registro.imagens)
-                        imagem.idVeiculo = registro.Id;
+                        imagem.IdVeiculo = registro.Id;
                 controladorImagem.EditarLista(registro.imagens);
             }
 
