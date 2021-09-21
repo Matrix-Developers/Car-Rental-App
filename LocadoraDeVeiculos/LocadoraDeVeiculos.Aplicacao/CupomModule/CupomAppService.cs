@@ -11,6 +11,11 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
     {
         private readonly ICupomRepository cupomRepository;
 
+        public CupomAppService(ICupomRepository cupomRepository)
+        {
+            this.cupomRepository = cupomRepository;
+        }
+
         public string InserirNovoCupom(Cupom cupom){
             string resultadoValidacao = cupom.Validar();
 

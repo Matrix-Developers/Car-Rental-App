@@ -1,4 +1,4 @@
-﻿using LocadoraDeVeiculos.Controladores.ParceiroModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -9,12 +9,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 {
     public class OperacoesParceiro : ICadastravel
     {
-        private readonly ParceiroRepository controlador;
+        private readonly ParceiroAppService appService;
         private readonly TabelaParceiroControl tabela;
 
-        public OperacoesParceiro(ParceiroRepository controladorParceiro)
+        public OperacoesParceiro(ParceiroAppService parceiroAppService)
         {
-            controlador = controladorParceiro;
+            appService = parceiroAppService;
             tabela = new TabelaParceiroControl();
         }
 
@@ -24,9 +24,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Parceiro);
+                appService.InserirNovoParceiro(tela.Parceiro);
 
-                List<Parceiro> parceiros = controlador.SelecionarTodos();
+                List<Parceiro> parceiros = appService.SelecionarTodosParceiro();
 
                 tabela.AtualizarRegistros(parceiros);
 
@@ -44,14 +44,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 return;
             }
 
-            Parceiro parceiroSelecionado = controlador.SelecionarPorId(id);
+            Parceiro parceiroSelecionado = appService.SelecionarParceiroPorId(id);
             TelaParceiroForm tela = new("Edição de Parceiro");
             tela.Parceiro = parceiroSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Parceiro);
-                List<Parceiro> parceiros = controlador.SelecionarTodos();
+                appService.EditarParceiro(id, tela.Parceiro);
+                List<Parceiro> parceiros = appService.SelecionarTodosParceiro();
                 tabela.AtualizarRegistros(parceiros);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] editado com sucesso");
             }
@@ -67,12 +67,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 return;
             }
 
-            Parceiro parceiroSelecionado = controlador.SelecionarPorId(id);
+            Parceiro parceiroSelecionado = appService.SelecionarParceiroPorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o Parceiro: [{parceiroSelecionado.Nome}] ?", "Exclusão de Parceiros", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                controlador.Excluir(id);
-                List<Parceiro> parceiros = controlador.SelecionarTodos();
+                appService.ExcluirParceiro(id);
+                List<Parceiro> parceiros = appService.SelecionarTodosParceiro();
                 tabela.AtualizarRegistros(parceiros);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] removido com sucesso");
             }
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         }
         public UserControl ObterTabela()
         {
-            List<Parceiro> cupons = controlador.SelecionarTodos();
+            List<Parceiro> cupons = appService.SelecionarTodosParceiro();
             tabela.AtualizarRegistros(cupons);
             return tabela;
         }

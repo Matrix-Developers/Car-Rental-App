@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+﻿using LocadoraDeVeiculos.Aplicacao.CupomModule;
+using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
+using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
@@ -29,14 +31,21 @@ namespace LocadoraDeVeiculos.WindowsApp
         private ICadastravel operacoes;
         private static TelaPrincipalForm instancia;
 
+        private readonly ServicoAppService servicoAppService;
+        private readonly ParceiroAppService parceiroAppService;
+        private readonly CupomAppService cupomAppService;
+        
         public static TelaPrincipalForm Instancia { get => instancia; set => instancia = value; }
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
-
             instancia = this;
             MostrarDashBoard();
+
+            servicoAppService = new(new ServicoRepository());       //podemos passar esses AppService como parametro no construtor
+            parceiroAppService = new(new ParceiroRepository());
+            cupomAppService = new(new CupomRepository());
         }
 
         #region Opções do menu strip
@@ -63,9 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            ServicoRepository repository = new();
-            ServicoAppService appService = new(repository);
-            operacoes = new OperacoesServico(appService);
+            operacoes = new OperacoesServico(servicoAppService);
 
             ConfigurarPainelRegistros();
         }
@@ -148,7 +155,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesCupom(new CupomRepository());
+            operacoes = new OperacoesCupom(cupomAppService, parceiroAppService);
 
             ConfigurarPainelRegistros();
         }
@@ -162,7 +169,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesParceiro(new ParceiroRepository());
+            operacoes = new OperacoesParceiro(parceiroAppService);
 
             ConfigurarPainelRegistros();
         }
@@ -204,7 +211,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfigurarPainelDashBoard()
         {
-            UserControl tabela = new DashControl();
+            UserControl tabela = new DashControl();     //PASSAR AppServices NO CONSTRUTOR
             tabela.Dock = DockStyle.Fill;
             panelRegistros.Controls.Clear();
             panelRegistros.Controls.Add(tabela);
