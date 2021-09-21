@@ -1,4 +1,4 @@
-﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+﻿using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Funcionarios;
 using LocadoraDeVeiculos.WindowsApp.Shared;
@@ -10,12 +10,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 {
     public class OperacoesFuncionario : ICadastravel
     {
-        private readonly FuncionarioRepository controlador = null;
+        private readonly FuncionarioAppService appService = null;
         private readonly TabelaFuncionarioControl tabelaFuncionarios = null;
 
-        public OperacoesFuncionario(FuncionarioRepository ctrlFuncionario)
+        public OperacoesFuncionario(FuncionarioAppService funcionarioAppService)
         {
-            controlador = ctrlFuncionario;
+            appService = funcionarioAppService;
             tabelaFuncionarios = new TabelaFuncionarioControl();
         }
 
@@ -34,18 +34,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
                 return;
             }
 
-            Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
+            Funcionario funcionarioSelecionado = appService.SelecionarFuncionarioPorId(id);
             FuncionarioForm tela = new("Edição de Funcionário");
             tela.Funcionario = funcionarioSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Funcionario);
-                List<Funcionario> funcionarios = controlador.SelecionarTodos();
+                appService.EditarFuncionario(id, tela.Funcionario);
+                List<Funcionario> funcionarios = appService.SelecionarTodos();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] editado com sucesso");
             }
-
         }
 
         public void ExcluirRegistro()
@@ -58,12 +57,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
                 return;
             }
 
-            Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
+            Funcionario funcionarioSelecionado = appService.SelecionarFuncionarioPorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Nome}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                controlador.Excluir(id);
-                List<Funcionario> funcionarios = controlador.SelecionarTodos();
+                appService.ExcluirFuncionario(id);
+                List<Funcionario> funcionarios = appService.SelecionarTodos();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
             }
@@ -80,8 +79,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Funcionario);
-                List<Funcionario> funcionarios = controlador.SelecionarTodos();
+                appService.InserirNovoFuncionario(tela.Funcionario);
+                List<Funcionario> funcionarios = appService.SelecionarTodos();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Nome}] inserido com sucesso");
             }
@@ -89,7 +88,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public UserControl ObterTabela()
         {
-            List<Funcionario> funcionarios = controlador.SelecionarTodos();
+            List<Funcionario> funcionarios = appService.SelecionarTodos();
             tabelaFuncionarios.AtualizarRegistros(funcionarios);
             return tabelaFuncionarios;
         }

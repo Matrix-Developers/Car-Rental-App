@@ -12,6 +12,11 @@ namespace LocadoraDeVeiculos.Aplicacao.FuncionarioModule
     {
         private readonly IRepository<Funcionario> funcionarioRepository;
 
+        public FuncionarioAppService(IRepository<Funcionario> funcionarioRepository)
+        {
+            this.funcionarioRepository = funcionarioRepository;
+        }
+
         public string InserirNovoFuncionario(Funcionario funcionario){
             string resultadoValidacao = funcionario.Validar();
             if (resultadoValidacao == "VALIDO")

@@ -8,7 +8,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 {
     public partial class TelaLogin : Form
     {
-        private readonly FuncionarioRepository controlador;
+        private readonly FuncionarioRepository controlador;     //devemos modificar para usar appService
         Thread thread;
         public TelaLogin()
         {

@@ -23,6 +23,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -34,6 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private readonly ServicoAppService servicoAppService;
         private readonly ParceiroAppService parceiroAppService;
         private readonly CupomAppService cupomAppService;
+        private readonly FuncionarioAppService funcionarioAppService;
         
         public static TelaPrincipalForm Instancia { get => instancia; set => instancia = value; }
 
@@ -46,6 +48,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             servicoAppService = new(new ServicoRepository());       //podemos passar esses AppService como parametro no construtor
             parceiroAppService = new(new ParceiroRepository());
             cupomAppService = new(new CupomRepository());
+            funcionarioAppService = new(new FuncionarioRepository());
         }
 
         #region Opções do menu strip
@@ -58,7 +61,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesFuncionario(new FuncionarioRepository());
+            operacoes = new OperacoesFuncionario(funcionarioAppService);
 
             ConfigurarPainelRegistros();
         }
@@ -211,7 +214,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfigurarPainelDashBoard()
         {
-            UserControl tabela = new DashControl();     //PASSAR AppServices NO CONSTRUTOR
+            DashControl tabela = new();     //PASSAR AppServices NO CONSTRUTOR
             tabela.Dock = DockStyle.Fill;
             panelRegistros.Controls.Clear();
             panelRegistros.Controls.Add(tabela);
