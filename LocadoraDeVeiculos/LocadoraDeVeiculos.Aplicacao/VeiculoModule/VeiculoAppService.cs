@@ -14,9 +14,10 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         private readonly IRepository<Veiculo> veiculoRepository;
         private readonly IImagemVeiculoRepository imagemVeiculoRepository;
 
-        public VeiculoAppService(IRepository<Veiculo> veiculoRepository)
+        public VeiculoAppService(IRepository<Veiculo> veiculoRepository, IImagemVeiculoRepository imagemVeiculoRepository)
         {
             this.veiculoRepository = veiculoRepository;
+            this.imagemVeiculoRepository = imagemVeiculoRepository;
         }
 
         public string InserirNovoVeiculo(Veiculo veiculo){

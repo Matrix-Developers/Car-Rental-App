@@ -23,6 +23,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -95,7 +96,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesVeiculo(new(new VeiculoRepository()));
+            operacoes = new OperacoesVeiculo(new(new VeiculoRepository(),new ImagemVeiculoRepository()));
 
             ConfigurarPainelRegistros();
         }
