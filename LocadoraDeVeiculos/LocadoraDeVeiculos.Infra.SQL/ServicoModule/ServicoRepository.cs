@@ -98,45 +98,6 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
         }
         #endregion
 
-        public string InserirNovo(Servico registro)
-        {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public List<Servico> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-        public Servico SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public string Editar(int id, Servico registro)
-        {
-
-            registro.Id = id;
-            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-
-            return "VALIDO";
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
-        }
-
         protected override Dictionary<string, object> ObtemParametros(Servico entidade)
         {
             var parametros = new Dictionary<string, object>

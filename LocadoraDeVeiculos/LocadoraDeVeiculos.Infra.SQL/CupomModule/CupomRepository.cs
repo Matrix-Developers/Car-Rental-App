@@ -166,44 +166,6 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         //
         #endregion
 
-        public string InserirNovo(Cupom registro)
-        {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public List<Cupom> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-        public Cupom SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public string Editar(int id, Cupom registro)
-        {
-            registro.Id = id;
-            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
-        }
-
-        //metodos unicos do cupom
         public bool ExisteCodigo(string codigo)
         {
             return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
@@ -226,7 +188,6 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             return parametros;
         }
-        //
 
         protected override Dictionary<string, object> ObtemParametros(Cupom entidade)
         {

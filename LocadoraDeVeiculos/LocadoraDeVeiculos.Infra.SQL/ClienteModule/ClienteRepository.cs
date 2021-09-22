@@ -11,7 +11,6 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
     public class ClienteRepository : RepositoryBase<Cliente>, IRepository<Cliente>
     {
         #region queries
-
         protected override string SqlInserirEntidade
         {
             get
@@ -92,44 +91,6 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
             }
         }
         #endregion
-
-        public string InserirNovo(Cliente registro)
-        {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public string Editar(int id, Cliente registro)
-        {
-            registro.Id = id;
-            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            return "VALIDO"; ;
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
-        }
-
-        public Cliente SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public List<Cliente> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
 
         protected override Dictionary<string, object> ObtemParametros(Cliente entidade)
         {

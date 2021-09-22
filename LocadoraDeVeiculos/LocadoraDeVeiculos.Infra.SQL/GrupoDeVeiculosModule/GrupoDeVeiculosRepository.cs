@@ -94,43 +94,6 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         }
         #endregion
 
-        public string InserirNovo(GrupoDeVeiculo registro)
-        {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public string Editar(int id, GrupoDeVeiculo registro)
-        {
-            registro.Id = id;
-            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
-        }
-        public GrupoDeVeiculo SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public List<GrupoDeVeiculo> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-
         protected override Dictionary<string, object> ObtemParametros(GrupoDeVeiculo entidade)
         {
             var parametros = new Dictionary<string, object>

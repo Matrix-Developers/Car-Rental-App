@@ -93,55 +93,10 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
         //
         #endregion
 
-        public string Editar(int id, RelacionamentoLocServ registro)
-        {
-            throw new NotImplementedException();
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlSelecionarEntidadePorId, AdicionarParametro("ID", id));
-        }
-        public string InserirNovo(RelacionamentoLocServ registro)
-        {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                foreach (Servico servico in registro.Servicos)
-                {
-                    id = servico.Id;
-                    registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-                }
-
-            return resultadoValidacao;
-        }
-        public RelacionamentoLocServ SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-
-        //metodos unicos do RelacionamentoLocServ
         public object SelecionarPorLocacao(int id)
         {
             return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmEntidade, AdicionarParametro("ID_LOCACAO", id));
         }
-        public List<RelacionamentoLocServ> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-        //
 
         protected override Dictionary<string, object> ObtemParametros(RelacionamentoLocServ entidade)
         {

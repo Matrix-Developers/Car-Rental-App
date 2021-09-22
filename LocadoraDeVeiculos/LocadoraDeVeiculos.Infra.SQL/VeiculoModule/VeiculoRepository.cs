@@ -191,43 +191,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         //
         #endregion
 
-        public string InserirNovo(Veiculo registro)
-        {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public List<Veiculo> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-        public Veiculo SelecionarPorId(int id)
-        {           
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public string Editar(int id, Veiculo registro)
-        {
-            registro.Id = id;
-            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
-        }
-
         //Metodo sem referencias ou usos. Esta obsoleto?
         //private int ConverterDados(IDataReader reader)
         //{
