@@ -21,14 +21,17 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
 
             if (resultadoValidacao == "VALIDO")
+            {
                 grupoDeVeiculoRepository.InserirNovo(grupoDeVeiculos);
+
+            }
 
             return resultadoValidacao;
         }
         public string EditarGrupoDeVeiculo(int id,GrupoDeVeiculo grupoDeVeiculos)
         {
             string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
-
+            
 
             if (resultadoValidacao == "VALIDO")
                 grupoDeVeiculoRepository.Editar(id,grupoDeVeiculos);
@@ -51,13 +54,14 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
                     return "O nome do grupo de veículos deve ser único\n";
             }
 
-            return null;
+            return "VALIDO";
         }
 
         private string Vaidacoes(GrupoDeVeiculo grupo)
         {
             string resultadoValidacao = grupo.Validar();
-            resultadoValidacao += VerificarSeNaoPossuiRepetidos(grupo);
+            if (resultadoValidacao == "VALIDO")
+            resultadoValidacao = VerificarSeNaoPossuiRepetidos(grupo);
 
             return resultadoValidacao;
         }
