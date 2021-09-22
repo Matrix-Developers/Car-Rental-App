@@ -1,5 +1,4 @@
-﻿using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
+﻿using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
@@ -11,8 +10,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 {
     public class OperacoesGrupoDeVeiculos : ICadastravel
     {
-        private readonly GrupoDeVeiculosAppService grupoDeVeiculosAppService = null;
-        private readonly TabelaGrupoDeVeiculosControl tabelaGrupoDeVeiculos = null;
+        private readonly GrupoDeVeiculosAppService grupoDeVeiculosAppService;
+        private readonly TabelaGrupoDeVeiculosControl tabelaGrupoDeVeiculos;
 
         public OperacoesGrupoDeVeiculos(GrupoDeVeiculosAppService GrupoDeVeiculosAppService)
         {

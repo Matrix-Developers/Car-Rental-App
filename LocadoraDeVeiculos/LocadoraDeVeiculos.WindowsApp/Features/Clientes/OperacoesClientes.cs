@@ -10,14 +10,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 {
     public class OperacoesClientes : ICadastravel
     {
-        private readonly ClienteAppService ClienteService = null;
-        private readonly TabelaClientesControl tabelaCliente = null;
+        private readonly ClienteAppService ClienteService;
+        private readonly TabelaClientesControl tabelaCliente;
+
         public OperacoesClientes(ClienteAppService clienteService)
         {
             ClienteService = clienteService;
             tabelaCliente = new TabelaClientesControl();
         }
-
 
         public void EditarRegistro()
         {

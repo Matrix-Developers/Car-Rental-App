@@ -1,8 +1,7 @@
 ﻿
+using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
@@ -16,27 +15,31 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
     public class OperacoesLocacao : ICadastravel
     {
-        private readonly LocacaoRepository controlador = null;
-        private readonly RelacionamentoLocServRepository controladorRelacionamento = null;
+        private ConversorParaPdf conversorPdf;
+
+        private readonly LocacaoAppService locacaoAppService;
+        private readonly ServicoAppService servicoAppService;
+
+        private readonly RelacionamentoLocServRepository controladorRelacionamento;
         private RelacionamentoLocServ relacionamento;
-        private readonly TabelaLocacaoControl tabelaLocacao = null;
-        ConversorParaPdf conversorPdf;
-        public OperacoesLocacao(LocacaoRepository ctrlLocacao)
+        private readonly TabelaLocacaoControl tabelaLocacao;
+
+        public OperacoesLocacao(LocacaoAppService locacaoAppService, ServicoAppService servicoAppService)
         {
-            conversorPdf = new ConversorParaPdf(10, 18);
-            controlador = ctrlLocacao;
+            this.locacaoAppService = locacaoAppService;
+            this.servicoAppService = servicoAppService;
             controladorRelacionamento = new RelacionamentoLocServRepository();
+            conversorPdf = new ConversorParaPdf(10, 18);
             tabelaLocacao = new TabelaLocacaoControl();
         }
 
         public void InserirNovoRegistro()
         {
-            ServicoAppService servicoAppService = new(new ServicoRepository());     //talvez pode mudar o lugar onde é instanciado. construtor?
             TelaLocacaoForm tela = new("Locação de Veiculos", servicoAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                string resultadoLocacao = controlador.InserirNovo(tela.Locacao);
+                string resultadoLocacao = locacaoAppService.InserirNovaLocacao(tela.Locacao);
 
                 if (resultadoLocacao == "VALIDO")
                 {
@@ -54,7 +57,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     }
                 }
 
-                List<Locacao> veiculos = controlador.SelecionarTodos();
+                List<Locacao> veiculos = locacaoAppService.SelecionarTodosLocacao();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -72,18 +75,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 return;
             }
 
-            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+            Locacao locacaoSelecionada = locacaoAppService.SelecionarLocacaoPorId(id);
 
-            ServicoAppService servicoAppService = new(new ServicoRepository());     //talvez pode mudar o lugar onde é instanciado. construtor?
             TelaLocacaoForm tela = new("Edição de Locação", servicoAppService);
 
             tela.Locacao = locacaoSelecionada;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.Locacao);
+                locacaoAppService.EditarLocacao(id, tela.Locacao);
 
-                List<Locacao> veiculos = controlador.SelecionarTodos();
+                List<Locacao> veiculos = locacaoAppService.SelecionarTodosLocacao();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -102,14 +104,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 return;
             }
 
-            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+            Locacao locacaoSelecionada = locacaoAppService.SelecionarLocacaoPorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.Id}] ?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                locacaoAppService.ExcluirLocacao(id);
 
-                List<Locacao> veiculos = controlador.SelecionarTodos();
+                List<Locacao> veiculos = locacaoAppService.SelecionarTodosLocacao();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -127,7 +129,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         }
         public UserControl ObterTabela()
         {
-            List<Locacao> locacoes = controlador.SelecionarTodos();
+            List<Locacao> locacoes = locacaoAppService.SelecionarTodosLocacao();
             tabelaLocacao.AtualizarRegistros(locacoes);
 
             return tabelaLocacao;

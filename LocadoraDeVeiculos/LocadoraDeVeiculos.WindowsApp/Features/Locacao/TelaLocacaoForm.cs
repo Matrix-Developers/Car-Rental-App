@@ -19,7 +19,7 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
-    public partial class TelaLocacaoForm : Form
+    public partial class TelaLocacaoForm : Form //precisa de refatoração
     {
         private readonly TelaSelecionarServicoForm telaServico;
         private Locacao locacao;

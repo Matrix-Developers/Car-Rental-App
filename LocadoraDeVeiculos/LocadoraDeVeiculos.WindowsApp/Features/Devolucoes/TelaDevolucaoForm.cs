@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 {
-    public partial class TelaDevolucaoForm : Form
+    public partial class TelaDevolucaoForm : Form   //precisa de refatoração
     {
         private readonly TelaSelecionarServicoForm telaServico;
         private Locacao devolucao;
-        VeiculoRepository controladorVeiculo = new();
+        VeiculoRepository veiculoAppService = new();
         public TelaDevolucaoForm(string titulo, ServicoAppService servicoAppService)
         {
             InitializeComponent();
@@ -74,7 +74,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
                 string resultadoValidacao = Devolucao.Validar();
                 Veiculo veiculoAtualizado = devolucao.Veiculo;
-                controladorVeiculo.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
+                veiculoAppService.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
 
 
                 if (resultadoValidacao != "VALIDO")

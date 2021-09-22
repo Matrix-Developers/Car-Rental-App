@@ -1,7 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Controladores.Shared;
+﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
@@ -13,8 +11,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
     public class VeiculoRepository : RepositoryBase<Veiculo>, IRepository<Veiculo>
     {
-        private readonly ImagemVeiculoRepository controladorImagem = new();
-
         #region queries
         protected override string SqlInserirEntidade
         {

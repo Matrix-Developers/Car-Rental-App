@@ -1,16 +1,17 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
 {
     public class LocacaoAppService
     {
         private readonly IRepository<Locacao> locacaoRepository;
+
+        public LocacaoAppService(IRepository<Locacao> locacaoRepository)
+        {
+            this.locacaoRepository = locacaoRepository;
+        }
 
         public string InserirNovaLocacao(Locacao locacao){
             string resultadoValidacao = locacao.Validar();

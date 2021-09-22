@@ -1,4 +1,10 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ClienteModule;
+using LocadoraDeVeiculos.Aplicacao.CupomModule;
+using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
+using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
+using LocadoraDeVeiculos.Controladores.ClientesModule;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
@@ -16,23 +22,34 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 {
     public partial class DashControl : UserControl
     {
-        VeiculoRepository controladorVeiculo;
-        ClienteRepository controladorCliente;
-        ServicoRepository controladorServicos;
-        LocacaoRepository controladorLocacao;
-        FuncionarioRepository controladorFuncionario;
-        CupomRepository controladorCupom;
-        public DashControl()        //podemos instanciar repositories atraves do appService no construtor
+        List<Locacao> todasLocacao;
+        List<Cliente> todosClientes;
+        List<Veiculo> todosVeiculos;
+        List<Servico> todosServicos;
+
+        public DashControl(List<Locacao> todasLocacao, List<Cliente> todosClientes, List<Veiculo> todosVeiculos, List<Servico> todosServicos)
         {
             InitializeComponent();
-            controladorVeiculo = new VeiculoRepository();
-            controladorCliente = new ClienteRepository();
-            controladorServicos = new ServicoRepository();
-            controladorFuncionario = new FuncionarioRepository();
-            controladorCupom = new();
-            controladorLocacao = new LocacaoRepository(controladorVeiculo, controladorFuncionario, controladorCliente, controladorServicos, controladorCupom);
+
+            this.todasLocacao = todasLocacao;
+            this.todosClientes = todosClientes;
+            this.todosVeiculos = todosVeiculos;
+            this.todosServicos = todosServicos;
+
             MudaLabels();
         }
+
+        //public DashControl()        //podemos instanciar repositories atraves do appService no construtor
+        //{
+        //    InitializeComponent();
+        //    veiculoAppService = new VeiculoRepository();
+        //    clienteAppService = new ClienteRepository();
+        //    servicoAppService = new ServicoRepository();
+        //    funcionarioAppService = new FuncionarioRepository();
+        //    cupomAppService = new();
+        //    locacaoAppService = new LocacaoRepository(veiculoAppService, funcionarioAppService, clienteAppService, servicoAppService, cupomAppService);
+        //    MudaLabels();
+        //}
 
         private void MudaLabels()
         {
@@ -44,7 +61,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 
         private void CarregarDashBoardLocacao()
         {
-            List<Locacao> todasLocacao = controladorLocacao.SelecionarTodos();
             List<Locacao> locacoesAbertas = new();
             foreach (Locacao locacao in todasLocacao)
                 if (locacao.EstaAberta)
@@ -53,17 +69,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             int retornamHJ = 0;
             int retornam7dias = 0;
 
-
             foreach (Locacao locacao in locacoesAbertas)
             {
                 if (locacao.DataDeChegada.Date == DateTime.Today)
-                {
                     retornamHJ++;
-                }
                 else if (locacao.DataDeChegada.Date <= DateTime.Today.AddDays(7))
-                {
                     retornam7dias++;
-                }
             }
             lbRetornoHJ.Text = retornamHJ.ToString();
             lbCarrosAlugados.Text = locacoesAbertas.Count.ToString();
@@ -73,7 +84,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 
         private void CarregarDashBoardServicos()
         {
-            List<Servico> todosServicos = controladorServicos.SelecionarTodos();
             int servicosTotal = todosServicos.Count;
 
             lbServicos.Text = servicosTotal.ToString();
@@ -81,7 +91,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 
         private void CarregaDashBoardCliente()
         {
-            List<Cliente> todosClientes = controladorCliente.SelecionarTodos();
             int clientesTotal = todosClientes.Count;
             int clientesPF = 0;
             int clientesPJ = 0;
@@ -89,13 +98,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             foreach (Cliente cliente in todosClientes)
             {
                 if (cliente.EhPessoaFisica)
-                {
                     clientesPF++;
-                }
                 else
-                {
                     clientesPJ++;
-                }
             }
             lbClientesPJ.Text = clientesPJ.ToString();
             lbClientesPF.Text = clientesPF.ToString();
@@ -105,22 +110,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 
         private void CarregaDashBoardVeiculo()
         {
-            List<Veiculo> TodosVeiculos = controladorVeiculo.SelecionarTodos();
-            int carrosNoTotal = TodosVeiculos.Count;
+            int carrosNoTotal = todosVeiculos.Count;
             int carrosAlugados = 0;
             int carrosDisponiveis = 0;
 
 
-            foreach (Veiculo veiculo in TodosVeiculos)
+            foreach (Veiculo veiculo in todosVeiculos)
             {
                 if (veiculo.estaAlugado)
-                {
                     carrosAlugados++;
-                }
                 else
-                {
                     carrosDisponiveis++;
-                }
             }
             lbCarDisp.Text = carrosDisponiveis.ToString();
             lbCarInd.Text = carrosAlugados.ToString();
