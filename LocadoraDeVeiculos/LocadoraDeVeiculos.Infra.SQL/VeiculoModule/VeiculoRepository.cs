@@ -206,6 +206,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         }
         public string Editar(int id, Veiculo registro)
         {
+            registro.Id = id;
             Db.Update(SqlEditarEntidade, ObtemParametros(registro));
             return "VALIDO";
         }

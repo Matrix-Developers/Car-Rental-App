@@ -13,7 +13,8 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             this.servicoRepository = servicoRepository;
         }
 
-        public string InserirNovoServico(Servico servico) {
+        public string InserirNovoServico(Servico servico)
+        {
             string resultadoValidacao = servico.Validar();
 
             if (resultadoValidacao == "VALIDO")
@@ -21,18 +22,30 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
 
             return resultadoValidacao;
         }
-        public string EditarServico(int id,Servico servico)
+        public string EditarServico(int id, Servico servico)
         {
             string resultadoValidacao = servico.Validar();
 
             if (resultadoValidacao == "VALIDO")
-                servicoRepository.Editar(id,servico);
+                servicoRepository.Editar(id, servico);
 
             return resultadoValidacao;
         }
-        public bool ExcluirServico(int id) { return servicoRepository.Excluir(id);}
-        public bool ExisteServico(int id) { return servicoRepository.Existe(id);}
-        public Servico SelecionarServicoPorId(int id) { return servicoRepository.SelecionarPorId(id);}
-        public List<Servico> SelecionarTodosServico() { return servicoRepository.SelecionarTodos();}
+        public bool ExcluirServico(int id)
+        {
+            return servicoRepository.Excluir(id);
+        }
+        public bool ExisteServico(int id)
+        {
+            return servicoRepository.Existe(id);
+        }
+        public Servico SelecionarServicoPorId(int id)
+        {
+            return servicoRepository.SelecionarPorId(id);
+        }
+        public List<Servico> SelecionarTodosServico()
+        {
+            return servicoRepository.SelecionarTodos();
+        }
     }
 }

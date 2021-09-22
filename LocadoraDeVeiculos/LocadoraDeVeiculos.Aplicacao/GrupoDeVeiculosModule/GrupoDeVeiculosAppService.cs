@@ -17,7 +17,8 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             this.grupoDeVeiculoRepository = grupoDeVeiculoRepository;
         }
 
-        public string InserirNovoGrupoDeVeiculo(GrupoDeVeiculo grupoDeVeiculos){
+        public string InserirNovoGrupoDeVeiculo(GrupoDeVeiculo grupoDeVeiculos)
+        {
             string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
 
             if (resultadoValidacao == "VALIDO")
@@ -28,20 +29,32 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
 
             return resultadoValidacao;
         }
-        public string EditarGrupoDeVeiculo(int id,GrupoDeVeiculo grupoDeVeiculos)
+        public string EditarGrupoDeVeiculo(int id, GrupoDeVeiculo grupoDeVeiculos)
         {
             string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
-            
+
 
             if (resultadoValidacao == "VALIDO")
-                grupoDeVeiculoRepository.Editar(id,grupoDeVeiculos);
+                grupoDeVeiculoRepository.Editar(id, grupoDeVeiculos);
 
             return resultadoValidacao;
         }
-        public void ExcluirGrupoDeVeiculo(int id) { grupoDeVeiculoRepository.Excluir(id);}
-        public bool ExisteGrupoDeVeiculo(int id) { return grupoDeVeiculoRepository.Existe(id);}
-        public GrupoDeVeiculo SelecionarGrupoDeVeiculoPorId(int id) { return grupoDeVeiculoRepository.SelecionarPorId(id);}
-        public List<GrupoDeVeiculo> SelecionarTodosGrupoDeVeiculo() { return grupoDeVeiculoRepository.SelecionarTodos();}
+        public void ExcluirGrupoDeVeiculo(int id)
+        {
+            grupoDeVeiculoRepository.Excluir(id);
+        }
+        public bool ExisteGrupoDeVeiculo(int id)
+        {
+            return grupoDeVeiculoRepository.Existe(id);
+        }
+        public GrupoDeVeiculo SelecionarGrupoDeVeiculoPorId(int id)
+        {
+            return grupoDeVeiculoRepository.SelecionarPorId(id);
+        }
+        public List<GrupoDeVeiculo> SelecionarTodosGrupoDeVeiculo()
+        {
+            return grupoDeVeiculoRepository.SelecionarTodos();
+        }
 
         #region Métodos privados
         private string VerificarSeNaoPossuiRepetidos(GrupoDeVeiculo grupoVeiculo)
@@ -61,7 +74,7 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
         {
             string resultadoValidacao = grupo.Validar();
             if (resultadoValidacao == "VALIDO")
-            resultadoValidacao = VerificarSeNaoPossuiRepetidos(grupo);
+                resultadoValidacao = VerificarSeNaoPossuiRepetidos(grupo);
 
             return resultadoValidacao;
         }

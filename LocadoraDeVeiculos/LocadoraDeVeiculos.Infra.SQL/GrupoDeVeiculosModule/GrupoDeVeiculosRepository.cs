@@ -96,26 +96,14 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 
         public string InserirNovo(GrupoDeVeiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            }
-
-            return resultadoValidacao;
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public string Editar(int id, GrupoDeVeiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
-
-            return resultadoValidacao;
+            registro.Id = id;
+            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public bool Excluir(int id)
         {

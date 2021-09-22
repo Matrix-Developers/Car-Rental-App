@@ -100,12 +100,8 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
 
         public string InserirNovo(Servico registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public List<Servico> SelecionarTodos()
         {
@@ -117,15 +113,11 @@ namespace LocadoraDeVeiculos.Controladores.ServicoModule
         }
         public string Editar(int id, Servico registro)
         {
-            string resultadoValidacao = registro.Validar();
 
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
+            registro.Id = id;
+            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
 
-            return resultadoValidacao;
+            return "VALIDO";
         }
         public bool Excluir(int id)
         {

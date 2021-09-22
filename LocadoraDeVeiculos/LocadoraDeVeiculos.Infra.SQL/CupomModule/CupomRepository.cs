@@ -168,12 +168,8 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         public string InserirNovo(Cupom registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public List<Cupom> SelecionarTodos()
         {
@@ -185,15 +181,9 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         }
         public string Editar(int id, Cupom registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
-
-            return resultadoValidacao;
+            registro.Id = id;
+            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public bool Excluir(int id)
         {
@@ -277,6 +267,5 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             return cupom;
         }
-
     }
 }

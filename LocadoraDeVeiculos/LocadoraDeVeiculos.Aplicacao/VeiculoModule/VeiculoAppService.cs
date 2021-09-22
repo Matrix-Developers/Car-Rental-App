@@ -40,7 +40,6 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         public string EditarVeiculo(int id, Veiculo veiculo)
         {
             string resultadoValidacao = veiculo.Validar();
-            veiculo.Id = id;
             if (resultadoValidacao == "VALIDO")
             {
                 veiculoRepository.Editar(id, veiculo);
@@ -57,7 +56,10 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             imagemVeiculoRepository.ExcluirPorIdDoVeiculo(id);
             return veiculoRepository.Excluir(id);
         }
-        public bool ExisteVeiculo(int id) { return veiculoRepository.Existe(id);}
+        public bool ExisteVeiculo(int id)
+        {
+            return veiculoRepository.Existe(id);
+        }
         public Veiculo SelecionarVeiculoPorId(int id) { 
             Veiculo veiculo = veiculoRepository.SelecionarPorId(id);
             veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(id);

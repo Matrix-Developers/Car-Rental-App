@@ -79,12 +79,8 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 
         public string InserirNovo(Parceiro registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public List<Parceiro> SelecionarTodos()
         {
@@ -96,15 +92,11 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
         }
         public string Editar(int id, Parceiro registro)
         {
-            string resultadoValidacao = registro.Validar();
 
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
+            registro.Id = id;
+            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
 
-            return resultadoValidacao;
+            return "VALIDO";
         }
         public bool Excluir(int id)
         {

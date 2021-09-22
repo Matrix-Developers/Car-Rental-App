@@ -109,15 +109,16 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         }
         #endregion
 
+        public string InserirNovo(Funcionario registro)
+        {
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+            return "VALIDO";
+        }
         public string Editar(int id, Funcionario registro)
         {
-            string resultadoValidacao = registro.Validar();
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
-            return resultadoValidacao;
+            registro.Id = id;
+            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public bool Excluir(int id)
         {
@@ -134,14 +135,6 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         public bool Existe(int id)
         {
             return Db.Exists(SqlSelecionarEntidadePorId, AdicionarParametro("ID", id));
-        }
-        public string InserirNovo(Funcionario registro)
-        {
-            string resultadoValidacao = registro.Validar();
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
         }
         public Funcionario SelecionarPorId(int id)
         {

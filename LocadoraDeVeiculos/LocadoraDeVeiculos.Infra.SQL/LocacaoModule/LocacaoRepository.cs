@@ -20,11 +20,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
     public class LocacaoRepository : RepositoryBase<Locacao>, IRepository<Locacao>
     {
-        private readonly VeiculoRepository controladorVeiculo = null;
-        private readonly FuncionarioRepository controladorFuncionario = null;
-        private readonly ClienteRepository controladorCliente = null;
-        private readonly ServicoRepository controladorServico = null;
-        private readonly CupomRepository controladorCupom = null;
+        private readonly VeiculoRepository controladorVeiculo;
+        private readonly FuncionarioRepository controladorFuncionario;
+        private readonly ClienteRepository controladorCliente;
+        private readonly ServicoRepository controladorServico;
+        private readonly CupomRepository controladorCupom;
 
         public LocacaoRepository(VeiculoRepository controladorVeiculo, FuncionarioRepository controladorFuncionario, ClienteRepository controladorCliente, ServicoRepository controladorServico, CupomRepository controladorCupom)
         {
@@ -143,12 +143,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
         public string InserirNovo(Locacao registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+            return "VALIDO"; ;
         }
         public List<Locacao> SelecionarTodos()
         {
@@ -160,15 +156,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         }
         public string Editar(int id, Locacao registro)
         {
-            string resultadoValidacao = registro.Validar();
 
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
+            registro.Id = id;
+            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
 
-            return resultadoValidacao;
+            return "VALIDO"; ;
         }
         public bool Excluir(int id)
         {

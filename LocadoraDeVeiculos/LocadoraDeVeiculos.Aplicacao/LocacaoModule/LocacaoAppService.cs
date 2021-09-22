@@ -13,7 +13,8 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
             this.locacaoRepository = locacaoRepository;
         }
 
-        public string InserirNovaLocacao(Locacao locacao){
+        public string InserirNovaLocacao(Locacao locacao)
+        {
             string resultadoValidacao = locacao.Validar();
 
             if (resultadoValidacao == "VALIDO")
@@ -21,7 +22,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
 
             return resultadoValidacao;
         }
-        public string EditarLocacao(int id,Locacao locacao)
+        public string EditarLocacao(int id, Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
 
@@ -30,10 +31,21 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
 
             return resultadoValidacao;
         }
-        public bool ExcluirLocacao(int id) { return locacaoRepository.Excluir(id);}
-        public Locacao SelecionarLocacaoPorId(int id) { return locacaoRepository.SelecionarPorId(id);}
-        public List<Locacao> SelecionarTodosLocacao() { return locacaoRepository.SelecionarTodos();}
-        public bool ExisteLocacao(int id) { return locacaoRepository.Existe(id);}
-
+        public bool ExcluirLocacao(int id)
+        {
+            return locacaoRepository.Excluir(id);
+        }
+        public Locacao SelecionarLocacaoPorId(int id)
+        {
+            return locacaoRepository.SelecionarPorId(id);
+        }
+        public List<Locacao> SelecionarTodosLocacao()
+        {
+            return locacaoRepository.SelecionarTodos();
+        }
+        public bool ExisteLocacao(int id)
+        {
+            return locacaoRepository.Existe(id);
+        }
     }
 }

@@ -17,7 +17,8 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             this.parceiroRepository = parceiroRepository;
         }
 
-        public string InserirNovoParceiro(Parceiro parceiro){
+        public string InserirNovoParceiro(Parceiro parceiro)
+        {
             string ResultadoValidacao = parceiro.Validar();
 
             if (ResultadoValidacao == "VALIDO")
@@ -30,13 +31,25 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             string ResultadoValidacao = parceiro.Validar();
 
             if (ResultadoValidacao == "VALIDO")
-                parceiroRepository.Editar(id,parceiro);
+                parceiroRepository.Editar(id, parceiro);
 
             return ResultadoValidacao;
         }
-        public void ExcluirParceiro(int id) { parceiroRepository.Excluir(id); }
-        public bool ExisteParceiro(int id) { return parceiroRepository.Existe(id);}
-        public Parceiro SelecionarParceiroPorId(int id) { return parceiroRepository.SelecionarPorId(id);}
-        public List<Parceiro> SelecionarTodosParceiro() { return parceiroRepository.SelecionarTodos();}
+        public void ExcluirParceiro(int id)
+        {
+            parceiroRepository.Excluir(id);
+        }
+        public bool ExisteParceiro(int id)
+        {
+            return parceiroRepository.Existe(id);
+        }
+        public Parceiro SelecionarParceiroPorId(int id)
+        {
+            return parceiroRepository.SelecionarPorId(id);
+        }
+        public List<Parceiro> SelecionarTodosParceiro()
+        {
+            return parceiroRepository.SelecionarTodos();
+        }
     }
 }
