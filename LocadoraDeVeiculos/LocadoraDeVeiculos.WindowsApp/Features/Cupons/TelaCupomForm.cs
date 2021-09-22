@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         private void CarregarParceiros()
         {
-            cBoxParceiro.DataSource = parceiroAppService.SelecionarTodosParceiro();
+            cBoxParceiro.DataSource = parceiroAppService.SelecionarTodasEntidade();
         }
 
         public Cupom Cupom

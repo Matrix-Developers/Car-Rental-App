@@ -24,9 +24,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirNovoParceiro(tela.Parceiro);
+                appService.InserirEntidade(tela.Parceiro);
 
-                List<Parceiro> parceiros = appService.SelecionarTodosParceiro();
+                List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
 
                 tabela.AtualizarRegistros(parceiros);
 
@@ -44,14 +44,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 return;
             }
 
-            Parceiro parceiroSelecionado = appService.SelecionarParceiroPorId(id);
+            Parceiro parceiroSelecionado = appService.SelecionarEntidadePorId(id);
             TelaParceiroForm tela = new("Edição de Parceiro");
             tela.Parceiro = parceiroSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.EditarParceiro(id, tela.Parceiro);
-                List<Parceiro> parceiros = appService.SelecionarTodosParceiro();
+                appService.EditarEntidade(id, tela.Parceiro);
+                List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(parceiros);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] editado com sucesso");
             }
@@ -67,12 +67,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 return;
             }
 
-            Parceiro parceiroSelecionado = appService.SelecionarParceiroPorId(id);
+            Parceiro parceiroSelecionado = appService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o Parceiro: [{parceiroSelecionado.Nome}] ?", "Exclusão de Parceiros", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                appService.ExcluirParceiro(id);
-                List<Parceiro> parceiros = appService.SelecionarTodosParceiro();
+                appService.ExcluirEntidade(id);
+                List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(parceiros);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] removido com sucesso");
             }
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         }
         public UserControl ObterTabela()
         {
-            List<Parceiro> cupons = appService.SelecionarTodosParceiro();
+            List<Parceiro> cupons = appService.SelecionarTodasEntidade();
             tabela.AtualizarRegistros(cupons);
             return tabela;
         }

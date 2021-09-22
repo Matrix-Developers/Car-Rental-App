@@ -1,10 +1,11 @@
-﻿using LocadoraDeVeiculos.Dominio.SevicosModule;
+﻿using LocadoraDeVeiculos.Aplicacao.Shared;
+using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
 {
-    public class ServicoAppService
+    public class ServicoAppService : AppServiceBase<Servico>
     {
         private readonly IRepository<Servico> servicoRepository;
 
@@ -13,7 +14,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             this.servicoRepository = servicoRepository;
         }
 
-        public string InserirNovoServico(Servico servico)
+        public override string InserirEntidade(Servico servico)
         {
             string resultadoValidacao = servico.Validar();
 
@@ -22,7 +23,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
 
             return resultadoValidacao;
         }
-        public string EditarServico(int id, Servico servico)
+        public override string EditarEntidade(int id, Servico servico)
         {
             string resultadoValidacao = servico.Validar();
 
@@ -31,19 +32,19 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
 
             return resultadoValidacao;
         }
-        public bool ExcluirServico(int id)
+        public override bool ExcluirEntidade(int id)
         {
             return servicoRepository.Excluir(id);
         }
-        public bool ExisteServico(int id)
+        public override bool ExisteEntidade(int id)
         {
             return servicoRepository.Existe(id);
         }
-        public Servico SelecionarServicoPorId(int id)
+        public override Servico SelecionarEntidadePorId(int id)
         {
             return servicoRepository.SelecionarPorId(id);
         }
-        public List<Servico> SelecionarTodosServico()
+        public override List<Servico> SelecionarTodasEntidade()
         {
             return servicoRepository.SelecionarTodos();
         }

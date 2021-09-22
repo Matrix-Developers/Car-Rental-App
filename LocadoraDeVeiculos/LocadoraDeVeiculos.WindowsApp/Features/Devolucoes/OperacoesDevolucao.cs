@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 return;
             }
 
-            Locacao locacaoSelecionada = locacaoAppService.SelecionarLocacaoPorId(id);
+            Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
             TelaDevolucaoForm tela = new("Devolução de Veículo",servicoAppService);
 
@@ -41,8 +41,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                locacaoAppService.EditarLocacao(tela.Devolucao.Id, tela.Devolucao);
-                List<Locacao> funcionarios = locacaoAppService.SelecionarTodosLocacao();
+                locacaoAppService.EditarEntidade(tela.Devolucao.Id, tela.Devolucao);
+                List<Locacao> funcionarios = locacaoAppService.SelecionarTodasEntidade();
                 tabelaDevolucao.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Devolução: [{tela.Devolucao.Id}] realizada com sucesso");
             }
@@ -64,14 +64,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 return;
             }
 
-            Locacao locacaoSelecionada = locacaoAppService.SelecionarLocacaoPorId(id);
+            Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir todo o registro da locação e devolução: [{locacaoSelecionada.Id}] ?",
                 "Exclusão de Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                locacaoAppService.ExcluirLocacao(id);
+                locacaoAppService.ExcluirEntidade(id);
 
-                List<Locacao> veiculos = locacaoAppService.SelecionarTodosLocacao();
+                List<Locacao> veiculos = locacaoAppService.SelecionarTodasEntidade();
 
                 tabelaDevolucao.AtualizarRegistros(veiculos);
 
@@ -85,7 +85,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             if (telaFiltro.ShowDialog() == DialogResult.OK)
             {
-                List<Locacao> devolucoes = locacaoAppService.SelecionarTodosLocacao();
+                List<Locacao> devolucoes = locacaoAppService.SelecionarTodasEntidade();
                 string tipoLocacao = "";
 
                 switch (telaFiltro.TipoFiltro)
@@ -131,7 +131,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
         public UserControl ObterTabela()
         {
-            List<Locacao> locacoes = locacaoAppService.SelecionarTodosLocacao();
+            List<Locacao> locacoes = locacaoAppService.SelecionarTodasEntidade();
 
             tabelaDevolucao.AtualizarRegistros(locacoes);
 

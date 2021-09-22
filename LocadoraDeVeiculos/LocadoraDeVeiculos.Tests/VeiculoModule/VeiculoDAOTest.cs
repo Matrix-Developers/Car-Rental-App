@@ -114,7 +114,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         public void DeveInserirUmVeiculo()
         {
             //arrange
-            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculo);
+            GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculo);
             veiculo = new VeiculoDataBuilder()
                 .ComModelo(civic)
                 .ComGrupoDeVeiculo(grupoDeVeiculo)
@@ -136,10 +136,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .ComImagem(naoPossuiImagens)
                 .Build();
             //action
-            veiculoAppService.InserirNovoVeiculo(veiculo);
+            veiculoAppService.InserirEntidade(veiculo);
 
             //assert
-            var veiculoEncontrado = veiculoAppService.SelecionarVeiculoPorId(veiculo.Id);
+            var veiculoEncontrado = veiculoAppService.SelecionarEntidadePorId(veiculo.Id);
             veiculoEncontrado.Should().Be(veiculo);
         }
 
@@ -147,7 +147,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         public void DeveSelecionarDoisVeiculos()
         {
             //arrange  
-            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculo);
+            GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculo);
             veiculo = new VeiculoDataBuilder()
                 .ComModelo(civic)
                 .ComGrupoDeVeiculo(grupoDeVeiculo)
@@ -191,11 +191,11 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .Build();
 
             //action
-            veiculoAppService.InserirNovoVeiculo(veiculo);
-            veiculoAppService.InserirNovoVeiculo(veiculo2);
+            veiculoAppService.InserirEntidade(veiculo);
+            veiculoAppService.InserirEntidade(veiculo2);
 
             //assert
-            List<Veiculo> veiculoEncontrado = veiculoAppService.SelecionarTodosVeiculo();
+            List<Veiculo> veiculoEncontrado = veiculoAppService.SelecionarTodasEntidade();
             veiculoEncontrado.Count.Should().Be(2);
         }
 
@@ -203,7 +203,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         public void DeveEditarUmVeiculo()
         {
             //arrange
-            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculo);
+            GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculo);
             veiculo = new VeiculoDataBuilder()
                 .ComModelo(civic)
                 .ComGrupoDeVeiculo(grupoDeVeiculo)
@@ -247,11 +247,11 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .Build();
             
             //action
-            veiculoAppService.InserirNovoVeiculo(veiculo);
-            veiculoAppService.EditarVeiculo(veiculo.Id, veiculoEditado);
+            veiculoAppService.InserirEntidade(veiculo);
+            veiculoAppService.EditarEntidade(veiculo.Id, veiculoEditado);
 
             //assert
-            var veiculoEncontrado = veiculoAppService.SelecionarVeiculoPorId(veiculo.Id);
+            var veiculoEncontrado = veiculoAppService.SelecionarEntidadePorId(veiculo.Id);
             veiculoEncontrado.Should().Be(veiculoEditado);
         }
 
@@ -259,7 +259,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         public void DeveExcluirUmVeiculo()
         {
             //arrange
-            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculo);
+            GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculo);
             veiculo = new VeiculoDataBuilder()
                 .ComModelo(civic)
                 .ComGrupoDeVeiculo(grupoDeVeiculo)
@@ -282,13 +282,13 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .Build();
 
             //action
-            veiculoAppService.InserirNovoVeiculo(veiculo);
-            List<Veiculo> veiculosAntesDaExclusao = veiculoAppService.SelecionarTodosVeiculo();
+            veiculoAppService.InserirEntidade(veiculo);
+            List<Veiculo> veiculosAntesDaExclusao = veiculoAppService.SelecionarTodasEntidade();
             veiculosAntesDaExclusao.Count.Should().Be(1);
-            veiculoAppService.ExcluirVeiculo(veiculo.Id);
+            veiculoAppService.ExcluirEntidade(veiculo.Id);
 
             //assert
-            List<Veiculo> veiculoEncontrado = veiculoAppService.SelecionarTodosVeiculo();
+            List<Veiculo> veiculoEncontrado = veiculoAppService.SelecionarTodasEntidade();
             veiculoEncontrado.Count.Should().Be(0);
         }
 

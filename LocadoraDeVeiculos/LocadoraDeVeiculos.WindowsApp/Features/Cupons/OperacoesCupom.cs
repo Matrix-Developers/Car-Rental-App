@@ -28,9 +28,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirNovoCupom(tela.Cupom);
+                appService.InserirEntidade(tela.Cupom);
 
-                List<Cupom> cupons = appService.SelecionarTodosCupom();
+                List<Cupom> cupons = appService.SelecionarTodasEntidade();
 
                 tabela.AtualizarRegistros(cupons);
 
@@ -50,14 +50,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
                 return;
             }
 
-            Cupom cupomSelecionado = appService.SelecionarCupomPorId(id);
+            Cupom cupomSelecionado = appService.SelecionarEntidadePorId(id);
             
             tela.Cupom = cupomSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.EditarCupom(id, tela.Cupom);
-                List<Cupom> funcionarios = appService.SelecionarTodosCupom();
+                appService.EditarEntidade(id, tela.Cupom);
+                List<Cupom> funcionarios = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{cupomSelecionado.Nome}] editado com sucesso");
             }
@@ -73,12 +73,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
                 return;
             }
 
-            Cupom parceiroSelecionado = appService.SelecionarCupomPorId(id);
+            Cupom parceiroSelecionado = appService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Nome}] ?", "Exclusão de Cupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                appService.ExcluirCupom(id);
-                List<Cupom> cupons = appService.SelecionarTodosCupom();
+                appService.ExcluirEntidade(id);
+                List<Cupom> cupons = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(cupons);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{parceiroSelecionado.Nome}] removido com sucesso");
             }
@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public UserControl ObterTabela()
         {
-            List<Cupom> cupons = appService.SelecionarTodosCupom();
+            List<Cupom> cupons = appService.SelecionarTodasEntidade();
             tabela.AtualizarRegistros(cupons);
             return tabela;
         }

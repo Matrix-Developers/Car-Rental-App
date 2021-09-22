@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                string resultadoLocacao = locacaoAppService.InserirNovaLocacao(tela.Locacao);
+                string resultadoLocacao = locacaoAppService.InserirEntidade(tela.Locacao);
 
                 if (resultadoLocacao == "VALIDO")
                 {
@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     }
                 }
 
-                List<Locacao> veiculos = locacaoAppService.SelecionarTodosLocacao();
+                List<Locacao> veiculos = locacaoAppService.SelecionarTodasEntidade();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 return;
             }
 
-            Locacao locacaoSelecionada = locacaoAppService.SelecionarLocacaoPorId(id);
+            Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
             TelaLocacaoForm tela = new("Edição de Locação", servicoAppService);
 
@@ -83,9 +83,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                locacaoAppService.EditarLocacao(id, tela.Locacao);
+                locacaoAppService.EditarEntidade(id, tela.Locacao);
 
-                List<Locacao> veiculos = locacaoAppService.SelecionarTodosLocacao();
+                List<Locacao> veiculos = locacaoAppService.SelecionarTodasEntidade();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -104,14 +104,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 return;
             }
 
-            Locacao locacaoSelecionada = locacaoAppService.SelecionarLocacaoPorId(id);
+            Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.Id}] ?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                locacaoAppService.ExcluirLocacao(id);
+                locacaoAppService.ExcluirEntidade(id);
 
-                List<Locacao> veiculos = locacaoAppService.SelecionarTodosLocacao();
+                List<Locacao> veiculos = locacaoAppService.SelecionarTodasEntidade();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
@@ -129,7 +129,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         }
         public UserControl ObterTabela()
         {
-            List<Locacao> locacoes = locacaoAppService.SelecionarTodosLocacao();
+            List<Locacao> locacoes = locacaoAppService.SelecionarTodasEntidade();
             tabelaLocacao.AtualizarRegistros(locacoes);
 
             return tabelaLocacao;

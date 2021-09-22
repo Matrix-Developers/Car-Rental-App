@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
             else
             {
-                foreach (Funcionario funcionario in funcionarioAppService.SelecionarTodos())
+                foreach (Funcionario funcionario in funcionarioAppService.SelecionarTodasEntidade())
                 {
                     if (textUsuario.Text == funcionario.UsuarioAcesso && textSenha.Text == funcionario.Senha)
                     {

@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
                 return;
             }
 
-            GrupoDeVeiculo grupoSelecionado = grupoDeVeiculosAppService.SelecionarGrupoDeVeiculoPorId(id);
+            GrupoDeVeiculo grupoSelecionado = grupoDeVeiculosAppService.SelecionarEntidadePorId(id);
 
             TarefaGrupoDeVeiculosForm tela = new("Edição de Grupo de Veiculos");
 
@@ -42,9 +42,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                grupoDeVeiculosAppService.EditarGrupoDeVeiculo(id, tela.GrupoDeVeiculos);
+                grupoDeVeiculosAppService.EditarEntidade(id, tela.GrupoDeVeiculos);
 
-                List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodosGrupoDeVeiculo();
+                List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodasEntidade();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
@@ -60,14 +60,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
                 MessageBox.Show("Selecione um Grupo de Veículos para excluir", "Exclusão de Grupo de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            GrupoDeVeiculo grupoSelecionado = grupoDeVeiculosAppService.SelecionarGrupoDeVeiculoPorId(id);
+            GrupoDeVeiculo grupoSelecionado = grupoDeVeiculosAppService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos: [{grupoSelecionado.Nome}]?",
                 "Exclusão de Grupo de Veículos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                grupoDeVeiculosAppService.ExcluirGrupoDeVeiculo(id);
+                grupoDeVeiculosAppService.ExcluirEntidade(id);
 
-                List<GrupoDeVeiculo> grupos = grupoDeVeiculosAppService.SelecionarTodosGrupoDeVeiculo();
+                List<GrupoDeVeiculo> grupos = grupoDeVeiculosAppService.SelecionarTodasEntidade();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupos);
 
@@ -86,9 +86,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                grupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(tela.GrupoDeVeiculos);
+                grupoDeVeiculosAppService.InserirEntidade(tela.GrupoDeVeiculos);
 
-                List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodosGrupoDeVeiculo();
+                List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodasEntidade();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
@@ -98,7 +98,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
         public UserControl ObterTabela()
         {
-            List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodosGrupoDeVeiculo();
+            List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodasEntidade();
             tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
             return tabelaGrupoDeVeiculos;

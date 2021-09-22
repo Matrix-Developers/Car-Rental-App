@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.CupomModule;
+﻿using LocadoraDeVeiculos.Aplicacao.Shared;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.CupomModule
 {
-    public class CupomAppService
+    public class CupomAppService : AppServiceBase<Cupom>
     {
         private readonly ICupomRepository cupomRepository;
 
@@ -16,7 +17,7 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             this.cupomRepository = cupomRepository;
         }
 
-        public string InserirNovoCupom(Cupom cupom)
+        public override string InserirEntidade(Cupom cupom)
         {
             string resultadoValidacao = cupom.Validar();
 
@@ -25,7 +26,7 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
 
             return resultadoValidacao;
         }
-        public string EditarCupom(int id, Cupom cupom)
+        public override string EditarEntidade(int id, Cupom cupom)
         {
             string resultadoValidacao = cupom.Validar();
 
@@ -34,30 +35,34 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
 
             return resultadoValidacao;
         }
-        public void ExcluirCupom(int id)
+        public override bool ExcluirEntidade(int id)
         {
-            cupomRepository.Excluir(id);
+            return cupomRepository.Excluir(id);
         }
-        public bool ExisteCupom(int id)
+        public override bool ExisteEntidade(int id)
         {
             return cupomRepository.Existe(id);
         }
+        public override Cupom SelecionarEntidadePorId(int id)
+        {
+            return cupomRepository.SelecionarPorId(id);
+        }
+        public override List<Cupom> SelecionarTodasEntidade()
+        {
+            return cupomRepository.SelecionarTodos();
+        }
+
+
         public bool ExisteCodigo(string codigo)
         {
             return cupomRepository.ExisteCodigo(codigo);
         }
-        public Cupom SelecionarCupomPorId(int id)
-        {
-            return cupomRepository.SelecionarPorId(id);
-        }
+        
         public Cupom SelecionarPorCodigo(string codigo)
         {
             return cupomRepository.SelecionarPorCodigo(codigo);
         }
-        public List<Cupom> SelecionarTodosCupom()
-        {
-            return cupomRepository.SelecionarTodos();
-        }
+        
         public void AtualizarQuantidadeUtilizada(int id, int quantidade)
         {
             cupomRepository.AtualizarQtdUtilizada(id, quantidade);

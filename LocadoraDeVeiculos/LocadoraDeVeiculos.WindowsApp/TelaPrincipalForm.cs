@@ -216,7 +216,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfigurarPainelDashBoard()
         {
-            DashControl tabela = new(locacaoAppService.SelecionarTodosLocacao(), clienteAppService.SelecionarTodosCliente(), veiculoAppService.SelecionarTodosVeiculo(), servicoAppService.SelecionarTodosServico());
+            DashControl tabela = new(locacaoAppService.SelecionarTodasEntidade(), clienteAppService.SelecionarTodasEntidade(), veiculoAppService.SelecionarTodasEntidade(), servicoAppService.SelecionarTodasEntidade());
             tabela.Dock = DockStyle.Fill;
             panelRegistros.Controls.Clear();
             panelRegistros.Controls.Add(tabela);

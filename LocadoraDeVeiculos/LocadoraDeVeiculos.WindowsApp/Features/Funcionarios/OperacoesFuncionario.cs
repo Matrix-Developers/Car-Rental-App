@@ -34,14 +34,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
                 return;
             }
 
-            Funcionario funcionarioSelecionado = appService.SelecionarFuncionarioPorId(id);
+            Funcionario funcionarioSelecionado = appService.SelecionarEntidadePorId(id);
             FuncionarioForm tela = new("Edição de Funcionário");
             tela.Funcionario = funcionarioSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.EditarFuncionario(id, tela.Funcionario);
-                List<Funcionario> funcionarios = appService.SelecionarTodos();
+                appService.EditarEntidade(id, tela.Funcionario);
+                List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] editado com sucesso");
             }
@@ -57,12 +57,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
                 return;
             }
 
-            Funcionario funcionarioSelecionado = appService.SelecionarFuncionarioPorId(id);
+            Funcionario funcionarioSelecionado = appService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Nome}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                appService.ExcluirFuncionario(id);
-                List<Funcionario> funcionarios = appService.SelecionarTodos();
+                appService.ExcluirEntidade(id);
+                List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
             }
@@ -79,8 +79,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirNovoFuncionario(tela.Funcionario);
-                List<Funcionario> funcionarios = appService.SelecionarTodos();
+                appService.InserirEntidade(tela.Funcionario);
+                List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Nome}] inserido com sucesso");
             }
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public UserControl ObterTabela()
         {
-            List<Funcionario> funcionarios = appService.SelecionarTodos();
+            List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
             tabelaFuncionarios.AtualizarRegistros(funcionarios);
             return tabelaFuncionarios;
         }

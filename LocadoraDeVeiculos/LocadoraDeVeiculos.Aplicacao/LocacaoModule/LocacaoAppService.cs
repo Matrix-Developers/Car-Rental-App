@@ -1,10 +1,11 @@
-﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+﻿using LocadoraDeVeiculos.Aplicacao.Shared;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
 {
-    public class LocacaoAppService
+    public class LocacaoAppService : AppServiceBase<Locacao>
     {
         private readonly IRepository<Locacao> locacaoRepository;
 
@@ -13,7 +14,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
             this.locacaoRepository = locacaoRepository;
         }
 
-        public string InserirNovaLocacao(Locacao locacao)
+        public override string InserirEntidade(Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
 
@@ -22,7 +23,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
 
             return resultadoValidacao;
         }
-        public string EditarLocacao(int id, Locacao locacao)
+        public override string EditarEntidade(int id, Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
 
@@ -31,19 +32,19 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
 
             return resultadoValidacao;
         }
-        public bool ExcluirLocacao(int id)
+        public override bool ExcluirEntidade(int id)
         {
             return locacaoRepository.Excluir(id);
         }
-        public Locacao SelecionarLocacaoPorId(int id)
+        public override Locacao SelecionarEntidadePorId(int id)
         {
             return locacaoRepository.SelecionarPorId(id);
         }
-        public List<Locacao> SelecionarTodosLocacao()
+        public override List<Locacao> SelecionarTodasEntidade()
         {
             return locacaoRepository.SelecionarTodos();
         }
-        public bool ExisteLocacao(int id)
+        public override bool ExisteEntidade(int id)
         {
             return locacaoRepository.Existe(id);
         }
