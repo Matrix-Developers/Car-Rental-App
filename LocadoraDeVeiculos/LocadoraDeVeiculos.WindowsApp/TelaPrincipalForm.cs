@@ -10,6 +10,8 @@ using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Aplicacao.ClienteModule;
+using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
 using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
@@ -23,6 +25,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
@@ -89,7 +92,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesClientes(new ClienteAppService(new ClienteRepository()));
+            operacoes = new OperacoesClientes(new(new ClienteRepository()));
 
             ConfigurarPainelRegistros();
         }
@@ -103,7 +106,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesVeiculo(new VeiculoRepository());
+            operacoes = new OperacoesVeiculo(new(new VeiculoRepository(),new ImagemVeiculoRepository()));
 
             ConfigurarPainelRegistros();
         }
@@ -117,7 +120,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesGrupoDeVeiculos(new GrupoDeVeiculosRepository());
+            operacoes = new OperacoesGrupoDeVeiculos(new GrupoDeVeiculosAppService(new GrupoDeVeiculosRepository()));
 
             ConfigurarPainelRegistros();
         }
