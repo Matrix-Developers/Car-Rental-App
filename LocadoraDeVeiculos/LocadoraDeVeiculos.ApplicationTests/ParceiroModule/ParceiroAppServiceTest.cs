@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
         }
 
         [Test]
-        public void DeveChamar_SelecionarTodos()
+        public void DeveChamar_SelecionarPorId()
         {
             //arrange
             parceiro = new ParceiroDataBuilder()
