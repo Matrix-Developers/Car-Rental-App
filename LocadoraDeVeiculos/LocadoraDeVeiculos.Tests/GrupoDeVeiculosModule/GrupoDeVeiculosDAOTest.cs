@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.IntegrationTests.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
@@ -11,7 +12,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
     [TestCategory("DAO")]
     public class GrupoDeVeiculosDAOTest
     {
-        private GrupoDeVeiculosRepository controlador;
+        private GrupoDeVeiculosAppService GrupoDeVeiculosAppService;
         private GrupoDeVeiculo grupoDeVeiculos;
         private string nome;
         private string nomeEditado;
@@ -26,7 +27,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
         public void Setup()
         {
             Configuracao();
-            controlador = new GrupoDeVeiculosRepository();
+            GrupoDeVeiculosAppService = new GrupoDeVeiculosAppService(new GrupoDeVeiculosRepository());
             ResetarBanco.ResetarTabelas();
         }
 
@@ -45,10 +46,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
                 .Build();
 
             //action
-            controlador.InserirNovo(grupoDeVeiculos);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculos);
 
             //assert
-            var grupoDeVeiculosEncontrado = controlador.SelecionarPorId(grupoDeVeiculos.Id);
+            var grupoDeVeiculosEncontrado = GrupoDeVeiculosAppService.SelecionarGrupoDeVeiculoPorId(grupoDeVeiculos.Id);
             grupoDeVeiculosEncontrado.Should().Be(grupoDeVeiculos);
         }
 
@@ -77,11 +78,11 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
            .Build();
 
             //action
-            controlador.InserirNovo(grupoDeVeiculos);
-            controlador.Editar(grupoDeVeiculos.Id, grupoDeVeiculosEditado);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculos);
+            GrupoDeVeiculosAppService.EditarGrupoDeVeiculo(grupoDeVeiculos.Id, grupoDeVeiculosEditado);
 
             //assert
-            var grupoDeVeiculosAtualizado = controlador.SelecionarPorId(grupoDeVeiculos.Id);
+            var grupoDeVeiculosAtualizado = GrupoDeVeiculosAppService.SelecionarGrupoDeVeiculoPorId(grupoDeVeiculos.Id);
             grupoDeVeiculosAtualizado.Should().Be(grupoDeVeiculosEditado);
         }
 
@@ -100,11 +101,11 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
           .Build();
 
             //action
-            controlador.InserirNovo(grupoDeVeiculos);
-            controlador.Excluir(grupoDeVeiculos.Id);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculos);
+            GrupoDeVeiculosAppService.ExcluirGrupoDeVeiculo(grupoDeVeiculos.Id);
 
             //assert
-            var grupoDeVeiculosEncontrado = controlador.SelecionarPorId(grupoDeVeiculos.Id);
+            var grupoDeVeiculosEncontrado = GrupoDeVeiculosAppService.SelecionarGrupoDeVeiculoPorId(grupoDeVeiculos.Id);
             grupoDeVeiculosEncontrado.Should().BeNull();
         }
 
@@ -122,10 +123,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
              .ComTaxaPlanoLivre(taxaPlanoLivre)
              .Build();
             //action
-            controlador.InserirNovo(grupoDeVeiculos);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculos);
 
             //assert
-            var grupoDeVeiculosEncontrado = controlador.SelecionarPorId(grupoDeVeiculos.Id);
+            var grupoDeVeiculosEncontrado = GrupoDeVeiculosAppService.SelecionarGrupoDeVeiculoPorId(grupoDeVeiculos.Id);
             grupoDeVeiculosEncontrado.Should().Be(grupoDeVeiculos);
         }
 
@@ -153,9 +154,9 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
            .Build();
 
             //action
-            controlador.InserirNovo(grupoDeVeiculos);
-            controlador.InserirNovo(grupoDeVeiculosEditado);
-            var grupoDeVeiculosAgrupado = controlador.SelecionarTodos();
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculos);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculosEditado);
+            var grupoDeVeiculosAgrupado = GrupoDeVeiculosAppService.SelecionarTodosGrupoDeVeiculo();
 
             //assert
             grupoDeVeiculosAgrupado.Should().HaveCount(2);
@@ -178,10 +179,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
              .Build();
 
             //action
-            controlador.InserirNovo(grupoDeVeiculos);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculos);
 
             //assert
-            bool existeGrupoDeVeiculos = controlador.Existe(grupoDeVeiculos.Id);
+            bool existeGrupoDeVeiculos = GrupoDeVeiculosAppService.ExisteGrupoDeVeiculo(grupoDeVeiculos.Id);
             existeGrupoDeVeiculos.Should().BeTrue();
         }
 
@@ -200,7 +201,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
              .Build();
 
             //action
-            bool existeGrupoDeVeiculos = controlador.Existe(grupoDeVeiculos.Id);
+            bool existeGrupoDeVeiculos = GrupoDeVeiculosAppService.ExisteGrupoDeVeiculo(grupoDeVeiculos.Id);
 
             //assert
             existeGrupoDeVeiculos.Should().BeFalse();
@@ -230,8 +231,8 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
               .Build();
 
             //action
-            controlador.InserirNovo(grupoDeVeiculos);
-            string resposta = controlador.InserirNovo(grupoDeVeiculosidentico);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculos);
+            string resposta = GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculosidentico);
 
             //assert
             resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
@@ -272,11 +273,11 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
                 .Build();
 
             //action
-            controlador.InserirNovo(grupoDeVeiculos);
-            controlador.InserirNovo(grupoDeVeiculosEditado);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculos);
+            GrupoDeVeiculosAppService.InserirNovoGrupoDeVeiculo(grupoDeVeiculosEditado);
 
             //assert
-            string resposta = controlador.Editar(grupoDeVeiculos.Id, grupoDeVeiculosConflitante);
+            string resposta = GrupoDeVeiculosAppService.EditarGrupoDeVeiculo(grupoDeVeiculos.Id, grupoDeVeiculosConflitante);
             resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
         }
 

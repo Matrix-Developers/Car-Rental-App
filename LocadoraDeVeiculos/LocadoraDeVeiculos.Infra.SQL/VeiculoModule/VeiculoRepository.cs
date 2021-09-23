@@ -197,54 +197,21 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
         public string InserirNovo(Veiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-                if (registro.imagens != null)
-                {
-                    foreach (ImagemVeiculo imagemVeiculo in registro.imagens)
-                    {
-                        imagemVeiculo.IdVeiculo = registro.Id;
-                        controladorImagem.InserirNovo(imagemVeiculo);
-                    }
-                }
-            }
-            return resultadoValidacao;
+            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public List<Veiculo> SelecionarTodos()
         {
-            List<Veiculo> veiculos = Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-
-            foreach (Veiculo veiculo in veiculos)
-            {
-                veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
-            }
-
-            return veiculos;
+            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
         }
         public Veiculo SelecionarPorId(int id)
-        {
-            Veiculo veiculo = Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-            veiculo.imagens = controladorImagem.SelecioanrTodasImagensDeUmVeiculo(id);
-            return veiculo;
+        {           
+            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
         }
         public string Editar(int id, Veiculo registro)
         {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-                if (registro.imagens != null)
-                    foreach (ImagemVeiculo imagem in registro.imagens)
-                        imagem.IdVeiculo = registro.Id;
-                controladorImagem.EditarLista(registro.imagens);
-            }
-
-            return resultadoValidacao;
+            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
+            return "VALIDO";
         }
         public bool Excluir(int id)
         {
