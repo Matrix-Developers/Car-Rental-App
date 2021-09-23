@@ -1,5 +1,4 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+﻿using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
@@ -108,49 +107,6 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
             }
         }
         #endregion
-
-        public string Editar(int id, Funcionario registro)
-        {
-            string resultadoValidacao = registro.Validar();
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
-            return resultadoValidacao;
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlSelecionarEntidadePorId, AdicionarParametro("ID", id));
-        }
-        public string InserirNovo(Funcionario registro)
-        {
-            string resultadoValidacao = registro.Validar();
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
-        }
-        public Funcionario SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public List<Funcionario> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
 
         protected override Dictionary<string, object> ObtemParametros(Funcionario entidade)
         {

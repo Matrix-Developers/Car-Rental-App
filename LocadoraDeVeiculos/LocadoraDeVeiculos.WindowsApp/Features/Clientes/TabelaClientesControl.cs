@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Clientes
 {
-    public partial class TabelaClientesControl : UserControl
+    public partial class TabelaClientesControl : UserControl    //precisa retirar o repositorio e usar appService
     {
-        private ClienteRepository controladorCliente = null;
+        private readonly ClienteRepository controladorCliente = null;
         public TabelaClientesControl()
         {
             controladorCliente = new ClienteRepository();

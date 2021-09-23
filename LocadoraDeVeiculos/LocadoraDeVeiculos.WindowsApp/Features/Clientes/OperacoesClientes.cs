@@ -10,14 +10,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 {
     public class OperacoesClientes : ICadastravel
     {
-        private readonly ClienteAppService ClienteService = null;
-        private readonly TabelaClientesControl tabelaCliente = null;
+        private readonly ClienteAppService ClienteService;
+        private readonly TabelaClientesControl tabelaCliente;
+
         public OperacoesClientes(ClienteAppService clienteService)
         {
             ClienteService = clienteService;
             tabelaCliente = new TabelaClientesControl();
         }
-
 
         public void EditarRegistro()
         {
@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
                 MessageBox.Show("Selecione um cliente para editar", "Edição de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            Cliente clienteSelecionado = ClienteService.SelecionarClientePorId(id);
+            Cliente clienteSelecionado = ClienteService.SelecionarEntidadePorId(id);
 
             ClientesForm tela = new("Edição de Clientes")
             {
@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                ClienteService.EditarCliente(id, tela.Clientes);
+                ClienteService.EditarEntidade(id, tela.Clientes);
 
                 tabelaCliente.AtualizarRegistros();
 
@@ -51,12 +51,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
                 MessageBox.Show("Selecione um cliente para excluir", "Exclusão de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            Cliente clienteSelecionado = ClienteService.SelecionarClientePorId(id);
+            Cliente clienteSelecionado = ClienteService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o cliente: [{clienteSelecionado.Nome}] ?",
                 "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                ClienteService.ExcluirCliente(id);
+                ClienteService.ExcluirEntidade(id);
 
                 tabelaCliente.AtualizarRegistros();
 
@@ -68,7 +68,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             ClientesForm tela = new("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                ClienteService.InserirNovoCliente(tela.Clientes);
+                ClienteService.InserirEntidade(tela.Clientes);
 
                 tabelaCliente.AtualizarRegistros();
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] inserido com sucesso");

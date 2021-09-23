@@ -7,7 +7,7 @@ namespace LocadoraDeVeiculos.TestDataBuilders
 {
     public class VeiculoDataBuilder
     {
-        private Veiculo veiculo;
+        private readonly Veiculo veiculo;
         public VeiculoDataBuilder()
         {
             veiculo = new Veiculo();

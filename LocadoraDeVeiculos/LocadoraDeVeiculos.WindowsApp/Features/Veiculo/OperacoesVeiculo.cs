@@ -26,9 +26,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
                     foreach (Dominio.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
                         imagem.IdVeiculo = tela.Veiculo.Id;
 
-                veiculoAppService.InserirNovoVeiculo(tela.Veiculo);
+                veiculoAppService.InserirEntidade(tela.Veiculo);
 
-                List<Veiculo> veiculos = veiculoAppService.SelecionarTodosVeiculo();
+                List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
                 return;
             }
 
-            Veiculo tarefaSelecionada = veiculoAppService.SelecionarVeiculoPorId(id);
+            Veiculo tarefaSelecionada = veiculoAppService.SelecionarEntidadePorId(id);
 
             VeiculoForm tela = new("Edição de Veiculos");
 
@@ -53,9 +53,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                veiculoAppService.EditarVeiculo(id, tela.Veiculo);
+                veiculoAppService.EditarEntidade(id, tela.Veiculo);
 
-                List<Veiculo> veiculos = veiculoAppService.SelecionarTodosVeiculo();
+                List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
@@ -73,14 +73,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
                 return;
             }
 
-            Veiculo tarefaSelecionada = veiculoAppService.SelecionarVeiculoPorId(id);
+            Veiculo tarefaSelecionada = veiculoAppService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o veículo: [{tarefaSelecionada.modelo}] ?",
                 "Exclusão de Veiculos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                veiculoAppService.ExcluirVeiculo(id);
+                veiculoAppService.ExcluirEntidade(id);
 
-                List<Veiculo> veiculos = veiculoAppService.SelecionarTodosVeiculo();
+                List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
@@ -93,7 +93,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public UserControl ObterTabela()
         {
-            List<Veiculo> veiculos = veiculoAppService.SelecionarTodosVeiculo();
+            List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
             tabelaVeiculo.AtualizarRegistros(veiculos);
 

@@ -1,5 +1,4 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
+﻿using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
@@ -11,7 +10,6 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
     public class ClienteRepository : RepositoryBase<Cliente>, IRepository<Cliente>
     {
         #region queries
-
         protected override string SqlInserirEntidade
         {
             get
@@ -92,54 +90,6 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
             }
         }
         #endregion
-
-        public string Editar(int id, Cliente registro)
-        {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
-
-            return resultadoValidacao;
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
-        }
-        public string InserirNovo(Cliente registro)
-        {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            }
-            return resultadoValidacao;
-        }
-        public Cliente SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public List<Cliente> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
 
         protected override Dictionary<string, object> ObtemParametros(Cliente entidade)
         {

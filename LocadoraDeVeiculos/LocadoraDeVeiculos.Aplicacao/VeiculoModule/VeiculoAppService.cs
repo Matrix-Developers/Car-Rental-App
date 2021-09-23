@@ -1,15 +1,12 @@
-﻿using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+﻿using LocadoraDeVeiculos.Aplicacao.Shared;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 {
-    public class VeiculoAppService
+    public class VeiculoAppService : AppServiceBase<Veiculo>
     {
         private readonly IRepository<Veiculo> veiculoRepository;
         private readonly IImagemVeiculoRepository imagemVeiculoRepository;
@@ -20,7 +17,8 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             this.imagemVeiculoRepository = imagemVeiculoRepository;
         }
 
-        public string InserirNovoVeiculo(Veiculo veiculo){
+        public override string InserirEntidade(Veiculo veiculo)
+        {
             string resultadoValidacao = veiculo.Validar();
 
             if (resultadoValidacao == "VALIDO")
@@ -37,10 +35,9 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 
             return resultadoValidacao;
         }
-        public string EditarVeiculo(int id, Veiculo veiculo)
+        public override string EditarEntidade(int id, Veiculo veiculo)
         {
             string resultadoValidacao = veiculo.Validar();
-            veiculo.Id = id;
             if (resultadoValidacao == "VALIDO")
             {
                 veiculoRepository.Editar(id, veiculo);
@@ -53,17 +50,23 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 
             return resultadoValidacao;
         }
-        public bool ExcluirVeiculo(int id) {
+        public override bool ExcluirEntidade(int id)
+        {
             imagemVeiculoRepository.ExcluirPorIdDoVeiculo(id);
             return veiculoRepository.Excluir(id);
         }
-        public bool ExisteVeiculo(int id) { return veiculoRepository.Existe(id);}
-        public Veiculo SelecionarVeiculoPorId(int id) { 
+        public override bool ExisteEntidade(int id)
+        {
+            return veiculoRepository.Existe(id);
+        }
+        public override Veiculo SelecionarEntidadePorId(int id)
+        {
             Veiculo veiculo = veiculoRepository.SelecionarPorId(id);
             veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(id);
             return veiculo;
         }
-        public List<Veiculo> SelecionarTodosVeiculo() {
+        public override List<Veiculo> SelecionarTodasEntidade()
+        {
             List<Veiculo> veiculos = veiculoRepository.SelecionarTodos();
             foreach (Veiculo veiculo in veiculos)
             {

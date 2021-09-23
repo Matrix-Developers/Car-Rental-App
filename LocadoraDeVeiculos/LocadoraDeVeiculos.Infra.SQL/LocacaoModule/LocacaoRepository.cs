@@ -20,11 +20,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
     public class LocacaoRepository : RepositoryBase<Locacao>, IRepository<Locacao>
     {
-        private readonly VeiculoRepository controladorVeiculo = null;
-        private readonly FuncionarioRepository controladorFuncionario = null;
-        private readonly ClienteRepository controladorCliente = null;
-        private readonly ServicoRepository controladorServico = null;
-        private readonly CupomRepository controladorCupom = null;
+        private readonly VeiculoRepository controladorVeiculo;
+        private readonly FuncionarioRepository controladorFuncionario;
+        private readonly ClienteRepository controladorCliente;
+        private readonly ServicoRepository controladorServico;
+        private readonly CupomRepository controladorCupom;
 
         public LocacaoRepository(VeiculoRepository controladorVeiculo, FuncionarioRepository controladorFuncionario, ClienteRepository controladorCliente, ServicoRepository controladorServico, CupomRepository controladorCupom)
         {
@@ -141,54 +141,6 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         //
         #endregion
 
-        public string InserirNovo(Locacao registro)
-        {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
-        }
-        public List<Locacao> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-        public Locacao SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public string Editar(int id, Locacao registro)
-        {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
-
-            return resultadoValidacao;
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlSelecionarEntidadePorId, AdicionarParametro("ID", id));
-        }
-
-        //metodos unicos do Locacao
         private List<Servico> SelecionarServicosComIdLocacao(int idLocacao)
         {
             List<Servico> servicosDaLocacao = new();
@@ -203,7 +155,6 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             return Convert.ToInt32(reader["ID_SERVICO"]);
         }
-        //
 
         protected override Dictionary<string, object> ObtemParametros(Locacao entidade)
         {

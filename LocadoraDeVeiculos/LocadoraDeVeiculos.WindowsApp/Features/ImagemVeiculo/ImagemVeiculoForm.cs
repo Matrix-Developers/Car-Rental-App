@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
@@ -16,6 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo
         private int imagemAtual = 0;
         public List<Dominio.ImagemVeiculoModule.ImagemVeiculo> imagens;
         private readonly VeiculoForm telaBase;
+
         public ImagemVeiculoForm(VeiculoForm telaBase)
         {
             this.telaBase = telaBase;

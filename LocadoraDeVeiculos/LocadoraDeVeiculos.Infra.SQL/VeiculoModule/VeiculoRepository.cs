@@ -1,7 +1,4 @@
-﻿using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
-using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
+﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
@@ -13,8 +10,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
     public class VeiculoRepository : RepositoryBase<Veiculo>, IRepository<Veiculo>
     {
-        private readonly ImagemVeiculoRepository controladorImagem = new();
-
         #region queries
         protected override string SqlInserirEntidade
         {
@@ -194,42 +189,6 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         //private const string sqlVeiculoTotal = @"SELECT COUNT(*) AS QTD FROM[TBVEICULO]";
         //
         #endregion
-
-        public string InserirNovo(Veiculo registro)
-        {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public List<Veiculo> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-        public Veiculo SelecionarPorId(int id)
-        {           
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public string Editar(int id, Veiculo registro)
-        {
-            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
-        }
 
         //Metodo sem referencias ou usos. Esta obsoleto?
         //private int ConverterDados(IDataReader reader)

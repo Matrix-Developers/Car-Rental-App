@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using LocadoraDeVeiculos.Aplicacao.ClienteModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ClienteModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
-using NUnit.Framework;
 using Moq;
+using NUnit.Framework;
+using System;
 
 namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
 {
@@ -18,25 +17,18 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
         private string jose;
 
         private string cpf;
-        private string cnpj;
 
         private string lages;
-        private string florianopolis;
 
         private string celular;
-        private string fixo;
 
         private string gmail;
-        private string hotmail;
 
         private string cnh;
-        private string cnhNull;
 
         private DateTime daquiUmAno;
-        private DateTime? validadeNull;
 
         private bool pf;
-        private bool pj;
         #endregion
 
         [SetUp]
@@ -89,7 +81,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
 
             //action
             ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.InserirNovoCliente(clienteNovo);
+            clienteAppService.InserirEntidade(clienteNovo);
 
             //assert
             clienteDAOMock.Verify(x => x.InserirNovo(clienteNovo));
@@ -118,12 +110,12 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
             clienteDAOMock.Setup(x => x.SelecionarPorId(cliente.Id))
                 .Returns(() =>
                 {
-                    return  cliente;
+                    return cliente;
                 });
 
             //action
             ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.SelecionarClientePorId(cliente.Id);
+            clienteAppService.SelecionarEntidadePorId(cliente.Id);
 
             //assert
             clienteDAOMock.Verify(x => x.SelecionarPorId(cliente.Id));
@@ -159,7 +151,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
 
             //action
             ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.EditarCliente(cliente.Id, clienteNovo);
+            clienteAppService.EditarEntidade(cliente.Id, clienteNovo);
 
             //assert
             clienteDAOMock.Verify(x => x.Editar(cliente.Id, clienteNovo));
@@ -186,7 +178,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
 
             //action
             ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.ExcluirCliente(cliente.Id);
+            clienteAppService.ExcluirEntidade(cliente.Id);
 
             //assert
             clienteDAOMock.Verify(x => x.Excluir(cliente.Id));
@@ -214,7 +206,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
 
             //action
             ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.InserirNovoCliente(novoClienteMock.Object);
+            clienteAppService.InserirEntidade(novoClienteMock.Object);
 
             //assert
             novoClienteMock.Verify(x => x.Validar());
@@ -229,37 +221,30 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
         private void ConfigurarRegistroUnico()
         {
             cpf = "26520624098";
-            cnpj = "54738501000107";
         }
         private void ConfigurarEndereco()
         {
             lages = "Centro, Lages - SC";
-            florianopolis = "Centro, Florianópolis - SC";
         }
         private void ConfigurarTelefone()
         {
             celular = "(49) 99999-9999";
-            fixo = "(49) 9999-9999";
         }
         private void ConfigurarEmail()
         {
             gmail = "email@gmail.com";
-            hotmail = "email@hotmail.com";
         }
         private void ConfigurarCnh()
         {
             cnh = "27124931834";
-            cnhNull = "";
         }
         private void ConfigurarDatas()
         {
             daquiUmAno = DateTime.Today.AddYears(1);
-            validadeNull = null;
         }
         private void ConfigurarEhPessoaFisica()
         {
             pf = true;
-            pj = false;
         }
         #endregion
     }

@@ -96,7 +96,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
 
             InserirTaxas();
 
-            InserirParceiroECupom();            
+            InserirParceiroECupom();
         }
 
         [TestCleanup]
@@ -109,9 +109,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
         public void DeveInserirUmaLocacao()
         {
             //Arrange
-            List<Servico> listaServicos = new List<Servico>()
+            List<Servico> listaServicos = new()
             {
-                caderinhaBebe, lavacaoCarro
+                caderinhaBebe,
+                lavacaoCarro
             };
             locacao = new LocacaoDataBuilder()
                 .ComVeiculo(kicks)
@@ -139,9 +140,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
         public void DeveSelecionarDuasLocacoes()
         {
             //Arrange
-            List<Servico> listaServicos = new List<Servico>()
+            List<Servico> listaServicos = new()
             {
-                caderinhaBebe, lavacaoCarro
+                caderinhaBebe,
+                lavacaoCarro
             };
             locacao = new LocacaoDataBuilder()
                 .ComVeiculo(kicks)
@@ -184,9 +186,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
         public void DeveEditarUmaLocacao()
         {
             //Arrange
-            List<Servico> listaServicos = new List<Servico>()
+            List<Servico> listaServicos = new()
             {
-                caderinhaBebe, lavacaoCarro
+                caderinhaBebe,
+                lavacaoCarro
             };
             locacao = new LocacaoDataBuilder()
                 .ComVeiculo(kicks)
@@ -229,9 +232,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
         public void DeveExcluirUmaLocacao()
         {
             //Arrange
-            List<Servico> listaServicos = new List<Servico>()
+            List<Servico> listaServicos = new()
             {
-                caderinhaBebe, lavacaoCarro
+                caderinhaBebe,
+                lavacaoCarro
             };
             locacao = new LocacaoDataBuilder()
                 .ComVeiculo(kicks)

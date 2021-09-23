@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
         [TestMethod]
         public void DeveCriarFuncionario_Completo()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso","12345", new DateTime(2021, 01, 01), "Vendedor", 1000f,true);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroFuncionario_UsuarioDeAcessoEmBranco()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f,true);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 
@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
         [TestMethod]
         public void DeveApresentarErroFuncionario_MatriculaZerada()
         {
-            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 000, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f,true);
+            funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 000, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
 
             string resultado = funcionario.Validar();
 

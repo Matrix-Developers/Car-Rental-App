@@ -6,15 +6,12 @@ using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
     public class LocacaoDataBuilder
     {
-        Locacao locacao;
+        private readonly Locacao locacao;
         public LocacaoDataBuilder()
         {
             locacao = new Locacao();

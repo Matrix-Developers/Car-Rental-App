@@ -1,11 +1,10 @@
 ﻿using LocadoraDeVeiculos.Dominio.SevicosModule;
-using System;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
     public class ServicoDataBuilder
     {
-        private Servico servico;
+        private readonly Servico servico;
 
         public ServicoDataBuilder()
         {

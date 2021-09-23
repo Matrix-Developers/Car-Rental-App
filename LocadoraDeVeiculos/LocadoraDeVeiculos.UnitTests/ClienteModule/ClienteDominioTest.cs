@@ -1,7 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FluentAssertions;
+﻿using LocadoraDeVeiculos.Dominio.ClienteModule;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
 
 namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 {

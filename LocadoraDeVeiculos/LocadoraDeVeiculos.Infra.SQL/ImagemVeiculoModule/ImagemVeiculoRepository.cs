@@ -78,43 +78,6 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         //
         #endregion
 
-        public string Editar(int id, ImagemVeiculo registro)
-        {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            throw new NotImplementedException();
-        }
-        public string InserirNovo(ImagemVeiculo registro)
-        {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
-        }
-        public ImagemVeiculo SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public List<ImagemVeiculo> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-
-        //metodos unicos do ImagemVeiculo
         public void EditarLista(List<ImagemVeiculo> registros)
         {
             if (registros != null)
@@ -148,7 +111,6 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         {
             return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverterEmEntidade, AdicionarParametro("ID_VEICULO", id));
         }
-        //
 
         //Metodo sem referencia ou uso. está obsoleto?
         //R: caso precise trocar o formato da imagem já está meio pronto :)
