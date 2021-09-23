@@ -98,13 +98,6 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         {
             string resultadoValidacao = registro.Validar();
 
-            List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodos();
-            foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
-            {
-                if (registro.Nome == grupo.Nome)
-                    resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
-            }
-
             if (resultadoValidacao == "VALIDO")
             {
                 registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
@@ -115,13 +108,6 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         public string Editar(int id, GrupoDeVeiculo registro)
         {
             string resultadoValidacao = registro.Validar();
-
-            List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodos();
-            foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
-            {
-                if (id != grupo.Id && registro.Nome == grupo.Nome)
-                    resultadoValidacao = "O nome do grupo de veículos deve ser único\n";
-            }
 
             if (resultadoValidacao == "VALIDO")
             {

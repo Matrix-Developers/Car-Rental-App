@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         public string Editar(int id, ImagemVeiculo registro)
         {
             registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "";
+            return "VALIDO";
         }
         public bool Excluir(int id)
         {
@@ -102,11 +102,8 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         }
         public string InserirNovo(ImagemVeiculo registro)
         {
-            string resultadoValidacao = "VALIDO";
-
             registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
+            return "VALIDO";
         }
         public ImagemVeiculo SelecionarPorId(int id)
         {
@@ -154,6 +151,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         //
 
         //Metodo sem referencia ou uso. está obsoleto?
+        //R: caso precise trocar o formato da imagem já está meio pronto :)
         //private Bitmap ConverteEmImagem(IDataReader reader)
         //{
 
