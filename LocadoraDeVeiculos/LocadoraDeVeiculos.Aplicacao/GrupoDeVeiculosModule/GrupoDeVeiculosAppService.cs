@@ -1,7 +1,7 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using LocadoraDeVeiculos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
-using LocadoraDeVeiculos.Aplicacao.Shared;
 
 namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
 {

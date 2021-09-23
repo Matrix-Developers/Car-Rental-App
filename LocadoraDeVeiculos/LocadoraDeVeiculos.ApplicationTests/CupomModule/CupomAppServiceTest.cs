@@ -7,7 +7,7 @@ using NUnit.Framework;
 using System;
 
 namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
-{    
+{
     public class CupomAppServiceTest
     {
         #region atributos privados
@@ -71,7 +71,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.InserirNovoCupom(cupomNovo);
+            cupomAppService.InserirEntidade(cupomNovo);
 
             //assert
             cupomDAOMock.Verify(x => x.InserirNovo(cupomNovo));
@@ -96,7 +96,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.SelecionarCupomPorId(cupom.Id);
+            cupomAppService.SelecionarEntidadePorId(cupom.Id);
 
             //assert
             cupomDAOMock.Verify(x => x.SelecionarPorId(cupom.Id));
@@ -128,7 +128,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.EditarCupom(cupom.Id, cupomNovo);
+            cupomAppService.EditarEntidade(cupom.Id, cupomNovo);
 
             //assert
             cupomDAOMock.Verify(x => x.Editar(cupom.Id, cupomNovo));
@@ -151,7 +151,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.ExcluirCupom(cupom.Id);
+            cupomAppService.ExcluirEntidade(cupom.Id);
 
             //assert
             cupomDAOMock.Verify(x => x.Excluir(cupom.Id));
@@ -207,7 +207,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.InserirNovoCupom(novoCupomMock.Object);
+            cupomAppService.InserirEntidade(novoCupomMock.Object);
 
             //assert
             novoCupomMock.Verify(x => x.Validar());
@@ -218,18 +218,18 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
         private void ConfigurarNome()
         {
             cupomDeko = "Cupom Deko";
-            cupomNdd = "Cupom NDD";            
+            cupomNdd = "Cupom NDD";
         }
         private void ConfigurarCodigo()
         {
             codigoDeko = "CODIGODEKO";
-            codigoNdd = "CODIGONDD";            
+            codigoNdd = "CODIGONDD";
         }
         private void ConfigurarValores()
         {
             valor = 500;
             valorMinimo = 2000;
-            ehDescontoFixo = true;            
+            ehDescontoFixo = true;
         }
         private void ConfigurarValidades()
         {
@@ -239,7 +239,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
         private void ConfigurarQuantidadeUtilizadas()
         {
             utilizadoZeroVezes = 0;
-            utilizadoDezVezes = 10;            
+            utilizadoDezVezes = 10;
         }
         private void ConfigurarParceiros()
         {

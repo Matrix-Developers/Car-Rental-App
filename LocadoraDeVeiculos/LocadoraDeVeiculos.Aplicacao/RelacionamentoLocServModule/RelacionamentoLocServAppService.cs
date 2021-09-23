@@ -2,17 +2,20 @@
 using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.RelacionamentoLocServModule
 {
-    public class RelacionamentoLocServAppService
+    public class RelacionamentoLocServAppService //nao está sendo usado. estamos utilizando diretamente o appService
     {
         private readonly IRepository<RelacionamentoLocServ> relacionamentoLocServRepository;
 
-        public string InserirNovoRelacionamentoLocServ(RelacionamentoLocServ relacionamentoLocServ){
+        public RelacionamentoLocServAppService(IRepository<RelacionamentoLocServ> relacionamentoLocServRepository)
+        {
+            this.relacionamentoLocServRepository = relacionamentoLocServRepository;
+        }
+
+        public string InserirNovoRelacionamentoLocServ(RelacionamentoLocServ relacionamentoLocServ)
+        {
             string resultadoValidacao = relacionamentoLocServ.Validar();
 
             if (resultadoValidacao == "VALIDO")
@@ -24,10 +27,10 @@ namespace LocadoraDeVeiculos.Aplicacao.RelacionamentoLocServModule
         {
             throw new NotImplementedException();
         }
-        public bool ExcluirRelacionamentoLocServ(int id) { return relacionamentoLocServRepository.Excluir(id);}
-        public bool ExisteRelacionamentoLocServ(int id) { return relacionamentoLocServRepository.Existe(id);}
-        public RelacionamentoLocServ SelecionarRelacionamentoLocServPorId(int id) { return relacionamentoLocServRepository.SelecionarPorId(id);}
-        public List<RelacionamentoLocServ> SelecionarTodosRelacionamentoLocServ() { return relacionamentoLocServRepository.SelecionarTodos();}
+        public bool ExcluirRelacionamentoLocServ(int id) { return relacionamentoLocServRepository.Excluir(id); }
+        public bool ExisteRelacionamentoLocServ(int id) { return relacionamentoLocServRepository.Existe(id); }
+        public RelacionamentoLocServ SelecionarRelacionamentoLocServPorId(int id) { return relacionamentoLocServRepository.SelecionarPorId(id); }
+        public List<RelacionamentoLocServ> SelecionarTodosRelacionamentoLocServ() { return relacionamentoLocServRepository.SelecionarTodos(); }
 
     }
 }

@@ -1,16 +1,4 @@
-﻿using LocadoraDeVeiculos.Aplicacao.ClienteModule;
-using LocadoraDeVeiculos.Aplicacao.CupomModule;
-using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
-using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
-using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
-using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
+﻿using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
@@ -22,10 +10,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 {
     public partial class DashControl : UserControl
     {
-        List<Locacao> todasLocacao;
-        List<Cliente> todosClientes;
-        List<Veiculo> todosVeiculos;
-        List<Servico> todosServicos;
+        private readonly List<Locacao> todasLocacao;
+        private readonly List<Cliente> todosClientes;
+        private readonly List<Veiculo> todosVeiculos;
+        private readonly List<Servico> todosServicos;
 
         public DashControl(List<Locacao> todasLocacao, List<Cliente> todosClientes, List<Veiculo> todosVeiculos, List<Servico> todosServicos)
         {

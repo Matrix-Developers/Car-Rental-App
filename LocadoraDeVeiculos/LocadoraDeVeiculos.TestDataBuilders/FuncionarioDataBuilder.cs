@@ -1,15 +1,11 @@
 ﻿using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
     public class FuncionarioDataBuilder
     {
-        private Funcionario funcionario;
+        private readonly Funcionario funcionario;
 
         public FuncionarioDataBuilder()
         {
@@ -48,7 +44,7 @@ namespace LocadoraDeVeiculos.TestDataBuilders
         }
         public FuncionarioDataBuilder ComUsuarioAcesso(string usuarioAcesso)
         {
-            funcionario.UsuarioAcesso= usuarioAcesso;
+            funcionario.UsuarioAcesso = usuarioAcesso;
             return this;
         }
         public FuncionarioDataBuilder ComSenha(string senha)

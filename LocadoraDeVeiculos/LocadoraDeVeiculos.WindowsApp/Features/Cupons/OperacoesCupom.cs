@@ -1,6 +1,5 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.CupomModule;
 using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
-using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -51,7 +50,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             }
 
             Cupom cupomSelecionado = appService.SelecionarEntidadePorId(id);
-            
+
             tela.Cupom = cupomSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)

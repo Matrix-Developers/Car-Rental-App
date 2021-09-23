@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
     public class OperacoesLocacao : ICadastravel
     {
-        private ConversorParaPdf conversorPdf;
+        private readonly ConversorParaPdf conversorPdf;
 
         private readonly LocacaoAppService locacaoAppService;
         private readonly ServicoAppService servicoAppService;
@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
                     try
                     {
-                        GerenciadorDeEmail.EnviarEmail("matriquisdevelopers@gmail.com", "matrixadm",tela.Locacao);
+                        GerenciadorDeEmail.EnviarEmail("matriquisdevelopers@gmail.com", "matrixadm", tela.Locacao);
                     }
                     catch (Exception ex)
                     {

@@ -1,11 +1,10 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using System;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
     public class GrupoDeVeiculosDataBuilder
     {
-        private GrupoDeVeiculo grupoDeVeiculo;
+        private readonly GrupoDeVeiculo grupoDeVeiculo;
 
         public GrupoDeVeiculosDataBuilder()
         {

@@ -1,10 +1,6 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.CupomModule;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.CupomModule
 {
@@ -57,12 +53,12 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
         {
             return cupomRepository.ExisteCodigo(codigo);
         }
-        
+
         public Cupom SelecionarPorCodigo(string codigo)
         {
             return cupomRepository.SelecionarPorCodigo(codigo);
         }
-        
+
         public void AtualizarQuantidadeUtilizada(int id, int quantidade)
         {
             cupomRepository.AtualizarQtdUtilizada(id, quantidade);

@@ -71,7 +71,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         {
         }
 
-        public Veiculo Veiculo { get => veiculo; set=> veiculo = value; }
+        public Veiculo Veiculo { get => veiculo; set => veiculo = value; }
         public Funcionario FuncionarioLocador { get => funcionarioLocador; set => funcionarioLocador = value; }
         public Cliente ClienteContratante { get => clienteContratante; set => clienteContratante = value; }
         public Cliente ClienteCondutor { get => clienteCondutor; set => clienteCondutor = value; }

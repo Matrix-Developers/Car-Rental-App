@@ -1,8 +1,10 @@
-﻿using LocadoraDeVeiculos.Aplicacao.CupomModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ClienteModule;
+using LocadoraDeVeiculos.Aplicacao.CupomModule;
+using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Aplicacao.ClienteModule;
-using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
@@ -17,8 +19,6 @@ using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
-using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -135,7 +135,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(locacaoAppService,servicoAppService);
+            operacoes = new OperacoesLocacao(locacaoAppService, servicoAppService);
 
             ConfigurarPainelRegistros();
         }
@@ -149,7 +149,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesDevolucao(locacaoAppService,servicoAppService);
+            operacoes = new OperacoesDevolucao(locacaoAppService, servicoAppService);
 
             ConfigurarPainelRegistros();
         }
@@ -236,8 +236,8 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
         #endregion
         public void AtualizarRodape(string mensagem)
-        { 
-            labelRodape.Text = mensagem; 
+        {
+            labelRodape.Text = mensagem;
         }
         private void InícioToolStripMenuItem_Click(object sender, EventArgs e)
         {

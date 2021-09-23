@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.CupomModule
         {
             controlador = new CupomRepository();
             controladorParceiro = new ParceiroRepository();
-            Configuracao();              
+            Configuracao();
         }
 
         [TestCleanup]

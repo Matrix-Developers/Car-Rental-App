@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 {
     public class RelacionamentoLocServRepository : RepositoryBase<RelacionamentoLocServ>, IRepository<RelacionamentoLocServ>       //essa classe está parcialmente obsoleta
     {
-        private int id = 0;
+        private readonly int id = 0;
         readonly ServicoRepository controladorServico = new();
         readonly LocacaoRepository controladorLocacao = new(new VeiculoRepository(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository());
 

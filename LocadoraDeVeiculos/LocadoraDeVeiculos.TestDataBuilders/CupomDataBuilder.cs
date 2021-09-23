@@ -8,7 +8,7 @@ namespace LocadoraDeVeiculos.TestDataBuilders
 {
     public class CupomDataBuilder
     {
-        private Cupom cupom;
+        private readonly Cupom cupom;
 
         public CupomDataBuilder()
         {

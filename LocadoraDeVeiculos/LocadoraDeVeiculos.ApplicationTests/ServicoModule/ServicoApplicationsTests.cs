@@ -4,11 +4,6 @@ using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
 {
@@ -28,7 +23,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
 
             //action
             ServicoAppService clienteAppService = new(servicoDAOMock.Object);
-            clienteAppService.InserirNovoServico(servico);
+            clienteAppService.InserirEntidade(servico);
 
             //assert
             servicoDAOMock.Verify(x => x.InserirNovo(servico));
@@ -56,7 +51,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
 
             //action
             ServicoAppService servicoAppService = new(servicoDAOMock.Object);
-            servicoAppService.SelecionarServicoPorId(servico.Id);
+            servicoAppService.SelecionarEntidadePorId(servico.Id);
 
             //assert
             servicoDAOMock.Verify(x => x.SelecionarPorId(servico.Id));
@@ -81,7 +76,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
 
             //action
             ServicoAppService clienteAppService = new(servicoDAOMock.Object);
-            clienteAppService.EditarServico(servico.Id, novoServico);
+            clienteAppService.EditarEntidade(servico.Id, novoServico);
 
             //assert
             servicoDAOMock.Verify(x => x.Editar(servico.Id, novoServico));
@@ -102,7 +97,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
 
             //action
             ServicoAppService clienteAppService = new(servicoDAOMock.Object);
-            clienteAppService.ExcluirServico(servico.Id);
+            clienteAppService.ExcluirEntidade(servico.Id);
 
             //assert
             servicoDAOMock.Verify(x => x.Excluir(servico.Id));
@@ -110,7 +105,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
 
         [Test]
 
-       public void DeveChamar_Validar()
+        public void DeveChamar_Validar()
         {
             servico = new ServicoDataBuilder()
              .ComNome("Lavação")
@@ -125,7 +120,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
 
 
             ServicoAppService servicoAppService = new(servicoDAOMock.Object);
-            servicoAppService.InserirNovoServico(novoSevicoMock.Object);
+            servicoAppService.InserirEntidade(novoSevicoMock.Object);
 
             novoSevicoMock.Verify(x => x.Validar());
         }

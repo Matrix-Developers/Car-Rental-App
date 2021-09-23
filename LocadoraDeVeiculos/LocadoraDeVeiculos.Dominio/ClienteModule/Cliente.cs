@@ -1,6 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.PessoaModule;
 using System;
-using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.ClienteModule
 {
@@ -95,7 +94,7 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
 
         public override int GetHashCode()
         {
-            HashCode hash = new HashCode();
+            HashCode hash = new();
             hash.Add(Id);
             hash.Add(Nome);
             hash.Add(RegistroUnico);

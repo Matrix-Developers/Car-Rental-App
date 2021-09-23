@@ -7,7 +7,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
 {
     public class ClienteAppService : AppServiceBase<Cliente>
     {
-        private IRepository<Cliente> clienteRepository;
+        private readonly IRepository<Cliente> clienteRepository;
 
         public ClienteAppService(IRepository<Cliente> clienteRepository)
         {

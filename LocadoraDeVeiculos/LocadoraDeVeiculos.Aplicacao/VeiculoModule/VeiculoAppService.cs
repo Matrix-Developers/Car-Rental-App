@@ -2,11 +2,7 @@
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 {
@@ -21,7 +17,8 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             this.imagemVeiculoRepository = imagemVeiculoRepository;
         }
 
-        public override string InserirEntidade(Veiculo veiculo){
+        public override string InserirEntidade(Veiculo veiculo)
+        {
             string resultadoValidacao = veiculo.Validar();
 
             if (resultadoValidacao == "VALIDO")
@@ -53,7 +50,8 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 
             return resultadoValidacao;
         }
-        public override bool ExcluirEntidade(int id) {
+        public override bool ExcluirEntidade(int id)
+        {
             imagemVeiculoRepository.ExcluirPorIdDoVeiculo(id);
             return veiculoRepository.Excluir(id);
         }
@@ -61,12 +59,14 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         {
             return veiculoRepository.Existe(id);
         }
-        public override Veiculo SelecionarEntidadePorId(int id) { 
+        public override Veiculo SelecionarEntidadePorId(int id)
+        {
             Veiculo veiculo = veiculoRepository.SelecionarPorId(id);
             veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(id);
             return veiculo;
         }
-        public override List<Veiculo> SelecionarTodasEntidade() {
+        public override List<Veiculo> SelecionarTodasEntidade()
+        {
             List<Veiculo> veiculos = veiculoRepository.SelecionarTodos();
             foreach (Veiculo veiculo in veiculos)
             {

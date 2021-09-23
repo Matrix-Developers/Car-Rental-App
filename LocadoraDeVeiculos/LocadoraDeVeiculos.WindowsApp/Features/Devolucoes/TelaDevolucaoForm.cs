@@ -1,5 +1,4 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
@@ -16,7 +15,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     {
         private readonly TelaSelecionarServicoForm telaServico;
         private Locacao devolucao;
-        VeiculoRepository veiculoAppService = new();
+        private readonly VeiculoRepository veiculoAppService = new();
+
         public TelaDevolucaoForm(string titulo, ServicoAppService servicoAppService)
         {
             InitializeComponent();

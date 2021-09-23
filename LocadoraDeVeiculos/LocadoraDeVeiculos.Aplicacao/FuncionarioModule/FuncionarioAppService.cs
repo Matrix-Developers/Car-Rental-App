@@ -8,10 +8,6 @@ namespace LocadoraDeVeiculos.Aplicacao.FuncionarioModule
     public class FuncionarioAppService : AppServiceBase<Funcionario>
     {
         private readonly IRepository<Funcionario> funcionarioRepository;
-    public FuncionarioAppService(IRepository<Funcionario> funcionarioRepository)
-        {
-            this.funcionarioRepository = funcionarioRepository;
-        }
 
         public FuncionarioAppService(IRepository<Funcionario> funcionarioRepository)
         {

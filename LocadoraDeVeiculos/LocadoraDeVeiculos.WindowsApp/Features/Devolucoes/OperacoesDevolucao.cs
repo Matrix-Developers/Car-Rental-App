@@ -1,7 +1,5 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -35,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            TelaDevolucaoForm tela = new("Devolução de Veículo",servicoAppService);
+            TelaDevolucaoForm tela = new("Devolução de Veículo", servicoAppService);
 
             tela.Devolucao = locacaoSelecionada;
 

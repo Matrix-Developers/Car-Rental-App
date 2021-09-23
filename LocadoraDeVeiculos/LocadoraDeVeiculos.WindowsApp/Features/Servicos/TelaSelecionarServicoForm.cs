@@ -1,5 +1,4 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
 using System;
@@ -15,7 +14,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
 
         public List<Servico> servicosSelecionados;
         public string seguro = "Nenhum";
-        
+
         public TelaSelecionarServicoForm(ServicoAppService servicoAppService)
         {
             appService = servicoAppService;

@@ -1,17 +1,17 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
+using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using System.Collections.Generic;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.IntegrationTests.Shared;
-using System;
 using LocadoraDeVeiculos.TestDataBuilders;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
 {
@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         private Veiculo veiculo;
 
         private string civic;
-        private string corolla;                
+        private string corolla;
 
         private string abc1234;
         private string abc1d34;
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         [TestInitialize]
         public void Setup()
         {
-            veiculoAppService = new VeiculoAppService(new VeiculoRepository(),new ImagemVeiculoRepository());
+            veiculoAppService = new VeiculoAppService(new VeiculoRepository(), new ImagemVeiculoRepository());
             GrupoDeVeiculosAppService = new GrupoDeVeiculosAppService(new GrupoDeVeiculosRepository());
 
             ConfigurarModelo();
@@ -245,7 +245,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .ComAlocaoAtiva(falso)
                 .ComImagem(naoPossuiImagens)
                 .Build();
-            
+
             //action
             veiculoAppService.InserirEntidade(veiculo);
             veiculoAppService.EditarEntidade(veiculo.Id, veiculoEditado);

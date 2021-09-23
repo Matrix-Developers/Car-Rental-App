@@ -1,11 +1,10 @@
 ﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
-using System;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
     public class ParceiroDataBuilder
     {
-        private Parceiro parceiro;
+        private readonly Parceiro parceiro;
         public ParceiroDataBuilder()
         {
             parceiro = new Parceiro();
