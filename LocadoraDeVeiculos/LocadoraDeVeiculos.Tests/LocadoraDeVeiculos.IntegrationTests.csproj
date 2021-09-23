@@ -16,6 +16,7 @@
     <Compile Remove="SevicoModule\ServicosTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Aplicacao\LocadoraDeVeiculos.Aplicacao.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.SQL\LocadoraDeVeiculos.Infra.SQL.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.TestDataBuilders\LocadoraDeVeiculos.TestDataBuilders.csproj" />
