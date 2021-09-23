@@ -12,6 +12,10 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
     {
         private readonly IRepository<Locacao> locacaoRepository;
 
+        public LocacaoAppService(IRepository<Locacao> locacaoRepository)
+        {
+            this.locacaoRepository = locacaoRepository;
+        }
         public string InserirNovaLocacao(Locacao locacao){
             string resultadoValidacao = locacao.Validar();
 
