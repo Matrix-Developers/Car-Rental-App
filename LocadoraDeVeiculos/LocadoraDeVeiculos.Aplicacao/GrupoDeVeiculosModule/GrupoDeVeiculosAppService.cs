@@ -12,17 +12,26 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
     {
         private readonly IRepository<GrupoDeVeiculo> grupoDeVeiculoRepository;
 
+        public GrupoDeVeiculosAppService(IRepository<GrupoDeVeiculo> grupoDeVeiculoRepository)
+        {
+            this.grupoDeVeiculoRepository = grupoDeVeiculoRepository;
+        }
+
         public string InserirNovoGrupoDeVeiculo(GrupoDeVeiculo grupoDeVeiculos){
-            string resultadoValidacao = grupoDeVeiculos.Validar();
+            string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
 
             if (resultadoValidacao == "VALIDO")
+            {
                 grupoDeVeiculoRepository.InserirNovo(grupoDeVeiculos);
+
+            }
 
             return resultadoValidacao;
         }
         public string EditarGrupoDeVeiculo(int id,GrupoDeVeiculo grupoDeVeiculos)
         {
-            string resultadoValidacao = grupoDeVeiculos.Validar();
+            string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
+            
 
             if (resultadoValidacao == "VALIDO")
                 grupoDeVeiculoRepository.Editar(id,grupoDeVeiculos);
@@ -33,6 +42,29 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
         public bool ExisteGrupoDeVeiculo(int id) { return grupoDeVeiculoRepository.Existe(id);}
         public GrupoDeVeiculo SelecionarGrupoDeVeiculoPorId(int id) { return grupoDeVeiculoRepository.SelecionarPorId(id);}
         public List<GrupoDeVeiculo> SelecionarTodosGrupoDeVeiculo() { return grupoDeVeiculoRepository.SelecionarTodos();}
-        
+
+        #region Métodos privados
+        private string VerificarSeNaoPossuiRepetidos(GrupoDeVeiculo grupoVeiculo)
+        {
+
+            List<GrupoDeVeiculo> grupoDeVeiculosRegistrados = SelecionarTodosGrupoDeVeiculo();
+            foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
+            {
+                if (grupoVeiculo.Nome == grupo.Nome)
+                    return "O nome do grupo de veículos deve ser único\n";
+            }
+
+            return "VALIDO";
+        }
+
+        private string Vaidacoes(GrupoDeVeiculo grupo)
+        {
+            string resultadoValidacao = grupo.Validar();
+            if (resultadoValidacao == "VALIDO")
+            resultadoValidacao = VerificarSeNaoPossuiRepetidos(grupo);
+
+            return resultadoValidacao;
+        }
+        #endregion
     }
 }
