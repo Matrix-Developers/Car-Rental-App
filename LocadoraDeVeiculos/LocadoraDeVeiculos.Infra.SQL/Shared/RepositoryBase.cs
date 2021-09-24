@@ -17,16 +17,30 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
         protected abstract string SqlSelecionarTodasEntidades { get; }
         protected abstract string SqlExisteEntidade { get; }
 
-        public string InserirNovo(T registro)
+        public bool InserirNovo(T registro)
         {
-            registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-            return "VALIDO";
+            try
+            {
+                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
-        public string Editar(int id, T registro)
+        public bool Editar(int id, T registro)
         {
-            registro.Id = id;
-            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            return "VALIDO";
+            try
+            {
+                registro.Id = id;
+                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
         public bool Excluir(int id)
         {

@@ -4,8 +4,8 @@ namespace LocadoraDeVeiculos.Dominio.Shared
 {
     public interface IRepository<T> where T : EntidadeBase
     {
-        string InserirNovo(T registro);
-        string Editar(int id, T registro);
+        bool InserirNovo(T registro);
+        bool Editar(int id, T registro);
         bool Existe(int id);
         bool Excluir(int id);
         List<T> SelecionarTodos();

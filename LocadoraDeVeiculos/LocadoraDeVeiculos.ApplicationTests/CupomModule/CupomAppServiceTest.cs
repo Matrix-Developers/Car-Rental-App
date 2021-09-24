@@ -123,7 +123,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
             cupomDAOMock.Setup(x => x.Editar(cupom.Id, cupomNovo))
                 .Returns(() =>
                 {
-                    return "VALIDO";
+                    return true;
                 });
 
             //action

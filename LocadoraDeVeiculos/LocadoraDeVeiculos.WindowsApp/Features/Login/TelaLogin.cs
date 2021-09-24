@@ -69,7 +69,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
                 textSenha.Clear();
                 MessageBox.Show("Login ou senha inválidos");
             }
-
         }
 
         private void EfetuarLogin()
@@ -78,7 +77,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             thread = new Thread(ChamarTelaPrincipal);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
-
 
             TelaLogin login = new();
             this.Dispose();
