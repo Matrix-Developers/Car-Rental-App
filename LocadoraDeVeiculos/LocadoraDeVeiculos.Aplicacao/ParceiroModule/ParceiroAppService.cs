@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             GeradorLog.ConfigurarLog();
             bool resultado = parceiroRepository.Excluir(id);
             if (resultado)
-                Log.Information("{DataEHora} / Parceiro {Id} registrado com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Parceiro {Id} excluido com sucesso", DateTime.Now, id);
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Excluir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
             return resultado;
