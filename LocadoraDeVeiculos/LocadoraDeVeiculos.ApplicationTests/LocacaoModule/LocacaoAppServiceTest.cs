@@ -92,12 +92,12 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
             locacaoDAOMock.Setup(x => x.InserirNovo(locacao))
                 .Returns(() =>
                 {
-                    return "VALIDO";
+                    return true;
                 });
 
             //action
             LocacaoAppService locacaoAppService = new(locacaoDAOMock.Object);
-            locacaoAppService.InserirNovaLocacao(locacao);
+            locacaoAppService.InserirEntidade(locacao);
 
             //assert
             locacaoDAOMock.Verify(x => x.InserirNovo(locacao));
@@ -133,7 +133,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
 
             //action
             LocacaoAppService locacaoAppService = new(locacaoDAOMock.Object);
-            locacaoAppService.SelecionarLocacaoPorId(locacao.Id);
+            locacaoAppService.SelecionarEntidadePorId(locacao.Id);
 
             //assert
             locacaoDAOMock.Verify(x => x.SelecionarPorId(locacao.Id));
@@ -174,7 +174,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
 
             //action
             LocacaoAppService locacaoAppService = new(locacaoDAOMock.Object);
-            locacaoAppService.EditarLocacao(parceiro.Id, locacaoNova);
+            locacaoAppService.EditarEntidade(parceiro.Id, locacaoNova);
 
             //assert
             locacaoDAOMock.Verify(x => x.Editar(parceiro.Id, locacaoNova));
@@ -207,7 +207,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
 
             //action
             LocacaoAppService parceiroAppService = new(locacaoDAOMock.Object);
-            parceiroAppService.ExcluirLocacao(parceiro.Id);
+            parceiroAppService.ExcluirEntidade(parceiro.Id);
 
             //assert
             locacaoDAOMock.Verify(x => x.Excluir(parceiro.Id));
@@ -242,7 +242,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
 
             //action
             LocacaoAppService locacaoAppService = new LocacaoAppService(locacaoDAOMock.Object);
-            locacaoAppService.InserirNovaLocacao(locacaoMock.Object);
+            locacaoAppService.InserirEntidade(locacaoMock.Object);
 
             //assert
             locacaoMock.Verify(x => x.Validar());
