@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
             {
                 Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }
