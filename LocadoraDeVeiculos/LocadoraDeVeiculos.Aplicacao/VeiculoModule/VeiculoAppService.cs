@@ -2,6 +2,9 @@
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using LocadoraDeVeiculos.Infra.Logs;
+using Serilog;
+using System;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
@@ -22,7 +25,14 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             string resultadoValidacao = veiculo.Validar();
 
             if (resultadoValidacao == "VALIDO")
-                veiculoRepository.InserirNovo(veiculo);
+            {
+                GeradorLog.ConfigurarLog();
+                bool resultado = veiculoRepository.InserirNovo(veiculo);
+                if (resultado)
+                    Log.Information("{DataEHora} / Veiculo {Id} inserido com sucesso", DateTime.Now, veiculo.Id);
+                else
+                    Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Inserir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), veiculo.Id);
+            }
 
             if (veiculo.imagens != null)
             {
@@ -40,12 +50,12 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             string resultadoValidacao = veiculo.Validar();
             if (resultadoValidacao == "VALIDO")
             {
-                veiculoRepository.Editar(id, veiculo);
-
-                if (veiculo.imagens != null)
-                    foreach (ImagemVeiculo imagem in veiculo.imagens)
-                        imagem.IdVeiculo = veiculo.Id;
-                imagemVeiculoRepository.EditarLista(veiculo.imagens);
+                GeradorLog.ConfigurarLog();
+                bool resultado = veiculoRepository.Editar(id, veiculo);
+                if (resultado)
+                    Log.Information("{DataEHora} / Veiculo {Id} editado com sucesso", DateTime.Now, id);
+                else
+                    Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Editar / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
             }
 
             return resultadoValidacao;
@@ -53,7 +63,13 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         public override bool ExcluirEntidade(int id)
         {
             imagemVeiculoRepository.ExcluirPorIdDoVeiculo(id);
-            return veiculoRepository.Excluir(id);
+            GeradorLog.ConfigurarLog();
+            bool resultado = veiculoRepository.Excluir(id);
+            if (resultado)
+                Log.Information("{DataEHora} / Veiculo {Id} excluido com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Excluir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
+            return resultado;
         }
         public override bool ExisteEntidade(int id)
         {
