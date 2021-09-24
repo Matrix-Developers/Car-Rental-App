@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.Infra.Logs
         private static Logger EnviarLog()
         {
             var logger = new LoggerConfiguration()
-                .WriteTo.Seq("http://localhost:5341")
+                .WriteTo.Seq("http://191.235.244.10:5341")
                 .CreateLogger();
             Log.Logger = logger;
             return logger;
