@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
+using LocadoraDeVeiculos.Infra.Logs;
 
 namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
 {
@@ -34,7 +35,12 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
         }
         public override bool ExcluirEntidade(int id)
         {
-            return parceiroRepository.Excluir(id);
+            bool resultado = parceiroRepository.Excluir(id);
+            if (resultado)
+                GeradorLog.GerarLog("Mensagem", "Error");
+            else
+                GeradorLog.GerarLog("Mensagem", "Information");
+            return resultado;
         }
         public override bool ExisteEntidade(int id)
         {

@@ -6,16 +6,16 @@ namespace LocadoraDeVeiculos.Infra.Logs
 {
     public abstract class GeradorLog
     {
-        static void GerarLog(string mensagem, string nivelLog)
+        public static void GerarLog(string mensagem, string nivelLog)
         {
             using var logger = EnviarLog();
             switch (nivelLog)
             {
                 case "Error": logger.Write(LogEventLevel.Error, mensagem); return;
                 case "Debug": logger.Write(LogEventLevel.Debug, mensagem); return;
+                case "Information": logger.Write(LogEventLevel.Information, mensagem); return;
                 default: return;
-            }
-            
+            }            
         }
 
         private static Logger EnviarLog()
