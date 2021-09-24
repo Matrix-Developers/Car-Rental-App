@@ -1,5 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.Logs;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,18 +25,19 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
         public string Editar(int id, T registro)
         {
             registro.Id = id;
-            Db.Update(SqlEditarEntidade, ObtemParametros(registro))
-                ;
+            Db.Update(SqlEditarEntidade, ObtemParametros(registro));
             return "VALIDO";
         }
         public bool Excluir(int id)
         {
+            GeradorLog.ConfigurarLog();
             try
             {
                 Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
             }
             catch (Exception ex)
             {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Excluir um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlExcluirEntidade, ex);
                 return false;
             }
 
