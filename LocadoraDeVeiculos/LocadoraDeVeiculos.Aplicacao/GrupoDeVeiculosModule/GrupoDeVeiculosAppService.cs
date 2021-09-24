@@ -14,25 +14,15 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             this.grupoDeVeiculoRepository = grupoDeVeiculoRepository;
         }
 
-        public override string InserirEntidade(GrupoDeVeiculo grupoDeVeiculos)
+        public override bool InserirEntidade(GrupoDeVeiculo grupoDeVeiculos)
         {
-            string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                grupoDeVeiculoRepository.InserirNovo(grupoDeVeiculos);
-
-            }
+            bool resultadoValidacao = grupoDeVeiculoRepository.InserirNovo(grupoDeVeiculos);
 
             return resultadoValidacao;
         }
-        public override string EditarEntidade(int id, GrupoDeVeiculo grupoDeVeiculos)
+        public override bool EditarEntidade(int id, GrupoDeVeiculo grupoDeVeiculos)
         {
-            string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
-
-
-            if (resultadoValidacao == "VALIDO")
-                grupoDeVeiculoRepository.Editar(id, grupoDeVeiculos);
+            bool resultadoValidacao = grupoDeVeiculoRepository.Editar(id, grupoDeVeiculos);
 
             return resultadoValidacao;
         }

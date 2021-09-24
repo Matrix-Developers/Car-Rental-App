@@ -39,9 +39,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                string resultadoLocacao = locacaoAppService.InserirEntidade(tela.Locacao);
+                bool resultadoLocacao = locacaoAppService.InserirEntidade(tela.Locacao);
 
-                if (resultadoLocacao == "VALIDO")
+                if (resultadoLocacao)
                 {
                     relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
                     controladorRelacionamento.InserirNovo(relacionamento);

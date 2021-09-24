@@ -14,18 +14,16 @@ namespace LocadoraDeVeiculos.Aplicacao.FuncionarioModule
             this.funcionarioRepository = funcionarioRepository;
         }
 
-        public override string InserirEntidade(Funcionario funcionario)
+        public override bool InserirEntidade(Funcionario funcionario)
         {
-            string resultadoValidacao = funcionario.Validar();
-            if (resultadoValidacao == "VALIDO")
-                funcionarioRepository.InserirNovo(funcionario);
+            bool resultadoValidacao = funcionarioRepository.InserirNovo(funcionario);
+
             return resultadoValidacao;
         }
-        public override string EditarEntidade(int id, Funcionario funcionario)
+        public override bool EditarEntidade(int id, Funcionario funcionario)
         {
-            string resultadoValidacao = funcionario.Validar();
-            if (resultadoValidacao == "VALIDO")
-                funcionarioRepository.Editar(id, funcionario);
+            bool resultadoValidacao = funcionarioRepository.Editar(id, funcionario);
+
             return resultadoValidacao;
         }
         public override bool ExcluirEntidade(int id)

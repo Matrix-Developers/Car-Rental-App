@@ -14,27 +14,17 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             this.clienteRepository = clienteRepository;
         }
 
-        public override string InserirEntidade(Cliente cliente)
+        public override bool InserirEntidade(Cliente cliente)
         {
-            string resultadoValidacao = cliente.Validar();
+           bool resultado = clienteRepository.InserirNovo(cliente);
 
-            if (resultadoValidacao == "VALIDO")
-            {
-                clienteRepository.InserirNovo(cliente);
-            }
-
-            return resultadoValidacao;
+            return resultado;
         }
-        public override string EditarEntidade(int id, Cliente cliente)
+        public override bool EditarEntidade(int id, Cliente cliente)
         {
-            string resultadoValidacao = cliente.Validar();
+            bool resultado = clienteRepository.Editar(id, cliente);
 
-            if (resultadoValidacao == "VALIDO")
-            {
-                clienteRepository.Editar(id, cliente);
-            }
-
-            return resultadoValidacao;
+            return resultado;
         }
         public override bool ExcluirEntidade(int id)
         {

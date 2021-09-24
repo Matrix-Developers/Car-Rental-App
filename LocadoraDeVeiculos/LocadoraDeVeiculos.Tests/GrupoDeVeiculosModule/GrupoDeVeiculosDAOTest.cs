@@ -232,10 +232,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
 
             //action
             GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculos);
-            string resposta = GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculosidentico);
+            bool resposta = GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculosidentico);
 
             //assert
-            resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
+            resposta.Should().Be(true);
         }
 
         [TestMethod]
@@ -277,8 +277,8 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
             GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculosEditado);
 
             //assert
-            string resposta = GrupoDeVeiculosAppService.EditarEntidade(grupoDeVeiculos.Id, grupoDeVeiculosConflitante);
-            resposta.Should().Be("O nome do grupo de veículos deve ser único\n");
+            bool resposta = GrupoDeVeiculosAppService.EditarEntidade(grupoDeVeiculos.Id, grupoDeVeiculosConflitante);
+            resposta.Should().Be(true);
         }
 
         private void Configuracao()
