@@ -8,8 +8,14 @@ namespace LocadoraDeVeiculos.Infra.Logs
     {
         static void GerarLog(string mensagem, string nivelLog)
         {
-            using (var logger = EnviarLog())
-                logger.Write(LogEventLevel.Error, mensagem);
+            using var logger = EnviarLog();
+            switch (nivelLog)
+            {
+                case "Error": logger.Write(LogEventLevel.Error, mensagem); return;
+                case "Debug": logger.Write(LogEventLevel.Debug, mensagem); return;
+                default: return;
+            }
+            
         }
 
         private static Logger EnviarLog()
