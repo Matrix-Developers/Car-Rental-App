@@ -102,27 +102,5 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
             //assert
             servicoDAOMock.Verify(x => x.Excluir(servico.Id));
         }
-
-        [Test]
-
-        public void DeveChamar_Validar()
-        {
-            servico = new ServicoDataBuilder()
-             .ComNome("Lavação")
-             .ComTaxaDiaria(true)
-             .ComValor(100)
-             .Build();
-
-            Mock<Servico> novoSevicoMock = new();
-            novoSevicoMock.Object.Nome = "Lavação";
-
-            Mock<IRepository<Servico>> servicoDAOMock = new();
-
-
-            ServicoAppService servicoAppService = new(servicoDAOMock.Object);
-            servicoAppService.InserirEntidade(novoSevicoMock.Object);
-
-            novoSevicoMock.Verify(x => x.Validar());
-        }
     }
 }

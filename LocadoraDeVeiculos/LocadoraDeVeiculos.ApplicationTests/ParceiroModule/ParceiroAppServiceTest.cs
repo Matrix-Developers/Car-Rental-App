@@ -111,25 +111,6 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
             //assert
             parceiroDAOMock.Verify(x => x.Excluir(parceiro.Id));
         }
-
-        [Test]
-        public void DeveChamar_ValidarDominio()
-        {
-            //arrange
-            Parceiro parceiroExistente = new ParceiroDataBuilder()
-                .ComNome(ndd)
-                .Build();
-
-            Mock<Parceiro> novaParceiroMock = new();
-            Mock<IRepository<Parceiro>> locacaoDAOMock = new();
-
-            //action
-            ParceiroAppService locacaoAppService = new(locacaoDAOMock.Object);
-            locacaoAppService.InserirEntidade(novaParceiroMock.Object);
-
-            //assert
-            novaParceiroMock.Verify(x => x.Validar());
-        }
         #region Métodos Privados
         private void ConfigurarNome()
         {

@@ -17,23 +17,21 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             this.parceiroRepository = parceiroRepository;
         }
 
-        public override string InserirEntidade(Parceiro parceiro)
+        public override bool InserirEntidade(Parceiro parceiro)
         {
-            string ResultadoValidacao = parceiro.Validar();
+            bool resultado = parceiroRepository.InserirNovo(parceiro);
 
-            if (ResultadoValidacao == "VALIDO")
-                parceiroRepository.InserirNovo(parceiro);
-
-            return ResultadoValidacao;
+            if (resultado)
+                Log.Information("{DataEHora} / Parceiro {Parceiro} adicionado com sucesso", DateTime.Now, parceiro);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", parceiro);
+            return resultado;
         }
-        public override string EditarEntidade(int id, Parceiro parceiro)
+        public override bool EditarEntidade(int id, Parceiro parceiro)
         {
-            string ResultadoValidacao = parceiro.Validar();
+            bool resultado = parceiroRepository.Editar(id, parceiro);
 
-            if (ResultadoValidacao == "VALIDO")
-                parceiroRepository.Editar(id, parceiro);
-
-            return ResultadoValidacao;
+            return resultado;
         }
         public override bool ExcluirEntidade(int id)
         {
@@ -42,7 +40,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             if (resultado)
                 Log.Information("{DataEHora} / Parceiro {Id} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Excluir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: Excluir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", id);
             return resultado;
         }
         public override bool ExisteEntidade(int id)

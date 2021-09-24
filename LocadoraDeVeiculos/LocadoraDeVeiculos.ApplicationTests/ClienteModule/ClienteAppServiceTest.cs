@@ -183,35 +183,6 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
             //assert
             clienteDAOMock.Verify(x => x.Excluir(cliente.Id));
         }
-
-        [Test]
-        public void DeveChamar_Validar()
-        {
-            //arrange
-            cliente = new ClienteDataBuilder()
-                .ComNome(joao)
-                .ComRegistroUnico(cpf)
-                .ComEndereco(lages)
-                .ComTelefone(celular)
-                .ComEmail(gmail)
-                .ComCnh(cnh)
-                .ComValidadeCnh(daquiUmAno)
-                .ComEhPessoaFisica(pf)
-                .Build();
-
-            Mock<Cliente> novoClienteMock = new();
-            novoClienteMock.Object.Nome = jose;
-
-            Mock<IRepository<Cliente>> clienteDAOMock = new();
-
-            //action
-            ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.InserirEntidade(novoClienteMock.Object);
-
-            //assert
-            novoClienteMock.Verify(x => x.Validar());
-        }
-
         #region Métodos privados
         private void ConfigurarNome()
         {

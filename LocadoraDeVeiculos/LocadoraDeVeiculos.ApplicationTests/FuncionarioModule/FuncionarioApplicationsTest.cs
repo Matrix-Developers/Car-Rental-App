@@ -153,34 +153,5 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
             //assert
             funcionarioMock.Verify(x => x.Excluir(funcionario.Id));
         }
-        [Test]
-
-        public void DeveChamar_ValidarFuncionario()
-        {
-            funcionario = new FuncionarioDataBuilder()
-              .ComNome("joao")
-              .ComRegistroUnico("26520624098")//""
-              .ComEndereco("lages")
-              .ComTelefone("(49) 99999-9999")
-              .ComEmail("email@gmail.com")
-              .ComMatriculaInterna(1)
-              .ComUsuarioAcesso("jao")
-              .ComSenha("jao123")
-              .ComDataAdmissao(DateTime.Today.AddYears(-1))
-              .ComCargo("dev")
-              .ComSalario(600)
-              .ComEhPessoaFisica()
-              .Build();
-
-            Mock<Funcionario> novoFuncionarioMock = new();
-            novoFuncionarioMock.Object.Nome = "Vini";
-
-            Mock<IRepository<Funcionario>> funcionarioMock = new();
-
-            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.InserirEntidade(novoFuncionarioMock.Object);
-
-            novoFuncionarioMock.Verify(x => x.Validar());
-        }
     }
 }

@@ -213,41 +213,6 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
             locacaoDAOMock.Verify(x => x.Excluir(parceiro.Id));
         }
 
-        [Test]
-        public void DeveChamar_ValidarDominio()
-        {
-            //arrange
-            locacao = new LocacaoDataBuilder()
-                 .ComVeiculo(kicks)
-                 .ComFuncionarioLocador(beto)
-                 .ComClienteContratante(condutorPedro)
-                 .ComClienteCondutor(condutorPedro)
-                 .ComCupom(descontaoDoDeko)
-                 .ComDataDeSaida(hoje)
-                 .ComDataDeChegada()
-                 .ComDataPrevistaDeChegada(daquiSeteDias)
-                 .ComTipoDoPlano(planoDiario)
-                 .ComTipoDoSeguro(seguroCliente)
-                 .ComServicos(listaServicosApenasCadeirinha)
-                 .Build();
-
-            Mock<Locacao> locacaoMock = new();
-            locacaoMock.Setup(x => x.Validar())
-                .Returns(() =>
-                {
-                    return "VALIDO";
-                });
-
-            Mock<IRepository<Locacao>> locacaoDAOMock = new();
-
-            //action
-            LocacaoAppService locacaoAppService = new LocacaoAppService(locacaoDAOMock.Object);
-            locacaoAppService.InserirEntidade(locacaoMock.Object);
-
-            //assert
-            locacaoMock.Verify(x => x.Validar());
-        }
-
         #region Métodos Privados
         private void InserirParceiroECupom()
         {

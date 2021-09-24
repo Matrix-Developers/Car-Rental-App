@@ -17,12 +17,9 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             this.imagemVeiculoRepository = imagemVeiculoRepository;
         }
 
-        public override string InserirEntidade(Veiculo veiculo)
+        public override bool InserirEntidade(Veiculo veiculo)
         {
-            string resultadoValidacao = veiculo.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                veiculoRepository.InserirNovo(veiculo);
+            bool resultadoValidacao = veiculoRepository.InserirNovo(veiculo);
 
             if (veiculo.imagens != null)
             {
@@ -35,18 +32,14 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 
             return resultadoValidacao;
         }
-        public override string EditarEntidade(int id, Veiculo veiculo)
+        public override bool EditarEntidade(int id, Veiculo veiculo)
         {
-            string resultadoValidacao = veiculo.Validar();
-            if (resultadoValidacao == "VALIDO")
-            {
-                veiculoRepository.Editar(id, veiculo);
+            bool resultadoValidacao = veiculoRepository.Editar(id, veiculo);
 
-                if (veiculo.imagens != null)
-                    foreach (ImagemVeiculo imagem in veiculo.imagens)
-                        imagem.IdVeiculo = veiculo.Id;
-                imagemVeiculoRepository.EditarLista(veiculo.imagens);
-            }
+            if (veiculo.imagens != null)
+                foreach (ImagemVeiculo imagem in veiculo.imagens)
+                    imagem.IdVeiculo = veiculo.Id;
+            imagemVeiculoRepository.EditarLista(veiculo.imagens);
 
             return resultadoValidacao;
         }
