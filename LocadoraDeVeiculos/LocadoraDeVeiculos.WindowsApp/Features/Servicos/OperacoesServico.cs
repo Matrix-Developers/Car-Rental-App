@@ -1,5 +1,4 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -25,9 +24,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirNovoServico(tela.Servico);
+                appService.InserirEntidade(tela.Servico);
 
-                List<Servico> servicos = appService.SelecionarTodosServico();
+                List<Servico> servicos = appService.SelecionarTodasEntidade();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -46,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
                 return;
             }
 
-            Servico servicoSelecionada = appService.SelecionarServicoPorId(id);
+            Servico servicoSelecionada = appService.SelecionarEntidadePorId(id);
 
             TelaServicoForm tela = new("Edição de Serviços");
 
@@ -54,9 +53,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.EditarServico(id, tela.Servico);
+                appService.EditarEntidade(id, tela.Servico);
 
-                List<Servico> servicos = appService.SelecionarTodosServico();
+                List<Servico> servicos = appService.SelecionarTodasEntidade();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -75,14 +74,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
                 return;
             }
 
-            Servico servicoSelecionada = appService.SelecionarServicoPorId(id);
+            Servico servicoSelecionada = appService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o servico: [{servicoSelecionada.Nome}] ?",
                 "Exclusão de Servicos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                appService.ExcluirServico(id);
+                appService.ExcluirEntidade(id);
 
-                List<Servico> servicos = appService.SelecionarTodosServico();
+                List<Servico> servicos = appService.SelecionarTodasEntidade();
 
                 tabelaServicos.AtualizarRegistros(servicos);
 
@@ -92,7 +91,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
         public UserControl ObterTabela()
         {
-            List<Servico> servicos = appService.SelecionarTodosServico();
+            List<Servico> servicos = appService.SelecionarTodasEntidade();
 
             tabelaServicos.AtualizarRegistros(servicos);
 

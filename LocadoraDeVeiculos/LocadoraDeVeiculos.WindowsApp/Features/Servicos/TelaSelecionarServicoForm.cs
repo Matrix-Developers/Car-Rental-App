@@ -1,5 +1,4 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
 using System;
@@ -15,7 +14,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
 
         public List<Servico> servicosSelecionados;
         public string seguro = "Nenhum";
-        
+
         public TelaSelecionarServicoForm(ServicoAppService servicoAppService)
         {
             appService = servicoAppService;
@@ -46,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
         private void AtualizarListCheckBox()
         {
             cLBoxServicos.Items.Clear();
-            foreach (Servico servico in appService.SelecionarTodosServico())
+            foreach (Servico servico in appService.SelecionarTodasEntidade())
                 cLBoxServicos.Items.Add(servico);
         }
 
@@ -62,7 +61,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             TelaServicoForm telaServicoForm = new("Cadastro de Serviços");
             if (telaServicoForm.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirNovoServico(telaServicoForm.Servico);
+                appService.InserirEntidade(telaServicoForm.Servico);
                 AtualizarListCheckBox();
             }
         }

@@ -19,14 +19,14 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
-    public partial class TelaLocacaoForm : Form
+    public partial class TelaLocacaoForm : Form //precisa de refatoração
     {
         private readonly TelaSelecionarServicoForm telaServico;
         private Locacao locacao;
-        private FuncionarioRepository controladorFuncionario = new();
-        private VeiculoRepository controladorVeiculo = new();
-        private ClienteRepository controladorCliente = new();
-        private CupomRepository controladorCupom = new();
+        private readonly FuncionarioRepository controladorFuncionario = new();
+        private readonly VeiculoRepository controladorVeiculo = new();
+        private readonly ClienteRepository controladorCliente = new();
+        private readonly CupomRepository controladorCupom = new();
         public List<Servico> Servicos;
         public string TipoSeguro = "Nenhum";
 

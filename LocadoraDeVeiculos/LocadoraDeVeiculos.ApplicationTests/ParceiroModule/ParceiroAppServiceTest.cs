@@ -4,11 +4,6 @@ using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
 {
@@ -42,7 +37,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
 
             //action
             ParceiroAppService parceiroAppService = new(parceiroDAOMock.Object);
-            parceiroAppService.InserirNovoParceiro(parceiroNovo);
+            parceiroAppService.InserirEntidade(parceiroNovo);
 
             //assert
             parceiroDAOMock.Verify(x => x.InserirNovo(parceiroNovo));
@@ -69,7 +64,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
 
             //action
             ParceiroAppService parceiroAppService = new(parceiroDAOMock.Object);
-            parceiroAppService.SelecionarParceiroPorId(parceiro.Id);
+            parceiroAppService.SelecionarEntidadePorId(parceiro.Id);
 
             //assert
             parceiroDAOMock.Verify(x => x.SelecionarPorId(parceiro.Id));
@@ -91,7 +86,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
 
             //action
             ParceiroAppService parceiroAppService = new(parceiroDAOMock.Object);
-            parceiroAppService.EditarParceiro(parceiro.Id, parceiroNovo);
+            parceiroAppService.EditarEntidade(parceiro.Id, parceiroNovo);
 
             //assert
             parceiroDAOMock.Verify(x => x.Editar(parceiro.Id, parceiroNovo));
@@ -111,7 +106,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
 
             //action
             ParceiroAppService parceiroAppService = new(parceiroDAOMock.Object);
-            parceiroAppService.ExcluirParceiro(parceiro.Id);
+            parceiroAppService.ExcluirEntidade(parceiro.Id);
 
             //assert
             parceiroDAOMock.Verify(x => x.Excluir(parceiro.Id));
@@ -125,12 +120,12 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
                 .ComNome(ndd)
                 .Build();
 
-            Mock<Parceiro> novaParceiroMock = new Mock<Parceiro>();
+            Mock<Parceiro> novaParceiroMock = new();
             Mock<IRepository<Parceiro>> locacaoDAOMock = new();
 
             //action
-            ParceiroAppService locacaoAppService = new ParceiroAppService(locacaoDAOMock.Object);
-            locacaoAppService.InserirNovoParceiro(novaParceiroMock.Object);
+            ParceiroAppService locacaoAppService = new(locacaoDAOMock.Object);
+            locacaoAppService.InserirEntidade(novaParceiroMock.Object);
 
             //assert
             novaParceiroMock.Verify(x => x.Validar());

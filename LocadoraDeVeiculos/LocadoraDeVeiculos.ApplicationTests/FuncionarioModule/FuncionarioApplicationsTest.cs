@@ -1,26 +1,18 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
-using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
-using log4net;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
 {
     public class FuncionarioApplicationsTest
     {
         private Funcionario funcionario;
-      
-       
+
+
         [Test]
         public void DeveChamar_InserirNovoFuncionario()
         {
@@ -46,7 +38,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
 
             //action
             FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.InserirNovoFuncionario(funcionario);
+            funcionariooAppService.InserirEntidade(funcionario);
 
             //assert
             funcionarioMock.Verify(x => x.InserirNovo(funcionario));
@@ -83,7 +75,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
 
             //action
             FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.SelecionarFuncionarioPorId(funcionario.Id);
+            funcionariooAppService.SelecionarEntidadePorId(funcionario.Id);
 
             //assert
             funcionarioMock.Verify(x => x.SelecionarPorId(funcionario.Id));
@@ -121,13 +113,13 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
                .ComEhPessoaFisica()
                .Build();
 
-            
+
             Mock<IRepository<Funcionario>> funcionarioMock = new();
 
 
             //action
             FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.EditarFuncionario(funcionario.Id,novoFuncionario);
+            funcionariooAppService.EditarEntidade(funcionario.Id, novoFuncionario);
 
             //assert
             funcionarioMock.Verify(x => x.Editar(funcionario.Id, novoFuncionario));
@@ -156,7 +148,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
 
             //action
             FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.ExcluirFuncionario(funcionario.Id);
+            funcionariooAppService.ExcluirEntidade(funcionario.Id);
 
             //assert
             funcionarioMock.Verify(x => x.Excluir(funcionario.Id));
@@ -186,7 +178,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
             Mock<IRepository<Funcionario>> funcionarioMock = new();
 
             FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.InserirNovoFuncionario(novoFuncionarioMock.Object);
+            funcionariooAppService.InserirEntidade(novoFuncionarioMock.Object);
 
             novoFuncionarioMock.Verify(x => x.Validar());
         }

@@ -1,10 +1,10 @@
-﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using System;
 using LocadoraDeVeiculos.IntegrationTests.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
-using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
 {
@@ -20,7 +20,6 @@ namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
         private string jose;
 
         private string cpf;
-        private string cnpj;
 
         private string lages;
         private string florianopolis;
@@ -156,7 +155,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
                 .ComCargo(dev)
                 .ComSalario(seiscentos)
                 .ComEhPessoaFisica()
-                .Build(); 
+                .Build();
 
             Funcionario funcionarioEditado = new FuncionarioDataBuilder()
                 .ComNome(jose)
@@ -236,7 +235,6 @@ namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
         private void ConfigurarRegistroUnico()
         {
             cpf = "26520624098";
-            cnpj = "54738501000107";
         }
         private void ConfigurarEndereco()
         {

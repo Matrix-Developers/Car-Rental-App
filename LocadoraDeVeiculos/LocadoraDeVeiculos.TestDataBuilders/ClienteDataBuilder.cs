@@ -1,15 +1,11 @@
 ﻿using LocadoraDeVeiculos.Dominio.ClienteModule;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.TestDataBuilders
 {
     public class ClienteDataBuilder
     {
-        private Cliente cliente;
+        private readonly Cliente cliente;
 
         public ClienteDataBuilder()
         {

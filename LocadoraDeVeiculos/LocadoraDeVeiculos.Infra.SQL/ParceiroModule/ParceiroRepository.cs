@@ -1,5 +1,4 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Dominio.ParceiroModule;
+﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
 using System;
@@ -76,53 +75,6 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             }
         }
         #endregion
-
-        public string InserirNovo(Parceiro registro)
-        {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
-
-            return resultadoValidacao;
-        }
-        public List<Parceiro> SelecionarTodos()
-        {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
-        }
-        public Parceiro SelecionarPorId(int id)
-        {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
-        }
-        public string Editar(int id, Parceiro registro)
-        {
-            string resultadoValidacao = registro.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                registro.Id = id;
-                Db.Update(SqlEditarEntidade, ObtemParametros(registro));
-            }
-
-            return resultadoValidacao;
-        }
-        public bool Excluir(int id)
-        {
-            try
-            {
-                Db.Delete(SqlExcluirEntidade, AdicionarParametro("ID", id));
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-        public bool Existe(int id)
-        {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
-        }
 
         protected override Dictionary<string, object> ObtemParametros(Parceiro entidade)
         {

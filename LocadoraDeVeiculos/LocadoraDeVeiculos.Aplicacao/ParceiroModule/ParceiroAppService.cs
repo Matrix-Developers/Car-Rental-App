@@ -1,14 +1,11 @@
-﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
+﻿using LocadoraDeVeiculos.Aplicacao.Shared;
+using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
 {
-    public class ParceiroAppService
+    public class ParceiroAppService : AppServiceBase<Parceiro>
     {
         private readonly IRepository<Parceiro> parceiroRepository;
 
@@ -17,7 +14,8 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             this.parceiroRepository = parceiroRepository;
         }
 
-        public string InserirNovoParceiro(Parceiro parceiro){
+        public override string InserirEntidade(Parceiro parceiro)
+        {
             string ResultadoValidacao = parceiro.Validar();
 
             if (ResultadoValidacao == "VALIDO")
@@ -25,18 +23,30 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
 
             return ResultadoValidacao;
         }
-        public string EditarParceiro(int id, Parceiro parceiro)
+        public override string EditarEntidade(int id, Parceiro parceiro)
         {
             string ResultadoValidacao = parceiro.Validar();
 
             if (ResultadoValidacao == "VALIDO")
-                parceiroRepository.Editar(id,parceiro);
+                parceiroRepository.Editar(id, parceiro);
 
             return ResultadoValidacao;
         }
-        public void ExcluirParceiro(int id) { parceiroRepository.Excluir(id); }
-        public bool ExisteParceiro(int id) { return parceiroRepository.Existe(id);}
-        public Parceiro SelecionarParceiroPorId(int id) { return parceiroRepository.SelecionarPorId(id);}
-        public List<Parceiro> SelecionarTodosParceiro() { return parceiroRepository.SelecionarTodos();}
+        public override bool ExcluirEntidade(int id)
+        {
+            return parceiroRepository.Excluir(id);
+        }
+        public override bool ExisteEntidade(int id)
+        {
+            return parceiroRepository.Existe(id);
+        }
+        public override Parceiro SelecionarEntidadePorId(int id)
+        {
+            return parceiroRepository.SelecionarPorId(id);
+        }
+        public override List<Parceiro> SelecionarTodasEntidade()
+        {
+            return parceiroRepository.SelecionarTodos();
+        }
     }
 }
