@@ -1,6 +1,9 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.Logs;
+using Serilog;
+using System;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
@@ -20,8 +23,12 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
 
             if (resultadoValidacao == "VALIDO")
             {
-                grupoDeVeiculoRepository.InserirNovo(grupoDeVeiculos);
-
+                GeradorLog.ConfigurarLog();
+                bool resultado = grupoDeVeiculoRepository.InserirNovo(grupoDeVeiculos);
+                if (resultado)
+                    Log.Information("{DataEHora} / GrupoDeVeiculos {Id} inserido com sucesso", DateTime.Now, grupoDeVeiculos.Id);
+                else
+                    Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Inserir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), grupoDeVeiculos.Id);
             }
 
             return resultadoValidacao;
@@ -30,19 +37,39 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
         {
             string resultadoValidacao = Vaidacoes(grupoDeVeiculos);
 
-
+            
             if (resultadoValidacao == "VALIDO")
-                grupoDeVeiculoRepository.Editar(id, grupoDeVeiculos);
+            {
+                GeradorLog.ConfigurarLog();
+                bool resultado = grupoDeVeiculoRepository.Editar(id, grupoDeVeiculos);
+                if (resultado)
+                    Log.Information("{DataEHora} / GrupoDeVeiculos {Id} editado com sucesso", DateTime.Now, id);
+                else
+                    Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Editar / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
+            }
 
             return resultadoValidacao;
         }
         public override bool ExcluirEntidade(int id)
         {
-            return grupoDeVeiculoRepository.Excluir(id);
+            GeradorLog.ConfigurarLog();
+            bool resultado = grupoDeVeiculoRepository.Excluir(id);
+            if (resultado)
+                Log.Information("{DataEHora} / GrupoDeVeiculos {Id} excluido com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Excluir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
+            return resultado;
+
         }
         public override bool ExisteEntidade(int id)
         {
-            return grupoDeVeiculoRepository.Existe(id);
+            GeradorLog.ConfigurarLog();
+            bool resultado = grupoDeVeiculoRepository.Existe(id);
+            if (resultado)
+                Log.Information("{DataEHora} / GrupoDeVeiculos {Id} encontrado com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Existe / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
+            return resultado;
         }
         public override GrupoDeVeiculo SelecionarEntidadePorId(int id)
         {
