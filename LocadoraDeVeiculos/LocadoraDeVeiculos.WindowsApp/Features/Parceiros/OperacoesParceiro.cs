@@ -1,6 +1,8 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -13,13 +15,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         private readonly TabelaParceiroControl tabela;
 
         public OperacoesParceiro(ParceiroAppService parceiroAppService)
-        {
+        {            
             appService = parceiroAppService;
             tabela = new TabelaParceiroControl();
         }
 
         public void InserirNovoRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             TelaParceiroForm tela = new("Cadastro de Parceiro");
 
             if (tela.ShowDialog() == DialogResult.OK)
