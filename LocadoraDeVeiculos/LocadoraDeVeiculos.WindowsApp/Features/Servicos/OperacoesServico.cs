@@ -1,6 +1,8 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -20,22 +22,26 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
         public void InserirNovoRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
             TelaServicoForm tela = new("Cadastro de Serviços");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirEntidade(tela.Servico);
-
+                bool resultado = appService.InserirEntidade(tela.Servico);
                 List<Servico> servicos = appService.SelecionarTodasEntidade();
-
                 tabelaServicos.AtualizarRegistros(servicos);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{tela.Servico.Nome}] inserido com sucesso");
+                if(resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{tela.Servico.Nome}] inserido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Servico: [{tela.Servico.Nome}], consulte o log para mais informações");
             }
         }
 
         public void EditarRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Editar");
             int id = tabelaServicos.ObtemIdSelecionado();
 
             if (id == 0)
@@ -46,25 +52,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             }
 
             Servico servicoSelecionada = appService.SelecionarEntidadePorId(id);
-
             TelaServicoForm tela = new("Edição de Serviços");
-
             tela.Servico = servicoSelecionada;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.EditarEntidade(id, tela.Servico);
-
+                bool resultado = appService.EditarEntidade(id, tela.Servico);
                 List<Servico> servicos = appService.SelecionarTodasEntidade();
-
-                tabelaServicos.AtualizarRegistros(servicos);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{tela.Servico.Nome}] editado com sucesso");
+                tabelaServicos.AtualizarRegistros(servicos);                
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{tela.Servico.Nome}] editado com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível editar o Servico: [{tela.Servico.Nome}], consulte o log para mais informações");
             }
         }
 
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Excluir");
             int id = tabelaServicos.ObtemIdSelecionado();
 
             if (id == 0)
@@ -79,22 +85,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             if (MessageBox.Show($"Tem certeza que deseja excluir o servico: [{servicoSelecionada.Nome}] ?",
                 "Exclusão de Servicos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                appService.ExcluirEntidade(id);
-
+                bool resultado = appService.ExcluirEntidade(id);
                 List<Servico> servicos = appService.SelecionarTodasEntidade();
-
                 tabelaServicos.AtualizarRegistros(servicos);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{servicoSelecionada.Nome}] removido com sucesso");
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Servico: [{servicoSelecionada.Nome}] removido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Serviço: [{servicoSelecionada.Nome}], consulte o log para mais informações");
             }
         }
 
         public UserControl ObterTabela()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação");
+            
             List<Servico> servicos = appService.SelecionarTodasEntidade();
-
             tabelaServicos.AtualizarRegistros(servicos);
-
             return tabelaServicos;
         }
 
