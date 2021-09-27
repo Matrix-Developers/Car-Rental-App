@@ -1,7 +1,10 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.WindowsApp.Veiculos;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -9,8 +12,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 {
     public class OperacoesVeiculo : ICadastravel
     {
-        private readonly VeiculoAppService veiculoAppService = null;
-        private readonly TabelaVeiculoControl tabelaVeiculo = null;
+        private readonly VeiculoAppService veiculoAppService;
+        private readonly TabelaVeiculoControl tabelaVeiculo;
         public OperacoesVeiculo(VeiculoAppService VeiculoAppService)
         {
             veiculoAppService = VeiculoAppService;
@@ -18,6 +21,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public void InserirNovoRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
             VeiculoForm tela = new("Cadastro de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -26,13 +31,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
                     foreach (Dominio.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
                         imagem.IdVeiculo = tela.Veiculo.Id;
 
-                veiculoAppService.InserirEntidade(tela.Veiculo);
+                bool resultado = veiculoAppService.InserirEntidade(tela.Veiculo);
 
                 List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.modelo}] inserido com sucesso");
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.modelo}] inserido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Veiculo: [{tela.Veiculo.modelo}], consulte o log para mais informações");
             }
         }
         public void EditarRegistro()
@@ -53,13 +60,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                veiculoAppService.EditarEntidade(id, tela.Veiculo);
+                bool resultado = veiculoAppService.EditarEntidade(id, tela.Veiculo);
 
                 List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.modelo}] editado com sucesso");
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.modelo}] editado com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível editar o Veiculo: [{tela.Veiculo.modelo}], consulte o log para mais informações");
             }
         }
         public void ExcluirRegistro()
@@ -78,13 +88,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
             if (MessageBox.Show($"Tem certeza que deseja excluir o veículo: [{tarefaSelecionada.modelo}] ?",
                 "Exclusão de Veiculos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                veiculoAppService.ExcluirEntidade(id);
+                bool resultado = veiculoAppService.ExcluirEntidade(id);
 
                 List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tarefaSelecionada.modelo}] removido com sucesso");
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tarefaSelecionada.modelo}] removido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Veiculo: [{tarefaSelecionada.modelo}], consulte o log para mais informações");
             }
         }
         public void FiltrarRegistros()

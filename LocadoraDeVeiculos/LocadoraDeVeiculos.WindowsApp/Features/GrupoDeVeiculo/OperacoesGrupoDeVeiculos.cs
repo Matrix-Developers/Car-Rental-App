@@ -18,9 +18,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
             grupoDeVeiculosAppService = GrupoDeVeiculosAppService;
             tabelaGrupoDeVeiculos = new TabelaGrupoDeVeiculosControl();
         }
-        public void AgruparRegistros()
+
+        public void InserirNovoRegistro()
         {
-            throw new NotImplementedException();
+            TarefaGrupoDeVeiculosForm tela = new("Cadastro de Grupo de Veiculos");
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                bool resultado = grupoDeVeiculosAppService.InserirEntidade(tela.GrupoDeVeiculos);
+
+                List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodasEntidade();
+
+                tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
+
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] inserido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}], consulte o log para mais informações");
+            }
         }
 
         public void EditarRegistro()
@@ -42,13 +57,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                grupoDeVeiculosAppService.EditarEntidade(id, tela.GrupoDeVeiculos);
+                bool resultado = grupoDeVeiculosAppService.EditarEntidade(id, tela.GrupoDeVeiculos);
 
                 List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodasEntidade();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] editado com sucesso");
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] editado com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Grupo de Veiculo: [{tela.GrupoDeVeiculos.Nome}], consulte o log para mais informações");
             }
         }
 
@@ -65,13 +83,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
             if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos: [{grupoSelecionado.Nome}]?",
                 "Exclusão de Grupo de Veículos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                grupoDeVeiculosAppService.ExcluirEntidade(id);
+                bool resultado = grupoDeVeiculosAppService.ExcluirEntidade(id);
 
                 List<GrupoDeVeiculo> grupos = grupoDeVeiculosAppService.SelecionarTodasEntidade();
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupos);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{grupoSelecionado.Nome}]removido com sucesso");
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{grupoSelecionado.Nome}] removido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Grupo de Veículos: [{grupoSelecionado.Nome}], consulte o log para mais informações");
             }
         }
 
@@ -80,21 +100,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
             throw new NotImplementedException();
         }
 
-        public void InserirNovoRegistro()
+        public void AgruparRegistros()
         {
-            TarefaGrupoDeVeiculosForm tela = new("Cadastro de Grupo de Veiculos");
-
-            if (tela.ShowDialog() == DialogResult.OK)
-            {
-                grupoDeVeiculosAppService.InserirEntidade(tela.GrupoDeVeiculos);
-
-                List<GrupoDeVeiculo> grupoDeVeiculos = grupoDeVeiculosAppService.SelecionarTodasEntidade();
-
-                tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] inserido com sucesso");
-            }
+            throw new NotImplementedException();
         }
+
 
         public UserControl ObterTabela()
         {
