@@ -59,13 +59,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     {
                         MessageBox.Show("Ocorreu um erro ao tentar enviar os dados de locação por e-mail.\nO recibo está salvo na pasta Recibos e deverá ser enviado manualmente assim que possível!!\n" + ex.Message, "Erro ao enviar e-mail");
                     }
+
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação: [{tela.Locacao.Veiculo}] realizada com sucesso");
                 }
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Erro ao inserir locação");
 
                 List<Locacao> veiculos = locacaoAppService.SelecionarTodasEntidade();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação: [{tela.Locacao.Veiculo}] realizada com sucesso");
+              
             }
         }
 
@@ -89,13 +92,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                locacaoAppService.EditarEntidade(id, tela.Locacao);
+                bool resultado = locacaoAppService.EditarEntidade(id, tela.Locacao);
 
                 List<Locacao> veiculos = locacaoAppService.SelecionarTodasEntidade();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{tela.Locacao.ClienteContratante}] editado com sucesso");
+                if(resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{tela.Locacao.ClienteContratante}] editado com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Erro ao editar locação");
             }
         }
 
@@ -117,13 +123,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.Id}] ?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                locacaoAppService.ExcluirEntidade(id);
+                bool resultado = locacaoAppService.ExcluirEntidade(id);
 
                 List<Locacao> veiculos = locacaoAppService.SelecionarTodasEntidade();
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
-
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{locacaoSelecionada.ClienteContratante}] removida com sucesso");
+                if(resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{locacaoSelecionada.ClienteContratante}] removida com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Erro ao remover locação");
             }
         }
         public void AgruparRegistros()
