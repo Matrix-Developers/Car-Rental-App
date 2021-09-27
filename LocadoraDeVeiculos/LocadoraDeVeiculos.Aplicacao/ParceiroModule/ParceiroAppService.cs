@@ -24,13 +24,16 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             if (resultado)
                 Log.Information("{DataEHora} / Parceiro {Parceiro} adicionado com sucesso", DateTime.Now, parceiro);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", parceiro);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", parceiro);
             return resultado;
         }
         public override bool EditarEntidade(int id, Parceiro parceiro)
         {
             bool resultado = parceiroRepository.Editar(id, parceiro);
-
+            if (resultado)
+                Log.Information("{DataEHora} / Parceiro {Parceiro} editado com sucesso", DateTime.Now, parceiro);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Editar", parceiro);
             return resultado;
         }
         public override bool ExcluirEntidade(int id)
@@ -40,20 +43,36 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             if (resultado)
                 Log.Information("{DataEHora} / Parceiro {Id} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: Excluir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", id);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Excluir", id);
             return resultado;
         }
         public override bool ExisteEntidade(int id)
         {
-            return parceiroRepository.Existe(id);
+            bool resultado = parceiroRepository.Existe(id);
+            if (resultado)
+                Log.Information("{DataEHora} / Parceiro {Id} encontrado com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id);
+            return resultado;
         }
         public override Parceiro SelecionarEntidadePorId(int id)
         {
-            return parceiroRepository.SelecionarPorId(id);
+            Parceiro parceiro;
+            parceiro = parceiroRepository.SelecionarPorId(id);
+            if(parceiro != null)
+                Log.Information("{DataEHora} / Parceiro {Id} selecionado com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id);
+            return parceiro;
         }
         public override List<Parceiro> SelecionarTodasEntidade()
         {
-            return parceiroRepository.SelecionarTodos();
+            List<Parceiro> listParceiro = parceiroRepository.SelecionarTodos();
+            if(listParceiro != null)
+                Log.Information("{DataEHora} / {QtdSelecionados} Parceiros selecionados com sucesso", DateTime.Now, listParceiro.Count);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar Todos");
+            return listParceiro;
         }
     }
 }
