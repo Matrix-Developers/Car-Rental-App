@@ -25,6 +25,7 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
             }
             catch (Exception ex)
             {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Inserir um(a) novo(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlExcluirEntidade, ex);
                 return false;
             }
             return true;
@@ -38,6 +39,7 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
             }
             catch (Exception ex)
             {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Editar  um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlExcluirEntidade, ex);
                 return false;
             }
             return true;
@@ -59,15 +61,41 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
         }
         public T SelecionarPorId(int id)
         {
-            return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+            try
+            {
+                return Db.Get(SqlSelecionarEntidadePorId, ConverterEmEntidade, AdicionarParametro("ID", id));
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Id um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlExcluirEntidade, ex);
+                return null;
+            }
+            
         }
         public List<T> SelecionarTodos()
         {
-            return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
+            try
+            {
+                return Db.GetAll(SqlSelecionarTodasEntidades, ConverterEmEntidade);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Todos um(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlExcluirEntidade, ex);
+                return null;
+            }
         }
         public bool Existe(int id)
         {
-            return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
+            try
+            {
+                return Db.Exists(SqlExisteEntidade, AdicionarParametro("ID", id));
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Verificar se Existe o(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlExcluirEntidade, ex);
+                return false;
+            }
+            
         }
 
         protected static Dictionary<string, object> AdicionarParametro(string campo, object valor)

@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         private readonly TabelaParceiroControl tabela;
 
         public OperacoesParceiro(ParceiroAppService parceiroAppService)
-        {            
+        {
             appService = parceiroAppService;
             tabela = new TabelaParceiroControl();
         }
@@ -23,23 +23,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
             TelaParceiroForm tela = new("Cadastro de Parceiro");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirEntidade(tela.Parceiro);
-
+                bool resultado = appService.InserirEntidade(tela.Parceiro);
                 List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
-
                 tabela.AtualizarRegistros(parceiros);
-
+                if(resultado)
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] inserido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Parceiro: [{tela.Parceiro.Nome}], consulte o log para mais informações");
             }
         }
 
         public void EditarRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Editar");
             int id = tabela.ObtemIdSelecionado();
 
             if (id == 0)
@@ -54,15 +56,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.EditarEntidade(id, tela.Parceiro);
+                bool resultado = appService.EditarEntidade(id, tela.Parceiro);
                 List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(parceiros);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] editado com sucesso");
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] editado com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível editar o Parceiro: [{parceiroSelecionado.Nome}], consulte o log para mais informações");
             }
         }
 
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Excluir");
             int id = tabela.ObtemIdSelecionado();
 
             if (id == 0)
@@ -75,10 +82,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o Parceiro: [{parceiroSelecionado.Nome}] ?", "Exclusão de Parceiros", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                appService.ExcluirEntidade(id);
+                bool resultado = appService.ExcluirEntidade(id);
                 List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(parceiros);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] removido com sucesso");
+                if (resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] removido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Parceiro: [{parceiroSelecionado.Nome}], consulte o log para mais informações");
             }
         }
         public void AgruparRegistros()
@@ -92,6 +102,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         }
         public UserControl ObterTabela()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação");
+
             List<Parceiro> cupons = appService.SelecionarTodasEntidade();
             tabela.AtualizarRegistros(cupons);
             return tabela;
