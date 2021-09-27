@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
 
 namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
 {
@@ -96,6 +97,207 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
 
             ConfigurarImagens();
         }
+
+        [Test]
+        public void DeveChamar_InserirNovo()
+        {
+            //arrange
+            veiculo = new VeiculoDataBuilder()
+                .ComModelo(civic)
+                .ComGrupoDeVeiculo(grupoDeVeiculo)
+                .ComPlaca(abc1234)
+                .ComChassi(chassi1)
+                .ComMarca(honda)
+                .ComCor(azul)
+                .ComTipoCombustivel(gasolina)
+                .ComCapacidadeTanque(litros40)
+                .ComAno(anoAtual)
+                .ComQuilometragem(km50)
+                .ComNumPortas(numPortas2)
+                .ComCapacidadePessoas(numPessoas4)
+                .ComTamanhoPortaMala(portaMalasG)
+                .ComArCondicionado(verdade)
+                .ComDirecaoHidraulica(verdade)
+                .ComFreiosAbs(verdade)
+                .ComAlocaoAtiva(verdade)
+                .ComImagem(naoPossuiImagens)
+                .Build();
+            Mock<IRepository<Veiculo>> veiculoMock = new();
+            veiculoMock.Setup(x => x.InserirNovo(veiculo))
+                .Returns(()=>
+                {
+                    return true;
+                });
+
+            Mock<IImagemVeiculoRepository> imagemVeiculoMock = new();
+            imagemVeiculoMock.Setup(x => x.InserirNovo(null))
+                .Returns(() => {
+                    return true;
+                });
+
+            //action
+            VeiculoAppService veiculoAppService = new(veiculoMock.Object,imagemVeiculoMock.Object);
+            veiculoAppService.InserirEntidade(veiculo);
+
+            //assert
+            veiculoMock.Verify(x => x.InserirNovo(veiculo));
+        }
+
+        [Test]
+        public void DeveChamar_SelecionarPorId()
+        {
+            //arrange
+            veiculo = new VeiculoDataBuilder()
+                .ComModelo(civic)
+                .ComGrupoDeVeiculo(grupoDeVeiculo)
+                .ComPlaca(abc1234)
+                .ComChassi(chassi1)
+                .ComMarca(honda)
+                .ComCor(azul)
+                .ComTipoCombustivel(gasolina)
+                .ComCapacidadeTanque(litros40)
+                .ComAno(anoAtual)
+                .ComQuilometragem(km50)
+                .ComNumPortas(numPortas2)
+                .ComCapacidadePessoas(numPessoas4)
+                .ComTamanhoPortaMala(portaMalasG)
+                .ComArCondicionado(verdade)
+                .ComDirecaoHidraulica(verdade)
+                .ComFreiosAbs(verdade)
+                .ComAlocaoAtiva(verdade)
+                .ComImagem(naoPossuiImagens)
+                .Build();
+            Mock<IRepository<Veiculo>> veiculoMock = new();
+            veiculoMock.Setup(x => x.SelecionarPorId(veiculo.Id))
+                .Returns(() =>
+                {
+                    return veiculo;
+                });
+
+            Mock<IImagemVeiculoRepository> imagemVeiculoMock = new();
+            imagemVeiculoMock.Setup(x => x.SelecioanrTodasImagensDeUmVeiculo(0))
+                .Returns(() => {
+                    return null;
+                });
+
+            //action
+            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
+            veiculoAppService.SelecionarEntidadePorId(veiculo.Id);
+
+            //assert
+            veiculoMock.Verify(x => x.SelecionarPorId(veiculo.Id));
+        }
+
+        [Test]
+        public void DeveChamar_Editar()
+        {
+            Veiculo veiculoEditado = new VeiculoDataBuilder()
+                .ComModelo(corolla)
+                .ComGrupoDeVeiculo(grupoDeVeiculo)
+                .ComPlaca(abc1d34)
+                .ComChassi(chassi2)
+                .ComMarca(toyota)
+                .ComCor(vermelho)
+                .ComTipoCombustivel(flex)
+                .ComCapacidadeTanque(litros50)
+                .ComAno(anoAnterior)
+                .ComQuilometragem(km100)
+                .ComNumPortas(numPortas4)
+                .ComCapacidadePessoas(numPessoas5)
+                .ComTamanhoPortaMala(portaMalasP)
+                .ComArCondicionado(falso)
+                .ComDirecaoHidraulica(falso)
+                .ComFreiosAbs(falso)
+                .ComAlocaoAtiva(falso)
+                .ComImagem(naoPossuiImagens)
+                .Build();
+
+            //arrange
+            veiculo = new VeiculoDataBuilder()
+                .ComModelo(civic)
+                .ComGrupoDeVeiculo(grupoDeVeiculo)
+                .ComPlaca(abc1234)
+                .ComChassi(chassi1)
+                .ComMarca(honda)
+                .ComCor(azul)
+                .ComTipoCombustivel(gasolina)
+                .ComCapacidadeTanque(litros40)
+                .ComAno(anoAtual)
+                .ComQuilometragem(km50)
+                .ComNumPortas(numPortas2)
+                .ComCapacidadePessoas(numPessoas4)
+                .ComTamanhoPortaMala(portaMalasG)
+                .ComArCondicionado(verdade)
+                .ComDirecaoHidraulica(verdade)
+                .ComFreiosAbs(verdade)
+                .ComAlocaoAtiva(verdade)
+                .ComImagem(naoPossuiImagens)
+                .Build();
+
+            Mock<IRepository<Veiculo>> veiculoMock = new();
+            veiculoMock.Setup(x => x.Editar(veiculo.Id,veiculoEditado))
+                .Returns(() =>
+                {
+                    return true;
+                });
+
+            Mock<IImagemVeiculoRepository> imagemVeiculoMock = new();
+            imagemVeiculoMock.Setup(x => x.EditarLista(null));
+
+
+            //action
+            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
+            veiculoAppService.EditarEntidade(veiculo.Id,veiculoEditado);
+
+            //assert
+            veiculoMock.Verify(x => x.Editar(veiculo.Id, veiculoEditado));
+        }
+
+        [Test]
+        public void DeveChamar_Excluir()
+        {
+            //arrange
+            veiculo = new VeiculoDataBuilder()
+                .ComModelo(civic)
+                .ComGrupoDeVeiculo(grupoDeVeiculo)
+                .ComPlaca(abc1234)
+                .ComChassi(chassi1)
+                .ComMarca(honda)
+                .ComCor(azul)
+                .ComTipoCombustivel(gasolina)
+                .ComCapacidadeTanque(litros40)
+                .ComAno(anoAtual)
+                .ComQuilometragem(km50)
+                .ComNumPortas(numPortas2)
+                .ComCapacidadePessoas(numPessoas4)
+                .ComTamanhoPortaMala(portaMalasG)
+                .ComArCondicionado(verdade)
+                .ComDirecaoHidraulica(verdade)
+                .ComFreiosAbs(verdade)
+                .ComAlocaoAtiva(verdade)
+                .ComImagem(naoPossuiImagens)
+                .Build();
+            Mock<IRepository<Veiculo>> veiculoMock = new();
+            veiculoMock.Setup(x => x.Excluir(veiculo.Id))
+                .Returns(() =>
+                {
+                    return true;
+                });
+
+            Mock<IImagemVeiculoRepository> imagemVeiculoMock = new();
+            imagemVeiculoMock.Setup(x => x.ExcluirPorIdDoVeiculo(veiculo.Id))
+                .Returns(() => {
+                    return true;
+                });
+
+            //action
+            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
+            veiculoAppService.ExcluirEntidade(veiculo.Id);
+
+            //assert
+            veiculoMock.Verify(x => x.Excluir(veiculo.Id));
+        }
+
 
         #region Métodos privados
         private void ConfigurarModelo()
