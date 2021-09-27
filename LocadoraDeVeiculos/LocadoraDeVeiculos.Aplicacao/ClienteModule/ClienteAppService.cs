@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             if (resultado)
                 Log.Information("{DataEHora} / Cliente {cliente} editado com sucesso", DateTime.Now, cliente);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", cliente);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Editar", cliente);
 
             return resultado;
         }
@@ -44,7 +44,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             if (resultado)
                 Log.Information("{DataEHora} / Cliente {id} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", id);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Excluir", id);
 
             return resultado;
         }
@@ -54,11 +54,23 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
         }
         public override Cliente SelecionarEntidadePorId(int id)
         {
-            return clienteRepository.SelecionarPorId(id);
+            Cliente cliente = clienteRepository.SelecionarPorId(id);
+
+            if (cliente != null)
+                Log.Information("{DataEHora} / Cliente {id} selecionado com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar por id", id);
+
+            return cliente;
         }
         public override List<Cliente> SelecionarTodasEntidade()
         {
-            return clienteRepository.SelecionarTodos();
+            List<Cliente> clientes = clienteRepository.SelecionarTodos();
+            if(clientes != null)
+                Log.Information("{DataEHora} / Cliente {id} excluido com sucesso", DateTime.Now, clientes.Count);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", clientes.Count);
+            return clientes;
         }
     }
 }
