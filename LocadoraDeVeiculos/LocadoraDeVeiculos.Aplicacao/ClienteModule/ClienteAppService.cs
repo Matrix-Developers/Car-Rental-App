@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             Cliente cliente = clienteRepository.SelecionarPorId(id);
 
             if (cliente != null)
-                Log.Information("{DataEHora} / Cliente {id} selecionado com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Cliente {id} Selecionado com sucesso", DateTime.Now, id);
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar por id", id);
 
@@ -67,7 +67,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
         {
             List<Cliente> clientes = clienteRepository.SelecionarTodos();
             if(clientes != null)
-                Log.Information("{DataEHora} / Cliente {id} excluido com sucesso", DateTime.Now, clientes.Count);
+                Log.Information("{DataEHora} / Cliente {id} Selecionado com sucesso", DateTime.Now, clientes.Count);
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", clientes.Count);
             return clientes;

@@ -20,7 +20,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
         {
             bool resultado = locacaoRepository.InserirNovo(locacao);
             if (resultado)
-                Log.Information("{DataEHora} / Locação {locacao} adicionado com sucesso", DateTime.Now, locacao);
+                Log.Information("{DataEHora} / Locação {locacao} Adicionado com sucesso", DateTime.Now, locacao);
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", locacao);
 
@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
         {
             bool resultado = locacaoRepository.Editar(id, locacao);
             if (resultado)
-                Log.Information("{DataEHora} / Locação {locacao} adicionado com sucesso", DateTime.Now, locacao);
+                Log.Information("{DataEHora} / Locação {locacao} Editado com sucesso", DateTime.Now, locacao);
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", locacao);
             return resultado;
@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
             bool resultado = locacaoRepository.Excluir(id);
 
             if (resultado)
-                Log.Information("{DataEHora} / Id {id} adicionado com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Id {id} Excluido com sucesso", DateTime.Now, id);
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", id);
 
@@ -48,11 +48,25 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
         }
         public override Locacao SelecionarEntidadePorId(int id)
         {
-            return locacaoRepository.SelecionarPorId(id);
+            Locacao locacao = locacaoRepository.SelecionarPorId(id);
+
+            if(locacao != null)
+                Log.Information("{DataEHora} / Locação {id} selecionado com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar por id", id);
+
+            return locacao;
         }
         public override List<Locacao> SelecionarTodasEntidade()
         {
-            return locacaoRepository.SelecionarTodos();
+            List<Locacao> locacoes = locacaoRepository.SelecionarTodos();
+
+            if (locacoes != null)
+                Log.Information("{DataEHora} / Locações {id} Selecionadas com sucesso", DateTime.Now, locacoes.Count);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar todos", locacoes.Count);
+
+            return locacoes;
         }
         public override bool ExisteEntidade(int id)
         {
