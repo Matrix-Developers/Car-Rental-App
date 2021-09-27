@@ -44,7 +44,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 if (resultadoLocacao)
                 {
                     relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
-                    controladorRelacionamento.InserirNovo(relacionamento);
+                    foreach (var item in relacionamento.Servicos)
+                    {
+                        RelacionamentoLocServ relacionamentoSelecionado = new(0, relacionamento.Locacao, item.Id);
+                        controladorRelacionamento.InserirNovo(relacionamentoSelecionado);
+                    }
                     conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
 
                     try
