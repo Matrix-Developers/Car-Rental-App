@@ -1,8 +1,10 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ClienteModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Clientes;
 using LocadoraDeVeiculos.WindowsApp.ClientesModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Windows.Forms;
 
@@ -21,6 +23,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
         public void EditarRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaCliente.ObtemIdSelecionado();
             if (id == 0)
             {
@@ -45,6 +49,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         }
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaCliente.ObtemIdSelecionado();
             if (id == 0)
             {
@@ -65,6 +71,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         }
         public void InserirNovoRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             ClientesForm tela = new("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
             {

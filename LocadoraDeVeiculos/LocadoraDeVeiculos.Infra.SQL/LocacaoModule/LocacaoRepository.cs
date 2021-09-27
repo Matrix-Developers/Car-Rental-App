@@ -12,6 +12,7 @@ using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -144,10 +145,17 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         private List<Servico> SelecionarServicosComIdLocacao(int idLocacao)
         {
             List<Servico> servicosDaLocacao = new();
-            List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AdicionarParametro("ID_LOCACAO", idLocacao));
-            foreach (int idServico in idsDeServicos)
+            try
             {
-                servicosDaLocacao.Add(controladorServico.SelecionarPorId(idServico));
+                List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AdicionarParametro("ID_LOCACAO", idLocacao));
+                foreach (int idServico in idsDeServicos)
+                {
+                    servicosDaLocacao.Add(controladorServico.SelecionarPorId(idServico));
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar sservicos com Id Locação {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), idLocacao, SqlExcluirEntidade, ex);
             }
             return servicosDaLocacao;
         }
