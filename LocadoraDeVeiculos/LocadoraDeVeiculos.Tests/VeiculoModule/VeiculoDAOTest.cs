@@ -1,6 +1,4 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
@@ -20,8 +18,8 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
     public class VeiculoDAOTest
     {
         #region atributos privados
-        private VeiculoAppService veiculoAppService;
-        private GrupoDeVeiculosAppService GrupoDeVeiculosAppService;
+        private VeiculoRepository veiculoRepository;
+        private GrupoDeVeiculosRepository GrupoDeVeiculosRepository;
         private GrupoDeVeiculo grupoDeVeiculo;
         private Veiculo veiculo;
 
@@ -70,8 +68,8 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         [TestInitialize]
         public void Setup()
         {
-            veiculoAppService = new VeiculoAppService(new VeiculoRepository(), new ImagemVeiculoRepository());
-            GrupoDeVeiculosAppService = new GrupoDeVeiculosAppService(new GrupoDeVeiculosRepository());
+            veiculoRepository = new VeiculoRepository();
+            GrupoDeVeiculosRepository = new GrupoDeVeiculosRepository();
 
             ConfigurarModelo();
 
@@ -114,7 +112,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         public void DeveInserirUmVeiculo()
         {
             //arrange
-            GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculo);
+            GrupoDeVeiculosRepository.InserirNovo(grupoDeVeiculo);
             veiculo = new VeiculoDataBuilder()
                 .ComModelo(civic)
                 .ComGrupoDeVeiculo(grupoDeVeiculo)
@@ -136,10 +134,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .ComImagem(naoPossuiImagens)
                 .Build();
             //action
-            veiculoAppService.InserirEntidade(veiculo);
+            veiculoRepository.InserirNovo(veiculo);
 
             //assert
-            var veiculoEncontrado = veiculoAppService.SelecionarEntidadePorId(veiculo.Id);
+            var veiculoEncontrado = veiculoRepository.SelecionarPorId(veiculo.Id);
             veiculoEncontrado.Should().Be(veiculo);
         }
 
@@ -147,7 +145,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         public void DeveSelecionarDoisVeiculos()
         {
             //arrange  
-            GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculo);
+            GrupoDeVeiculosRepository.InserirNovo(grupoDeVeiculo);
             veiculo = new VeiculoDataBuilder()
                 .ComModelo(civic)
                 .ComGrupoDeVeiculo(grupoDeVeiculo)
@@ -191,11 +189,11 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .Build();
 
             //action
-            veiculoAppService.InserirEntidade(veiculo);
-            veiculoAppService.InserirEntidade(veiculo2);
+            veiculoRepository.InserirNovo(veiculo);
+            veiculoRepository.InserirNovo(veiculo2);
 
             //assert
-            List<Veiculo> veiculoEncontrado = veiculoAppService.SelecionarTodasEntidade();
+            List<Veiculo> veiculoEncontrado = veiculoRepository.SelecionarTodos();
             veiculoEncontrado.Count.Should().Be(2);
         }
 
@@ -203,7 +201,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         public void DeveEditarUmVeiculo()
         {
             //arrange
-            GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculo);
+            GrupoDeVeiculosRepository.InserirNovo(grupoDeVeiculo);
             veiculo = new VeiculoDataBuilder()
                 .ComModelo(civic)
                 .ComGrupoDeVeiculo(grupoDeVeiculo)
@@ -247,11 +245,11 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .Build();
 
             //action
-            veiculoAppService.InserirEntidade(veiculo);
-            veiculoAppService.EditarEntidade(veiculo.Id, veiculoEditado);
+            veiculoRepository.InserirNovo(veiculo);
+            veiculoRepository.Editar(veiculo.Id, veiculoEditado);
 
             //assert
-            var veiculoEncontrado = veiculoAppService.SelecionarEntidadePorId(veiculo.Id);
+            var veiculoEncontrado = veiculoRepository.SelecionarPorId(veiculo.Id);
             veiculoEncontrado.Should().Be(veiculoEditado);
         }
 
@@ -259,7 +257,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
         public void DeveExcluirUmVeiculo()
         {
             //arrange
-            GrupoDeVeiculosAppService.InserirEntidade(grupoDeVeiculo);
+            GrupoDeVeiculosRepository.InserirNovo(grupoDeVeiculo);
             veiculo = new VeiculoDataBuilder()
                 .ComModelo(civic)
                 .ComGrupoDeVeiculo(grupoDeVeiculo)
@@ -282,13 +280,13 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
                 .Build();
 
             //action
-            veiculoAppService.InserirEntidade(veiculo);
-            List<Veiculo> veiculosAntesDaExclusao = veiculoAppService.SelecionarTodasEntidade();
+            veiculoRepository.InserirNovo(veiculo);
+            List<Veiculo> veiculosAntesDaExclusao = veiculoRepository.SelecionarTodos();
             veiculosAntesDaExclusao.Count.Should().Be(1);
-            veiculoAppService.ExcluirEntidade(veiculo.Id);
+            veiculoRepository.Excluir(veiculo.Id);
 
             //assert
-            List<Veiculo> veiculoEncontrado = veiculoAppService.SelecionarTodasEntidade();
+            List<Veiculo> veiculoEncontrado = veiculoRepository.SelecionarTodos();
             veiculoEncontrado.Count.Should().Be(0);
         }
 
