@@ -9,12 +9,20 @@ namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
     {
         public Locacao Locacao { get; }
         public List<Servico> Servicos { get; }
+        public int IdServico { get; }
 
         public RelacionamentoLocServ(int id, Locacao locacao, List<Servico> servicos)
         {
             this.Id = id;
             Locacao = locacao;
             Servicos = servicos;
+        }
+
+        public RelacionamentoLocServ(int id, Locacao locacao, int IdServico)
+        {
+            this.Id = id;
+            Locacao = locacao;
+            this.IdServico = IdServico;
         }
 
         public override string Validar()

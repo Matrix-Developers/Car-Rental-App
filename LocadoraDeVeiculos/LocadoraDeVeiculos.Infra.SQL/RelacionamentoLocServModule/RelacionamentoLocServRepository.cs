@@ -9,14 +9,16 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 {
-    public class RelacionamentoLocServRepository : RepositoryBase<RelacionamentoLocServ>, IRepository<RelacionamentoLocServ>       //essa classe está parcialmente obsoleta
+    public class RelacionamentoLocServRepository : RepositoryBase<RelacionamentoLocServ>, IRepository<RelacionamentoLocServ>
     {
         private readonly int id = 0;
         readonly ServicoRepository controladorServico = new();
@@ -95,7 +97,17 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 
         public object SelecionarPorLocacao(int id)
         {
-            return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmEntidade, AdicionarParametro("ID_LOCACAO", id));
+            GeradorLog.ConfigurarLog();
+            try
+            {
+                return Db.GetAll(sqlSelecionarRelacaoPorLocacao, ConverterEmEntidade, AdicionarParametro("ID_LOCACAO", id));
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar os Servicos da Locacao um(a). {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlExcluirEntidade, ex);
+                return false;
+            }
+            
         }
 
         protected override Dictionary<string, object> ObtemParametros(RelacionamentoLocServ entidade)
@@ -104,7 +116,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
             {
                 { "ID", entidade.Id },
                 { "ID_LOCACAO", entidade.Locacao.Id },
-                { "ID_SERVICO", id }
+                { "ID_SERVICO", entidade.IdServico }
             };
 
             return parametros;
