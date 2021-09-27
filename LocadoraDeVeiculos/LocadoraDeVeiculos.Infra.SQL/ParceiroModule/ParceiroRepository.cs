@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             get
             {
                 return
-                @"DELETE * FROM [TBPARCEIRO] WHERE [ID] = @ID";
+                @"DELETE FROM [TBPARCEIRO] WHERE [ID] = @ID";
             }
         }
         protected override string SqlSelecionarEntidadePorId
