@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Infra.SQL.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -168,15 +169,42 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         public bool ExisteCodigo(string codigo)
         {
-            return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
+            
+            try
+            {
+                return Db.Exists(sqlExisteCodigo, AdicionarParametro("CODIGO", codigo));
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Verificar se Existe o Código o(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlExcluirEntidade, ex);
+                return false;
+            }
         }
         public Cupom SelecionarPorCodigo(string codigo)
         {
+            try
+            {
             return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmEntidade, AdicionarParametro("CODIGO", codigo));
+
+            }
+            catch (Exception ex )
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), codigo, sqlSelecionarCupomPorCodigo, ex);
+                return null;
+            }
         }
         public void AtualizarQtdUtilizada(int id, int qtdUtilizada)
         {
+            try
+            {
             Db.Update(sqlEditarQtdUtilizadaCupom, ObtemParametrosQtdUtilizada(id, qtdUtilizada));
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id,qtdUtilizada, sqlEditarQtdUtilizadaCupom, ex);
+            }
         }
         private static Dictionary<string, object> ObtemParametrosQtdUtilizada(int id, int qtdUtilizada)
         {

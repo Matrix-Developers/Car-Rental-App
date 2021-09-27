@@ -1,4 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using Serilog;
+using System;
 using System.Net.Mail;
 
 namespace LocadoraDeVeiculos.Infra.InternetServices
@@ -25,7 +27,17 @@ namespace LocadoraDeVeiculos.Infra.InternetServices
 
             email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo{locacaoEnviada.Id}.pdf"));
 
+            try
+            {
             smtp.Send(email);
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar enviar e-mail o(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? /  {StackTrace}", DateTime.Now, "Gerenciador de E-Mail", ex);
+
+
+            }
         }
     }
 }

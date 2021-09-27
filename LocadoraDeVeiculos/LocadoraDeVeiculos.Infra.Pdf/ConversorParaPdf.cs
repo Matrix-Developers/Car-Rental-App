@@ -1,6 +1,8 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using Serilog;
+using System;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Controladores.Shared
@@ -53,8 +55,15 @@ namespace LocadoraDeVeiculos.Controladores.Shared
                 $"      - Número de portas: {locacao.Veiculo.numeroPortas}",
                 $"      - Kilometragem atual: {locacao.Veiculo.kilometragem} km"
             };
-
+            try
+            {
             GerarPdf(arquivo, titulo, linhas);
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Gerar o PDF o(a) {Feature} / Camada: Shared / Usuário: IdUsuario Tempo: ?? / {StackTrace}", DateTime.Now, this.ToString(), ex);
+            }
         }
 
         private void GerarPdf(string nomeArquivo, string textoTitulo, List<string> textoLinhas)

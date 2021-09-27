@@ -1,7 +1,9 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Funcionarios;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -26,6 +28,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void EditarRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaFuncionarios.ObtemIdSelecionado();
 
             if (id == 0)
@@ -40,15 +44,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.EditarEntidade(id, tela.Funcionario);
+                bool resultado = appService.EditarEntidade(id, tela.Funcionario);
                 List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] editado com sucesso");
+                if(resultado)
+                      TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] editado com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível excluir o Funcionário: [{funcionarioSelecionado.Nome}], consulte o log para mais informações");
+
             }
         }
 
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaFuncionarios.ObtemIdSelecionado();
 
             if (id == 0)
@@ -61,10 +71,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Nome}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                appService.ExcluirEntidade(id);
+                bool resultado = appService.ExcluirEntidade(id);
                 List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
+                if(resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível excluir o Funcionário: [{funcionarioSelecionado.Nome}], consulte o log para mais informações");
+
             }
         }
 
@@ -75,14 +89,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void InserirNovoRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             FuncionarioForm tela = new("Cadastro de Funcionário");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirEntidade(tela.Funcionario);
+                bool resultado = appService.InserirEntidade(tela.Funcionario);
                 List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Nome}] inserido com sucesso");
+                if(resultado)                   
+                     TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Nome}] inserido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Funcionário: [{tela.Funcionario.Nome}], consulte o log para mais informações");
             }
         }
 

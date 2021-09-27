@@ -1,7 +1,9 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.CupomModule;
 using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -23,22 +25,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public void InserirNovoRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
             TelaCupomForm tela = new("Cadastro de Cupom", parceiroAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.InserirEntidade(tela.Cupom);
+                bool resultado = appService.InserirEntidade(tela.Cupom);
 
                 List<Cupom> cupons = appService.SelecionarTodasEntidade();
 
                 tabela.AtualizarRegistros(cupons);
+                if(resultado)
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{tela.Cupom.Nome}] inserido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o cupom: [{tela.Cupom.Nome}], consulte o log para mais informações");
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{tela.Cupom.Nome}] inserido com sucesso");
             }
         }
 
         public void EditarRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
             TelaCupomForm tela = new("Edição de Cupom", parceiroAppService);
 
             int id = tabela.ObtemIdSelecionado();
@@ -55,15 +64,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                appService.EditarEntidade(id, tela.Cupom);
+                bool resultado = appService.EditarEntidade(id, tela.Cupom);
                 List<Cupom> funcionarios = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{cupomSelecionado.Nome}] editado com sucesso");
+                if(resultado)
+                      TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{cupomSelecionado.Nome}] editado com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível editar o cupom: [{cupomSelecionado.Nome}], consulte o log para mais informações");
+
             }
         }
 
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
+
             int id = tabela.ObtemIdSelecionado();
 
             if (id == 0)
@@ -76,10 +92,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{parceiroSelecionado.Nome}] ?", "Exclusão de Cupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
-                appService.ExcluirEntidade(id);
+                bool resultado = appService.ExcluirEntidade(id);
                 List<Cupom> cupons = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(cupons);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{parceiroSelecionado.Nome}] removido com sucesso");
+                if(resultado)
+                     TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom: [{parceiroSelecionado.Nome}] removido com sucesso");
+                else
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível editar o cupom: [{parceiroSelecionado.Nome}], consulte o log para mais informações");
+
+
             }
         }
 
