@@ -6,7 +6,9 @@ using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Infra.InternetServices;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -35,6 +37,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         public void InserirNovoRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             TelaLocacaoForm tela = new("Locação de Veiculos", servicoAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -67,6 +71,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         public void EditarRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaLocacao.ObtemIdSelecionado();
 
             if (id == 0)
@@ -95,6 +101,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaLocacao.ObtemIdSelecionado();
 
             if (id == 0)
@@ -122,7 +130,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             throw new NotImplementedException();
         }
-
         public void FiltrarRegistros()
         {
             throw new NotImplementedException();
