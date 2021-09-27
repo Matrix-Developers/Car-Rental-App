@@ -194,26 +194,6 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
             cupomDAOMock.Verify(x => x.AtualizarQtdUtilizada(cupom.Id, 5));
         }
 
-        [Test]
-        public void DeveChamar_Validar()
-        {
-            //arrange
-            BuidCupom();
-
-            Mock<Cupom> novoCupomMock = new();
-            novoCupomMock.Object.Nome = cupomDeko;
-
-            Mock<ICupomRepository> cupomDAOMock = new();
-
-            //action
-            CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.InserirEntidade(novoCupomMock.Object);
-
-            //assert
-            novoCupomMock.Verify(x => x.Validar());
-        }
-
-
         #region Métodos privados
         private void ConfigurarNome()
         {

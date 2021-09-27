@@ -13,23 +13,17 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             this.cupomRepository = cupomRepository;
         }
 
-        public override string InserirEntidade(Cupom cupom)
+        public override bool InserirEntidade(Cupom cupom)
         {
-            string resultadoValidacao = cupom.Validar();
+            bool resultado= cupomRepository.InserirNovo(cupom);
 
-            if (resultadoValidacao == "VALIDO")
-                cupomRepository.InserirNovo(cupom);
-
-            return resultadoValidacao;
+            return resultado;
         }
-        public override string EditarEntidade(int id, Cupom cupom)
+        public override bool EditarEntidade(int id, Cupom cupom)
         {
-            string resultadoValidacao = cupom.Validar();
+            bool resultado = cupomRepository.Editar(id, cupom);
 
-            if (resultadoValidacao == "VALIDO")
-                cupomRepository.Editar(id, cupom);
-
-            return resultadoValidacao;
+            return resultado;
         }
         public override bool ExcluirEntidade(int id)
         {

@@ -14,21 +14,15 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             this.servicoRepository = servicoRepository;
         }
 
-        public override string InserirEntidade(Servico servico)
+        public override bool InserirEntidade(Servico servico)
         {
-            string resultadoValidacao = servico.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                servicoRepository.InserirNovo(servico);
+            bool resultadoValidacao = servicoRepository.InserirNovo(servico);
 
             return resultadoValidacao;
         }
-        public override string EditarEntidade(int id, Servico servico)
+        public override bool EditarEntidade(int id, Servico servico)
         {
-            string resultadoValidacao = servico.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-                servicoRepository.Editar(id, servico);
+            bool resultadoValidacao = servicoRepository.Editar(id, servico);
 
             return resultadoValidacao;
         }

@@ -20,19 +20,14 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             this.imagemVeiculoRepository = imagemVeiculoRepository;
         }
 
-        public override string InserirEntidade(Veiculo veiculo)
+        public override bool InserirEntidade(Veiculo veiculo)
         {
-            string resultadoValidacao = veiculo.Validar();
-
-            if (resultadoValidacao == "VALIDO")
-            {
-                GeradorLog.ConfigurarLog();
-                bool resultado = veiculoRepository.InserirNovo(veiculo);
-                if (resultado)
-                    Log.Information("{DataEHora} / Veiculo {Id} inserido com sucesso", DateTime.Now, veiculo.Id);
-                else
-                    Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Inserir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), veiculo.Id);
-            }
+            GeradorLog.ConfigurarLog();
+            bool resultado = veiculoRepository.InserirNovo(veiculo);
+            if (resultado)
+                Log.Information("{DataEHora} / Veiculo {Veiculo} inserido com sucesso", DateTime.Now, veiculo);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Inserir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), veiculo.Id);
 
             if (veiculo.imagens != null)
             {
@@ -43,52 +38,68 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
                 }
             }
 
-            return resultadoValidacao;
+            return resultado;
         }
-        public override string EditarEntidade(int id, Veiculo veiculo)
+        public override bool EditarEntidade(int id, Veiculo veiculo)
         {
-            string resultadoValidacao = veiculo.Validar();
-            if (resultadoValidacao == "VALIDO")
-            {
-                GeradorLog.ConfigurarLog();
-                bool resultado = veiculoRepository.Editar(id, veiculo);
-                if (resultado)
-                    Log.Information("{DataEHora} / Veiculo {Id} editado com sucesso", DateTime.Now, id);
-                else
-                    Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Editar / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
-            }
+            GeradorLog.ConfigurarLog();
+            bool resultado = veiculoRepository.Editar(id, veiculo);
+            if (resultado)
+                Log.Information("{DataEHora} / Veiculo {Veiculo} editado com sucesso", DateTime.Now, veiculo);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Inserir", veiculo);
 
-            return resultadoValidacao;
+            if (veiculo.imagens != null)
+                foreach (ImagemVeiculo imagem in veiculo.imagens)
+                    imagem.IdVeiculo = veiculo.Id;
+            imagemVeiculoRepository.EditarLista(veiculo.imagens);
+
+            return resultado;
         }
         public override bool ExcluirEntidade(int id)
         {
             imagemVeiculoRepository.ExcluirPorIdDoVeiculo(id);
-            GeradorLog.ConfigurarLog();
             bool resultado = veiculoRepository.Excluir(id);
             if (resultado)
                 Log.Information("{DataEHora} / Veiculo {Id} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Excluir / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), id);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Excluir", id);
             return resultado;
         }
         public override bool ExisteEntidade(int id)
         {
-            return veiculoRepository.Existe(id);
+            bool resultado = veiculoRepository.Existe(id);
+            if (resultado)
+                Log.Information("{DataEHora} / Veiculo {Veiculo} encontrado com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id);
+            return resultado;
         }
         public override Veiculo SelecionarEntidadePorId(int id)
         {
             Veiculo veiculo = veiculoRepository.SelecionarPorId(id);
             veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(id);
+            if (veiculo != null)
+                Log.Information("{DataEHora} / Veiculo {Id} selecionado com sucesso", DateTime.Now, id);
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id);
             return veiculo;
         }
         public override List<Veiculo> SelecionarTodasEntidade()
         {
-            List<Veiculo> veiculos = veiculoRepository.SelecionarTodos();
-            foreach (Veiculo veiculo in veiculos)
+            List<Veiculo> listVeiculos = veiculoRepository.SelecionarTodos();
+            if (listVeiculos != null)
             {
-                veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
+                foreach (Veiculo veiculo in listVeiculos)
+                {
+                    veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
+                }
+                Log.Information("{DataEHora} / {QtdSelecionados} Veiculos selecionados com sucesso", DateTime.Now, listVeiculos.Count);
             }
-            return veiculos;
+            else
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar Todos");
+           
+            return listVeiculos;
         }
     }
 }
