@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
         public void EditarRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaFuncionarios.ObtemIdSelecionado();
 
             if (id == 0)
@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
         public void ExcluirRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaFuncionarios.ObtemIdSelecionado();
 
             if (id == 0)
@@ -90,7 +90,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação");
             FuncionarioForm tela = new("Cadastro de Funcionário");
 
             if (tela.ShowDialog() == DialogResult.OK)
