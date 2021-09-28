@@ -6,6 +6,7 @@ using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
+using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
 using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
@@ -26,6 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp
     {
         private ICadastravel operacoes;
         private static TelaPrincipalForm instancia;
+        private static Funcionario funcionarioLogado;
 
         private readonly ServicoAppService servicoAppService;
         private readonly ParceiroAppService parceiroAppService;
@@ -35,8 +37,9 @@ namespace LocadoraDeVeiculos.WindowsApp
         private readonly ClienteAppService clienteAppService;
         private readonly VeiculoAppService veiculoAppService;
         private readonly LocacaoAppService locacaoAppService;
-
+        
         public static TelaPrincipalForm Instancia { get => instancia; set => instancia = value; }
+        public static Funcionario FuncionarioLogado { get => funcionarioLogado; set => funcionarioLogado = value; }
 
         public TelaPrincipalForm(ServicoAppService servicoAppService, ParceiroAppService parceiroAppService, CupomAppService cupomAppService, FuncionarioAppService funcionarioAppService, GrupoDeVeiculosAppService grupoDeVeiculosAppService, ClienteAppService clienteAppService, VeiculoAppService veiculoAppService, LocacaoAppService locacaoAppService)
         {
@@ -53,9 +56,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.locacaoAppService = locacaoAppService;
 
             MostrarDashBoard();
-        }
+        }                
 
         #region Opções do menu strip
+        private void InícioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarDashBoard();
+        }
         private void FuncionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfiguracaoFuncionarioToolBox configuracao = new();
@@ -234,15 +241,12 @@ namespace LocadoraDeVeiculos.WindowsApp
             btnEditar.ToolTipText = configuracao.ToolTipEditar;
             btnExcluir.ToolTipText = configuracao.ToolTipExcluir;
         }
-        #endregion
+
         public void AtualizarRodape(string mensagem)
         {
             labelRodape.Text = mensagem;
         }
-        private void InícioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MostrarDashBoard();
-        }
+
         private void MostrarDashBoard()
         {
             ConfiguracaoDashboardToolBox configuracao = new();
@@ -251,5 +255,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracao.TipoCadastro);
             ConfigurarPainelDashBoard();
         }
+        #endregion
     }
 }
