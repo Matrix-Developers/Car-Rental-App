@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
             if (resultado)
                 Log.Information("{DataEHora} / Locação {locacao} Adicionado com sucesso", DateTime.Now, locacao);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} ", DateTime.Now, this.ToString(), "AppService", "Inserir", locacao,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", locacao,tempo);
 
             return resultado;
         }
@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
             if (resultado)
                 Log.Information("{DataEHora} / Locação {locacao} Editado com sucesso", DateTime.Now, locacao);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id}", DateTime.Now, this.ToString(), "AppService", "Inserir", locacao,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", locacao,tempo);
             return resultado;
         }
         public override bool ExcluirEntidade(int id)
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
             if (resultado)
                 Log.Information("{DataEHora} / Id {id} Excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} ", DateTime.Now, this.ToString(), "AppService", "Inserir", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", id,tempo);
 
             return resultado;
         }
@@ -61,7 +61,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
             if(locacao != null)
                 Log.Information("{DataEHora} / Locação {id} selecionado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} ", DateTime.Now, this.ToString(), "AppService", "Selecionar por id", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar por id", id,tempo);
 
             return locacao;
         }
@@ -74,7 +74,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
             if (locacoes != null)
                 Log.Information("{DataEHora} / Locações {id} Selecionadas com sucesso", DateTime.Now, locacoes.Count);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} ", DateTime.Now, this.ToString(), "AppService", "Selecionar todos", locacoes.Count,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar todos", locacoes.Count,tempo);
 
             return locacoes;
         }

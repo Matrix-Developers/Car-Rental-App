@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             if (resultado)
                 Log.Information("{DataEHora} / Cupom {Cupom} adicionado com sucesso", DateTime.Now, cupom);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}", DateTime.Now, this.ToString(), "AppService", "Inserir", cupom, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", cupom, tempo);
 
             return resultado;
         }
@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             if (resultado)
                 Log.Information("{DataEHora} / Cupom {Cupom} editado com sucesso", DateTime.Now, id, cupom);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}", DateTime.Now, this.ToString(), "AppService", "Editar", cupom, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Editar", cupom, tempo);
 
             return resultado;
         }
@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             if (resultado)
                 Log.Information("{DataEHora} / Cupom {Cupom} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
 
 
             return resultado;
@@ -67,7 +67,7 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             if (resultado)
                 Log.Information("{DataEHora} / Cupom {Cupom} existe com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}", DateTime.Now, this.ToString(), "AppService", "Existe", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe", id, tempo);
 
             return resultado;
         }
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             if (cupom != null)
                 Log.Information("{DataEHora} / Cupom {Cupom} selecionado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}", DateTime.Now, this.ToString(), "AppService", "Selecionar por Id", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar por Id", id, tempo);
             return cupom;
         }
         public override List<Cupom> SelecionarTodasEntidade()
@@ -91,7 +91,7 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             if (listCupom != null)
                 Log.Information("{DataEHora} / {QtdSelecionados} Cupons selecionados com sucesso", DateTime.Now, listCupom.Count);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Tempo total: {Tempo}", DateTime.Now, this.ToString(), "AppService", "Selecionar Todos", tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Todos", tempo);
             return listCupom;
         }
 
