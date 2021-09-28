@@ -10,7 +10,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
     public class ClienteAppService : AppServiceBase<Cliente>
     {
         private readonly IRepository<Cliente> clienteRepository;
-        long tempo;
+        private long tempo;
         public ClienteAppService(IRepository<Cliente> clienteRepository)
         {
             this.clienteRepository = clienteRepository;
