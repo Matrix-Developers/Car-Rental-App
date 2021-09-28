@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
             VeiculoForm tela = new("Cadastro de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
