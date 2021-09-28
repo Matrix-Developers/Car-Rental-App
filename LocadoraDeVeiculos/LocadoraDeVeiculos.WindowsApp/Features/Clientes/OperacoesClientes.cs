@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         public void EditarRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? ", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaCliente.ObtemIdSelecionado();
             if (id == 0)
             {
@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         public void ExcluirRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? ", DateTime.Now, this.ToString(), "Apresentação");
             int id = tabelaCliente.ObtemIdSelecionado();
             if (id == 0)
             {
@@ -72,7 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? ", DateTime.Now, this.ToString(), "Apresentação");
             ClientesForm tela = new("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
             {
