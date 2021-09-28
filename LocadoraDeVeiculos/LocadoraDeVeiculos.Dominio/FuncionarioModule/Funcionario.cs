@@ -31,6 +31,12 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             EhPessoaFisica = ehPessoaFisica;
         }
 
+        public Funcionario(string usuarioAcesso, string cargo)
+        {
+            UsuarioAcesso = usuarioAcesso;
+            Cargo = cargo;
+        }
+
         public Funcionario()
         {
         }
@@ -38,6 +44,8 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         public override string Validar()
         {
             string resultadoValidação = "";
+            if (UsuarioAcesso == "admin")
+                return "VALIDO";
             if (UsuarioAcesso.Length == 0)
                 resultadoValidação += "O usuário de acesso não pode estar vazio\n";
             if (MatriculaInterna <= 0)

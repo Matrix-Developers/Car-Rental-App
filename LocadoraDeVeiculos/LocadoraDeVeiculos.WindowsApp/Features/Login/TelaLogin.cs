@@ -34,6 +34,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         private readonly ClienteAppService clienteAppService;
         private readonly VeiculoAppService veiculoAppService;
         private readonly LocacaoAppService locacaoAppService;
+        private Funcionario funcionarioLogado;
 
         public TelaLogin()
         {
@@ -52,18 +53,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         {
 
             if (textUsuario.Text == "admin" && textSenha.Text == "admin")
+            {
+                funcionarioLogado = new Funcionario("admin", "administrador");
                 EfetuarLogin();
+            }
 
             else
             {
                 foreach (Funcionario funcionario in funcionarioAppService.SelecionarTodasEntidade())
-                {
                     if (textUsuario.Text == funcionario.UsuarioAcesso && textSenha.Text == funcionario.Senha)
                     {
+                        funcionarioLogado = funcionario;
                         EfetuarLogin();
                         return;
                     }
-                }
 
                 textUsuario.Clear();
                 textSenha.Clear();
@@ -85,6 +88,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
         public void ChamarTelaPrincipal()
         {
+            TelaPrincipalForm.FuncionarioLogado = funcionarioLogado;
             Application.Run(new TelaPrincipalForm(servicoAppService, parceiroAppService, cupomAppService, funcionarioAppService, grupoDeVeiculosAppService, clienteAppService, veiculoAppService, locacaoAppService));
         }
 
