@@ -155,7 +155,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar sservicos com Id Locação {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), idLocacao, SqlExcluirEntidade, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar sservicos com Id Locação {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), idLocacao, SqlExcluirEntidade, ex);
             }
             return servicosDaLocacao;
         }
