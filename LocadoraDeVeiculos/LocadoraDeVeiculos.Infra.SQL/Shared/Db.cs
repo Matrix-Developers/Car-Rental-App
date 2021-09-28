@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace LocadoraDeVeiculos.Controladores.Shared
 {
@@ -9,22 +12,32 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
     public static class Db
     {
-        //private static string bancoDeDados;
+        private static string bancoDeDados;
         private static readonly string connectionString = "";
         private static readonly string nomeProvider;
         private static readonly DbProviderFactory fabricaProvedor;
 
         static Db()
         {
-            //bancoDeDados = "bancoDeDados";
+            var config = InitConfiguration();
 
-            connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=DBLocadoraDeVeiculos;Integrated Security=True;Pooling=False";
+            bancoDeDados = config["bancoDeDados"];
 
-            nomeProvider = "System.Data.SqlClient";
+            connectionString = config.GetSection("ConnectionStrings").GetSection("SqlServer").Value;
 
-            DbProviderFactories.RegisterFactory("System.Data.SqlClient", System.Data.SqlClient.SqlClientFactory.Instance);
+            nomeProvider = config.GetSection("SQLProvider").Value;
+
+            DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
 
             fabricaProvedor = DbProviderFactories.GetFactory(nomeProvider);
+        }
+        public static IConfiguration InitConfiguration()
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .Build();
+            return config;
         }
 
         public static int Insert(string sql, Dictionary<string, object> parameters)
