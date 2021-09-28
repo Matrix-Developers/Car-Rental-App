@@ -38,7 +38,6 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
         }
         public override bool ExcluirEntidade(int id)
         {
-            GeradorLog.ConfigurarLog();
             bool resultado = parceiroRepository.Excluir(id);
             if (resultado)
                 Log.Information("{DataEHora} / Parceiro {Id} excluido com sucesso", DateTime.Now, id);
@@ -60,7 +59,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ParceiroModule
             Parceiro parceiro;
             parceiro = parceiroRepository.SelecionarPorId(id);
             if(parceiro != null)
-                Log.Information("{DataEHora} / Parceiro {Id} selecionado com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Existe {Id} selecionado com sucesso", DateTime.Now, id);
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: ?????", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id);
             return parceiro;

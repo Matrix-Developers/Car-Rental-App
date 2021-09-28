@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(parceiros);
                 if(resultado)
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] inserido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] inserido com sucesso");
                 else
                     TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Parceiro: [{tela.Parceiro.Nome}], consulte o log para mais informações");
             }
