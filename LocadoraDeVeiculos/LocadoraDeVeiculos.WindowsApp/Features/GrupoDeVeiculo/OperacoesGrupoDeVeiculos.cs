@@ -1,7 +1,9 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -22,7 +24,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
         public void InserirNovoRegistro()
         {
             TarefaGrupoDeVeiculosForm tela = new("Cadastro de Grupo de Veiculos");
-
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 bool resultado = grupoDeVeiculosAppService.InserirEntidade(tela.GrupoDeVeiculos);
@@ -41,7 +44,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
         public void EditarRegistro()
         {
             int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
-
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             if (id == 0)
             {
                 MessageBox.Show("Selecione um Grupo de Veiculos para poder editar!", "Edição de Grupo de Veiculos",
@@ -72,6 +76,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
             if (id == 0)
             {
