@@ -7,6 +7,7 @@ using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
 using LocadoraDeVeiculos.WindowsApp.Features.Dashboards;
@@ -18,6 +19,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
 using LocadoraDeVeiculos.WindowsApp.Features.Servicos;
 using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Windows.Forms;
 
@@ -55,8 +57,17 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.veiculoAppService = veiculoAppService;
             this.locacaoAppService = locacaoAppService;
 
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CapturadorDeUnhandledException);
+
             MostrarDashBoard();
-        }                
+        }
+        
+        private static void CapturadorDeUnhandledException(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Fatal("{DataEHora} / Erro crítico inesperado na aplicação: {ExceptionMsg}", DateTime.Now, e.StackTrace);
+        }
 
         #region Opções do menu strip
         private void InícioToolStripMenuItem_Click(object sender, EventArgs e)
