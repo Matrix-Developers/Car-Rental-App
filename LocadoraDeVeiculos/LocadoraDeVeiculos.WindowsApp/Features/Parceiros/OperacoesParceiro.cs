@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
             TelaParceiroForm tela = new("Cadastro de Parceiro");
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -41,7 +41,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         public void EditarRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Editar");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
             int id = tabela.ObtemIdSelecionado();
 
             if (id == 0)
@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         public void ExcluirRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Excluir");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
             int id = tabela.ObtemIdSelecionado();
 
             if (id == 0)
@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         public UserControl ObterTabela()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
 
             List<Parceiro> cupons = appService.SelecionarTodasEntidade();
             tabela.AtualizarRegistros(cupons);
