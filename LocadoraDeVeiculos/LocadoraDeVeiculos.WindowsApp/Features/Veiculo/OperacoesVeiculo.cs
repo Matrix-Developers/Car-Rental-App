@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
             VeiculoForm tela = new("Cadastro de Veiculos");
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -44,6 +44,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public void EditarRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaVeiculo.ObtemIdSelecionado();
 
             if (id == 0)
@@ -74,6 +76,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaVeiculo.ObtemIdSelecionado();
 
             if (id == 0)
@@ -106,6 +110,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public UserControl ObterTabela()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
             tabelaVeiculo.AtualizarRegistros(veiculos);
