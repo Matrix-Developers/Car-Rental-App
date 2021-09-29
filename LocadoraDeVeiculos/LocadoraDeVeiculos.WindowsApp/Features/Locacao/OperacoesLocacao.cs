@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             TelaLocacaoForm tela = new("Locação de Veiculos", servicoAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         public void EditarRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaLocacao.ObtemIdSelecionado();
 
             if (id == 0)
@@ -112,7 +112,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         public void ExcluirRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario? / Tempo?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaLocacao.ObtemIdSelecionado();
 
             if (id == 0)

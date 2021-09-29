@@ -1,7 +1,9 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -23,6 +25,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         public void InserirNovoRegistro()
         {
             int id = tabelaDevolucao.ObtemIdSelecionado();
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
 
             if (id == 0)
             {
@@ -53,6 +57,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
         public void ExcluirRegistro()
         {
+            GeradorLog.ConfigurarLog();
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaDevolucao.ObtemIdSelecionado();
 
             if (id == 0)
