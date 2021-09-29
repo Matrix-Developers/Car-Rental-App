@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Inserir");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir",TelaPrincipalForm.FuncionarioLogado);
             TelaServicoForm tela = new("Cadastro de Serviços");
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -41,7 +41,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         public void EditarRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Editar");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaServicos.ObtemIdSelecionado();
 
             if (id == 0)
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         public void ExcluirRegistro()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação", "Excluir");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaServicos.ObtemIdSelecionado();
 
             if (id == 0)
@@ -98,7 +98,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         public UserControl ObterTabela()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUsuario?", DateTime.Now, this.ToString(), "Apresentação");
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUUsuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             
             List<Servico> servicos = appService.SelecionarTodasEntidade();
             tabelaServicos.AtualizarRegistros(servicos);
