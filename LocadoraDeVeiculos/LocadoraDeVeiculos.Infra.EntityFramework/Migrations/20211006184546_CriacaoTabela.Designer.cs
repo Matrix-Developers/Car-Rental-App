@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDBContext))]
-    [Migration("20211006175606_CriacaoTabela")]
+    [Migration("20211006184546_CriacaoTabela")]
     partial class CriacaoTabela
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

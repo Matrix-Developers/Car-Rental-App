@@ -20,6 +20,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
     {
         private static ILoggerFactory loggerFactoryConsole = LoggerFactory.Create(x => x.AddConsole());
 
+        private string connectionString = "";        
+
         //public DbSet<Cliente> Clientes { get; set; }
         //public DbSet<Cupom> Cupons { get; set; }
         //public DbSet<Funcionario> Funcionarios { get; set; }
@@ -33,9 +35,11 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            var config = InitConfiguration();
+            connectionString = config.GetSection("ConnectionStrings").GetSection("SqlServer").Value;
             optionsBuilder
                 .UseLoggerFactory(loggerFactoryConsole)
-                .UseSqlServer(@"Data Source=(LocalDb)\MSSqlLocalDB;Initial Catalog=DBLocadoraDeVeiculos;Integrated Security=True");
+                .UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,6 +53,14 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
                     if (string.IsNullOrEmpty(property.GetColumnType()) && !property.GetMaxLength().HasValue)
                         property.SetColumnType("decimal(18,2)");
             }
+        }
+        public static IConfiguration InitConfiguration()
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .Build();
+            return config;
         }
     }
 }

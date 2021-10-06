@@ -17,11 +17,11 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
                 return
                 @"INSERT INTO [TBPARCEIRO]
 	            (
-		            [NOMEPARCEIRO]
+		            [NOME]
 	            ) 
 	            VALUES
 	            (
-                    @NOMEPARCEIRO
+                    @NOME
 	            );";
             }
         }
@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
                 return
                 @"UPDATE [TBPARCEIRO]
                 SET
-                    [NOMEPARCEIRO] = @NOMEPARCEIRO
+                    [NOME] = @NOME
                 WHERE 
                     ID = @ID";
             }
@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             var parametros = new Dictionary<string, object>
             {
                 { "ID", entidade.Id },
-                { "NOMEPARCEIRO", entidade.Nome }
+                { "NOME", entidade.Nome }
             };
 
             return parametros;
@@ -89,7 +89,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
         protected override Parceiro ConverterEmEntidade(IDataReader reader)
         {
             int id = Convert.ToInt32(reader["ID"]);
-            string nome = Convert.ToString(reader["NOMEPARCEIRO"]);
+            string nome = Convert.ToString(reader["NOME"]);
 
             Parceiro parceiro = new(id, nome)
             {
