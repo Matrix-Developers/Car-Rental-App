@@ -17,9 +17,9 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            using var db = new LocadoraDeVeiculosDBContext();
-            var pendingChanges = db.Database.GetPendingMigrations().Any();
-            if (pendingChanges)
+            LocadoraDeVeiculosDBContext db = new ();
+            var pendingChanges = db.Database.GetPendingMigrations();
+            if (pendingChanges.Any())
                 db.Database.Migrate();
             Application.Run(new TelaLogin());
         }
