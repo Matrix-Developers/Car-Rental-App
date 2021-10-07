@@ -1,15 +1,11 @@
 ﻿
 namespace LocadoraDeVeiculos.Dominio.Shared
 {
-    public abstract class EntidadeBase
+    public abstract class EntidadeBase<Tid>
     {
-        protected int id;
-
-        public int Id { get => id; set => id = value; }
+        public Tid id { get => id; set => id = value; }
 
         public abstract string Validar();
         public abstract override string ToString();
-        public abstract override bool Equals(object obj);
-        public abstract override int GetHashCode();
     }
 }

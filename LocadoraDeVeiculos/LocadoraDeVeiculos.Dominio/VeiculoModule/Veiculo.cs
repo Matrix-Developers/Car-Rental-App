@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.VeiculoModule
 {
-    public class Veiculo : EntidadeBase
+    public class Veiculo : EntidadeBase<int>
     {
         public string modelo;
         public GrupoDeVeiculo grupoVeiculos;

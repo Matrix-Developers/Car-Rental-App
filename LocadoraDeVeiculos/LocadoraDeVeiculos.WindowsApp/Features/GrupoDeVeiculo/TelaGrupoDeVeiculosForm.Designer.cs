@@ -33,9 +33,9 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.txtTaxaPlanoDiario = new System.Windows.Forms.TextBox();
             this.txtTaxaPorKmDiario = new System.Windows.Forms.TextBox();
             this.txtTaxaPlanoControlado = new System.Windows.Forms.TextBox();
-            this.textId = new System.Windows.Forms.TextBox();
+            this.textid = new System.Windows.Forms.TextBox();
             this.lblCadastroGrupoDeVeiculos = new System.Windows.Forms.Label();
-            this.lbId = new System.Windows.Forms.Label();
+            this.lbid = new System.Windows.Forms.Label();
             this.lbNomeGrupo = new System.Windows.Forms.Label();
             this.lbTaxaPlanoDiário = new System.Windows.Forms.Label();
             this.lbTaxaPorKMPlanoDiário = new System.Windows.Forms.Label();
@@ -88,15 +88,15 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.txtTaxaPlanoControlado.TabIndex = 5;
             this.txtTaxaPlanoControlado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTaxaPlanoControlado_KeyPress);
             // 
-            // textId
+            // textid
             // 
-            this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textId.Enabled = false;
-            this.textId.Location = new System.Drawing.Point(235, 11);
-            this.textId.Name = "textId";
-            this.textId.Size = new System.Drawing.Size(100, 20);
-            this.textId.TabIndex = 1;
-            this.textId.Text = "0";
+            this.textid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.textid.Enabled = false;
+            this.textid.Location = new System.Drawing.Point(235, 11);
+            this.textid.Name = "textid";
+            this.textid.Size = new System.Drawing.Size(100, 20);
+            this.textid.TabIndex = 1;
+            this.textid.Text = "0";
             // 
             // lblCadastroGrupoDeVeiculos
             // 
@@ -109,16 +109,16 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.lblCadastroGrupoDeVeiculos.TabIndex = 47;
             this.lblCadastroGrupoDeVeiculos.Text = "Cadastro de Grupo de Veículos";
             // 
-            // lbId
+            // lbid
             // 
-            this.lbId.AutoSize = true;
-            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbId.ForeColor = System.Drawing.Color.Black;
-            this.lbId.Location = new System.Drawing.Point(6, 14);
-            this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(16, 13);
-            this.lbId.TabIndex = 41;
-            this.lbId.Text = "Id";
+            this.lbid.AutoSize = true;
+            this.lbid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbid.ForeColor = System.Drawing.Color.Black;
+            this.lbid.Location = new System.Drawing.Point(6, 14);
+            this.lbid.Name = "lbid";
+            this.lbid.Size = new System.Drawing.Size(16, 13);
+            this.lbid.TabIndex = 41;
+            this.lbid.Text = "id";
             // 
             // lbNomeGrupo
             // 
@@ -200,7 +200,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtLimiteKmControlado);
             this.groupBox1.Controls.Add(this.lbLimiteKmControlado);
-            this.groupBox1.Controls.Add(this.lbId);
+            this.groupBox1.Controls.Add(this.lbid);
             this.groupBox1.Controls.Add(this.lbKMLivre);
             this.groupBox1.Controls.Add(this.lbTaxaPorKMPlanoDiário);
             this.groupBox1.Controls.Add(this.textNomeGrupo);
@@ -208,7 +208,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             this.groupBox1.Controls.Add(this.txtTaxaPlanoDiario);
             this.groupBox1.Controls.Add(this.lbNomeGrupo);
             this.groupBox1.Controls.Add(this.txtTaxaPorKmDiario);
-            this.groupBox1.Controls.Add(this.textId);
+            this.groupBox1.Controls.Add(this.textid);
             this.groupBox1.Controls.Add(this.txtTaxaPlanoControlado);
             this.groupBox1.Location = new System.Drawing.Point(10, 51);
             this.groupBox1.Name = "groupBox1";
@@ -360,9 +360,9 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
         private System.Windows.Forms.TextBox txtTaxaPlanoDiario;
         private System.Windows.Forms.TextBox txtTaxaPorKmDiario;
         private System.Windows.Forms.TextBox txtTaxaPlanoControlado;
-        private System.Windows.Forms.TextBox textId;
+        private System.Windows.Forms.TextBox textid;
         private System.Windows.Forms.Label lblCadastroGrupoDeVeiculos;
-        private System.Windows.Forms.Label lbId;
+        private System.Windows.Forms.Label lbid;
         private System.Windows.Forms.Label lbNomeGrupo;
         private System.Windows.Forms.Label lbTaxaPlanoDiário;
         private System.Windows.Forms.Label lbTaxaPorKMPlanoDiário;

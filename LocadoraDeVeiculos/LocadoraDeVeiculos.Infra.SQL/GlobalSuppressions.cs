@@ -5,4 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Style", "IDE0066:Convert switch statement to expression", Justification = "A forma normal da expressão switch tem maior legibilidade pro time.", Scope = "member", Target = "~M:LocadoraDeVeiculos.Controladores.Shared.Db.AppendSelectIdentity(System.String)~System.String")]
+[assembly: SuppressMessage("Style", "IDE0066:Convert switch statement to expression", Justification = "A forma normal da expressão switch tem maior legibilidade pro time.", Scope = "member", Target = "~M:LocadoraDeVeiculos.Controladores.Shared.Db.AppendSelectidentity(System.String)~System.String")]

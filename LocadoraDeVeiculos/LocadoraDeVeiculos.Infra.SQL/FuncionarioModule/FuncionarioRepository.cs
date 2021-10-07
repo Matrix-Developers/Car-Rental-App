@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 {
-    public class FuncionarioRepository : RepositoryBase<Funcionario>, IRepository<Funcionario>
+    public class FuncionarioRepository : RepositoryBase<Funcionario>, IRepository<Funcionario, int>
     {
         #region queries
         protected override string SqlInserirEntidade
@@ -112,7 +112,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
+                { "ID", entidade.id },
                 { "NOME", entidade.Nome },
                 { "REGISTROUNICO", entidade.RegistroUnico },
                 { "ENDERECO", entidade.Endereco },
@@ -147,7 +147,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 
             Funcionario funcionario = new(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso, senha, dataAdmissao, cargo, salario, ehPessoaFisica);
 
-            funcionario.Id = id;
+            funcionario.id = id;
 
             return funcionario;
         }

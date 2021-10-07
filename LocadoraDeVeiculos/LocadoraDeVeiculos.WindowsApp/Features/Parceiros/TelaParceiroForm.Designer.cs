@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.lbPlaca = new System.Windows.Forms.Label();
             this.lbNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(16, 13);
             this.lbNome.TabIndex = 75;
-            this.lbNome.Text = "Id";
+            this.lbNome.Text = "id";
             // 
             // txtNome
             // 
@@ -79,15 +79,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.txtNome.Size = new System.Drawing.Size(217, 20);
             this.txtNome.TabIndex = 1;
             // 
-            // txtId
+            // txtid
             // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(103, 87);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(96, 20);
-            this.txtId.TabIndex = 77;
+            this.txtid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtid.Enabled = false;
+            this.txtid.Location = new System.Drawing.Point(103, 87);
+            this.txtid.Name = "txtid";
+            this.txtid.ReadOnly = true;
+            this.txtid.Size = new System.Drawing.Size(96, 20);
+            this.txtid.TabIndex = 77;
             // 
             // btnCancelar
             // 
@@ -122,7 +122,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.Controls.Add(this.lbPlaca);
             this.Controls.Add(this.lbNome);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtid);
             this.Controls.Add(this.labelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -143,7 +143,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         private System.Windows.Forms.Label lbPlaca;
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnConfirmar;
     }

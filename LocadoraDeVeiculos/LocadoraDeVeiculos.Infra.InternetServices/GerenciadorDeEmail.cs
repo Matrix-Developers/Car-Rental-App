@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Infra.InternetServices
             email.IsBodyHtml = false;
             email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
 
-            email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo{locacaoEnviada.Id}.pdf"));
+            email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo{locacaoEnviada.id}.pdf"));
 
             try
             {
@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.Infra.InternetServices
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar enviar e-mail o(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? /  {StackTrace}", DateTime.Now, "Gerenciador de E-Mail", ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar enviar e-mail o(a) {Feature} / Camada: Repository / Usuário: idUsuario Tempo: ?? /  {StackTrace}", DateTime.Now, "Gerenciador de E-Mail", ex);
 
 
             }

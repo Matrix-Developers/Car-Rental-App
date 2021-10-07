@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         {
             var colunas = new DataGridViewColumn[]
             {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "id"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
 
@@ -31,9 +31,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             return colunas;
         }
 
-        public int ObtemIdSelecionado()
+        public int ObtemidSelecionado()
         {
-            return gridServicos.SelecionarId<int>();
+            return gridServicos.Selecionarid<int>();
         }
 
         public void AtualizarRegistros(List<Servico> servicos)
@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             foreach (Servico servico in servicos)
             {
-                gridServicos.Rows.Add(servico.Id, servico.Nome, servico.EhTaxadoDiario, servico.Valor);
+                gridServicos.Rows.Add(servico.id, servico.Nome, servico.EhTaxadoDiario, servico.Valor);
             }
         }
     }

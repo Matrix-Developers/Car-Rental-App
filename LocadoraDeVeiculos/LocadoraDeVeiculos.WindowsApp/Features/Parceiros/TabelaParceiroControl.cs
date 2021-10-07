@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         {
             var colunas = new DataGridViewColumn[]
            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "ID"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "ID"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "nome", HeaderText = "Nome"}
            };
 
@@ -31,13 +31,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             gridParceiros.Rows.Clear();
 
             foreach (Parceiro parceiro in parceiros)
-                gridParceiros.Rows.Add(parceiro.Id, parceiro.Nome);
+                gridParceiros.Rows.Add(parceiro.id, parceiro.Nome);
 
         }
 
-        internal int ObtemIdSelecionado()
+        internal int ObtemidSelecionado()
         {
-            return gridParceiros.SelecionarId<int>();
+            return gridParceiros.Selecionarid<int>();
         }
     }
 }

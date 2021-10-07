@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textChassi = new System.Windows.Forms.TextBox();
             this.textMarca = new System.Windows.Forms.TextBox();
             this.textModelo = new System.Windows.Forms.TextBox();
-            this.textId = new System.Windows.Forms.TextBox();
+            this.textid = new System.Windows.Forms.TextBox();
             this.lbGrupo = new System.Windows.Forms.Label();
             this.lbImagem = new System.Windows.Forms.Label();
             this.lbNome = new System.Windows.Forms.Label();
@@ -112,15 +112,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.textModelo.Size = new System.Drawing.Size(217, 20);
             this.textModelo.TabIndex = 4;
             // 
-            // textId
+            // textid
             // 
-            this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textId.Enabled = false;
-            this.textId.Location = new System.Drawing.Point(97, 18);
-            this.textId.Name = "textId";
-            this.textId.ReadOnly = true;
-            this.textId.Size = new System.Drawing.Size(217, 20);
-            this.textId.TabIndex = 73;
+            this.textid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.textid.Enabled = false;
+            this.textid.Location = new System.Drawing.Point(97, 18);
+            this.textid.Name = "textid";
+            this.textid.ReadOnly = true;
+            this.textid.Size = new System.Drawing.Size(217, 20);
+            this.textid.TabIndex = 73;
             // 
             // lbGrupo
             // 
@@ -153,7 +153,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(16, 13);
             this.lbNome.TabIndex = 65;
-            this.lbNome.Text = "Id";
+            this.lbNome.Text = "id";
             // 
             // lbChassi
             // 
@@ -345,7 +345,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             this.gBoxDados.Controls.Add(this.lbGrupo);
             this.gBoxDados.Controls.Add(this.textChassi);
             this.gBoxDados.Controls.Add(this.textMarca);
-            this.gBoxDados.Controls.Add(this.textId);
+            this.gBoxDados.Controls.Add(this.textid);
             this.gBoxDados.Controls.Add(this.lbAno);
             this.gBoxDados.ForeColor = System.Drawing.Color.Black;
             this.gBoxDados.Location = new System.Drawing.Point(12, 72);
@@ -504,7 +504,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private System.Windows.Forms.TextBox textChassi;
         private System.Windows.Forms.TextBox textMarca;
         private System.Windows.Forms.TextBox textModelo;
-        private System.Windows.Forms.TextBox textId;
+        private System.Windows.Forms.TextBox textid;
         private System.Windows.Forms.Label lbGrupo;
         private System.Windows.Forms.Label lbImagem;
         private System.Windows.Forms.Label lbNome;

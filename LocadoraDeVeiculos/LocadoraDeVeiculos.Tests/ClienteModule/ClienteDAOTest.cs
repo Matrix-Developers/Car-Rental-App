@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.ClienteModule
             controlador.InserirNovo(cliente);
 
             //assert
-            var clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
+            var clienteEncontrado = controlador.SelecionarPorId(cliente.id);
             clienteEncontrado.Should().Be(cliente);
         }
 
@@ -121,10 +121,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.ClienteModule
 
             //action
             controlador.InserirNovo(cliente);
-            controlador.Editar(cliente.Id, clienteeditado);
+            controlador.Editar(cliente.id, clienteeditado);
 
             //assert
-            var clienteAtualizado = controlador.SelecionarPorId(cliente.Id);
+            var clienteAtualizado = controlador.SelecionarPorId(cliente.id);
             clienteAtualizado.Should().Be(clienteeditado);
         }
 
@@ -145,10 +145,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.ClienteModule
 
             //action
             controlador.InserirNovo(cliente);
-            controlador.Excluir(cliente.Id);
+            controlador.Excluir(cliente.id);
 
             //assert
-            var clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
+            var clienteEncontrado = controlador.SelecionarPorId(cliente.id);
             clienteEncontrado.Should().BeNull();
         }
 
@@ -207,7 +207,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.ClienteModule
 
             //action
             controlador.InserirNovo(cliente);
-            Cliente clienteEncontrado = controlador.SelecionarPorId(cliente.Id);
+            Cliente clienteEncontrado = controlador.SelecionarPorId(cliente.id);
 
             //assert
             clienteEncontrado.Should().Be(cliente);

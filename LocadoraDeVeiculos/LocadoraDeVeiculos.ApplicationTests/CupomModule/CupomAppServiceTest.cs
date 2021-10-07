@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             Mock<ICupomRepository> cupomDAOMock = new();
 
-            cupomDAOMock.Setup(x => x.SelecionarPorId(cupom.Id))
+            cupomDAOMock.Setup(x => x.SelecionarPorId(cupom.id))
                 .Returns(() =>
                 {
                     return cupom;
@@ -96,10 +96,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.SelecionarEntidadePorId(cupom.Id);
+            cupomAppService.SelecionarEntidadePorId(cupom.id);
 
             //assert
-            cupomDAOMock.Verify(x => x.SelecionarPorId(cupom.Id));
+            cupomDAOMock.Verify(x => x.SelecionarPorId(cupom.id));
         }
 
         [Test]
@@ -120,7 +120,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
                 .Build();
 
             Mock<ICupomRepository> cupomDAOMock = new();
-            cupomDAOMock.Setup(x => x.Editar(cupom.Id, cupomNovo))
+            cupomDAOMock.Setup(x => x.Editar(cupom.id, cupomNovo))
                 .Returns(() =>
                 {
                     return true;
@@ -128,10 +128,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.EditarEntidade(cupom.Id, cupomNovo);
+            cupomAppService.EditarEntidade(cupom.id, cupomNovo);
 
             //assert
-            cupomDAOMock.Verify(x => x.Editar(cupom.Id, cupomNovo));
+            cupomDAOMock.Verify(x => x.Editar(cupom.id, cupomNovo));
         }
 
         [Test]
@@ -143,7 +143,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
             Mock<Parceiro> novoParceiroMock = new();
 
             Mock<ICupomRepository> cupomDAOMock = new();
-            cupomDAOMock.Setup(x => x.Excluir(cupom.Id))
+            cupomDAOMock.Setup(x => x.Excluir(cupom.id))
                 .Returns(() =>
                 {
                     return true;
@@ -151,10 +151,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.ExcluirEntidade(cupom.Id);
+            cupomAppService.ExcluirEntidade(cupom.id);
 
             //assert
-            cupomDAOMock.Verify(x => x.Excluir(cupom.Id));
+            cupomDAOMock.Verify(x => x.Excluir(cupom.id));
         }
 
         [Test]
@@ -188,10 +188,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.AtualizarQuantidadeUtilizada(cupom.Id, 5);
+            cupomAppService.AtualizarQuantidadeUtilizada(cupom.id, 5);
 
             //assert
-            cupomDAOMock.Verify(x => x.AtualizarQtdUtilizada(cupom.Id, 5));
+            cupomDAOMock.Verify(x => x.AtualizarQtdUtilizada(cupom.id, 5));
         }
 
         #region Métodos privados

@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         }
         public void InserirNovoRegistro()
         {
-            int id = tabelaDevolucao.ObtemIdSelecionado();
+            int id = tabelaDevolucao.ObtemidSelecionado();
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
 
@@ -43,10 +43,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                locacaoAppService.EditarEntidade(tela.Devolucao.Id, tela.Devolucao);
+                locacaoAppService.EditarEntidade(tela.Devolucao.id, tela.Devolucao);
                 List<Locacao> funcionarios = locacaoAppService.SelecionarTodasEntidade();
                 tabelaDevolucao.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Devolução: [{tela.Devolucao.Id}] realizada com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Devolução: [{tela.Devolucao.id}] realizada com sucesso");
             }
         }
 
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaDevolucao.ObtemIdSelecionado();
+            int id = tabelaDevolucao.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir todo o registro da locação e devolução: [{locacaoSelecionada.Id}] ?",
+            if (MessageBox.Show($"Tem certeza que deseja excluir todo o registro da locação e devolução: [{locacaoSelecionada.id}] ?",
                 "Exclusão de Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 locacaoAppService.ExcluirEntidade(id);

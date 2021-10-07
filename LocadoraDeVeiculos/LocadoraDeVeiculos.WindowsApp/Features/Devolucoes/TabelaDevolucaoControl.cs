@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         {
             var colunas = new DataGridViewColumn[]
            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "id"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Modelo", HeaderText = "Modelo"},
 
@@ -38,9 +38,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             return colunas;
         }
 
-        public int ObtemIdSelecionado()
+        public int ObtemidSelecionado()
         {
-            return gridDevolucoes.SelecionarId<int>();
+            return gridDevolucoes.Selecionarid<int>();
         }
 
         public void AtualizarRegistros(List<Locacao> devolucoes)
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             gridDevolucoes.Rows.Clear();
 
             foreach (Locacao devolucao in devolucoes)
-                gridDevolucoes.Rows.Add(devolucao.Id, devolucao.Veiculo.modelo, devolucao.Veiculo.placa, devolucao.ClienteContratante.Nome, devolucao.PrecoLocacao, devolucao.EstaAberta, devolucao.PrecoDevolucao, devolucao.DataPrevistaDeChegada);
+                gridDevolucoes.Rows.Add(devolucao.id, devolucao.Veiculo.modelo, devolucao.Veiculo.placa, devolucao.ClienteContratante.Nome, devolucao.PrecoLocacao, devolucao.EstaAberta, devolucao.PrecoDevolucao, devolucao.DataPrevistaDeChegada);
         }
     }
 }

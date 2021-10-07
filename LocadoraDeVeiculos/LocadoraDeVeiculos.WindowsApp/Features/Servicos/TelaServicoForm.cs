@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             {
                 servico = value;
 
-                txtId.Text = servico.Id.ToString();
+                txtid.Text = servico.id.ToString();
                 txtNome.Text = servico.Nome.ToString();
                 txtValor.Text = servico.Valor.ToString();
                 if (servico.EhTaxadoDiario)
@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
         private void BtnConfirma_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtId.Text);
+            int id = Convert.ToInt32(txtid.Text);
             string nome = txtNome.Text;
             if (!double.TryParse(txtValor.Text, out double valor))
                 valor = 0;

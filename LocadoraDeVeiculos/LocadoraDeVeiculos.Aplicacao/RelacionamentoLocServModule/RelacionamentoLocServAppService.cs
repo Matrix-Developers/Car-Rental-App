@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.Aplicacao.RelacionamentoLocServModule
         }
         public bool ExcluirRelacionamentoLocServ(int id) { return relacionamentoLocServRepository.Excluir(id); }
         public bool ExisteRelacionamentoLocServ(int id) { return relacionamentoLocServRepository.Existe(id); }
-        public RelacionamentoLocServ SelecionarRelacionamentoLocServPorId(int id) { return relacionamentoLocServRepository.SelecionarPorId(id); }
+        public RelacionamentoLocServ SelecionarRelacionamentoLocServPorid(int id) { return relacionamentoLocServRepository.SelecionarPorId(id); }
         public List<RelacionamentoLocServ> SelecionarTodosRelacionamentoLocServ() { return relacionamentoLocServRepository.SelecionarTodos(); }
 
     }

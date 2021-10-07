@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         {
             var colunas = new DataGridViewColumn[]
            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "ID"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "ID"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Codigo", HeaderText = "Codigo"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Valor"},
@@ -36,12 +36,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             gridCupons.Rows.Clear();
 
             foreach (Cupom cupom in cupons)
-                gridCupons.Rows.Add(cupom.Id, cupom.Nome, cupom.Codigo, cupom.Valor, cupom.EhDescontoFixo, cupom.Validade, cupom.QtdUtilizada);
+                gridCupons.Rows.Add(cupom.id, cupom.Nome, cupom.Codigo, cupom.Valor, cupom.EhDescontoFixo, cupom.Validade, cupom.QtdUtilizada);
         }
 
-        internal int ObtemIdSelecionado()
+        internal int ObtemidSelecionado()
         {
-            return gridCupons.SelecionarId<int>();
+            return gridCupons.Selecionarid<int>();
         }
     }
 }

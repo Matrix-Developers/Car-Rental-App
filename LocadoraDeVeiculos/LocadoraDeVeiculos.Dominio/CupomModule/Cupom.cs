@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LocadoraDeVeiculos.Dominio.CupomModule
 {
-    public class Cupom : EntidadeBase
+    public class Cupom : EntidadeBase<int>
     {
         public string Nome { get; set; }
         public string Codigo { get; set; }
@@ -15,11 +15,11 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public bool EhDescontoFixo { get; set; }
         public DateTime Validade { get; set; }
         public Parceiro Parceiro { get; set; }
-        public int ParceiroId { get; set; }
+        public int Parceiroid { get; set; }
         public int QtdUtilizada { get; set; }
         public Cupom(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro, int qtdUtilizada)
         {
-            Id = id;
+            this.id = id;
             Nome = nome;
             Codigo = codigo;
             Valor = valor;
@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public override bool Equals(object obj)
         {
             return obj is Cupom cupom &&
-                   Id == cupom.Id &&
+                   id == cupom.id &&
                    Nome == cupom.Nome &&
                    Codigo == cupom.Codigo &&
                    Valor == cupom.Valor &&
@@ -74,7 +74,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public override int GetHashCode()
         {
             HashCode hash = new();
-            hash.Add(Id);
+            hash.Add(id);
             hash.Add(Nome);
             hash.Add(Codigo);
             hash.Add(Valor);

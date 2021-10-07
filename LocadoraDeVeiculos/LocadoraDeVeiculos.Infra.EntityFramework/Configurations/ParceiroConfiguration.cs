@@ -10,7 +10,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
         {
             builder.ToTable("TBParceiro");
 
-            builder.HasKey(p => p.Id);
+            builder.HasKey(p => p.id);
 
             builder.Property(p => p.Nome).HasColumnType("VARCHAR(50)").IsRequired();
         }

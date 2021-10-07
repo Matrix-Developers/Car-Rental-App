@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             var colunas = new DataGridViewColumn[]
            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "id"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Veiculo", HeaderText = "Veiculo"},
 
@@ -36,9 +36,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             return colunas;
         }
 
-        public int ObtemIdSelecionado()
+        public int ObtemidSelecionado()
         {
-            return gridLocacao.SelecionarId<int>();
+            return gridLocacao.Selecionarid<int>();
         }
 
         public void AtualizarRegistros(List<Locacao> locacoes)
@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             foreach (Locacao locacao in locacoes)
             {
-                gridLocacao.Rows.Add(locacao.Id, locacao.Veiculo, locacao.ClienteContratante, locacao.ClienteCondutor, locacao.PrecoLocacao,
+                gridLocacao.Rows.Add(locacao.id, locacao.Veiculo, locacao.ClienteContratante, locacao.ClienteCondutor, locacao.PrecoLocacao,
                     locacao.DataDeSaida, locacao.DataPrevistaDeChegada);
             }
         }

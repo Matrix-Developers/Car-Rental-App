@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 {
-    public class Locacao : EntidadeBase
+    public class Locacao : EntidadeBase<int>
     {
         private Veiculo veiculo;
         private Funcionario funcionarioLocador;

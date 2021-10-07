@@ -132,7 +132,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
             controladorLocacao.InserirNovo(locacao);
 
             //Assert
-            var locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
+            var locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.id);
             locacaoEncontrada.Should().Be(locacao);
         }
 
@@ -221,10 +221,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
 
             //Action
             controladorLocacao.InserirNovo(locacao);
-            controladorLocacao.Editar(locacao.Id, segundaLocacao);
+            controladorLocacao.Editar(locacao.id, segundaLocacao);
 
             //Assert
-            var locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
+            var locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.id);
             locacaoEncontrada.Should().Be(segundaLocacao);
         }
 
@@ -253,7 +253,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.LocacaoModule
 
             //Action
             controladorLocacao.InserirNovo(locacao);
-            controladorLocacao.Excluir(locacao.Id);
+            controladorLocacao.Excluir(locacao.id);
 
             //Assert
             List<Locacao> locacaoEncontrado = controladorLocacao.SelecionarTodos();

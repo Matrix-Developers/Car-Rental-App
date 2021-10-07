@@ -39,8 +39,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.rdbCalcDiaria = new System.Windows.Forms.RadioButton();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirma = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.labelId = new System.Windows.Forms.Label();
+            this.txtid = new System.Windows.Forms.TextBox();
+            this.labelid = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTipoCalculo = new System.Windows.Forms.Label();
             this.lblCadastroServico = new System.Windows.Forms.Label();
@@ -156,34 +156,34 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             this.btnConfirma.UseVisualStyleBackColor = true;
             this.btnConfirma.Click += new System.EventHandler(this.BtnConfirma_Click);
             // 
-            // txtId
+            // txtid
             // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtId.Location = new System.Drawing.Point(71, 19);
-            this.txtId.MaxLength = 200;
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(116, 20);
-            this.txtId.TabIndex = 1;
-            this.txtId.Text = "0";
+            this.txtid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtid.Enabled = false;
+            this.txtid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtid.Location = new System.Drawing.Point(71, 19);
+            this.txtid.MaxLength = 200;
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(116, 20);
+            this.txtid.TabIndex = 1;
+            this.txtid.Text = "0";
             // 
-            // labelId
+            // labelid
             // 
-            this.labelId.AutoSize = true;
-            this.labelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelId.ForeColor = System.Drawing.Color.Black;
-            this.labelId.Location = new System.Drawing.Point(49, 22);
-            this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(16, 13);
-            this.labelId.TabIndex = 7;
-            this.labelId.Text = "Id";
+            this.labelid.AutoSize = true;
+            this.labelid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelid.ForeColor = System.Drawing.Color.Black;
+            this.labelid.Location = new System.Drawing.Point(49, 22);
+            this.labelid.Name = "labelid";
+            this.labelid.Size = new System.Drawing.Size(16, 13);
+            this.labelid.TabIndex = 7;
+            this.labelid.Text = "id";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblTipoCalculo);
-            this.groupBox1.Controls.Add(this.labelId);
-            this.groupBox1.Controls.Add(this.txtId);
+            this.groupBox1.Controls.Add(this.labelid);
+            this.groupBox1.Controls.Add(this.txtid);
             this.groupBox1.Controls.Add(this.rdbTaxaFixa);
             this.groupBox1.Controls.Add(this.labelCalculoFixo);
             this.groupBox1.Controls.Add(this.rdbCalcDiaria);
@@ -259,8 +259,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         private System.Windows.Forms.RadioButton rdbCalcDiaria;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnConfirma;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Label labelId;
+        private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.Label labelid;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTipoCalculo;
         private System.Windows.Forms.Label lblCadastroServico;

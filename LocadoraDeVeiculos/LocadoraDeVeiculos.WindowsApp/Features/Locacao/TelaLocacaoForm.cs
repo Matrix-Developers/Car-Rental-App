@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             {
                 locacao = value;
 
-                txtId.Text = locacao.Id.ToString();
+                txtid.Text = locacao.id.ToString();
                 cBoxVeiculo.SelectedItem = locacao.Veiculo;
                 cBoxFuncionario.SelectedItem = locacao.FuncionarioLocador;
                 cBoxCliente.SelectedItem = locacao.ClienteContratante;
@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void BrnConfirmar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtId.Text);
+            int id = Convert.ToInt32(txtid.Text);
             string tipoDoPlano = cBoxPlano.Text.Replace(" ", "");
             Veiculo veiculo = cBoxVeiculo.SelectedItem as Veiculo;
             Funcionario funcionarioLocador = cBoxFuncionario.SelectedItem as Funcionario;
@@ -116,11 +116,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (cupom != null)
             {
                 int qtdUtilizada = cupom.QtdUtilizada;
-                controladorCupom.AtualizarQtdUtilizada(cupom.Id, ++qtdUtilizada);
+                controladorCupom.AtualizarQtdUtilizada(cupom.id, ++qtdUtilizada);
             }
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
             Veiculo veiculoAtualizado = locacao.Veiculo;
-            controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
+            controladorVeiculo.Editar(locacao.Veiculo.id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validar();
 
             if (resultadoValidacao != "VALIDO")

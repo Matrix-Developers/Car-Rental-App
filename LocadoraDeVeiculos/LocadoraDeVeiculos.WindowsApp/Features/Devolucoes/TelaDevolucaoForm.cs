@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             {
                 devolucao = value;
 
-                txtId.Text = devolucao.Id.ToString();
+                txtid.Text = devolucao.id.ToString();
                 txtKmInicial.Text = devolucao.Veiculo.kilometragem.ToString();
                 txtVeiculo.Text = devolucao.Veiculo.modelo;
                 txtFuncionario.Text = devolucao.FuncionarioLocador.Nome;
@@ -74,7 +74,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
                 string resultadoValidacao = Devolucao.Validar();
                 Veiculo veiculoAtualizado = devolucao.Veiculo;
-                veiculoAppService.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
+                veiculoAppService.Editar(devolucao.Veiculo.id, veiculoAtualizado);
 
 
                 if (resultadoValidacao != "VALIDO")

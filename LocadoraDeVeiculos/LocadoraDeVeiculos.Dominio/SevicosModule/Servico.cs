@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.SevicosModule
 {
-    public class Servico : EntidadeBase
+    public class Servico : EntidadeBase<int>
     {
         public Servico(int id, string nome, bool EhTaxadoDiario, double valor)
         {

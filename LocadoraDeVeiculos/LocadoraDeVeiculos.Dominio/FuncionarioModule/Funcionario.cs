@@ -70,24 +70,6 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             return $" {id} {Nome} {MatriculaInterna} {Telefone} {UsuarioAcesso} {Cargo}";
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is Funcionario funcionario &&
-                   id == funcionario.id &&
-                   Nome == funcionario.Nome &&
-                   RegistroUnico == funcionario.RegistroUnico &&
-                   Endereco == funcionario.Endereco &&
-                   Telefone == funcionario.Telefone &&
-                   Email == funcionario.Email &&
-                   EhPessoaFisica == funcionario.EhPessoaFisica &&
-                   MatriculaInterna == funcionario.MatriculaInterna &&
-                   UsuarioAcesso == funcionario.UsuarioAcesso &&
-                   DataAdmissao == funcionario.DataAdmissao &&
-                   Cargo == funcionario.Cargo &&
-                   Salario == funcionario.Salario &&
-                   Senha == funcionario.Senha;
-        }
-
         public override int GetHashCode()
         {
             int hashCode = 497940720;
@@ -105,6 +87,24 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             hashCode = hashCode * -1521134295 + Salario.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Senha);
             return hashCode;
+        }
+
+        public override bool Equals(Pessoa other)
+        {
+            return other is Funcionario funcionario &&
+                   id == funcionario.id &&
+                   Nome == funcionario.Nome &&
+                   RegistroUnico == funcionario.RegistroUnico &&
+                   Endereco == funcionario.Endereco &&
+                   Telefone == funcionario.Telefone &&
+                   Email == funcionario.Email &&
+                   EhPessoaFisica == funcionario.EhPessoaFisica &&
+                   MatriculaInterna == funcionario.MatriculaInterna &&
+                   UsuarioAcesso == funcionario.UsuarioAcesso &&
+                   DataAdmissao == funcionario.DataAdmissao &&
+                   Cargo == funcionario.Cargo &&
+                   Salario == funcionario.Salario &&
+                   Senha == funcionario.Senha;
         }
     }
 }

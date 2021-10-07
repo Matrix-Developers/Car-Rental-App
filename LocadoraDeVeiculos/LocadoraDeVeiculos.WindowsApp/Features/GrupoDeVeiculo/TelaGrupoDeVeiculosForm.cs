@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             {
                 grupoDeVeiculos = value;
 
-                textId.Text = grupoDeVeiculos.Id.ToString();
+                textid.Text = grupoDeVeiculos.id.ToString();
                 textNomeGrupo.Text = grupoDeVeiculos.Nome;
                 txtTaxaPlanoDiario.Text = grupoDeVeiculos.TaxaPlanoDiario.ToString();
                 txtTaxaPorKmDiario.Text = grupoDeVeiculos.TaxaPorKmDiario.ToString();
@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(textId.Text);
+            int id = Convert.ToInt32(textid.Text);
             string Nome = textNomeGrupo.Text;
             double TaxaPlanoDiario = 0;
             double TaxaPorKmDiario = 0;
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
             if (txtTaxaPlanoLivre.Text.Length > 0)
                 TaxaPlanoLivre = Convert.ToDouble(txtTaxaPlanoLivre.Text, CultureInfo.InvariantCulture);
 
-            grupoDeVeiculos = new GrupoDeVeiculo(Id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado, TaxaKmExcedidoControlado, TaxaPlanoLivre);
+            grupoDeVeiculos = new GrupoDeVeiculo(id, Nome, TaxaPlanoDiario, TaxaPorKmDiario, TaxaPlanoControlado, LimiteKmControlado, TaxaKmExcedidoControlado, TaxaPlanoLivre);
 
             string resultadoValidacao = grupoDeVeiculos.Validar();
 

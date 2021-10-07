@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                     radioButton2.Checked = true;
                     dtpValidade.Text = cliente.ValidadeCnh.ToString();
                 }
-                textId.Text = cliente.Id.ToString();
+                textid.Text = cliente.id.ToString();
 
                 textNome.Text = cliente.Nome;
                 maskRegistro.Text = cliente.RegistroUnico;
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             DateTime? validade = null;
             bool ehPessoaFisica = false;
             string CNH = "";
-            //int Id = Convert.ToInt32(textId.Text);
+            //int id = Convert.ToInt32(textid.Text);
             string Nome = textNome.Text;
             string Registro = maskRegistro.Text.Replace("-", "").Replace(".", "").Replace("/", "").Replace(" ", "");
             string Endereco = textEndereco.Text;
@@ -83,8 +83,8 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                 CNH = maskedCNH.Text.Replace("-", "").Replace(" ", "");
             }
 
-            int Id = 0;
-            cliente = new Cliente(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, validade, ehPessoaFisica);
+            int id = 0;
+            cliente = new Cliente(id, Nome, Registro, Endereco, TeleFone, Email, CNH, validade, ehPessoaFisica);
 
             string resultadoValidacao = cliente.Validar();
 

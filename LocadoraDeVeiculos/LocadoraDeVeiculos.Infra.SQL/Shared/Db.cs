@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
             connection.ConnectionString = connectionString;
 
             using IDbCommand command = fabricaProvedor.CreateCommand();
-            command.CommandText = sql.AppendSelectIdentity();
+            command.CommandText = sql.AppendSelectidentity();
             command.Connection = connection;
             command.SetParameters(parameters);
 
@@ -160,7 +160,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
             }
         }
 
-        private static string AppendSelectIdentity(this string sql)
+        private static string AppendSelectidentity(this string sql)
         {
             switch (nomeProvider)
             {

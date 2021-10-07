@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             {
                 funcionario = value;
 
-                textId.Text = funcionario.Id.ToString();
+                textid.Text = funcionario.id.ToString();
                 textNome.Text = funcionario.Nome.ToString();
                 mskTxtCpf.Text = funcionario.RegistroUnico;
                 textEndereco.Text = funcionario.Endereco.ToString();

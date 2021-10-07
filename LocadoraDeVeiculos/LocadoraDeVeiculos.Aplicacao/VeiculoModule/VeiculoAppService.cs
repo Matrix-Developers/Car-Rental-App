@@ -30,13 +30,13 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (resultado)
                 Log.Information("{DataEHora} / Veiculo {Veiculo} inserido com sucesso", DateTime.Now, veiculo);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Inserir / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), veiculo.Id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Inserir / ID Registro: {id} {Tempo}ms", DateTime.Now, this.ToString(), veiculo.id,tempo);
 
             if (veiculo.imagens != null)
             {
                 foreach (ImagemVeiculo imagemVeiculo in veiculo.imagens)
                 {
-                    imagemVeiculo.IdVeiculo = veiculo.Id;
+                    imagemVeiculo.idVeiculo = veiculo.id;
                     imagemVeiculoRepository.InserirNovo(imagemVeiculo);
                 }
             }
@@ -52,11 +52,11 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (resultado)
                 Log.Information("{DataEHora} / Veiculo {Veiculo} editado com sucesso", DateTime.Now, veiculo);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", veiculo,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", veiculo,tempo);
 
             if (veiculo.imagens != null)
                 foreach (ImagemVeiculo imagem in veiculo.imagens)
-                    imagem.IdVeiculo = veiculo.Id;
+                    imagem.idVeiculo = veiculo.id;
             imagemVeiculoRepository.EditarLista(veiculo.imagens);
 
             return resultado;
@@ -64,13 +64,13 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         public override bool ExcluirEntidade(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            imagemVeiculoRepository.ExcluirPorIdDoVeiculo(id);
+            imagemVeiculoRepository.ExcluirPoridDoVeiculo(id);
             bool resultado = veiculoRepository.Excluir(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (resultado)
-                Log.Information("{DataEHora} / Veiculo {Id} excluido com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Veiculo {id} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id,tempo);
             return resultado;
         }
         public override bool ExisteEntidade(int id)
@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (resultado)
                 Log.Information("{DataEHora} / Veiculo {Veiculo} encontrado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id,tempo);
             return resultado;
         }
         public override Veiculo SelecionarEntidadePorId(int id)
@@ -91,9 +91,9 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (veiculo != null)
-                Log.Information("{DataEHora} / Veiculo {Id} selecionado com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Veiculo {id} selecionado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Por id", id,tempo);
             return veiculo;
         }
         public override List<Veiculo> SelecionarTodasEntidade()
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             {
                 foreach (Veiculo veiculo in listVeiculos)
                 {
-                    veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
+                    veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(veiculo.id);
                 }
                 Log.Information("{DataEHora} / {QtdSelecionados} Veiculos selecionados com sucesso", DateTime.Now, listVeiculos.Count);
             }

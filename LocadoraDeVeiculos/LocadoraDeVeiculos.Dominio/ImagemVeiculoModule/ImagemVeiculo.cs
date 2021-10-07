@@ -5,16 +5,16 @@ using System.Drawing;
 
 namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
 {
-    public class ImagemVeiculo : EntidadeBase
+    public class ImagemVeiculo : EntidadeBase<int>
     {
-        public int IdVeiculo { get; set; }
+        public int idVeiculo { get; set; }
         public Bitmap Imagem { get; set; }
 
         public ImagemVeiculo() { }
         public ImagemVeiculo(int id, int idVeiculo, Bitmap imagem)
         {
             this.id = id;
-            this.IdVeiculo = idVeiculo;
+            this.idVeiculo = idVeiculo;
             this.Imagem = imagem;
         }
 
@@ -32,16 +32,16 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
         public override bool Equals(object obj)
         {
             return obj is ImagemVeiculo imagemVeiculo &&
-                   EqualityComparer<int>.Default.Equals(this.IdVeiculo, imagemVeiculo.IdVeiculo) &&
+                   EqualityComparer<int>.Default.Equals(this.idVeiculo, imagemVeiculo.idVeiculo) &&
                    EqualityComparer<Bitmap>.Default.Equals(Imagem, imagemVeiculo.Imagem) &&
-                   EqualityComparer<int>.Default.Equals(Id, imagemVeiculo.id);
+                   EqualityComparer<int>.Default.Equals(id, imagemVeiculo.id);
         }
 
         public override int GetHashCode()
         {
             int hashCode = 155997214;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + IdVeiculo.GetHashCode();
+            hashCode = hashCode * -1521134295 + idVeiculo.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Bitmap>.Default.GetHashCode(Imagem);
             return hashCode;
         }

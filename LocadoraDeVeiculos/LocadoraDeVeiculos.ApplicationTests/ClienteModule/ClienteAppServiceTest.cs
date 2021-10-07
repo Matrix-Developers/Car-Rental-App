@@ -77,10 +77,11 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
                 .ComEhPessoaFisica(pf)
                 .Build();
 
-            Mock<IRepository<Cliente>> clienteDAOMock = new();
+            Mock<IRepository<Cliente, int, int>> clienteDAOMock = new();
+            Mock<IReadOnlyRepository<Cliente, int, int>> clienteLeituraMock = new();
 
             //action
-            ClienteAppService clienteAppService = new(clienteDAOMock.Object);
+            ClienteAppService clienteAppService = new(clienteDAOMock.Object, clienteLeituraMock.Object);
             clienteAppService.InserirEntidade(clienteNovo);
 
             //assert
@@ -105,20 +106,22 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
             Mock<Cliente> novoClienteMock = new();
             novoClienteMock.Object.Nome = jose;
 
-            Mock<IRepository<Cliente>> clienteDAOMock = new();
+            Mock<IRepository<Cliente, int, int>> clienteDAOMock = new();
+            Mock<IReadOnlyRepository<Cliente, int, int>> clienteLeituraMock = new();
 
-            clienteDAOMock.Setup(x => x.SelecionarPorId(cliente.Id))
+
+            clienteLeituraMock.Setup(x => x.SelecionarPorId(cliente.id))
                 .Returns(() =>
                 {
                     return cliente;
                 });
 
             //action
-            ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.SelecionarEntidadePorId(cliente.Id);
+            ClienteAppService clienteAppService = new(clienteDAOMock.Object, clienteLeituraMock.Object);
+            clienteAppService.SelecionarEntidadePorId(cliente.id);
 
             //assert
-            clienteDAOMock.Verify(x => x.SelecionarPorId(cliente.Id));
+            clienteLeituraMock.Verify(x => x.SelecionarPorId(cliente.id));
         }
 
         [Test]
@@ -147,14 +150,15 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
                 .ComEhPessoaFisica(pf)
                 .Build();
 
-            Mock<IRepository<Cliente>> clienteDAOMock = new();
+            Mock<IRepository<Cliente, int, int>> clienteDAOMock = new();
+            Mock<IReadOnlyRepository<Cliente, int, int>> clienteLeituraMock = new();
 
             //action
-            ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.EditarEntidade(cliente.Id, clienteNovo);
+            ClienteAppService clienteAppService = new(clienteDAOMock.Object, clienteLeituraMock.Object);
+            clienteAppService.EditarEntidade(cliente.id, clienteNovo);
 
             //assert
-            clienteDAOMock.Verify(x => x.Editar(cliente.Id, clienteNovo));
+            clienteDAOMock.Verify(x => x.Editar(cliente.id, clienteNovo));
         }
 
         [Test]
@@ -174,14 +178,15 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
 
             Mock<Cliente> novoClienteMock = new();
 
-            Mock<IRepository<Cliente>> clienteDAOMock = new();
+            Mock<IRepository<Cliente, int, int>> clienteDAOMock = new();
+            Mock<IReadOnlyRepository<Cliente, int, int>> clienteLeituraMock = new();
 
             //action
-            ClienteAppService clienteAppService = new(clienteDAOMock.Object);
-            clienteAppService.ExcluirEntidade(cliente.Id);
+            ClienteAppService clienteAppService = new(clienteDAOMock.Object, clienteLeituraMock.Object);
+            clienteAppService.ExcluirEntidade(cliente.id);
 
             //assert
-            clienteDAOMock.Verify(x => x.Excluir(cliente.Id));
+            clienteDAOMock.Verify(x => x.Excluir(cliente.id));
         }
         #region Métodos privados
         private void ConfigurarNome()

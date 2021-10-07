@@ -19,7 +19,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
-    public class LocacaoRepository : RepositoryBase<Locacao>, IRepository<Locacao>
+    public class LocacaoRepository : RepositoryBase<Locacao>, IRepository<Locacao, int>
     {
         private readonly VeiculoRepository controladorVeiculo;
         private readonly FuncionarioRepository controladorFuncionario;
@@ -136,18 +136,18 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         }
 
         //chamada unica do Locacao
-        readonly string sqlSelecionarIdServicoPorIdLocacao =
+        readonly string sqlSelecionaridServicoPoridLocacao =
             @"SELECT [ID_SERVICO] FROM [TBSERVICO_LOCACAO]
                WHERE [ID_LOCACAO] = @ID_LOCACAO";
         //
         #endregion
 
-        private List<Servico> SelecionarServicosComIdLocacao(int idLocacao)
+        private List<Servico> SelecionarServicosComidLocacao(int idLocacao)
         {
             List<Servico> servicosDaLocacao = new();
             try
             {
-                List<int> idsDeServicos = Db.GetAll(sqlSelecionarIdServicoPorIdLocacao, ConverterEmInteiro, AdicionarParametro("ID_LOCACAO", idLocacao));
+                List<int> idsDeServicos = Db.GetAll(sqlSelecionaridServicoPoridLocacao, ConverterEmInteiro, AdicionarParametro("ID_LOCACAO", idLocacao));
                 foreach (int idServico in idsDeServicos)
                 {
                     servicosDaLocacao.Add(controladorServico.SelecionarPorId(idServico));
@@ -155,7 +155,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar sservicos com Id Locação {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), idLocacao, SqlExcluirEntidade, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar sservicos com id Locação {Feature} / Camada: Repository / id Processo: {idProcesso} / Usuário: idUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), idLocacao, SqlExcluirEntidade, ex);
             }
             return servicosDaLocacao;
         }
@@ -168,14 +168,14 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
-                { "ID_VEICULO", entidade.Veiculo.Id },
-                { "ID_FUNCIONARIO", entidade.FuncionarioLocador.Id },
-                { "ID_CLIENTECONTRATANTE", entidade.ClienteContratante.Id },
-                { "ID_CLIENTECONDUTOR", entidade.ClienteCondutor.Id }
+                { "ID", entidade.id },
+                { "ID_VEICULO", entidade.Veiculo.id },
+                { "ID_FUNCIONARIO", entidade.FuncionarioLocador.id },
+                { "ID_CLIENTECONTRATANTE", entidade.ClienteContratante.id },
+                { "ID_CLIENTECONDUTOR", entidade.ClienteCondutor.id }
             };
             if (entidade.Cupom != null)
-                parametros.Add("ID_CUPOM", entidade.Cupom.Id);
+                parametros.Add("ID_CUPOM", entidade.Cupom.id);
             else
                 parametros.Add("ID_CUPOM", null);
             parametros.Add("DATADESAIDA", entidade.DataDeSaida);
@@ -210,11 +210,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var precoDevolucao = Convert.ToDouble(reader["PRECODEVOLUCAO"]);
             var estaAberta = Convert.ToBoolean(reader["ESTAABERTA"]);
 
-            List<Servico> servicosDaLocacao = SelecionarServicosComIdLocacao(id);
+            List<Servico> servicosDaLocacao = SelecionarServicosComidLocacao(id);
             //foreach (Servico servico in controladorServico.SelecionarTodos())
             //{
-            //    List<int> idsDeServicos = SelecionarServicosComIdLocacao(id);
-            //    if (idsDeServicos.Contains(servico.Id))
+            //    List<int> idsDeServicos = SelecionarServicosComidLocacao(id);
+            //    if (idsDeServicos.Contains(servico.id))
             //        servicosDaLocacao.Add(servico);
             //}
 

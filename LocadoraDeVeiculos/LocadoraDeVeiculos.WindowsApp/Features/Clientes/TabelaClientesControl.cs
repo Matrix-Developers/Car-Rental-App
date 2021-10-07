@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Clientes
         {
             var colunas = new DataGridViewColumn[]
            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "id"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
 
@@ -44,9 +44,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Clientes
 
             return colunas;
         }
-        public int ObtemIdSelecionado()
+        public int ObtemidSelecionado()
         {
-            return gridClientes.SelecionarId<int>();
+            return gridClientes.Selecionarid<int>();
         }
 
         public void AtualizarRegistros()

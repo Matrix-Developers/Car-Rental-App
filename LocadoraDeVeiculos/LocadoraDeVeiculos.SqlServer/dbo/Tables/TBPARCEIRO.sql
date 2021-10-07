@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[TBPARCEIRO]
 (
-	[Id]            INT          IDENTITY (1, 1) NOT NULL,
+	[id]            INT          IDENTITY (1, 1) NOT NULL,
     [NomeParceiro]  VARCHAR (50) NOT NULL,
-    CONSTRAINT [PK_TBPARCEIRO] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_TBPARCEIRO] PRIMARY KEY CLUSTERED ([id] ASC)
 );

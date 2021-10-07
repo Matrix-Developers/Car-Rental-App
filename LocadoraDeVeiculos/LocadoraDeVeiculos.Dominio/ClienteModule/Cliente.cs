@@ -78,10 +78,10 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
             return $"Cliente = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {Cnh}, {ValidadeCnh}, {EhPessoaFisica}]";
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(Pessoa obj)
         {
             return obj is Cliente cliente &&
-                   Id == cliente.Id &&
+                   id == cliente.id &&
                    Nome == cliente.Nome &&
                    RegistroUnico == cliente.RegistroUnico &&
                    Endereco == cliente.Endereco &&
@@ -95,7 +95,7 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
         public override int GetHashCode()
         {
             HashCode hash = new();
-            hash.Add(Id);
+            hash.Add(id);
             hash.Add(Nome);
             hash.Add(RegistroUnico);
             hash.Add(Endereco);

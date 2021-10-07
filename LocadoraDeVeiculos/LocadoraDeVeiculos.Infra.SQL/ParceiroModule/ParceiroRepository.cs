@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 {
-    public class ParceiroRepository : RepositoryBase<Parceiro>, IRepository<Parceiro>
+    public class ParceiroRepository : RepositoryBase<Parceiro>, IRepository<Parceiro, int>
     {
         #region queries
         protected override string SqlInserirEntidade
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
+                { "ID", entidade.id },
                 { "NOME", entidade.Nome }
             };
 
@@ -93,7 +93,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 
             Parceiro parceiro = new(id, nome)
             {
-                Id = id
+                id = id
             };
 
             return parceiro;

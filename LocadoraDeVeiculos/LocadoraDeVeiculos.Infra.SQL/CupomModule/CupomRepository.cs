@@ -177,7 +177,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             catch (Exception ex)
             {
 
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Verificar se Existe o Código o(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlExcluirEntidade, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Verificar se Existe o Código o(a) {Feature} / Camada: Repository / Usuário: idUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlExcluirEntidade, ex);
                 return false;
             }
         }
@@ -190,7 +190,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             }
             catch (Exception ex )
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), codigo, sqlSelecionarCupomPorCodigo, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / id Processo: {idProcesso} / Usuário: idUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), codigo, sqlSelecionarCupomPorCodigo, ex);
                 return null;
             }
         }
@@ -203,7 +203,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id,qtdUtilizada, sqlEditarQtdUtilizadaCupom, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / id Processo: {idProcesso} / Usuário: idUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id,qtdUtilizada, sqlEditarQtdUtilizadaCupom, ex);
             }
         }
         private static Dictionary<string, object> ObtemParametrosQtdUtilizada(int id, int qtdUtilizada)
@@ -221,14 +221,14 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
+                { "ID", entidade.id },
                 { "NOMECUPOM", entidade.Nome },
                 { "CODIGO", entidade.Codigo },
                 { "VALORMINIMO", entidade.ValorMinimo },
                 { "VALOR", entidade.Valor },
                 { "EHDESCONTOFIXO", entidade.EhDescontoFixo },
                 { "VALIDADE", entidade.Validade },
-                { "ID_PARCEIRO", entidade.Parceiro.Id },
+                { "ID_PARCEIRO", entidade.Parceiro.id },
                 { "QTDUTILIZADA", entidade.QtdUtilizada }
             };
 
@@ -252,7 +252,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             Cupom cupom = new(id, nome, codigo, valor, valorMinimo, ehDescontoFixo, validade, parceiro, qtdUtilizada);
 
-            cupom.Id = id;
+            cupom.id = id;
 
             return cupom;
         }

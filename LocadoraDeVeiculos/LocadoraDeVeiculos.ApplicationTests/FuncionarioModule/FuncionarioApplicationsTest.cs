@@ -33,11 +33,11 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
                 .Build();
 
 
-            Mock<IRepository<Funcionario>> funcionarioMock = new();
-
+            Mock<IRepository<Funcionario, int>> funcionarioMock = new();
+            Mock<IReadOnlyRepository<Funcionario, int>> funcionarioLeitura = new();
 
             //action
-            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
+            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object, funcionarioLeitura.Object);
             funcionariooAppService.InserirEntidade(funcionario);
 
             //assert
@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
         }
         [Test]
 
-        public void DeveChamar_SelecionarIdFuncionario()
+        public void DeveChamar_SelecionaridFuncionario()
         {
             //arrange
             funcionario = new FuncionarioDataBuilder()
@@ -66,19 +66,20 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
             Mock<Funcionario> novoFuncionarioMock = new();
             novoFuncionarioMock.Object.Nome = "Vini";
 
-            Mock<IRepository<Funcionario>> funcionarioMock = new();
+            Mock<IReadOnlyRepository<Funcionario, int>> funcionarioLeitura = new();
+            Mock<IRepository<Funcionario, int>> funcionarioMock = new();
 
-            funcionarioMock.Setup(x => x.SelecionarPorId(funcionario.Id)).Returns(() =>
+            funcionarioLeitura.Setup(x => x.SelecionarPorId(funcionario.id)).Returns(() =>
             {
                 return funcionario;
             });
 
             //action
-            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.SelecionarEntidadePorId(funcionario.Id);
+            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object, funcionarioLeitura.Object);
+            funcionariooAppService.SelecionarEntidadePorId(funcionario.id);
 
             //assert
-            funcionarioMock.Verify(x => x.SelecionarPorId(funcionario.Id));
+            funcionarioLeitura.Verify(x => x.SelecionarPorId(funcionario.id));
         }
         [Test]
         public void DeveChamar_EditarFuncionario()
@@ -114,15 +115,16 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
                .Build();
 
 
-            Mock<IRepository<Funcionario>> funcionarioMock = new();
+            Mock<IRepository<Funcionario, int>> funcionarioMock = new();
+            Mock<IReadOnlyRepository<Funcionario, int>> funcionarioLeitura = new();
 
 
             //action
-            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.EditarEntidade(funcionario.Id, novoFuncionario);
+            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object, funcionarioLeitura.Object);
+            funcionariooAppService.EditarEntidade(funcionario.id, novoFuncionario);
 
             //assert
-            funcionarioMock.Verify(x => x.Editar(funcionario.Id, novoFuncionario));
+            funcionarioMock.Verify(x => x.Editar(funcionario.id, novoFuncionario));
         }
         [Test]
 
@@ -143,15 +145,16 @@ namespace LocadoraDeVeiculos.ApplicationTests.FuncionarioModule
                .ComEhPessoaFisica()
                .Build();
 
-            Mock<Funcionario> novoFuncionario = new();
-            Mock<IRepository<Funcionario>> funcionarioMock = new();
+            //Mock<Funcionario> novoFuncionario = new();
+            Mock<IRepository<Funcionario, int>> funcionarioMock = new();
+            Mock<IReadOnlyRepository<Funcionario, int>> funcionarioLeitura = new();
 
             //action
-            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object);
-            funcionariooAppService.ExcluirEntidade(funcionario.Id);
+            FuncionarioAppService funcionariooAppService = new(funcionarioMock.Object, funcionarioLeitura.Object);
+            funcionariooAppService.ExcluirEntidade(funcionario.id);
 
             //assert
-            funcionarioMock.Verify(x => x.Excluir(funcionario.Id));
+            funcionarioMock.Verify(x => x.Excluir(funcionario.id));
         }
     }
 }

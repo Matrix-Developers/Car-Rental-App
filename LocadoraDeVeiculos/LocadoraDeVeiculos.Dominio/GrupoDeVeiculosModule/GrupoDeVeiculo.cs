@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 {
-    public class GrupoDeVeiculo : EntidadeBase
+    public class GrupoDeVeiculo : EntidadeBase<int>
     {
         private string nome;
         private double taxaPlanoDiario;

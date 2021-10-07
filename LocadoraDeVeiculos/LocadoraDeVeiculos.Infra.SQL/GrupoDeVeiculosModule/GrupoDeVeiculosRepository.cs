@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 {
-    public class GrupoDeVeiculosRepository : RepositoryBase<GrupoDeVeiculo>, IRepository<GrupoDeVeiculo>
+    public class GrupoDeVeiculosRepository : RepositoryBase<GrupoDeVeiculo>, IRepository<GrupoDeVeiculo, int>
     {
         #region queries
         protected override string SqlInserirEntidade
@@ -97,7 +97,7 @@ namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
+                { "ID", entidade.id },
                 { "NOME", entidade.Nome },
                 { "TAXAPLANODIARIO", entidade.TaxaPlanoDiario },
                 { "TAXAPORKMDIARIO", entidade.TaxaPorKmDiario },

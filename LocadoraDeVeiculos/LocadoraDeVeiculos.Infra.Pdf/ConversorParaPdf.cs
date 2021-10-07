@@ -26,8 +26,8 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
         public void ConverterLocacaoEmPdf(Locacao locacao)
         {
-            string arquivo = $@"..\..\..\..\Recibos\recibo{locacao.Id}.pdf";
-            string titulo = $"Recibo Locadora de Veículos - Locação {locacao.Id}";
+            string arquivo = $@"..\..\..\..\Recibos\recibo{locacao.id}.pdf";
+            string titulo = $"Recibo Locadora de Veículos - Locação {locacao.id}";
 
             List<string> linhas = new()
             {
@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Gerar o PDF o(a) {Feature} / Camada: Shared / Usuário: IdUsuario Tempo: ?? / {StackTrace}", DateTime.Now, this.ToString(), ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Gerar o PDF o(a) {Feature} / Camada: Shared / Usuário: idUsuario Tempo: ?? / {StackTrace}", DateTime.Now, this.ToString(), ex);
             }
         }
 

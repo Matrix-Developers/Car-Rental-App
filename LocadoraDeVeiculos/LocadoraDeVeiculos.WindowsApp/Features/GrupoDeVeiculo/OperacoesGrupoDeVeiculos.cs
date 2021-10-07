@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
         public void EditarRegistro()
         {
-            int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
+            int id = tabelaGrupoDeVeiculos.ObtemidSelecionado();
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             if (id == 0)
@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
+            int id = tabelaGrupoDeVeiculos.ObtemidSelecionado();
             if (id == 0)
             {
                 MessageBox.Show("Selecione um Grupo de Veículos para excluir", "Exclusão de Grupo de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

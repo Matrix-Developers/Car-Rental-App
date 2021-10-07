@@ -18,7 +18,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 {
-    public class RelacionamentoLocServRepository : RepositoryBase<RelacionamentoLocServ>, IRepository<RelacionamentoLocServ>
+    public class RelacionamentoLocServRepository : RepositoryBase<RelacionamentoLocServ>, IRepository<RelacionamentoLocServ, int>
     {
         private readonly int id = 0;
         readonly ServicoRepository controladorServico = new();
@@ -104,7 +104,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar os Servicos da Locacao um(a). {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlExcluirEntidade, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar os Servicos da Locacao um(a). {Feature} / Camada: Repository / id Processo: {idProcesso} / Usuário: idUsuario / Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlExcluirEntidade, ex);
                 return false;
             }
             
@@ -114,9 +114,9 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
-                { "ID_LOCACAO", entidade.Locacao.Id },
-                { "ID_SERVICO", entidade.IdServico }
+                { "ID", entidade.id },
+                { "ID_LOCACAO", entidade.Locacao.id },
+                { "ID_SERVICO", entidade.idServico }
             };
 
             return parametros;
@@ -129,7 +129,7 @@ namespace LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule
 
             List<Servico> filtrado = new();
             foreach (Servico item in controladorServico.SelecionarTodos())
-                if (item.Id == id_servico)
+                if (item.id == id_servico)
                     filtrado.Add(item);
             Locacao locacao = controladorLocacao.SelecionarPorId(id_locacao);
 

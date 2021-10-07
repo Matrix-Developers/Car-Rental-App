@@ -8,7 +8,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 {
-    public class VeiculoRepository : RepositoryBase<Veiculo>, IRepository<Veiculo>
+    public class VeiculoRepository : RepositoryBase<Veiculo>, IRepository<Veiculo, int>
     {
         #region queries
         protected override string SqlInserirEntidade
@@ -200,9 +200,9 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
+                { "ID", entidade.id },
                 { "MODELO", entidade.modelo },
-                { "ID_GRUPOVEICULO", entidade.grupoVeiculos.Id },
+                { "ID_GRUPOVEICULO", entidade.grupoVeiculos.id },
                 { "PLACA", entidade.placa },
                 { "CHASSI", entidade.chassi },
                 { "MARCA", entidade.marca },
@@ -255,7 +255,7 @@ namespace LocadoraDeVeiculos.Controladores.VeiculoModule
 
             Veiculo veiculo = new(id, modelo, grupo, placa, chassi, marca, cor, tipoCombustivel, capacidadeTanque, ano, quilometragem, numeroPortas, capacidadePessoas, tamanhoPortaMala, temArCondicionado, temDirecaoHidraulica, temFreioAbs, estaAlugado, null)
             {
-                Id = id
+                id = id
             };
 
             return veiculo;

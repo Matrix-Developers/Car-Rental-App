@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
         {
             var colunas = new DataGridViewColumn[]
            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "id"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome do Grupo"},
 
@@ -38,9 +38,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
             return colunas;
         }
-        public int ObtemIdSelecionado()
+        public int ObtemidSelecionado()
         {
-            return gridGrupoDeVeiculos.SelecionarId<int>();
+            return gridGrupoDeVeiculos.Selecionarid<int>();
         }
 
         public void AtualizarRegistros(List<GrupoDeVeiculo> grupoDeVeiculos)
@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
             foreach (GrupoDeVeiculo grupo in grupoDeVeiculos)
             {
-                gridGrupoDeVeiculos.Rows.Add(grupo.Id, grupo.Nome, grupo.TaxaPlanoDiario, grupo.TaxaPorKmDiario, grupo.TaxaPlanoControlado,
+                gridGrupoDeVeiculos.Rows.Add(grupo.id, grupo.Nome, grupo.TaxaPlanoDiario, grupo.TaxaPorKmDiario, grupo.TaxaPlanoControlado,
                     grupo.LimiteKmControlado, grupo.TaxaKmExcedidoControlado, grupo.TaxaPlanoLivre);
             }
         }

@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaFuncionarios.ObtemIdSelecionado();
+            int id = tabelaFuncionarios.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaFuncionarios.ObtemIdSelecionado();
+            int id = tabelaFuncionarios.ObtemidSelecionado();
 
             if (id == 0)
             {

@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado} ", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaCliente.ObtemIdSelecionado();
+            int id = tabelaCliente.ObtemidSelecionado();
             if (id == 0)
             {
                 MessageBox.Show("Selecione um cliente para editar", "Edição de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -51,7 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado} ", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaCliente.ObtemIdSelecionado();
+            int id = tabelaCliente.ObtemidSelecionado();
             if (id == 0)
             {
                 MessageBox.Show("Selecione um cliente para excluir", "Exclusão de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

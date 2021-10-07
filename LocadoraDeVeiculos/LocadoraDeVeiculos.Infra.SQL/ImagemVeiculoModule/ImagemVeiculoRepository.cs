@@ -73,7 +73,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
         //chamadas unicas do ImagemVeiculo
         private const string comandoSelecionarPorIdDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
-        private const string comandoExcluirTodosPorIdDoVeiculo = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
+        private const string comandoExcluirTodosPoridDoVeiculo = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecionarTodosDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO;";
         //
         #endregion
@@ -83,18 +83,18 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
             if (registros != null)
             {
                 if (registros.Count != 0)
-                    ExcluirPorIdDoVeiculo(registros[0].IdVeiculo);
+                    ExcluirPoridDoVeiculo(registros[0].idVeiculo);
                 foreach (ImagemVeiculo imagem in registros)
                 {
                     InserirNovo(imagem);
                 }
             }
         }
-        public bool ExcluirPorIdDoVeiculo(int idVeiculo)
+        public bool ExcluirPoridDoVeiculo(int idVeiculo)
         {
             try
             {
-                Db.Delete(comandoExcluirTodosPorIdDoVeiculo, AdicionarParametro("ID_Veiculo", idVeiculo));
+                Db.Delete(comandoExcluirTodosPoridDoVeiculo, AdicionarParametro("ID_Veiculo", idVeiculo));
             }
             catch (Exception)
             {
@@ -134,8 +134,8 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
-                { "ID_VEICULO", entidade.IdVeiculo },
+                { "ID", entidade.id },
+                { "ID_VEICULO", entidade.idVeiculo },
                 { "IMAGEM", imagemByte }
             };
 

@@ -106,7 +106,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
             controlador.InserirNovo(funcionario);
 
             //assert
-            var funcionarioEncontrado = controlador.SelecionarPorId(funcionario.Id);
+            var funcionarioEncontrado = controlador.SelecionarPorId(funcionario.id);
             funcionarioEncontrado.Should().Be(funcionario);
         }
 
@@ -131,10 +131,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
 
             //action
             controlador.InserirNovo(funcionario);
-            controlador.Excluir(funcionario.Id);
+            controlador.Excluir(funcionario.id);
 
             //assert
-            var funcionarioEncontrado = controlador.SelecionarPorId(funcionario.Id);
+            var funcionarioEncontrado = controlador.SelecionarPorId(funcionario.id);
             funcionarioEncontrado.Should().BeNull();
         }
 
@@ -174,10 +174,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.FuncionarioModule
 
             //action
             controlador.InserirNovo(funcionario);
-            controlador.Editar(funcionario.Id, funcionarioEditado);
+            controlador.Editar(funcionario.id, funcionarioEditado);
 
             //acert
-            var funcionarioAtualizado = controlador.SelecionarPorId(funcionario.Id);
+            var funcionarioAtualizado = controlador.SelecionarPorId(funcionario.id);
             funcionarioAtualizado.Should().Be(funcionarioEditado);
         }
 

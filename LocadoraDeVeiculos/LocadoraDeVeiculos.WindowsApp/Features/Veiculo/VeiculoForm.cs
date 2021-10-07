@@ -37,7 +37,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
                 veiculo = value;
 
                 imagensVeiculo = veiculo.imagens;
-                textId.Text = veiculo.Id.ToString();
+                textid.Text = veiculo.id.ToString();
                 textModelo.Text = veiculo.modelo;
                 cBoxGrupo.Text = veiculo.grupoVeiculos.Nome;
                 textPlaca.Text = veiculo.placa;
@@ -64,8 +64,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         {
             int id = 0;
             int ano = 0;
-            if (textId.Text.Length > 0)
-                id = Convert.ToInt32(textId.Text);
+            if (textid.Text.Length > 0)
+                id = Convert.ToInt32(textid.Text);
             string placa = textPlaca.Text;
             string chassi = textChassi.Text;
             string marca = textMarca.Text;

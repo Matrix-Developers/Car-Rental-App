@@ -2,13 +2,10 @@
 
 namespace LocadoraDeVeiculos.Dominio.Shared
 {
-    public interface IRepository<T> where T : EntidadeBase
+    public interface IRepository<EntidadeBase, TKey>
     {
-        bool InserirNovo(T registro);
-        bool Editar(int id, T registro);
-        bool Existe(int id);
-        bool Excluir(int id);
-        List<T> SelecionarTodos();
-        T SelecionarPorId(int id);
+        bool InserirNovo(EntidadeBase registro);
+        bool Editar(int id, EntidadeBase registro);
+        bool Excluir(int id);        
     }
 }

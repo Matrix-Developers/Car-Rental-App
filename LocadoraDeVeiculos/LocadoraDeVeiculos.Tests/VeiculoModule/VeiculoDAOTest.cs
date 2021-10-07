@@ -137,7 +137,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
             veiculoRepository.InserirNovo(veiculo);
 
             //assert
-            var veiculoEncontrado = veiculoRepository.SelecionarPorId(veiculo.Id);
+            var veiculoEncontrado = veiculoRepository.SelecionarPorId(veiculo.id);
             veiculoEncontrado.Should().Be(veiculo);
         }
 
@@ -246,10 +246,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
 
             //action
             veiculoRepository.InserirNovo(veiculo);
-            veiculoRepository.Editar(veiculo.Id, veiculoEditado);
+            veiculoRepository.Editar(veiculo.id, veiculoEditado);
 
             //assert
-            var veiculoEncontrado = veiculoRepository.SelecionarPorId(veiculo.Id);
+            var veiculoEncontrado = veiculoRepository.SelecionarPorId(veiculo.id);
             veiculoEncontrado.Should().Be(veiculoEditado);
         }
 
@@ -283,7 +283,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
             veiculoRepository.InserirNovo(veiculo);
             List<Veiculo> veiculosAntesDaExclusao = veiculoRepository.SelecionarTodos();
             veiculosAntesDaExclusao.Count.Should().Be(1);
-            veiculoRepository.Excluir(veiculo.Id);
+            veiculoRepository.Excluir(veiculo.id);
 
             //assert
             List<Veiculo> veiculoEncontrado = veiculoRepository.SelecionarTodos();

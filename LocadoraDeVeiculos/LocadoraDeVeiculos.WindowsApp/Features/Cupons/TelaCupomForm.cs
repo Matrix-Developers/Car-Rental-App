@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             {
                 cupom = value;
 
-                txtId.Text = cupom.Id.ToString();
+                txtid.Text = cupom.id.ToString();
                 txtNome.Text = cupom.Nome;
                 txtCodigo.Text = cupom.Codigo;
                 if (cupom.EhDescontoFixo)
@@ -85,8 +85,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             bool ehDescontoFixo = false;
 
             int id = 0;
-            if (txtId.Text.Length > 0)
-                id = Convert.ToInt32(txtId.Text);
+            if (txtid.Text.Length > 0)
+                id = Convert.ToInt32(txtid.Text);
             string nome = txtNome.Text;
             string codigo = txtCodigo.Text;
             double valorMinimo = Convert.ToDouble(numUpDownValorMinimo.Value);

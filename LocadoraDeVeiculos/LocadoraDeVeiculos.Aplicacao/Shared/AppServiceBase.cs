@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Aplicacao.Shared
 {
-    public abstract class AppServiceBase<T> where T : EntidadeBase
+    public abstract class AppServiceBase<T> where T : EntidadeBase<int>
     {
         public abstract bool InserirEntidade(T entidade);
         public abstract bool EditarEntidade(int id, T entidade);

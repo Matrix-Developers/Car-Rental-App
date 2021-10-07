@@ -42,8 +42,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.lblCondutor = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblFuncionario = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblid = new System.Windows.Forms.Label();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.dateTPDataDevolucao = new System.Windows.Forms.DateTimePicker();
             this.dateTPDataSaida = new System.Windows.Forms.DateTimePicker();
             this.cBoxCondutor = new System.Windows.Forms.ComboBox();
@@ -76,8 +76,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.gBoxRegistro.Controls.Add(this.lblCondutor);
             this.gBoxRegistro.Controls.Add(this.lblCliente);
             this.gBoxRegistro.Controls.Add(this.lblFuncionario);
-            this.gBoxRegistro.Controls.Add(this.lblId);
-            this.gBoxRegistro.Controls.Add(this.txtId);
+            this.gBoxRegistro.Controls.Add(this.lblid);
+            this.gBoxRegistro.Controls.Add(this.txtid);
             this.gBoxRegistro.Controls.Add(this.dateTPDataDevolucao);
             this.gBoxRegistro.Controls.Add(this.dateTPDataSaida);
             this.gBoxRegistro.Controls.Add(this.cBoxCondutor);
@@ -205,24 +205,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.lblFuncionario.TabIndex = 7;
             this.lblFuncionario.Text = "Funcionário";
             // 
-            // lblId
+            // lblid
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(65, 22);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(18, 13);
-            this.lblId.TabIndex = 6;
-            this.lblId.Text = "ID";
+            this.lblid.AutoSize = true;
+            this.lblid.Location = new System.Drawing.Point(65, 22);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(18, 13);
+            this.lblid.TabIndex = 6;
+            this.lblid.Text = "ID";
             // 
-            // txtId
+            // txtid
             // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(89, 19);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(68, 20);
-            this.txtId.TabIndex = 2;
-            this.txtId.Text = "0";
+            this.txtid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtid.Enabled = false;
+            this.txtid.Location = new System.Drawing.Point(89, 19);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(68, 20);
+            this.txtid.TabIndex = 2;
+            this.txtid.Text = "0";
             // 
             // dateTPDataDevolucao
             // 
@@ -364,8 +364,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private System.Windows.Forms.GroupBox gBoxRegistro;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblid;
+        private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.DateTimePicker dateTPDataDevolucao;
         private System.Windows.Forms.DateTimePicker dateTPDataSaida;
         private System.Windows.Forms.ComboBox cBoxCondutor;

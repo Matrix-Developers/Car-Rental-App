@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
             TelaCupomForm tela = new("Edição de Cupom", parceiroAppService);
 
-            int id = tabela.ObtemIdSelecionado();
+            int id = tabela.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
 
-            int id = tabela.ObtemIdSelecionado();
+            int id = tabela.ObtemidSelecionado();
 
             if (id == 0)
             {

@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.SevicoModule
             controlador.InserirNovo(servico);
 
             //assert
-            Servico servicoEncontrado = controlador.SelecionarPorId(servico.Id);
+            Servico servicoEncontrado = controlador.SelecionarPorId(servico.id);
             servicoEncontrado.Should().Be(servico);
         }
         [TestMethod]
@@ -84,10 +84,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.SevicoModule
 
             //action
 
-            controlador.Editar(servico.Id, servicoEditado);
+            controlador.Editar(servico.id, servicoEditado);
 
             //assert
-            Servico servicoEncontrado = controlador.SelecionarPorId(servico.Id);
+            Servico servicoEncontrado = controlador.SelecionarPorId(servico.id);
             servicoEncontrado.Should().Be(servicoEditado);
         }
 
@@ -102,10 +102,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.SevicoModule
            .Build();
 
             //action
-            controlador.Excluir(servico.Id);
+            controlador.Excluir(servico.id);
 
             //assert
-            var servicoEncontrado = controlador.SelecionarPorId(servico.Id);
+            var servicoEncontrado = controlador.SelecionarPorId(servico.id);
             servicoEncontrado.Should().BeNull();
         }
 
@@ -119,7 +119,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.SevicoModule
            .Build();
 
             controlador.InserirNovo(servico);
-            Servico servicoEncontrado = controlador.SelecionarPorId(servico.Id);
+            Servico servicoEncontrado = controlador.SelecionarPorId(servico.id);
 
             servicoEncontrado.Should().Be(servico);
         }

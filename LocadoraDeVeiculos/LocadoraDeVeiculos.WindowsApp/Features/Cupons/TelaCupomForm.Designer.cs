@@ -32,12 +32,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.labelTitulo = new System.Windows.Forms.Label();
             this.dtpValidade = new System.Windows.Forms.DateTimePicker();
             this.lbValidade = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.lbValorMinimo = new System.Windows.Forms.Label();
             this.lbValor = new System.Windows.Forms.Label();
             this.labelCodigo = new System.Windows.Forms.Label();
             this.lbNome = new System.Windows.Forms.Label();
-            this.lbId = new System.Windows.Forms.Label();
+            this.lbid = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.rBtnPorcentagem = new System.Windows.Forms.RadioButton();
             this.rBtnValorFixo = new System.Windows.Forms.RadioButton();
@@ -85,16 +85,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.lbValidade.TabIndex = 82;
             this.lbValidade.Text = "Validade";
             // 
-            // txtId
+            // txtid
             // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(125, 115);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(62, 23);
-            this.txtId.TabIndex = 80;
-            this.txtId.Text = "0";
+            this.txtid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtid.Enabled = false;
+            this.txtid.Location = new System.Drawing.Point(125, 115);
+            this.txtid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(62, 23);
+            this.txtid.TabIndex = 80;
+            this.txtid.Text = "0";
             // 
             // lbValorMinimo
             // 
@@ -144,17 +144,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.lbNome.TabIndex = 75;
             this.lbNome.Text = "Nome";
             // 
-            // lbId
+            // lbid
             // 
-            this.lbId.AutoSize = true;
-            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbId.ForeColor = System.Drawing.Color.Black;
-            this.lbId.Location = new System.Drawing.Point(105, 119);
-            this.lbId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(16, 13);
-            this.lbId.TabIndex = 74;
-            this.lbId.Text = "Id";
+            this.lbid.AutoSize = true;
+            this.lbid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbid.ForeColor = System.Drawing.Color.Black;
+            this.lbid.Location = new System.Drawing.Point(105, 119);
+            this.lbid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbid.Name = "lbid";
+            this.lbid.Size = new System.Drawing.Size(16, 13);
+            this.lbid.TabIndex = 74;
+            this.lbid.Text = "id";
             // 
             // txtNome
             // 
@@ -285,12 +285,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.Controls.Add(this.rBtnPorcentagem);
             this.Controls.Add(this.dtpValidade);
             this.Controls.Add(this.lbValidade);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtid);
             this.Controls.Add(this.lbValorMinimo);
             this.Controls.Add(this.lbValor);
             this.Controls.Add(this.labelCodigo);
             this.Controls.Add(this.lbNome);
-            this.Controls.Add(this.lbId);
+            this.Controls.Add(this.lbid);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.labelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -314,12 +314,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.DateTimePicker dtpValidade;
         private System.Windows.Forms.Label lbValidade;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label lbValorMinimo;
         private System.Windows.Forms.Label lbValor;
         private System.Windows.Forms.Label labelCodigo;
         private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbId;
+        private System.Windows.Forms.Label lbid;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.RadioButton rBtnPorcentagem;
         private System.Windows.Forms.RadioButton rBtnValorFixo;

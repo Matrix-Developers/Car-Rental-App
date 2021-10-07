@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabela.ObtemIdSelecionado();
+            int id = tabela.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabela.ObtemIdSelecionado();
+            int id = tabela.ObtemidSelecionado();
 
             if (id == 0)
             {

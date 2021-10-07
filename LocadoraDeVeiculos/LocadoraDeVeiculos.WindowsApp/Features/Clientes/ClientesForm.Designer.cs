@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.maskTelefone = new System.Windows.Forms.MaskedTextBox();
             this.dtpValidade = new System.Windows.Forms.DateTimePicker();
             this.lbValidade = new System.Windows.Forms.Label();
-            this.textId = new System.Windows.Forms.TextBox();
+            this.textid = new System.Windows.Forms.TextBox();
             this.labelCNH = new System.Windows.Forms.Label();
             this.lbTelefone = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.labelRegistro = new System.Windows.Forms.Label();
             this.textEndereco = new System.Windows.Forms.TextBox();
             this.lbNome = new System.Windows.Forms.Label();
-            this.lbId = new System.Windows.Forms.Label();
+            this.lbid = new System.Windows.Forms.Label();
             this.textNome = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +119,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.groupBox1.Controls.Add(this.maskTelefone);
             this.groupBox1.Controls.Add(this.dtpValidade);
             this.groupBox1.Controls.Add(this.lbValidade);
-            this.groupBox1.Controls.Add(this.textId);
+            this.groupBox1.Controls.Add(this.textid);
             this.groupBox1.Controls.Add(this.labelCNH);
             this.groupBox1.Controls.Add(this.lbTelefone);
             this.groupBox1.Controls.Add(this.lbEmail);
@@ -128,7 +128,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.groupBox1.Controls.Add(this.labelRegistro);
             this.groupBox1.Controls.Add(this.textEndereco);
             this.groupBox1.Controls.Add(this.lbNome);
-            this.groupBox1.Controls.Add(this.lbId);
+            this.groupBox1.Controls.Add(this.lbid);
             this.groupBox1.Controls.Add(this.textNome);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
@@ -182,15 +182,15 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.lbValidade.TabIndex = 35;
             this.lbValidade.Text = "Validade CNH";
             // 
-            // textId
+            // textid
             // 
-            this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textId.Enabled = false;
-            this.textId.Location = new System.Drawing.Point(111, 17);
-            this.textId.Name = "textId";
-            this.textId.Size = new System.Drawing.Size(131, 20);
-            this.textId.TabIndex = 23;
-            this.textId.Text = "0";
+            this.textid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.textid.Enabled = false;
+            this.textid.Location = new System.Drawing.Point(111, 17);
+            this.textid.Name = "textid";
+            this.textid.Size = new System.Drawing.Size(131, 20);
+            this.textid.TabIndex = 23;
+            this.textid.Text = "0";
             // 
             // labelCNH
             // 
@@ -272,16 +272,16 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             this.lbNome.TabIndex = 17;
             this.lbNome.Text = "Nome";
             // 
-            // lbId
+            // lbid
             // 
-            this.lbId.AutoSize = true;
-            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbId.ForeColor = System.Drawing.Color.Black;
-            this.lbId.Location = new System.Drawing.Point(89, 20);
-            this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(16, 13);
-            this.lbId.TabIndex = 14;
-            this.lbId.Text = "Id";
+            this.lbid.AutoSize = true;
+            this.lbid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbid.ForeColor = System.Drawing.Color.Black;
+            this.lbid.Location = new System.Drawing.Point(89, 20);
+            this.lbid.Name = "lbid";
+            this.lbid.Size = new System.Drawing.Size(16, 13);
+            this.lbid.TabIndex = 14;
+            this.lbid.Text = "id";
             // 
             // textNome
             // 
@@ -330,7 +330,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
         private System.Windows.Forms.MaskedTextBox maskTelefone;
         private System.Windows.Forms.DateTimePicker dtpValidade;
         private System.Windows.Forms.Label lbValidade;
-        private System.Windows.Forms.TextBox textId;
+        private System.Windows.Forms.TextBox textid;
         private System.Windows.Forms.Label labelCNH;
         private System.Windows.Forms.Label lbTelefone;
         private System.Windows.Forms.Label lbEmail;
@@ -339,7 +339,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
         private System.Windows.Forms.Label labelRegistro;
         private System.Windows.Forms.TextBox textEndereco;
         private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbId;
+        private System.Windows.Forms.Label lbid;
         private System.Windows.Forms.TextBox textNome;
         private System.Windows.Forms.MaskedTextBox maskedCNH;
         private System.Windows.Forms.MaskedTextBox maskRegistro;

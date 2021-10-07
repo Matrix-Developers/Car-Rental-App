@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[TBVEICULO] (
-    [Id]                   INT          IDENTITY (1, 1) NOT NULL,
+    [id]                   INT          IDENTITY (1, 1) NOT NULL,
     [Modelo]               VARCHAR (50) NOT NULL,
-    [Id_GrupoVeiculo]      INT          NOT NULL,
+    [id_GrupoVeiculo]      INT          NOT NULL,
     [Placa]                VARCHAR (50) NOT NULL,
     [Chassi]               VARCHAR (50) NOT NULL,
     [Marca]                VARCHAR (50) NOT NULL,
@@ -17,7 +17,7 @@
     [TemDirecaoHidraulica] BIT          NOT NULL,
     [TemFreiosAbs]         BIT          NOT NULL,
     [EstaAlugado]          BIT          NULL,
-    CONSTRAINT [PK__tmp_ms_x__3214EC07CEA50E53] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK__tmp_ms_x__3214EC07CEA50E53] PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
 

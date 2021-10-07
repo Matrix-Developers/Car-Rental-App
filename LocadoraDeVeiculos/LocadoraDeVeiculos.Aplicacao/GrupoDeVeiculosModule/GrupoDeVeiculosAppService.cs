@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             if (resultado)
                 Log.Information("{DataEHora} / Grupo de Veiculos {GrupoDeVeiculos} adicionado com sucesso", DateTime.Now, grupoDeVeiculos);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", grupoDeVeiculos, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", grupoDeVeiculos, tempo);
             return resultado;
         }
         public override bool EditarEntidade(int id, GrupoDeVeiculo grupoDeVeiculos)
@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             if (resultado)
                 Log.Information("{DataEHora} / Grupo de Veiculos {GrupoDeVeiculos} editado com sucesso", DateTime.Now, grupoDeVeiculos);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Editar", grupoDeVeiculos, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Editar", grupoDeVeiculos, tempo);
 
             return resultado;
         }
@@ -46,9 +46,9 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             bool resultado = grupoDeVeiculoRepository.Excluir(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (resultado)
-                Log.Information("{DataEHora} / Grupo de Veiculos {Id} excluido com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Grupo de Veiculos {id} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
             return resultado;
 
         }
@@ -58,9 +58,9 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             bool resultado = grupoDeVeiculoRepository.Existe(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (resultado)
-                Log.Information("{DataEHora} / Grupo de Veiculos {Id} encontrado com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Grupo de Veiculos {id} encontrado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id, tempo);
             return resultado;
         }
         public override GrupoDeVeiculo SelecionarEntidadePorId(int id)
@@ -69,9 +69,9 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             GrupoDeVeiculo grupoDeVeiculo = grupoDeVeiculoRepository.SelecionarPorId(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (grupoDeVeiculo != null)
-                Log.Information("{DataEHora} / Grupo de Veiculos {Id} selecionado com sucesso", DateTime.Now, id);
+                Log.Information("{DataEHora} / Grupo de Veiculos {id} selecionado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Por id", id, tempo);
             return grupoDeVeiculo;
         }
         public override List<GrupoDeVeiculo> SelecionarTodasEntidade()

@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
                 .ComServicos(listaServicosCheia)
                 .Build();
 
-            Mock<IRepository<Locacao>> locacaoDAOMock = new();
+            Mock<IRepository<Locacao, int>> locacaoDAOMock = new();
             locacaoDAOMock.Setup(x => x.InserirNovo(locacao))
                 .Returns(() =>
                 {
@@ -124,8 +124,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
             Mock<Locacao> locacaoMock = new();
             locacaoMock.Object.DataDeChegada = daquiUmAno;
 
-            Mock<IRepository<Locacao>> locacaoDAOMock = new();
-            locacaoDAOMock.Setup(x => x.SelecionarPorId(locacao.Id))
+            Mock<IRepository<Locacao, int>> locacaoDAOMock = new();
+            locacaoDAOMock.Setup(x => x.SelecionarPorId(locacao.id))
                 .Returns(() =>
                 {
                     return locacao;
@@ -133,10 +133,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
 
             //action
             LocacaoAppService locacaoAppService = new(locacaoDAOMock.Object);
-            locacaoAppService.SelecionarEntidadePorId(locacao.Id);
+            locacaoAppService.SelecionarEntidadePorId(locacao.id);
 
             //assert
-            locacaoDAOMock.Verify(x => x.SelecionarPorId(locacao.Id));
+            locacaoDAOMock.Verify(x => x.SelecionarPorId(locacao.id));
         }
 
         [Test]
@@ -170,14 +170,14 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
                 .ComServicos(listaServicosCheia)
                 .Build();
 
-            Mock<IRepository<Locacao>> locacaoDAOMock = new();
+            Mock<IRepository<Locacao, int>> locacaoDAOMock = new();
 
             //action
             LocacaoAppService locacaoAppService = new(locacaoDAOMock.Object);
-            locacaoAppService.EditarEntidade(parceiro.Id, locacaoNova);
+            locacaoAppService.EditarEntidade(parceiro.id, locacaoNova);
 
             //assert
-            locacaoDAOMock.Verify(x => x.Editar(parceiro.Id, locacaoNova));
+            locacaoDAOMock.Verify(x => x.Editar(parceiro.id, locacaoNova));
         }
 
         [Test]
@@ -198,8 +198,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
                  .ComServicos(listaServicosApenasCadeirinha)
                  .Build();
 
-            Mock<IRepository<Locacao>> locacaoDAOMock = new();
-            locacaoDAOMock.Setup(x => x.Excluir(locacao.Id))
+            Mock<IRepository<Locacao, int>> locacaoDAOMock = new();
+            locacaoDAOMock.Setup(x => x.Excluir(locacao.id))
                 .Returns(() =>
                 {
                     return true;
@@ -207,10 +207,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
 
             //action
             LocacaoAppService parceiroAppService = new(locacaoDAOMock.Object);
-            parceiroAppService.ExcluirEntidade(parceiro.Id);
+            parceiroAppService.ExcluirEntidade(parceiro.id);
 
             //assert
-            locacaoDAOMock.Verify(x => x.Excluir(parceiro.Id));
+            locacaoDAOMock.Verify(x => x.Excluir(parceiro.id));
         }
 
         #region Métodos Privados

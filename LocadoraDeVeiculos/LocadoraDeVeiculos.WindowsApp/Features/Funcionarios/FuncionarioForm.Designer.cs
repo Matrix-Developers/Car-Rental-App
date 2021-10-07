@@ -29,14 +29,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbId = new System.Windows.Forms.Label();
+            this.lbid = new System.Windows.Forms.Label();
             this.lbNome = new System.Windows.Forms.Label();
             this.lbCPF = new System.Windows.Forms.Label();
             this.lbEndereco = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbTelefone = new System.Windows.Forms.Label();
             this.lbTituloCadastroDeFuncionarios = new System.Windows.Forms.Label();
-            this.textId = new System.Windows.Forms.TextBox();
+            this.textid = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
             this.textEndereco = new System.Windows.Forms.TextBox();
             this.lbCargo = new System.Windows.Forms.Label();
@@ -62,17 +62,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             ((System.ComponentModel.ISupportInitialize)(this.textSalario)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbId
+            // lbid
             // 
-            this.lbId.AutoSize = true;
-            this.lbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbId.ForeColor = System.Drawing.Color.Black;
-            this.lbId.Location = new System.Drawing.Point(73, 22);
-            this.lbId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(19, 17);
-            this.lbId.TabIndex = 23;
-            this.lbId.Text = "Id";
+            this.lbid.AutoSize = true;
+            this.lbid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbid.ForeColor = System.Drawing.Color.Black;
+            this.lbid.Location = new System.Drawing.Point(73, 22);
+            this.lbid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbid.Name = "lbid";
+            this.lbid.Size = new System.Drawing.Size(19, 17);
+            this.lbid.TabIndex = 23;
+            this.lbid.Text = "id";
             // 
             // lbNome
             // 
@@ -146,18 +146,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.lbTituloCadastroDeFuncionarios.TabIndex = 29;
             this.lbTituloCadastroDeFuncionarios.Text = "Cadastro de Funcionários";
             // 
-            // textId
+            // textid
             // 
-            this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textId.Enabled = false;
-            this.textId.Location = new System.Drawing.Point(103, 19);
-            this.textId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textId.MaxLength = 200;
-            this.textId.Name = "textId";
-            this.textId.ReadOnly = true;
-            this.textId.Size = new System.Drawing.Size(59, 23);
-            this.textId.TabIndex = 32;
-            this.textId.Text = "0";
+            this.textid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.textid.Enabled = false;
+            this.textid.Location = new System.Drawing.Point(103, 19);
+            this.textid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textid.MaxLength = 200;
+            this.textid.Name = "textid";
+            this.textid.ReadOnly = true;
+            this.textid.Size = new System.Drawing.Size(59, 23);
+            this.textid.TabIndex = 32;
+            this.textid.Text = "0";
             // 
             // textEmail
             // 
@@ -277,7 +277,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox2.Controls.Add(this.mskTxtDataAdmissao);
             this.groupBox2.Controls.Add(this.mskTxtCpf);
             this.groupBox2.Controls.Add(this.textMatriculaInterna);
-            this.groupBox2.Controls.Add(this.lbId);
+            this.groupBox2.Controls.Add(this.lbid);
             this.groupBox2.Controls.Add(this.textSalario);
             this.groupBox2.Controls.Add(this.lbTelefone);
             this.groupBox2.Controls.Add(this.lbDataAdmissao);
@@ -289,7 +289,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             this.groupBox2.Controls.Add(this.lbUsuAcesso);
             this.groupBox2.Controls.Add(this.lbNome);
             this.groupBox2.Controls.Add(this.lbSalario);
-            this.groupBox2.Controls.Add(this.textId);
+            this.groupBox2.Controls.Add(this.textid);
             this.groupBox2.Controls.Add(this.textEmail);
             this.groupBox2.Controls.Add(this.textCargo);
             this.groupBox2.Controls.Add(this.textEndereco);
@@ -419,14 +419,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
 
         #endregion
 
-        private System.Windows.Forms.Label lbId;
+        private System.Windows.Forms.Label lbid;
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.Label lbCPF;
         private System.Windows.Forms.Label lbEndereco;
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label lbTelefone;
         private System.Windows.Forms.Label lbTituloCadastroDeFuncionarios;
-        private System.Windows.Forms.TextBox textId;
+        private System.Windows.Forms.TextBox textid;
         private System.Windows.Forms.TextBox textEmail;
         private System.Windows.Forms.TextBox textEndereco;
         private System.Windows.Forms.Label lbCargo;

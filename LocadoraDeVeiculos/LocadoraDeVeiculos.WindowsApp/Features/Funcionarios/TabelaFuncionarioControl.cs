@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
         {
             var colunas = new DataGridViewColumn[]
            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "id"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
 
@@ -44,9 +44,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
             return colunas;
         }
 
-        public int ObtemIdSelecionado()
+        public int ObtemidSelecionado()
         {
-            return gridFuncionarios.SelecionarId<int>();
+            return gridFuncionarios.Selecionarid<int>();
         }
 
         public void AtualizarRegistros(List<Funcionario> funcionarios)
@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
             foreach (Funcionario funcionario in funcionarios)
             {
-                gridFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.RegistroUnico,
+                gridFuncionarios.Rows.Add(funcionario.id, funcionario.Nome, funcionario.RegistroUnico,
                     funcionario.Endereco, funcionario.Telefone, funcionario.Email, funcionario.MatriculaInterna,
                     funcionario.UsuarioAcesso, funcionario.Cargo, funcionario.Salario, funcionario.DataAdmissao);
             }

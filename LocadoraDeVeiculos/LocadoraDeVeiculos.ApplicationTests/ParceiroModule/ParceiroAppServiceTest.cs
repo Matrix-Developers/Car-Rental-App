@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
                 .ComNome(deko)
                 .Build();
 
-            Mock<IRepository<Parceiro>> parceiroDAOMock = new();
+            Mock<IRepository<Parceiro, int>> parceiroDAOMock = new();
 
             //action
             ParceiroAppService parceiroAppService = new(parceiroDAOMock.Object);
@@ -54,9 +54,9 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
             Mock<Parceiro> novoParceiroMock = new();
             novoParceiroMock.Object.Nome = deko;
 
-            Mock<IRepository<Parceiro>> parceiroDAOMock = new();
+            Mock<IRepository<Parceiro, int>> parceiroDAOMock = new();
 
-            parceiroDAOMock.Setup(x => x.SelecionarPorId(parceiro.Id))
+            parceiroDAOMock.Setup(x => x.SelecionarPorId(parceiro.id))
                 .Returns(() =>
                 {
                     return parceiro;
@@ -64,10 +64,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
 
             //action
             ParceiroAppService parceiroAppService = new(parceiroDAOMock.Object);
-            parceiroAppService.SelecionarEntidadePorId(parceiro.Id);
+            parceiroAppService.SelecionarEntidadePorId(parceiro.id);
 
             //assert
-            parceiroDAOMock.Verify(x => x.SelecionarPorId(parceiro.Id));
+            parceiroDAOMock.Verify(x => x.SelecionarPorId(parceiro.id));
         }
 
         [Test]
@@ -82,14 +82,14 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
                 .ComNome(ndd)
                 .Build();
 
-            Mock<IRepository<Parceiro>> parceiroDAOMock = new();
+            Mock<IRepository<Parceiro, int>> parceiroDAOMock = new();
 
             //action
             ParceiroAppService parceiroAppService = new(parceiroDAOMock.Object);
-            parceiroAppService.EditarEntidade(parceiro.Id, parceiroNovo);
+            parceiroAppService.EditarEntidade(parceiro.id, parceiroNovo);
 
             //assert
-            parceiroDAOMock.Verify(x => x.Editar(parceiro.Id, parceiroNovo));
+            parceiroDAOMock.Verify(x => x.Editar(parceiro.id, parceiroNovo));
         }
 
         [Test]
@@ -102,14 +102,14 @@ namespace LocadoraDeVeiculos.ApplicationTests.ParceiroModule
 
             Mock<Parceiro> novoParceiroMock = new();
 
-            Mock<IRepository<Parceiro>> parceiroDAOMock = new();
+            Mock<IRepository<Parceiro, int>> parceiroDAOMock = new();
 
             //action
             ParceiroAppService parceiroAppService = new(parceiroDAOMock.Object);
-            parceiroAppService.ExcluirEntidade(parceiro.Id);
+            parceiroAppService.ExcluirEntidade(parceiro.id);
 
             //assert
-            parceiroDAOMock.Verify(x => x.Excluir(parceiro.Id));
+            parceiroDAOMock.Verify(x => x.Excluir(parceiro.id));
         }
         #region Métodos Privados
         private void ConfigurarNome()

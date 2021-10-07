@@ -51,8 +51,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.lblCondutor = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblFuncionario = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblid = new System.Windows.Forms.Label();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.gBoxDevolucao = new System.Windows.Forms.GroupBox();
@@ -132,8 +132,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.gBoxLocacao.Controls.Add(this.lblCondutor);
             this.gBoxLocacao.Controls.Add(this.lblCliente);
             this.gBoxLocacao.Controls.Add(this.lblFuncionario);
-            this.gBoxLocacao.Controls.Add(this.lblId);
-            this.gBoxLocacao.Controls.Add(this.txtId);
+            this.gBoxLocacao.Controls.Add(this.lblid);
+            this.gBoxLocacao.Controls.Add(this.txtid);
             this.gBoxLocacao.Enabled = false;
             this.gBoxLocacao.Location = new System.Drawing.Point(12, 83);
             this.gBoxLocacao.Name = "gBoxLocacao";
@@ -289,24 +289,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
             this.lblFuncionario.TabIndex = 7;
             this.lblFuncionario.Text = "Funcionário";
             // 
-            // lblId
+            // lblid
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(65, 22);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(18, 13);
-            this.lblId.TabIndex = 6;
-            this.lblId.Text = "ID";
+            this.lblid.AutoSize = true;
+            this.lblid.Location = new System.Drawing.Point(65, 22);
+            this.lblid.Name = "lblid";
+            this.lblid.Size = new System.Drawing.Size(18, 13);
+            this.lblid.TabIndex = 6;
+            this.lblid.Text = "ID";
             // 
-            // txtId
+            // txtid
             // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(89, 19);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(121, 20);
-            this.txtId.TabIndex = 2;
-            this.txtId.Text = "0";
+            this.txtid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtid.Enabled = false;
+            this.txtid.Location = new System.Drawing.Point(89, 19);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(121, 20);
+            this.txtid.TabIndex = 2;
+            this.txtid.Text = "0";
             // 
             // txtValorTotal
             // 
@@ -615,8 +615,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         private System.Windows.Forms.Label lblCondutor;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblFuncionario;
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblid;
+        private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.Label lblValorTotal;
         private System.Windows.Forms.GroupBox gBoxDevolucao;

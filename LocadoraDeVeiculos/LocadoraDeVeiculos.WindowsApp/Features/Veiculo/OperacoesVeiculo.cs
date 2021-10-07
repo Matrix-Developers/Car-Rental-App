@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
             {
                 if (tela.Veiculo.imagens.Count != 0)
                     foreach (Dominio.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
-                        imagem.IdVeiculo = tela.Veiculo.Id;
+                        imagem.idVeiculo = tela.Veiculo.id;
 
                 bool resultado = veiculoAppService.InserirEntidade(tela.Veiculo);
 
@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaVeiculo.ObtemIdSelecionado();
+            int id = tabelaVeiculo.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaVeiculo.ObtemIdSelecionado();
+            int id = tabelaVeiculo.ObtemidSelecionado();
 
             if (id == 0)
             {

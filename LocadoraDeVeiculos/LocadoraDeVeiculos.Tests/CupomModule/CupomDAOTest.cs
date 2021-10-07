@@ -61,7 +61,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.CupomModule
             controlador.InserirNovo(cupom);
 
             //assert
-            var cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
+            var cupomEncontrado = controlador.SelecionarPorId(cupom.id);
             cupomEncontrado.Should().Be(cupom);
         }
 
@@ -120,10 +120,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.CupomModule
 
             //action
             controlador.InserirNovo(cupom);
-            controlador.Editar(cupom.Id, cupomEditado);
+            controlador.Editar(cupom.id, cupomEditado);
 
             //assert
-            Cupom parceiroEncontrado = controlador.SelecionarPorId(cupom.Id);
+            Cupom parceiroEncontrado = controlador.SelecionarPorId(cupom.id);
             parceiroEncontrado.Should().Be(cupomEditado);
         }
 
@@ -144,10 +144,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.CupomModule
 
             //action
             controlador.InserirNovo(cupom);
-            controlador.Excluir(cupom.Id);
+            controlador.Excluir(cupom.id);
 
             //assert
-            var cupomEscolhido = controlador.SelecionarPorId(cupom.Id);
+            var cupomEscolhido = controlador.SelecionarPorId(cupom.id);
             cupomEscolhido.Should().BeNull();
         }
         [TestMethod]
@@ -167,7 +167,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.CupomModule
 
             //Action
             controlador.InserirNovo(cupom);
-            var cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
+            var cupomEncontrado = controlador.SelecionarPorId(cupom.id);
 
             //Assert
             cupomEncontrado.Should().Be(cupom);

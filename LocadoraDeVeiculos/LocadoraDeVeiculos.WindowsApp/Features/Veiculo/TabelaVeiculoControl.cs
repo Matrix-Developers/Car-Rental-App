@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         {
             var colunas = new DataGridViewColumn[]
            {
-                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "id", HeaderText = "id"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "modelo", HeaderText = "Modelo"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "grupoVeiculos", HeaderText = "Grupo"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "placa", HeaderText = "Placa"},
@@ -33,9 +33,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 
             return colunas;
         }
-        public int ObtemIdSelecionado()
+        public int ObtemidSelecionado()
         {
-            return gridVeiculos.SelecionarId<int>();
+            return gridVeiculos.Selecionarid<int>();
         }
 
         public void AtualizarRegistros(List<Veiculo> veiculos)
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
             gridVeiculos.Rows.Clear();
 
             foreach (Veiculo veiculo in veiculos)
-                gridVeiculos.Rows.Add(veiculo.Id, veiculo.modelo, veiculo.grupoVeiculos, veiculo.placa, veiculo.marca, veiculo.cor, veiculo.tipoCombustivel, veiculo.ano, veiculo.numeroPortas, veiculo.capacidadePessoas, veiculo.tamanhoPortaMala);
+                gridVeiculos.Rows.Add(veiculo.id, veiculo.modelo, veiculo.grupoVeiculos, veiculo.placa, veiculo.marca, veiculo.cor, veiculo.tipoCombustivel, veiculo.ano, veiculo.numeroPortas, veiculo.capacidadePessoas, veiculo.tamanhoPortaMala);
         }
     }
 }

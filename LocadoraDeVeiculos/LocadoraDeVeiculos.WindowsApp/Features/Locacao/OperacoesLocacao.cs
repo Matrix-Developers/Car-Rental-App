@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
                     foreach (var item in relacionamento.Servicos)
                     {
-                        RelacionamentoLocServ relacionamentoSelecionado = new(0, relacionamento.Locacao, item.Id);
+                        RelacionamentoLocServ relacionamentoSelecionado = new(0, relacionamento.Locacao, item.id);
                         controladorRelacionamento.InserirNovo(relacionamentoSelecionado);
                     }
                     conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaLocacao.ObtemIdSelecionado();
+            int id = tabelaLocacao.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -113,7 +113,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaLocacao.ObtemIdSelecionado();
+            int id = tabelaLocacao.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.Id}] ?",
+            if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.id}] ?",
                 "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 bool resultado = locacaoAppService.ExcluirEntidade(id);

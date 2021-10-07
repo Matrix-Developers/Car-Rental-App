@@ -8,7 +8,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Infra.SQL.Shared
 {
-    public abstract class RepositoryBase<T> where T : EntidadeBase
+    public abstract class RepositoryBase<T> where T : EntidadeBase<int>
     {
         protected abstract string SqlInserirEntidade { get; }
         protected abstract string SqlEditarEntidade { get; }
@@ -21,11 +21,11 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
         {
             try
             {
-                registro.Id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
+                registro.id = Db.Insert(SqlInserirEntidade, ObtemParametros(registro));
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Inserir um(a) novo(a) {Feature} / Camada: Repository / Usuário: IdUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlInserirEntidade, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Inserir um(a) novo(a) {Feature} / Camada: Repository / Usuário: idUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlInserirEntidade, ex);
                 return false;
             }
             return true;
@@ -34,12 +34,12 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
         {
             try
             {
-                registro.Id = id;
+                registro.id = id;
                 Db.Update(SqlEditarEntidade, ObtemParametros(registro));
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Editar  um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlEditarEntidade, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Editar  um(a) {Feature} / Camada: Repository / id Processo: {idProcesso} / Usuário: idUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlEditarEntidade, ex);
                 return false;
             }
             return true;
@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Excluir um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlExcluirEntidade, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Excluir um(a) {Feature} / Camada: Repository / id Processo: {idProcesso} / Usuário: idUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlExcluirEntidade, ex);
                 return false;
             }
 
@@ -67,7 +67,7 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Id um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlSelecionarEntidadePorId, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por id um(a) {Feature} / Camada: Repository / id Processo: {idProcesso} / Usuário: idUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id, SqlSelecionarEntidadePorId, ex);
                 return null;
             }
             
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Todos um(a) {Feature} / Camada: Repository / Usuário: IdUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlSelecionarTodasEntidades, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Todos um(a) {Feature} / Camada: Repository / Usuário: idUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlSelecionarTodasEntidades, ex);
                 return null;
             }
         }
@@ -92,7 +92,7 @@ namespace LocadoraDeVeiculos.Infra.SQL.Shared
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Verificar se Existe o(a) {Feature} / Camada: Repository / Usuário: IdUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlExisteEntidade, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Verificar se Existe o(a) {Feature} / Camada: Repository / Usuário: idUsuario / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), SqlExisteEntidade, ex);
                 return false;
             }
             

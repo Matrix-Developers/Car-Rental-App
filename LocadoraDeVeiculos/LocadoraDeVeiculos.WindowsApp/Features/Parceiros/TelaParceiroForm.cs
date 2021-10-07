@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             {
                 parceiro = value;
 
-                txtId.Text = parceiro.Id.ToString();
+                txtid.Text = parceiro.id.ToString();
                 txtNome.Text = parceiro.Nome;
             }
         }
@@ -29,8 +29,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         {
             int id = 0;
             string nome = txtNome.Text;
-            if (txtId.Text.Length > 0)
-                id = Convert.ToInt32(txtId.Text);
+            if (txtid.Text.Length > 0)
+                id = Convert.ToInt32(txtid.Text);
 
             parceiro = new Parceiro(id, nome);
 

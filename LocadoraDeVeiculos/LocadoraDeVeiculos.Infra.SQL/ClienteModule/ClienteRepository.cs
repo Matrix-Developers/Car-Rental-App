@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.ClientesModule
 {
-    public class ClienteRepository : RepositoryBase<Cliente>, IRepository<Cliente>
+    public class ClienteRepository : RepositoryBase<Cliente>, IRepository<Cliente, int>
     {
         #region queries
         protected override string SqlInserirEntidade
@@ -95,7 +95,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
         {
             var parametros = new Dictionary<string, object>
             {
-                { "ID", entidade.Id },
+                { "ID", entidade.id },
                 { "NOME", entidade.Nome },
                 { "REGISTROUNICO", entidade.RegistroUnico },
                 { "ENDERECO", entidade.Endereco },
@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.Controladores.ClientesModule
 
             Cliente cliente = new(id, nome, registroUnico, endereco, telefone, email, cnh, validadeCnh, ehPessoaFisica)
             {
-                Id = id
+                id = id
             };
             return cliente;
         }

@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaServicos.ObtemIdSelecionado();
+            int id = tabelaServicos.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -71,7 +71,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
-            int id = tabelaServicos.ObtemIdSelecionado();
+            int id = tabelaServicos.ObtemidSelecionado();
 
             if (id == 0)
             {
@@ -98,7 +98,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
         public UserControl ObterTabela()
         {
             GeradorLog.ConfigurarLog();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / IdUUsuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / idUUsuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             
             List<Servico> servicos = appService.SelecionarTodasEntidade();
             tabelaServicos.AtualizarRegistros(servicos);

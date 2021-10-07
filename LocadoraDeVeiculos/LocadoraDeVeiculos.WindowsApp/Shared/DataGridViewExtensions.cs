@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
             };
         }
 
-        public static T SelecionarId<T>(this DataGridView grid)
+        public static T Selecionarid<T>(this DataGridView grid)
         {
             const int firstLine = 0, firstColumn = 0;
             if (grid.SelectedRows.Count == 0)

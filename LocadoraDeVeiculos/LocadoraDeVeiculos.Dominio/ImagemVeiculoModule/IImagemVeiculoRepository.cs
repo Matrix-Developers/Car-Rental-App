@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
 {
-    public interface IImagemVeiculoRepository : IRepository<ImagemVeiculo>
+    public interface IImagemVeiculoRepository : IRepository<ImagemVeiculo, int>
     {
         void EditarLista(List<ImagemVeiculo> registros);
-        bool ExcluirPorIdDoVeiculo(int idVeiculo);
+        bool ExcluirPoridDoVeiculo(int idVeiculo);
         List<ImagemVeiculo> SelecionarPorIdDoVeiculo(int id);
         List<ImagemVeiculo> SelecioanrTodasImagensDeUmVeiculo(int id);
     }

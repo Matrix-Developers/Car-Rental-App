@@ -1,8 +1,9 @@
 ﻿using LocadoraDeVeiculos.Dominio.Shared;
+using System;
 
 namespace LocadoraDeVeiculos.Dominio.PessoaModule
 {
-    public abstract class Pessoa : EntidadeBase
+    public abstract class Pessoa : EntidadeBase<int>, IEquatable<Pessoa>
     {
         public string Nome { get; set; }
         public string RegistroUnico { get; set; }
@@ -109,5 +110,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
             digito += resto.ToString();
             return cnpj.EndsWith(digito);
         }
+
+        public abstract bool Equals(Pessoa other);
     }
 }

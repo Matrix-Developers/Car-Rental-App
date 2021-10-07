@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.ParceiroModule
             controlador.InserirNovo(parceiro);
 
             //assert
-            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.id);
             parceiroEncontrado.Should().Be(parceiroEncontrado);
         }
 
@@ -79,10 +79,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.ParceiroModule
 
             //action
             controlador.InserirNovo(parceiro);
-            controlador.Editar(parceiro.Id, novoParceiro);
+            controlador.Editar(parceiro.id, novoParceiro);
 
             //assert
-            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.id);
             parceiroEncontrado.Should().Be(novoParceiro);
         }
 
@@ -96,10 +96,10 @@ namespace LocadoraDeVeiculos.IntegrationTests.ParceiroModule
 
             //action
             controlador.InserirNovo(parceiro);
-            controlador.Excluir(parceiro.Id);
+            controlador.Excluir(parceiro.id);
 
             //assert
-            var parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            var parceiroEncontrado = controlador.SelecionarPorId(parceiro.id);
             parceiroEncontrado.Should().BeNull();
         }
         [TestMethod]
@@ -110,7 +110,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.ParceiroModule
             .Build();
 
             controlador.InserirNovo(parceiro);
-            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.id);
 
             parceiroEncontrado.Should().Be(parceiroEncontrado);
         }

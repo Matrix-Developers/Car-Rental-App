@@ -122,7 +122,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                 .ComAlocaoAtiva(verdade)
                 .ComImagem(naoPossuiImagens)
                 .Build();
-            Mock<IRepository<Veiculo>> veiculoMock = new();
+            Mock<IRepository<Veiculo, int>> veiculoMock = new();
             veiculoMock.Setup(x => x.InserirNovo(veiculo))
                 .Returns(()=>
                 {
@@ -167,8 +167,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                 .ComAlocaoAtiva(verdade)
                 .ComImagem(naoPossuiImagens)
                 .Build();
-            Mock<IRepository<Veiculo>> veiculoMock = new();
-            veiculoMock.Setup(x => x.SelecionarPorId(veiculo.Id))
+            Mock<IRepository<Veiculo, int>> veiculoMock = new();
+            veiculoMock.Setup(x => x.SelecionarPorId(veiculo.id))
                 .Returns(() =>
                 {
                     return veiculo;
@@ -182,10 +182,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
 
             //action
             VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
-            veiculoAppService.SelecionarEntidadePorId(veiculo.Id);
+            veiculoAppService.SelecionarEntidadePorId(veiculo.id);
 
             //assert
-            veiculoMock.Verify(x => x.SelecionarPorId(veiculo.Id));
+            veiculoMock.Verify(x => x.SelecionarPorId(veiculo.id));
         }
 
         [Test]
@@ -234,8 +234,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                 .ComImagem(naoPossuiImagens)
                 .Build();
 
-            Mock<IRepository<Veiculo>> veiculoMock = new();
-            veiculoMock.Setup(x => x.Editar(veiculo.Id,veiculoEditado))
+            Mock<IRepository<Veiculo, int>> veiculoMock = new();
+            veiculoMock.Setup(x => x.Editar(veiculo.id,veiculoEditado))
                 .Returns(() =>
                 {
                     return true;
@@ -247,10 +247,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
 
             //action
             VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
-            veiculoAppService.EditarEntidade(veiculo.Id,veiculoEditado);
+            veiculoAppService.EditarEntidade(veiculo.id,veiculoEditado);
 
             //assert
-            veiculoMock.Verify(x => x.Editar(veiculo.Id, veiculoEditado));
+            veiculoMock.Verify(x => x.Editar(veiculo.id, veiculoEditado));
         }
 
         [Test]
@@ -277,25 +277,25 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                 .ComAlocaoAtiva(verdade)
                 .ComImagem(naoPossuiImagens)
                 .Build();
-            Mock<IRepository<Veiculo>> veiculoMock = new();
-            veiculoMock.Setup(x => x.Excluir(veiculo.Id))
+            Mock<IRepository<Veiculo, int>> veiculoMock = new();
+            veiculoMock.Setup(x => x.Excluir(veiculo.id))
                 .Returns(() =>
                 {
                     return true;
                 });
 
             Mock<IImagemVeiculoRepository> imagemVeiculoMock = new();
-            imagemVeiculoMock.Setup(x => x.ExcluirPorIdDoVeiculo(veiculo.Id))
+            imagemVeiculoMock.Setup(x => x.ExcluirPoridDoVeiculo(veiculo.id))
                 .Returns(() => {
                     return true;
                 });
 
             //action
             VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
-            veiculoAppService.ExcluirEntidade(veiculo.Id);
+            veiculoAppService.ExcluirEntidade(veiculo.id);
 
             //assert
-            veiculoMock.Verify(x => x.Excluir(veiculo.Id));
+            veiculoMock.Verify(x => x.Excluir(veiculo.id));
         }
 
 
