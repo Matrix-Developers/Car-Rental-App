@@ -77,8 +77,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
                 .ComEhPessoaFisica(pf)
                 .Build();
 
-            Mock<IRepository<Cliente, int, int>> clienteDAOMock = new();
-            Mock<IReadOnlyRepository<Cliente, int, int>> clienteLeituraMock = new();
+            Mock<IRepository<Cliente, int>> clienteDAOMock = new();
+            Mock<IReadOnlyRepository<Cliente, int>> clienteLeituraMock = new();
 
             //action
             ClienteAppService clienteAppService = new(clienteDAOMock.Object, clienteLeituraMock.Object);
@@ -106,8 +106,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
             Mock<Cliente> novoClienteMock = new();
             novoClienteMock.Object.Nome = jose;
 
-            Mock<IRepository<Cliente, int, int>> clienteDAOMock = new();
-            Mock<IReadOnlyRepository<Cliente, int, int>> clienteLeituraMock = new();
+            Mock<IRepository<Cliente, int>> clienteDAOMock = new();
+            Mock<IReadOnlyRepository<Cliente, int>> clienteLeituraMock = new();
 
 
             clienteLeituraMock.Setup(x => x.SelecionarPorId(cliente.id))
@@ -150,8 +150,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
                 .ComEhPessoaFisica(pf)
                 .Build();
 
-            Mock<IRepository<Cliente, int, int>> clienteDAOMock = new();
-            Mock<IReadOnlyRepository<Cliente, int, int>> clienteLeituraMock = new();
+            Mock<IRepository<Cliente, int>> clienteDAOMock = new();
+            Mock<IReadOnlyRepository<Cliente, int>> clienteLeituraMock = new();
 
             //action
             ClienteAppService clienteAppService = new(clienteDAOMock.Object, clienteLeituraMock.Object);
@@ -178,8 +178,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.ClienteModule
 
             Mock<Cliente> novoClienteMock = new();
 
-            Mock<IRepository<Cliente, int, int>> clienteDAOMock = new();
-            Mock<IReadOnlyRepository<Cliente, int, int>> clienteLeituraMock = new();
+            Mock<IRepository<Cliente, int>> clienteDAOMock = new();
+            Mock<IReadOnlyRepository<Cliente, int>> clienteLeituraMock = new();
 
             //action
             ClienteAppService clienteAppService = new(clienteDAOMock.Object, clienteLeituraMock.Object);
