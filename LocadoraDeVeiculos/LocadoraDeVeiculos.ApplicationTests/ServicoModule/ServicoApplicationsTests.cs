@@ -20,9 +20,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
                 .Build();
 
             Mock<IRepository<Servico, int>> servicoDAOMock = new();
+            Mock<IReadOnlyRepository<Servico, int>> servicoLeituraMock = new();
 
             //action
-            ServicoAppService clienteAppService = new(servicoDAOMock.Object);
+            ServicoAppService clienteAppService = new(servicoDAOMock.Object, servicoLeituraMock.Object);
             clienteAppService.InserirEntidade(servico);
 
             //assert
@@ -42,19 +43,20 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
             novoSevicoMock.Object.Nome = "Lavação";
 
             Mock<IRepository<Servico, int>> servicoDAOMock = new();
+            Mock<IReadOnlyRepository<Servico, int>> servicoLeituraMock = new();
 
-            servicoDAOMock.Setup(x => x.SelecionarPorId(servico.id))
+            servicoLeituraMock.Setup(x => x.SelecionarPorId(servico.id))
                 .Returns(() =>
                 {
                     return servico;
                 });
 
             //action
-            ServicoAppService servicoAppService = new(servicoDAOMock.Object);
+            ServicoAppService servicoAppService = new(servicoDAOMock.Object, servicoLeituraMock.Object);
             servicoAppService.SelecionarEntidadePorId(servico.id);
 
             //assert
-            servicoDAOMock.Verify(x => x.SelecionarPorId(servico.id));
+            servicoLeituraMock.Verify(x => x.SelecionarPorId(servico.id));
         }
         [Test]
         public void DeveChamar_Editar()
@@ -73,9 +75,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
                .Build();
 
             Mock<IRepository<Servico, int>> servicoDAOMock = new();
+            Mock<IReadOnlyRepository<Servico, int>> servicoLeituraMock = new();
 
             //action
-            ServicoAppService clienteAppService = new(servicoDAOMock.Object);
+            ServicoAppService clienteAppService = new(servicoDAOMock.Object, servicoLeituraMock.Object);
             clienteAppService.EditarEntidade(servico.id, novoServico);
 
             //assert
@@ -94,9 +97,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.ServicoModule
             Mock<Servico> novoServicoMock = new();
 
             Mock<IRepository<Servico, int>> servicoDAOMock = new();
+            Mock<IReadOnlyRepository<Servico, int>> servicoLeituraMock = new();
 
             //action
-            ServicoAppService clienteAppService = new(servicoDAOMock.Object);
+            ServicoAppService clienteAppService = new(servicoDAOMock.Object, servicoLeituraMock.Object);
             clienteAppService.ExcluirEntidade(servico.id);
 
             //assert

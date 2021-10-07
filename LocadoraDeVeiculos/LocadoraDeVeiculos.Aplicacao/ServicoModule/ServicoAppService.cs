@@ -10,12 +10,14 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
 {
     public class ServicoAppService : AppServiceBase<Servico>
     {
-        private readonly IRepository<Servico> servicoRepository;
+        private readonly IRepository<Servico,int> servicoRepository;
+        private readonly IReadOnlyRepository<Servico, int> servicoLeitura;
         long tempo;
 
-        public ServicoAppService(IRepository<Servico> servicoRepository)
+        public ServicoAppService(IRepository<Servico,int> servicoRepository, IReadOnlyRepository<Servico, int> servicoLeitura)
         {
             this.servicoRepository = servicoRepository;
+            this.servicoLeitura = servicoLeitura;
         }
 
         public override bool InserirEntidade(Servico servico)
@@ -55,7 +57,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
         public override bool ExisteEntidade(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            bool resultado = servicoRepository.Existe(id);
+            bool resultado = servicoLeitura.Existe(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (resultado)
                 Log.Information("{DataEHora} / Serviço {id} encontrado com sucesso", DateTime.Now, id);
@@ -66,7 +68,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
         public override Servico SelecionarEntidadePorId(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            Servico servico = servicoRepository.SelecionarPorId(id);
+            Servico servico = servicoLeitura.SelecionarPorId(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (servico != null)
                 Log.Information("{DataEHora} / Serviço {id} selecionado com sucesso", DateTime.Now, id);
@@ -77,7 +79,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
         public override List<Servico> SelecionarTodasEntidade()
         {
             tempo = DateTime.Now.Millisecond;
-            List<Servico> listServico = servicoRepository.SelecionarTodos();
+            List<Servico> listServico = servicoLeitura.SelecionarTodos();
             tempo = DateTime.Now.Millisecond - tempo;
             if (listServico != null)
                 Log.Information("{DataEHora} / {QtdSelecionados} Serviços selecionados com sucesso", DateTime.Now, listServico.Count);
