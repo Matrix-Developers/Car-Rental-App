@@ -11,14 +11,16 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 {
     public class VeiculoAppService : AppServiceBase<Veiculo>
     {
-        private readonly IRepository<Veiculo> veiculoRepository;
+        private readonly IRepository<Veiculo,int> veiculoRepository;
         private readonly IImagemVeiculoRepository imagemVeiculoRepository;
+        private readonly IReadOnlyRepository<Veiculo, int> readOnlyRepository;
         long tempo;
 
-        public VeiculoAppService(IRepository<Veiculo> veiculoRepository, IImagemVeiculoRepository imagemVeiculoRepository)
+        public VeiculoAppService(IRepository<Veiculo,int> veiculoRepository, IImagemVeiculoRepository imagemVeiculoRepository, IReadOnlyRepository<Veiculo, int> readOnlyRepository)
         {
             this.veiculoRepository = veiculoRepository;
             this.imagemVeiculoRepository = imagemVeiculoRepository;
+            this.readOnlyRepository = readOnlyRepository;
         }
 
         public override bool InserirEntidade(Veiculo veiculo)
@@ -76,7 +78,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         public override bool ExisteEntidade(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            bool resultado = veiculoRepository.Existe(id);
+            bool resultado = readOnlyRepository.Existe(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (resultado)
                 Log.Information("{DataEHora} / Veiculo {Veiculo} encontrado com sucesso", DateTime.Now, id);
@@ -87,7 +89,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         public override Veiculo SelecionarEntidadePorId(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            Veiculo veiculo = veiculoRepository.SelecionarPorId(id);
+            Veiculo veiculo = readOnlyRepository.SelecionarPorId(id);
             veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (veiculo != null)
@@ -99,7 +101,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         public override List<Veiculo> SelecionarTodasEntidade()
         {
             tempo = DateTime.Now.Millisecond;
-            List<Veiculo> listVeiculos = veiculoRepository.SelecionarTodos();
+            List<Veiculo> listVeiculos = readOnlyRepository.SelecionarTodos();
             tempo = DateTime.Now.Millisecond - tempo;
             if (listVeiculos != null)
             {
