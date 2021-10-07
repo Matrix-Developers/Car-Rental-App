@@ -135,8 +135,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                     return true;
                 });
 
+            Mock<IReadOnlyRepository<Veiculo, int>> readOnlyRepository = new();
+
             //action
-            VeiculoAppService veiculoAppService = new(veiculoMock.Object,imagemVeiculoMock.Object);
+            VeiculoAppService veiculoAppService = new(veiculoMock.Object,imagemVeiculoMock.Object,readOnlyRepository.Object);
             veiculoAppService.InserirEntidade(veiculo);
 
             //assert
@@ -167,8 +169,11 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                 .ComAlocaoAtiva(verdade)
                 .ComImagem(naoPossuiImagens)
                 .Build();
+
             Mock<IRepository<Veiculo, int>> veiculoMock = new();
-            veiculoMock.Setup(x => x.SelecionarPorId(veiculo.id))
+
+            Mock<IReadOnlyRepository<Veiculo, int>> readOnlyRepository = new();
+            readOnlyRepository.Setup(x => x.SelecionarPorId(veiculo.id))
                 .Returns(() =>
                 {
                     return veiculo;
@@ -181,11 +186,11 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                 });
 
             //action
-            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
+            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object, readOnlyRepository.Object);
             veiculoAppService.SelecionarEntidadePorId(veiculo.id);
 
             //assert
-            veiculoMock.Verify(x => x.SelecionarPorId(veiculo.id));
+            readOnlyRepository.Verify(x => x.SelecionarPorId(veiculo.id));
         }
 
         [Test]
@@ -244,9 +249,11 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
             Mock<IImagemVeiculoRepository> imagemVeiculoMock = new();
             imagemVeiculoMock.Setup(x => x.EditarLista(null));
 
+            Mock<IReadOnlyRepository<Veiculo, int>> readOnlyRepository = new();
+
 
             //action
-            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
+            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object, readOnlyRepository.Object);
             veiculoAppService.EditarEntidade(veiculo.id,veiculoEditado);
 
             //assert
@@ -290,8 +297,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                     return true;
                 });
 
+            Mock<IReadOnlyRepository<Veiculo, int>> readOnlyRepository = new();
+
             //action
-            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object);
+            VeiculoAppService veiculoAppService = new(veiculoMock.Object, imagemVeiculoMock.Object, readOnlyRepository.Object);
             veiculoAppService.ExcluirEntidade(veiculo.id);
 
             //assert
