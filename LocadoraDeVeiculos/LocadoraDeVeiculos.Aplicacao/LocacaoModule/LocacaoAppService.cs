@@ -9,9 +9,10 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
 {
     public class LocacaoAppService : AppServiceBase<Locacao>
     {
-        private readonly IRepository<Locacao> locacaoRepository;
+        private readonly IRepository<Locacao, int> locacaoRepository;
+        private readonly IReadOnlyRepository<Locacao, int> locacaoLeitura;
         long tempo;
-        public LocacaoAppService(IRepository<Locacao> locacaoRepository)
+        public LocacaoAppService(IRepository<Locacao, int> locacaoRepository)
         {
             this.locacaoRepository = locacaoRepository;
         }
@@ -55,7 +56,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
         public override Locacao SelecionarEntidadePorId(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            Locacao locacao = locacaoRepository.SelecionarPorId(id);
+            Locacao locacao = locacaoLeitura.SelecionarPorId(id);
             tempo = DateTime.Now.Millisecond - tempo;
 
             if(locacao != null)
@@ -68,7 +69,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
         public override List<Locacao> SelecionarTodasEntidade()
         {
             tempo = DateTime.Now.Millisecond;
-            List<Locacao> locacoes = locacaoRepository.SelecionarTodos();
+            List<Locacao> locacoes = locacaoLeitura.SelecionarTodos();
             tempo = DateTime.Now.Millisecond - tempo;
 
             if (locacoes != null)
@@ -80,7 +81,7 @@ namespace LocadoraDeVeiculos.Aplicacao.LocacaoModule
         }
         public override bool ExisteEntidade(int id)
         {
-            return locacaoRepository.Existe(id);
+            return locacaoLeitura.Existe(id);
         }
     }
 }

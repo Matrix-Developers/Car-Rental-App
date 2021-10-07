@@ -8,7 +8,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Infra.SQL.Shared
 {
-    public abstract class RepositoryBase<T> where T : EntidadeBase<int>
+    public abstract class RepositoryBase<T> : IReadOnlyRepository<T, int>, IRepository<T, int> where T : EntidadeBase<int>
     {
         protected abstract string SqlInserirEntidade { get; }
         protected abstract string SqlEditarEntidade { get; }

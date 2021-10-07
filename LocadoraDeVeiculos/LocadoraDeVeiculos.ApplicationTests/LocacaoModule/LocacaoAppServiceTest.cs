@@ -125,7 +125,8 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
             locacaoMock.Object.DataDeChegada = daquiUmAno;
 
             Mock<IRepository<Locacao, int>> locacaoDAOMock = new();
-            locacaoDAOMock.Setup(x => x.SelecionarPorId(locacao.id))
+            Mock<IReadOnlyRepository<Locacao, int>> locacaoLeituraMock = new();
+            locacaoLeituraMock.Setup(x => x.SelecionarPorId(locacao.id))
                 .Returns(() =>
                 {
                     return locacao;
@@ -136,7 +137,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
             locacaoAppService.SelecionarEntidadePorId(locacao.id);
 
             //assert
-            locacaoDAOMock.Verify(x => x.SelecionarPorId(locacao.id));
+            locacaoLeituraMock.Verify(x => x.SelecionarPorId(locacao.id));
         }
 
         [Test]

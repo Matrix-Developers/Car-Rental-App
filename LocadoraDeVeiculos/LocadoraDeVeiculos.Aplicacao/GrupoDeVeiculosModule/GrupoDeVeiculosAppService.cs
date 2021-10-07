@@ -10,11 +10,13 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
 {
     public class GrupoDeVeiculosAppService : AppServiceBase<GrupoDeVeiculo>
     {
-        private readonly IRepository<GrupoDeVeiculo> grupoDeVeiculoRepository;
+        private readonly IRepository<GrupoDeVeiculo, int> grupoDeVeiculoRepository;
+        private readonly IReadOnlyRepository<GrupoDeVeiculo, int> grupoDeVeiculoLeitura;
         private long tempo;
-        public GrupoDeVeiculosAppService(IRepository<GrupoDeVeiculo> grupoDeVeiculoRepository)
+        public GrupoDeVeiculosAppService(IRepository<GrupoDeVeiculo, int> grupoDeVeiculoRepository, IReadOnlyRepository<GrupoDeVeiculo, int> grupoDeVeiculoLeitura)
         {
             this.grupoDeVeiculoRepository = grupoDeVeiculoRepository;
+            this.grupoDeVeiculoLeitura = grupoDeVeiculoLeitura;
         }
 
         public override bool InserirEntidade(GrupoDeVeiculo grupoDeVeiculos)
@@ -55,7 +57,7 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
         public override bool ExisteEntidade(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            bool resultado = grupoDeVeiculoRepository.Existe(id);
+            bool resultado = grupoDeVeiculoLeitura.Existe(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (resultado)
                 Log.Information("{DataEHora} / Grupo de Veiculos {id} encontrado com sucesso", DateTime.Now, id);
@@ -66,7 +68,7 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
         public override GrupoDeVeiculo SelecionarEntidadePorId(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            GrupoDeVeiculo grupoDeVeiculo = grupoDeVeiculoRepository.SelecionarPorId(id);
+            GrupoDeVeiculo grupoDeVeiculo = grupoDeVeiculoLeitura.SelecionarPorId(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (grupoDeVeiculo != null)
                 Log.Information("{DataEHora} / Grupo de Veiculos {id} selecionado com sucesso", DateTime.Now, id);
@@ -77,7 +79,7 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
         public override List<GrupoDeVeiculo> SelecionarTodasEntidade()
         {
             tempo = DateTime.Now.Millisecond;
-            List<GrupoDeVeiculo> listGrupoDeVeiculos = grupoDeVeiculoRepository.SelecionarTodos();
+            List<GrupoDeVeiculo> listGrupoDeVeiculos = grupoDeVeiculoLeitura.SelecionarTodos();
             tempo = DateTime.Now.Millisecond - tempo;
             if (listGrupoDeVeiculos != null)
                 Log.Information("{DataEHora} / {QtdSelecionados} Grupo de Veiculos selecionados com sucesso", DateTime.Now, listGrupoDeVeiculos.Count);

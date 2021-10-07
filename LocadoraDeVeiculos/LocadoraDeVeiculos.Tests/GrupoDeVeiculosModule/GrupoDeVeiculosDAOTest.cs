@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.GrupoDeVeiculosModule
         public void Setup()
         {
             Configuracao();
-            GrupoDeVeiculosAppService = new GrupoDeVeiculosAppService(new GrupoDeVeiculosRepository());
+            GrupoDeVeiculosAppService = new GrupoDeVeiculosAppService(new GrupoDeVeiculosRepository(), new GrupoDeVeiculosRepository());
             ResetarBanco.ResetarTabelas();
         }
 

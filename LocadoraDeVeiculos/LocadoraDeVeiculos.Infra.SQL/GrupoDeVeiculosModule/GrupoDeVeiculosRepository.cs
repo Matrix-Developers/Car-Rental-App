@@ -7,7 +7,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule
 {
-    public class GrupoDeVeiculosRepository : RepositoryBase<GrupoDeVeiculo>, IRepository<GrupoDeVeiculo, int>
+    public class GrupoDeVeiculosRepository : RepositoryBase<GrupoDeVeiculo>
     {
         #region queries
         protected override string SqlInserirEntidade
