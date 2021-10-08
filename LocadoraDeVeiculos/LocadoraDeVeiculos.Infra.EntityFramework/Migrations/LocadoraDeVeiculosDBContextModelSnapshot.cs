@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                         .HasColumnType("VARCHAR(50)");
 
                     b.Property<int>("ParceiroId")
-                        .HasColumnType("int");
+                        .HasColumnType("INT");
 
                     b.Property<int>("QtdUtilizada")
                         .HasColumnType("INT");
@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
 
                     b.HasIndex("ParceiroId");
 
-                    b.ToTable("TBCupom");
+                    b.ToTable("TBCUPOM_DESCONTO");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ParceiroModule.Parceiro", b =>
@@ -72,18 +72,23 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TBParceiro");
+                    b.ToTable("TBPARCEIRO");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.CupomModule.Cupom", b =>
                 {
                     b.HasOne("LocadoraDeVeiculos.Dominio.ParceiroModule.Parceiro", "Parceiro")
-                        .WithMany()
+                        .WithMany("Cupons")
                         .HasForeignKey("ParceiroId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Parceiro");
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ParceiroModule.Parceiro", b =>
+                {
+                    b.Navigation("Cupons");
                 });
 #pragma warning restore 612, 618
         }

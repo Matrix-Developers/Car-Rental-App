@@ -8,11 +8,13 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
     {
         public void Configure(EntityTypeBuilder<Parceiro> builder)
         {
-            builder.ToTable("TBParceiro");
+            builder.ToTable("TBPARCEIRO");
 
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Nome).HasColumnType("VARCHAR(50)").IsRequired();
+
+            builder.HasMany(p => p.Cupons);
         }
     }
 }

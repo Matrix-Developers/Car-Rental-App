@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.ParceiroModule
@@ -6,6 +7,7 @@ namespace LocadoraDeVeiculos.Dominio.ParceiroModule
     public class Parceiro : EntidadeBase
     {
         public string Nome { get; set; }
+        public List<Cupom> Cupons { get; set; }
 
         public Parceiro(int id, string nome)
         {

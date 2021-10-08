@@ -35,11 +35,14 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var config = InitConfiguration();
-            connectionString = config.GetSection("ConnectionStrings").GetSection("SqlServer").Value;
             optionsBuilder
                 .UseLoggerFactory(loggerFactoryConsole)
-                .UseSqlServer(connectionString);
+                .UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DBLocadoraDeVeiculosORM;Integrated Security=True");
+            //var config = InitConfiguration();
+            //connectionString = config.GetSection("ConnectionStrings").GetSection("SqlServerORM").Value;
+            //optionsBuilder
+            //    .UseLoggerFactory(loggerFactoryConsole)
+            //    .UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

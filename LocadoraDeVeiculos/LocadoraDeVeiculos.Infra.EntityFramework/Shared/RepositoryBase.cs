@@ -4,8 +4,6 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
 {
@@ -17,6 +15,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
         protected RepositoryBase(LocadoraDeVeiculosDBContext db)
         {
             this.db = db;
+            dbSet = db.Set<T>();
         }
 
         public bool InserirNovo(T registro)
@@ -42,7 +41,6 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
                 entidadeBaseParaEdicao = registro;
                 entidadeBaseParaEdicao.Id = id;
                 db.SaveChanges();
-                return true;
             }
             catch (Exception ex)
             {

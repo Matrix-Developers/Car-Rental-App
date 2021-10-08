@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
 {
-    public partial class CriacaoTabela : Migration
+    public partial class Base : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "TBParceiro",
+                name: "TBPARCEIRO",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -17,11 +17,11 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TBParceiro", x => x.Id);
+                    table.PrimaryKey("PK_TBPARCEIRO", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TBCupom",
+                name: "TBCUPOM_DESCONTO",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -32,33 +32,33 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     ValorMinimo = table.Column<double>(type: "FLOAT", nullable: false),
                     EhDescontoFixo = table.Column<bool>(type: "BIT", nullable: false),
                     Validade = table.Column<DateTime>(type: "DATE", nullable: false),
-                    ParceiroId = table.Column<int>(type: "int", nullable: false),
+                    ParceiroId = table.Column<int>(type: "INT", nullable: false),
                     QtdUtilizada = table.Column<int>(type: "INT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TBCupom", x => x.Id);
+                    table.PrimaryKey("PK_TBCUPOM_DESCONTO", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TBCupom_TBParceiro_ParceiroId",
+                        name: "FK_TBCUPOM_DESCONTO_TBPARCEIRO_ParceiroId",
                         column: x => x.ParceiroId,
-                        principalTable: "TBParceiro",
+                        principalTable: "TBPARCEIRO",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_TBCupom_ParceiroId",
-                table: "TBCupom",
+                name: "IX_TBCUPOM_DESCONTO_ParceiroId",
+                table: "TBCUPOM_DESCONTO",
                 column: "ParceiroId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TBCupom");
+                name: "TBCUPOM_DESCONTO");
 
             migrationBuilder.DropTable(
-                name: "TBParceiro");
+                name: "TBPARCEIRO");
         }
     }
 }
