@@ -4,14 +4,16 @@ using LocadoraDeVeiculos.Infra.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDBContext))]
-    partial class LocadoraDeVeiculosDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211008203248_TabelaFuncionario")]
+    partial class TabelaFuncionario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,28 +128,6 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TBPARCEIRO");
-                });
-
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.SevicosModule.Servico", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("EhTaxadoDiario")
-                        .HasColumnType("BIT");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(50)");
-
-                    b.Property<double>("Valor")
-                        .HasColumnType("FLOAT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TBSERVICO");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.CupomModule.Cupom", b =>
