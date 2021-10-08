@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
         //public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Cupom> Cupons { get; set; }
         //public DbSet<Funcionario> Funcionarios { get; set; }
-        //public DbSet<GrupoDeVeiculo> GrupoDeVeiculos { get; set; }
+        public DbSet<GrupoDeVeiculo> GrupoDeVeiculos { get; set; }
         //public DbSet<ImagemVeiculo> ImagemVeiculos { get; set; }
         //public DbSet<Locacao> Locacoes { get; set; }
         public DbSet<Parceiro> Parceiros { get; set; }
