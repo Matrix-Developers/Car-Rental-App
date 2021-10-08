@@ -14,6 +14,11 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
         protected readonly LocadoraDeVeiculosDBContext db;
         protected readonly DbSet<T> dbSet;
 
+        protected RepositoryBase(LocadoraDeVeiculosDBContext db)
+        {
+            this.db = db;
+        }
+
         public bool InserirNovo(T registro)
         {
             try
@@ -33,8 +38,11 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
         {
             try
             {
-                registro.Id = id;
-                dbSet.Update(registro);
+                T entidadeBaseParaEdicao = SelecionarPorId(id);
+                entidadeBaseParaEdicao = registro;
+                entidadeBaseParaEdicao.Id = id;
+                db.SaveChanges();
+                return true;
             }
             catch (Exception ex)
             {
@@ -91,7 +99,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
         {
             try
             {
-                return SelecionarPorId(id) != null;
+                return dbSet.ToList().Exists(x => x.Id == id);
             }
             catch (Exception ex)
             {
