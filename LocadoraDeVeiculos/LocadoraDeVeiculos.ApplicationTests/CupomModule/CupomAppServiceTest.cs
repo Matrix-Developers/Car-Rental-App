@@ -188,10 +188,10 @@ namespace LocadoraDeVeiculos.ApplicationTests.CupomModule
 
             //action
             CupomAppService cupomAppService = new(cupomDAOMock.Object);
-            cupomAppService.AtualizarQuantidadeUtilizada(cupom.Id, 5);
+            cupomAppService.AtualizarQuantidadeUtilizada(cupom);
 
             //assert
-            cupomDAOMock.Verify(x => x.AtualizarQtdUtilizada(cupom.Id, 5));
+            cupomDAOMock.Verify(x => x.AtualizarQtdUtilizada(cupom));
         }
 
         #region Métodos privados

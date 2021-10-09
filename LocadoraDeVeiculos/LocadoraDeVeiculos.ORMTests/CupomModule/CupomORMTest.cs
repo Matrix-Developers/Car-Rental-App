@@ -7,6 +7,7 @@ using LocadoraDeVeiculos.Infra.EntityFramework.Features;
 using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System;
+using System.Linq;
 
 namespace LocadoraDeVeiculos.ORMTests
 {
@@ -14,6 +15,7 @@ namespace LocadoraDeVeiculos.ORMTests
     {
         private ICupomRepository controlador;
         private IRepository<Parceiro> controladorParceiro;
+        LocadoraDeVeiculosDBContext dbContext = new();
 
         private Cupom cupom;
         private string nome;
@@ -29,10 +31,23 @@ namespace LocadoraDeVeiculos.ORMTests
         [SetUp]
         public void Setup()
         {
-            LocadoraDeVeiculosDBContext dbContext = new ();
             controlador = new CupomORM(dbContext);
             controladorParceiro = new ParceiroORM(dbContext);
             Configuracao();
+        }
+        [TearDown]
+        public void TearDown()
+        {
+            var listaCupons = dbContext.Cupons.ToList().Select(x => x as Cupom);
+            foreach (var cupom in listaCupons)
+                dbContext.Cupons.Remove(cupom);
+            dbContext.SaveChanges();
+
+            var listaParceiros = dbContext.Parceiros.ToList().Select(x => x as Parceiro);
+            foreach (var item in listaParceiros)
+                dbContext.Parceiros.Remove(item);
+
+            dbContext.SaveChanges();
         }
 
         [Test]
@@ -57,7 +72,202 @@ namespace LocadoraDeVeiculos.ORMTests
             var cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
             cupomEncontrado.Should().Be(cupom);
         }
+        [Test]
+        public void DeveSelecionarDoisCupons()
+        {
+            //arrange
+            cupom = new CupomDataBuilder()
+               .ComNome(nome)
+               .ComCodigo(codigo)
+               .ComValor(valor)
+               .ComValorMinimo(valorMinimo)
+               .EhDescontoFixo(ehDescontoFixo)
+               .ComValidade(validade)
+               .ComParceiro(parceiro)
+               .ComQtdUtilizada(qtdUtilazada)
+               .Build();
 
+            Cupom cupom2 = new CupomDataBuilder()
+               .ComNome(nome)
+               .ComCodigo(codigo)
+               .ComValor(valor)
+               .ComValorMinimo(valorMinimo)
+               .EhDescontoFixo(ehDescontoFixo)
+               .ComValidade(validade)
+               .ComParceiro(parceiro)
+               .ComQtdUtilizada(qtdUtilazada)
+               .Build();
+
+            controlador.InserirNovo(cupom);
+            controlador.InserirNovo(cupom2);
+
+            //action
+            var cupons = controlador.SelecionarTodos();
+
+            //assert
+            cupons.Should().HaveCount(2);
+        }
+
+        [Test]
+        public void DeveEditarUmCupom()
+        {
+            //arrange
+            cupom = new CupomDataBuilder()
+                .ComNome(nome)
+                .ComCodigo(codigo)
+                .ComValor(valor)
+                .ComValorMinimo(valorMinimo)
+                .EhDescontoFixo(ehDescontoFixo)
+                .ComValidade(validade)
+                .ComParceiro(parceiro)
+                .ComQtdUtilizada(qtdUtilazada)
+                .Build();
+
+            controlador.InserirNovo(cupom);
+
+            //action
+            cupom.Nome = "Editado";
+            controlador.Editar(0, cupom);
+
+            //assert
+            Cupom parceiroEncontrado = controlador.SelecionarPorId(cupom.Id);
+            parceiroEncontrado.Nome.Should().Be("Editado");
+        }
+
+        [Test]
+        public void DeveExcluirUmParceiro()
+        {
+            //arrange
+            cupom = new CupomDataBuilder()
+                .ComNome(nome)
+                .ComCodigo(codigo)
+                .ComValor(valor)
+                .ComValorMinimo(valorMinimo)
+                .EhDescontoFixo(ehDescontoFixo)
+                .ComValidade(validade)
+                .ComParceiro(parceiro)
+                .ComQtdUtilizada(qtdUtilazada)
+                .Build();
+
+            //action
+            controlador.InserirNovo(cupom);
+            controlador.Excluir(cupom.Id);
+
+            //assert
+            var cupomEscolhido = controlador.SelecionarPorId(cupom.Id);
+            cupomEscolhido.Should().BeNull();
+        }
+        [Test]
+        public void DeveSelecionarCupomPorID()
+        {
+            //Arrange
+            cupom = new CupomDataBuilder()
+                .ComNome(nome)
+                .ComCodigo(codigo)
+                .ComValor(valor)
+                .ComValorMinimo(valorMinimo)
+                .EhDescontoFixo(ehDescontoFixo)
+                .ComValidade(validade)
+                .ComParceiro(parceiro)
+                .ComQtdUtilizada(qtdUtilazada)
+                .Build();
+
+            //Action
+            controlador.InserirNovo(cupom);
+            var cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
+
+            //Assert
+            cupomEncontrado.Should().Be(cupom);
+        }
+        [Test]
+        public void DeveAtualizarQtdUtilizada()
+        {
+            cupom = new CupomDataBuilder()
+                .ComNome(nome)
+                .ComCodigo(codigo)
+                .ComValor(valor)
+                .ComValorMinimo(valorMinimo)
+                .EhDescontoFixo(ehDescontoFixo)
+                .ComValidade(validade)
+                .ComParceiro(parceiro)
+                .ComQtdUtilizada(qtdUtilazada)
+                .Build();
+
+            controlador.InserirNovo(cupom);
+
+            //action
+            controlador.AtualizarQtdUtilizada(cupom);
+
+            //assert
+            Cupom parceiroEncontrado = controlador.SelecionarPorId(cupom.Id);
+            parceiroEncontrado.QtdUtilizada.Should().Be(1);
+        }
+        [Test]
+        public void DeveVerificarSeExiteCodigo_Existe()
+        {
+            cupom = new CupomDataBuilder()
+                .ComNome(nome)
+                .ComCodigo(codigo)
+                .ComValor(valor)
+                .ComValorMinimo(valorMinimo)
+                .EhDescontoFixo(ehDescontoFixo)
+                .ComValidade(validade)
+                .ComParceiro(parceiro)
+                .ComQtdUtilizada(qtdUtilazada)
+                .Build();
+
+            controlador.InserirNovo(cupom);
+
+            //action
+            bool existCodigo = controlador.ExisteCodigo(codigo);
+
+            //assert
+            existCodigo.Should().BeTrue();
+        }
+        [Test]
+        public void DeveVerificarSeExiteCodigo_NaoExiste()
+        {
+            cupom = new CupomDataBuilder()
+                .ComNome(nome)
+                .ComCodigo(codigo)
+                .ComValor(valor)
+                .ComValorMinimo(valorMinimo)
+                .EhDescontoFixo(ehDescontoFixo)
+                .ComValidade(validade)
+                .ComParceiro(parceiro)
+                .ComQtdUtilizada(qtdUtilazada)
+                .Build();
+
+            controlador.InserirNovo(cupom);
+
+            //action
+            bool existCodigo = controlador.ExisteCodigo("");
+
+            //assert
+            existCodigo.Should().BeFalse();
+        }
+        [Test]
+        public void DeveSelecionarCupomPorCodigo()
+        {
+            //Arrange
+            cupom = new CupomDataBuilder()
+                .ComNome(nome)
+                .ComCodigo(codigo)
+                .ComValor(valor)
+                .ComValorMinimo(valorMinimo)
+                .EhDescontoFixo(ehDescontoFixo)
+                .ComValidade(validade)
+                .ComParceiro(parceiro)
+                .ComQtdUtilizada(qtdUtilazada)
+                .Build();
+
+            //Action
+            controlador.InserirNovo(cupom);
+            var cupomEncontrado = controlador.SelecionarPorCodigo(codigo);
+
+            //Assert
+            cupomEncontrado.Should().Be(cupom);
+        }
 
         #region Métodos Privados
         public void Configuracao()

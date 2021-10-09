@@ -114,10 +114,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     cupom = null;
             }
             if (cupom != null)
-            {
-                int qtdUtilizada = cupom.QtdUtilizada;
-                controladorCupom.AtualizarQtdUtilizada(cupom.Id, ++qtdUtilizada);
-            }
+                controladorCupom.AtualizarQtdUtilizada(cupom);
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
             Veiculo veiculoAtualizado = locacao.Veiculo;
             controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
