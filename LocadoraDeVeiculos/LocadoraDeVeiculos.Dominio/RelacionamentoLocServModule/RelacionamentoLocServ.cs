@@ -10,6 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
         public Locacao Locacao { get; }
         public List<Servico> Servicos { get; }
         public int IdServico { get; }
+        public int IdLocacao { get; }
 
         public RelacionamentoLocServ(int id, Locacao locacao, List<Servico> servicos)
         {
