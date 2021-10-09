@@ -7,7 +7,6 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
     {
         void EditarLista(List<ImagemVeiculo> registros);
         bool ExcluirPorIdDoVeiculo(int idVeiculo);
-        List<ImagemVeiculo> SelecionarPorIdDoVeiculo(int id);
         List<ImagemVeiculo> SelecioanrTodasImagensDeUmVeiculo(int id);
     }
 }

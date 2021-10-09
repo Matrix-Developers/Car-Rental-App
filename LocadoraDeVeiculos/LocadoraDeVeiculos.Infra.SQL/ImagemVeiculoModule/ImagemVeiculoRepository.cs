@@ -72,7 +72,6 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
         }
 
         //chamadas unicas do ImagemVeiculo
-        private const string comandoSelecionarPorIdDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoExcluirTodosPorIdDoVeiculo = "DELETE FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO";
         private const string comandoSelecionarTodosDoVeiculo = "SELECT * FROM [DBO].[TBIMAGEMVEICULO] WHERE [ID_VEICULO] = @ID_VEICULO;";
         //
@@ -103,27 +102,10 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
 
             return true;
         }
-        public List<ImagemVeiculo> SelecionarPorIdDoVeiculo(int id)
-        {
-            return Db.GetAll(comandoSelecionarPorIdDoVeiculo, ConverterEmEntidade, AdicionarParametro("ID_VEICULO", id));
-        }
         public List<ImagemVeiculo> SelecioanrTodasImagensDeUmVeiculo(int id)
         {
             return Db.GetAll(comandoSelecionarTodosDoVeiculo, ConverterEmEntidade, AdicionarParametro("ID_VEICULO", id));
         }
-
-        //Metodo sem referencia ou uso. está obsoleto?
-        //R: caso precise trocar o formato da imagem já está meio pronto :)
-        //private Bitmap ConverteEmImagem(IDataReader reader)
-        //{
-
-        //    byte[] a = (byte[])(reader["IMAGEM"]);
-
-        //    TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
-        //    bmp = (Bitmap)tc.ConvertFrom(a);
-
-        //    return bmp;
-        //}
 
         protected override Dictionary<string, object> ObtemParametros(ImagemVeiculo entidade)
         {
