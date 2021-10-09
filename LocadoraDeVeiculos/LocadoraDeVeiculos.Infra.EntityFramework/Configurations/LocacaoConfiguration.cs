@@ -11,31 +11,23 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.ToTable("TBLOCACAO");
             builder.HasKey(p => p.Id);
 
-            //private Veiculo veiculo;
-            //private Funcionario funcionarioLocador;
-            //private Cliente clienteContratante;
-            //private Cliente clienteCondutor;
-            //private Cupom cupom;
-            //private DateTime dataDeSaida;
-            //private DateTime dataPrevistaDeChegada;
-            //private DateTime dataDeChegada;
-            //private string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
-            //private string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
-            //private double precoLocacao;
-            //private double precoDevolucao;
-            //private bool estaAberta;
-            //private List<Servico> servicos;
+            builder.Property(p => p.IdVeiculo).HasColumnType("INT");
+            builder.Property(p => p.IdFuncionarioLocador).HasColumnType("INT");
+            builder.Property(p => p.IdClienteContratante).HasColumnType("INT");
+            builder.Property(p => p.IdClienteCondutor).HasColumnType("INT");
+            builder.Property(p => p.IdCupom).HasColumnType("DATE").IsRequired();
+            builder.Property(p => p.DataPrevistaDeChegada).HasColumnType("DATE").IsRequired();
+            builder.Property(p => p.DataDeChegada).HasColumnType("DATE");
+            builder.Property(p => p.TipoDoPlano).HasColumnType("VARCHAR(50)").IsRequired();
+            builder.Property(p => p.TipoDeSeguro).HasColumnType("VARCHAR(50)").IsRequired();
+            builder.Property(p => p.PrecoLocacao).HasColumnType("FLOAT").IsRequired();
+            builder.Property(p => p.PrecoDevolucao).HasColumnType("FLOAT").IsRequired();
+            builder.Property(p => p.EstaAberta).HasColumnType("BIT");
 
-            //builder.Property(p => p.Nome).HasColumnType("VARCHAR(50)").IsRequired();
-            //builder.Property(p => p.Codigo).HasColumnType("VARCHAR(50)").IsRequired();
-            //builder.Property(p => p.Valor).HasColumnType("FLOAT").IsRequired();
-            //builder.Property(p => p.ValorMinimo).HasColumnType("FLOAT").IsRequired();
-            //builder.Property(p => p.EhDescontoFixo).HasColumnType("BIT").IsRequired();
-            //builder.Property(p => p.Validade).HasColumnType("DATE").IsRequired();
-            //builder.Property(p => p.ParceiroId).HasColumnType("INT");
-            //builder.Property(p => p.QtdUtilizada).HasColumnType("INT").IsRequired();
+            builder.HasMany(p => p.Servicos);
 
-            //builder.HasOne(p => p.Parceiro).WithMany(p => p.Cupons).HasForeignKey(p => p.ParceiroId);
+            //relacionamentos???
+            //builder.HasOne(p => p.Parceiro).WithMany(p => p.Cupons).HasForeignKey(p => p.ParceiroId);  ??????
         }
     }
 }
