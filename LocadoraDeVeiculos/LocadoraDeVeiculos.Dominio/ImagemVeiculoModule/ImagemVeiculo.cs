@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,6 +9,7 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
     public class ImagemVeiculo : EntidadeBase
     {
         public int IdVeiculo { get; set; }
+        public Veiculo veiculo {get; set;}
         public Bitmap Imagem { get; set; }
 
         public ImagemVeiculo() { }

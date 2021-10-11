@@ -10,6 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
     {
         public string modelo;
         public GrupoDeVeiculo grupoVeiculos;
+        public int id_GrupoVeiculo;
         public string placa;
         public string chassi;
         public string marca;
