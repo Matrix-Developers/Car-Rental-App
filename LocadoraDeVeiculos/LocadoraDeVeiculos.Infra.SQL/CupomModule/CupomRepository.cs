@@ -194,16 +194,17 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                 return null;
             }
         }
-        public void AtualizarQtdUtilizada(int id, int qtdUtilizada)
+        public void AtualizarQtdUtilizada(Cupom cupom)
         {
             try
             {
-            Db.Update(sqlEditarQtdUtilizadaCupom, ObtemParametrosQtdUtilizada(id, qtdUtilizada));
+                cupom.QtdUtilizada++;
+                Db.Update(sqlEditarQtdUtilizadaCupom, ObtemParametrosQtdUtilizada(cupom.Id, cupom.QtdUtilizada));
 
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), id,qtdUtilizada, sqlEditarQtdUtilizadaCupom, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: {query} / {StackTrace}", DateTime.Now, this.ToString(), cupom.Id, cupom.QtdUtilizada, sqlEditarQtdUtilizadaCupom, ex);
             }
         }
         private static Dictionary<string, object> ObtemParametrosQtdUtilizada(int id, int qtdUtilizada)

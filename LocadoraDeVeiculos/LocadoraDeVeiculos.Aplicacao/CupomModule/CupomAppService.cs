@@ -123,17 +123,17 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
             return cupomRepository.SelecionarPorCodigo(codigo);
         }
 
-        public void AtualizarQuantidadeUtilizada(int id, int quantidade)
+        public void AtualizarQuantidadeUtilizada(Cupom cupom)
         {
             try
             {
                 tempo = DateTime.Now.Millisecond;
-                cupomRepository.AtualizarQtdUtilizada(id, quantidade);
+                cupomRepository.AtualizarQtdUtilizada(cupom);
                 tempo = DateTime.Now.Millisecond - tempo;
             }
             catch (Exception)
             {
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}", DateTime.Now, this.ToString(), "AppService", "Atualizar Qtd Utilizada", id, quantidade, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}", DateTime.Now, this.ToString(), "AppService", "Atualizar Qtd Utilizada", cupom.Id, cupom.QtdUtilizada, tempo);
             }
         }
     }
