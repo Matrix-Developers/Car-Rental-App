@@ -37,14 +37,13 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
         {
             try
             {
-                T entidadeBaseParaEdicao = SelecionarPorId(id);
-                entidadeBaseParaEdicao = registro;
-                entidadeBaseParaEdicao.Id = id;
+                db.ChangeTracker.Clear();
+                dbSet.Update(registro);
                 db.SaveChanges();
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Editar  um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), id, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Editar  um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), registro.Id, ex);
                 return false;
             }
             return true;

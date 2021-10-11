@@ -22,17 +22,18 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
 
         private string connectionString = "";        
 
-        //public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Cupom> Cupons { get; set; }
-        //public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<GrupoDeVeiculo> GrupoDeVeiculos { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
         //public DbSet<ImagemVeiculo> ImagemVeiculos { get; set; }
         public DbSet<Locacao> Locacoes { get; set; }
         public DbSet<Parceiro> Parceiros { get; set; }
         //public DbSet<RelacionamentoLocServ> Relacionamentos { get; set; }
-        //public DbSet<Servico> Servicos{ get; set; }
         public DbSet<Veiculo> Veiculos{ get; set; }
-
+        public DbSet<Servico> Servicos{ get; set; }
+        
+    
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
