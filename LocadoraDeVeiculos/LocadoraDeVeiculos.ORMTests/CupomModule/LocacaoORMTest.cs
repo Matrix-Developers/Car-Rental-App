@@ -2,7 +2,9 @@
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.EntityFramework;
@@ -16,12 +18,17 @@ namespace LocadoraDeVeiculos.ORMTests.CupomModule
     class LocacaoORMTest
     {
         private IRepository<Locacao> controlador;
+        private IRepository<GrupoDeVeiculo> controladorGrupoDeVeiculo;
         private IRepository<Veiculo> controladorVeiculo;
         private IRepository<Funcionario> controladorFuncionario;
         private IRepository<Cliente> controladorCliente;
-        private IRepository<Cupom> controladoCupom;
+        private IRepository<Parceiro> controladorParceiro;
+        private IRepository<Cupom> controladorCupom;
 
         private Locacao locacao;
+        private Parceiro parceiro;
+        private GrupoDeVeiculo grupoDeVeiculo;
+
         private Veiculo veiculo;
         private Funcionario funcionarioLocador;
         private Cliente clienteContratante;
@@ -43,10 +50,12 @@ namespace LocadoraDeVeiculos.ORMTests.CupomModule
         {
             LocadoraDeVeiculosDBContext dbContext = new();
             controlador = new LocacaoORM(dbContext);
+            controladorGrupoDeVeiculo = new GrupoDeVeiculosORM(dbContext);
             controladorVeiculo = new VeiculoORM(dbContext);
             controladorFuncionario = new FuncionarioORM(dbContext);
             controladorCliente = new ClienteORM(dbContext);
-            controladoCupom = new CupomORM(dbContext);
+            controladorParceiro = new ParceiroORM(dbContext);
+            controladorCupom = new CupomORM(dbContext);
             Configuracao();
         }
 
@@ -79,11 +88,20 @@ namespace LocadoraDeVeiculos.ORMTests.CupomModule
         #region Métodos Privados
         public void Configuracao()
         {
-            veiculo = new Veiculo(0, "Ecosport", null, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);      //grupo de veiculos esta null. pode trazer problemas no db
-            funcionarioLocador = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
-            clienteContratante = new Cliente(0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), false);
-            clienteCondutor = new Cliente(1, "Arnaldo", "888.777.666.55", "Rua Laguna", "97777-6666", "arnaldo@test.com", "98765432103", new DateTime(2020, 11, 11), false);
-            cupom = new(0, "Nome Cupom", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), null, 0);       //parceiro esta null. pode trazer problemas no db
+            grupoDeVeiculo = new(0, "nome", 12.3f, 15.5f, 20.5f, 30, 16.3f, 45.2f);
+            controladorGrupoDeVeiculo.InserirNovo(grupoDeVeiculo);
+            veiculo = new(0, "Ecosport", grupoDeVeiculo, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            controladorVeiculo.InserirNovo(veiculo);
+            funcionarioLocador = new(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 001, "user acesso", "12345", new DateTime(2021, 01, 01), "Vendedor", 1000f, true);
+            controladorFuncionario.InserirNovo(funcionarioLocador);
+            clienteContratante = new (0, "Nome Teste", "954.746.736-04", "Endereco Cliente", "4932518000", "teste@email.com", "978545956-90", new DateTime(2030, 01, 01), false);
+            controladorCliente.InserirNovo(clienteContratante);
+            clienteCondutor = new(1, "Arnaldo", "888.777.666.55", "Rua Laguna", "97777-6666", "arnaldo@test.com", "98765432103", new DateTime(2020, 11, 11), false);
+            controladorCliente.InserirNovo(clienteCondutor);
+            parceiro = new (0, "Nome Teste");
+            controladorParceiro.InserirNovo(parceiro);
+            cupom = new(0, "Nome Cupom", "NDD10TECH", 10, 2000, true, DateTime.Now.AddDays(10), parceiro, 0);
+            controladorCupom.InserirNovo(cupom);
 
             dataDeSaida = DateTime.Today;
             dataPrevistaDeChegada = DateTime.Today.AddDays(5f);
