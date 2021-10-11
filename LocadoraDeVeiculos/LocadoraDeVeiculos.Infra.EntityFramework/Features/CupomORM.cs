@@ -11,17 +11,18 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
         public CupomORM(LocadoraDeVeiculosDBContext db) : base(db)
         {
         }
-        public void AtualizarQtdUtilizada(int id, int qtdUtilizada)
+        public void AtualizarQtdUtilizada(Cupom cupom)
         {
+            cupom.QtdUtilizada++;
             try
             {
-                Cupom cupom = SelecionarPorId(id);
-                db.Entry(cupom.QtdUtilizada).CurrentValues.SetValues(qtdUtilizada);
+                db.ChangeTracker.Clear();
+                dbSet.Update(cupom);
                 db.SaveChanges();
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), id, qtdUtilizada, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), cupom.Id, cupom.QtdUtilizada, ex);
             }
         }
 
