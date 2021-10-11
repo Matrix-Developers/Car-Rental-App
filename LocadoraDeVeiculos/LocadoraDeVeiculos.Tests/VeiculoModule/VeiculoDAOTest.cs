@@ -15,6 +15,7 @@ namespace LocadoraDeVeiculos.IntegrationTests.VeiculoModule
 {
     [TestClass]
     [TestCategory("DAO")]
+    //a
     public class VeiculoDAOTest
     {
         #region atributos privados
