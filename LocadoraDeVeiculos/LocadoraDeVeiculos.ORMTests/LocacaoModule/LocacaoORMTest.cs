@@ -13,9 +13,9 @@ using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System;
 
-namespace LocadoraDeVeiculos.ORMTests.CupomModule
+namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
 {
-    class LocacaoORMTest
+    public class LocacaoORMTest
     {
         private IRepository<Locacao> controlador;
         private IRepository<GrupoDeVeiculo> controladorGrupoDeVeiculo;
