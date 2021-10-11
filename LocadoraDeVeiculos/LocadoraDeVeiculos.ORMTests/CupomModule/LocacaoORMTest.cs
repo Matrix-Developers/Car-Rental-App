@@ -36,12 +36,8 @@ namespace LocadoraDeVeiculos.ORMTests.CupomModule
         private Cupom cupom;
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
-        private DateTime dataDeChegada;
         private string tipoDoPlano;
         private string tipoDeSeguro;
-        private double precoLocacao;
-        private double precoDevolucao;
-        private bool estaAberta;
         //private List<Servico> servicos;
 
 

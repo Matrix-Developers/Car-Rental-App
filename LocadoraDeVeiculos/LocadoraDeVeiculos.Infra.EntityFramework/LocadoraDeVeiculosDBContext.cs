@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
         //public DbSet<ImagemVeiculo> ImagemVeiculos { get; set; }
         public DbSet<Locacao> Locacoes { get; set; }
         public DbSet<Parceiro> Parceiros { get; set; }
-        //public DbSet<RelacionamentoLocServ> Relacionamentos { get; set; }
+        public DbSet<RelacionamentoLocServ> Relacionamentos { get; set; }
         public DbSet<Veiculo> Veiculos{ get; set; }
         public DbSet<Servico> Servicos{ get; set; }
         
