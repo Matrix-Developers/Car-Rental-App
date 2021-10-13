@@ -14,6 +14,7 @@ using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
 {
@@ -73,6 +74,7 @@ namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
             controladorCliente = new ClienteORM(dbContext);
             controladorParceiro = new ParceiroORM(dbContext);
             controladorCupom = new CupomORM(dbContext);
+            controladorServico = new ServicoORM(dbContext);
 
             ConfigurarDatas();
 
@@ -91,6 +93,16 @@ namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
             InserirTaxas();
 
             InserirParceiroECupom();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            var listaClientes = dbContext.Locacoes.ToList().Select(x => x as Locacao);
+            foreach (var item in listaClientes)
+                dbContext.Locacoes.Remove(item);
+
+            dbContext.SaveChanges();
         }
 
         [Test]
@@ -193,27 +205,15 @@ namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
                 .ComServicos(listaServicos)
                 .Build();
 
-            Locacao segundaLocacao = new LocacaoDataBuilder()
-                .ComVeiculo(fusca)
-                .ComFuncionarioLocador(joao)
-                .ComClienteContratante(condutorBruno)
-                .ComClienteCondutor(condutorBruno)
-                .ComCupom(null)
-                .ComDataDeSaida(amanha)
-                .ComDataDeChegada()
-                .ComDataPrevistaDeChegada(daquiDezDias)
-                .ComTipoDoPlano(planoKmControlado)
-                .ComTipoDoSeguro(seguroNenhum)
-                .ComServicos(null)
-                .Build();
-
             //Action
             controlador.InserirNovo(locacao);
-            controlador.Editar(locacao.Id, segundaLocacao);
+            locacao.TipoDoPlano = planoKmControlado;
+            controlador.Editar(locacao.Id, locacao);
 
             //Assert
             var locacaoEncontrada = controlador.SelecionarPorId(locacao.Id);
-            locacaoEncontrada.Should().Be(segundaLocacao);
+            locacaoEncontrada.TipoDoPlano.Should().Be(planoKmControlado);
+            locacaoEncontrada.Should().Be(locacao);
         }
 
         [Test]
