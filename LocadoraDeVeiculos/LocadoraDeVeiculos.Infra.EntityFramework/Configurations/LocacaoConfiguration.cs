@@ -26,8 +26,10 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
 
             builder.HasMany(p => p.Servicos);
 
-            //relacionamentos???
-            //builder.HasOne(p => p.Parceiro).WithMany(p => p.Cupons).HasForeignKey(p => p.ParceiroId);  ??????
+            builder.HasOne(p => p.FuncionarioLocador).WithMany(p => p.Locacoes).HasForeignKey(p => p.IdFuncionarioLocador);
+            builder.HasOne(p => p.ClienteContratante).WithMany(p => p.Locacoes).HasForeignKey(p => p.IdClienteContratante);
+            builder.HasOne(p => p.ClienteCondutor).WithMany(p => p.Locacoes).HasForeignKey(p => p.IdClienteCondutor);
+            builder.HasOne(p => p.Cupom).WithMany(p => p.Locacoes).HasForeignKey(p => p.IdCupom);
         }
     }
 }

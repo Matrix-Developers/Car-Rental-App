@@ -1,5 +1,7 @@
-﻿using LocadoraDeVeiculos.Dominio.PessoaModule;
+﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.PessoaModule;
 using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.ClienteModule
 {
@@ -7,6 +9,7 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
     {
         public string Cnh { get; set; }
         public DateTime? ValidadeCnh { get; set; }
+        public List<Locacao> Locacoes { get; set; }
 
         public Cliente(int id, string nome, string registroUnico, string endereco, string telefone, string email, string cnh, DateTime? validadeCnh, bool ehPessoaFisica)
         {
