@@ -11,11 +11,11 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.ToTable("TBLOCACAO");
             builder.HasKey(p => p.Id);
 
-            builder.Property(p => p.IdVeiculo).HasColumnType("INT");
-            builder.Property(p => p.IdFuncionarioLocador).HasColumnType("INT");
-            builder.Property(p => p.IdClienteContratante).HasColumnType("INT");
-            builder.Property(p => p.IdClienteCondutor).HasColumnType("INT");
-            builder.Property(p => p.IdCupom).HasColumnType("DATE").IsRequired();
+            //builder.Property(p => p.IdVeiculo).HasColumnType("INT");
+            //builder.Property(p => p.IdFuncionarioLocador).HasColumnType("INT");
+            //builder.Property(p => p.IdClienteContratante).HasColumnType("INT");
+            //builder.Property(p => p.IdClienteCondutor).HasColumnType("INT");
+            //builder.Property(p => p.IdCupom).HasColumnType("DATE").IsRequired();
             builder.Property(p => p.DataPrevistaDeChegada).HasColumnType("DATE").IsRequired();
             builder.Property(p => p.DataDeChegada).HasColumnType("DATE");
             builder.Property(p => p.TipoDoPlano).HasColumnType("VARCHAR(50)").IsRequired();
