@@ -19,6 +19,21 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("LocacaoServico", b =>
+                {
+                    b.Property<int>("LocacoesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LocacoesId", "ServicosId");
+
+                    b.HasIndex("ServicosId");
+
+                    b.ToTable("LocacaoServico");
+                });
+
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ClienteModule.Cliente", b =>
                 {
                     b.Property<int>("Id")
@@ -198,6 +213,9 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.Property<int?>("ClienteContratanteId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CupomId")
                         .HasColumnType("int");
 
@@ -239,6 +257,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
 
                     b.HasIndex("ClienteContratanteId");
 
+                    b.HasIndex("ClienteId");
+
                     b.HasIndex("CupomId");
 
                     b.HasIndex("FuncionarioLocadorId");
@@ -274,9 +294,6 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.Property<bool>("EhTaxadoDiario")
                         .HasColumnType("BIT");
 
-                    b.Property<int?>("LocacaoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("VARCHAR(50)");
@@ -285,8 +302,6 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                         .HasColumnType("FLOAT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LocacaoId");
 
                     b.ToTable("TBSERVICO");
                 });
@@ -361,6 +376,21 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.ToTable("TBVEICULO");
                 });
 
+            modelBuilder.Entity("LocacaoServico", b =>
+                {
+                    b.HasOne("LocadoraDeVeiculos.Dominio.LocacaoModule.Locacao", null)
+                        .WithMany()
+                        .HasForeignKey("LocacoesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LocadoraDeVeiculos.Dominio.SevicosModule.Servico", null)
+                        .WithMany()
+                        .HasForeignKey("ServicosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.CupomModule.Cupom", b =>
                 {
                     b.HasOne("LocadoraDeVeiculos.Dominio.ParceiroModule.Parceiro", "Parceiro")
@@ -382,12 +412,16 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                         .WithMany()
                         .HasForeignKey("ClienteContratanteId");
 
+                    b.HasOne("LocadoraDeVeiculos.Dominio.ClienteModule.Cliente", null)
+                        .WithMany("Locacoes")
+                        .HasForeignKey("ClienteId");
+
                     b.HasOne("LocadoraDeVeiculos.Dominio.CupomModule.Cupom", "Cupom")
-                        .WithMany()
+                        .WithMany("Locacoes")
                         .HasForeignKey("CupomId");
 
                     b.HasOne("LocadoraDeVeiculos.Dominio.FuncionarioModule.Funcionario", "FuncionarioLocador")
-                        .WithMany()
+                        .WithMany("Locacoes")
                         .HasForeignKey("FuncionarioLocadorId");
 
                     b.HasOne("LocadoraDeVeiculos.Dominio.VeiculoModule.Veiculo", "Veiculo")
@@ -405,16 +439,19 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.Navigation("Veiculo");
                 });
 
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.SevicosModule.Servico", b =>
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ClienteModule.Cliente", b =>
                 {
-                    b.HasOne("LocadoraDeVeiculos.Dominio.LocacaoModule.Locacao", null)
-                        .WithMany("Servicos")
-                        .HasForeignKey("LocacaoId");
+                    b.Navigation("Locacoes");
                 });
 
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.LocacaoModule.Locacao", b =>
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.CupomModule.Cupom", b =>
                 {
-                    b.Navigation("Servicos");
+                    b.Navigation("Locacoes");
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.FuncionarioModule.Funcionario", b =>
+                {
+                    b.Navigation("Locacoes");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ParceiroModule.Parceiro", b =>
