@@ -1,7 +1,9 @@
-﻿using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
+﻿using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
+using LocadoraDeVeiculos.Infra.EntityFramework.Features;
 using LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo;
 using System;
 using System.Collections.Generic;
@@ -13,19 +15,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
     public partial class VeiculoForm : Form
     {
         private Veiculo veiculo;
-        private readonly GrupoDeVeiculosRepository controladorGrupoVeiculos = new();
-        public VeiculoForm(string titulo)
+        private readonly GrupoDeVeiculosAppService controladorGrupoVeiculos;
+        public VeiculoForm(string titulo, GrupoDeVeiculosAppService controladorGrupoVeiculos)
         {
+            this.controladorGrupoVeiculos = controladorGrupoVeiculos;
             InitializeComponent();
             CarregarGruposDeVeiculos();
             labelTitulo.Text = titulo;
-            cBoxPortaMalas.SelectedIndex = 0;
+            cBoxPortaMalas.SelectedIndex = 0;          
         }
         public List<ImagemVeiculo> imagensVeiculo = new();
 
         private void CarregarGruposDeVeiculos()
         {
-            cBoxGrupo.DataSource = controladorGrupoVeiculos.SelecionarTodos();
+            cBoxGrupo.DataSource = controladorGrupoVeiculos.SelecionarTodasEntidade();
         }
 
         public Veiculo Veiculo

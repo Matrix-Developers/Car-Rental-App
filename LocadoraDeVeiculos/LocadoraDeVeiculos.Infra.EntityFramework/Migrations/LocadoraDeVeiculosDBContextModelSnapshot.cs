@@ -313,6 +313,9 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("GrupoDeVeiculoId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ano")
                         .HasColumnType("INT");
 
@@ -333,8 +336,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.Property<bool>("estaAlugado")
                         .HasColumnType("BIT");
 
-                    b.Property<int>("id_GrupoVeiculo")
-                        .HasColumnType("INT");
+                    b.Property<int?>("grupoVeiculosId")
+                        .HasColumnType("int");
 
                     b.Property<double>("kilometragem")
                         .HasColumnType("FLOAT");
@@ -372,6 +375,10 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                         .HasColumnType("VARCHAR(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GrupoDeVeiculoId");
+
+                    b.HasIndex("grupoVeiculosId");
 
                     b.ToTable("TBVEICULO");
                 });
@@ -439,6 +446,19 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.Navigation("Veiculo");
                 });
 
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.VeiculoModule.Veiculo", b =>
+                {
+                    b.HasOne("LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule.GrupoDeVeiculo", null)
+                        .WithMany("Veiculos")
+                        .HasForeignKey("GrupoDeVeiculoId");
+
+                    b.HasOne("LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule.GrupoDeVeiculo", "grupoVeiculos")
+                        .WithMany()
+                        .HasForeignKey("grupoVeiculosId");
+
+                    b.Navigation("grupoVeiculos");
+                });
+
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ClienteModule.Cliente", b =>
                 {
                     b.Navigation("Locacoes");
@@ -452,6 +472,11 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.FuncionarioModule.Funcionario", b =>
                 {
                     b.Navigation("Locacoes");
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule.GrupoDeVeiculo", b =>
+                {
+                    b.Navigation("Veiculos");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ParceiroModule.Parceiro", b =>
