@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
+﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public Parceiro Parceiro { get; set; }
         public int ParceiroId { get; set; }
         public int QtdUtilizada { get; set; }
+        public List<Locacao> Locacoes { get; set; }
+
         public Cupom(int id, string nome, string codigo, double valor, double valorMinimo, bool ehDescontoFixo, DateTime validade, Parceiro parceiro, int qtdUtilizada)
         {
             Id = id;

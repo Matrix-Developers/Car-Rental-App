@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.PessoaModule;
+﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.PessoaModule;
 using System;
 using System.Collections.Generic;
 
@@ -12,6 +13,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         public string Cargo { get; set; }
         public double Salario { get; set; }
         public string Senha { get; set; }
+        public List<Locacao> Locacoes { get; set; }
 
         public Funcionario(int id, string nome, string registroUnico, string endereco, string telefone, string email, int matriculaInterna, string usuarioAcesso, string senha, DateTime dataAdmissao, string cargo, double salario, bool ehPessoaFisica)
         {
