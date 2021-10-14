@@ -333,8 +333,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.Property<bool>("estaAlugado")
                         .HasColumnType("BIT");
 
-                    b.Property<int>("id_GrupoVeiculo")
-                        .HasColumnType("INT");
+                    b.Property<int?>("grupoVeiculosId")
+                        .HasColumnType("int");
 
                     b.Property<double>("kilometragem")
                         .HasColumnType("FLOAT");
@@ -372,6 +372,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                         .HasColumnType("VARCHAR(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("grupoVeiculosId");
 
                     b.ToTable("TBVEICULO");
                 });
@@ -437,6 +439,15 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.Navigation("FuncionarioLocador");
 
                     b.Navigation("Veiculo");
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.VeiculoModule.Veiculo", b =>
+                {
+                    b.HasOne("LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule.GrupoDeVeiculo", "grupoVeiculos")
+                        .WithMany()
+                        .HasForeignKey("grupoVeiculosId");
+
+                    b.Navigation("grupoVeiculos");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ClienteModule.Cliente", b =>
