@@ -19,7 +19,7 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
-    public partial class TelaLocacaoForm : Form //precisa de refatoração
+    public partial class TelaLocacaoForm : Form 
     {
         private readonly TelaSelecionarServicoForm telaServico;
         private Locacao locacao;
@@ -120,8 +120,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (cupom != null)
                 cupomAppService.AtualizarQuantidadeUtilizada(cupom);
             locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
-            Veiculo veiculoAtualizado = locacao.Veiculo;
-            veiculoAppService.EditarEntidade(locacao.Veiculo.Id, veiculoAtualizado);
+            //Veiculo veiculoAtualizado = locacao.Veiculo;
+            //veiculoAppService.EditarEntidade(locacao.Veiculo.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validar();
 
             if (resultadoValidacao != "VALIDO")

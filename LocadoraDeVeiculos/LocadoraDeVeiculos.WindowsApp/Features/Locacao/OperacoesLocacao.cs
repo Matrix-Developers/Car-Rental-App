@@ -9,6 +9,7 @@ using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.InternetServices;
 using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
@@ -32,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         //private readonly RelacionamentoLocServRepository controladorRelacionamento;
         //private RelacionamentoLocServ relacionamento;
-        private readonly TabelaLocacaoControl tabelaLocacao;
+        private readonly TabelaLocacaoControl tabelaLocacao; 
 
         public OperacoesLocacao(LocacaoAppService locacaoAppService, ServicoAppService servicoAppService, FuncionarioAppService funcionarioAppService, VeiculoAppService veiculoAppService, ClienteAppService clienteAppService, CupomAppService cupomAppService)
         {
@@ -59,6 +60,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
                 if (resultadoLocacao)
                 {
+                    Veiculo veiculoAtualizado = tela.Locacao.Veiculo;
+                    veiculoAppService.EditarEntidade(tela.Locacao.Veiculo.Id, veiculoAtualizado);
                     //relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
                     //foreach (var item in relacionamento.Servicos)
                     //{

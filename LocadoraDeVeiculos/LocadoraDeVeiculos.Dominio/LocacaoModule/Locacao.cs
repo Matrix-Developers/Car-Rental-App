@@ -100,7 +100,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         {
             estaAberta = true;
             dataDeSaida = dataAbertura;
-            veiculo.estaAlugado = true;
+            if(veiculo != null)
+                veiculo.estaAlugado = true;
             precoLocacao = CalcularLocacao.CalcularSeguro(tipoDeSeguro);
             precoLocacao += CalcularLocacao.CalcularGarantia();
             precoLocacao = Math.Round(precoLocacao, 2);
