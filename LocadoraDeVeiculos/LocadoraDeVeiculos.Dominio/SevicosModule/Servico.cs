@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.SevicosModule
@@ -19,6 +20,7 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
         public string Nome { get; set; }
         public bool EhTaxadoDiario { get; set; }
         public double Valor { get; set; }
+        public List<Locacao> Locacoes { get; set; }
 
         public override string Validar()
         {

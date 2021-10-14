@@ -16,6 +16,11 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private Cliente clienteContratante;
         private Cliente clienteCondutor;
         private Cupom cupom;
+        //private int idVeiculo;
+        //private int idFuncionarioLocador;
+        //private int idClienteContratante;
+        //private int idClienteCondutor;
+        //private int idCupom;
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
         private DateTime dataDeChegada;
@@ -76,6 +81,11 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public Cliente ClienteContratante { get => clienteContratante; set => clienteContratante = value; }
         public Cliente ClienteCondutor { get => clienteCondutor; set => clienteCondutor = value; }
         public Cupom Cupom { get => cupom; set => cupom = value; }
+        //public int IdVeiculo { get => idVeiculo; set => idVeiculo = value; }
+        //public int IdFuncionarioLocador { get => idFuncionarioLocador; set => idFuncionarioLocador = value; }
+        //public int IdClienteContratante { get => idClienteContratante; set => idClienteContratante = value; }
+        //public int IdClienteCondutor { get => idClienteCondutor; set => idClienteCondutor = value; }
+        //public int IdCupom { get => idCupom; set => idCupom = value; }
         public DateTime DataDeSaida { get => dataDeSaida; set => dataDeSaida = value; }
         public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; set => dataPrevistaDeChegada = value; }
         public DateTime DataDeChegada { get => dataDeChegada; set => dataDeChegada = value; }

@@ -16,6 +16,8 @@ using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Controladores.ServicoModule;
 using LocadoraDeVeiculos.Controladores.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Infra.EntityFramework;
+using LocadoraDeVeiculos.Infra.EntityFramework.Features;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -26,6 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
     {
         private Thread thread;
 
+        private readonly LocadoraDeVeiculosDBContext db;
         private readonly ServicoAppService servicoAppService;
         private readonly ParceiroAppService parceiroAppService;
         private readonly CupomAppService cupomAppService;
@@ -39,14 +42,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         public TelaLogin()
         {
             InitializeComponent();
-            servicoAppService = new(new ServicoRepository());
-            parceiroAppService = new(new ParceiroRepository());
-            cupomAppService = new(new CupomRepository());
-            funcionarioAppService = new(new FuncionarioRepository());
-            grupoDeVeiculosAppService = new(new GrupoDeVeiculosRepository());
-            clienteAppService = new(new ClienteRepository());
-            veiculoAppService = new(new VeiculoRepository(), new ImagemVeiculoRepository());
-            locacaoAppService = new(new LocacaoRepository(new VeiculoRepository(), new FuncionarioRepository(), new ClienteRepository(), new ServicoRepository(), new CupomRepository())); //remover repository dentro de repositor
+
+            db = new();
+            servicoAppService = new(new ServicoORM(db));
+            parceiroAppService = new(new ParceiroORM(db));
+            cupomAppService = new(new CupomORM(db));
+            funcionarioAppService = new(new FuncionarioORM(db));
+            grupoDeVeiculosAppService = new(new GrupoDeVeiculosORM(db));
+            clienteAppService = new(new ClienteORM(db));
+            veiculoAppService = new(new VeiculoORM(db), new ImagemVeiculoORM(db));
+            locacaoAppService = new(new LocacaoORM(db));
         }
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
