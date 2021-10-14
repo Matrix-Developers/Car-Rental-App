@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
         public DbSet<Cupom> Cupons { get; set; }
         public DbSet<GrupoDeVeiculo> GrupoDeVeiculos { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
-        //public DbSet<ImagemVeiculo> ImagemVeiculos { get; set; }
+        public DbSet<ImagemVeiculo> ImagemVeiculos { get; set; }
         public DbSet<Locacao> Locacoes { get; set; }
         public DbSet<Parceiro> Parceiros { get; set; }
         //public DbSet<RelacionamentoLocServ> Relacionamentos { get; set; }
@@ -39,6 +39,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
             optionsBuilder
                 .UseLoggerFactory(loggerFactoryConsole)
                 .UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DBLocadoraDeVeiculosORM;Integrated Security=True");
+
             //var config = InitConfiguration();
             //connectionString = config.GetSection("ConnectionStrings").GetSection("SqlServerORM").Value;
             //optionsBuilder

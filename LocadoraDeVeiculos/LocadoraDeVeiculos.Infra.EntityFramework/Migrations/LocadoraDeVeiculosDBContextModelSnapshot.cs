@@ -200,6 +200,26 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                     b.ToTable("TBGRUPOVEICULO");
                 });
 
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ImagemVeiculoModule.ImagemVeiculo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("Imagem")
+                        .HasColumnType("image");
+
+                    b.Property<int?>("veiculoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("veiculoId");
+
+                    b.ToTable("TBIMAGEMVEICULO");
+                });
+
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.LocacaoModule.Locacao", b =>
                 {
                     b.Property<int>("Id")
@@ -407,6 +427,15 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Migrations
                         .IsRequired();
 
                     b.Navigation("Parceiro");
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ImagemVeiculoModule.ImagemVeiculo", b =>
+                {
+                    b.HasOne("LocadoraDeVeiculos.Dominio.VeiculoModule.Veiculo", "veiculo")
+                        .WithMany()
+                        .HasForeignKey("veiculoId");
+
+                    b.Navigation("veiculo");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.LocacaoModule.Locacao", b =>

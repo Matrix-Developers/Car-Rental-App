@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             {
                 foreach (ImagemVeiculo imagemVeiculo in veiculo.imagens)
                 {
-                    imagemVeiculo.IdVeiculo = veiculo.Id;
+                    imagemVeiculo.veiculo = veiculo;
                     imagemVeiculoRepository.InserirNovo(imagemVeiculo);
                 }
             }
@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 
             if (veiculo.imagens != null)
                 foreach (ImagemVeiculo imagem in veiculo.imagens)
-                    imagem.IdVeiculo = veiculo.Id;
+                    imagem.veiculo = veiculo;
             imagemVeiculoRepository.EditarLista(veiculo.imagens);
 
             return resultado;
