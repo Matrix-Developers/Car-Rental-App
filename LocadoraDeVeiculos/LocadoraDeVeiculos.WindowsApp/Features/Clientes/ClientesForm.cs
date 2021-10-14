@@ -43,7 +43,8 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                 maskTelefone.Text = cliente.Telefone;
                 tetxtEmail.Text = cliente.Email;
                 maskedCNH.Text = cliente.Cnh;
-                //dtpValidade.Text = cliente.ValidadeCnh.ToShortDateString();
+                if(cliente.ValidadeCnh > DateTime.Today)
+                    dtpValidade.Text = cliente.ValidadeCnh.ToString();
             }
         }
 
@@ -70,7 +71,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             DateTime? validade = null;
             bool ehPessoaFisica = false;
             string CNH = "";
-            //int Id = Convert.ToInt32(textId.Text);
+            int Id = Convert.ToInt32(textId.Text);
             string Nome = textNome.Text;
             string Registro = maskRegistro.Text.Replace("-", "").Replace(".", "").Replace("/", "").Replace(" ", "");
             string Endereco = textEndereco.Text;
@@ -83,7 +84,6 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
                 CNH = maskedCNH.Text.Replace("-", "").Replace(" ", "");
             }
 
-            int Id = 0;
             cliente = new Cliente(Id, Nome, Registro, Endereco, TeleFone, Email, CNH, validade, ehPessoaFisica);
 
             string resultadoValidacao = cliente.Validar();
