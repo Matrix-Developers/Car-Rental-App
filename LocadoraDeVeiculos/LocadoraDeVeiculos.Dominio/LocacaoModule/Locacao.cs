@@ -18,9 +18,10 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private Cupom cupom;
         //private int idVeiculo;
         //private int idFuncionarioLocador;
-        //private int idClienteContratante;
-        //private int idClienteCondutor;
+
         //private int idCupom;
+        //private int ClienteContratanteId;
+        //private int ClienteCondutorId;
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
         private DateTime dataDeChegada;

@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private readonly VeiculoAppService veiculoAppService;
         private readonly ClienteAppService clienteAppService;
         private readonly CupomAppService cupomAppService;
-        public List<Servico> Servicos;
+        public List<Servico> servicos;
         public string TipoSeguro = "Nenhum";
 
         public TelaLocacaoForm(string titulo, ServicoAppService servicoAppService, FuncionarioAppService funcionarioAppService, VeiculoAppService veiculoAppService, ClienteAppService clienteAppService, CupomAppService cupomAppService)
@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             this.veiculoAppService = veiculoAppService;
             this.clienteAppService = clienteAppService;
             this.cupomAppService = cupomAppService;
-            Servicos = new List<Servico>();
+            servicos = new List<Servico>();
             InitializeComponent();
             lblTitulo.Text = titulo;
             CarregarDados();
@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 dateTPDataSaida.Text = locacao.DataDeSaida.ToLongDateString();
                 dateTPDataDevolucao.Text = locacao.DataPrevistaDeChegada.ToLongDateString();
                 txtTotal.Text = locacao.PrecoLocacao.ToString();
-                Servicos = locacao.Servicos;
+                servicos = locacao.Servicos;
                 TipoSeguro = locacao.TipoDeSeguro;
 
             }
@@ -119,7 +119,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             }
             if (cupom != null)
                 cupomAppService.AtualizarQuantidadeUtilizada(cupom);
-            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
+            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, servicos);
             //Veiculo veiculoAtualizado = locacao.Veiculo;
             //veiculoAppService.EditarEntidade(locacao.Veiculo.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validar();
@@ -134,11 +134,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void BtnServicos_Click(object sender, EventArgs e)
         {
-            telaServico.InicializarCampos(Servicos, TipoSeguro, true);
+            telaServico.InicializarCampos(servicos, TipoSeguro, true);
 
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
-                Servicos = telaServico.servicosSelecionados;
+                servicos = telaServico.servicosSelecionados;
                 TipoSeguro = telaServico.seguro;
                 double precoGarantia = CalcularLocacao.CalcularGarantia();
                 double precoSeguro = CalcularLocacao.CalcularSeguro(telaServico.seguro);

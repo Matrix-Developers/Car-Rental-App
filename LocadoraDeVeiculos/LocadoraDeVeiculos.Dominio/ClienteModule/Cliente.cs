@@ -9,7 +9,8 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
     {
         public string Cnh { get; set; }
         public DateTime? ValidadeCnh { get; set; }
-        public List<Locacao> Locacoes { get; set; }
+        public List<Locacao> LocacoesCondutor { get; set; }
+        public List<Locacao> LocacoesContratante { get; set; }
 
         public Cliente(int id, string nome, string registroUnico, string endereco, string telefone, string email, string cnh, DateTime? validadeCnh, bool ehPessoaFisica)
         {
