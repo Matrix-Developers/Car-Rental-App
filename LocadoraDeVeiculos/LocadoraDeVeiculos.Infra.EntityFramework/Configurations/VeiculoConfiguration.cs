@@ -13,7 +13,6 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.modelo).HasColumnType("VARCHAR(50)").IsRequired();
-            builder.Property(p => p.id_GrupoVeiculo).HasColumnType("INT").IsRequired();
             builder.Property(p => p.placa).HasColumnType("VARCHAR(50)").IsRequired();
             builder.Property(p => p.chassi).HasColumnType("VARCHAR(50)").IsRequired();
             builder.Property(p => p.marca).HasColumnType("VARCHAR(50)").IsRequired();
@@ -29,6 +28,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.Property(p => p.temDirecaoHidraulica).HasColumnType("BIT").IsRequired();
             builder.Property(p => p.temFreiosAbs).HasColumnType("BIT").IsRequired();
             builder.Property(p => p.estaAlugado).HasColumnType("BIT").IsRequired();
+
+            builder.HasOne(p => p.grupoVeiculos);
         }
     }
 }
