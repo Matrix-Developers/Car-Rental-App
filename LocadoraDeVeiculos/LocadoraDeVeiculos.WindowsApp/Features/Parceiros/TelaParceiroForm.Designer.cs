@@ -41,9 +41,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             // labelTitulo
             // 
             this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelTitulo.ForeColor = System.Drawing.Color.Black;
-            this.labelTitulo.Location = new System.Drawing.Point(91, 33);
+            this.labelTitulo.Location = new System.Drawing.Point(106, 38);
+            this.labelTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(187, 20);
             this.labelTitulo.TabIndex = 65;
@@ -52,9 +53,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             // lbPlaca
             // 
             this.lbPlaca.AutoSize = true;
-            this.lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbPlaca.ForeColor = System.Drawing.Color.Black;
-            this.lbPlaca.Location = new System.Drawing.Point(62, 116);
+            this.lbPlaca.Location = new System.Drawing.Point(72, 134);
+            this.lbPlaca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPlaca.Name = "lbPlaca";
             this.lbPlaca.Size = new System.Drawing.Size(35, 13);
             this.lbPlaca.TabIndex = 76;
@@ -63,9 +65,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             // lbNome
             // 
             this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbNome.ForeColor = System.Drawing.Color.Black;
-            this.lbNome.Location = new System.Drawing.Point(81, 90);
+            this.lbNome.Location = new System.Drawing.Point(94, 104);
+            this.lbNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(16, 13);
             this.lbNome.TabIndex = 75;
@@ -73,29 +76,33 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(102, 113);
+            this.txtNome.Location = new System.Drawing.Point(119, 130);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNome.MaxLength = 7;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(217, 20);
+            this.txtNome.Size = new System.Drawing.Size(252, 23);
             this.txtNome.TabIndex = 1;
             // 
             // txtId
             // 
             this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(103, 87);
+            this.txtId.Location = new System.Drawing.Point(120, 100);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(96, 20);
+            this.txtId.Size = new System.Drawing.Size(111, 23);
             this.txtId.TabIndex = 77;
+            this.txtId.Text = "0";
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(282, 159);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.Location = new System.Drawing.Point(329, 183);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(88, 27);
             this.btnCancelar.TabIndex = 79;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -103,10 +110,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             // btnConfirmar
             // 
             this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(201, 159);
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConfirmar.Location = new System.Drawing.Point(234, 183);
+            this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmar.Size = new System.Drawing.Size(88, 27);
             this.btnConfirmar.TabIndex = 78;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -114,9 +122,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             // 
             // TelaParceiroForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 194);
+            this.ClientSize = new System.Drawing.Size(430, 224);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lbPlaca);
@@ -125,6 +133,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.labelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaParceiroForm";
