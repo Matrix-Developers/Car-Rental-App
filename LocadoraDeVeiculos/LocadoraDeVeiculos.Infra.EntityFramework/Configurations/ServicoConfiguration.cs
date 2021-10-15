@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.Property(p => p.EhTaxadoDiario).HasColumnType("BIT").IsRequired();
             builder.Property(p => p.Valor).HasColumnType("FLOAT").IsRequired();
 
-            builder.HasMany(p => p.Locacoes);
+            builder.HasMany(p => p.Locacoes).WithMany(p => p.Servicos);
         }
     }
 }

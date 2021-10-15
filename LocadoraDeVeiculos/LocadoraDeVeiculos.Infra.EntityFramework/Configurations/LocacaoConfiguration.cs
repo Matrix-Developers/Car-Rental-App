@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.Property(p => p.PrecoDevolucao).HasColumnType("FLOAT").IsRequired();
             builder.Property(p => p.EstaAberta).HasColumnType("BIT");
 
-            builder.HasMany(p => p.Servicos);
+            builder.HasMany(p => p.Servicos).WithMany(p => p.Locacoes);
 
             builder.HasOne(p => p.FuncionarioLocador).WithMany(p => p.Locacoes);
             builder.HasOne(p => p.ClienteContratante).WithMany(p => p.LocacoesContratante);
