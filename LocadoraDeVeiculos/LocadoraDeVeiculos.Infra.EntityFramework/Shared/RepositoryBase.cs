@@ -37,11 +37,11 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
         {
             try
             {
-                //db.ChangeTracker.Clear();
-                //dbSet.Update(registro);
-                T entityForUpdate = dbSet.SingleOrDefault(x => x.Id.Equals(id));
-                registro.Id = id;
-                db.Entry(entityForUpdate).CurrentValues.SetValues(registro);
+                db.ChangeTracker.Clear();
+                dbSet.Update(registro);
+                //T entityForUpdate = dbSet.SingleOrDefault(x => x.Id.Equals(id));
+                //registro.Id = id;
+                //db.Entry(entityForUpdate).CurrentValues.SetValues(registro);
                 db.SaveChanges();
             }
             catch (Exception ex)
