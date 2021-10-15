@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
             {
                 if (tela.Veiculo.imagens.Count != 0)
                     foreach (Dominio.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
-                        imagem.IdVeiculo = tela.Veiculo.Id;
+                        imagem.veiculo = tela.Veiculo;
 
                 bool resultado = veiculoAppService.InserirEntidade(tela.Veiculo);
 

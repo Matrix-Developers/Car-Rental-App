@@ -20,7 +20,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
                 if (registros != null)
                 {
                     if (registros.Count != 0)
-                        ExcluirPorIdDoVeiculo(registros[0].IdVeiculo);
+                        ExcluirPorIdDoVeiculo(registros[0].veiculo.Id);
                     foreach (ImagemVeiculo imagem in registros)
                     {
                         InserirNovo(imagem);
@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
             {
                 foreach (ImagemVeiculo imagem in SelecioanrTodasImagensDeUmVeiculo(idVeiculo))
                 {
-                    if (imagem.IdVeiculo == idVeiculo)
+                    if (imagem.veiculo.Id == idVeiculo)
                         dbSet.Remove(imagem);
                     db.SaveChanges();
                 }

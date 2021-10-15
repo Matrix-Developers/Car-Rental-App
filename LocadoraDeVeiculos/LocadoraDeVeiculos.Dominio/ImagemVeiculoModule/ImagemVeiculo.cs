@@ -8,7 +8,6 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
 {
     public class ImagemVeiculo : EntidadeBase
     {
-        public int IdVeiculo { get; set; }
         public Veiculo veiculo {get; set;}
         public Bitmap Imagem { get; set; }
 
@@ -16,7 +15,6 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
         public ImagemVeiculo(int id, int idVeiculo, Bitmap imagem)
         {
             this.id = id;
-            this.IdVeiculo = idVeiculo;
             this.Imagem = imagem;
         }
 
@@ -34,7 +32,6 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
         public override bool Equals(object obj)
         {
             return obj is ImagemVeiculo imagemVeiculo &&
-                   EqualityComparer<int>.Default.Equals(this.IdVeiculo, imagemVeiculo.IdVeiculo) &&
                    EqualityComparer<Bitmap>.Default.Equals(Imagem, imagemVeiculo.Imagem) &&
                    EqualityComparer<int>.Default.Equals(Id, imagemVeiculo.id);
         }
@@ -43,7 +40,6 @@ namespace LocadoraDeVeiculos.Dominio.ImagemVeiculoModule
         {
             int hashCode = 155997214;
             hashCode = hashCode * -1521134295 + id.GetHashCode();
-            hashCode = hashCode * -1521134295 + IdVeiculo.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<Bitmap>.Default.GetHashCode(Imagem);
             return hashCode;
         }

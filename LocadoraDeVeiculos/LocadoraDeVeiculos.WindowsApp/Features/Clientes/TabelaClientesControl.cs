@@ -49,9 +49,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Clientes
             return gridClientes.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros()
+        public void AtualizarRegistros(List<Cliente> clientes)
         {
-            var clientes = controladorCliente.SelecionarTodos();
+            gridClientes.DataSource = null;
             CarregarTabela(clientes);
         }
 

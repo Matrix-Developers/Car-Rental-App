@@ -6,18 +6,19 @@ using LocadoraDeVeiculos.WindowsApp.ClientesModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using Serilog;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 {
     public class OperacoesClientes : ICadastravel
     {
-        private readonly ClienteAppService ClienteService;
+        private readonly ClienteAppService clienteService;
         private readonly TabelaClientesControl tabelaCliente;
 
         public OperacoesClientes(ClienteAppService clienteService)
         {
-            ClienteService = clienteService;
+            this.clienteService = clienteService;
             tabelaCliente = new TabelaClientesControl();
         }
 
@@ -31,7 +32,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
                 MessageBox.Show("Selecione um cliente para editar", "Edição de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            Cliente clienteSelecionado = ClienteService.SelecionarEntidadePorId(id);
+            Cliente clienteSelecionado = clienteService.SelecionarEntidadePorId(id);
 
             ClientesForm tela = new("Edição de Clientes")
             {
@@ -40,9 +41,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                ClienteService.EditarEntidade(id, tela.Clientes);
+                clienteService.EditarEntidade(id, tela.Clientes);
 
-                tabelaCliente.AtualizarRegistros();
+                CarregaGrid();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] editado com sucesso");
             }
@@ -57,14 +58,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
                 MessageBox.Show("Selecione um cliente para excluir", "Exclusão de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            Cliente clienteSelecionado = ClienteService.SelecionarEntidadePorId(id);
+            Cliente clienteSelecionado = clienteService.SelecionarEntidadePorId(id);
 
             if (MessageBox.Show($"Tem certeza que deseja excluir o cliente: [{clienteSelecionado.Nome}] ?",
                 "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                ClienteService.ExcluirEntidade(id);
-
-                tabelaCliente.AtualizarRegistros();
+                clienteService.ExcluirEntidade(id);
+                CarregaGrid();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
             }
@@ -76,16 +76,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
             ClientesForm tela = new("Cadastro de Clientes");
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                ClienteService.InserirEntidade(tela.Clientes);
-
-                tabelaCliente.AtualizarRegistros();
+                clienteService.InserirEntidade(tela.Clientes);
+                CarregaGrid();
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] inserido com sucesso");
             }
         }
 
+        private void CarregaGrid()
+        {
+            List<Cliente> listaClientes = clienteService.SelecionarTodasEntidade();
+            tabelaCliente.AtualizarRegistros(listaClientes);
+        }
+
         public UserControl ObterTabela()
         {
-            tabelaCliente.AtualizarRegistros();
+            List<Cliente> clientes = clienteService.SelecionarTodasEntidade();
+            tabelaCliente.AtualizarRegistros(clientes);
 
             return tabelaCliente;
         }

@@ -41,6 +41,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(textId.Text);
             string nome = textNome.Text;
             string registroUnico = mskTxtCpf.Text.Replace("-", "").Replace(".", "").Replace(" ", "");
             string endereco = textEndereco.Text;
@@ -57,7 +58,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             string cargo = textCargo.Text;
             double salario = Convert.ToDouble(textSalario.Text);
 
-            funcionario = new Funcionario(0, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso, senha, dataAdmissao, cargo, salario, true);
+            funcionario = new Funcionario(id, nome, registroUnico, endereco, telefone, email, matriculaInterna, usuarioAcesso, senha, dataAdmissao, cargo, salario, true);
 
             string resultadoValidacao = funcionario.Validar();
 
