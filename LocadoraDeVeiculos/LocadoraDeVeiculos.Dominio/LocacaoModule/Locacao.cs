@@ -18,10 +18,9 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private Cupom cupom;
         //private int idVeiculo;
         //private int idFuncionarioLocador;
-
         //private int idCupom;
-        //private int ClienteContratanteId;
-        //private int ClienteCondutorId;
+        private int clienteContratanteId;
+        private int clienteCondutorId;
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
         private DateTime dataDeChegada;
@@ -40,6 +39,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
+            this.clienteCondutorId = clienteCondutor.Id;
+            this.clienteContratanteId = clienteContratante.Id;
             this.cupom = cupom;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
@@ -61,6 +62,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
+            this.clienteCondutorId = clienteCondutor.Id;
             this.cupom = cupom;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
@@ -80,12 +82,10 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public Veiculo Veiculo { get => veiculo; set => veiculo = value; }
         public Funcionario FuncionarioLocador { get => funcionarioLocador; set => funcionarioLocador = value; }
         public Cliente ClienteContratante { get => clienteContratante; set => clienteContratante = value; }
-        public Cliente ClienteCondutor { get => clienteCondutor; set => clienteCondutor = value; }
+        public Cliente ClienteCondutor { get => clienteCondutor; set =>clienteCondutor = value; }
         public Cupom Cupom { get => cupom; set => cupom = value; }
         //public int IdVeiculo { get => idVeiculo; set => idVeiculo = value; }
         //public int IdFuncionarioLocador { get => idFuncionarioLocador; set => idFuncionarioLocador = value; }
-        //public int IdClienteContratante { get => idClienteContratante; set => idClienteContratante = value; }
-        //public int IdClienteCondutor { get => idClienteCondutor; set => idClienteCondutor = value; }
         //public int IdCupom { get => idCupom; set => idCupom = value; }
         public DateTime DataDeSaida { get => dataDeSaida; set => dataDeSaida = value; }
         public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; set => dataPrevistaDeChegada = value; }
@@ -96,6 +96,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public double PrecoDevolucao { get => precoDevolucao; set => precoDevolucao = value; }
         public bool EstaAberta { get => estaAberta; set => estaAberta = value; }
         public List<Servico> Servicos { get => servicos; set => servicos = value; }
+        public int ClienteCondutorId { get => clienteCondutorId; set => clienteCondutorId = value; }
+        public int ClienteContratanteId { get => clienteContratanteId; set => clienteContratanteId = value; }
 
         public void AbrirLocacao(DateTime dataAbertura)
         {

@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.Property(p => p.Cargo).HasColumnType("VARCHAR(50)").IsRequired();
             builder.Property(p => p.Salario).HasColumnType("FLOAT").IsRequired();
 
-            builder.HasMany(p => p.Locacoes);
+            builder.HasMany(p => p.Locacoes).WithOne(p => p.FuncionarioLocador);
         }
     }
 }

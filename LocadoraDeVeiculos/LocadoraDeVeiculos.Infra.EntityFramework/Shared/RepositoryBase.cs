@@ -37,8 +37,11 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
         {
             try
             {
-                db.ChangeTracker.Clear();
-                dbSet.Update(registro);
+                //db.ChangeTracker.Clear();
+                //dbSet.Update(registro);
+                T entityForUpdate = dbSet.SingleOrDefault(x => x.Id.Equals(id));
+                registro.Id = id;
+                db.Entry(entityForUpdate).CurrentValues.SetValues(registro);
                 db.SaveChanges();
             }
             catch (Exception ex)
@@ -68,7 +71,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
             }
             return true;
         }
-        public T SelecionarPorId(int id)
+        public virtual T SelecionarPorId(int id)
         {
             try
             {
