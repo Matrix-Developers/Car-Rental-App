@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
@@ -20,6 +21,7 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
         public int LimiteKmControlado { get => limiteKmControlado; set => limiteKmControlado = value; }
         public double TaxaKmExcedidoControlado { get => taxaKmExcedidoControlado; set => taxaKmExcedidoControlado = value; }
         public double TaxaPlanoLivre { get => taxaPlanoLivre; set => taxaPlanoLivre = value; }
+        public List<Veiculo> Veiculos { get; set; }
 
         public GrupoDeVeiculo(int id, string nome, double taxaPlanoDiario, double taxaPorKmDiario, double taxaPlanoControlado, int limiteKmControlado, double taxaKmExcedidoControlado, double taxaPlanoLivre)
         {

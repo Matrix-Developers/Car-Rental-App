@@ -19,6 +19,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.Property(p => p.LimiteKmControlado).HasColumnType("INT");
             builder.Property(p => p.TaxaKmExcedidoControlado).HasColumnType("FLOAT");
             builder.Property(p => p.TaxaPlanoLivre).HasColumnType("FLOAT").IsRequired();
+
+            builder.HasMany(p => p.Veiculos);
         }
     }
 }

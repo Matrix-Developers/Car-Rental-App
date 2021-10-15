@@ -82,7 +82,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
             if (registros != null)
             {
                 if (registros.Count != 0)
-                    ExcluirPorIdDoVeiculo(registros[0].IdVeiculo);
+                    ExcluirPorIdDoVeiculo(registros[0].veiculo.Id);
                 foreach (ImagemVeiculo imagem in registros)
                 {
                     InserirNovo(imagem);
@@ -117,7 +117,7 @@ namespace LocadoraDeVeiculos.Controladores.ImagemVeiculoModule
             var parametros = new Dictionary<string, object>
             {
                 { "ID", entidade.Id },
-                { "ID_VEICULO", entidade.IdVeiculo },
+                { "ID_VEICULO", entidade.veiculo.Id},
                 { "IMAGEM", imagemByte }
             };
 

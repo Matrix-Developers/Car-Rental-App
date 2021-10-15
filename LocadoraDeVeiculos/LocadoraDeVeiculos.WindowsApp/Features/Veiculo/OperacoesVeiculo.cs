@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
+﻿using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
@@ -14,22 +15,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
     {
         private readonly VeiculoAppService veiculoAppService;
         private readonly TabelaVeiculoControl tabelaVeiculo;
-        public OperacoesVeiculo(VeiculoAppService VeiculoAppService)
+        private readonly GrupoDeVeiculosAppService grupoDeVeiculosAppService;
+        public OperacoesVeiculo(VeiculoAppService VeiculoAppService, GrupoDeVeiculosAppService grupoDeVeiculosAppService)
         {
             veiculoAppService = VeiculoAppService;
             tabelaVeiculo = new TabelaVeiculoControl();
+            this.grupoDeVeiculosAppService = grupoDeVeiculosAppService;
         }
         public void InserirNovoRegistro()
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
-            VeiculoForm tela = new("Cadastro de Veiculos");
+            VeiculoForm tela = new("Cadastro de Veiculos", grupoDeVeiculosAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 if (tela.Veiculo.imagens.Count != 0)
                     foreach (Dominio.ImagemVeiculoModule.ImagemVeiculo imagem in tela.Veiculo.imagens)
-                        imagem.IdVeiculo = tela.Veiculo.Id;
+                        imagem.veiculo = tela.Veiculo;
 
                 bool resultado = veiculoAppService.InserirEntidade(tela.Veiculo);
 
@@ -56,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 
             Veiculo tarefaSelecionada = veiculoAppService.SelecionarEntidadePorId(id);
 
-            VeiculoForm tela = new("Edição de Veiculos");
+            VeiculoForm tela = new("Edição de Veiculos", grupoDeVeiculosAppService);
 
             tela.Veiculo = tarefaSelecionada;
 
