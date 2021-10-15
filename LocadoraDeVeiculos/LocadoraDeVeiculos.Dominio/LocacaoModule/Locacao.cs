@@ -16,11 +16,11 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private Cliente clienteContratante;
         private Cliente clienteCondutor;
         private Cupom cupom;
-        //private int idVeiculo;
-        //private int idFuncionarioLocador;
-        //private int idCupom;
-        private int clienteContratanteId;
-        private int clienteCondutorId;
+        private int? veiculoId;
+        private int? funcionarioLocadorId;
+        private int? cupomId;
+        private int? clienteContratanteId;
+        private int? clienteCondutorId;
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
         private DateTime dataDeChegada;
@@ -39,8 +39,11 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
-            this.clienteCondutorId = clienteCondutor.Id;
-            this.clienteContratanteId = clienteContratante.Id;
+            clienteContratanteId = clienteContratante.Id;
+            clienteCondutorId = clienteCondutor.Id;
+            veiculoId = veiculo.Id;
+            funcionarioLocadorId = funcionarioLocador.Id;
+            cupomId = cupom.Id;
             this.cupom = cupom;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
@@ -62,7 +65,11 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
-            this.clienteCondutorId = clienteCondutor.Id;
+            clienteContratanteId = clienteContratante.Id;
+            clienteCondutorId = clienteCondutor.Id;
+            veiculoId = veiculo.Id;
+            funcionarioLocadorId = funcionarioLocador.Id;
+            cupomId = cupom.Id;
             this.cupom = cupom;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
@@ -84,9 +91,6 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public Cliente ClienteContratante { get => clienteContratante; set => clienteContratante = value; }
         public Cliente ClienteCondutor { get => clienteCondutor; set =>clienteCondutor = value; }
         public Cupom Cupom { get => cupom; set => cupom = value; }
-        //public int IdVeiculo { get => idVeiculo; set => idVeiculo = value; }
-        //public int IdFuncionarioLocador { get => idFuncionarioLocador; set => idFuncionarioLocador = value; }
-        //public int IdCupom { get => idCupom; set => idCupom = value; }
         public DateTime DataDeSaida { get => dataDeSaida; set => dataDeSaida = value; }
         public DateTime DataPrevistaDeChegada { get => dataPrevistaDeChegada; set => dataPrevistaDeChegada = value; }
         public DateTime DataDeChegada { get => dataDeChegada; set => dataDeChegada = value; }
@@ -96,8 +100,11 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public double PrecoDevolucao { get => precoDevolucao; set => precoDevolucao = value; }
         public bool EstaAberta { get => estaAberta; set => estaAberta = value; }
         public List<Servico> Servicos { get => servicos; set => servicos = value; }
-        public int ClienteCondutorId { get => clienteCondutorId; set => clienteCondutorId = value; }
-        public int ClienteContratanteId { get => clienteContratanteId; set => clienteContratanteId = value; }
+        public int? ClienteCondutorId { get => clienteCondutorId; set => clienteCondutorId = value; }
+        public int? ClienteContratanteId { get => clienteContratanteId; set => clienteContratanteId = value; }
+        public int? VeiculoId { get => veiculoId; set => veiculoId = value; }
+        public int? FuncionarioLocadorId { get => funcionarioLocadorId; set => funcionarioLocadorId = value; }
+        public int? CupomId { get => cupomId; set => cupomId = value; }
 
         public void AbrirLocacao(DateTime dataAbertura)
         {

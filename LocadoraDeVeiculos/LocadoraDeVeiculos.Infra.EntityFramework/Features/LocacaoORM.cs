@@ -16,6 +16,9 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
         {
             return db.Locacoes
                 .Include(x => x.FuncionarioLocador)
+                .Include(x => x.ClienteContratante)
+                .Include(x => x.ClienteCondutor)
+                .Include(x => x.Cupom)
                 .Include(x => x.Servicos)
                 .Include(x => x.Veiculo)
                 .ThenInclude(x => x.grupoVeiculos)
