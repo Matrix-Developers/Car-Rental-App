@@ -6,6 +6,8 @@ using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 {
@@ -82,6 +84,20 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.precoDevolucao = precoDevolucao;
             this.estaAberta = estaAberta;
             this.servicos = servicos;
+        }
+
+        public Locacao Clone()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryFormatter bf = new BinaryFormatter();
+
+            bf.Serialize(ms, this);
+
+            ms.Position = 0;
+            object obj = bf.Deserialize(ms);
+            ms.Close();
+
+            return obj as Locacao;
         }
 
         public Locacao()

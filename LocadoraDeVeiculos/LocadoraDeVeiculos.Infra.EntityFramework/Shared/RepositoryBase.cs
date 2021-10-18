@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.Shared;
+﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System;
@@ -33,11 +34,10 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
 
             return true;
         }
-        public bool Editar(int id, T registro)
+        public virtual bool Editar(int id, T registro)
         {
             try
             {
-                db.ChangeTracker.Clear();
                 dbSet.Update(registro);
                 //T entityForUpdate = dbSet.SingleOrDefault(x => x.Id.Equals(id));
                 //registro.Id = id;
