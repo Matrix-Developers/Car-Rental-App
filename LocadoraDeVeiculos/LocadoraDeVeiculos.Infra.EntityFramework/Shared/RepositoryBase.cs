@@ -83,7 +83,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
                 return null;
             }
         }
-        public List<T> SelecionarTodos()
+        public virtual List<T> SelecionarTodos()
         {
             try
             {
