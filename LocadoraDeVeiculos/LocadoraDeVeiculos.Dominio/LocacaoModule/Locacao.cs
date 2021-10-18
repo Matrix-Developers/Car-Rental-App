@@ -43,7 +43,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             clienteCondutorId = clienteCondutor.Id;
             veiculoId = veiculo.Id;
             funcionarioLocadorId = funcionarioLocador.Id;
-            cupomId = cupom.Id;
+            if(cupom != null)
+                cupomId = cupom.Id;
             this.cupom = cupom;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
@@ -69,7 +70,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             clienteCondutorId = clienteCondutor.Id;
             veiculoId = veiculo.Id;
             funcionarioLocadorId = funcionarioLocador.Id;
-            cupomId = cupom.Id;
+            if (cupom != null)
+                cupomId = cupom.Id;
             this.cupom = cupom;
             this.dataDeSaida = dataDeSaida;
             this.dataPrevistaDeChegada = dataPrevistaDeChegada;
