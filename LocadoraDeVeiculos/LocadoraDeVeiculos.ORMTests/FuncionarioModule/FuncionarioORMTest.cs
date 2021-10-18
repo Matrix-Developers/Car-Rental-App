@@ -3,6 +3,7 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.EntityFramework;
 using LocadoraDeVeiculos.Infra.EntityFramework.Features;
+using LocadoraDeVeiculos.ORMTests.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System;
@@ -85,11 +86,7 @@ namespace LocadoraDeVeiculos.ORMTests.FuncionarioModule
         [TearDown]
         public void TearDown()
         {
-            var listaFuncionario = dbContext.Funcionarios.ToList().Select(x => x as Funcionario);
-            foreach (var item in listaFuncionario)
-                dbContext.Funcionarios.Remove(item);
-
-            dbContext.SaveChanges();
+            PopularBancoORMTest.DeletaTabelas();
         }
 
         [Test]

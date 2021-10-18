@@ -71,43 +71,8 @@ namespace LocadoraDeVeiculos.ORMTests.Shared
         public void TearDown()
         {
             if (deveLimparBanco)
-            {
-                var listaLocacaoes = dbContext.Locacoes.ToList().Select(x => x as Locacao);
-                foreach (var item in listaLocacaoes)
-                    dbContext.Locacoes.Remove(item);
-
-                var listaClientes = dbContext.Clientes.ToList().Select(x => x as Cliente);
-                foreach (var item in listaClientes)
-                    dbContext.Clientes.Remove(item);
-
-                var listaCupons = dbContext.Cupons.ToList().Select(x => x as Cupom);
-                foreach (var cupom in listaCupons)
-                    dbContext.Cupons.Remove(cupom);
-                dbContext.SaveChanges();
-
-                var listaParceiros = dbContext.Parceiros.ToList().Select(x => x as Parceiro);
-                foreach (var item in listaParceiros)
-                    dbContext.Parceiros.Remove(item);
-
-                var listaFuncionario = dbContext.Funcionarios.ToList().Select(x => x as Funcionario);
-                foreach (var item in listaFuncionario)
-                    dbContext.Funcionarios.Remove(item);
-
-                var listaGrupo = dbContext.GrupoDeVeiculos.ToList().Select(x => x as GrupoDeVeiculo);
-                foreach (var item in listaGrupo)
-                    dbContext.GrupoDeVeiculos.Remove(item);
-
-                var listaServicos = dbContext.Servicos.ToList().Select(x => x as Servico);
-                foreach (var item in listaServicos)
-                    dbContext.Servicos.Remove(item);
-
-                var listaVeiculos = dbContext.Veiculos.ToList().Select(x => x as Veiculo);
-                foreach (var item in listaVeiculos)
-                    dbContext.Veiculos.Remove(item);
-
-                dbContext.SaveChanges();
-            }
-        }
+                DeletaTabelas();
+        }                
 
         [Test]
         public void PopularBanco()
@@ -215,5 +180,43 @@ namespace LocadoraDeVeiculos.ORMTests.Shared
             controladorParceiro.InserirNovo(gabriel);
         }
 
+        public static void DeletaTabelas()
+        {
+            LocadoraDeVeiculosDBContext dbContext = new();
+            var listaLocacaoes = dbContext.Locacoes.ToList().Select(x => x as Locacao);
+            foreach (var item in listaLocacaoes)
+                dbContext.Locacoes.Remove(item);
+
+            var listaClientes = dbContext.Clientes.ToList().Select(x => x as Cliente);
+            foreach (var item in listaClientes)
+                dbContext.Clientes.Remove(item);
+
+            var listaCupons = dbContext.Cupons.ToList().Select(x => x as Cupom);
+            foreach (var cupom in listaCupons)
+                dbContext.Cupons.Remove(cupom);
+            dbContext.SaveChanges();
+
+            var listaParceiros = dbContext.Parceiros.ToList().Select(x => x as Parceiro);
+            foreach (var item in listaParceiros)
+                dbContext.Parceiros.Remove(item);
+
+            var listaFuncionario = dbContext.Funcionarios.ToList().Select(x => x as Funcionario);
+            foreach (var item in listaFuncionario)
+                dbContext.Funcionarios.Remove(item);
+
+            var listaGrupo = dbContext.GrupoDeVeiculos.ToList().Select(x => x as GrupoDeVeiculo);
+            foreach (var item in listaGrupo)
+                dbContext.GrupoDeVeiculos.Remove(item);
+
+            var listaServicos = dbContext.Servicos.ToList().Select(x => x as Servico);
+            foreach (var item in listaServicos)
+                dbContext.Servicos.Remove(item);
+
+            var listaVeiculos = dbContext.Veiculos.ToList().Select(x => x as Veiculo);
+            foreach (var item in listaVeiculos)
+                dbContext.Veiculos.Remove(item);
+
+            dbContext.SaveChanges();
+        }
     }
 }

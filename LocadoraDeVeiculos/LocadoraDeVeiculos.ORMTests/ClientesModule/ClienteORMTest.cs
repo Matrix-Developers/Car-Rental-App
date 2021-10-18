@@ -3,6 +3,7 @@ using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.EntityFramework;
 using LocadoraDeVeiculos.Infra.EntityFramework.Features;
+using LocadoraDeVeiculos.ORMTests.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System;
@@ -69,11 +70,7 @@ namespace LocadoraDeVeiculos.ORMTests.ClientesModule
         [TearDown]
         public void TearDown()
         {
-            var listaClientes = dbContext.Clientes.ToList().Select(x => x as Cliente);
-            foreach (var item in listaClientes)
-                dbContext.Clientes.Remove(item);
-
-            dbContext.SaveChanges();
+            PopularBancoORMTest.DeletaTabelas();
         }
 
         [Test]

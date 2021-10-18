@@ -11,6 +11,7 @@ using System.Linq;
 using System.Collections.Generic;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using System;
+using LocadoraDeVeiculos.ORMTests.Shared;
 
 namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
 {
@@ -107,15 +108,7 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
         [TearDown]
         public void TearDown()
         {
-            var listaVeiculos = dbContext.Veiculos.ToList().Select(x => x as Veiculo);
-            foreach (var item in listaVeiculos)
-                dbContext.Veiculos.Remove(item);
-
-            var listaGrupoDeVeiculos = dbContext.GrupoDeVeiculos.ToList().Select(x => x as GrupoDeVeiculo);
-            foreach (var item in listaGrupoDeVeiculos)
-                dbContext.GrupoDeVeiculos.Remove(item);
-
-            dbContext.SaveChanges();
+            PopularBancoORMTest.DeletaTabelas();
         }
 
         [Test]

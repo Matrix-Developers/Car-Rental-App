@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.EntityFramework;
 using LocadoraDeVeiculos.Infra.EntityFramework.Features;
+using LocadoraDeVeiculos.ORMTests.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System;
@@ -38,16 +39,7 @@ namespace LocadoraDeVeiculos.ORMTests
         [TearDown]
         public void TearDown()
         {
-            var listaCupons = dbContext.Cupons.ToList().Select(x => x as Cupom);
-            foreach (var cupom in listaCupons)
-                dbContext.Cupons.Remove(cupom);
-            dbContext.SaveChanges();
-
-            var listaParceiros = dbContext.Parceiros.ToList().Select(x => x as Parceiro);
-            foreach (var item in listaParceiros)
-                dbContext.Parceiros.Remove(item);
-
-            dbContext.SaveChanges();
+            PopularBancoORMTest.DeletaTabelas();
         }
 
         [Test]
