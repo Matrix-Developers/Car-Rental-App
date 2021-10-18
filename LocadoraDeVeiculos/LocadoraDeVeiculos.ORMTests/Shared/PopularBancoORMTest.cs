@@ -51,18 +51,9 @@ namespace LocadoraDeVeiculos.ORMTests.Shared
 
         List<Servico> servicos = new();
 
-        private string planoDiario;
-        private string planoKmControlado;
-
-        private string seguroCliente;
-        private string seguroNenhum;
-
-        private DateTime hoje;
-        private DateTime amanha;
-        private DateTime daquiDezDias;
-        private DateTime daquiSeteDias;
-        private DateTime daquiUmAno;
+     
         #endregion
+
         [SetUp]
         public void Setup()
         {
