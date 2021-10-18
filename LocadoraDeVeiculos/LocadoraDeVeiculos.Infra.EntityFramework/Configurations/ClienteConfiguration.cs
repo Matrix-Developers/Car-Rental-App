@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.Property(p => p.Cnh).HasColumnType("VARCHAR(50)").IsRequired(false);
             builder.Property(p => p.ValidadeCnh).HasColumnType("DATETIME").IsRequired(false);
 
-            builder.HasMany(p => p.Locacoes);
+            //builder.HasMany(p => p.Locacoes);
         }
     }
 }

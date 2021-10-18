@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public bool EhDescontoFixo { get; set; }
         public DateTime Validade { get; set; }
         public Parceiro Parceiro { get; set; }
-        public int ParceiroId { get; set; }
+        public int? ParceiroId { get; set; }
         public int QtdUtilizada { get; set; }
         public List<Locacao> Locacoes { get; set; }
 
@@ -30,6 +30,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
             EhDescontoFixo = ehDescontoFixo;
             Validade = validade;
             Parceiro = parceiro;
+            ParceiroId = parceiro.Id;
             QtdUtilizada = qtdUtilizada;
         }
 

@@ -1,5 +1,5 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
+using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
@@ -11,18 +11,19 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 {
-    public partial class TelaDevolucaoForm : Form   //precisa de refatoração
+    public partial class TelaDevolucaoForm : Form
     {
         private readonly TelaSelecionarServicoForm telaServico;
         private Locacao devolucao;
-        private readonly VeiculoRepository veiculoAppService = new();
+        private readonly VeiculoAppService veiculoAppService;
 
-        public TelaDevolucaoForm(string titulo, ServicoAppService servicoAppService)
+        public TelaDevolucaoForm(string titulo, ServicoAppService servicoAppService, VeiculoAppService veiculoAppService)
         {
             InitializeComponent();
             lblTitulo.Text = titulo;
             cBoxQtdTanque.SelectedIndex = 0;
             telaServico = new TelaSelecionarServicoForm(servicoAppService);
+            this.veiculoAppService = veiculoAppService;
         }
 
         public Locacao Devolucao
@@ -74,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
                 string resultadoValidacao = Devolucao.Validar();
                 Veiculo veiculoAtualizado = devolucao.Veiculo;
-                veiculoAppService.Editar(devolucao.Veiculo.Id, veiculoAtualizado);
+                veiculoAppService.EditarEntidade(devolucao.Veiculo.Id, veiculoAtualizado);
 
 
                 if (resultadoValidacao != "VALIDO")

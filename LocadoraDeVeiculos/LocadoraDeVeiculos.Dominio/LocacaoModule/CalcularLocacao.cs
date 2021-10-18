@@ -59,12 +59,15 @@ namespace LocadoraDeVeiculos.Dominio.Shared
         {
             double resultado = 0;
             double intervaloDeDias = (dataFinal - dataInicial).TotalDays;
-            foreach (Servico servico in servicos)
+            if (servicos != null)
             {
-                if (servico.EhTaxadoDiario)
-                    resultado += servico.Valor * intervaloDeDias;
-                else
-                    resultado += servico.Valor;
+                foreach (Servico servico in servicos)
+                {
+                    if (servico.EhTaxadoDiario)
+                        resultado += servico.Valor * intervaloDeDias;
+                    else
+                        resultado += servico.Valor;
+                }
             }
             return resultado;
         }

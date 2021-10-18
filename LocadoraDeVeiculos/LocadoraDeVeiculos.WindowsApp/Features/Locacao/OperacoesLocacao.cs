@@ -1,10 +1,15 @@
 ﻿
+using LocadoraDeVeiculos.Aplicacao.ClienteModule;
+using LocadoraDeVeiculos.Aplicacao.CupomModule;
+using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
 using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.InternetServices;
 using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
@@ -21,16 +26,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private readonly LocacaoAppService locacaoAppService;
         private readonly ServicoAppService servicoAppService;
+        private readonly FuncionarioAppService funcionarioAppService;
+        private readonly VeiculoAppService veiculoAppService;
+        private readonly ClienteAppService clienteAppService;
+        private readonly CupomAppService cupomAppService;
 
-        private readonly RelacionamentoLocServRepository controladorRelacionamento;
-        private RelacionamentoLocServ relacionamento;
-        private readonly TabelaLocacaoControl tabelaLocacao;
+        //private readonly RelacionamentoLocServRepository controladorRelacionamento;
+        //private RelacionamentoLocServ relacionamento;
+        private readonly TabelaLocacaoControl tabelaLocacao; 
 
-        public OperacoesLocacao(LocacaoAppService locacaoAppService, ServicoAppService servicoAppService)
+        public OperacoesLocacao(LocacaoAppService locacaoAppService, ServicoAppService servicoAppService, FuncionarioAppService funcionarioAppService, VeiculoAppService veiculoAppService, ClienteAppService clienteAppService, CupomAppService cupomAppService)
         {
             this.locacaoAppService = locacaoAppService;
             this.servicoAppService = servicoAppService;
-            controladorRelacionamento = new RelacionamentoLocServRepository();
+            this.funcionarioAppService = funcionarioAppService;
+            this.veiculoAppService = veiculoAppService;
+            this.clienteAppService = clienteAppService;
+            this.cupomAppService = cupomAppService;
+            //controladorRelacionamento = new RelacionamentoLocServRepository();
             conversorPdf = new ConversorParaPdf(10, 18);
             tabelaLocacao = new TabelaLocacaoControl();
         }
@@ -39,7 +52,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            TelaLocacaoForm tela = new("Locação de Veiculos", servicoAppService);
+            TelaLocacaoForm tela = new("Locação de Veiculos", servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -47,17 +60,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
                 if (resultadoLocacao)
                 {
-                    relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
-                    foreach (var item in relacionamento.Servicos)
-                    {
-                        RelacionamentoLocServ relacionamentoSelecionado = new(0, relacionamento.Locacao, item.Id);
-                        controladorRelacionamento.InserirNovo(relacionamentoSelecionado);
-                    }
+                    Veiculo veiculoAtualizado = tela.Locacao.Veiculo;
+                    veiculoAppService.EditarEntidade(tela.Locacao.Veiculo.Id, veiculoAtualizado);
+                    //relacionamento = new RelacionamentoLocServ(0, tela.Locacao, tela.Servicos);
+                    //foreach (var item in relacionamento.Servicos)
+                    //{
+                    //    RelacionamentoLocServ relacionamentoSelecionado = new(0, relacionamento.Locacao, item.Id);
+                    //    controladorRelacionamento.InserirNovo(relacionamentoSelecionado);
+                    //}
                     conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
 
                     try
                     {
-                        GerenciadorDeEmail.EnviarEmail("matriquisdevelopers@gmail.com", "matrixadm", tela.Locacao);
+                        GerenciadorDeEmail.EnviarEmail("matriquisdevelopers@gmail.com", "matrixadm", tela.Locacao);     //deve ser feita variaveis para tornar email e senha mais acessiveis
                     }
                     catch (Exception ex)
                     {
@@ -90,7 +105,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            TelaLocacaoForm tela = new("Edição de Locação", servicoAppService);
+            TelaLocacaoForm tela = new("Edição de Locação", servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
 
             tela.Locacao = locacaoSelecionada;
 

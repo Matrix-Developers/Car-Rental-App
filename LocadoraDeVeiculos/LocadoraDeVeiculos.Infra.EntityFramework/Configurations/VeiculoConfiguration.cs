@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.Property(p => p.temFreiosAbs).HasColumnType("BIT").IsRequired();
             builder.Property(p => p.estaAlugado).HasColumnType("BIT").IsRequired();
 
-            builder.HasOne(p => p.grupoVeiculos);
+            builder.HasOne(p => p.grupoVeiculos).WithMany(p => p.Veiculos);
         }
     }
 }

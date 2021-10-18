@@ -142,7 +142,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(locacaoAppService, servicoAppService);
+            operacoes = new OperacoesLocacao(locacaoAppService, servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
 
             ConfigurarPainelRegistros();
         }
@@ -156,7 +156,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesDevolucao(locacaoAppService, servicoAppService);
+            operacoes = new OperacoesDevolucao(locacaoAppService, servicoAppService, veiculoAppService);
 
             ConfigurarPainelRegistros();
         }

@@ -24,12 +24,12 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Configurations
             builder.Property(p => p.PrecoDevolucao).HasColumnType("FLOAT").IsRequired();
             builder.Property(p => p.EstaAberta).HasColumnType("BIT");
 
-            builder.HasMany(p => p.Servicos);
+            builder.HasMany(p => p.Servicos).WithMany(p => p.Locacoes);
 
             builder.HasOne(p => p.FuncionarioLocador).WithMany(p => p.Locacoes);
-            builder.HasOne(p => p.ClienteContratante);
-            builder.HasOne(p => p.ClienteCondutor);
-            builder.HasOne(p => p.Cupom);
+            builder.HasOne(p => p.ClienteContratante).WithMany(p => p.LocacoesContratante);  //.HasForeignKey(p => p.ClienteContratanteId);
+            builder.HasOne(p => p.ClienteCondutor).WithMany(p => p.LocacoesCondutor);   //.HasForeignKey(p => p.ClienteCondutorId);
+            builder.HasOne(p => p.Cupom).WithMany(p => p.Locacoes); ;
         }
     }
 }

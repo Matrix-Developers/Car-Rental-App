@@ -1,8 +1,8 @@
-﻿using LocadoraDeVeiculos.Aplicacao.ServicoModule;
-using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.VeiculoModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ClienteModule;
+using LocadoraDeVeiculos.Aplicacao.CupomModule;
+using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
@@ -19,20 +19,24 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 {
-    public partial class TelaLocacaoForm : Form //precisa de refatoração
+    public partial class TelaLocacaoForm : Form 
     {
         private readonly TelaSelecionarServicoForm telaServico;
         private Locacao locacao;
-        private readonly FuncionarioRepository controladorFuncionario = new();
-        private readonly VeiculoRepository controladorVeiculo = new();
-        private readonly ClienteRepository controladorCliente = new();
-        private readonly CupomRepository controladorCupom = new();
-        public List<Servico> Servicos;
+        private readonly FuncionarioAppService funcionarioAppService;
+        private readonly VeiculoAppService veiculoAppService;
+        private readonly ClienteAppService clienteAppService;
+        private readonly CupomAppService cupomAppService;
+        public List<Servico> servicos;
         public string TipoSeguro = "Nenhum";
 
-        public TelaLocacaoForm(string titulo, ServicoAppService servicoAppService)
+        public TelaLocacaoForm(string titulo, ServicoAppService servicoAppService, FuncionarioAppService funcionarioAppService, VeiculoAppService veiculoAppService, ClienteAppService clienteAppService, CupomAppService cupomAppService)
         {
-            Servicos = new List<Servico>();
+            this.funcionarioAppService = funcionarioAppService;
+            this.veiculoAppService = veiculoAppService;
+            this.clienteAppService = clienteAppService;
+            this.cupomAppService = cupomAppService;
+            servicos = new List<Servico>();
             InitializeComponent();
             lblTitulo.Text = titulo;
             CarregarDados();
@@ -58,7 +62,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 dateTPDataSaida.Text = locacao.DataDeSaida.ToLongDateString();
                 dateTPDataDevolucao.Text = locacao.DataPrevistaDeChegada.ToLongDateString();
                 txtTotal.Text = locacao.PrecoLocacao.ToString();
-                Servicos = locacao.Servicos;
+                servicos = locacao.Servicos;
                 TipoSeguro = locacao.TipoDeSeguro;
 
             }
@@ -66,19 +70,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void CarregarDados()
         {
-            cBoxFuncionario.DataSource = controladorFuncionario.SelecionarTodos();
+            cBoxFuncionario.DataSource = funcionarioAppService.SelecionarTodasEntidade();
             List<Veiculo> veiculosDisponiveis = new();
             if (lblTitulo.Text.Contains("Edição"))
-                veiculosDisponiveis = controladorVeiculo.SelecionarTodos();
+                veiculosDisponiveis = veiculoAppService.SelecionarTodasEntidade();
             else
                 AdicionaApenasVeiculoDisponivel(veiculosDisponiveis);
             cBoxVeiculo.DataSource = veiculosDisponiveis;
-            cBoxCliente.DataSource = controladorCliente.SelecionarTodos();
+            cBoxCliente.DataSource = clienteAppService.SelecionarTodasEntidade();
         }
 
         private void AdicionaApenasVeiculoDisponivel(List<Veiculo> veiculosDisponiveis)
         {
-            foreach (Veiculo item in controladorVeiculo.SelecionarTodos())
+            foreach (Veiculo item in veiculoAppService.SelecionarTodasEntidade())
                 if (!item.estaAlugado)
                     veiculosDisponiveis.Add(item);
         }
@@ -86,7 +90,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void CarregaCondutor()
         {
             List<Cliente> clientesPf = new();
-            foreach (Cliente cliente in controladorCliente.SelecionarTodos())
+            foreach (Cliente cliente in clienteAppService.SelecionarTodasEntidade())
                 if (cliente.EhPessoaFisica)
                     clientesPf.Add(cliente);
             cBoxCondutor.DataSource = clientesPf;
@@ -106,18 +110,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             if (telaServico.seguro.Length > 0)
                 tipoDeSeguro = telaServico.seguro;
             Cupom cupom = null;
-            bool existe = controladorCupom.ExisteCodigo(txtCupom.Text);
+            bool existe = cupomAppService.ExisteCodigo(txtCupom.Text);
             if (existe)
             {
-                cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+                cupom = cupomAppService.SelecionarPorCodigo(txtCupom.Text);
                 if (cupom.Validade < DateTime.Now)
                     cupom = null;
             }
             if (cupom != null)
-                controladorCupom.AtualizarQtdUtilizada(cupom);
-            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, Servicos);
-            Veiculo veiculoAtualizado = locacao.Veiculo;
-            controladorVeiculo.Editar(locacao.Veiculo.Id, veiculoAtualizado);
+                cupomAppService.AtualizarQuantidadeUtilizada(cupom);
+            locacao = new Locacao(id, veiculo, funcionarioLocador, clienteContratante, condutor, cupom, dataDeSaida, dataPrevistaDeChegada, tipoDoPlano, tipoDeSeguro, servicos);
+            //Veiculo veiculoAtualizado = locacao.Veiculo;
+            //veiculoAppService.EditarEntidade(locacao.Veiculo.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validar();
 
             if (resultadoValidacao != "VALIDO")
@@ -130,11 +134,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         private void BtnServicos_Click(object sender, EventArgs e)
         {
-            telaServico.InicializarCampos(Servicos, TipoSeguro, true);
+            telaServico.InicializarCampos(servicos, TipoSeguro, true);
 
             if (telaServico.ShowDialog() == DialogResult.OK)
             {
-                Servicos = telaServico.servicosSelecionados;
+                servicos = telaServico.servicosSelecionados;
                 TipoSeguro = telaServico.seguro;
                 double precoGarantia = CalcularLocacao.CalcularGarantia();
                 double precoSeguro = CalcularLocacao.CalcularSeguro(telaServico.seguro);
@@ -145,7 +149,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private void BtnVerificar_Click(object sender, EventArgs e)
         {
             string cupom = txtCupom.Text;
-            bool existe = controladorCupom.ExisteCodigo(cupom);
+            bool existe = cupomAppService.ExisteCodigo(cupom);
             if (existe)
                 txtCupom.BackColor = Color.Green;
             else

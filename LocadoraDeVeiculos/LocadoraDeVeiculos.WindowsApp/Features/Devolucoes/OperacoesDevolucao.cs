@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
+using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
@@ -14,12 +15,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
     {
         private readonly LocacaoAppService locacaoAppService;
         private readonly ServicoAppService servicoAppService;
+        private readonly VeiculoAppService veiculoAppService;
 
         private readonly TabelaDevolucaoControl tabelaDevolucao = null;
-        public OperacoesDevolucao(LocacaoAppService locacaoAppService, ServicoAppService servicoAppService)
+        public OperacoesDevolucao(LocacaoAppService locacaoAppService, ServicoAppService servicoAppService, VeiculoAppService veiculoAppService)
         {
             this.locacaoAppService = locacaoAppService;
             this.servicoAppService = servicoAppService;
+            this.veiculoAppService = veiculoAppService;
             tabelaDevolucao = new TabelaDevolucaoControl();
         }
         public void InserirNovoRegistro()
@@ -37,7 +40,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            TelaDevolucaoForm tela = new("Devolução de Veículo", servicoAppService);
+            TelaDevolucaoForm tela = new("Devolução de Veículo", servicoAppService, veiculoAppService);
 
             tela.Devolucao = locacaoSelecionada;
 
