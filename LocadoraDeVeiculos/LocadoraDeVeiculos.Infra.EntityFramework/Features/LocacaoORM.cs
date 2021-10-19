@@ -19,22 +19,16 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
         {
             try
             {
-                Locacao registroAuxiliar = new();
-                registroAuxiliar.Servicos = registro.Servicos;
-                db.SaveChanges();
-                registroAuxiliar.Id = 0;
-
                 Locacao entityForUpdate = dbSet.Include(x => x.Servicos).SingleOrDefault(x => x.Id.Equals(id));
                 registro.Id = id;
                 db.Entry(entityForUpdate).CurrentValues.SetValues(registro);
 
-                foreach (Servico servico in registro.Servicos){
+                foreach (Servico servico in entityForUpdate.Servicos.ToList())
                     entityForUpdate.Servicos.Remove(servico);
-                }
-                    db.SaveChanges();
-                foreach (Servico servico in registroAuxiliar.Servicos){
+                db.SaveChanges();
+
+                foreach (Servico servico in registro.Servicos)
                     entityForUpdate.Servicos.Add(servico);
-                }
                 db.SaveChanges();
             }
             catch (Exception ex)
