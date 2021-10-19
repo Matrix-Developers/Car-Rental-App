@@ -45,10 +45,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
             db = new();
             servicoAppService = new(new ServicoORM(db));
-            parceiroAppService = new(new ParceiroORM(db));
-            cupomAppService = new(new CupomORM(db));
-            funcionarioAppService = new(new FuncionarioORM(db));
-            grupoDeVeiculosAppService = new(new GrupoDeVeiculosORM(db));
             clienteAppService = new(new ClienteORM(db));
             veiculoAppService = new(new VeiculoORM(db), new ImagemVeiculoORM(db));
             locacaoAppService = new(new LocacaoORM(db));
@@ -94,7 +90,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         public void ChamarTelaPrincipal()
         {
             TelaPrincipalForm.FuncionarioLogado = funcionarioLogado;
-            Application.Run(new TelaPrincipalForm(servicoAppService, parceiroAppService, cupomAppService, funcionarioAppService, grupoDeVeiculosAppService, clienteAppService, veiculoAppService, locacaoAppService));
+            Application.Run(new TelaPrincipalForm(servicoAppService, clienteAppService, veiculoAppService, locacaoAppService));
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
