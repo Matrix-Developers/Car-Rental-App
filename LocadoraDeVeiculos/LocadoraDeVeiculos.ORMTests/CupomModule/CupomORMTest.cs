@@ -1,5 +1,6 @@
 using FluentAssertions;
 using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.EntityFramework;
@@ -38,16 +39,16 @@ namespace LocadoraDeVeiculos.ORMTests
         [TearDown]
         public void TearDown()
         {
+            var listaLocacaoes = dbContext.Locacoes.ToList().Select(x => x as Locacao);
+            foreach (var item in listaLocacaoes)
+                dbContext.Locacoes.Remove(item);
+            dbContext.SaveChanges();
+
             var listaCupons = dbContext.Cupons.ToList().Select(x => x as Cupom);
             foreach (var cupom in listaCupons)
                 dbContext.Cupons.Remove(cupom);
             dbContext.SaveChanges();
 
-            var listaParceiros = dbContext.Parceiros.ToList().Select(x => x as Parceiro);
-            foreach (var item in listaParceiros)
-                dbContext.Parceiros.Remove(item);
-
-            dbContext.SaveChanges();
         }
 
         [Test]

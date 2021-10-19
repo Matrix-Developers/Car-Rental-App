@@ -40,7 +40,6 @@ namespace LocadoraDeVeiculos.ORMTests.ParceiroModule
             foreach (var item in listaLocacaoes)
                 dbContext.Locacoes.Remove(item);
 
-
             var listaCupons = dbContext.Cupons.ToList().Select(x => x as Cupom);
             foreach (var cupom in listaCupons)
                 dbContext.Cupons.Remove(cupom);

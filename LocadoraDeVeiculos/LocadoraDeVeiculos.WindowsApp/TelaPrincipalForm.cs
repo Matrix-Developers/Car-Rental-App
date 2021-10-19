@@ -1,12 +1,7 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.ClienteModule;
-using LocadoraDeVeiculos.Aplicacao.CupomModule;
-using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
-using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
-using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
-using LocadoraDeVeiculos.Infra.EntityFramework.Features;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
@@ -21,7 +16,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Infra.EntityFramework;
+using Autofac;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -32,33 +27,33 @@ namespace LocadoraDeVeiculos.WindowsApp
         private static Funcionario funcionarioLogado;
 
         private readonly ServicoAppService servicoAppService;
-        private readonly ParceiroAppService parceiroAppService;
-        private readonly CupomAppService cupomAppService;
-        private readonly FuncionarioAppService funcionarioAppService;
-        private readonly GrupoDeVeiculosAppService grupoDeVeiculosAppService;
-        private readonly ClienteAppService clienteAppService;
         private readonly VeiculoAppService veiculoAppService;
         private readonly LocacaoAppService locacaoAppService;
+        private readonly ClienteAppService clienteAppService;        
+        
         
         public static TelaPrincipalForm Instancia { get => instancia; set => instancia = value; }
         public static Funcionario FuncionarioLogado { get => funcionarioLogado; set => funcionarioLogado = value; }
 
-        public TelaPrincipalForm(ServicoAppService servicoAppService, ParceiroAppService parceiroAppService, CupomAppService cupomAppService, FuncionarioAppService funcionarioAppService, GrupoDeVeiculosAppService grupoDeVeiculosAppService, ClienteAppService clienteAppService, VeiculoAppService veiculoAppService, LocacaoAppService locacaoAppService)
+        public TelaPrincipalForm(ServicoAppService servicoAppService, ClienteAppService clienteAppService, VeiculoAppService veiculoAppService, LocacaoAppService locacaoAppService)
         {
             InitializeComponent();
-
+        
             instancia = this;
             this.servicoAppService = servicoAppService;
-            this.parceiroAppService = parceiroAppService;
-            this.cupomAppService = cupomAppService;
-            this.funcionarioAppService = funcionarioAppService;
-            this.grupoDeVeiculosAppService = grupoDeVeiculosAppService;
             this.clienteAppService = clienteAppService;
             this.veiculoAppService = veiculoAppService;
             this.locacaoAppService = locacaoAppService;
-
+        
             MostrarDashBoard();
-        }                
+        }
+
+        public TelaPrincipalForm()
+        {
+            InitializeComponent();
+            instancia = this;
+            MostrarDashBoard();
+        }
 
         #region Opções do menu strip
         private void InícioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesFuncionario(funcionarioAppService);
+            operacoes = AutoFac.Container.Resolve<OperacoesFuncionario>();
 
             ConfigurarPainelRegistros();
         }
@@ -88,7 +83,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesServico(servicoAppService);
+            operacoes = AutoFac.Container.Resolve<OperacoesServico>();
 
             ConfigurarPainelRegistros();
         }
@@ -102,7 +97,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesClientes(clienteAppService);
+            operacoes = AutoFac.Container.Resolve<OperacoesClientes>();
 
             ConfigurarPainelRegistros();
         }
@@ -116,7 +111,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesVeiculo(veiculoAppService,grupoDeVeiculosAppService);
+            operacoes = AutoFac.Container.Resolve<OperacoesVeiculo>();
 
             ConfigurarPainelRegistros();
         }
@@ -130,7 +125,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesGrupoDeVeiculos(grupoDeVeiculosAppService);
+            operacoes = AutoFac.Container.Resolve<OperacoesGrupoDeVeiculos>();
 
             ConfigurarPainelRegistros();
         }
@@ -144,24 +139,10 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            //operacoes = new OperacoesLocacao(locacaoAppService, servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
-
-            operacoes = GetOperacoesLocacao();
+            operacoes = AutoFac.Container.Resolve<OperacoesLocacao>();
 
             ConfigurarPainelRegistros();
-        }
-
-        private ICadastravel GetOperacoesLocacao()
-        {
-            LocadoraDeVeiculosDBContext db = new();
-            return new OperacoesLocacao(
-                new LocacaoAppService(new LocacaoORM(db))
-                ,new ServicoAppService(new ServicoORM(db))
-                ,new FuncionarioAppService(new FuncionarioORM(db))
-                ,new VeiculoAppService(new VeiculoORM(db),new ImagemVeiculoORM(db))
-                ,new ClienteAppService(new ClienteORM(db))
-                ,new CupomAppService(new CupomORM(db)));
-        }
+        }        
 
         private void DevoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -172,7 +153,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesDevolucao(locacaoAppService, servicoAppService, veiculoAppService);
+            operacoes = AutoFac.Container.Resolve<OperacoesDevolucao>();
 
             ConfigurarPainelRegistros();
         }
@@ -186,7 +167,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesCupom(cupomAppService, parceiroAppService);
+            operacoes = AutoFac.Container.Resolve<OperacoesCupom>();
 
             ConfigurarPainelRegistros();
         }
@@ -200,7 +181,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesParceiro(parceiroAppService);
+            operacoes = AutoFac.Container.Resolve<OperacoesParceiro>();
 
             ConfigurarPainelRegistros();
         }

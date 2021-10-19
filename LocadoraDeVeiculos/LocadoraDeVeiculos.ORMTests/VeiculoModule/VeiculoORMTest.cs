@@ -4,13 +4,13 @@ using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.EntityFramework;
 using LocadoraDeVeiculos.Infra.EntityFramework.Features;
-using LocadoraDeVeiculos.IntegrationTests.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System.Linq;
 using System.Collections.Generic;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using System;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
 
 namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
 {
@@ -107,13 +107,14 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
         [TearDown]
         public void TearDown()
         {
+            var listaLocacaoes = dbContext.Locacoes.ToList().Select(x => x as Locacao);
+            foreach (var item in listaLocacaoes)
+                dbContext.Locacoes.Remove(item);
+            dbContext.SaveChanges();
+
             var listaVeiculos = dbContext.Veiculos.ToList().Select(x => x as Veiculo);
             foreach (var item in listaVeiculos)
                 dbContext.Veiculos.Remove(item);
-
-            var listaGrupoDeVeiculos = dbContext.GrupoDeVeiculos.ToList().Select(x => x as GrupoDeVeiculo);
-            foreach (var item in listaGrupoDeVeiculos)
-                dbContext.GrupoDeVeiculos.Remove(item);
 
             dbContext.SaveChanges();
         }
