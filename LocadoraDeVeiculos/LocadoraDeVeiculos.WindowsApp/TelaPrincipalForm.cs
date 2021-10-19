@@ -6,6 +6,7 @@ using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
+using LocadoraDeVeiculos.Infra.EntityFramework.Features;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Clientes;
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
@@ -20,6 +21,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.Veiculos;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Infra.EntityFramework;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -142,9 +144,23 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracao.TipoCadastro);
 
-            operacoes = new OperacoesLocacao(locacaoAppService, servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
+            //operacoes = new OperacoesLocacao(locacaoAppService, servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
+
+            operacoes = GetOperacoesLocacao();
 
             ConfigurarPainelRegistros();
+        }
+
+        private ICadastravel GetOperacoesLocacao()
+        {
+            LocadoraDeVeiculosDBContext db = new();
+            return new OperacoesLocacao(
+                new LocacaoAppService(new LocacaoORM(db))
+                ,new ServicoAppService(new ServicoORM(db))
+                ,new FuncionarioAppService(new FuncionarioORM(db))
+                ,new VeiculoAppService(new VeiculoORM(db),new ImagemVeiculoORM(db))
+                ,new ClienteAppService(new ClienteORM(db))
+                ,new CupomAppService(new CupomORM(db)));
         }
 
         private void DevoluçãoToolStripMenuItem_Click(object sender, EventArgs e)

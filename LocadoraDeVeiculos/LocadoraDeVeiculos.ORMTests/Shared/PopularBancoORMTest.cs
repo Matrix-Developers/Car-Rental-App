@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.ORMTests.Shared
     [TestClass]
     public class PopularBancoORMTest
     {
-        bool deveLimparBanco = false;
+        bool deveLimparBanco = true;
         #region atributos privados
         private IRepository<Locacao> controlador;
         private IRepository<GrupoDeVeiculo> controladorGrupoDeVeiculos;
