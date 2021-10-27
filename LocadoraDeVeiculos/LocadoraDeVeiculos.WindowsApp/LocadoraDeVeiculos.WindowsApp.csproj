@@ -47,6 +47,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EnvioDeEmailWorker\LocadoraDeVeiculos.Infra.ApiServices.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Aplicacao\LocadoraDeVeiculos.Aplicacao.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <Content Include="Libraries\DataGridViewGrouper.dll" />

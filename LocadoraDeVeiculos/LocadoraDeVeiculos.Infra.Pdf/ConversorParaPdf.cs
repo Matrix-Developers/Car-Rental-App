@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
         public void ConverterLocacaoEmPdf(Locacao locacao)
         {
-            string arquivo = $@"..\..\..\..\Recibos\recibo{locacao.Id}.pdf";
+            string arquivo = $@"..\..\..\..\Recibos\recibo-{locacao.Id}.pdf";
             string titulo = $"Recibo Locadora de Veículos - Locação {locacao.Id}";
 
             List<string> linhas = new()

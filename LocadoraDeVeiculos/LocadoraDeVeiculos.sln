@@ -63,7 +63,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.5 - ORM", "4.5 - ORM", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.EntityFramework", "LocadoraDeVeiculos.Infra.EntityFramework\LocadoraDeVeiculos.Infra.EntityFramework.csproj", "{009FEF40-C65B-4FCE-8D2C-22B3B63BF9BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.ORMTests", "LocadoraDeVeiculos.ORMTests\LocadoraDeVeiculos.ORMTests.csproj", "{70C48796-F131-4C29-9EB4-C3EFA2F1FBE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.ORMTests", "LocadoraDeVeiculos.ORMTests\LocadoraDeVeiculos.ORMTests.csproj", "{70C48796-F131-4C29-9EB4-C3EFA2F1FBE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.6 - Api Services", "4.6 - Api Services", "{C8EB4400-4ACF-4E31-B968-00E7544FD337}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infra.ApiServices", "EnvioDeEmailWorker\LocadoraDeVeiculos.Infra.ApiServices.csproj", "{D6F416DC-39D6-430D-B087-37625E7CA57F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +133,10 @@ Global
 		{70C48796-F131-4C29-9EB4-C3EFA2F1FBE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70C48796-F131-4C29-9EB4-C3EFA2F1FBE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70C48796-F131-4C29-9EB4-C3EFA2F1FBE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F416DC-39D6-430D-B087-37625E7CA57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F416DC-39D6-430D-B087-37625E7CA57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F416DC-39D6-430D-B087-37625E7CA57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F416DC-39D6-430D-B087-37625E7CA57F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,6 +169,8 @@ Global
 		{D47409CA-73B4-4626-B1FB-8D962DCC1082} = {7AB9AE2E-9F55-4449-A48F-2C16DA0F556D}
 		{009FEF40-C65B-4FCE-8D2C-22B3B63BF9BC} = {D47409CA-73B4-4626-B1FB-8D962DCC1082}
 		{70C48796-F131-4C29-9EB4-C3EFA2F1FBE0} = {0434AE1D-F1F7-4160-9EC2-CF1193523A17}
+		{C8EB4400-4ACF-4E31-B968-00E7544FD337} = {7AB9AE2E-9F55-4449-A48F-2C16DA0F556D}
+		{D6F416DC-39D6-430D-B087-37625E7CA57F} = {C8EB4400-4ACF-4E31-B968-00E7544FD337}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE39B01D-3311-41F0-97EC-C260F92A794D}
