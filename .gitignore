@@ -350,3 +350,5 @@ MigrationBackup/
 .ionide/
 /LocadoraDeVeiculos/Recibos
 /LocadoraDeVeiculos/LocadoraDeVeiculos.Infra.EntityFramework/Migrations
+/LocadoraDeVeiculos/Enviados
+/LocadoraDeVeiculos/Erro
