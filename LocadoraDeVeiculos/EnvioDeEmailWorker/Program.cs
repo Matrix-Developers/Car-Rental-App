@@ -25,10 +25,11 @@ namespace LocadoraDeVeiculos.Infra.ApiServices
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseWindowsService()
                 .UseServiceProviderFactory(new AutofacServiceProviderFactory())
                 .ConfigureContainer<ContainerBuilder>(builder =>
                 {
-                    builder.RegisterType<LocacaoAppService>();  //.As<ILocaoAppService>();
+                    builder.RegisterType<LocacaoAppService>();//.As<IRepository<Locacao>>();
                     builder.RegisterType<LocadoraDeVeiculosDBContext>().InstancePerLifetimeScope();
                     builder.RegisterType<LocacaoORM>().As<IRepository<Locacao>>();
                 })

@@ -24,12 +24,15 @@ namespace LocadoraDeVeiculos.WindowsApp
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             LocadoraDeVeiculosDBContext db = new ();
             var pendingChanges = db.Database.GetPendingMigrations();
             if (pendingChanges.Any())
                 db.Database.Migrate();
+
             Application.Run(new TelaLogin());
-            CreateHostBuilder(args).Build().Run();
+
+            //CreateHostBuilder(args).Build().Run();
         }
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)

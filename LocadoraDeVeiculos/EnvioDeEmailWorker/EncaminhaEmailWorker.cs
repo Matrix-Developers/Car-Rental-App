@@ -18,9 +18,9 @@ namespace LocadoraDeVeiculos.Infra.ApiServices
 {
     public class EncaminhaEmailWorker : BackgroundService
     {
-        public const string DIR_RECIBOS = "..\\..\\..\\..\\Recibos\\";
-        public const string DIR_ERROS = "..\\..\\..\\..\\Erros\\";
-        public const string DIR_ENVIADOS = "..\\..\\..\\..\\Enviados\\";
+        public const string DIR_RECIBOS = "..\\..\\..\\..\\..\\Recibos\\";
+        public const string DIR_ERROS = "..\\..\\..\\..\\..\\Erros\\";
+        public const string DIR_ENVIADOS = "..\\..\\..\\..\\..\\Enviados\\";
         LocacaoAppService locacaoAppService;// = new(new LocacaoORM(new LocadoraDeVeiculosDBContext()));
         public readonly ILogger<EncaminhaEmailWorker> _logger;
         Stopwatch stopwatch = new();
