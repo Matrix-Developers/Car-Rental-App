@@ -1,3 +1,10 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.EntityFramework;
+using LocadoraDeVeiculos.Infra.EntityFramework.Features;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -18,6 +25,13 @@ namespace LocadoraDeVeiculos.Infra.ApiServices
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                .ConfigureContainer<ContainerBuilder>(builder =>
+                {
+                    builder.RegisterType<LocacaoAppService>();  //.As<ILocaoAppService>();
+                    builder.RegisterType<LocadoraDeVeiculosDBContext>().InstancePerLifetimeScope();
+                    builder.RegisterType<LocacaoORM>().As<IRepository<Locacao>>();
+                })
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<EncaminhaEmailWorker>();

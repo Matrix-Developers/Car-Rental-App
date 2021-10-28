@@ -1,12 +1,15 @@
 ﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using Serilog;
 using System;
+using System.IO;
 using System.Net.Mail;
 
 namespace LocadoraDeVeiculos.Infra.InternetServices
 {
     public class GerenciadorDeEmail
     {
+        public const string DIR_RECIBOS = "..\\..\\..\\..\\Recibos\\";
+
         public static void EnviarEmail(string emailRemetente, string passwordRemetente, Locacao locacaoEnviada)
         {
             using SmtpClient smtp = new();
@@ -26,7 +29,8 @@ namespace LocadoraDeVeiculos.Infra.InternetServices
             email.IsBodyHtml = false;
             email.Body = "Obrigado por utilizar nossos serviços, volte sempre!";
 
-            email.Attachments.Add(new Attachment($@"..\..\..\..\Recibos\recibo-{locacaoEnviada.Id}.pdf"));
+            VerificarDiretorio(DIR_RECIBOS);
+            email.Attachments.Add(new Attachment($"{DIR_RECIBOS}recibo-{locacaoEnviada.Id}.pdf"));
 
             try
             {
@@ -35,6 +39,14 @@ namespace LocadoraDeVeiculos.Infra.InternetServices
             catch (Exception ex)
             {
                 Log.Error("{DataEHora} / Ocorreu um erro ao tentar enviar e-mail o(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? /  {StackTrace}", DateTime.Now, "Gerenciador de E-Mail", ex);
+            }
+        }
+
+        public static void VerificarDiretorio(string diretorio)
+        {
+            if (!Directory.Exists(diretorio))
+            {
+                Directory.CreateDirectory(diretorio);
             }
         }
     }
