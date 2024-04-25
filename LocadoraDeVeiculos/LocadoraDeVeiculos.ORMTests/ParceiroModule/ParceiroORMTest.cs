@@ -1,16 +1,10 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
-using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
-using LocadoraDeVeiculos.Dominio.SevicosModule;
 using LocadoraDeVeiculos.Dominio.Shared;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.EntityFramework;
 using LocadoraDeVeiculos.Infra.EntityFramework.Features;
-using LocadoraDeVeiculos.IntegrationTests.Shared;
 using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System.Linq;

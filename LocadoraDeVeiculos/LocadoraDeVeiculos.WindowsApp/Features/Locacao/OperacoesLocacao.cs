@@ -1,14 +1,11 @@
-﻿
-using LocadoraDeVeiculos.Aplicacao.ClienteModule;
+﻿using LocadoraDeVeiculos.Aplicacao.ClienteModule;
 using LocadoraDeVeiculos.Aplicacao.CupomModule;
 using LocadoraDeVeiculos.Aplicacao.FuncionarioModule;
 using LocadoraDeVeiculos.Aplicacao.LocacaoModule;
 using LocadoraDeVeiculos.Aplicacao.ServicoModule;
 using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
-using LocadoraDeVeiculos.Controladores.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Infra.InternetServices;
 using LocadoraDeVeiculos.Infra.Logs;

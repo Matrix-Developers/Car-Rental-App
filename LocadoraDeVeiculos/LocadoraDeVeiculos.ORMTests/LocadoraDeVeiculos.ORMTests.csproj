@@ -20,7 +20,6 @@
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.EntityFramework\LocadoraDeVeiculos.Infra.EntityFramework.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.TestDataBuilders\LocadoraDeVeiculos.TestDataBuilders.csproj" />
-    <ProjectReference Include="..\LocadoraDeVeiculos.Tests\LocadoraDeVeiculos.IntegrationTests.csproj" />
   </ItemGroup>
 
 </Project>
