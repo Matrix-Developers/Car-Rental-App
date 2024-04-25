@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Logs\LocadoraDeVeiculos.Infra.Logs.csproj" />
-    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.SQL\LocadoraDeVeiculos.Infra.SQL.csproj" />
   </ItemGroup>
 
 </Project>
