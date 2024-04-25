@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31105.61
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.WindowsApp", "LocadoraDeVeiculos.WindowsApp\LocadoraDeVeiculos.WindowsApp.csproj", "{8427D6A0-2FF3-4DF6-81D7-7015CE22DA56}"
 EndProject
@@ -31,13 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.SQ
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - DAO", "4.1 - DAO", "{CC49BAF6-E30F-4B94-835A-024D7DCE3ABA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - External Services", "4.2 - External Services", "{6600A54C-4477-44F8-8DA4-6C18C2C9FFC0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.3 - PDF", "4.3 - PDF", "{48E5EC59-4DE1-4F0E-80CB-C958D29A8C3F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.Pdf", "LocadoraDeVeiculos.Infra.Pdf\LocadoraDeVeiculos.Infra.Pdf.csproj", "{7A2CC876-A64C-4812-8161-3704EF86FB85}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.InternetServices", "LocadoraDeVeiculos.Infra.InternetServices\LocadoraDeVeiculos.Infra.InternetServices.csproj", "{62A05090-9503-45EC-9FE0-4D43A2331111}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Aplicacao", "LocadoraDeVeiculos.Aplicacao\LocadoraDeVeiculos.Aplicacao.csproj", "{7844A1A9-0266-4147-86CD-E226E8612A9C}"
 EndProject
@@ -63,7 +59,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.5 - ORM", "4.5 - ORM", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.EntityFramework", "LocadoraDeVeiculos.Infra.EntityFramework\LocadoraDeVeiculos.Infra.EntityFramework.csproj", "{009FEF40-C65B-4FCE-8D2C-22B3B63BF9BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.ORMTests", "LocadoraDeVeiculos.ORMTests\LocadoraDeVeiculos.ORMTests.csproj", "{70C48796-F131-4C29-9EB4-C3EFA2F1FBE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.ORMTests", "LocadoraDeVeiculos.ORMTests\LocadoraDeVeiculos.ORMTests.csproj", "{70C48796-F131-4C29-9EB4-C3EFA2F1FBE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,10 +97,6 @@ Global
 		{7A2CC876-A64C-4812-8161-3704EF86FB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A2CC876-A64C-4812-8161-3704EF86FB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A2CC876-A64C-4812-8161-3704EF86FB85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62A05090-9503-45EC-9FE0-4D43A2331111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62A05090-9503-45EC-9FE0-4D43A2331111}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62A05090-9503-45EC-9FE0-4D43A2331111}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62A05090-9503-45EC-9FE0-4D43A2331111}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7844A1A9-0266-4147-86CD-E226E8612A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7844A1A9-0266-4147-86CD-E226E8612A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7844A1A9-0266-4147-86CD-E226E8612A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -146,10 +138,8 @@ Global
 		{D33A0A1A-CBC9-4F1F-9D06-F91779BBA5FA} = {D6846410-15CD-45EB-BC03-3EE9B241F831}
 		{A4CF117D-53FB-4813-A89D-27E11F3985C0} = {CC49BAF6-E30F-4B94-835A-024D7DCE3ABA}
 		{CC49BAF6-E30F-4B94-835A-024D7DCE3ABA} = {7AB9AE2E-9F55-4449-A48F-2C16DA0F556D}
-		{6600A54C-4477-44F8-8DA4-6C18C2C9FFC0} = {7AB9AE2E-9F55-4449-A48F-2C16DA0F556D}
 		{48E5EC59-4DE1-4F0E-80CB-C958D29A8C3F} = {7AB9AE2E-9F55-4449-A48F-2C16DA0F556D}
 		{7A2CC876-A64C-4812-8161-3704EF86FB85} = {48E5EC59-4DE1-4F0E-80CB-C958D29A8C3F}
-		{62A05090-9503-45EC-9FE0-4D43A2331111} = {6600A54C-4477-44F8-8DA4-6C18C2C9FFC0}
 		{7844A1A9-0266-4147-86CD-E226E8612A9C} = {2B4C22C6-37D3-4A4F-BD40-A4EC504EB8CF}
 		{DC29F3B6-B798-4E96-B6A6-7BD93AB58F19} = {B5FF9914-940C-4669-9210-678F28FAD18D}
 		{0434AE1D-F1F7-4160-9EC2-CF1193523A17} = {B5FF9914-940C-4669-9210-678F28FAD18D}
