@@ -7,7 +7,6 @@ using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.Infra.InternetServices;
 using LocadoraDeVeiculos.Infra.Logs;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using Serilog;
@@ -66,15 +65,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     //    controladorRelacionamento.InserirNovo(relacionamentoSelecionado);
                     //}
                     conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
-
-                    try
-                    {
-                        GerenciadorDeEmail.EnviarEmail("matriquisdevelopers@gmail.com", "matrixadm", tela.Locacao);     //deve ser feita variaveis para tornar email e senha mais acessiveis
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Ocorreu um erro ao tentar enviar os dados de locação por e-mail.\nO recibo está salvo na pasta Recibos e deverá ser enviado manualmente assim que possível!!\n" + ex.Message, "Erro ao enviar e-mail");
-                    }
 
                     TelaPrincipalForm.Instancia.AtualizarRodape($"Locação: [{tela.Locacao.Veiculo}] realizada com sucesso");
                 }
