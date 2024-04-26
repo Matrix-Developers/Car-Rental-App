@@ -19,7 +19,6 @@ namespace LocadoraDeVeiculos.Aplicacao.FuncionarioModule
 
         public override bool InserirEntidade(Funcionario funcionario)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = funcionarioRepository.InserirNovo(funcionario);
             tempo = DateTime.Now.Millisecond - tempo;
@@ -31,7 +30,6 @@ namespace LocadoraDeVeiculos.Aplicacao.FuncionarioModule
         }
         public override bool EditarEntidade(int id, Funcionario funcionario)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = funcionarioRepository.Editar(id, funcionario);
             tempo = DateTime.Now.Millisecond - tempo;
@@ -43,7 +41,6 @@ namespace LocadoraDeVeiculos.Aplicacao.FuncionarioModule
         }
         public override bool ExcluirEntidade(int id)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = funcionarioRepository.Excluir(id);
             tempo = DateTime.Now.Millisecond - tempo;
@@ -56,7 +53,6 @@ namespace LocadoraDeVeiculos.Aplicacao.FuncionarioModule
         }
         public override bool ExisteEntidade(int id)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado =  funcionarioRepository.Existe(id);
             tempo = DateTime.Now.Millisecond - tempo;

@@ -23,7 +23,6 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
 
         public override bool InserirEntidade(Veiculo veiculo)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = veiculoRepository.InserirNovo(veiculo);
             tempo = DateTime.Now.Millisecond - tempo;
@@ -45,7 +44,6 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         }
         public override bool EditarEntidade(int id, Veiculo veiculo)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = veiculoRepository.Editar(id, veiculo);
             tempo = DateTime.Now.Millisecond - tempo;

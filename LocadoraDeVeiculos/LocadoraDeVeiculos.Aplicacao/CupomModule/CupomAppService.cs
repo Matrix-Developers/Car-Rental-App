@@ -19,7 +19,6 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
 
         public override bool InserirEntidade(Cupom cupom)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = cupomRepository.InserirNovo(cupom);
             tempo = DateTime.Now.Millisecond - tempo;
@@ -33,7 +32,6 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
         }
         public override bool EditarEntidade(int id, Cupom cupom)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = cupomRepository.Editar(id, cupom);
             tempo = DateTime.Now.Millisecond - tempo;
@@ -46,7 +44,6 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
         }
         public override bool ExcluirEntidade(int id)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = cupomRepository.Excluir(id);
             tempo = DateTime.Now.Millisecond - tempo;
@@ -60,7 +57,6 @@ namespace LocadoraDeVeiculos.Aplicacao.CupomModule
         }
         public override bool ExisteEntidade(int id)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = cupomRepository.Existe(id);
             tempo = DateTime.Now.Millisecond - tempo;
