@@ -26,7 +26,10 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
         public void ConverterLocacaoEmPdf(Locacao locacao)
         {
-            string arquivo = $@"..\..\..\..\Recibos\recibo{locacao.Id}.pdf";
+            string subpath = @"c:\Car Rental App\Recibos\";
+            System.IO.Directory.CreateDirectory(subpath);
+
+            string arquivo = $@"{subpath}Recibo{locacao.Id}.pdf";
             string titulo = $"Recibo Locadora de Veículos - Locação {locacao.Id}";
 
             List<string> linhas = new()
