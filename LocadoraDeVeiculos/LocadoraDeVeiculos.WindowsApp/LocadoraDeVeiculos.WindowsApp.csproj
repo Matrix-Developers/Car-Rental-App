@@ -58,9 +58,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.EntityFramework\LocadoraDeVeiculos.Infra.EntityFramework.csproj" />
-    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.InternetServices\LocadoraDeVeiculos.Infra.InternetServices.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Pdf\LocadoraDeVeiculos.Infra.Pdf.csproj" />
-    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.SQL\LocadoraDeVeiculos.Infra.SQL.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />

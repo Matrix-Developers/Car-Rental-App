@@ -1,15 +1,14 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.VeiculoModule;
-using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
+using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using LocadoraDeVeiculos.TestDataBuilders;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using NUnit.Framework;
-using System.Collections.Generic;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using LocadoraDeVeiculos.Controladores.ImagemVeiculoModule;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
 {
