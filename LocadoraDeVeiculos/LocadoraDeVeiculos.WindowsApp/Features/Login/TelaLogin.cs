@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
         private readonly LocadoraDeVeiculosDBContext db;
         private readonly ServicoAppService servicoAppService;
-        private readonly ParceiroAppService parceiroAppService;
+        private readonly ParceiroAppService parceiroAppServic,e;
         private readonly CupomAppService cupomAppService;
         private readonly FuncionarioAppService funcionarioAppService;
         private readonly GrupoDeVeiculosAppService grupoDeVeiculosAppService;
@@ -35,6 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             InitializeComponent();
 
             db = new();
+            funcionarioAppService = new(new FuncionarioORM(db));
             servicoAppService = new(new ServicoORM(db));
             clienteAppService = new(new ClienteORM(db));
             funcionarioAppService = new(new FuncionarioORM(db));
