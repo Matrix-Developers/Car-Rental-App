@@ -1,5 +1,4 @@
-﻿using LocadoraDeVeiculos.Controladores.ClientesModule;
-using LocadoraDeVeiculos.Dominio.ClienteModule;
+﻿using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,10 +7,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Clientes
 {
     public partial class TabelaClientesControl : UserControl    //precisa retirar o repositorio e usar appService
     {
-        private readonly ClienteRepository controladorCliente = null;
         public TabelaClientesControl()
         {
-            controladorCliente = new ClienteRepository();
             InitializeComponent();
             gridClientes.ConfigurarGridZebrado();
             gridClientes.ConfigurarGridSomenteLeitura();

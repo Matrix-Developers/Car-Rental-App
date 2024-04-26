@@ -1,9 +1,7 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Controladores.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.Infra.EntityFramework.Features;
 using LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo;
 using System;
 using System.Collections.Generic;
