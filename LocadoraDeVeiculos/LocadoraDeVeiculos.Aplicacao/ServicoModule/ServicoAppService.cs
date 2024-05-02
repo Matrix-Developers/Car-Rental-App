@@ -42,7 +42,6 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
         }
         public override bool ExcluirEntidade(int id)
         {
-            GeradorLog.ConfigurarLog();
             tempo = DateTime.Now.Millisecond;
             bool resultado = servicoRepository.Excluir(id);
             tempo = DateTime.Now.Millisecond - tempo;

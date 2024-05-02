@@ -24,7 +24,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
         public void InserirNovoRegistro()
         {
             TarefaGrupoDeVeiculosForm tela = new("Cadastro de Grupo de Veiculos");
-            GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -44,7 +43,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
         public void EditarRegistro()
         {
             int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
-            GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             if (id == 0)
             {
@@ -76,7 +74,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
         public void ExcluirRegistro()
         {
-            GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
             if (id == 0)

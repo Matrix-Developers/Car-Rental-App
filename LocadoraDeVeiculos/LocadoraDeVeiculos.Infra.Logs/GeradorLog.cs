@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Serilog;
-using System.IO;
+﻿using Serilog;
 
 namespace LocadoraDeVeiculos.Infra.Logs
 {    
@@ -8,20 +6,10 @@ namespace LocadoraDeVeiculos.Infra.Logs
     {
         public static void ConfigurarLog()
         {
-            var config = InitConfiguration();
-
             var logger = new LoggerConfiguration()
-                .WriteTo.Seq(config["ConexaoSeq"])
+                .WriteTo.File(@"c:\\Car Rental App\\Logs\\LogOutput.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
             Log.Logger = logger;
-        }
-        private static IConfiguration InitConfiguration()
-        {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .Build();
-            return config;
         }
     }
 }

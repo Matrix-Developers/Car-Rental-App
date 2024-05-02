@@ -25,7 +25,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public void InserirNovoRegistro()
         {
-            GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
             TelaCupomForm tela = new("Cadastro de Cupom", parceiroAppService);
 
@@ -46,7 +45,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public void EditarRegistro()
         {
-            GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
             TelaCupomForm tela = new("Edição de Cupom", parceiroAppService);
 
@@ -77,7 +75,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public void ExcluirRegistro()
         {
-            GeradorLog.ConfigurarLog();
             Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
 
             int id = tabela.ObtemIdSelecionado();
