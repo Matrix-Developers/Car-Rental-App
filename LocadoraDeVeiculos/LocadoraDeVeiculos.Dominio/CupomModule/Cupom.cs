@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
             EhDescontoFixo = ehDescontoFixo;
             Validade = validade;
             Parceiro = parceiro;
-            ParceiroId = parceiro.Id;
+            ParceiroId = parceiro != null ? parceiro.Id : null;
             QtdUtilizada = qtdUtilizada;
         }
 

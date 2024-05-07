@@ -41,10 +41,10 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
-            clienteContratanteId = clienteContratante.Id;
-            clienteCondutorId = clienteCondutor.Id;
+            clienteContratanteId = clienteContratante != null ? clienteContratante.Id : null;
+            clienteCondutorId = clienteCondutor != null ? clienteCondutor.Id : null;
             veiculoId = veiculo.Id;
-            funcionarioLocadorId = funcionarioLocador.Id;
+            funcionarioLocadorId = funcionarioLocador != null ? funcionarioLocador.Id : null;
             if (cupom != null)
                 cupomId = cupom.Id;
             this.cupom = cupom;
@@ -68,7 +68,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.funcionarioLocador = funcionarioLocador;
             this.clienteContratante = clienteContratante;
             this.clienteCondutor = clienteCondutor;
-            clienteContratanteId = clienteContratante.Id;
+            clienteContratanteId = clienteContratante != null ? clienteContratante.Id : null;
             clienteCondutorId = clienteCondutor.Id;
             veiculoId = veiculo.Id;
             funcionarioLocadorId = funcionarioLocador.Id;
