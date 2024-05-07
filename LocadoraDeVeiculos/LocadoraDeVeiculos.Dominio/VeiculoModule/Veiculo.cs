@@ -1,5 +1,4 @@
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
@@ -25,9 +24,8 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
         public bool temDirecaoHidraulica;
         public bool temFreiosAbs;
         public bool estaAlugado;
-        public List<ImagemVeiculo> imagens;
 
-        public Veiculo(int id, string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status, List<ImagemVeiculo> imagens)
+        public Veiculo(int id, string modelo, GrupoDeVeiculo grupoVeiculos, string placa, string chassi, string marca, string cor, string tipoCombustivel, double capacidadeTanque, int ano, double kilometragem, int numeroPortas, int capacidadePessoas, char tamanhoPortaMala, bool temArCondicionado, bool temDirecaoHidraulica, bool temFreiosAbs, bool status)
         {
             this.id = id;
             this.modelo = modelo;
@@ -47,7 +45,7 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             this.temDirecaoHidraulica = temDirecaoHidraulica;
             this.temFreiosAbs = temFreiosAbs;
             this.estaAlugado = status;
-            this.imagens = imagens;
+
         }
 
         public Veiculo()

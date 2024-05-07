@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             servicoAppService = new(new ServicoORM(db));
             clienteAppService = new(new ClienteORM(db));
             funcionarioAppService = new(new FuncionarioORM(db));
-            veiculoAppService = new(new VeiculoORM(db), new ImagemVeiculoORM(db));
+            veiculoAppService = new(new VeiculoORM(db));
             locacaoAppService = new(new LocacaoORM(db));
         }
 

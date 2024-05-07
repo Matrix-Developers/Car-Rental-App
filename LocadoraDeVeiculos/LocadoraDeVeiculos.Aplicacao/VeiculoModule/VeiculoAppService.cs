@@ -1,8 +1,6 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.Shared;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.Infra.Logs;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -12,13 +10,11 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
     public class VeiculoAppService : AppServiceBase<Veiculo>
     {
         private readonly IRepository<Veiculo> veiculoRepository;
-        private readonly IImagemVeiculoRepository imagemVeiculoRepository;
         long tempo;
 
-        public VeiculoAppService(IRepository<Veiculo> veiculoRepository, IImagemVeiculoRepository imagemVeiculoRepository)
+        public VeiculoAppService(IRepository<Veiculo> veiculoRepository)
         {
             this.veiculoRepository = veiculoRepository;
-            this.imagemVeiculoRepository = imagemVeiculoRepository;
         }
 
         public override bool InserirEntidade(Veiculo veiculo)
@@ -30,15 +26,6 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
                 Log.Information("{DataEHora} / Veiculo {Veiculo} inserido com sucesso", DateTime.Now, veiculo);
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Inserir / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), veiculo.Id,tempo);
-
-            if (veiculo.imagens != null)
-            {
-                foreach (ImagemVeiculo imagemVeiculo in veiculo.imagens)
-                {
-                    imagemVeiculo.veiculo = veiculo;
-                    imagemVeiculoRepository.InserirNovo(imagemVeiculo);
-                }
-            }
 
             return resultado;
         }
@@ -52,17 +39,11 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             else
                 Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", veiculo,tempo);
 
-            if (veiculo.imagens != null)
-                foreach (ImagemVeiculo imagem in veiculo.imagens)
-                    imagem.veiculo = veiculo;
-            imagemVeiculoRepository.EditarLista(veiculo.imagens);
-
             return resultado;
         }
         public override bool ExcluirEntidade(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            imagemVeiculoRepository.ExcluirPorIdDoVeiculo(id);
             bool resultado = veiculoRepository.Excluir(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (resultado)
@@ -86,7 +67,6 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         {
             tempo = DateTime.Now.Millisecond;
             Veiculo veiculo = veiculoRepository.SelecionarPorId(id);
-            veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(id);
             tempo = DateTime.Now.Millisecond - tempo;
             if (veiculo != null)
                 Log.Information("{DataEHora} / Veiculo {Id} selecionado com sucesso", DateTime.Now, id);
@@ -101,10 +81,6 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             tempo = DateTime.Now.Millisecond - tempo;
             if (listVeiculos != null)
             {
-                foreach (Veiculo veiculo in listVeiculos)
-                {
-                    veiculo.imagens = imagemVeiculoRepository.SelecioanrTodasImagensDeUmVeiculo(veiculo.Id);
-                }
                 Log.Information("{DataEHora} / {QtdSelecionados} Veiculos selecionados com sucesso", DateTime.Now, listVeiculos.Count);
             }
             else

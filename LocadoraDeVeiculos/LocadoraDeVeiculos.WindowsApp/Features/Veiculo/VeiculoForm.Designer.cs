@@ -29,472 +29,472 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelTitulo = new System.Windows.Forms.Label();
-            this.textPlaca = new System.Windows.Forms.TextBox();
-            this.textChassi = new System.Windows.Forms.TextBox();
-            this.textMarca = new System.Windows.Forms.TextBox();
-            this.textModelo = new System.Windows.Forms.TextBox();
-            this.textId = new System.Windows.Forms.TextBox();
-            this.lbGrupo = new System.Windows.Forms.Label();
-            this.lbImagem = new System.Windows.Forms.Label();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.lbChassi = new System.Windows.Forms.Label();
-            this.lbMarca = new System.Windows.Forms.Label();
-            this.lbAno = new System.Windows.Forms.Label();
-            this.lbModelo = new System.Windows.Forms.Label();
-            this.textCor = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textKM = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.gBoxDados = new System.Windows.Forms.GroupBox();
-            this.btnImagem = new System.Windows.Forms.Button();
-            this.cBoxCombustivel = new System.Windows.Forms.ComboBox();
-            this.textAno = new System.Windows.Forms.TextBox();
-            this.numUpDownCapTanque = new System.Windows.Forms.NumericUpDown();
-            this.cBoxPortaMalas = new System.Windows.Forms.ComboBox();
-            this.numUpDownQtdPessoas = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownQtdPortas = new System.Windows.Forms.NumericUpDown();
-            this.cBoxGrupo = new System.Windows.Forms.ComboBox();
-            this.lbPlaca = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkLBoxOpcionais = new System.Windows.Forms.CheckedListBox();
-            this.gBoxDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownCapTanque)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPortas)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            labelTitulo = new System.Windows.Forms.Label();
+            textPlaca = new System.Windows.Forms.TextBox();
+            textChassi = new System.Windows.Forms.TextBox();
+            textMarca = new System.Windows.Forms.TextBox();
+            textModelo = new System.Windows.Forms.TextBox();
+            textId = new System.Windows.Forms.TextBox();
+            lbGrupo = new System.Windows.Forms.Label();
+            lbNome = new System.Windows.Forms.Label();
+            lbChassi = new System.Windows.Forms.Label();
+            lbMarca = new System.Windows.Forms.Label();
+            lbAno = new System.Windows.Forms.Label();
+            lbModelo = new System.Windows.Forms.Label();
+            textCor = new System.Windows.Forms.TextBox();
+            label10 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            textKM = new System.Windows.Forms.TextBox();
+            label12 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnConfirmar = new System.Windows.Forms.Button();
+            gBoxDados = new System.Windows.Forms.GroupBox();
+            cBoxCombustivel = new System.Windows.Forms.ComboBox();
+            textAno = new System.Windows.Forms.TextBox();
+            numUpDownCapTanque = new System.Windows.Forms.NumericUpDown();
+            cBoxPortaMalas = new System.Windows.Forms.ComboBox();
+            numUpDownQtdPessoas = new System.Windows.Forms.NumericUpDown();
+            numUpDownQtdPortas = new System.Windows.Forms.NumericUpDown();
+            cBoxGrupo = new System.Windows.Forms.ComboBox();
+            lbPlaca = new System.Windows.Forms.Label();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            checkLBoxOpcionais = new System.Windows.Forms.CheckedListBox();
+            gBoxDados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numUpDownCapTanque).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numUpDownQtdPessoas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numUpDownQtdPortas).BeginInit();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // labelTitulo
             // 
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.Color.Black;
-            this.labelTitulo.Location = new System.Drawing.Point(105, 26);
-            this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(180, 20);
-            this.labelTitulo.TabIndex = 64;
-            this.labelTitulo.Text = "Cadastro de Veículos";
+            labelTitulo.AutoSize = true;
+            labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            labelTitulo.ForeColor = System.Drawing.Color.Black;
+            labelTitulo.Location = new System.Drawing.Point(122, 30);
+            labelTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labelTitulo.Name = "labelTitulo";
+            labelTitulo.Size = new System.Drawing.Size(180, 20);
+            labelTitulo.TabIndex = 64;
+            labelTitulo.Text = "Cadastro de Veículos";
             // 
             // textPlaca
             // 
-            this.textPlaca.Location = new System.Drawing.Point(97, 44);
-            this.textPlaca.MaxLength = 7;
-            this.textPlaca.Name = "textPlaca";
-            this.textPlaca.Size = new System.Drawing.Size(217, 20);
-            this.textPlaca.TabIndex = 1;
+            textPlaca.Location = new System.Drawing.Point(113, 51);
+            textPlaca.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textPlaca.MaxLength = 7;
+            textPlaca.Name = "textPlaca";
+            textPlaca.Size = new System.Drawing.Size(252, 23);
+            textPlaca.TabIndex = 1;
             // 
             // textChassi
             // 
-            this.textChassi.Location = new System.Drawing.Point(97, 70);
-            this.textChassi.Name = "textChassi";
-            this.textChassi.Size = new System.Drawing.Size(217, 20);
-            this.textChassi.TabIndex = 2;
+            textChassi.Location = new System.Drawing.Point(113, 81);
+            textChassi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textChassi.Name = "textChassi";
+            textChassi.Size = new System.Drawing.Size(252, 23);
+            textChassi.TabIndex = 2;
             // 
             // textMarca
             // 
-            this.textMarca.Location = new System.Drawing.Point(97, 96);
-            this.textMarca.Name = "textMarca";
-            this.textMarca.Size = new System.Drawing.Size(217, 20);
-            this.textMarca.TabIndex = 3;
+            textMarca.Location = new System.Drawing.Point(113, 111);
+            textMarca.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textMarca.Name = "textMarca";
+            textMarca.Size = new System.Drawing.Size(252, 23);
+            textMarca.TabIndex = 3;
             // 
             // textModelo
             // 
-            this.textModelo.Location = new System.Drawing.Point(97, 122);
-            this.textModelo.Name = "textModelo";
-            this.textModelo.Size = new System.Drawing.Size(217, 20);
-            this.textModelo.TabIndex = 4;
+            textModelo.Location = new System.Drawing.Point(113, 141);
+            textModelo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textModelo.Name = "textModelo";
+            textModelo.Size = new System.Drawing.Size(252, 23);
+            textModelo.TabIndex = 4;
             // 
             // textId
             // 
-            this.textId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textId.Enabled = false;
-            this.textId.Location = new System.Drawing.Point(97, 18);
-            this.textId.Name = "textId";
-            this.textId.ReadOnly = true;
-            this.textId.Size = new System.Drawing.Size(217, 20);
-            this.textId.TabIndex = 73;
+            textId.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            textId.Enabled = false;
+            textId.Location = new System.Drawing.Point(113, 21);
+            textId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textId.Name = "textId";
+            textId.ReadOnly = true;
+            textId.Size = new System.Drawing.Size(252, 23);
+            textId.TabIndex = 73;
             // 
             // lbGrupo
             // 
-            this.lbGrupo.AutoSize = true;
-            this.lbGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbGrupo.ForeColor = System.Drawing.Color.Black;
-            this.lbGrupo.Location = new System.Drawing.Point(55, 177);
-            this.lbGrupo.Name = "lbGrupo";
-            this.lbGrupo.Size = new System.Drawing.Size(36, 13);
-            this.lbGrupo.TabIndex = 72;
-            this.lbGrupo.Text = "Grupo";
-            // 
-            // lbImagem
-            // 
-            this.lbImagem.AutoSize = true;
-            this.lbImagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbImagem.ForeColor = System.Drawing.Color.Black;
-            this.lbImagem.Location = new System.Drawing.Point(47, 204);
-            this.lbImagem.Name = "lbImagem";
-            this.lbImagem.Size = new System.Drawing.Size(44, 13);
-            this.lbImagem.TabIndex = 71;
-            this.lbImagem.Text = "Imagem";
+            lbGrupo.AutoSize = true;
+            lbGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbGrupo.ForeColor = System.Drawing.Color.Black;
+            lbGrupo.Location = new System.Drawing.Point(64, 204);
+            lbGrupo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbGrupo.Name = "lbGrupo";
+            lbGrupo.Size = new System.Drawing.Size(36, 13);
+            lbGrupo.TabIndex = 72;
+            lbGrupo.Text = "Grupo";
             // 
             // lbNome
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbNome.ForeColor = System.Drawing.Color.Black;
-            this.lbNome.Location = new System.Drawing.Point(75, 21);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(16, 13);
-            this.lbNome.TabIndex = 65;
-            this.lbNome.Text = "Id";
+            lbNome.AutoSize = true;
+            lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbNome.ForeColor = System.Drawing.Color.Black;
+            lbNome.Location = new System.Drawing.Point(88, 24);
+            lbNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbNome.Name = "lbNome";
+            lbNome.Size = new System.Drawing.Size(16, 13);
+            lbNome.TabIndex = 65;
+            lbNome.Text = "Id";
             // 
             // lbChassi
             // 
-            this.lbChassi.AutoSize = true;
-            this.lbChassi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbChassi.ForeColor = System.Drawing.Color.Black;
-            this.lbChassi.Location = new System.Drawing.Point(53, 73);
-            this.lbChassi.Name = "lbChassi";
-            this.lbChassi.Size = new System.Drawing.Size(38, 13);
-            this.lbChassi.TabIndex = 67;
-            this.lbChassi.Text = "Chassi";
+            lbChassi.AutoSize = true;
+            lbChassi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbChassi.ForeColor = System.Drawing.Color.Black;
+            lbChassi.Location = new System.Drawing.Point(62, 84);
+            lbChassi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbChassi.Name = "lbChassi";
+            lbChassi.Size = new System.Drawing.Size(38, 13);
+            lbChassi.TabIndex = 67;
+            lbChassi.Text = "Chassi";
             // 
             // lbMarca
             // 
-            this.lbMarca.AutoSize = true;
-            this.lbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbMarca.ForeColor = System.Drawing.Color.Black;
-            this.lbMarca.Location = new System.Drawing.Point(54, 99);
-            this.lbMarca.Name = "lbMarca";
-            this.lbMarca.Size = new System.Drawing.Size(37, 13);
-            this.lbMarca.TabIndex = 68;
-            this.lbMarca.Text = "Marca";
+            lbMarca.AutoSize = true;
+            lbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbMarca.ForeColor = System.Drawing.Color.Black;
+            lbMarca.Location = new System.Drawing.Point(63, 114);
+            lbMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbMarca.Name = "lbMarca";
+            lbMarca.Size = new System.Drawing.Size(37, 13);
+            lbMarca.TabIndex = 68;
+            lbMarca.Text = "Marca";
             // 
             // lbAno
             // 
-            this.lbAno.AutoSize = true;
-            this.lbAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbAno.ForeColor = System.Drawing.Color.Black;
-            this.lbAno.Location = new System.Drawing.Point(65, 148);
-            this.lbAno.Name = "lbAno";
-            this.lbAno.Size = new System.Drawing.Size(26, 13);
-            this.lbAno.TabIndex = 70;
-            this.lbAno.Text = "Ano";
+            lbAno.AutoSize = true;
+            lbAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbAno.ForeColor = System.Drawing.Color.Black;
+            lbAno.Location = new System.Drawing.Point(76, 171);
+            lbAno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbAno.Name = "lbAno";
+            lbAno.Size = new System.Drawing.Size(26, 13);
+            lbAno.TabIndex = 70;
+            lbAno.Text = "Ano";
             // 
             // lbModelo
             // 
-            this.lbModelo.AutoSize = true;
-            this.lbModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbModelo.ForeColor = System.Drawing.Color.Black;
-            this.lbModelo.Location = new System.Drawing.Point(49, 125);
-            this.lbModelo.Name = "lbModelo";
-            this.lbModelo.Size = new System.Drawing.Size(42, 13);
-            this.lbModelo.TabIndex = 69;
-            this.lbModelo.Text = "Modelo";
+            lbModelo.AutoSize = true;
+            lbModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbModelo.ForeColor = System.Drawing.Color.Black;
+            lbModelo.Location = new System.Drawing.Point(57, 144);
+            lbModelo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbModelo.Name = "lbModelo";
+            lbModelo.Size = new System.Drawing.Size(42, 13);
+            lbModelo.TabIndex = 69;
+            lbModelo.Text = "Modelo";
             // 
             // textCor
             // 
-            this.textCor.Location = new System.Drawing.Point(195, 148);
-            this.textCor.Name = "textCor";
-            this.textCor.Size = new System.Drawing.Size(119, 20);
-            this.textCor.TabIndex = 6;
+            textCor.Location = new System.Drawing.Point(227, 171);
+            textCor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textCor.Name = "textCor";
+            textCor.Size = new System.Drawing.Size(138, 23);
+            textCor.TabIndex = 6;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(166, 151);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(23, 13);
-            this.label10.TabIndex = 81;
-            this.label10.Text = "Cor";
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            label10.ForeColor = System.Drawing.Color.Black;
+            label10.Location = new System.Drawing.Point(194, 174);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(23, 13);
+            label10.TabIndex = 81;
+            label10.Text = "Cor";
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(168, 230);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 13);
-            this.label16.TabIndex = 91;
-            this.label16.Text = "Tam. Porta Malas";
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            label16.ForeColor = System.Drawing.Color.Black;
+            label16.Location = new System.Drawing.Point(196, 233);
+            label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(90, 13);
+            label16.TabIndex = 91;
+            label16.Text = "Tam. Porta Malas";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(25, 256);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 13);
-            this.label11.TabIndex = 81;
-            this.label11.Text = "Combustível";
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            label11.ForeColor = System.Drawing.Color.Black;
+            label11.Location = new System.Drawing.Point(29, 263);
+            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(66, 13);
+            label11.TabIndex = 81;
+            label11.Text = "Combustível";
             // 
             // textKM
             // 
-            this.textKM.Location = new System.Drawing.Point(195, 280);
-            this.textKM.Name = "textKM";
-            this.textKM.Size = new System.Drawing.Size(119, 20);
-            this.textKM.TabIndex = 13;
-            this.textKM.Text = "0";
-            this.textKM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextKM_KeyPress);
+            textKM.Location = new System.Drawing.Point(227, 291);
+            textKM.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textKM.Name = "textKM";
+            textKM.Size = new System.Drawing.Size(138, 23);
+            textKM.TabIndex = 13;
+            textKM.Text = "0";
+            textKM.KeyPress += TextKM_KeyPress;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(29, 282);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 13);
-            this.label12.TabIndex = 85;
-            this.label12.Text = "N° Pessoas";
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            label12.ForeColor = System.Drawing.Color.Black;
+            label12.Location = new System.Drawing.Point(37, 295);
+            label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(62, 13);
+            label12.TabIndex = 85;
+            label12.Text = "N° Pessoas";
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(207, 256);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 13);
-            this.label13.TabIndex = 84;
-            this.label13.Text = "N° Portas";
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            label13.ForeColor = System.Drawing.Color.Black;
+            label13.Location = new System.Drawing.Point(241, 263);
+            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(52, 13);
+            label13.TabIndex = 84;
+            label13.Text = "N° Portas";
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(22, 230);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 13);
-            this.label14.TabIndex = 83;
-            this.label14.Text = "Cap. Tanque";
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            label14.ForeColor = System.Drawing.Color.Black;
+            label14.Location = new System.Drawing.Point(26, 233);
+            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(69, 13);
+            label14.TabIndex = 83;
+            label14.Text = "Cap. Tanque";
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(166, 283);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(22, 13);
-            this.label15.TabIndex = 82;
-            this.label15.Text = "Km";
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            label15.ForeColor = System.Drawing.Color.Black;
+            label15.Location = new System.Drawing.Point(194, 295);
+            label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(22, 13);
+            label15.TabIndex = 82;
+            label15.Text = "Km";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(305, 574);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 17;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            btnCancelar.Location = new System.Drawing.Point(356, 601);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(88, 27);
+            btnCancelar.TabIndex = 17;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(224, 574);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmar.TabIndex = 16;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
+            btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            btnConfirmar.Location = new System.Drawing.Point(261, 601);
+            btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new System.Drawing.Size(88, 27);
+            btnConfirmar.TabIndex = 16;
+            btnConfirmar.Text = "Confirmar";
+            btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Click += BtnConfirmar_Click;
             // 
             // gBoxDados
             // 
-            this.gBoxDados.Controls.Add(this.btnImagem);
-            this.gBoxDados.Controls.Add(this.cBoxCombustivel);
-            this.gBoxDados.Controls.Add(this.textAno);
-            this.gBoxDados.Controls.Add(this.numUpDownCapTanque);
-            this.gBoxDados.Controls.Add(this.cBoxPortaMalas);
-            this.gBoxDados.Controls.Add(this.label14);
-            this.gBoxDados.Controls.Add(this.numUpDownQtdPessoas);
-            this.gBoxDados.Controls.Add(this.numUpDownQtdPortas);
-            this.gBoxDados.Controls.Add(this.label11);
-            this.gBoxDados.Controls.Add(this.label16);
-            this.gBoxDados.Controls.Add(this.cBoxGrupo);
-            this.gBoxDados.Controls.Add(this.lbChassi);
-            this.gBoxDados.Controls.Add(this.label12);
-            this.gBoxDados.Controls.Add(this.label13);
-            this.gBoxDados.Controls.Add(this.label15);
-            this.gBoxDados.Controls.Add(this.textCor);
-            this.gBoxDados.Controls.Add(this.lbPlaca);
-            this.gBoxDados.Controls.Add(this.textKM);
-            this.gBoxDados.Controls.Add(this.label10);
-            this.gBoxDados.Controls.Add(this.lbImagem);
-            this.gBoxDados.Controls.Add(this.lbNome);
-            this.gBoxDados.Controls.Add(this.textModelo);
-            this.gBoxDados.Controls.Add(this.textPlaca);
-            this.gBoxDados.Controls.Add(this.lbMarca);
-            this.gBoxDados.Controls.Add(this.lbModelo);
-            this.gBoxDados.Controls.Add(this.lbGrupo);
-            this.gBoxDados.Controls.Add(this.textChassi);
-            this.gBoxDados.Controls.Add(this.textMarca);
-            this.gBoxDados.Controls.Add(this.textId);
-            this.gBoxDados.Controls.Add(this.lbAno);
-            this.gBoxDados.ForeColor = System.Drawing.Color.Black;
-            this.gBoxDados.Location = new System.Drawing.Point(12, 72);
-            this.gBoxDados.Name = "gBoxDados";
-            this.gBoxDados.Size = new System.Drawing.Size(367, 318);
-            this.gBoxDados.TabIndex = 94;
-            this.gBoxDados.TabStop = false;
-            this.gBoxDados.Text = "Dados Obrigatórios";
-            // 
-            // btnImagem
-            // 
-            this.btnImagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnImagem.Location = new System.Drawing.Point(97, 199);
-            this.btnImagem.Name = "btnImagem";
-            this.btnImagem.Size = new System.Drawing.Size(216, 23);
-            this.btnImagem.TabIndex = 8;
-            this.btnImagem.Text = "Inserir imagens";
-            this.btnImagem.UseVisualStyleBackColor = true;
-            this.btnImagem.Click += new System.EventHandler(this.Button1_Click);
+            gBoxDados.Controls.Add(cBoxCombustivel);
+            gBoxDados.Controls.Add(textAno);
+            gBoxDados.Controls.Add(numUpDownCapTanque);
+            gBoxDados.Controls.Add(cBoxPortaMalas);
+            gBoxDados.Controls.Add(label14);
+            gBoxDados.Controls.Add(numUpDownQtdPessoas);
+            gBoxDados.Controls.Add(numUpDownQtdPortas);
+            gBoxDados.Controls.Add(label11);
+            gBoxDados.Controls.Add(label16);
+            gBoxDados.Controls.Add(cBoxGrupo);
+            gBoxDados.Controls.Add(lbChassi);
+            gBoxDados.Controls.Add(label12);
+            gBoxDados.Controls.Add(label13);
+            gBoxDados.Controls.Add(label15);
+            gBoxDados.Controls.Add(textCor);
+            gBoxDados.Controls.Add(lbPlaca);
+            gBoxDados.Controls.Add(textKM);
+            gBoxDados.Controls.Add(label10);
+            gBoxDados.Controls.Add(lbNome);
+            gBoxDados.Controls.Add(textModelo);
+            gBoxDados.Controls.Add(textPlaca);
+            gBoxDados.Controls.Add(lbMarca);
+            gBoxDados.Controls.Add(lbModelo);
+            gBoxDados.Controls.Add(lbGrupo);
+            gBoxDados.Controls.Add(textChassi);
+            gBoxDados.Controls.Add(textMarca);
+            gBoxDados.Controls.Add(textId);
+            gBoxDados.Controls.Add(lbAno);
+            gBoxDados.ForeColor = System.Drawing.Color.Black;
+            gBoxDados.Location = new System.Drawing.Point(14, 83);
+            gBoxDados.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gBoxDados.Name = "gBoxDados";
+            gBoxDados.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gBoxDados.Size = new System.Drawing.Size(428, 323);
+            gBoxDados.TabIndex = 94;
+            gBoxDados.TabStop = false;
+            gBoxDados.Text = "Dados Obrigatórios";
             // 
             // cBoxCombustivel
             // 
-            this.cBoxCombustivel.FormattingEnabled = true;
-            this.cBoxCombustivel.ItemHeight = 13;
-            this.cBoxCombustivel.Items.AddRange(new object[] {
-            "Gasolina",
-            "Etanol",
-            "Flex (Gasolina e Etanol)",
-            "Diesel"});
-            this.cBoxCombustivel.Location = new System.Drawing.Point(97, 253);
-            this.cBoxCombustivel.Name = "cBoxCombustivel";
-            this.cBoxCombustivel.Size = new System.Drawing.Size(92, 21);
-            this.cBoxCombustivel.TabIndex = 10;
-            this.cBoxCombustivel.Text = "Selecionar";
+            cBoxCombustivel.FormattingEnabled = true;
+            cBoxCombustivel.ItemHeight = 15;
+            cBoxCombustivel.Items.AddRange(new object[] { "Gasolina", "Etanol", "Flex (Gasolina e Etanol)", "Diesel" });
+            cBoxCombustivel.Location = new System.Drawing.Point(113, 260);
+            cBoxCombustivel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cBoxCombustivel.Name = "cBoxCombustivel";
+            cBoxCombustivel.Size = new System.Drawing.Size(107, 23);
+            cBoxCombustivel.TabIndex = 10;
+            cBoxCombustivel.Text = "Selecionar";
             // 
             // textAno
             // 
-            this.textAno.Location = new System.Drawing.Point(97, 148);
-            this.textAno.MaxLength = 4;
-            this.textAno.Name = "textAno";
-            this.textAno.Size = new System.Drawing.Size(51, 20);
-            this.textAno.TabIndex = 5;
-            this.textAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextAno_KeyPress);
+            textAno.Location = new System.Drawing.Point(113, 171);
+            textAno.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textAno.MaxLength = 4;
+            textAno.Name = "textAno";
+            textAno.Size = new System.Drawing.Size(59, 23);
+            textAno.TabIndex = 5;
+            textAno.KeyPress += TextAno_KeyPress;
             // 
             // numUpDownCapTanque
             // 
-            this.numUpDownCapTanque.Location = new System.Drawing.Point(97, 227);
-            this.numUpDownCapTanque.Name = "numUpDownCapTanque";
-            this.numUpDownCapTanque.Size = new System.Drawing.Size(51, 20);
-            this.numUpDownCapTanque.TabIndex = 9;
+            numUpDownCapTanque.Location = new System.Drawing.Point(113, 230);
+            numUpDownCapTanque.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numUpDownCapTanque.Name = "numUpDownCapTanque";
+            numUpDownCapTanque.Size = new System.Drawing.Size(59, 23);
+            numUpDownCapTanque.TabIndex = 9;
             // 
             // cBoxPortaMalas
             // 
-            this.cBoxPortaMalas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxPortaMalas.FormattingEnabled = true;
-            this.cBoxPortaMalas.Items.AddRange(new object[] {
-            "G",
-            "M",
-            "P"});
-            this.cBoxPortaMalas.Location = new System.Drawing.Point(264, 227);
-            this.cBoxPortaMalas.Name = "cBoxPortaMalas";
-            this.cBoxPortaMalas.Size = new System.Drawing.Size(49, 21);
-            this.cBoxPortaMalas.TabIndex = 14;
+            cBoxPortaMalas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cBoxPortaMalas.FormattingEnabled = true;
+            cBoxPortaMalas.Items.AddRange(new object[] { "G", "M", "P" });
+            cBoxPortaMalas.Location = new System.Drawing.Point(308, 230);
+            cBoxPortaMalas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cBoxPortaMalas.Name = "cBoxPortaMalas";
+            cBoxPortaMalas.Size = new System.Drawing.Size(56, 23);
+            cBoxPortaMalas.TabIndex = 14;
             // 
             // numUpDownQtdPessoas
             // 
-            this.numUpDownQtdPessoas.Location = new System.Drawing.Point(97, 280);
-            this.numUpDownQtdPessoas.Name = "numUpDownQtdPessoas";
-            this.numUpDownQtdPessoas.Size = new System.Drawing.Size(48, 20);
-            this.numUpDownQtdPessoas.TabIndex = 12;
+            numUpDownQtdPessoas.Location = new System.Drawing.Point(113, 291);
+            numUpDownQtdPessoas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numUpDownQtdPessoas.Name = "numUpDownQtdPessoas";
+            numUpDownQtdPessoas.Size = new System.Drawing.Size(56, 23);
+            numUpDownQtdPessoas.TabIndex = 12;
             // 
             // numUpDownQtdPortas
             // 
-            this.numUpDownQtdPortas.Location = new System.Drawing.Point(265, 254);
-            this.numUpDownQtdPortas.Name = "numUpDownQtdPortas";
-            this.numUpDownQtdPortas.Size = new System.Drawing.Size(48, 20);
-            this.numUpDownQtdPortas.TabIndex = 11;
+            numUpDownQtdPortas.Location = new System.Drawing.Point(309, 261);
+            numUpDownQtdPortas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numUpDownQtdPortas.Name = "numUpDownQtdPortas";
+            numUpDownQtdPortas.Size = new System.Drawing.Size(56, 23);
+            numUpDownQtdPortas.TabIndex = 11;
             // 
             // cBoxGrupo
             // 
-            this.cBoxGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxGrupo.FormattingEnabled = true;
-            this.cBoxGrupo.Location = new System.Drawing.Point(97, 174);
-            this.cBoxGrupo.Name = "cBoxGrupo";
-            this.cBoxGrupo.Size = new System.Drawing.Size(217, 21);
-            this.cBoxGrupo.TabIndex = 7;
+            cBoxGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cBoxGrupo.FormattingEnabled = true;
+            cBoxGrupo.Location = new System.Drawing.Point(113, 201);
+            cBoxGrupo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cBoxGrupo.Name = "cBoxGrupo";
+            cBoxGrupo.Size = new System.Drawing.Size(252, 23);
+            cBoxGrupo.TabIndex = 7;
             // 
             // lbPlaca
             // 
-            this.lbPlaca.AutoSize = true;
-            this.lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbPlaca.ForeColor = System.Drawing.Color.Black;
-            this.lbPlaca.Location = new System.Drawing.Point(57, 47);
-            this.lbPlaca.Name = "lbPlaca";
-            this.lbPlaca.Size = new System.Drawing.Size(34, 13);
-            this.lbPlaca.TabIndex = 66;
-            this.lbPlaca.Text = "Placa";
+            lbPlaca.AutoSize = true;
+            lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbPlaca.ForeColor = System.Drawing.Color.Black;
+            lbPlaca.Location = new System.Drawing.Point(66, 54);
+            lbPlaca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbPlaca.Name = "lbPlaca";
+            lbPlaca.Size = new System.Drawing.Size(34, 13);
+            lbPlaca.TabIndex = 66;
+            lbPlaca.Text = "Placa";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkLBoxOpcionais);
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(12, 409);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 159);
-            this.groupBox1.TabIndex = 95;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Opcionais";
+            groupBox1.Controls.Add(checkLBoxOpcionais);
+            groupBox1.ForeColor = System.Drawing.Color.Black;
+            groupBox1.Location = new System.Drawing.Point(13, 412);
+            groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Size = new System.Drawing.Size(428, 183);
+            groupBox1.TabIndex = 95;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Opcionais";
             // 
             // checkLBoxOpcionais
             // 
-            this.checkLBoxOpcionais.FormattingEnabled = true;
-            this.checkLBoxOpcionais.Items.AddRange(new object[] {
-            "Ar condicionado",
-            "Direção Hidraulica",
-            "Freio ABS"});
-            this.checkLBoxOpcionais.Location = new System.Drawing.Point(6, 19);
-            this.checkLBoxOpcionais.Name = "checkLBoxOpcionais";
-            this.checkLBoxOpcionais.Size = new System.Drawing.Size(355, 124);
-            this.checkLBoxOpcionais.TabIndex = 15;
+            checkLBoxOpcionais.FormattingEnabled = true;
+            checkLBoxOpcionais.Items.AddRange(new object[] { "Ar condicionado", "Direção Hidraulica", "Freio ABS" });
+            checkLBoxOpcionais.Location = new System.Drawing.Point(7, 22);
+            checkLBoxOpcionais.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkLBoxOpcionais.Name = "checkLBoxOpcionais";
+            checkLBoxOpcionais.Size = new System.Drawing.Size(414, 130);
+            checkLBoxOpcionais.TabIndex = 15;
             // 
             // VeiculoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(392, 609);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.gBoxDados);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.labelTitulo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "VeiculoForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veiculo";
-            this.gBoxDados.ResumeLayout(false);
-            this.gBoxDados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownCapTanque)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPessoas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownQtdPortas)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.SystemColors.Control;
+            ClientSize = new System.Drawing.Size(457, 632);
+            Controls.Add(groupBox1);
+            Controls.Add(gBoxDados);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnConfirmar);
+            Controls.Add(labelTitulo);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "VeiculoForm";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Locadora de Veiculo";
+            gBoxDados.ResumeLayout(false);
+            gBoxDados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numUpDownCapTanque).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numUpDownQtdPessoas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numUpDownQtdPortas).EndInit();
+            groupBox1.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -506,7 +506,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private System.Windows.Forms.TextBox textModelo;
         private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.Label lbGrupo;
-        private System.Windows.Forms.Label lbImagem;
         private System.Windows.Forms.Label lbNome;
         private System.Windows.Forms.Label lbChassi;
         private System.Windows.Forms.Label lbMarca;
@@ -534,6 +533,5 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
         private System.Windows.Forms.TextBox textAno;
         private System.Windows.Forms.ComboBox cBoxCombustivel;
         private System.Windows.Forms.Label lbPlaca;
-        private System.Windows.Forms.Button btnImagem;
     }
 }

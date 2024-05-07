@@ -140,9 +140,9 @@ namespace LocadoraDeVeiculos.ORMTests.Shared
         private void InserirVeiculos()
         {
             //Bug Grupo de Veiculos
-            kicks = new(0, "kicks", suv, "FWE-4652", "4DF56F78E8WE9WED", "Nissan", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
-            fusca = new(0, "fusca", sedan, "FWW-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
-            clio= new(0, "clio", utilitarios, "DAS-4652", "4DF56F78E8WE9WED", "Renault", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true, null);
+            kicks = new(0, "kicks", suv, "FWE-4652", "4DF56F78E8WE9WED", "Nissan", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true);
+            fusca = new(0, "fusca", sedan, "FWW-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true);    
+            clio= new(0, "clio", utilitarios, "DAS-4652", "4DF56F78E8WE9WED", "Renault", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true);
 
             controladorVeiculo.InserirNovo(kicks);
             controladorVeiculo.InserirNovo(fusca);

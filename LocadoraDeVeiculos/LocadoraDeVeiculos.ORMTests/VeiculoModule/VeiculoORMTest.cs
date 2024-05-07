@@ -8,7 +8,6 @@ using LocadoraDeVeiculos.TestDataBuilders;
 using NUnit.Framework;
 using System.Linq;
 using System.Collections.Generic;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using System;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 
@@ -63,7 +62,6 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
         private bool verdade;
         private bool falso;
 
-        private List<ImagemVeiculo> naoPossuiImagens;
         #endregion
 
         [SetUp]
@@ -100,8 +98,6 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
             ConfigurarTamanhoPortaMalas();
 
             ConfigurarTemArCondicionado();
-
-            ConfigurarImagens();
         }
 
         [TearDown]
@@ -142,7 +138,6 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
                 .ComDirecaoHidraulica(verdade)
                 .ComFreiosAbs(verdade)
                 .ComAlocaoAtiva(verdade)
-                .ComImagem(naoPossuiImagens)
                 .Build();
             //action
             veiculoRepository.InserirNovo(veiculo);
@@ -175,7 +170,6 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
                 .ComDirecaoHidraulica(verdade)
                 .ComFreiosAbs(verdade)
                 .ComAlocaoAtiva(verdade)
-                .ComImagem(naoPossuiImagens)
                 .Build();
 
             Veiculo veiculo2 = new VeiculoDataBuilder()
@@ -196,7 +190,6 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
                 .ComDirecaoHidraulica(falso)
                 .ComFreiosAbs(falso)
                 .ComAlocaoAtiva(falso)
-                .ComImagem(naoPossuiImagens)
                 .Build();
 
             //action
@@ -231,7 +224,6 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
                 .ComDirecaoHidraulica(verdade)
                 .ComFreiosAbs(verdade)
                 .ComAlocaoAtiva(verdade)
-                .ComImagem(naoPossuiImagens)
                 .Build();
 
             //action
@@ -267,7 +259,6 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
                 .ComDirecaoHidraulica(verdade)
                 .ComFreiosAbs(verdade)
                 .ComAlocaoAtiva(verdade)
-                .ComImagem(naoPossuiImagens)
                 .Build();
 
             //action
@@ -350,10 +341,6 @@ namespace LocadoraDeVeiculos.ORMTests.VeiculoModule
         {
             verdade = true;
             falso = false;
-        }
-        private void ConfigurarImagens()
-        {
-            naoPossuiImagens = null;
         }
         #endregion
     }
