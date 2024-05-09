@@ -44,12 +44,22 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
         public override bool ExcluirEntidade(int id)
         {
             tempo = DateTime.Now.Millisecond;
-            bool resultado = veiculoRepository.Excluir(id);
-            tempo = DateTime.Now.Millisecond - tempo;
-            if (resultado)
-                Log.Information("{DataEHora} / Veiculo {Id} excluido com sucesso", DateTime.Now, id);
+            var veiculo = SelecionarEntidadePorId(id);
+            bool resultado;
+            if (veiculo.estaAlugado)
+            {
+                resultado = false;
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Veículo já está alugado  {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
+            }
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id,tempo);
+            {
+                resultado = veiculoRepository.Excluir(id);
+                tempo = DateTime.Now.Millisecond - tempo;
+                if (resultado)
+                    Log.Information("{DataEHora} / Veiculo {Id} excluido com sucesso", DateTime.Now, id);
+                else
+                    Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
+            }
             return resultado;
         }
         public override bool ExisteEntidade(int id)

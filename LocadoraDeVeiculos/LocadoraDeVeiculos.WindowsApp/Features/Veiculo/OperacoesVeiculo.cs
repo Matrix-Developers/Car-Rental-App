@@ -97,7 +97,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
                 if (resultado)
                     TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tarefaSelecionada.modelo}] removido com sucesso");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Veiculo: [{tarefaSelecionada.modelo}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Veiculo: [{tarefaSelecionada.modelo}]. Veículo está alugado ou foi encontrado problema inesperado, consulte o log para mais informações");
             }
         }
         public void FiltrarRegistros()
