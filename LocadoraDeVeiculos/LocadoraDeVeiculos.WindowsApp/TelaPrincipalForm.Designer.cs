@@ -30,296 +30,273 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
-            this.labelTitulo = new System.Windows.Forms.Label();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.veiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grupoDeVeículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.inícioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.locaçaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.locarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolBoxAcoes = new System.Windows.Forms.ToolStrip();
-            this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.btnExcluir = new System.Windows.Forms.ToolStripButton();
-            this.btnFiltrar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparador = new System.Windows.Forms.ToolStripSeparator();
-            this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            this.panelRegistros = new System.Windows.Forms.Panel();
-            this.statusStripRodape = new System.Windows.Forms.StatusStrip();
-            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
-            this.descontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.parceirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
-            this.toolBoxAcoes.SuspendLayout();
-            this.statusStripRodape.SuspendLayout();
-            this.SuspendLayout();
+            labelTitulo = new System.Windows.Forms.Label();
+            toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            serviçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            veiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            grupoDeVeículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            menuStrip1 = new System.Windows.Forms.MenuStrip();
+            inícioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            locaçaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            locarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            descontosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            cuponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            parceirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolBoxAcoes = new System.Windows.Forms.ToolStrip();
+            btnAdicionar = new System.Windows.Forms.ToolStripButton();
+            btnEditar = new System.Windows.Forms.ToolStripButton();
+            btnExcluir = new System.Windows.Forms.ToolStripButton();
+            btnFiltrar = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparador = new System.Windows.Forms.ToolStripSeparator();
+            labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
+            panelRegistros = new System.Windows.Forms.Panel();
+            statusStripRodape = new System.Windows.Forms.StatusStrip();
+            labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            menuStrip1.SuspendLayout();
+            toolBoxAcoes.SuspendLayout();
+            statusStripRodape.SuspendLayout();
+            SuspendLayout();
             // 
             // labelTitulo
             // 
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.Color.Black;
-            this.labelTitulo.Location = new System.Drawing.Point(309, 3);
-            this.labelTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(182, 20);
-            this.labelTitulo.TabIndex = 3;
-            this.labelTitulo.Text = "Locadora de Veículos";
+            labelTitulo.AutoSize = true;
+            labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            labelTitulo.ForeColor = System.Drawing.Color.Black;
+            labelTitulo.Location = new System.Drawing.Point(412, 5);
+            labelTitulo.Name = "labelTitulo";
+            labelTitulo.Size = new System.Drawing.Size(221, 25);
+            labelTitulo.TabIndex = 3;
+            labelTitulo.Text = "Locadora de Veículos";
+            labelTitulo.UseWaitCursor = true;
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.funcionáriosToolStripMenuItem,
-            this.clientesToolStripMenuItem,
-            this.serviçosToolStripMenuItem,
-            this.veiculosToolStripMenuItem,
-            this.grupoDeVeículosToolStripMenuItem});
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(66, 20);
-            this.toolStripMenuItem1.Text = "Cadastros";
+            toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { funcionáriosToolStripMenuItem, clientesToolStripMenuItem, serviçosToolStripMenuItem, veiculosToolStripMenuItem, grupoDeVeículosToolStripMenuItem });
+            toolStripMenuItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new System.Drawing.Size(86, 24);
+            toolStripMenuItem1.Text = "Cadastros";
             // 
             // funcionáriosToolStripMenuItem
             // 
-            this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
-            this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.FuncionariosToolStripMenuItem_Click);
+            funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
+            funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            funcionáriosToolStripMenuItem.Text = "Funcionários";
+            funcionáriosToolStripMenuItem.Click += FuncionariosToolStripMenuItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clientesToolStripMenuItem.Text = "Clientes";
-            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.ClientesToolStripMenuItem_Click);
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += ClientesToolStripMenuItem_Click;
             // 
             // serviçosToolStripMenuItem
             // 
-            this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.serviçosToolStripMenuItem.Text = "Serviços";
-            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.ServicosToolStripMenuItem_Click);
+            serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
+            serviçosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            serviçosToolStripMenuItem.Text = "Serviços";
+            serviçosToolStripMenuItem.Click += ServicosToolStripMenuItem_Click;
             // 
             // veiculosToolStripMenuItem
             // 
-            this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
-            this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.veiculosToolStripMenuItem.Text = "Veiculos";
-            this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.VeiculosToolStripMenuItem_Click);
+            veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
+            veiculosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            veiculosToolStripMenuItem.Text = "Veiculos";
+            veiculosToolStripMenuItem.Click += VeiculosToolStripMenuItem_Click;
             // 
             // grupoDeVeículosToolStripMenuItem
             // 
-            this.grupoDeVeículosToolStripMenuItem.Name = "grupoDeVeículosToolStripMenuItem";
-            this.grupoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.grupoDeVeículosToolStripMenuItem.Text = "Grupo de Veículos";
-            this.grupoDeVeículosToolStripMenuItem.Click += new System.EventHandler(this.GrupoDeVeículosToolStripMenuItem_Click);
+            grupoDeVeículosToolStripMenuItem.Name = "grupoDeVeículosToolStripMenuItem";
+            grupoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            grupoDeVeículosToolStripMenuItem.Text = "Grupo de Veículos";
+            grupoDeVeículosToolStripMenuItem.Click += GrupoDeVeículosToolStripMenuItem_Click;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inícioToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.locaçaoToolStripMenuItem,
-            this.descontosToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(795, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { inícioToolStripMenuItem, toolStripMenuItem1, locaçaoToolStripMenuItem, descontosToolStripMenuItem });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new System.Windows.Forms.Padding(5, 3, 0, 3);
+            menuStrip1.Size = new System.Drawing.Size(1060, 30);
+            menuStrip1.TabIndex = 4;
+            menuStrip1.Text = "menuStrip1";
             // 
             // inícioToolStripMenuItem
             // 
-            this.inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
-            this.inícioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.inícioToolStripMenuItem.Text = "Início";
-            this.inícioToolStripMenuItem.Click += new System.EventHandler(this.InícioToolStripMenuItem_Click);
+            inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
+            inícioToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            inícioToolStripMenuItem.Text = "Início";
+            inícioToolStripMenuItem.Click += InícioToolStripMenuItem_Click;
             // 
             // locaçaoToolStripMenuItem
             // 
-            this.locaçaoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.locarToolStripMenuItem,
-            this.devoluçãoToolStripMenuItem});
-            this.locaçaoToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.locaçaoToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.locaçaoToolStripMenuItem.Name = "locaçaoToolStripMenuItem";
-            this.locaçaoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.locaçaoToolStripMenuItem.Text = "Locaçao";
+            locaçaoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { locarToolStripMenuItem, devoluçãoToolStripMenuItem });
+            locaçaoToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            locaçaoToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            locaçaoToolStripMenuItem.Name = "locaçaoToolStripMenuItem";
+            locaçaoToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            locaçaoToolStripMenuItem.Text = "Locaçao";
             // 
             // locarToolStripMenuItem
             // 
-            this.locarToolStripMenuItem.Name = "locarToolStripMenuItem";
-            this.locarToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.locarToolStripMenuItem.Text = "Locações";
-            this.locarToolStripMenuItem.Click += new System.EventHandler(this.LocarToolStripMenuItem_Click);
+            locarToolStripMenuItem.Name = "locarToolStripMenuItem";
+            locarToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            locarToolStripMenuItem.Text = "Locações";
+            locarToolStripMenuItem.Click += LocarToolStripMenuItem_Click;
             // 
             // devoluçãoToolStripMenuItem
             // 
-            this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.devoluçãoToolStripMenuItem.Text = "Devoluções";
-            this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.DevoluçãoToolStripMenuItem_Click);
-            // 
-            // toolBoxAcoes
-            // 
-            this.toolBoxAcoes.AutoSize = false;
-            this.toolBoxAcoes.BackColor = System.Drawing.SystemColors.Control;
-            this.toolBoxAcoes.Enabled = false;
-            this.toolBoxAcoes.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolBoxAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAdicionar,
-            this.btnEditar,
-            this.btnExcluir,
-            this.btnFiltrar,
-            this.toolStripSeparador,
-            this.labelTipoCadastro});
-            this.toolBoxAcoes.Location = new System.Drawing.Point(0, 24);
-            this.toolBoxAcoes.Name = "toolBoxAcoes";
-            this.toolBoxAcoes.Size = new System.Drawing.Size(795, 45);
-            this.toolBoxAcoes.TabIndex = 5;
-            // 
-            // btnAdicionar
-            // 
-            this.btnAdicionar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAdicionar.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources._36x1;
-            this.btnAdicionar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(40, 42);
-            this.btnAdicionar.Text = "btnAdicionar";
-            this.btnAdicionar.Click += new System.EventHandler(this.BtnAdicionar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(40, 42);
-            this.btnEditar.Text = "btnEditar";
-            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(40, 42);
-            this.btnExcluir.Text = "toolStripButton1";
-            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFiltrar.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.outline_filter_alt_black_36dp;
-            this.btnFiltrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnFiltrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(40, 42);
-            this.btnFiltrar.Text = "toolStripButton1";
-            this.btnFiltrar.ToolTipText = "Filtrar elemento";
-            this.btnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // toolStripSeparador
-            // 
-            this.toolStripSeparador.Name = "toolStripSeparador";
-            this.toolStripSeparador.Size = new System.Drawing.Size(6, 45);
-            // 
-            // labelTipoCadastro
-            // 
-            this.labelTipoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelTipoCadastro.Name = "labelTipoCadastro";
-            this.labelTipoCadastro.Size = new System.Drawing.Size(157, 42);
-            this.labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
-            // 
-            // panelRegistros
-            // 
-            this.panelRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelRegistros.Location = new System.Drawing.Point(0, 70);
-            this.panelRegistros.Margin = new System.Windows.Forms.Padding(2);
-            this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(795, 491);
-            this.panelRegistros.TabIndex = 6;
-            // 
-            // statusStripRodape
-            // 
-            this.statusStripRodape.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStripRodape.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelRodape});
-            this.statusStripRodape.Location = new System.Drawing.Point(0, 563);
-            this.statusStripRodape.Name = "statusStripRodape";
-            this.statusStripRodape.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStripRodape.Size = new System.Drawing.Size(795, 22);
-            this.statusStripRodape.TabIndex = 7;
-            this.statusStripRodape.Text = "statusStrip1";
-            // 
-            // labelRodape
-            // 
-            this.labelRodape.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelRodape.Name = "labelRodape";
-            this.labelRodape.Size = new System.Drawing.Size(73, 17);
-            this.labelRodape.Text = "Tudo certo :D";
+            devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
+            devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            devoluçãoToolStripMenuItem.Text = "Devoluções";
+            devoluçãoToolStripMenuItem.Click += DevoluçãoToolStripMenuItem_Click;
             // 
             // descontosToolStripMenuItem
             // 
-            this.descontosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cuponsToolStripMenuItem,
-            this.parceirosToolStripMenuItem});
-            this.descontosToolStripMenuItem.Name = "descontosToolStripMenuItem";
-            this.descontosToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.descontosToolStripMenuItem.Text = "Descontos";
+            descontosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { cuponsToolStripMenuItem, parceirosToolStripMenuItem });
+            descontosToolStripMenuItem.Name = "descontosToolStripMenuItem";
+            descontosToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            descontosToolStripMenuItem.Text = "Descontos";
             // 
             // cuponsToolStripMenuItem
             // 
-            this.cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
-            this.cuponsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cuponsToolStripMenuItem.Text = "Cupons";
-            this.cuponsToolStripMenuItem.Click += new System.EventHandler(this.CuponsToolStripMenuItem_Click);
+            cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
+            cuponsToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            cuponsToolStripMenuItem.Text = "Cupons";
+            cuponsToolStripMenuItem.Click += CuponsToolStripMenuItem_Click;
             // 
             // parceirosToolStripMenuItem
             // 
-            this.parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
-            this.parceirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.parceirosToolStripMenuItem.Text = "Parceiros";
-            this.parceirosToolStripMenuItem.Click += new System.EventHandler(this.ParceirosToolStripMenuItem_Click);
+            parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
+            parceirosToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            parceirosToolStripMenuItem.Text = "Parceiros";
+            parceirosToolStripMenuItem.Click += ParceirosToolStripMenuItem_Click;
+            // 
+            // toolBoxAcoes
+            // 
+            toolBoxAcoes.AutoSize = false;
+            toolBoxAcoes.BackColor = System.Drawing.SystemColors.Control;
+            toolBoxAcoes.Enabled = false;
+            toolBoxAcoes.ImageScalingSize = new System.Drawing.Size(20, 20);
+            toolBoxAcoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, btnFiltrar, toolStripSeparador, labelTipoCadastro });
+            toolBoxAcoes.Location = new System.Drawing.Point(0, 30);
+            toolBoxAcoes.Name = "toolBoxAcoes";
+            toolBoxAcoes.Size = new System.Drawing.Size(1060, 69);
+            toolBoxAcoes.TabIndex = 5;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            btnAdicionar.Image = Properties.Resources._36x1;
+            btnAdicionar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new System.Drawing.Size(40, 66);
+            btnAdicionar.Text = "btnAdicionar";
+            btnAdicionar.Click += BtnAdicionar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            btnEditar.Image = (System.Drawing.Image)resources.GetObject("btnEditar.Image");
+            btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new System.Drawing.Size(40, 66);
+            btnEditar.Text = "btnEditar";
+            btnEditar.Click += BtnEditar_Click;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            btnExcluir.Image = (System.Drawing.Image)resources.GetObject("btnExcluir.Image");
+            btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new System.Drawing.Size(40, 66);
+            btnExcluir.Text = "toolStripButton1";
+            btnExcluir.Click += BtnExcluir_Click;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            btnFiltrar.Image = Properties.Resources.outline_filter_alt_black_36dp;
+            btnFiltrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            btnFiltrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new System.Drawing.Size(40, 66);
+            btnFiltrar.Text = "toolStripButton1";
+            btnFiltrar.ToolTipText = "Filtrar elemento";
+            btnFiltrar.Click += BtnFiltrar_Click;
+            // 
+            // toolStripSeparador
+            // 
+            toolStripSeparador.Name = "toolStripSeparador";
+            toolStripSeparador.Size = new System.Drawing.Size(6, 69);
+            // 
+            // labelTipoCadastro
+            // 
+            labelTipoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            labelTipoCadastro.Name = "labelTipoCadastro";
+            labelTipoCadastro.Size = new System.Drawing.Size(208, 66);
+            labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
+            // 
+            // panelRegistros
+            // 
+            panelRegistros.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panelRegistros.Location = new System.Drawing.Point(0, 108);
+            panelRegistros.Name = "panelRegistros";
+            panelRegistros.Size = new System.Drawing.Size(1060, 755);
+            panelRegistros.TabIndex = 6;
+            // 
+            // statusStripRodape
+            // 
+            statusStripRodape.ImageScalingSize = new System.Drawing.Size(20, 20);
+            statusStripRodape.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { labelRodape });
+            statusStripRodape.Location = new System.Drawing.Point(0, 877);
+            statusStripRodape.Name = "statusStripRodape";
+            statusStripRodape.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
+            statusStripRodape.Size = new System.Drawing.Size(1060, 23);
+            statusStripRodape.TabIndex = 7;
+            statusStripRodape.Text = "statusStrip1";
+            // 
+            // labelRodape
+            // 
+            labelRodape.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            labelRodape.Name = "labelRodape";
+            labelRodape.Size = new System.Drawing.Size(95, 17);
+            labelRodape.Text = "Tudo certo :D";
             // 
             // TelaPrincipalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(795, 585);
-            this.Controls.Add(this.statusStripRodape);
-            this.Controls.Add(this.panelRegistros);
-            this.Controls.Add(this.toolBoxAcoes);
-            this.Controls.Add(this.labelTitulo);
-            this.Controls.Add(this.menuStrip1);
-            this.Name = "TelaPrincipalForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de veículos ";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.toolBoxAcoes.ResumeLayout(false);
-            this.toolBoxAcoes.PerformLayout();
-            this.statusStripRodape.ResumeLayout(false);
-            this.statusStripRodape.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.SystemColors.Control;
+            ClientSize = new System.Drawing.Size(1060, 900);
+            Controls.Add(statusStripRodape);
+            Controls.Add(panelRegistros);
+            Controls.Add(toolBoxAcoes);
+            Controls.Add(labelTitulo);
+            Controls.Add(menuStrip1);
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            Name = "TelaPrincipalForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Locadora de veículos ";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            toolBoxAcoes.ResumeLayout(false);
+            toolBoxAcoes.PerformLayout();
+            statusStripRodape.ResumeLayout(false);
+            statusStripRodape.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

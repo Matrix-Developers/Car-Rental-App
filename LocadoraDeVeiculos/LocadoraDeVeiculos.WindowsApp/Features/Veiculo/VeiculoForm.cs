@@ -17,7 +17,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             InitializeComponent();
             CarregarGruposDeVeiculos();
             labelTitulo.Text = titulo;
-            cBoxPortaMalas.SelectedIndex = 0;          
+            cBoxPortaMalas.SelectedIndex = 0;
+            cBoxCombustivel.SelectedIndex = 0;
         }
 
         private void CarregarGruposDeVeiculos()
