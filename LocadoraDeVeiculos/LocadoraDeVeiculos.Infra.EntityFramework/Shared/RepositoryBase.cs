@@ -38,10 +38,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Shared
         {
             try
             {
-                dbSet.Update(registro);
-                //T entityForUpdate = dbSet.SingleOrDefault(x => x.Id.Equals(id));
-                //registro.Id = id;
-                //db.Entry(entityForUpdate).CurrentValues.SetValues(registro);
+                var entity = dbSet.Find(id);
+                db.Entry(entity).CurrentValues.SetValues(registro);
                 db.SaveChanges();
             }
             catch (Exception ex)
