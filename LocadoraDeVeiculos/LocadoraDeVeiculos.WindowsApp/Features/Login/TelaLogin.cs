@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             servicoAppService = new(new ServicoORM(db));
             clienteAppService = new(new ClienteORM(db));
             funcionarioAppService = new(new FuncionarioORM(db));
-            veiculoAppService = new(new VeiculoORM(db), new ImagemVeiculoORM(db));
+            veiculoAppService = new(new VeiculoORM(db));
             locacaoAppService = new(new LocacaoORM(db));
         }
 
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
         private void EfetuarLogin()
         {
-            MessageBox.Show("Bem vindo " + textUsuario.Text);
+            MessageBox.Show($"Bem vindo(a) {textUsuario.Text}!");
             thread = new Thread(ChamarTelaPrincipal);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Por favor contatar o usuário administrador para refazer sua senha");
+            MessageBox.Show("Por favor contatar o usuário administrador para refazer sua senha.");
         }
     }
 }

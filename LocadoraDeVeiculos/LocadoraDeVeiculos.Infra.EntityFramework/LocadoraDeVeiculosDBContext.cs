@@ -2,7 +2,6 @@
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule;
@@ -26,10 +25,8 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework
         public DbSet<Cupom> Cupons { get; set; }
         public DbSet<GrupoDeVeiculo> GrupoDeVeiculos { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
-        public DbSet<ImagemVeiculo> ImagemVeiculos { get; set; }
         public DbSet<Locacao> Locacoes { get; set; }
         public DbSet<Parceiro> Parceiros { get; set; }
-        //public DbSet<RelacionamentoLocServ> Relacionamentos { get; set; }
         public DbSet<Veiculo> Veiculos{ get; set; }
         public DbSet<Servico> Servicos{ get; set; }
         

@@ -27,18 +27,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             MudaLabels();
         }
 
-        //public DashControl()        //podemos instanciar repositories atraves do appService no construtor
-        //{
-        //    InitializeComponent();
-        //    veiculoAppService = new VeiculoRepository();
-        //    clienteAppService = new ClienteRepository();
-        //    servicoAppService = new ServicoRepository();
-        //    funcionarioAppService = new FuncionarioRepository();
-        //    cupomAppService = new();
-        //    locacaoAppService = new LocacaoRepository(veiculoAppService, funcionarioAppService, clienteAppService, servicoAppService, cupomAppService);
-        //    MudaLabels();
-        //}
-
         private void MudaLabels()
         {
             CarregaDashBoardVeiculo();
@@ -59,9 +47,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 
             foreach (Locacao locacao in locacoesAbertas)
             {
-                if (locacao.DataDeChegada.Date == DateTime.Today)
+                if (locacao.DataPrevistaDeChegada.Date == DateTime.Today)
                     retornamHJ++;
-                else if (locacao.DataDeChegada.Date <= DateTime.Today.AddDays(7))
+                else if (locacao.DataPrevistaDeChegada.Date <= DateTime.Today.AddDays(7))
                     retornam7dias++;
             }
             lbRetornoHJ.Text = retornamHJ.ToString();

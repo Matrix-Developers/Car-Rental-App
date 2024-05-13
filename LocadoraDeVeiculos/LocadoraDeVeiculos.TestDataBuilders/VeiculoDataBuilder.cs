@@ -1,5 +1,4 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
 using System.Collections.Generic;
 
@@ -96,11 +95,6 @@ namespace LocadoraDeVeiculos.TestDataBuilders
         public VeiculoDataBuilder ComAlocaoAtiva(bool estaAlugado)
         {
             veiculo.estaAlugado = estaAlugado;
-            return this;
-        }
-        public VeiculoDataBuilder ComImagem(List<ImagemVeiculo> imagemVeiculos)
-        {
-            veiculo.imagens = imagemVeiculos;
             return this;
         }
         public Veiculo Build()

@@ -11,7 +11,6 @@ using LocadoraDeVeiculos.Dominio.ClienteModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.SevicosModule;
@@ -78,7 +77,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
         {
             Builder.RegisterType<ClienteORM>().As<IRepository<Cliente>>().InstancePerDependency();
             Builder.RegisterType<CupomORM>().As<ICupomRepository>().InstancePerDependency();
-            Builder.RegisterType<ImagemVeiculoORM>().As<IImagemVeiculoRepository>().InstancePerDependency();
             Builder.RegisterType<FuncionarioORM>().As<IRepository<Funcionario>>().InstancePerDependency();
             Builder.RegisterType<GrupoDeVeiculosORM>().As<IRepository<GrupoDeVeiculo>>().InstancePerDependency();
             Builder.RegisterType<LocacaoORM>().As<IRepository<Locacao>>().InstancePerDependency();

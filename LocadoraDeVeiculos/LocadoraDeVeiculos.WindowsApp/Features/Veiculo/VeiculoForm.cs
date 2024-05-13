@@ -1,10 +1,7 @@
 ﻿using LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule;
 using LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule;
-using LocadoraDeVeiculos.Dominio.ImagemVeiculoModule;
 using LocadoraDeVeiculos.Dominio.VeiculoModule;
-using LocadoraDeVeiculos.WindowsApp.Features.ImagemVeiculo;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -20,9 +17,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             InitializeComponent();
             CarregarGruposDeVeiculos();
             labelTitulo.Text = titulo;
-            cBoxPortaMalas.SelectedIndex = 0;          
+            cBoxPortaMalas.SelectedIndex = 0;
+            cBoxCombustivel.SelectedIndex = 0;
         }
-        public List<ImagemVeiculo> imagensVeiculo = new();
 
         private void CarregarGruposDeVeiculos()
         {
@@ -37,7 +34,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             {
                 veiculo = value;
 
-                imagensVeiculo = veiculo.imagens;
                 textId.Text = veiculo.Id.ToString();
                 textModelo.Text = veiculo.modelo;
                 cBoxGrupo.Text = veiculo.grupoVeiculos.Nome;
@@ -91,7 +87,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             if (checkLBoxOpcionais.CheckedIndices.Contains(2))
                 possuiFreioAbs = true;
 
-            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false, imagensVeiculo);
+            veiculo = new Veiculo(id, modelo, grupoDeVeiculos, placa, chassi, marca, cor, combustivel, capTanque, ano, kilometragem, numPortas, numPessoas, tamPortaMalas, possuiArCondicionado, possuiDirecaoHidraulica, possuiFreioAbs, false);
 
             string resultadoValidacao = veiculo.Validar();
 
@@ -133,17 +129,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             {
                 e.Handled = true;
             }
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            ImagemVeiculoForm telaImagem = new(this);
-            telaImagem.Show();
-        }
-
-        public void AtualizarListaDeFotos(List<ImagemVeiculo> imagens)
-        {
-            this.imagensVeiculo = imagens;
         }
     }
 }

@@ -282,9 +282,9 @@ namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
 
         private void InserirVeiculo()
         {
-            kicks = new Veiculo(0, "Kicks", suv, "abc1234", "5pH h8Kf5K md TV2348", "Honda", "Branco", "Gasolina", 50, Convert.ToInt32(DateTime.Today.Year), 2000, 4, 5, 'G', true, true, true, true, null);
+            kicks = new Veiculo(0, "Kicks", suv, "abc1234", "5pH h8Kf5K md TV2348", "Honda", "Branco", "Gasolina", 50, Convert.ToInt32(DateTime.Today.Year), 2000, 4, 5, 'G', true, true, true, true);
 
-            fusca = new Veiculo(0, "Fusca", suv, "abc1234", "5pH h8Kf5K md TV2348", "Volkswagen", "Branco", "Etanol", 50, Convert.ToInt32(DateTime.Today.AddYears(-20).Year), 200000, 4, 5, 'P', false, false, false, false, null);
+            fusca = new Veiculo(0, "Fusca", suv, "abc1234", "5pH h8Kf5K md TV2348", "Volkswagen", "Branco", "Etanol", 50, Convert.ToInt32(DateTime.Today.AddYears(-20).Year), 200000, 4, 5, 'P', false, false, false, false);
 
             controladorVeiculo.InserirNovo(kicks);
             controladorVeiculo.InserirNovo(fusca);
