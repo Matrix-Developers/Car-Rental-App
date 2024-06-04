@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
         }
         public override string ToString()
         {
-            return $"{id} {Locacao} {Servicos}";
+            return $"{Locacao}, {Servicos}";
         }
 
         public override bool Equals(object obj)

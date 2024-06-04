@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.Dominio.ParceiroModule
 
         public override string ToString()
         {
-            return $" {id}, {Nome}";
+            return $"{Nome}";
         }
     }
 }

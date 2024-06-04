@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
 
         public override string ToString()
         {
-            return $"Cliente = [{id}, {Nome}, {RegistroUnico}, {Endereco}, {Telefone}, {Email}, {Cnh}, {ValidadeCnh}, {EhPessoaFisica}]";
+            return $"{Nome}, {RegistroUnico}, {Telefone}, {Email}";
         }
 
         public override bool Equals(object obj)

@@ -98,7 +98,7 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 
         public override string ToString()
         {
-            return $"{id} {nome}";
+            return $"{nome}";
         }
     }
 }
