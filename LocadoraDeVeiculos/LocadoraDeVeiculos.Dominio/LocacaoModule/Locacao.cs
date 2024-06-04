@@ -179,7 +179,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 resultadoValidacao += "A data de entrega não pode ser anterior à data de locação.\n";
 
             if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
 
             return resultadoValidacao;
         }

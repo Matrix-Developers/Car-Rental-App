@@ -35,14 +35,14 @@ namespace LocadoraDeVeiculos.Dominio.ClienteModule
             if (EhPessoaFisica)
             {
                 if (!ValidarCnh())
-                    resultadoValidação += "CNH inválida\n";
+                    resultadoValidação += "Invalid 'CNH'.\n";
                 if (ValidadeCnh < DateTime.Now)
-                    resultadoValidação += "CNH fora do prazo de validade\n";
+                    resultadoValidação += "CNH out of expiration date.\n";
             }
-            if (base.ValidarPessoa() != "VALIDO")
+            if (base.ValidarPessoa() != "VALID")
                 resultadoValidação += base.ValidarPessoa();
             if (resultadoValidação == "")
-                resultadoValidação = "VALIDO";
+                resultadoValidação = "VALID";
             return resultadoValidação;
         }
         public bool ValidarCnh()

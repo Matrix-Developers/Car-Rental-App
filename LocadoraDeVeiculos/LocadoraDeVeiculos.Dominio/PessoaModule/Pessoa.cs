@@ -21,20 +21,20 @@ namespace LocadoraDeVeiculos.Dominio.PessoaModule
                 resultadoValidacaoRegistroUnico = ValidarCnpj(RegistroUnico);
 
             if (this.Nome.Length == 0)
-                resultadoValidacao = "O nome não pode ser nulo\n";
+                resultadoValidacao = "The name field cannot be null.\n";
             if (this.Endereco.Length <= 0)
-                resultadoValidacao += "O endereço não pode ser nulo\n";
+                resultadoValidacao += "The address field cannot be null.\n";
             if (this.Email.Length == 0 || (!this.Email.Contains('@')))
-                resultadoValidacao += "O e-mail é obrigatório está incorreto e deve estar correto\n";
+                resultadoValidacao += "The email field must be valid and not null.\n";
             if (!resultadoValidacaoRegistroUnico)
             {
                 if (EhPessoaFisica)
-                    resultadoValidacao += "O CPF não é válido\n";
+                    resultadoValidacao += "The CPF field is not valid.\n";
                 else
-                    resultadoValidacao += "O CNPJ não é válido\n";
+                    resultadoValidacao += "The CNPJ field is not valid.\n";
             }
             if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
 
             return resultadoValidacao;
         }

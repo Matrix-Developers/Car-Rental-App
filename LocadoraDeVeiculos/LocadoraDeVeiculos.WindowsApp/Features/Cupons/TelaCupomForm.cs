@@ -101,7 +101,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             string resultadoValidacao = cupom.Validar();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 

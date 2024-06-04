@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.UnitTests.CupomModule
             string resultadoValidacao = cupom.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("VALIDO");
+            resultadoValidacao.Should().Be("VALID");
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.UnitTests.CupomModule
             string resultadoValidacao = cupom.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("VALIDO");
+            resultadoValidacao.Should().Be("VALID");
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.UnitTests.CupomModule
             string resultadoValidacao = cupom.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("O campo nome é obrigatório\nO campo código é obrigatório\nA porcentagem de desconto não pode ser maior que 100%\nÉ obrigatório possuir um parceiro vinculado\n");
+            resultadoValidacao.Should().Be("The name field cannot be null.\nThe code field cannot be null.\nThe discount percentage cannot be greater than 100%.\nIt is mandatory to have a linked partner.\n");
         }
         [TestMethod]
         public void DeveCriarCupom_TotalmenteIncorreto_Fixo()
@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.UnitTests.CupomModule
             string resultadoValidacao = cupom.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("O campo nome é obrigatório\nO campo código é obrigatório\nO valor não pode ser negativo ou 0(zero)\nÉ obrigatório possuir um parceiro vinculado\n");
+            resultadoValidacao.Should().Be("The name field cannot be null.\nThe code field cannot be null.\nThe value field cannot be negative or zero.\nIt is mandatory to have a linked partner.\n");
         }
 
         [TestMethod]
@@ -73,7 +73,7 @@ namespace LocadoraDeVeiculos.UnitTests.CupomModule
             string resultadoValidacao = cupom.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("O valor não pode ser negativo ou 0(zero)\n");
+            resultadoValidacao.Should().Be("The value field cannot be negative or zero.\n");
         }
 
         [TestMethod]
@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.UnitTests.CupomModule
             string resultadoValidacao = cupom.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("A porcentagem de desconto não pode ser maior que 100%\n");
+            resultadoValidacao.Should().Be("The discount percentage cannot be greater than 100%.\n");
         }
 
         [TestMethod]
@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.UnitTests.CupomModule
             string resultadoValidacao = cupom.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("O campo nome é obrigatório\n");
+            resultadoValidacao.Should().Be("The name field cannot be null.\n");
         }
 
         [TestMethod]
@@ -112,7 +112,7 @@ namespace LocadoraDeVeiculos.UnitTests.CupomModule
             string resultadoValidacao = cupom.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("É obrigatório possuir um parceiro vinculado\n");
+            resultadoValidacao.Should().Be("It is mandatory to have a linked partner.\n");
         }
     }
 }

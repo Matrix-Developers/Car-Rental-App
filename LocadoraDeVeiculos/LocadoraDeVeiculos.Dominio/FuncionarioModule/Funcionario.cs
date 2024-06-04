@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         {
             string resultadoValidação = "";
             if (UsuarioAcesso == "admin")
-                return "VALIDO";
+                return "VALID";
             if (UsuarioAcesso.Length == 0)
                 resultadoValidação += "O usuário de acesso não pode estar vazio\n";
             if (MatriculaInterna <= 0)
@@ -60,10 +60,10 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
                 resultadoValidação += "Data de admissão inválida\n";
             if (Senha.Length <= 3)
                 resultadoValidação += "A senha não pode ser menor que três caracteres\n";
-            if (base.ValidarPessoa() != "VALIDO")
+            if (base.ValidarPessoa() != "VALID")
                 resultadoValidação += base.ValidarPessoa();
             if (resultadoValidação == "")
-                resultadoValidação += "VALIDO";
+                resultadoValidação += "VALID";
             return resultadoValidação;
         }
 

@@ -94,16 +94,16 @@ namespace LocadoraDeVeiculos.Aplicacao.GrupoDeVeiculosModule
             foreach (GrupoDeVeiculo grupo in grupoDeVeiculosRegistrados)
             {
                 if (grupoVeiculo.Nome == grupo.Nome)
-                    return "O nome do grupo de veículos deve ser único\n";
+                    return "The vehicle group name must be unique.\n";
             }
 
-            return "VALIDO";
+            return "VALID";
         }
 
         private string Vaidacoes(GrupoDeVeiculo grupo)
         {
             string resultadoValidacao = grupo.Validar();
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
                 resultadoValidacao = VerificarSeNaoPossuiRepetidos(grupo);
 
             return resultadoValidacao;

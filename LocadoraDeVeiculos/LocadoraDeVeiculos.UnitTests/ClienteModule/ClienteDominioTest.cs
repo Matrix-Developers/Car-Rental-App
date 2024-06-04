@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("VALIDO", resultadoValidaca);
+            Assert.AreEqual("VALID", resultadoValidaca);
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("VALIDO", resultadoValidaca);
+            Assert.AreEqual("VALID", resultadoValidaca);
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("VALIDO", resultadoValidaca);
+            Assert.AreEqual("VALID", resultadoValidaca);
         }
 
         [TestMethod]
@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("O e-mail é obrigatório está incorreto e deve estar correto\n", resultadoValidaca);
+            Assert.AreEqual("The email field must be valid and not null.\n", resultadoValidaca);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("CNH inválida\nCNH fora do prazo de validade\nO nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultadoValidaca);
+            Assert.AreEqual("Invalid 'CNH'.\nCNH out of expiration date.\nThe name field cannot be null.\nThe address field cannot be null.\nThe email field must be valid and not null.\nThe CPF field is not valid.\n", resultadoValidaca);
         }
 
         [TestMethod]
@@ -66,7 +66,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("CNH inválida\n", resultadoValidaca);
+            Assert.AreEqual("Invalid 'CNH'.\n", resultadoValidaca);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("CNH fora do prazo de validade\n", resultadoValidaca);
+            Assert.AreEqual("CNH out of expiration date.\n", resultadoValidaca);
         }
 
         [TestMethod]
@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultadoValidaca = cliente.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CNPJ não é válido\n", resultadoValidaca);
+            Assert.AreEqual("The name field cannot be null.\nThe address field cannot be null.\nThe email field must be valid and not null.\nThe CNPJ field is not valid.\n", resultadoValidaca);
         }
 
         #region Testes para as propriedades herdadas de Pessoa
@@ -97,7 +97,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
 
         [TestMethod]
@@ -107,7 +107,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
 
         [TestMethod]
@@ -117,7 +117,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultado);
+            Assert.AreEqual("The name field cannot be null.\nThe address field cannot be null.\nThe email field must be valid and not null.\nThe CPF field is not valid.\n", resultado);
         }
 
         [TestMethod]
@@ -127,7 +127,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultado);
+            Assert.AreEqual("The name field cannot be null.\nThe address field cannot be null.\nThe email field must be valid and not null.\nThe CPF field is not valid.\n", resultado);
         }
 
         [TestMethod]
@@ -137,7 +137,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("O e-mail é obrigatório está incorreto e deve estar correto\n", resultado);
+            Assert.AreEqual("The email field must be valid and not null.\n", resultado);
         }
 
         [TestMethod]
@@ -147,7 +147,7 @@ namespace LocadoraDeVeiculos.UnitTests.ClienteModule
 
             string resultado = cliente.Validar();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
         #endregion
     }

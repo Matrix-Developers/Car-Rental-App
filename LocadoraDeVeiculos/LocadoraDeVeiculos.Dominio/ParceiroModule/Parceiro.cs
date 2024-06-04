@@ -23,9 +23,9 @@ namespace LocadoraDeVeiculos.Dominio.ParceiroModule
             string resultadoValidacao = "";
 
             if (string.IsNullOrEmpty(Nome))
-                resultadoValidacao += "O campo nome é obrigatório";
+                resultadoValidacao += "The name field cannot be null.";
             if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
 
             return resultadoValidacao;
         }

@@ -63,7 +63,7 @@ namespace LocadoraDeVeiculos.WindowsApp.GrupoDeVeiculos
 
             string resultadoValidacao = grupoDeVeiculos.Validar();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string erro = new StringReader(resultadoValidacao).ReadLine();
 

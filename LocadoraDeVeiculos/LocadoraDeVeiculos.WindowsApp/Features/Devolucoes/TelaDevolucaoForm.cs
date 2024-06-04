@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 veiculoAppService.EditarEntidade(devolucao.Veiculo.Id, veiculoAtualizado);
 
 
-                if (resultadoValidacao != "VALIDO")
+                if (resultadoValidacao != "VALID")
                 {
                     string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
                     TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);

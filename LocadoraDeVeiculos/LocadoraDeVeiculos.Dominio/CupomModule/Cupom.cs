@@ -43,17 +43,17 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
             string resultadoValicadacao = "";
 
             if (Nome.Length == 0)
-                resultadoValicadacao += "O campo nome é obrigatório\n";
+                resultadoValicadacao += "The name field cannot be null.\n";
             if (Codigo.Length == 0)
-                resultadoValicadacao += "O campo código é obrigatório\n";
+                resultadoValicadacao += "The code field cannot be null.\n";
             if (Valor <= 0)
-                resultadoValicadacao += "O valor não pode ser negativo ou 0(zero)\n";
+                resultadoValicadacao += "The value field cannot be negative or zero.\n";
             if (!EhDescontoFixo && Valor > 100)
-                resultadoValicadacao += "A porcentagem de desconto não pode ser maior que 100%\n";
+                resultadoValicadacao += "The discount percentage cannot be greater than 100%.\n";
             if (Parceiro == null)
-                resultadoValicadacao += "É obrigatório possuir um parceiro vinculado\n";
+                resultadoValicadacao += "It is mandatory to have a linked partner.\n";
             if (resultadoValicadacao == "")
-                resultadoValicadacao = "VALIDO";
+                resultadoValicadacao = "VALID";
             return resultadoValicadacao;
         }
         public override string ToString()

@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (veiculo.estaAlugado)
             {
                 resultado = false;
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Veículo já está alugado  {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Veículo já está alugado ou é nulo {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
             }
             else
             {

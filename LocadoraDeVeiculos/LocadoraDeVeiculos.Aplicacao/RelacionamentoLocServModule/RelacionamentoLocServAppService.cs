@@ -13,12 +13,12 @@ namespace LocadoraDeVeiculos.Aplicacao.RelacionamentoLocServModule
         {
             this.relacionamentoLocServRepository = relacionamentoLocServRepository;
         }
-
+        
         public string InserirNovoRelacionamentoLocServ(RelacionamentoLocServ relacionamentoLocServ)
         {
             string resultadoValidacao = relacionamentoLocServ.Validar();
 
-            if (resultadoValidacao == "VALIDO")
+            if (resultadoValidacao == "VALID")
                 relacionamentoLocServRepository.InserirNovo(relacionamentoLocServ);
 
             return resultadoValidacao;

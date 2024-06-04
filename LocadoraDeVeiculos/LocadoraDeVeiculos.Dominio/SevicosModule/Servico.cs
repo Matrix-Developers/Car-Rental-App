@@ -26,11 +26,11 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
         {
             string resultadoValidacao = "";
             if (this.Nome.Length == 0)
-                resultadoValidacao = "O nome não pode ser nulo\n";
+                resultadoValidacao = "The name field cannot be null.\n";
             if (this.Valor <= 0)
                 resultadoValidacao += "O valor não pode ser nulo";
             if (resultadoValidacao.Length == 0)
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
             return resultadoValidacao;
         }
 

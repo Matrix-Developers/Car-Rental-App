@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             //veiculoAppService.EditarEntidade(locacao.Veiculo.Id, veiculoAtualizado);
             string resultadoValidacao = locacao.Validar();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
