@@ -24,16 +24,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
         public void EditarRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado} ", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado} ", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaCliente.ObtemIdSelecionado();
             if (id == 0)
             {
-                MessageBox.Show("Selecione um cliente para editar", "Edição de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select at least one Client to edit.", "Edit Client", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             Cliente clienteSelecionado = clienteService.SelecionarEntidadePorId(id);
 
-            ClientesForm tela = new("Edição de Clientes")
+            ClientesForm tela = new("Edit Client")
             {
                 Clientes = clienteSelecionado
             };
@@ -44,38 +44,38 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
                 CarregaGrid();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Client: '{tela.Clientes.Nome}' edited successfully.");
             }
         }
         public void ExcluirRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado} ", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado} ", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaCliente.ObtemIdSelecionado();
             if (id == 0)
             {
-                MessageBox.Show("Selecione um cliente para excluir", "Exclusão de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select a Client to Delete", "Delete Client", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             Cliente clienteSelecionado = clienteService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o cliente: [{clienteSelecionado.Nome}] ?",
-                "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to Delete the Client: '{clienteSelecionado.Nome}' ?",
+                "Delete Client", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 clienteService.ExcluirEntidade(id);
                 CarregaGrid();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{clienteSelecionado.Nome}] removido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Client: '{clienteSelecionado.Nome}' deleted sucessfully.");
             }
         }
         public void InserirNovoRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado} ", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            ClientesForm tela = new("Cadastro de Clientes");
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado} ", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            ClientesForm tela = new("Register Client");
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 clienteService.InserirEntidade(tela.Clientes);
                 CarregaGrid();
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cliente: [{tela.Clientes.Nome}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Client '{tela.Clientes.Nome}' added sucessfully;");
             }
         }
 

@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (resultado)
                 Log.Information("{DataEHora} / Veiculo {Veiculo} inserido com sucesso", DateTime.Now, veiculo);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: AppService / Módulo: Inserir / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), veiculo.Id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: AppService / Module: Inserir / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), veiculo.Id,tempo);
 
             return resultado;
         }
@@ -37,7 +37,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (resultado)
                 Log.Information("{DataEHora} / Veiculo {Veiculo} editado com sucesso", DateTime.Now, veiculo);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", veiculo,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", veiculo,tempo);
 
             return resultado;
         }
@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (veiculo.estaAlugado)
             {
                 resultado = false;
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Veículo já está alugado ou é nulo {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / ID Registro: {Id} / Veículo já está alugado ou é nulo {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
             }
             else
             {
@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
                 if (resultado)
                     Log.Information("{DataEHora} / Veiculo {Id} excluido com sucesso", DateTime.Now, id);
                 else
-                    Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
+                    Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
             }
             return resultado;
         }
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (resultado)
                 Log.Information("{DataEHora} / Veiculo {Veiculo} encontrado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id,tempo);
             return resultado;
         }
         public override Veiculo SelecionarEntidadePorId(int id)
@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
             if (veiculo != null)
                 Log.Information("{DataEHora} / Veiculo {Id} selecionado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / ID Registro: {Id} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id,tempo);
             return veiculo;
         }
         public override List<Veiculo> SelecionarTodasEntidade()
@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.Aplicacao.VeiculoModule
                 Log.Information("{DataEHora} / {QtdSelecionados} Veiculos selecionados com sucesso", DateTime.Now, listVeiculos.Count);
             }
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Todos",tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Todos",tempo);
            
             return listVeiculos;
         }

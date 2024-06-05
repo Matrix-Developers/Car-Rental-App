@@ -21,19 +21,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome do Grupo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Group Name"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaPlanoDiario", HeaderText = "Taxa do Plano Diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaPlanoDiario", HeaderText = "Daily Plan Tax"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaPorKmDiario", HeaderText = "Taxa por KM Diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaPorKmDiario", HeaderText = "Tax per KM of Daily Plan"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaPlanoControlado", HeaderText = "Taxa do Plano Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaPlanoControlado", HeaderText = "Daily Controlled Plan Tax"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "LimiteKmControlado", HeaderText = "Limites de KM Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "LimiteKmControlado", HeaderText = "Controlled KM Limit"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaKmExcedidoControlado", HeaderText = "Taxa por KM Excedidos Controlado"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaKmExcedidoControlado", HeaderText = "Tax per Exceeded KM controled"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaPlanoLivre", HeaderText = "Taxa do Plano Livre"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "TaxaPlanoLivre", HeaderText = "Tax Free Plan"}
            };
 
             return colunas;

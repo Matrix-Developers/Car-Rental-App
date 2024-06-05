@@ -30,7 +30,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
-            labelTitulo = new System.Windows.Forms.Label();
             toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,60 +59,48 @@ namespace LocadoraDeVeiculos.WindowsApp
             statusStripRodape.SuspendLayout();
             SuspendLayout();
             // 
-            // labelTitulo
-            // 
-            labelTitulo.AutoSize = true;
-            labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            labelTitulo.ForeColor = System.Drawing.Color.Black;
-            labelTitulo.Location = new System.Drawing.Point(412, 5);
-            labelTitulo.Name = "labelTitulo";
-            labelTitulo.Size = new System.Drawing.Size(221, 25);
-            labelTitulo.TabIndex = 3;
-            labelTitulo.Text = "Locadora de Veículos";
-            labelTitulo.UseWaitCursor = true;
-            // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { funcionáriosToolStripMenuItem, clientesToolStripMenuItem, serviçosToolStripMenuItem, veiculosToolStripMenuItem, grupoDeVeículosToolStripMenuItem });
             toolStripMenuItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new System.Drawing.Size(86, 24);
-            toolStripMenuItem1.Text = "Cadastros";
+            toolStripMenuItem1.Size = new System.Drawing.Size(75, 24);
+            toolStripMenuItem1.Text = "Records";
             // 
             // funcionáriosToolStripMenuItem
             // 
             funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            funcionáriosToolStripMenuItem.Text = "Funcionários";
+            funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            funcionáriosToolStripMenuItem.Text = "Employees";
             funcionáriosToolStripMenuItem.Click += FuncionariosToolStripMenuItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            clientesToolStripMenuItem.Text = "Clients";
             clientesToolStripMenuItem.Click += ClientesToolStripMenuItem_Click;
             // 
             // serviçosToolStripMenuItem
             // 
             serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            serviçosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            serviçosToolStripMenuItem.Text = "Serviços";
+            serviçosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            serviçosToolStripMenuItem.Text = "Services";
             serviçosToolStripMenuItem.Click += ServicosToolStripMenuItem_Click;
             // 
             // veiculosToolStripMenuItem
             // 
             veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
-            veiculosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            veiculosToolStripMenuItem.Text = "Veiculos";
+            veiculosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            veiculosToolStripMenuItem.Text = "Vehicles";
             veiculosToolStripMenuItem.Click += VeiculosToolStripMenuItem_Click;
             // 
             // grupoDeVeículosToolStripMenuItem
             // 
             grupoDeVeículosToolStripMenuItem.Name = "grupoDeVeículosToolStripMenuItem";
-            grupoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
-            grupoDeVeículosToolStripMenuItem.Text = "Grupo de Veículos";
+            grupoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            grupoDeVeículosToolStripMenuItem.Text = "Vehicle Groups";
             grupoDeVeículosToolStripMenuItem.Click += GrupoDeVeículosToolStripMenuItem_Click;
             // 
             // menuStrip1
@@ -131,8 +118,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             // inícioToolStripMenuItem
             // 
             inícioToolStripMenuItem.Name = "inícioToolStripMenuItem";
-            inícioToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
-            inícioToolStripMenuItem.Text = "Início";
+            inícioToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            inícioToolStripMenuItem.Text = "Home";
             inícioToolStripMenuItem.Click += InícioToolStripMenuItem_Click;
             // 
             // locaçaoToolStripMenuItem
@@ -141,42 +128,42 @@ namespace LocadoraDeVeiculos.WindowsApp
             locaçaoToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             locaçaoToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             locaçaoToolStripMenuItem.Name = "locaçaoToolStripMenuItem";
-            locaçaoToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
-            locaçaoToolStripMenuItem.Text = "Locaçao";
+            locaçaoToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
+            locaçaoToolStripMenuItem.Text = "Rental";
             // 
             // locarToolStripMenuItem
             // 
             locarToolStripMenuItem.Name = "locarToolStripMenuItem";
-            locarToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
-            locarToolStripMenuItem.Text = "Locações";
+            locarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            locarToolStripMenuItem.Text = "Rentals";
             locarToolStripMenuItem.Click += LocarToolStripMenuItem_Click;
             // 
             // devoluçãoToolStripMenuItem
             // 
             devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
-            devoluçãoToolStripMenuItem.Text = "Devoluções";
+            devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            devoluçãoToolStripMenuItem.Text = "Devolution";
             devoluçãoToolStripMenuItem.Click += DevoluçãoToolStripMenuItem_Click;
             // 
             // descontosToolStripMenuItem
             // 
             descontosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { cuponsToolStripMenuItem, parceirosToolStripMenuItem });
             descontosToolStripMenuItem.Name = "descontosToolStripMenuItem";
-            descontosToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
-            descontosToolStripMenuItem.Text = "Descontos";
+            descontosToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            descontosToolStripMenuItem.Text = "Discount";
             // 
             // cuponsToolStripMenuItem
             // 
             cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
-            cuponsToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
-            cuponsToolStripMenuItem.Text = "Cupons";
+            cuponsToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            cuponsToolStripMenuItem.Text = "Coupons";
             cuponsToolStripMenuItem.Click += CuponsToolStripMenuItem_Click;
             // 
             // parceirosToolStripMenuItem
             // 
             parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
-            parceirosToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
-            parceirosToolStripMenuItem.Text = "Parceiros";
+            parceirosToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            parceirosToolStripMenuItem.Text = "Partners";
             parceirosToolStripMenuItem.Click += ParceirosToolStripMenuItem_Click;
             // 
             // toolBoxAcoes
@@ -245,8 +232,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             // 
             labelTipoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             labelTipoCadastro.Name = "labelTipoCadastro";
-            labelTipoCadastro.Size = new System.Drawing.Size(208, 66);
-            labelTipoCadastro.Text = "Cadastro Selecionado: Nenhum";
+            labelTipoCadastro.Size = new System.Drawing.Size(155, 66);
+            labelTipoCadastro.Text = "Record Selected: None";
             // 
             // panelRegistros
             // 
@@ -283,12 +270,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             Controls.Add(statusStripRodape);
             Controls.Add(panelRegistros);
             Controls.Add(toolBoxAcoes);
-            Controls.Add(labelTitulo);
             Controls.Add(menuStrip1);
             Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "TelaPrincipalForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Locadora de veículos ";
+            Text = "Car Rental App";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             toolBoxAcoes.ResumeLayout(false);
@@ -300,8 +286,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;

@@ -64,13 +64,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
                 textUsuario.Clear();
                 textSenha.Clear();
-                MessageBox.Show("Login ou senha inválidos");
+                MessageBox.Show("Invalid Login or Password.");
             }
         }
 
         private void EfetuarLogin()
         {
-            MessageBox.Show($"Bem vindo(a) {textUsuario.Text}!");
+            MessageBox.Show($"Welcome {textUsuario.Text}!");
             thread = new Thread(ChamarTelaPrincipal);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Por favor contatar o usuário administrador para refazer sua senha.");
+            MessageBox.Show("Please contact the administrator to recreate your password.");
         }
     }
 }

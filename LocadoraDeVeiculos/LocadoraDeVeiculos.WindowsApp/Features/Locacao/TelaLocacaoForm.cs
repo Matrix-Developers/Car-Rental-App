@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         private readonly ClienteAppService clienteAppService;
         private readonly CupomAppService cupomAppService;
         public List<Servico> servicos;
-        public string TipoSeguro = "Nenhum";
+        public string TipoSeguro = "None";
 
         public TelaLocacaoForm(string titulo, ServicoAppService servicoAppService, FuncionarioAppService funcionarioAppService, VeiculoAppService veiculoAppService, ClienteAppService clienteAppService, CupomAppService cupomAppService)
         {
@@ -72,7 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         {
             cBoxFuncionario.DataSource = funcionarioAppService.SelecionarTodasEntidade();
             List<Veiculo> veiculosDisponiveis = new();
-            if (lblTitulo.Text.Contains("Edição"))
+            if (lblTitulo.Text.Contains("Edit"))
                 veiculosDisponiveis = veiculoAppService.SelecionarTodasEntidade();
             else
                 AdicionaApenasVeiculoDisponivel(veiculosDisponiveis);
@@ -106,7 +106,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
             Cliente condutor = cBoxCondutor.SelectedItem as Cliente;
             DateTime dataDeSaida = dateTPDataSaida.Value;
             DateTime dataPrevistaDeChegada = dateTPDataDevolucao.Value;
-            string tipoDeSeguro = "Nenhum";
+            string tipoDeSeguro = "None";
             if (telaServico.seguro.Length > 0)
                 tipoDeSeguro = telaServico.seguro;
             Cupom cupom = null;

@@ -65,7 +65,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         {
             if (dtDevolucao.Value <= devolucao.DataDeSaida)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape("Data de entrega menor que a de saída");
+                TelaPrincipalForm.Instancia.AtualizarRodape("Return date must be later than rental date.");
                 DialogResult = DialogResult.None;
             }
             else

@@ -46,8 +46,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         public void InserirNovoRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            TelaLocacaoForm tela = new("Locação de Veiculos", servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            TelaLocacaoForm tela = new("Vehicle Rental", servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -65,10 +65,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                     //}
                     conversorPdf.ConverterLocacaoEmPdf(tela.Locacao);
 
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação: [{tela.Locacao.Veiculo}] realizada com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Rental: '{tela.Locacao.Veiculo}' made successfully");
                 }
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Erro ao inserir locação");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Error trying to create Rental");
 
                 List<Locacao> veiculos = locacaoAppService.SelecionarTodasEntidade();
 
@@ -79,18 +79,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         public void EditarRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaLocacao.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione uma locação para poder editar!", "Edição de locação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select at least one rental to Edit", "Rental Edit", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            TelaLocacaoForm tela = new("Edição de Locação", servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
+            TelaLocacaoForm tela = new("Edit Rental", servicoAppService, funcionarioAppService, veiculoAppService, clienteAppService, cupomAppService);
 
             tela.Locacao = locacaoSelecionada;
 
@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
                 tabelaLocacao.AtualizarRegistros(veiculos);
 
                 if(resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{tela.Locacao.ClienteContratante}] editado com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Rental: '{tela.Locacao.ClienteContratante}' edited sucessfully");
                 else
                     TelaPrincipalForm.Instancia.AtualizarRodape($"Erro ao editar locação");
             }
@@ -111,20 +111,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
         public void ExcluirRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaLocacao.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione uma locação para poder excluir!", "Exclusão de Locação",
+                MessageBox.Show("Select at least one Rental to Delete.", "Delete Rental",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir a locação: [{locacaoSelecionada.Id}] ?",
-                "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to Delete the Rental: '{locacaoSelecionada.Id}' ?",
+                "Delete Rental", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 bool resultado = locacaoAppService.ExcluirEntidade(id);
 
@@ -132,9 +132,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
 
                 tabelaLocacao.AtualizarRegistros(veiculos);
                 if(resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Locação de: [{locacaoSelecionada.ClienteContratante}] removida com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Rental of: '{locacaoSelecionada.ClienteContratante}' deleted sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Erro ao remover locação");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Error when deleting rental");
             }
         }
         public void AgruparRegistros()

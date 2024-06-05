@@ -21,21 +21,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Clientes
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Name"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "RegistroUnico", HeaderText = "Registro"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "RegistroUnico", HeaderText = "Code"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Endereço"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Address"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Telefone", HeaderText = "Telefone"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Telefone", HeaderText = "Phone"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "Email", HeaderText = "Email"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "CNH", HeaderText = "CNH"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "ValidadeCnh", HeaderText = "Validade CHN"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "ValidadeCnh", HeaderText = "CHN Validity"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "ehpessoafisica", HeaderText = "É pessoa física "}
+                new DataGridViewTextBoxColumn {DataPropertyName = "ehpessoafisica", HeaderText = "Is Natural Person? "}
 
            };
 

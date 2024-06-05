@@ -29,568 +29,612 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.brnConfirmar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.gBoxLocacao = new System.Windows.Forms.GroupBox();
-            this.txtKmInicial = new System.Windows.Forms.TextBox();
-            this.lblServicosSelecionados = new System.Windows.Forms.Label();
-            this.lblKmInicial = new System.Windows.Forms.Label();
-            this.cLBoxServicosSelecionados = new System.Windows.Forms.CheckedListBox();
-            this.txtDataDevolucao = new System.Windows.Forms.TextBox();
-            this.txtDataLocacao = new System.Windows.Forms.TextBox();
-            this.txtCondutor = new System.Windows.Forms.TextBox();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.txtPlano = new System.Windows.Forms.TextBox();
-            this.txtVeiculo = new System.Windows.Forms.TextBox();
-            this.txtFuncionario = new System.Windows.Forms.TextBox();
-            this.lblPlano = new System.Windows.Forms.Label();
-            this.lblVeiculo = new System.Windows.Forms.Label();
-            this.lblDataDevolucao = new System.Windows.Forms.Label();
-            this.lblDataLocacao = new System.Windows.Forms.Label();
-            this.lblCondutor = new System.Windows.Forms.Label();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.lblFuncionario = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.txtValorTotal = new System.Windows.Forms.TextBox();
-            this.lblValorTotal = new System.Windows.Forms.Label();
-            this.gBoxDevolucao = new System.Windows.Forms.GroupBox();
-            this.txtValorInicial = new System.Windows.Forms.TextBox();
-            this.lblValorInicial = new System.Windows.Forms.Label();
-            this.lblEncerrar = new System.Windows.Forms.Label();
-            this.dtDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.rBtn01 = new System.Windows.Forms.RadioButton();
-            this.lblFull = new System.Windows.Forms.Label();
-            this.lblEmpty = new System.Windows.Forms.Label();
-            this.rBtn11 = new System.Windows.Forms.RadioButton();
-            this.rBtn34 = new System.Windows.Forms.RadioButton();
-            this.rBtn12 = new System.Windows.Forms.RadioButton();
-            this.rBtn14 = new System.Windows.Forms.RadioButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblKmFinal = new System.Windows.Forms.Label();
-            this.txtKmFinal = new System.Windows.Forms.TextBox();
-            this.lblServicos = new System.Windows.Forms.Label();
-            this.btnSelecionarServicos = new System.Windows.Forms.Button();
-            this.lblQtdTanque = new System.Windows.Forms.Label();
-            this.cBoxQtdTanque = new System.Windows.Forms.ComboBox();
-            this.lblValorCombustivel = new System.Windows.Forms.Label();
-            this.txtValorCombustivel = new System.Windows.Forms.TextBox();
-            this.gBoxLocacao.SuspendLayout();
-            this.gBoxDevolucao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            lblTitulo = new System.Windows.Forms.Label();
+            brnConfirmar = new System.Windows.Forms.Button();
+            btnCancelar = new System.Windows.Forms.Button();
+            gBoxLocacao = new System.Windows.Forms.GroupBox();
+            txtKmInicial = new System.Windows.Forms.TextBox();
+            lblServicosSelecionados = new System.Windows.Forms.Label();
+            lblKmInicial = new System.Windows.Forms.Label();
+            cLBoxServicosSelecionados = new System.Windows.Forms.CheckedListBox();
+            txtDataDevolucao = new System.Windows.Forms.TextBox();
+            txtDataLocacao = new System.Windows.Forms.TextBox();
+            txtCondutor = new System.Windows.Forms.TextBox();
+            txtCliente = new System.Windows.Forms.TextBox();
+            txtPlano = new System.Windows.Forms.TextBox();
+            txtVeiculo = new System.Windows.Forms.TextBox();
+            txtFuncionario = new System.Windows.Forms.TextBox();
+            lblPlano = new System.Windows.Forms.Label();
+            lblVeiculo = new System.Windows.Forms.Label();
+            lblDataDevolucao = new System.Windows.Forms.Label();
+            lblDataLocacao = new System.Windows.Forms.Label();
+            lblCondutor = new System.Windows.Forms.Label();
+            lblCliente = new System.Windows.Forms.Label();
+            lblFuncionario = new System.Windows.Forms.Label();
+            lblId = new System.Windows.Forms.Label();
+            txtId = new System.Windows.Forms.TextBox();
+            txtValorTotal = new System.Windows.Forms.TextBox();
+            lblValorTotal = new System.Windows.Forms.Label();
+            gBoxDevolucao = new System.Windows.Forms.GroupBox();
+            txtValorInicial = new System.Windows.Forms.TextBox();
+            lblValorInicial = new System.Windows.Forms.Label();
+            lblEncerrar = new System.Windows.Forms.Label();
+            dtDevolucao = new System.Windows.Forms.DateTimePicker();
+            rBtn01 = new System.Windows.Forms.RadioButton();
+            lblFull = new System.Windows.Forms.Label();
+            lblEmpty = new System.Windows.Forms.Label();
+            rBtn11 = new System.Windows.Forms.RadioButton();
+            rBtn34 = new System.Windows.Forms.RadioButton();
+            rBtn12 = new System.Windows.Forms.RadioButton();
+            rBtn14 = new System.Windows.Forms.RadioButton();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            lblKmFinal = new System.Windows.Forms.Label();
+            txtKmFinal = new System.Windows.Forms.TextBox();
+            lblServicos = new System.Windows.Forms.Label();
+            btnSelecionarServicos = new System.Windows.Forms.Button();
+            lblQtdTanque = new System.Windows.Forms.Label();
+            cBoxQtdTanque = new System.Windows.Forms.ComboBox();
+            lblValorCombustivel = new System.Windows.Forms.Label();
+            txtValorCombustivel = new System.Windows.Forms.TextBox();
+            gBoxLocacao.SuspendLayout();
+            gBoxDevolucao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // lblTitulo
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(357, 34);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(182, 20);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Devolução de Veículo";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lblTitulo.Location = new System.Drawing.Point(483, 51);
+            lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new System.Drawing.Size(192, 25);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Vehicle Devolution";
             // 
             // brnConfirmar
             // 
-            this.brnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.brnConfirmar.Location = new System.Drawing.Point(729, 408);
-            this.brnConfirmar.Name = "brnConfirmar";
-            this.brnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.brnConfirmar.TabIndex = 22;
-            this.brnConfirmar.Text = "Confirmar";
-            this.brnConfirmar.UseVisualStyleBackColor = true;
-            this.brnConfirmar.Click += new System.EventHandler(this.BrnConfirmar_Click);
+            brnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            brnConfirmar.Location = new System.Drawing.Point(972, 628);
+            brnConfirmar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            brnConfirmar.Name = "brnConfirmar";
+            brnConfirmar.Size = new System.Drawing.Size(100, 35);
+            brnConfirmar.TabIndex = 22;
+            brnConfirmar.Text = "Confirmar";
+            brnConfirmar.UseVisualStyleBackColor = true;
+            brnConfirmar.Click += BrnConfirmar_Click;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(810, 408);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 23;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCancelar.Location = new System.Drawing.Point(1080, 628);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(100, 35);
+            btnCancelar.TabIndex = 23;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // gBoxLocacao
             // 
-            this.gBoxLocacao.Controls.Add(this.txtKmInicial);
-            this.gBoxLocacao.Controls.Add(this.lblServicosSelecionados);
-            this.gBoxLocacao.Controls.Add(this.lblKmInicial);
-            this.gBoxLocacao.Controls.Add(this.cLBoxServicosSelecionados);
-            this.gBoxLocacao.Controls.Add(this.txtDataDevolucao);
-            this.gBoxLocacao.Controls.Add(this.txtDataLocacao);
-            this.gBoxLocacao.Controls.Add(this.txtCondutor);
-            this.gBoxLocacao.Controls.Add(this.txtCliente);
-            this.gBoxLocacao.Controls.Add(this.txtPlano);
-            this.gBoxLocacao.Controls.Add(this.txtVeiculo);
-            this.gBoxLocacao.Controls.Add(this.txtFuncionario);
-            this.gBoxLocacao.Controls.Add(this.lblPlano);
-            this.gBoxLocacao.Controls.Add(this.lblVeiculo);
-            this.gBoxLocacao.Controls.Add(this.lblDataDevolucao);
-            this.gBoxLocacao.Controls.Add(this.lblDataLocacao);
-            this.gBoxLocacao.Controls.Add(this.lblCondutor);
-            this.gBoxLocacao.Controls.Add(this.lblCliente);
-            this.gBoxLocacao.Controls.Add(this.lblFuncionario);
-            this.gBoxLocacao.Controls.Add(this.lblId);
-            this.gBoxLocacao.Controls.Add(this.txtId);
-            this.gBoxLocacao.Enabled = false;
-            this.gBoxLocacao.Location = new System.Drawing.Point(12, 83);
-            this.gBoxLocacao.Name = "gBoxLocacao";
-            this.gBoxLocacao.Size = new System.Drawing.Size(433, 312);
-            this.gBoxLocacao.TabIndex = 20;
-            this.gBoxLocacao.TabStop = false;
-            this.gBoxLocacao.Text = "Dados da locação";
+            gBoxLocacao.Controls.Add(txtKmInicial);
+            gBoxLocacao.Controls.Add(lblServicosSelecionados);
+            gBoxLocacao.Controls.Add(lblKmInicial);
+            gBoxLocacao.Controls.Add(cLBoxServicosSelecionados);
+            gBoxLocacao.Controls.Add(txtDataDevolucao);
+            gBoxLocacao.Controls.Add(txtDataLocacao);
+            gBoxLocacao.Controls.Add(txtCondutor);
+            gBoxLocacao.Controls.Add(txtCliente);
+            gBoxLocacao.Controls.Add(txtPlano);
+            gBoxLocacao.Controls.Add(txtVeiculo);
+            gBoxLocacao.Controls.Add(txtFuncionario);
+            gBoxLocacao.Controls.Add(lblPlano);
+            gBoxLocacao.Controls.Add(lblVeiculo);
+            gBoxLocacao.Controls.Add(lblDataDevolucao);
+            gBoxLocacao.Controls.Add(lblDataLocacao);
+            gBoxLocacao.Controls.Add(lblCondutor);
+            gBoxLocacao.Controls.Add(lblCliente);
+            gBoxLocacao.Controls.Add(lblFuncionario);
+            gBoxLocacao.Controls.Add(lblId);
+            gBoxLocacao.Controls.Add(txtId);
+            gBoxLocacao.Enabled = false;
+            gBoxLocacao.Location = new System.Drawing.Point(16, 128);
+            gBoxLocacao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            gBoxLocacao.Name = "gBoxLocacao";
+            gBoxLocacao.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            gBoxLocacao.Size = new System.Drawing.Size(577, 480);
+            gBoxLocacao.TabIndex = 20;
+            gBoxLocacao.TabStop = false;
+            gBoxLocacao.Text = "Rental data";
             // 
             // txtKmInicial
             // 
-            this.txtKmInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtKmInicial.Enabled = false;
-            this.txtKmInicial.Location = new System.Drawing.Point(284, 19);
-            this.txtKmInicial.Name = "txtKmInicial";
-            this.txtKmInicial.Size = new System.Drawing.Size(141, 20);
-            this.txtKmInicial.TabIndex = 25;
+            txtKmInicial.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            txtKmInicial.Enabled = false;
+            txtKmInicial.Location = new System.Drawing.Point(406, 29);
+            txtKmInicial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtKmInicial.Name = "txtKmInicial";
+            txtKmInicial.Size = new System.Drawing.Size(160, 27);
+            txtKmInicial.TabIndex = 25;
             // 
             // lblServicosSelecionados
             // 
-            this.lblServicosSelecionados.AutoSize = true;
-            this.lblServicosSelecionados.Location = new System.Drawing.Point(35, 204);
-            this.lblServicosSelecionados.Name = "lblServicosSelecionados";
-            this.lblServicosSelecionados.Size = new System.Drawing.Size(48, 13);
-            this.lblServicosSelecionados.TabIndex = 31;
-            this.lblServicosSelecionados.Text = "Serviços";
+            lblServicosSelecionados.AutoSize = true;
+            lblServicosSelecionados.Location = new System.Drawing.Point(47, 314);
+            lblServicosSelecionados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblServicosSelecionados.Name = "lblServicosSelecionados";
+            lblServicosSelecionados.Size = new System.Drawing.Size(62, 20);
+            lblServicosSelecionados.TabIndex = 31;
+            lblServicosSelecionados.Text = "Services";
             // 
             // lblKmInicial
             // 
-            this.lblKmInicial.AutoSize = true;
-            this.lblKmInicial.Location = new System.Drawing.Point(226, 22);
-            this.lblKmInicial.Name = "lblKmInicial";
-            this.lblKmInicial.Size = new System.Drawing.Size(52, 13);
-            this.lblKmInicial.TabIndex = 24;
-            this.lblKmInicial.Text = "Km Inicial";
+            lblKmInicial.AutoSize = true;
+            lblKmInicial.Location = new System.Drawing.Point(300, 34);
+            lblKmInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblKmInicial.Name = "lblKmInicial";
+            lblKmInicial.Size = new System.Drawing.Size(104, 20);
+            lblKmInicial.TabIndex = 24;
+            lblKmInicial.Text = "Initial Mileage";
             // 
             // cLBoxServicosSelecionados
             // 
-            this.cLBoxServicosSelecionados.FormattingEnabled = true;
-            this.cLBoxServicosSelecionados.Location = new System.Drawing.Point(89, 204);
-            this.cLBoxServicosSelecionados.Name = "cLBoxServicosSelecionados";
-            this.cLBoxServicosSelecionados.Size = new System.Drawing.Size(338, 79);
-            this.cLBoxServicosSelecionados.TabIndex = 30;
+            cLBoxServicosSelecionados.FormattingEnabled = true;
+            cLBoxServicosSelecionados.Location = new System.Drawing.Point(119, 314);
+            cLBoxServicosSelecionados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cLBoxServicosSelecionados.Name = "cLBoxServicosSelecionados";
+            cLBoxServicosSelecionados.Size = new System.Drawing.Size(449, 114);
+            cLBoxServicosSelecionados.TabIndex = 30;
             // 
             // txtDataDevolucao
             // 
-            this.txtDataDevolucao.Location = new System.Drawing.Point(284, 175);
-            this.txtDataDevolucao.Name = "txtDataDevolucao";
-            this.txtDataDevolucao.Size = new System.Drawing.Size(143, 20);
-            this.txtDataDevolucao.TabIndex = 25;
+            txtDataDevolucao.Location = new System.Drawing.Point(406, 269);
+            txtDataDevolucao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtDataDevolucao.Name = "txtDataDevolucao";
+            txtDataDevolucao.Size = new System.Drawing.Size(162, 27);
+            txtDataDevolucao.TabIndex = 25;
             // 
             // txtDataLocacao
             // 
-            this.txtDataLocacao.Location = new System.Drawing.Point(89, 175);
-            this.txtDataLocacao.Name = "txtDataLocacao";
-            this.txtDataLocacao.Size = new System.Drawing.Size(121, 20);
-            this.txtDataLocacao.TabIndex = 29;
+            txtDataLocacao.Location = new System.Drawing.Point(119, 269);
+            txtDataLocacao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtDataLocacao.Name = "txtDataLocacao";
+            txtDataLocacao.Size = new System.Drawing.Size(160, 27);
+            txtDataLocacao.TabIndex = 29;
             // 
             // txtCondutor
             // 
-            this.txtCondutor.Location = new System.Drawing.Point(89, 149);
-            this.txtCondutor.Name = "txtCondutor";
-            this.txtCondutor.Size = new System.Drawing.Size(338, 20);
-            this.txtCondutor.TabIndex = 28;
+            txtCondutor.Location = new System.Drawing.Point(119, 229);
+            txtCondutor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtCondutor.Name = "txtCondutor";
+            txtCondutor.Size = new System.Drawing.Size(449, 27);
+            txtCondutor.TabIndex = 28;
             // 
             // txtCliente
             // 
-            this.txtCliente.Location = new System.Drawing.Point(89, 123);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(338, 20);
-            this.txtCliente.TabIndex = 27;
+            txtCliente.Location = new System.Drawing.Point(119, 189);
+            txtCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtCliente.Name = "txtCliente";
+            txtCliente.Size = new System.Drawing.Size(449, 27);
+            txtCliente.TabIndex = 27;
             // 
             // txtPlano
             // 
-            this.txtPlano.Location = new System.Drawing.Point(89, 97);
-            this.txtPlano.Name = "txtPlano";
-            this.txtPlano.Size = new System.Drawing.Size(338, 20);
-            this.txtPlano.TabIndex = 26;
+            txtPlano.Location = new System.Drawing.Point(119, 149);
+            txtPlano.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtPlano.Name = "txtPlano";
+            txtPlano.Size = new System.Drawing.Size(449, 27);
+            txtPlano.TabIndex = 26;
             // 
             // txtVeiculo
             // 
-            this.txtVeiculo.Location = new System.Drawing.Point(89, 71);
-            this.txtVeiculo.Name = "txtVeiculo";
-            this.txtVeiculo.Size = new System.Drawing.Size(338, 20);
-            this.txtVeiculo.TabIndex = 25;
+            txtVeiculo.Location = new System.Drawing.Point(119, 109);
+            txtVeiculo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtVeiculo.Name = "txtVeiculo";
+            txtVeiculo.Size = new System.Drawing.Size(449, 27);
+            txtVeiculo.TabIndex = 25;
             // 
             // txtFuncionario
             // 
-            this.txtFuncionario.Location = new System.Drawing.Point(89, 45);
-            this.txtFuncionario.Name = "txtFuncionario";
-            this.txtFuncionario.Size = new System.Drawing.Size(338, 20);
-            this.txtFuncionario.TabIndex = 16;
+            txtFuncionario.Location = new System.Drawing.Point(119, 69);
+            txtFuncionario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtFuncionario.Name = "txtFuncionario";
+            txtFuncionario.Size = new System.Drawing.Size(449, 27);
+            txtFuncionario.TabIndex = 16;
             // 
             // lblPlano
             // 
-            this.lblPlano.AutoSize = true;
-            this.lblPlano.Location = new System.Drawing.Point(49, 100);
-            this.lblPlano.Name = "lblPlano";
-            this.lblPlano.Size = new System.Drawing.Size(34, 13);
-            this.lblPlano.TabIndex = 13;
-            this.lblPlano.Text = "Plano";
+            lblPlano.AutoSize = true;
+            lblPlano.Location = new System.Drawing.Point(65, 154);
+            lblPlano.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlano.Name = "lblPlano";
+            lblPlano.Size = new System.Drawing.Size(46, 20);
+            lblPlano.TabIndex = 13;
+            lblPlano.Text = "Plano";
             // 
             // lblVeiculo
             // 
-            this.lblVeiculo.AutoSize = true;
-            this.lblVeiculo.Location = new System.Drawing.Point(39, 74);
-            this.lblVeiculo.Name = "lblVeiculo";
-            this.lblVeiculo.Size = new System.Drawing.Size(44, 13);
-            this.lblVeiculo.TabIndex = 12;
-            this.lblVeiculo.Text = "Veículo";
+            lblVeiculo.AutoSize = true;
+            lblVeiculo.Location = new System.Drawing.Point(53, 116);
+            lblVeiculo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblVeiculo.Name = "lblVeiculo";
+            lblVeiculo.Size = new System.Drawing.Size(56, 20);
+            lblVeiculo.TabIndex = 12;
+            lblVeiculo.Text = "Vehicle";
             // 
             // lblDataDevolucao
             // 
-            this.lblDataDevolucao.AutoSize = true;
-            this.lblDataDevolucao.Location = new System.Drawing.Point(230, 178);
-            this.lblDataDevolucao.Name = "lblDataDevolucao";
-            this.lblDataDevolucao.Size = new System.Drawing.Size(48, 13);
-            this.lblDataDevolucao.TabIndex = 11;
-            this.lblDataDevolucao.Text = "Previsao";
+            lblDataDevolucao.AutoSize = true;
+            lblDataDevolucao.Location = new System.Drawing.Point(287, 274);
+            lblDataDevolucao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDataDevolucao.Name = "lblDataDevolucao";
+            lblDataDevolucao.Size = new System.Drawing.Size(117, 20);
+            lblDataDevolucao.TabIndex = 11;
+            lblDataDevolucao.Text = "Expected Return";
             // 
             // lblDataLocacao
             // 
-            this.lblDataLocacao.AutoSize = true;
-            this.lblDataLocacao.Location = new System.Drawing.Point(34, 178);
-            this.lblDataLocacao.Name = "lblDataLocacao";
-            this.lblDataLocacao.Size = new System.Drawing.Size(49, 13);
-            this.lblDataLocacao.TabIndex = 10;
-            this.lblDataLocacao.Text = "Locação";
+            lblDataLocacao.AutoSize = true;
+            lblDataLocacao.Location = new System.Drawing.Point(58, 274);
+            lblDataLocacao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDataLocacao.Name = "lblDataLocacao";
+            lblDataLocacao.Size = new System.Drawing.Size(51, 20);
+            lblDataLocacao.TabIndex = 10;
+            lblDataLocacao.Text = "Rental";
             // 
             // lblCondutor
             // 
-            this.lblCondutor.AutoSize = true;
-            this.lblCondutor.Location = new System.Drawing.Point(33, 152);
-            this.lblCondutor.Name = "lblCondutor";
-            this.lblCondutor.Size = new System.Drawing.Size(50, 13);
-            this.lblCondutor.TabIndex = 9;
-            this.lblCondutor.Text = "Condutor";
+            lblCondutor.AutoSize = true;
+            lblCondutor.Location = new System.Drawing.Point(31, 232);
+            lblCondutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCondutor.Name = "lblCondutor";
+            lblCondutor.Size = new System.Drawing.Size(78, 20);
+            lblCondutor.TabIndex = 9;
+            lblCondutor.Text = "Conductor";
             // 
             // lblCliente
             // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(44, 126);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
-            this.lblCliente.TabIndex = 8;
-            this.lblCliente.Text = "Cliente";
+            lblCliente.AutoSize = true;
+            lblCliente.Location = new System.Drawing.Point(62, 196);
+            lblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new System.Drawing.Size(47, 20);
+            lblCliente.TabIndex = 8;
+            lblCliente.Text = "Client";
             // 
             // lblFuncionario
             // 
-            this.lblFuncionario.AutoSize = true;
-            this.lblFuncionario.Location = new System.Drawing.Point(21, 48);
-            this.lblFuncionario.Name = "lblFuncionario";
-            this.lblFuncionario.Size = new System.Drawing.Size(62, 13);
-            this.lblFuncionario.TabIndex = 7;
-            this.lblFuncionario.Text = "Funcionário";
+            lblFuncionario.AutoSize = true;
+            lblFuncionario.Location = new System.Drawing.Point(34, 73);
+            lblFuncionario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblFuncionario.Name = "lblFuncionario";
+            lblFuncionario.Size = new System.Drawing.Size(75, 20);
+            lblFuncionario.TabIndex = 7;
+            lblFuncionario.Text = "Employee";
             // 
             // lblId
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(65, 22);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(18, 13);
-            this.lblId.TabIndex = 6;
-            this.lblId.Text = "ID";
+            lblId.AutoSize = true;
+            lblId.Location = new System.Drawing.Point(87, 34);
+            lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblId.Name = "lblId";
+            lblId.Size = new System.Drawing.Size(24, 20);
+            lblId.TabIndex = 6;
+            lblId.Text = "ID";
             // 
             // txtId
             // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(89, 19);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(121, 20);
-            this.txtId.TabIndex = 2;
-            this.txtId.Text = "0";
+            txtId.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            txtId.Enabled = false;
+            txtId.Location = new System.Drawing.Point(119, 29);
+            txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtId.Name = "txtId";
+            txtId.Size = new System.Drawing.Size(160, 27);
+            txtId.TabIndex = 2;
+            txtId.Text = "0";
             // 
             // txtValorTotal
             // 
-            this.txtValorTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtValorTotal.Enabled = false;
-            this.txtValorTotal.Location = new System.Drawing.Point(327, 278);
-            this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtValorTotal.TabIndex = 17;
-            this.txtValorTotal.Text = "0";
+            txtValorTotal.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            txtValorTotal.Enabled = false;
+            txtValorTotal.Location = new System.Drawing.Point(436, 428);
+            txtValorTotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtValorTotal.Name = "txtValorTotal";
+            txtValorTotal.Size = new System.Drawing.Size(132, 27);
+            txtValorTotal.TabIndex = 17;
+            txtValorTotal.Text = "0";
             // 
             // lblValorTotal
             // 
-            this.lblValorTotal.AutoSize = true;
-            this.lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorTotal.Location = new System.Drawing.Point(215, 278);
-            this.lblValorTotal.Name = "lblValorTotal";
-            this.lblValorTotal.Size = new System.Drawing.Size(116, 16);
-            this.lblValorTotal.TabIndex = 2;
-            this.lblValorTotal.Text = "Preço Total: R$";
+            lblValorTotal.AutoSize = true;
+            lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lblValorTotal.Location = new System.Drawing.Point(287, 428);
+            lblValorTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblValorTotal.Name = "lblValorTotal";
+            lblValorTotal.Size = new System.Drawing.Size(139, 20);
+            lblValorTotal.TabIndex = 2;
+            lblValorTotal.Text = "Total Value: R$";
             // 
             // gBoxDevolucao
             // 
-            this.gBoxDevolucao.Controls.Add(this.txtValorInicial);
-            this.gBoxDevolucao.Controls.Add(this.lblValorInicial);
-            this.gBoxDevolucao.Controls.Add(this.lblEncerrar);
-            this.gBoxDevolucao.Controls.Add(this.dtDevolucao);
-            this.gBoxDevolucao.Controls.Add(this.rBtn01);
-            this.gBoxDevolucao.Controls.Add(this.lblFull);
-            this.gBoxDevolucao.Controls.Add(this.lblEmpty);
-            this.gBoxDevolucao.Controls.Add(this.rBtn11);
-            this.gBoxDevolucao.Controls.Add(this.rBtn34);
-            this.gBoxDevolucao.Controls.Add(this.rBtn12);
-            this.gBoxDevolucao.Controls.Add(this.rBtn14);
-            this.gBoxDevolucao.Controls.Add(this.pictureBox1);
-            this.gBoxDevolucao.Controls.Add(this.lblKmFinal);
-            this.gBoxDevolucao.Controls.Add(this.txtKmFinal);
-            this.gBoxDevolucao.Controls.Add(this.lblServicos);
-            this.gBoxDevolucao.Controls.Add(this.btnSelecionarServicos);
-            this.gBoxDevolucao.Controls.Add(this.lblQtdTanque);
-            this.gBoxDevolucao.Controls.Add(this.cBoxQtdTanque);
-            this.gBoxDevolucao.Controls.Add(this.lblValorCombustivel);
-            this.gBoxDevolucao.Controls.Add(this.txtValorCombustivel);
-            this.gBoxDevolucao.Controls.Add(this.txtValorTotal);
-            this.gBoxDevolucao.Controls.Add(this.lblValorTotal);
-            this.gBoxDevolucao.Location = new System.Drawing.Point(451, 83);
-            this.gBoxDevolucao.Name = "gBoxDevolucao";
-            this.gBoxDevolucao.Size = new System.Drawing.Size(433, 312);
-            this.gBoxDevolucao.TabIndex = 24;
-            this.gBoxDevolucao.TabStop = false;
-            this.gBoxDevolucao.Text = "Devolução";
+            gBoxDevolucao.Controls.Add(txtValorInicial);
+            gBoxDevolucao.Controls.Add(lblValorInicial);
+            gBoxDevolucao.Controls.Add(lblEncerrar);
+            gBoxDevolucao.Controls.Add(dtDevolucao);
+            gBoxDevolucao.Controls.Add(rBtn01);
+            gBoxDevolucao.Controls.Add(lblFull);
+            gBoxDevolucao.Controls.Add(lblEmpty);
+            gBoxDevolucao.Controls.Add(rBtn11);
+            gBoxDevolucao.Controls.Add(rBtn34);
+            gBoxDevolucao.Controls.Add(rBtn12);
+            gBoxDevolucao.Controls.Add(rBtn14);
+            gBoxDevolucao.Controls.Add(pictureBox1);
+            gBoxDevolucao.Controls.Add(lblKmFinal);
+            gBoxDevolucao.Controls.Add(txtKmFinal);
+            gBoxDevolucao.Controls.Add(lblServicos);
+            gBoxDevolucao.Controls.Add(btnSelecionarServicos);
+            gBoxDevolucao.Controls.Add(lblQtdTanque);
+            gBoxDevolucao.Controls.Add(cBoxQtdTanque);
+            gBoxDevolucao.Controls.Add(lblValorCombustivel);
+            gBoxDevolucao.Controls.Add(txtValorCombustivel);
+            gBoxDevolucao.Controls.Add(txtValorTotal);
+            gBoxDevolucao.Controls.Add(lblValorTotal);
+            gBoxDevolucao.Location = new System.Drawing.Point(601, 128);
+            gBoxDevolucao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            gBoxDevolucao.Name = "gBoxDevolucao";
+            gBoxDevolucao.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            gBoxDevolucao.Size = new System.Drawing.Size(577, 480);
+            gBoxDevolucao.TabIndex = 24;
+            gBoxDevolucao.TabStop = false;
+            gBoxDevolucao.Text = "Return data";
             // 
             // txtValorInicial
             // 
-            this.txtValorInicial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtValorInicial.Enabled = false;
-            this.txtValorInicial.Location = new System.Drawing.Point(327, 252);
-            this.txtValorInicial.Name = "txtValorInicial";
-            this.txtValorInicial.Size = new System.Drawing.Size(100, 20);
-            this.txtValorInicial.TabIndex = 35;
-            this.txtValorInicial.Text = "0";
+            txtValorInicial.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            txtValorInicial.Enabled = false;
+            txtValorInicial.Location = new System.Drawing.Point(436, 388);
+            txtValorInicial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtValorInicial.Name = "txtValorInicial";
+            txtValorInicial.Size = new System.Drawing.Size(132, 27);
+            txtValorInicial.TabIndex = 35;
+            txtValorInicial.Text = "0";
             // 
             // lblValorInicial
             // 
-            this.lblValorInicial.AutoSize = true;
-            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorInicial.Location = new System.Drawing.Point(215, 254);
-            this.lblValorInicial.Name = "lblValorInicial";
-            this.lblValorInicial.Size = new System.Drawing.Size(117, 16);
-            this.lblValorInicial.TabIndex = 34;
-            this.lblValorInicial.Text = "Valor Inicial: R$";
+            lblValorInicial.AutoSize = true;
+            lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lblValorInicial.Location = new System.Drawing.Point(298, 388);
+            lblValorInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblValorInicial.Name = "lblValorInicial";
+            lblValorInicial.Size = new System.Drawing.Size(130, 20);
+            lblValorInicial.TabIndex = 34;
+            lblValorInicial.Text = "Initial Value: $";
             // 
             // lblEncerrar
             // 
-            this.lblEncerrar.AutoSize = true;
-            this.lblEncerrar.Location = new System.Drawing.Point(8, 217);
-            this.lblEncerrar.Name = "lblEncerrar";
-            this.lblEncerrar.Size = new System.Drawing.Size(59, 13);
-            this.lblEncerrar.TabIndex = 33;
-            this.lblEncerrar.Text = "Devolução";
+            lblEncerrar.AutoSize = true;
+            lblEncerrar.Location = new System.Drawing.Point(13, 336);
+            lblEncerrar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblEncerrar.Name = "lblEncerrar";
+            lblEncerrar.Size = new System.Drawing.Size(86, 20);
+            lblEncerrar.TabIndex = 33;
+            lblEncerrar.Text = "Return date";
             // 
             // dtDevolucao
             // 
-            this.dtDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dtDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDevolucao.Location = new System.Drawing.Point(73, 214);
-            this.dtDevolucao.Name = "dtDevolucao";
-            this.dtDevolucao.Size = new System.Drawing.Size(129, 20);
-            this.dtDevolucao.TabIndex = 32;
-            this.dtDevolucao.ValueChanged += new System.EventHandler(this.DtDevolucao_ValueChanged);
+            dtDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dtDevolucao.Location = new System.Drawing.Point(107, 329);
+            dtDevolucao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            dtDevolucao.Name = "dtDevolucao";
+            dtDevolucao.Size = new System.Drawing.Size(171, 27);
+            dtDevolucao.TabIndex = 32;
+            dtDevolucao.ValueChanged += DtDevolucao_ValueChanged;
             // 
             // rBtn01
             // 
-            this.rBtn01.AutoSize = true;
-            this.rBtn01.Location = new System.Drawing.Point(112, 158);
-            this.rBtn01.Name = "rBtn01";
-            this.rBtn01.Size = new System.Drawing.Size(14, 13);
-            this.rBtn01.TabIndex = 25;
-            this.rBtn01.TabStop = true;
-            this.rBtn01.UseVisualStyleBackColor = true;
-            this.rBtn01.CheckedChanged += new System.EventHandler(this.RBtn01_CheckedChanged);
+            rBtn01.AutoSize = true;
+            rBtn01.Location = new System.Drawing.Point(149, 243);
+            rBtn01.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            rBtn01.Name = "rBtn01";
+            rBtn01.Size = new System.Drawing.Size(17, 16);
+            rBtn01.TabIndex = 25;
+            rBtn01.TabStop = true;
+            rBtn01.UseVisualStyleBackColor = true;
+            rBtn01.CheckedChanged += RBtn01_CheckedChanged;
             // 
             // lblFull
             // 
-            this.lblFull.AutoSize = true;
-            this.lblFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFull.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFull.Location = new System.Drawing.Point(295, 185);
-            this.lblFull.Name = "lblFull";
-            this.lblFull.Size = new System.Drawing.Size(17, 16);
-            this.lblFull.TabIndex = 31;
-            this.lblFull.Text = "F";
+            lblFull.AutoSize = true;
+            lblFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lblFull.ForeColor = System.Drawing.SystemColors.ControlText;
+            lblFull.Location = new System.Drawing.Point(393, 285);
+            lblFull.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblFull.Name = "lblFull";
+            lblFull.Size = new System.Drawing.Size(20, 20);
+            lblFull.TabIndex = 31;
+            lblFull.Text = "F";
             // 
             // lblEmpty
             // 
-            this.lblEmpty.AutoSize = true;
-            this.lblEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpty.ForeColor = System.Drawing.Color.Red;
-            this.lblEmpty.Location = new System.Drawing.Point(139, 185);
-            this.lblEmpty.Name = "lblEmpty";
-            this.lblEmpty.Size = new System.Drawing.Size(18, 16);
-            this.lblEmpty.TabIndex = 30;
-            this.lblEmpty.Text = "E";
+            lblEmpty.AutoSize = true;
+            lblEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lblEmpty.ForeColor = System.Drawing.Color.Red;
+            lblEmpty.Location = new System.Drawing.Point(185, 285);
+            lblEmpty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblEmpty.Name = "lblEmpty";
+            lblEmpty.Size = new System.Drawing.Size(21, 20);
+            lblEmpty.TabIndex = 30;
+            lblEmpty.Text = "E";
             // 
             // rBtn11
             // 
-            this.rBtn11.AutoSize = true;
-            this.rBtn11.Location = new System.Drawing.Point(324, 158);
-            this.rBtn11.Name = "rBtn11";
-            this.rBtn11.Size = new System.Drawing.Size(14, 13);
-            this.rBtn11.TabIndex = 29;
-            this.rBtn11.TabStop = true;
-            this.rBtn11.UseVisualStyleBackColor = true;
-            this.rBtn11.CheckedChanged += new System.EventHandler(this.RBtn11_CheckedChanged);
+            rBtn11.AutoSize = true;
+            rBtn11.Location = new System.Drawing.Point(432, 243);
+            rBtn11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            rBtn11.Name = "rBtn11";
+            rBtn11.Size = new System.Drawing.Size(17, 16);
+            rBtn11.TabIndex = 29;
+            rBtn11.TabStop = true;
+            rBtn11.UseVisualStyleBackColor = true;
+            rBtn11.CheckedChanged += RBtn11_CheckedChanged;
             // 
             // rBtn34
             // 
-            this.rBtn34.AutoSize = true;
-            this.rBtn34.Location = new System.Drawing.Point(279, 117);
-            this.rBtn34.Name = "rBtn34";
-            this.rBtn34.Size = new System.Drawing.Size(14, 13);
-            this.rBtn34.TabIndex = 28;
-            this.rBtn34.TabStop = true;
-            this.rBtn34.UseVisualStyleBackColor = true;
-            this.rBtn34.CheckedChanged += new System.EventHandler(this.RBtn34_CheckedChanged);
+            rBtn34.AutoSize = true;
+            rBtn34.Location = new System.Drawing.Point(372, 180);
+            rBtn34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            rBtn34.Name = "rBtn34";
+            rBtn34.Size = new System.Drawing.Size(17, 16);
+            rBtn34.TabIndex = 28;
+            rBtn34.TabStop = true;
+            rBtn34.UseVisualStyleBackColor = true;
+            rBtn34.CheckedChanged += RBtn34_CheckedChanged;
             // 
             // rBtn12
             // 
-            this.rBtn12.AutoSize = true;
-            this.rBtn12.Location = new System.Drawing.Point(218, 102);
-            this.rBtn12.Name = "rBtn12";
-            this.rBtn12.Size = new System.Drawing.Size(14, 13);
-            this.rBtn12.TabIndex = 27;
-            this.rBtn12.TabStop = true;
-            this.rBtn12.UseVisualStyleBackColor = true;
-            this.rBtn12.CheckedChanged += new System.EventHandler(this.RBtn12_CheckedChanged);
+            rBtn12.AutoSize = true;
+            rBtn12.Location = new System.Drawing.Point(291, 157);
+            rBtn12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            rBtn12.Name = "rBtn12";
+            rBtn12.Size = new System.Drawing.Size(17, 16);
+            rBtn12.TabIndex = 27;
+            rBtn12.TabStop = true;
+            rBtn12.UseVisualStyleBackColor = true;
+            rBtn12.CheckedChanged += RBtn12_CheckedChanged;
             // 
             // rBtn14
             // 
-            this.rBtn14.AutoSize = true;
-            this.rBtn14.Location = new System.Drawing.Point(158, 117);
-            this.rBtn14.Name = "rBtn14";
-            this.rBtn14.Size = new System.Drawing.Size(14, 13);
-            this.rBtn14.TabIndex = 26;
-            this.rBtn14.TabStop = true;
-            this.rBtn14.UseVisualStyleBackColor = true;
-            this.rBtn14.CheckedChanged += new System.EventHandler(this.RBtn14_CheckedChanged);
+            rBtn14.AutoSize = true;
+            rBtn14.Location = new System.Drawing.Point(211, 180);
+            rBtn14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            rBtn14.Name = "rBtn14";
+            rBtn14.Size = new System.Drawing.Size(17, 16);
+            rBtn14.TabIndex = 26;
+            rBtn14.TabStop = true;
+            rBtn14.UseVisualStyleBackColor = true;
+            rBtn14.CheckedChanged += RBtn14_CheckedChanged;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.FuelGauge1;
-            this.pictureBox1.Location = new System.Drawing.Point(122, 115);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(212, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.FuelGauge1;
+            pictureBox1.Location = new System.Drawing.Point(163, 177);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(283, 123);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 26;
+            pictureBox1.TabStop = false;
             // 
             // lblKmFinal
             // 
-            this.lblKmFinal.AutoSize = true;
-            this.lblKmFinal.Location = new System.Drawing.Point(8, 47);
-            this.lblKmFinal.Name = "lblKmFinal";
-            this.lblKmFinal.Size = new System.Drawing.Size(58, 13);
-            this.lblKmFinal.TabIndex = 25;
-            this.lblKmFinal.Text = "Km rodado";
+            lblKmFinal.AutoSize = true;
+            lblKmFinal.Location = new System.Drawing.Point(28, 69);
+            lblKmFinal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblKmFinal.Name = "lblKmFinal";
+            lblKmFinal.Size = new System.Drawing.Size(63, 20);
+            lblKmFinal.TabIndex = 25;
+            lblKmFinal.Text = "Mileage";
             // 
             // txtKmFinal
             // 
-            this.txtKmFinal.Location = new System.Drawing.Point(72, 45);
-            this.txtKmFinal.Name = "txtKmFinal";
-            this.txtKmFinal.Size = new System.Drawing.Size(141, 20);
-            this.txtKmFinal.TabIndex = 24;
-            this.txtKmFinal.Text = "0";
-            this.txtKmFinal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKmFinal_KeyPress);
+            txtKmFinal.Location = new System.Drawing.Point(107, 70);
+            txtKmFinal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtKmFinal.Name = "txtKmFinal";
+            txtKmFinal.Size = new System.Drawing.Size(187, 27);
+            txtKmFinal.TabIndex = 24;
+            txtKmFinal.Text = "0";
+            txtKmFinal.KeyPress += TxtKmFinal_KeyPress;
             // 
             // lblServicos
             // 
-            this.lblServicos.AutoSize = true;
-            this.lblServicos.Location = new System.Drawing.Point(240, 47);
-            this.lblServicos.Name = "lblServicos";
-            this.lblServicos.Size = new System.Drawing.Size(99, 13);
-            this.lblServicos.TabIndex = 23;
-            this.lblServicos.Text = "Serviços Adicionais";
+            lblServicos.AutoSize = true;
+            lblServicos.Location = new System.Drawing.Point(320, 72);
+            lblServicos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblServicos.Name = "lblServicos";
+            lblServicos.Size = new System.Drawing.Size(136, 20);
+            lblServicos.TabIndex = 23;
+            lblServicos.Text = "Additional Services";
             // 
             // btnSelecionarServicos
             // 
-            this.btnSelecionarServicos.Location = new System.Drawing.Point(344, 43);
-            this.btnSelecionarServicos.Name = "btnSelecionarServicos";
-            this.btnSelecionarServicos.Size = new System.Drawing.Size(75, 23);
-            this.btnSelecionarServicos.TabIndex = 22;
-            this.btnSelecionarServicos.Text = "Selecionar";
-            this.btnSelecionarServicos.UseVisualStyleBackColor = true;
-            this.btnSelecionarServicos.Click += new System.EventHandler(this.BtnSelecionarServicos_Click);
+            btnSelecionarServicos.Location = new System.Drawing.Point(459, 66);
+            btnSelecionarServicos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnSelecionarServicos.Name = "btnSelecionarServicos";
+            btnSelecionarServicos.Size = new System.Drawing.Size(100, 35);
+            btnSelecionarServicos.TabIndex = 22;
+            btnSelecionarServicos.Text = "Select";
+            btnSelecionarServicos.UseVisualStyleBackColor = true;
+            btnSelecionarServicos.Click += BtnSelecionarServicos_Click;
             // 
             // lblQtdTanque
             // 
-            this.lblQtdTanque.AutoSize = true;
-            this.lblQtdTanque.Location = new System.Drawing.Point(272, 80);
-            this.lblQtdTanque.Name = "lblQtdTanque";
-            this.lblQtdTanque.Size = new System.Drawing.Size(67, 13);
-            this.lblQtdTanque.TabIndex = 21;
-            this.lblQtdTanque.Text = "Qtd. Tanque";
+            lblQtdTanque.AutoSize = true;
+            lblQtdTanque.Location = new System.Drawing.Point(388, 126);
+            lblQtdTanque.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblQtdTanque.Name = "lblQtdTanque";
+            lblQtdTanque.Size = new System.Drawing.Size(68, 20);
+            lblQtdTanque.TabIndex = 21;
+            lblQtdTanque.Text = "Fuel tank";
             // 
             // cBoxQtdTanque
             // 
-            this.cBoxQtdTanque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxQtdTanque.FormattingEnabled = true;
-            this.cBoxQtdTanque.Items.AddRange(new object[] {
-            "0/1",
-            "1/4",
-            "1/2",
-            "3/4",
-            "1/1"});
-            this.cBoxQtdTanque.Location = new System.Drawing.Point(344, 80);
-            this.cBoxQtdTanque.Name = "cBoxQtdTanque";
-            this.cBoxQtdTanque.Size = new System.Drawing.Size(75, 21);
-            this.cBoxQtdTanque.TabIndex = 20;
-            this.cBoxQtdTanque.SelectedIndexChanged += new System.EventHandler(this.CBoxQtdTanque_SelectedIndexChanged);
+            cBoxQtdTanque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cBoxQtdTanque.FormattingEnabled = true;
+            cBoxQtdTanque.Items.AddRange(new object[] { "0/1", "1/4", "1/2", "3/4", "1/1" });
+            cBoxQtdTanque.Location = new System.Drawing.Point(459, 123);
+            cBoxQtdTanque.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cBoxQtdTanque.Name = "cBoxQtdTanque";
+            cBoxQtdTanque.Size = new System.Drawing.Size(99, 28);
+            cBoxQtdTanque.TabIndex = 20;
+            cBoxQtdTanque.SelectedIndexChanged += CBoxQtdTanque_SelectedIndexChanged;
             // 
             // lblValorCombustivel
             // 
-            this.lblValorCombustivel.AutoSize = true;
-            this.lblValorCombustivel.Location = new System.Drawing.Point(8, 80);
-            this.lblValorCombustivel.Name = "lblValorCombustivel";
-            this.lblValorCombustivel.Size = new System.Drawing.Size(123, 13);
-            this.lblValorCombustivel.TabIndex = 19;
-            this.lblValorCombustivel.Text = "Valor do Combustivel R$";
+            lblValorCombustivel.AutoSize = true;
+            lblValorCombustivel.Location = new System.Drawing.Point(11, 126);
+            lblValorCombustivel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblValorCombustivel.Name = "lblValorCombustivel";
+            lblValorCombustivel.Size = new System.Drawing.Size(88, 20);
+            lblValorCombustivel.TabIndex = 19;
+            lblValorCombustivel.Text = "Gas value  $";
             // 
             // txtValorCombustivel
             // 
-            this.txtValorCombustivel.Location = new System.Drawing.Point(136, 80);
-            this.txtValorCombustivel.Name = "txtValorCombustivel";
-            this.txtValorCombustivel.Size = new System.Drawing.Size(75, 20);
-            this.txtValorCombustivel.TabIndex = 18;
-            this.txtValorCombustivel.Text = "0";
-            this.txtValorCombustivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValorCombustivel_KeyPress);
+            txtValorCombustivel.Location = new System.Drawing.Point(107, 123);
+            txtValorCombustivel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtValorCombustivel.Name = "txtValorCombustivel";
+            txtValorCombustivel.Size = new System.Drawing.Size(99, 27);
+            txtValorCombustivel.TabIndex = 18;
+            txtValorCombustivel.Text = "0";
+            txtValorCombustivel.KeyPress += TxtValorCombustivel_KeyPress;
             // 
             // TelaDevolucaoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 443);
-            this.Controls.Add(this.gBoxDevolucao);
-            this.Controls.Add(this.brnConfirmar);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.gBoxLocacao);
-            this.Controls.Add(this.lblTitulo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "TelaDevolucaoForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Locadora de Veículo";
-            this.gBoxLocacao.ResumeLayout(false);
-            this.gBoxLocacao.PerformLayout();
-            this.gBoxDevolucao.ResumeLayout(false);
-            this.gBoxDevolucao.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1196, 682);
+            Controls.Add(gBoxDevolucao);
+            Controls.Add(brnConfirmar);
+            Controls.Add(btnCancelar);
+            Controls.Add(gBoxLocacao);
+            Controls.Add(lblTitulo);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "TelaDevolucaoForm";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Car Rental App";
+            gBoxLocacao.ResumeLayout(false);
+            gBoxLocacao.PerformLayout();
+            gBoxDevolucao.ResumeLayout(false);
+            gBoxDevolucao.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -6,7 +6,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
     {
         public string ToolTipAdicionar
         {
-            get { return "Adicionar"; }
+            get { return "Add"; }
         }
         public string TipoCadastro
         {
@@ -15,12 +15,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
 
         public string ToolTipEditar
         {
-            get { return "Editar"; }
+            get { return "Edit"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir"; }
+            get { return "Delete"; }
         }
     }
 }

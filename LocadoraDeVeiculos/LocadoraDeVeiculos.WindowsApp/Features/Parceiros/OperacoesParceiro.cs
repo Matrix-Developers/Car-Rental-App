@@ -22,8 +22,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
         public void InserirNovoRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
-            TelaParceiroForm tela = new("Cadastro de Parceiro");
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / Module: {Modulo} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
+            TelaParceiroForm tela = new("Register Partner");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -31,25 +31,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(parceiros);
                 if(resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] inserido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: '{tela.Parceiro.Nome}' inserted sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Parceiro: [{tela.Parceiro.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to insert Partner: '{tela.Parceiro.Nome}', see the log for more information");
             }
         }
 
         public void EditarRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / Module: {Modulo} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
             int id = tabela.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Parceiro para poder Editar!", "Edição de Parceiros", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select at least one partner to Edit.", "Edit Partner", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Parceiro parceiroSelecionado = appService.SelecionarEntidadePorId(id);
-            TelaParceiroForm tela = new("Edição de Parceiro");
+            TelaParceiroForm tela = new("Edit Partner");
             tela.Parceiro = parceiroSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -58,34 +58,34 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
                 List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(parceiros);
                 if (resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] editado com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: '{parceiroSelecionado.Nome}' edited sucessfully.");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível editar o Parceiro: [{parceiroSelecionado.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to Edit Partner: '{parceiroSelecionado.Nome}', see the log for more information.");
             }
         }
 
         public void ExcluirRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / Module: {Modulo} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
             int id = tabela.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Parceiro para excluir", "Exclusão de Parceiro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select at least one Partner to Delete.", "Delete Partner", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Parceiro parceiroSelecionado = appService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o Parceiro: [{parceiroSelecionado.Nome}] ?", "Exclusão de Parceiros", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to Delete Partner: '{parceiroSelecionado.Nome}' ?","Delete Partner", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 bool resultado = appService.ExcluirEntidade(id);
                 List<Parceiro> parceiros = appService.SelecionarTodasEntidade();
                 tabela.AtualizarRegistros(parceiros);
                 if (resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroSelecionado.Nome}] removido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Partner: '{parceiroSelecionado.Nome}' deleted sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Parceiro: [{parceiroSelecionado.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to Delete Partner: '{parceiroSelecionado.Nome}', see the log for more information");
             }
         }
         public void AgruparRegistros()
@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         }
         public UserControl ObterTabela()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
 
             List<Parceiro> cupons = appService.SelecionarTodasEntidade();
             tabela.AtualizarRegistros(cupons);

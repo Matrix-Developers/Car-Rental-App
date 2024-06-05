@@ -24,8 +24,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public void InserirNovoRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
-            VeiculoForm tela = new("Cadastro de Veiculos", grupoDeVeiculosAppService);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / Module: {Modulo} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Inserir", TelaPrincipalForm.FuncionarioLogado);
+            VeiculoForm tela = new("Register Vehicle", grupoDeVeiculosAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -35,25 +35,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
 
                 tabelaVeiculo.AtualizarRegistros(veiculos);
                 if (resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.modelo}] inserido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: '{tela.Veiculo.modelo}' inserted saucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Veiculo: [{tela.Veiculo.modelo}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to insert Vehicle: '{tela.Veiculo.modelo}', see the log for more information.");
             }
         }
         public void EditarRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / Module: {Modulo} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Editar", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaVeiculo.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um veiculo para poder editar!", "Edição de Veiculos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select at least one vehicle to Edit", "Edit Vehicle", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Veiculo tarefaSelecionada = veiculoAppService.SelecionarEntidadePorId(id);
 
-            VeiculoForm tela = new("Edição de Veiculos", grupoDeVeiculosAppService);
+            VeiculoForm tela = new("Edit Vehicle", grupoDeVeiculosAppService);
 
             tela.Veiculo = tarefaSelecionada;
 
@@ -66,27 +66,27 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
                 if (resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tela.Veiculo.modelo}] editado com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: '{tela.Veiculo.modelo}' edited sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível editar o Veiculo: [{tela.Veiculo.modelo}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to Edit Vehicle: '{tela.Veiculo.modelo}', see the log for more information.");
             }
         }
         public void ExcluirRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / Module: {Modulo} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Excluir", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaVeiculo.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um veiculo para poder excluir!", "Exclusão de Veiculos",
+                MessageBox.Show("Select at least one Vehicle to Delete.", "Delete Vehicle",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Veiculo tarefaSelecionada = veiculoAppService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o veículo: [{tarefaSelecionada.modelo}] ?",
-                "Exclusão de Veiculos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to Delete the Vehicle: '{tarefaSelecionada.modelo}' ?",
+                "Delete Vehicle", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 bool resultado = veiculoAppService.ExcluirEntidade(id);
 
@@ -95,9 +95,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
                 tabelaVeiculo.AtualizarRegistros(veiculos);
 
                 if (resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Veiculo: [{tarefaSelecionada.modelo}] removido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle: '{tarefaSelecionada.modelo}' deleted sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Veiculo: [{tarefaSelecionada.modelo}]. Veículo está alugado ou foi encontrado problema inesperado, consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to delete Vehicle: '{tarefaSelecionada.modelo}'. Vehicle is already rented or unexpected problem occurred, see the log for more information.");
             }
         }
         public void FiltrarRegistros()
@@ -106,7 +106,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
         }
         public UserControl ObterTabela()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Módulo: {Modulo} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / Module: {Modulo} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             List<Veiculo> veiculos = veiculoAppService.SelecionarTodasEntidade();
 
             tabelaVeiculo.AtualizarRegistros(veiculos);

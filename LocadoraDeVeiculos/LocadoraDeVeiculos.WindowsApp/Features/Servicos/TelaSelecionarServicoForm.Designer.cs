@@ -29,127 +29,133 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblSeguro = new System.Windows.Forms.Label();
-            this.cBoxSeguro = new System.Windows.Forms.ComboBox();
-            this.cLBoxServicos = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            label8 = new System.Windows.Forms.Label();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            lblSeguro = new System.Windows.Forms.Label();
+            cBoxSeguro = new System.Windows.Forms.ComboBox();
+            cLBoxServicos = new System.Windows.Forms.CheckedListBox();
+            button1 = new System.Windows.Forms.Button();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnConfirmar = new System.Windows.Forms.Button();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(23, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 20);
-            this.label8.TabIndex = 63;
-            this.label8.Text = "Cadastro de Serviços";
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label8.ForeColor = System.Drawing.Color.Black;
+            label8.Location = new System.Drawing.Point(76, 48);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(163, 25);
+            label8.TabIndex = 63;
+            label8.Text = "Select Services";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblSeguro);
-            this.groupBox1.Controls.Add(this.cBoxSeguro);
-            this.groupBox1.Controls.Add(this.cLBoxServicos);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.groupBox1.Location = new System.Drawing.Point(12, 70);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(232, 238);
-            this.groupBox1.TabIndex = 64;
-            this.groupBox1.TabStop = false;
+            groupBox1.Controls.Add(lblSeguro);
+            groupBox1.Controls.Add(cBoxSeguro);
+            groupBox1.Controls.Add(cLBoxServicos);
+            groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            groupBox1.Location = new System.Drawing.Point(16, 108);
+            groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            groupBox1.Size = new System.Drawing.Size(309, 366);
+            groupBox1.TabIndex = 64;
+            groupBox1.TabStop = false;
             // 
             // lblSeguro
             // 
-            this.lblSeguro.AutoSize = true;
-            this.lblSeguro.Location = new System.Drawing.Point(58, 212);
-            this.lblSeguro.Name = "lblSeguro";
-            this.lblSeguro.Size = new System.Drawing.Size(41, 13);
-            this.lblSeguro.TabIndex = 69;
-            this.lblSeguro.Text = "Seguro";
+            lblSeguro.AutoSize = true;
+            lblSeguro.Location = new System.Drawing.Point(62, 325);
+            lblSeguro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSeguro.Name = "lblSeguro";
+            lblSeguro.Size = new System.Drawing.Size(70, 17);
+            lblSeguro.TabIndex = 69;
+            lblSeguro.Text = "Insurance";
             // 
             // cBoxSeguro
             // 
-            this.cBoxSeguro.FormattingEnabled = true;
-            this.cBoxSeguro.Items.AddRange(new object[] {
-            "Nenhum",
-            "Seguro Cliente",
-            "Seguro Terceiro"});
-            this.cBoxSeguro.Location = new System.Drawing.Point(105, 209);
-            this.cBoxSeguro.Name = "cBoxSeguro";
-            this.cBoxSeguro.Size = new System.Drawing.Size(121, 21);
-            this.cBoxSeguro.TabIndex = 68;
+            cBoxSeguro.FormattingEnabled = true;
+            cBoxSeguro.Items.AddRange(new object[] { "Nenhum", "Seguro Cliente", "Seguro Terceiro" });
+            cBoxSeguro.Location = new System.Drawing.Point(140, 322);
+            cBoxSeguro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cBoxSeguro.Name = "cBoxSeguro";
+            cBoxSeguro.Size = new System.Drawing.Size(160, 25);
+            cBoxSeguro.TabIndex = 68;
             // 
             // cLBoxServicos
             // 
-            this.cLBoxServicos.FormattingEnabled = true;
-            this.cLBoxServicos.Location = new System.Drawing.Point(6, 19);
-            this.cLBoxServicos.Name = "cLBoxServicos";
-            this.cLBoxServicos.Size = new System.Drawing.Size(220, 169);
-            this.cLBoxServicos.TabIndex = 1;
+            cLBoxServicos.FormattingEnabled = true;
+            cLBoxServicos.Location = new System.Drawing.Point(8, 29);
+            cLBoxServicos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cLBoxServicos.Name = "cLBoxServicos";
+            cLBoxServicos.Size = new System.Drawing.Size(292, 256);
+            cLBoxServicos.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button1.Location = new System.Drawing.Point(209, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 23);
-            this.button1.TabIndex = 65;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            button1.Location = new System.Drawing.Point(279, 45);
+            button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(31, 35);
+            button1.TabIndex = 65;
+            button1.Text = "+";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button1_Click;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCancelar.Location = new System.Drawing.Point(169, 314);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 69;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            btnCancelar.Location = new System.Drawing.Point(225, 483);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(100, 35);
+            btnCancelar.TabIndex = 69;
+            btnCancelar.Text = "Cancel";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnConfirmar.Location = new System.Drawing.Point(88, 314);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmar.TabIndex = 68;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
+            btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            btnConfirmar.Location = new System.Drawing.Point(117, 483);
+            btnConfirmar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new System.Drawing.Size(100, 35);
+            btnConfirmar.TabIndex = 68;
+            btnConfirmar.Text = "Submit";
+            btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Click += BtnConfirmar_Click;
             // 
-            // ServicosForm
+            // TelaSelecionarServicoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(256, 345);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label8);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "ServicosForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veículo";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.SystemColors.Control;
+            ClientSize = new System.Drawing.Size(341, 531);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnConfirmar);
+            Controls.Add(button1);
+            Controls.Add(groupBox1);
+            Controls.Add(label8);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "TelaSelecionarServicoForm";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Car Rental App";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

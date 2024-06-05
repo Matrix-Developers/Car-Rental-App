@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O usuário de acesso não pode estar vazio\n", resultado);
+            Assert.AreEqual("O User de acesso não pode estar vazio\n", resultado);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O usuário de acesso não pode estar vazio\nMatricula inválida\nO salário deve ser maior que R$ 0,00\nO funcionário deve possuir um cargo\nData de admissão inválida\n", resultado);
+            Assert.AreEqual("O User de acesso não pode estar vazio\nMatricula inválida\nO salário deve ser maior que R$ 0,00\nO funcionário deve possuir um cargo\nData de admissão inválida\n", resultado);
         }
 
         #region Testes para as propriedades herdadas de Pessoa

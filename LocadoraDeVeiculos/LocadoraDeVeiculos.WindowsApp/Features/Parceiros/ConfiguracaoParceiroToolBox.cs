@@ -6,22 +6,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
     {
         public string ToolTipAdicionar
         {
-            get { return "Cadastro de Parceiros"; }
+            get { return "Register Partner"; }
         }
 
         public string TipoCadastro
         {
-            get { return "Cadastro de um novo Parceiro"; }
+            get { return "Add new Partner"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Parceiro existente"; }
+            get { return "Edit existing Partner"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Parceiro existente"; }
+            get { return "Delete Existing Partner"; }
         }
     }
 }

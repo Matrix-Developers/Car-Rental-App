@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             if (UsuarioAcesso == "admin")
                 return "VALID";
             if (UsuarioAcesso.Length == 0)
-                resultadoValidação += "O usuário de acesso não pode estar vazio\n";
+                resultadoValidação += "O User de acesso não pode estar vazio\n";
             if (MatriculaInterna <= 0)
                 resultadoValidação += "Matricula inválida\n";
             if (Salario <= 0)

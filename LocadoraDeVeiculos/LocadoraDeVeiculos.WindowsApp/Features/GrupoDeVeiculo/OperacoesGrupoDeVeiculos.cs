@@ -6,6 +6,7 @@ using LocadoraDeVeiculos.WindowsApp.Shared;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Intrinsics.X86;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
@@ -23,8 +24,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
         public void InserirNovoRegistro()
         {
-            TarefaGrupoDeVeiculosForm tela = new("Cadastro de Grupo de Veiculos");
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            TarefaGrupoDeVeiculosForm tela = new("Registre Vehicle Group");
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 bool resultado = grupoDeVeiculosAppService.InserirEntidade(tela.GrupoDeVeiculos);
@@ -34,26 +35,26 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
                 if (resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] inserido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Group: '{tela.GrupoDeVeiculos.Nome}' inserted sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to insert Vehicle Group: '{tela.GrupoDeVeiculos.Nome}', see the log for more information");
             }
         }
 
         public void EditarRegistro()
         {
             int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Grupo de Veiculos para poder editar!", "Edição de Grupo de Veiculos",
+                MessageBox.Show("Select at least one Vehicle Group to Edit", "Edit Vehicle Group",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             GrupoDeVeiculo grupoSelecionado = grupoDeVeiculosAppService.SelecionarEntidadePorId(id);
 
-            TarefaGrupoDeVeiculosForm tela = new("Edição de Grupo de Veiculos");
+            TarefaGrupoDeVeiculosForm tela = new("Edit Vehicle Group");
 
             tela.GrupoDeVeiculos = grupoSelecionado;
 
@@ -66,25 +67,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupoDeVeiculos);
 
                 if (resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{tela.GrupoDeVeiculos.Nome}] editado com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Groupd: '{tela.GrupoDeVeiculos.Nome}' edited sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Grupo de Veiculo: [{tela.GrupoDeVeiculos.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to delete Vehicle Group: '{tela.GrupoDeVeiculos.Nome}', see the log for more information");
             }
         }
 
         public void ExcluirRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaGrupoDeVeiculos.ObtemIdSelecionado();
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Grupo de Veículos para excluir", "Exclusão de Grupo de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select at least one Vehicle Group to Delete", "Delete Vehicle Group", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             GrupoDeVeiculo grupoSelecionado = grupoDeVeiculosAppService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o Grupo de Veículos: [{grupoSelecionado.Nome}]?",
-                "Exclusão de Grupo de Veículos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to the Delete the Vehicle Group: '{grupoSelecionado.Nome}' ?",
+                "Delete Vehicle Group", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 bool resultado = grupoDeVeiculosAppService.ExcluirEntidade(id);
 
@@ -92,9 +93,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
 
                 tabelaGrupoDeVeiculos.AtualizarRegistros(grupos);
                 if (resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo de Veículos: [{grupoSelecionado.Nome}] removido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Vehicle Group: '{grupoSelecionado.Nome}' deleted sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível remover o Grupo de Veículos: [{grupoSelecionado.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to delete Vehicle Group: '{grupoSelecionado.Nome}', see the log for more information");
             }
         }
 

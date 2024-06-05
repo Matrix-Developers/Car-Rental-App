@@ -20,19 +20,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Modelo", HeaderText = "Modelo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Modelo", HeaderText = "Model"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Placa", HeaderText = "Placa"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Placa", HeaderText = "Sign"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "ClienteContratante", HeaderText = "Cliente"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ClienteContratante", HeaderText = "Client"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoLocacao", HeaderText = "Preço Inicial"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoLocacao", HeaderText = "Initial Price"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "EstaAberta", HeaderText = "Locação Ativa"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "EstaAberta", HeaderText = "Is Open?"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoDevolucao", HeaderText = "Preço Final"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "PrecoDevolucao", HeaderText = "Final Price"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "DataPrevistaDeChegada", HeaderText = "Devolução"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "DataPrevistaDeChegada", HeaderText = "Devolution"}
            };
 
             return colunas;

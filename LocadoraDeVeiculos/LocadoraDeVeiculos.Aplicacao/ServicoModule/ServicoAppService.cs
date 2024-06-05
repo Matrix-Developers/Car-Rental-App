@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             if (resultadoValidacao)
                 Log.Information("{DataEHora} / Servico {Servico} adicionado com sucesso", DateTime.Now, servico);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", servico,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", servico,tempo);
             return resultadoValidacao;
         }
         public override bool EditarEntidade(int id, Servico servico)
@@ -37,7 +37,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             if (resultadoValidacao)
                 Log.Information("{DataEHora} / Parceiro {Servico} editado com sucesso", DateTime.Now, servico);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Editar", servico,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Editar", servico,tempo);
             return resultadoValidacao;
         }
         public override bool ExcluirEntidade(int id)
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             if (resultado)
                 Log.Information("{DataEHora} / Serviço {Id} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id,tempo);
             return resultado;
         }
         public override bool ExisteEntidade(int id)
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             if (resultado)
                 Log.Information("{DataEHora} / Serviço {Id} encontrado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Existe Entidade", id,tempo);
             return resultado;
         }
         public override Servico SelecionarEntidadePorId(int id)
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             if (servico != null)
                 Log.Information("{DataEHora} / Serviço {Id} selecionado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id,tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / ID Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Por Id", id,tempo);
             return servico;
         }
         public override List<Servico> SelecionarTodasEntidade()
@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ServicoModule
             if (listServico != null)
                 Log.Information("{DataEHora} / {QtdSelecionados} Serviços selecionados com sucesso", DateTime.Now, listServico.Count);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Modulo} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Todos",tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Modulo} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar Todos",tempo);
             return listServico;
         }
     }

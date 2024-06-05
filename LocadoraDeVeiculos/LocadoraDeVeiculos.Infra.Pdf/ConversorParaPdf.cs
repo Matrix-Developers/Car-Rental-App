@@ -65,7 +65,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Gerar o PDF o(a) {Feature} / Camada: Shared / Usuário: IdUsuario Tempo: ?? / {StackTrace}", DateTime.Now, this.ToString(), ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Gerar o PDF o(a) {Feature} / Layer: Shared / User: IdUsuario Tempo: ?? / {StackTrace}", DateTime.Now, this.ToString(), ex);
             }
         }
 

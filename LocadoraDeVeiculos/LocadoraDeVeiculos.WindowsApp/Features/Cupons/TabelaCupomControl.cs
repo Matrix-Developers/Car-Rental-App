@@ -20,12 +20,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             var colunas = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "ID"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Codigo", HeaderText = "Codigo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Valor"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "EhDescontoFixo", HeaderText = "Desconto Fixo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Validade", HeaderText = "Validade"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "QtdUtilizada", HeaderText = "Vezes Utilizado"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Name"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Codigo", HeaderText = "Code"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Value"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "EhDescontoFixo", HeaderText = "Fixed Discount"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Validade", HeaderText = "Validitiy"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "QtdUtilizada", HeaderText = "Times utilized"},
            };
 
             return colunas;
