@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         }
         public override string ToString()
         {
-            return $"{Nome}, {Codigo}, R${Valor}";
+            return $"{Nome}, {Codigo}, ${Valor}";
         }
 
         public override bool Equals(object obj)

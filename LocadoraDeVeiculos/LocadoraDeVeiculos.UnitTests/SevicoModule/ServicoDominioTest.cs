@@ -20,7 +20,7 @@ namespace LocadoraDeVeiculos.UnitTests.SevicoModule
         public void DeveCriarServicoIncorreto()
         {
             Servico servico = new(0, "", true, 0f);
-            Assert.AreEqual("The name field cannot be null.\nO valor não pode ser nulo", servico.Validar());
+            Assert.AreEqual("The name field cannot be null.\nThe value cannot be null.", servico.Validar());
         }
     }
 }

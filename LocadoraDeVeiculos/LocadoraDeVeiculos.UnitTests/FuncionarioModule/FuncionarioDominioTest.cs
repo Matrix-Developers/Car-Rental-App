@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O User de acesso não pode estar vazio\n", resultado);
+            Assert.AreEqual("The Username cannot be empty\n", resultado);
         }
 
         [TestMethod]
@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O salário deve ser maior que R$ 0,00\n", resultado);
+            Assert.AreEqual("The salary must be a value bigger than $ 0,00\n", resultado);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O funcionário deve possuir um cargo\n", resultado);
+            Assert.AreEqual("The employee must have a role\n", resultado);
         }
 
         [TestMethod]
@@ -66,7 +66,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("Data de admissão inválida\n", resultado);
+            Assert.AreEqual("Invalid admission date\n", resultado);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O User de acesso não pode estar vazio\nMatricula inválida\nO salário deve ser maior que R$ 0,00\nO funcionário deve possuir um cargo\nData de admissão inválida\n", resultado);
+            Assert.AreEqual("The Username cannot be empty\nMatricula inválida\nThe salary must be a value bigger than $ 0,00\nThe employee must have a role\nInvalid admission date\n", resultado);
         }
 
         #region Testes para as propriedades herdadas de Pessoa

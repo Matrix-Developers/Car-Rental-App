@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
             if (this.Nome.Length == 0)
                 resultadoValidacao = "The name field cannot be null.\n";
             if (this.Valor <= 0)
-                resultadoValidacao += "O valor não pode ser nulo";
+                resultadoValidacao += "The value cannot be null.";
             if (resultadoValidacao.Length == 0)
                 resultadoValidacao = "VALID";
             return resultadoValidacao;
