@@ -235,7 +235,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             label11.AutoSize = true;
             label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label11.ForeColor = System.Drawing.Color.Black;
-            label11.Location = new System.Drawing.Point(50, 358);
+            label11.Location = new System.Drawing.Point(50, 352);
             label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(71, 17);
@@ -269,7 +269,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             label13.AutoSize = true;
             label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label13.ForeColor = System.Drawing.Color.Black;
-            label13.Location = new System.Drawing.Point(296, 347);
+            label13.Location = new System.Drawing.Point(296, 352);
             label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(46, 17);
@@ -281,7 +281,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             label14.AutoSize = true;
             label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label14.ForeColor = System.Drawing.Color.Black;
-            label14.Location = new System.Drawing.Point(27, 311);
+            label14.Location = new System.Drawing.Point(28, 311);
             label14.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(93, 17);

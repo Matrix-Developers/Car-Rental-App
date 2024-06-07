@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
             // cBoxSeguro
             // 
             cBoxSeguro.FormattingEnabled = true;
-            cBoxSeguro.Items.AddRange(new object[] { "Nenhum", "Seguro Cliente", "Seguro Terceiro" });
+            cBoxSeguro.Items.AddRange(new object[] { "None", "Client Insurance", "Third Party Insurance" });
             cBoxSeguro.Location = new System.Drawing.Point(140, 322);
             cBoxSeguro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             cBoxSeguro.Name = "cBoxSeguro";

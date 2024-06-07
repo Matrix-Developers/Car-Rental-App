@@ -54,10 +54,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             // labelTitulo
             // 
+            labelTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             labelTitulo.AutoSize = true;
             labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             labelTitulo.ForeColor = System.Drawing.Color.Black;
-            labelTitulo.Location = new System.Drawing.Point(130, 25);
+            labelTitulo.Location = new System.Drawing.Point(143, 58);
             labelTitulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             labelTitulo.Name = "labelTitulo";
             labelTitulo.Size = new System.Drawing.Size(173, 25);

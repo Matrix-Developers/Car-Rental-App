@@ -154,29 +154,29 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         {
             string resultadoValidacao = "";
             if (this.veiculo == null)
-                resultadoValidacao = "O veiculo não pode ser nulo\n";
+                resultadoValidacao = "The Vehicle cannot be null\n";
 
             if (this.funcionarioLocador == null)
-                resultadoValidacao += "O funcionário locador não pode ser nulo\n";
+                resultadoValidacao += "The Employee cannot be null\n";
 
             if (this.clienteContratante == null)
-                resultadoValidacao += "O cliente contratante não pode ser nulo\n";
+                resultadoValidacao += "The renting client cannot be null\n";
 
             else if (!this.clienteContratante.EhPessoaFisica && this.clienteCondutor == null)
-                resultadoValidacao += "O condutor não pode ser nulo quando o cliente contratante é pessoa juridica\n";
+                resultadoValidacao += "The conductor cannot be null when the renting client is legal entity\n";
 
             if (this.clienteCondutor != null)
                 if (!this.clienteCondutor.EhPessoaFisica)
-                    resultadoValidacao += "O condutor não pode ser pessoa jurídica.\n";
+                    resultadoValidacao += "The conductor cannot be legal entity.\n";
 
             if (!this.tipoDoPlano.Equals("PlanoDiario") && !this.tipoDoPlano.Equals("KmControlado") && !this.tipoDoPlano.Equals("KmLivre"))
-                resultadoValidacao += "O tipo do plano é inválido.\n";
+                resultadoValidacao += "The plan type is invalid.\n";
 
             if (!this.tipoDeSeguro.Equals("SeguroCliente") && !this.tipoDeSeguro.Equals("SeguroTerceiro") && !this.tipoDeSeguro.Equals("Nenhum"))
-                resultadoValidacao += "O tipo do seguro é inválido.\n";
+                resultadoValidacao += "The insurance type is invalid.\n";
 
             if (this.DataDeSaida >= this.DataPrevistaDeChegada)
-                resultadoValidacao += "A data de entrega não pode ser anterior à data de locação.\n";
+                resultadoValidacao += "The lease date cannot be before the return date.\n";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "VALID";
