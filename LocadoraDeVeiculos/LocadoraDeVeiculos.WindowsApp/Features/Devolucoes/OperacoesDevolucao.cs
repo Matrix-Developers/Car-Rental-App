@@ -28,18 +28,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         public void InserirNovoRegistro()
         {
             int id = tabelaDevolucao.ObtemIdSelecionado();
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um registro para realizar a devolução!", "Registrar Devolução",
+                MessageBox.Show("Select at least one Rental to register the Devolution.", "Register Devolution",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            TelaDevolucaoForm tela = new("Devolução de Veículo", servicoAppService, veiculoAppService);
+            TelaDevolucaoForm tela = new("Vehicle Devolution", servicoAppService, veiculoAppService);
 
             tela.Devolucao = locacaoSelecionada;
 
@@ -48,30 +48,30 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 locacaoAppService.EditarEntidade(tela.Devolucao.Id, tela.Devolucao);
                 List<Locacao> funcionarios = locacaoAppService.SelecionarTodasEntidade();
                 tabelaDevolucao.AtualizarRegistros(funcionarios);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Devolução: [{tela.Devolucao.Id}] realizada com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Devolution: '{tela.Devolucao.Id}' carried out successfully.");
             }
         }
 
         public void EditarRegistro()
         {
-            MessageBox.Show("Não é possivel editar uma devolução encerrada!! \nPara editar uma locação em aberta, vá ao menu Locação");
+            MessageBox.Show("It is not possible to edit a closed Devolution. \nTo edit an open Rental, go to the Rental menu");
         }
 
         public void ExcluirRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaDevolucao.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um registro de Devolução para poder excluir!", "Exclusão de Registro",
+                MessageBox.Show("Select at least one Devolution to be able to delete.", "Delete Devolution",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Locacao locacaoSelecionada = locacaoAppService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir todo o registro da locação e devolução: [{locacaoSelecionada.Id}] ?",
+            if (MessageBox.Show($"Are you sure you want to delete the entire Rental and Devolution record of '{locacaoSelecionada.Id}' ?",
                 "Exclusão de Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 locacaoAppService.ExcluirEntidade(id);
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
 
                 tabelaDevolucao.AtualizarRegistros(veiculos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Registro de: [{locacaoSelecionada.ClienteContratante}] removida com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Rental: '{locacaoSelecionada.ClienteContratante}' deleted sucessfully.");
             }
         }
 
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                                 if (devolucao.EstaAberta)
                                     filtro.Add(devolucao);
                             devolucoes = filtro;
-                            tipoLocacao = "pendente(s)";
+                            tipoLocacao = "pending";
                             break;
                         }
 
@@ -116,7 +116,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                                 if (!devolucao.EstaAberta)
                                     filtro.Add(devolucao);
                             devolucoes = filtro;
-                            tipoLocacao = "concluída(s)";
+                            tipoLocacao = "concluded";
                             break;
                         }
 
@@ -125,7 +125,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
                 }
 
                 tabelaDevolucao.AtualizarRegistros(devolucoes);
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {devolucoes.Count} devolucao(s) {tipoLocacao}");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Viewing {devolucoes.Count} {tipoLocacao} devolutions.");
             }
         }
 

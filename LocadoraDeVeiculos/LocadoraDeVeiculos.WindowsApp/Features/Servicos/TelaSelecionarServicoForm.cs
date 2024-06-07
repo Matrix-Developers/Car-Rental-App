@@ -13,7 +13,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Servicos
         private readonly ServicoAppService appService;
 
         public List<Servico> servicosSelecionados;
-        public string seguro = "Nenhum";
+        public string seguro = "None";
 
         public TelaSelecionarServicoForm(ServicoAppService servicoAppService)
         {

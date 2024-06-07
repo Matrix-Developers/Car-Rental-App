@@ -57,37 +57,37 @@ namespace LocadoraDeVeiculos.Dominio.VeiculoModule
             string resultadoValidacao = "";
 
             if (this.modelo.Length == 0)
-                resultadoValidacao = "O campo modelo não pode ser vazio!\n";
+                resultadoValidacao = "The model field cannot be empty.\n";
             if (this.placa.Length == 0)
-                resultadoValidacao += "O campo placa não pode ser vazio!\n";
+                resultadoValidacao += "The sign field cannot be empty.\n";
             if (this.chassi.Length == 0)
-                resultadoValidacao += "O campo chassi não pode ser vazio!\n";
+                resultadoValidacao += "The chassis field cannot be empty.\n";
             if (this.marca.Length == 0)
-                resultadoValidacao += "O campo marca não pode ser vazio!\n";
+                resultadoValidacao += "The brand field cannot be empty.\n";
             if (this.cor.Length == 0)
-                resultadoValidacao += "O campo cor não pode ser vazio!\n";
+                resultadoValidacao += "The color field cannot be empty.\n";
             if (this.tipoCombustivel.Length == 0)
-                resultadoValidacao += "O campo tipo de combústivel não pode ser vazio!\n";
+                resultadoValidacao += "The fuel type field cannot be empty.\n";
             if (this.capacidadeTanque == 0)
-                resultadoValidacao += "O campo capacidade de tanque não pode ser vazio!\n";
+                resultadoValidacao += "The tank capacity field cannot be empty.\n";
             if (this.ano <= 0)
-                resultadoValidacao += "O campo ano não pode ser vazio!\n";
+                resultadoValidacao += "The year field cannot be empty.\n";
             if (this.kilometragem <= 0)
-                resultadoValidacao += "O campo kilometragem não pode ser vazio!\n";
+                resultadoValidacao += "The mileage field cannot be empty.\n";
             if (this.numeroPortas <= 0)
-                resultadoValidacao += "O campo numero de portas não pode ser vazio!\n";
+                resultadoValidacao += "The number of doors field cannot be empty.\n";
             if (this.capacidadePessoas <= 0)
-                resultadoValidacao += "O campo capacidades de pessoas não pode ser vazio!\n";
+                resultadoValidacao += "The number of seats field cannot be empty.\n";
             if (this.tamanhoPortaMala != 'P' && this.tamanhoPortaMala != 'M' && this.tamanhoPortaMala != 'G')
-                resultadoValidacao += "O campo tamanho do porta mala não pode ser vazio!\n";
+                resultadoValidacao += "The trunk size field cannot be empty.\n";
             if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
             return resultadoValidacao;
         }
 
         public override string ToString()
         {
-            return $"[{id}, {modelo}, {grupoVeiculos}, {placa}]";
+            return $"{modelo}, {grupoVeiculos.Nome}, {placa}";
         }
 
         public override bool Equals(object obj)

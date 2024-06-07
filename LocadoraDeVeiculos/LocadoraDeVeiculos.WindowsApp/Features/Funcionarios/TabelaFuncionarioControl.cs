@@ -20,25 +20,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Name"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Cpf", HeaderText = "CPF"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Endereço"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Address"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Telefone", HeaderText = "Telefone"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Telefone", HeaderText = "Phone"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Email", HeaderText = "E-mail"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Email", HeaderText = "Email"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "MatriculaInterna", HeaderText = "Matricula"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "MatriculaInterna", HeaderText = "Code"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "UsuarioAcesso", HeaderText = "Usuário"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "UsuarioAcesso", HeaderText = "User"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Cargo", HeaderText = "Cargo"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Cargo", HeaderText = "Role"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "Salario", HeaderText = "Salário"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Salario", HeaderText = "Salary"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "DataAdmissao", HeaderText = "Data de admissão"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "DataAdmissao", HeaderText = "Admission Date"}
            };
 
             return colunas;

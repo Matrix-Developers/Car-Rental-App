@@ -6,22 +6,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
     {
         public string ToolTipAdicionar
         {
-            get { return "Cadastro de Serviços"; }
+            get { return "Register Serivce"; }
         }
 
         public string TipoCadastro
         {
-            get { return "Adicionar um novo Serviço"; }
+            get { return "Add new Service"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Serviço existente"; }
+            get { return "Edit Existing Service"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Serviço existente"; }
+            get { return "Delete Existing Service"; }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.UnitTests.ParceiroModule
             var resultadoValidacao = parceiro.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("VALIDO");
+            resultadoValidacao.Should().Be("VALID");
         }
 
         [TestMethod]
@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.UnitTests.ParceiroModule
             var resultadoValidacao = parceiro.Validar();
 
             //assert
-            resultadoValidacao.Should().Be("O campo nome é obrigatório");
+            resultadoValidacao.Should().Be("The name field cannot be null.");
         }
     }
 }

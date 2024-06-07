@@ -20,17 +20,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Veiculo", HeaderText = "Veiculo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Veiculo", HeaderText = "Vehicle"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "ClienteContratante", HeaderText = "Cliente"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ClienteContratante", HeaderText = "Client"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Conductor"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "PrecoLocacao", HeaderText = "Valor Inicial"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "PrecoLocacao", HeaderText = "Initial Value"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "DataDeSaida", HeaderText = "Data de Locação"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "DataDeSaida", HeaderText = "Rental Date"},
 
-                new DataGridViewTextBoxColumn {DataPropertyName = "DataPrevistaDeChegada", HeaderText = "Devolução"}
+                new DataGridViewTextBoxColumn {DataPropertyName = "DataPrevistaDeChegada", HeaderText = "Devolution Date"}
            };
 
             return colunas;

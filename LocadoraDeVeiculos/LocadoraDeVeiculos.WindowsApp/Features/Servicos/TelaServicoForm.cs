@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
 
             string resultadoValidacao = servico.Validar();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 

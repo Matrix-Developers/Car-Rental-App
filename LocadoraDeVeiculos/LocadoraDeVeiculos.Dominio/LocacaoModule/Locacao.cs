@@ -179,7 +179,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 resultadoValidacao += "A data de entrega não pode ser anterior à data de locação.\n";
 
             if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
 
             return resultadoValidacao;
         }
@@ -188,7 +188,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public override string ToString()
         {
-            return $"Locacao = {id}, {veiculo}, {funcionarioLocador}, {clienteContratante}, {clienteCondutor}, {dataDeSaida}, {dataPrevistaDeChegada}, {dataDeChegada}, {tipoDoPlano}, {tipoDeSeguro}, {precoLocacao}, {precoDevolucao}, {estaAberta}";
+            return $"{veiculo.modelo}, {clienteContratante.Nome}, {dataDeSaida}, {dataPrevistaDeChegada}, {tipoDoPlano}, {tipoDeSeguro}";
         }
 
         public override bool Equals(object obj)

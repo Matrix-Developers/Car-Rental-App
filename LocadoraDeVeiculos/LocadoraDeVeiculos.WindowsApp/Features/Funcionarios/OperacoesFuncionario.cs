@@ -28,17 +28,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void EditarRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaFuncionarios.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para poder Editar!", "Edição de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select at least one Employee to Edit.", "Edit Employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Funcionario funcionarioSelecionado = appService.SelecionarEntidadePorId(id);
-            FuncionarioForm tela = new("Edição de Funcionário");
+            FuncionarioForm tela = new("Edit Employee");
             tela.Funcionario = funcionarioSelecionado;
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -47,35 +47,35 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
                 List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 if(resultado)
-                      TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] editado com sucesso");
+                      TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: '{funcionarioSelecionado.Nome}' edited sucessfully.");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível excluir o Funcionário: [{funcionarioSelecionado.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to delete Employee: '{funcionarioSelecionado.Nome}', see the log for more information");
 
             }
         }
 
         public void ExcluirRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
             int id = tabelaFuncionarios.ObtemIdSelecionado();
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Funcionário para excluir", "Exclusão de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Select at least one Employee to Delete.", "Delete Employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             Funcionario funcionarioSelecionado = appService.SelecionarEntidadePorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Nome}] ?", "Exclusão de Funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure you want to delete the employee: '{funcionarioSelecionado.Nome}' ?", "Delete Employee", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 bool resultado = appService.ExcluirEntidade(id);
                 List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 if(resultado)
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: '{funcionarioSelecionado.Nome}' deleted sucessfully.");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível excluir o Funcionário: [{funcionarioSelecionado.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to delete Employee: '{funcionarioSelecionado.Nome}', see the log for more information");
 
             }
         }
@@ -87,8 +87,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 
         public void InserirNovoRegistro()
         {
-            Log.Logger.Information("{DataEHora} / {Feature} / Camada: {Camada} / Usuário: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
-            FuncionarioForm tela = new("Cadastro de Funcionário");
+            Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", TelaPrincipalForm.FuncionarioLogado);
+            FuncionarioForm tela = new("Register Employee");
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -96,9 +96,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
                 List<Funcionario> funcionarios = appService.SelecionarTodasEntidade();
                 tabelaFuncionarios.AtualizarRegistros(funcionarios);
                 if(resultado)                   
-                     TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{tela.Funcionario.Nome}] inserido com sucesso");
+                     TelaPrincipalForm.Instancia.AtualizarRodape($"Employee: '{tela.Funcionario.Nome}' inserted sucessfully");
                 else
-                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível inserir o Funcionário: [{tela.Funcionario.Nome}], consulte o log para mais informações");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Unable to insert Employee: '{tela.Funcionario.Nome}', see the log for more information");
             }
         }
 

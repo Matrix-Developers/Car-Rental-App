@@ -98,10 +98,10 @@ namespace LocadoraDeVeiculos.Dominio.Shared
             double resultado = 0;
             if (cupom != null)
             {
-                bool ehAindaValidoHoje = DateTime.Now <= cupom.Validade;
+                bool ehAindaVALIDHoje = DateTime.Now <= cupom.Validade;
                 bool ehValorMaiorQuePrecoMinimo = precoTotal >= cupom.ValorMinimo;
 
-                if (ehAindaValidoHoje && ehValorMaiorQuePrecoMinimo)
+                if (ehAindaVALIDHoje && ehValorMaiorQuePrecoMinimo)
                 {
                     if (cupom.EhDescontoFixo)
                         resultado = cupom.Valor;

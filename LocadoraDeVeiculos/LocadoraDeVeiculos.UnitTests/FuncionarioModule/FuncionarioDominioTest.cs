@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O usuário de acesso não pode estar vazio\n", resultado);
+            Assert.AreEqual("The Username cannot be empty\n", resultado);
         }
 
         [TestMethod]
@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O salário deve ser maior que R$ 0,00\n", resultado);
+            Assert.AreEqual("The salary must be a value bigger than $ 0,00\n", resultado);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O funcionário deve possuir um cargo\n", resultado);
+            Assert.AreEqual("The employee must have a role\n", resultado);
         }
 
         [TestMethod]
@@ -66,17 +66,17 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("Data de admissão inválida\n", resultado);
+            Assert.AreEqual("Invalid admission date\n", resultado);
         }
 
         [TestMethod]
-        public void DeveApresentarErroFuncionario_FuncionarioTotalmenteInvalido()
+        public void DeveApresentarErroFuncionario_FuncionarioTotalmenteInVALID()
         {
             funcionario = new Funcionario(0, "Nome Teste", "954.746.736-04", "Endereco Funcionario", "4932518000", "teste@email.com", 0, "", "12345", new DateTime(2030, 01, 01), "", 0f, true);
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O usuário de acesso não pode estar vazio\nMatricula inválida\nO salário deve ser maior que R$ 0,00\nO funcionário deve possuir um cargo\nData de admissão inválida\n", resultado);
+            Assert.AreEqual("The Username cannot be empty\nMatricula inválida\nThe salary must be a value bigger than $ 0,00\nThe employee must have a role\nInvalid admission date\n", resultado);
         }
 
         #region Testes para as propriedades herdadas de Pessoa
@@ -87,7 +87,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
 
         [TestMethod]
@@ -97,7 +97,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
 
         [TestMethod]
@@ -107,7 +107,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultado);
+            Assert.AreEqual("The name field cannot be null.\nThe address field cannot be null.\nThe email field must be valid and not null.\nThe CPF field is not valid.\n", resultado);
         }
 
         [TestMethod]
@@ -117,7 +117,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O nome não pode ser nulo\nO endereço não pode ser nulo\nO e-mail é obrigatório está incorreto e deve estar correto\nO CPF não é válido\n", resultado);
+            Assert.AreEqual("The name field cannot be null.\nThe address field cannot be null.\nThe email field must be valid and not null.\nThe CPF field is not valid.\n", resultado);
         }
 
         [TestMethod]
@@ -127,7 +127,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("O e-mail é obrigatório está incorreto e deve estar correto\n", resultado);
+            Assert.AreEqual("The email field must be valid and not null.\n", resultado);
         }
 
         [TestMethod]
@@ -137,7 +137,7 @@ namespace LocadoraDeVeiculos.UnitTests.FuncionarioModule
 
             string resultado = funcionario.Validar();
 
-            Assert.AreEqual("VALIDO", resultado);
+            Assert.AreEqual("VALID", resultado);
         }
         #endregion
     }

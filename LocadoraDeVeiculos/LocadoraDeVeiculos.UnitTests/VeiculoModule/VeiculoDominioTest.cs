@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.UnitTests.VeiculoModule
         {
             Veiculo veiculo = new(0, "Ecosport", null, "LPT-4652", "4DF56F78E8WE9WED", "Ford", "Prata", "Gasolina Comum", 60.5, 2018, 30000, 4, 5, 'G', true, true, true, true);
 
-            Assert.AreEqual("VALIDO", veiculo.Validar());
+            Assert.AreEqual("VALID", veiculo.Validar());
 
         }
 
@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.UnitTests.VeiculoModule
         {
             Veiculo veiculo = new(0, "", null, "", "", "", "", "", 0, 0, 0, 0, 0, 'a', false, false, false, false);
 
-            Assert.AreEqual("O campo modelo não pode ser vazio!\nO campo placa não pode ser vazio!\nO campo chassi não pode ser vazio!\nO campo marca não pode ser vazio!\nO campo cor não pode ser vazio!\nO campo tipo de combústivel não pode ser vazio!\nO campo capacidade de tanque não pode ser vazio!\nO campo ano não pode ser vazio!\nO campo kilometragem não pode ser vazio!\nO campo numero de portas não pode ser vazio!\nO campo capacidades de pessoas não pode ser vazio!\nO campo tamanho do porta mala não pode ser vazio!\n",
+            Assert.AreEqual("The model field cannot be empty.\nThe sign field cannot be empty.\nThe chassis field cannot be empty.\nThe brand field cannot be empty.\nThe color field cannot be empty.\nThe fuel type field cannot be empty.\nThe tank capacity field cannot be empty.\nThe year field cannot be empty.\nThe mileage field cannot be empty.\nThe number of doors field cannot be empty.\nThe number of seats field cannot be empty.\nThe trunk size field cannot be empty.\n",
                 veiculo.Validar());
         }
     }

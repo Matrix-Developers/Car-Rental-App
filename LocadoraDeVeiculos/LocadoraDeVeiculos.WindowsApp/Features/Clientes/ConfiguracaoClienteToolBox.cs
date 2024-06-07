@@ -8,22 +8,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Clientes
 
         public string TipoCadastro
         {
-            get { return "Cadastro de Clientes"; }
+            get { return "Register Client"; }
         }
 
         public string ToolTipAdicionar
         {
-            get { return "Adicionar um novo Cliente"; }
+            get { return "Add a new Client"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Cliente existente"; }
+            get { return "Edit an existing Client"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Cliente existente"; }
+            get { return "Delete an existign Client"; }
         }
 
 

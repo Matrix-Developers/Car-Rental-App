@@ -6,22 +6,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GrupoDeVeiculos
     {
         public string TipoCadastro
         {
-            get { return "Cadastro de Grupo de Veiculos"; }
+            get { return "Register Vehicle Group"; }
         }
 
         public string ToolTipAdicionar
         {
-            get { return "Adicionar uma novo Grupo de Veiculos"; }
+            get { return "Add new Vehicle Group"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Grupo de Veiculos existente"; }
+            get { return "Edit existing Vehicle Group"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Grupo de Veiculos existente"; }
+            get { return "Delete existing Vehicle Group"; }
         }
     }
 }

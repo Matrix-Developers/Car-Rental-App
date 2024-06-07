@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             if (resultado)
                 Log.Information("{DataEHora} / Cliente {cliente} adicionado com sucesso", DateTime.Now, cliente);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", cliente, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Module} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", cliente, tempo);
 
             return resultado;
         }
@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             if (resultado)
                 Log.Information("{DataEHora} / Cliente {cliente} editado com sucesso", DateTime.Now, cliente);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Editar", cliente, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Module} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Editar", cliente, tempo);
 
             return resultado;
         }
@@ -51,7 +51,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             if (resultado)
                 Log.Information("{DataEHora} / Cliente {id} excluido com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Module} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Excluir", id, tempo);
 
             return resultado;
         }
@@ -68,7 +68,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             if (cliente != null)
                 Log.Information("{DataEHora} / Cliente {id} Selecionado com sucesso", DateTime.Now, id);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar por id", id, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Module} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Selecionar por id", id, tempo);
 
             return cliente;
         }
@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ClienteModule
             if (clientes != null)
                 Log.Information("{DataEHora} / Cliente {id} Selecionado com sucesso", DateTime.Now, clientes.Count);
             else
-                Log.Error("{DataEHora} / Feature: {Feature} / Camada: {Camada} / Módulo: {Módulo} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", clientes.Count, tempo);
+                Log.Error("{DataEHora} / Feature: {Feature} / Layer: {Layer} / Module: {Module} / Registro: {Id} / Tempo total: {Tempo}ms", DateTime.Now, this.ToString(), "AppService", "Inserir", clientes.Count, tempo);
             return clientes;
         }
     }

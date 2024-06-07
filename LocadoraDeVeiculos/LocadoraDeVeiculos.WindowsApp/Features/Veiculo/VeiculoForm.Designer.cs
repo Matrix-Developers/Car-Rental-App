@@ -75,12 +75,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             labelTitulo.AutoSize = true;
             labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             labelTitulo.ForeColor = System.Drawing.Color.Black;
-            labelTitulo.Location = new System.Drawing.Point(139, 40);
+            labelTitulo.Location = new System.Drawing.Point(176, 47);
             labelTitulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             labelTitulo.Name = "labelTitulo";
-            labelTitulo.Size = new System.Drawing.Size(219, 25);
+            labelTitulo.Size = new System.Drawing.Size(169, 25);
             labelTitulo.TabIndex = 64;
-            labelTitulo.Text = "Cadastro de Veículos";
+            labelTitulo.Text = "Register Vehicle";
             // 
             // textPlaca
             // 
@@ -136,7 +136,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             lbGrupo.Name = "lbGrupo";
             lbGrupo.Size = new System.Drawing.Size(48, 17);
             lbGrupo.TabIndex = 72;
-            lbGrupo.Text = "Grupo";
+            lbGrupo.Text = "Group";
             // 
             // lbNome
             // 
@@ -155,7 +155,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             lbChassi.AutoSize = true;
             lbChassi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbChassi.ForeColor = System.Drawing.Color.Black;
-            lbChassi.Location = new System.Drawing.Point(71, 112);
+            lbChassi.Location = new System.Drawing.Point(70, 113);
             lbChassi.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lbChassi.Name = "lbChassi";
             lbChassi.Size = new System.Drawing.Size(50, 17);
@@ -167,36 +167,36 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             lbMarca.AutoSize = true;
             lbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbMarca.ForeColor = System.Drawing.Color.Black;
-            lbMarca.Location = new System.Drawing.Point(72, 152);
+            lbMarca.Location = new System.Drawing.Point(74, 158);
             lbMarca.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lbMarca.Name = "lbMarca";
-            lbMarca.Size = new System.Drawing.Size(47, 17);
+            lbMarca.Size = new System.Drawing.Size(46, 17);
             lbMarca.TabIndex = 68;
-            lbMarca.Text = "Marca";
+            lbMarca.Text = "Brand";
             // 
             // lbAno
             // 
             lbAno.AutoSize = true;
             lbAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbAno.ForeColor = System.Drawing.Color.Black;
-            lbAno.Location = new System.Drawing.Point(87, 228);
+            lbAno.Location = new System.Drawing.Point(82, 238);
             lbAno.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lbAno.Name = "lbAno";
-            lbAno.Size = new System.Drawing.Size(33, 17);
+            lbAno.Size = new System.Drawing.Size(38, 17);
             lbAno.TabIndex = 70;
-            lbAno.Text = "Ano";
+            lbAno.Text = "Year";
             // 
             // lbModelo
             // 
             lbModelo.AutoSize = true;
             lbModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbModelo.ForeColor = System.Drawing.Color.Black;
-            lbModelo.Location = new System.Drawing.Point(65, 192);
+            lbModelo.Location = new System.Drawing.Point(74, 193);
             lbModelo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lbModelo.Name = "lbModelo";
-            lbModelo.Size = new System.Drawing.Size(54, 17);
+            lbModelo.Size = new System.Drawing.Size(46, 17);
             lbModelo.TabIndex = 69;
-            lbModelo.Text = "Modelo";
+            lbModelo.Text = "Model";
             // 
             // textCor
             // 
@@ -211,36 +211,36 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             label10.AutoSize = true;
             label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label10.ForeColor = System.Drawing.Color.Black;
-            label10.Location = new System.Drawing.Point(222, 232);
+            label10.Location = new System.Drawing.Point(206, 233);
             label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(30, 17);
+            label10.Size = new System.Drawing.Size(49, 17);
             label10.TabIndex = 81;
-            label10.Text = "Cor";
+            label10.Text = "Colour";
             // 
             // label16
             // 
             label16.AutoSize = true;
             label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label16.ForeColor = System.Drawing.Color.Black;
-            label16.Location = new System.Drawing.Point(224, 311);
+            label16.Location = new System.Drawing.Point(266, 312);
             label16.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(119, 17);
+            label16.Size = new System.Drawing.Size(76, 17);
             label16.TabIndex = 91;
-            label16.Text = "Tam. Porta Malas";
+            label16.Text = "Trunk Size";
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label11.ForeColor = System.Drawing.Color.Black;
-            label11.Location = new System.Drawing.Point(33, 351);
+            label11.Location = new System.Drawing.Point(50, 358);
             label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(84, 17);
+            label11.Size = new System.Drawing.Size(71, 17);
             label11.TabIndex = 81;
-            label11.Text = "Combustível";
+            label11.Text = "Fuel Type";
             // 
             // textKM
             // 
@@ -257,36 +257,36 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             label12.AutoSize = true;
             label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label12.ForeColor = System.Drawing.Color.Black;
-            label12.Location = new System.Drawing.Point(42, 393);
+            label12.Location = new System.Drawing.Point(7, 393);
             label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(82, 17);
+            label12.Size = new System.Drawing.Size(114, 17);
             label12.TabIndex = 85;
-            label12.Text = "N° Pessoas";
+            label12.Text = "Number of Seats";
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label13.ForeColor = System.Drawing.Color.Black;
-            label13.Location = new System.Drawing.Point(275, 351);
+            label13.Location = new System.Drawing.Point(296, 347);
             label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(69, 17);
+            label13.Size = new System.Drawing.Size(46, 17);
             label13.TabIndex = 84;
-            label13.Text = "N° Portas";
+            label13.Text = "Doors";
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             label14.ForeColor = System.Drawing.Color.Black;
-            label14.Location = new System.Drawing.Point(30, 311);
+            label14.Location = new System.Drawing.Point(27, 311);
             label14.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(90, 17);
+            label14.Size = new System.Drawing.Size(93, 17);
             label14.TabIndex = 83;
-            label14.Text = "Cap. Tanque";
+            label14.Text = "Fuel Capacity";
             // 
             // label15
             // 
@@ -309,7 +309,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new System.Drawing.Size(101, 36);
             btnCancelar.TabIndex = 17;
-            btnCancelar.Text = "Cancelar";
+            btnCancelar.Text = "Cancel";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnConfirmar
@@ -321,7 +321,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new System.Drawing.Size(101, 36);
             btnConfirmar.TabIndex = 16;
-            btnConfirmar.Text = "Confirmar";
+            btnConfirmar.Text = "Submit";
             btnConfirmar.UseVisualStyleBackColor = true;
             btnConfirmar.Click += BtnConfirmar_Click;
             // 
@@ -363,7 +363,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             gBoxDados.Size = new System.Drawing.Size(489, 431);
             gBoxDados.TabIndex = 94;
             gBoxDados.TabStop = false;
-            gBoxDados.Text = "Dados Obrigatórios";
+            gBoxDados.Text = "Vehicle Data";
             // 
             // cBoxCombustivel
             // 
@@ -436,12 +436,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             lbPlaca.AutoSize = true;
             lbPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbPlaca.ForeColor = System.Drawing.Color.Black;
-            lbPlaca.Location = new System.Drawing.Point(75, 72);
+            lbPlaca.Location = new System.Drawing.Point(84, 73);
             lbPlaca.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lbPlaca.Name = "lbPlaca";
-            lbPlaca.Size = new System.Drawing.Size(43, 17);
+            lbPlaca.Size = new System.Drawing.Size(36, 17);
             lbPlaca.TabIndex = 66;
-            lbPlaca.Text = "Placa";
+            lbPlaca.Text = "Sign";
             // 
             // groupBox1
             // 
@@ -454,12 +454,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             groupBox1.Size = new System.Drawing.Size(489, 244);
             groupBox1.TabIndex = 95;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Opcionais";
+            groupBox1.Text = "Optional";
             // 
             // checkLBoxOpcionais
             // 
             checkLBoxOpcionais.FormattingEnabled = true;
-            checkLBoxOpcionais.Items.AddRange(new object[] { "Ar condicionado", "Direção Hidraulica", "Freio ABS" });
+            checkLBoxOpcionais.Items.AddRange(new object[] { "Air conditioning", "Hydraulic Steering", "ABS Breaks" });
             checkLBoxOpcionais.Location = new System.Drawing.Point(8, 29);
             checkLBoxOpcionais.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             checkLBoxOpcionais.Name = "checkLBoxOpcionais";
@@ -485,7 +485,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Veiculos
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Locadora de Veiculo";
+            Text = "Car Rental App";
             gBoxDados.ResumeLayout(false);
             gBoxDados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numUpDownCapTanque).EndInit();

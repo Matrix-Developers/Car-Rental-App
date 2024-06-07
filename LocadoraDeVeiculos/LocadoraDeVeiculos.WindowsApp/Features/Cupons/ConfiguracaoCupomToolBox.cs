@@ -6,22 +6,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
     {
         public string ToolTipAdicionar
         {
-            get { return "Cadastro de Cupom de Desconto"; }
+            get { return "Register Discount Coupon"; }
         }
 
         public string TipoCadastro
         {
-            get { return "Cadastro de um novo Cupom"; }
+            get { return "Add Discount Coupon"; }
         }
 
         public string ToolTipEditar
         {
-            get { return "Editar um Cupom existente"; }
+            get { return "Edit Discount Coupon"; }
         }
 
         public string ToolTipExcluir
         {
-            get { return "Excluir um Cupom existente"; }
+            get { return "Delete Discount Coupon"; }
         }
     }
 }

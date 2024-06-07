@@ -121,7 +121,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             groupBox2.Size = new System.Drawing.Size(508, 354);
             groupBox2.TabIndex = 23;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Clientes";
+            groupBox2.Text = "Client";
             // 
             // lbClientesPJ
             // 
@@ -167,9 +167,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label9.Location = new System.Drawing.Point(5, 108);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(121, 17);
+            label9.Size = new System.Drawing.Size(115, 17);
             label9.TabIndex = 20;
-            label9.Text = "Clientes Fisícos";
+            label9.Text = "Natural Clients";
             // 
             // label8
             // 
@@ -179,9 +179,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label8.Location = new System.Drawing.Point(360, 108);
             label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(136, 17);
+            label8.Size = new System.Drawing.Size(133, 17);
             label8.TabIndex = 19;
-            label8.Text = "Clientes Jurídicos";
+            label8.Text = "Juridical Persons";
             // 
             // label7
             // 
@@ -191,9 +191,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label7.Location = new System.Drawing.Point(181, 108);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(126, 17);
+            label7.Size = new System.Drawing.Size(112, 17);
             label7.TabIndex = 18;
-            label7.Text = "Clientes no total";
+            label7.Text = "Clients in total";
             // 
             // pictureBox4
             // 
@@ -252,7 +252,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             groupBox3.Size = new System.Drawing.Size(508, 355);
             groupBox3.TabIndex = 24;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Locação";
+            groupBox3.Text = "Rental";
             // 
             // pictureBox8
             // 
@@ -274,9 +274,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label13.Location = new System.Drawing.Point(12, 111);
             label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(127, 17);
+            label13.Size = new System.Drawing.Size(98, 17);
             label13.TabIndex = 28;
-            label13.Text = "Carros alugados";
+            label13.Text = "Rented Cars";
             // 
             // lbRetornoHJ
             // 
@@ -310,9 +310,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label14.Location = new System.Drawing.Point(198, 111);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(114, 17);
+            label14.Size = new System.Drawing.Size(110, 17);
             label14.TabIndex = 33;
-            label14.Text = "Retornam hoje";
+            label14.Text = "Returns today";
             // 
             // pictureBox9
             // 
@@ -346,9 +346,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label15.Location = new System.Drawing.Point(347, 111);
             label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(153, 17);
+            label15.Size = new System.Drawing.Size(136, 17);
             label15.TabIndex = 29;
-            label15.Text = "Retornam em 7 dias";
+            label15.Text = "Returns in 7 days";
             // 
             // lbCarrosAlugados
             // 
@@ -383,7 +383,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             groupBox1.Size = new System.Drawing.Size(508, 354);
             groupBox1.TabIndex = 22;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Veículos";
+            groupBox1.Text = "Vehicles";
             // 
             // pictureBox2
             // 
@@ -402,24 +402,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
-            label4.Location = new System.Drawing.Point(196, 108);
+            label4.Location = new System.Drawing.Point(208, 108);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(116, 17);
+            label4.Size = new System.Drawing.Size(96, 17);
             label4.TabIndex = 15;
-            label4.Text = "Carros no total";
+            label4.Text = "Cars in total";
             // 
             // label6
             // 
             label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
-            label6.Location = new System.Drawing.Point(3, 108);
+            label6.Location = new System.Drawing.Point(15, 110);
             label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(142, 17);
+            label6.Size = new System.Drawing.Size(112, 17);
             label6.TabIndex = 17;
-            label6.Text = "Carros disponíveis";
+            label6.Text = "Available Cars";
             // 
             // lbCarInd
             // 
@@ -438,7 +438,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             lbCarDisp.Anchor = System.Windows.Forms.AnchorStyles.None;
             lbCarDisp.AutoSize = true;
             lbCarDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
-            lbCarDisp.Location = new System.Drawing.Point(61, 248);
+            lbCarDisp.Location = new System.Drawing.Point(65, 248);
             lbCarDisp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbCarDisp.Name = "lbCarDisp";
             lbCarDisp.Size = new System.Drawing.Size(17, 17);
@@ -462,12 +462,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
-            label5.Location = new System.Drawing.Point(336, 108);
+            label5.Location = new System.Drawing.Point(347, 110);
             label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(155, 17);
+            label5.Size = new System.Drawing.Size(131, 17);
             label5.TabIndex = 16;
-            label5.Text = "Carros indisponíveis";
+            label5.Text = "Unavailable Cars";
             // 
             // pictureBox3
             // 
@@ -508,7 +508,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             groupBox4.Size = new System.Drawing.Size(508, 355);
             groupBox4.TabIndex = 25;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Serviços";
+            groupBox4.Text = "Services";
             // 
             // lbServicos
             // 
@@ -530,9 +530,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Dashboards
             label19.Location = new System.Drawing.Point(179, 111);
             label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label19.Name = "label19";
-            label19.Size = new System.Drawing.Size(130, 17);
+            label19.Size = new System.Drawing.Size(125, 17);
             label19.TabIndex = 25;
-            label19.Text = "Serviços no total";
+            label19.Text = "Services in total";
             // 
             // pictureBox10
             // 

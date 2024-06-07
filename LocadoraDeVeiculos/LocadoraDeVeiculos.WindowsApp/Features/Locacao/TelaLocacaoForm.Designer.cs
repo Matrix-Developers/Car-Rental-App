@@ -29,335 +29,360 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Locacoes
         /// </summary>
         private void InitializeComponent()
         {
-            this.gBoxRegistro = new System.Windows.Forms.GroupBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.lblValorInicial = new System.Windows.Forms.Label();
-            this.btnServicos = new System.Windows.Forms.Button();
-            this.lblServicos = new System.Windows.Forms.Label();
-            this.cBoxPlano = new System.Windows.Forms.ComboBox();
-            this.lblPlano = new System.Windows.Forms.Label();
-            this.lblVeiculo = new System.Windows.Forms.Label();
-            this.lblDataDevolucao = new System.Windows.Forms.Label();
-            this.lblDataLocacao = new System.Windows.Forms.Label();
-            this.lblCondutor = new System.Windows.Forms.Label();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.lblFuncionario = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.dateTPDataDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.dateTPDataSaida = new System.Windows.Forms.DateTimePicker();
-            this.cBoxCondutor = new System.Windows.Forms.ComboBox();
-            this.cBoxCliente = new System.Windows.Forms.ComboBox();
-            this.cBoxFuncionario = new System.Windows.Forms.ComboBox();
-            this.cBoxVeiculo = new System.Windows.Forms.ComboBox();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.brnConfirmar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblCupom = new System.Windows.Forms.Label();
-            this.txtCupom = new System.Windows.Forms.TextBox();
-            this.btnVerificar = new System.Windows.Forms.Button();
-            this.gBoxRegistro.SuspendLayout();
-            this.SuspendLayout();
+            gBoxRegistro = new System.Windows.Forms.GroupBox();
+            btnVerificar = new System.Windows.Forms.Button();
+            txtCupom = new System.Windows.Forms.TextBox();
+            lblCupom = new System.Windows.Forms.Label();
+            txtTotal = new System.Windows.Forms.TextBox();
+            lblValorInicial = new System.Windows.Forms.Label();
+            btnServicos = new System.Windows.Forms.Button();
+            lblServicos = new System.Windows.Forms.Label();
+            cBoxPlano = new System.Windows.Forms.ComboBox();
+            lblPlano = new System.Windows.Forms.Label();
+            lblVeiculo = new System.Windows.Forms.Label();
+            lblDataDevolucao = new System.Windows.Forms.Label();
+            lblDataLocacao = new System.Windows.Forms.Label();
+            lblCondutor = new System.Windows.Forms.Label();
+            lblCliente = new System.Windows.Forms.Label();
+            lblFuncionario = new System.Windows.Forms.Label();
+            lblId = new System.Windows.Forms.Label();
+            txtId = new System.Windows.Forms.TextBox();
+            dateTPDataDevolucao = new System.Windows.Forms.DateTimePicker();
+            dateTPDataSaida = new System.Windows.Forms.DateTimePicker();
+            cBoxCondutor = new System.Windows.Forms.ComboBox();
+            cBoxCliente = new System.Windows.Forms.ComboBox();
+            cBoxFuncionario = new System.Windows.Forms.ComboBox();
+            cBoxVeiculo = new System.Windows.Forms.ComboBox();
+            lblTitulo = new System.Windows.Forms.Label();
+            brnConfirmar = new System.Windows.Forms.Button();
+            btnCancelar = new System.Windows.Forms.Button();
+            gBoxRegistro.SuspendLayout();
+            SuspendLayout();
             // 
             // gBoxRegistro
             // 
-            this.gBoxRegistro.Controls.Add(this.btnVerificar);
-            this.gBoxRegistro.Controls.Add(this.txtCupom);
-            this.gBoxRegistro.Controls.Add(this.lblCupom);
-            this.gBoxRegistro.Controls.Add(this.txtTotal);
-            this.gBoxRegistro.Controls.Add(this.lblValorInicial);
-            this.gBoxRegistro.Controls.Add(this.btnServicos);
-            this.gBoxRegistro.Controls.Add(this.lblServicos);
-            this.gBoxRegistro.Controls.Add(this.cBoxPlano);
-            this.gBoxRegistro.Controls.Add(this.lblPlano);
-            this.gBoxRegistro.Controls.Add(this.lblVeiculo);
-            this.gBoxRegistro.Controls.Add(this.lblDataDevolucao);
-            this.gBoxRegistro.Controls.Add(this.lblDataLocacao);
-            this.gBoxRegistro.Controls.Add(this.lblCondutor);
-            this.gBoxRegistro.Controls.Add(this.lblCliente);
-            this.gBoxRegistro.Controls.Add(this.lblFuncionario);
-            this.gBoxRegistro.Controls.Add(this.lblId);
-            this.gBoxRegistro.Controls.Add(this.txtId);
-            this.gBoxRegistro.Controls.Add(this.dateTPDataDevolucao);
-            this.gBoxRegistro.Controls.Add(this.dateTPDataSaida);
-            this.gBoxRegistro.Controls.Add(this.cBoxCondutor);
-            this.gBoxRegistro.Controls.Add(this.cBoxCliente);
-            this.gBoxRegistro.Controls.Add(this.cBoxFuncionario);
-            this.gBoxRegistro.Controls.Add(this.cBoxVeiculo);
-            this.gBoxRegistro.Location = new System.Drawing.Point(12, 87);
-            this.gBoxRegistro.Name = "gBoxRegistro";
-            this.gBoxRegistro.Size = new System.Drawing.Size(433, 282);
-            this.gBoxRegistro.TabIndex = 0;
-            this.gBoxRegistro.TabStop = false;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(309, 250);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtTotal.TabIndex = 17;
-            this.txtTotal.Text = "0";
-            // 
-            // lblValorInicial
-            // 
-            this.lblValorInicial.AutoSize = true;
-            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorInicial.Location = new System.Drawing.Point(195, 250);
-            this.lblValorInicial.Name = "lblValorInicial";
-            this.lblValorInicial.Size = new System.Drawing.Size(117, 16);
-            this.lblValorInicial.TabIndex = 2;
-            this.lblValorInicial.Text = "Valor Inicial: R$";
-            // 
-            // btnServicos
-            // 
-            this.btnServicos.Location = new System.Drawing.Point(334, 99);
-            this.btnServicos.Name = "btnServicos";
-            this.btnServicos.Size = new System.Drawing.Size(75, 23);
-            this.btnServicos.TabIndex = 16;
-            this.btnServicos.Text = "Selecionar";
-            this.btnServicos.UseVisualStyleBackColor = true;
-            this.btnServicos.Click += new System.EventHandler(this.BtnServicos_Click);
-            // 
-            // lblServicos
-            // 
-            this.lblServicos.AutoSize = true;
-            this.lblServicos.Location = new System.Drawing.Point(280, 104);
-            this.lblServicos.Name = "lblServicos";
-            this.lblServicos.Size = new System.Drawing.Size(48, 13);
-            this.lblServicos.TabIndex = 15;
-            this.lblServicos.Text = "Serviços";
-            // 
-            // cBoxPlano
-            // 
-            this.cBoxPlano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxPlano.FormattingEnabled = true;
-            this.cBoxPlano.Items.AddRange(new object[] {
-            "Plano Diario",
-            "Km Controlado",
-            "Km Livre"});
-            this.cBoxPlano.Location = new System.Drawing.Point(89, 99);
-            this.cBoxPlano.Name = "cBoxPlano";
-            this.cBoxPlano.Size = new System.Drawing.Size(170, 21);
-            this.cBoxPlano.TabIndex = 14;
-            // 
-            // lblPlano
-            // 
-            this.lblPlano.AutoSize = true;
-            this.lblPlano.Location = new System.Drawing.Point(49, 104);
-            this.lblPlano.Name = "lblPlano";
-            this.lblPlano.Size = new System.Drawing.Size(34, 13);
-            this.lblPlano.TabIndex = 13;
-            this.lblPlano.Text = "Plano";
-            // 
-            // lblVeiculo
-            // 
-            this.lblVeiculo.AutoSize = true;
-            this.lblVeiculo.Location = new System.Drawing.Point(39, 75);
-            this.lblVeiculo.Name = "lblVeiculo";
-            this.lblVeiculo.Size = new System.Drawing.Size(44, 13);
-            this.lblVeiculo.TabIndex = 12;
-            this.lblVeiculo.Text = "Veículo";
-            // 
-            // lblDataDevolucao
-            // 
-            this.lblDataDevolucao.AutoSize = true;
-            this.lblDataDevolucao.Location = new System.Drawing.Point(216, 183);
-            this.lblDataDevolucao.Name = "lblDataDevolucao";
-            this.lblDataDevolucao.Size = new System.Drawing.Size(62, 13);
-            this.lblDataDevolucao.TabIndex = 11;
-            this.lblDataDevolucao.Text = "Devolução ";
-            // 
-            // lblDataLocacao
-            // 
-            this.lblDataLocacao.AutoSize = true;
-            this.lblDataLocacao.Location = new System.Drawing.Point(34, 183);
-            this.lblDataLocacao.Name = "lblDataLocacao";
-            this.lblDataLocacao.Size = new System.Drawing.Size(49, 13);
-            this.lblDataLocacao.TabIndex = 10;
-            this.lblDataLocacao.Text = "Locação";
-            // 
-            // lblCondutor
-            // 
-            this.lblCondutor.AutoSize = true;
-            this.lblCondutor.Location = new System.Drawing.Point(33, 156);
-            this.lblCondutor.Name = "lblCondutor";
-            this.lblCondutor.Size = new System.Drawing.Size(50, 13);
-            this.lblCondutor.TabIndex = 9;
-            this.lblCondutor.Text = "Condutor";
-            // 
-            // lblCliente
-            // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(44, 129);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(39, 13);
-            this.lblCliente.TabIndex = 8;
-            this.lblCliente.Text = "Cliente";
-            // 
-            // lblFuncionario
-            // 
-            this.lblFuncionario.AutoSize = true;
-            this.lblFuncionario.Location = new System.Drawing.Point(21, 48);
-            this.lblFuncionario.Name = "lblFuncionario";
-            this.lblFuncionario.Size = new System.Drawing.Size(62, 13);
-            this.lblFuncionario.TabIndex = 7;
-            this.lblFuncionario.Text = "Funcionário";
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(65, 22);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(18, 13);
-            this.lblId.TabIndex = 6;
-            this.lblId.Text = "ID";
-            // 
-            // txtId
-            // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(89, 19);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(68, 20);
-            this.txtId.TabIndex = 2;
-            this.txtId.Text = "0";
-            // 
-            // dateTPDataDevolucao
-            // 
-            this.dateTPDataDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dateTPDataDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPDataDevolucao.Location = new System.Drawing.Point(284, 180);
-            this.dateTPDataDevolucao.Name = "dateTPDataDevolucao";
-            this.dateTPDataDevolucao.Size = new System.Drawing.Size(125, 20);
-            this.dateTPDataDevolucao.TabIndex = 5;
-            // 
-            // dateTPDataSaida
-            // 
-            this.dateTPDataSaida.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dateTPDataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPDataSaida.Location = new System.Drawing.Point(89, 180);
-            this.dateTPDataSaida.Name = "dateTPDataSaida";
-            this.dateTPDataSaida.Size = new System.Drawing.Size(121, 20);
-            this.dateTPDataSaida.TabIndex = 4;
-            // 
-            // cBoxCondutor
-            // 
-            this.cBoxCondutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxCondutor.FormattingEnabled = true;
-            this.cBoxCondutor.Location = new System.Drawing.Point(89, 153);
-            this.cBoxCondutor.Name = "cBoxCondutor";
-            this.cBoxCondutor.Size = new System.Drawing.Size(320, 21);
-            this.cBoxCondutor.TabIndex = 3;
-            // 
-            // cBoxCliente
-            // 
-            this.cBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxCliente.FormattingEnabled = true;
-            this.cBoxCliente.Location = new System.Drawing.Point(89, 126);
-            this.cBoxCliente.Name = "cBoxCliente";
-            this.cBoxCliente.Size = new System.Drawing.Size(320, 21);
-            this.cBoxCliente.TabIndex = 2;
-            // 
-            // cBoxFuncionario
-            // 
-            this.cBoxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxFuncionario.FormattingEnabled = true;
-            this.cBoxFuncionario.Location = new System.Drawing.Point(89, 45);
-            this.cBoxFuncionario.Name = "cBoxFuncionario";
-            this.cBoxFuncionario.Size = new System.Drawing.Size(320, 21);
-            this.cBoxFuncionario.TabIndex = 1;
-            // 
-            // cBoxVeiculo
-            // 
-            this.cBoxVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxVeiculo.FormattingEnabled = true;
-            this.cBoxVeiculo.Location = new System.Drawing.Point(89, 72);
-            this.cBoxVeiculo.Name = "cBoxVeiculo";
-            this.cBoxVeiculo.Size = new System.Drawing.Size(320, 21);
-            this.cBoxVeiculo.TabIndex = 0;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(150, 39);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(156, 20);
-            this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Registrar Locação";
-            // 
-            // brnConfirmar
-            // 
-            this.brnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.brnConfirmar.Location = new System.Drawing.Point(289, 377);
-            this.brnConfirmar.Name = "brnConfirmar";
-            this.brnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.brnConfirmar.TabIndex = 18;
-            this.brnConfirmar.Text = "Confirmar";
-            this.brnConfirmar.UseVisualStyleBackColor = true;
-            this.brnConfirmar.Click += new System.EventHandler(this.BrnConfirmar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(370, 377);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 19;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // lblCupom
-            // 
-            this.lblCupom.AutoSize = true;
-            this.lblCupom.Location = new System.Drawing.Point(43, 209);
-            this.lblCupom.Name = "lblCupom";
-            this.lblCupom.Size = new System.Drawing.Size(40, 13);
-            this.lblCupom.TabIndex = 18;
-            this.lblCupom.Text = "Cupom";
-            // 
-            // txtCupom
-            // 
-            this.txtCupom.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCupom.Location = new System.Drawing.Point(89, 206);
-            this.txtCupom.Name = "txtCupom";
-            this.txtCupom.Size = new System.Drawing.Size(239, 20);
-            this.txtCupom.TabIndex = 19;
+            gBoxRegistro.Controls.Add(btnVerificar);
+            gBoxRegistro.Controls.Add(txtCupom);
+            gBoxRegistro.Controls.Add(lblCupom);
+            gBoxRegistro.Controls.Add(txtTotal);
+            gBoxRegistro.Controls.Add(lblValorInicial);
+            gBoxRegistro.Controls.Add(btnServicos);
+            gBoxRegistro.Controls.Add(lblServicos);
+            gBoxRegistro.Controls.Add(cBoxPlano);
+            gBoxRegistro.Controls.Add(lblPlano);
+            gBoxRegistro.Controls.Add(lblVeiculo);
+            gBoxRegistro.Controls.Add(lblDataDevolucao);
+            gBoxRegistro.Controls.Add(lblDataLocacao);
+            gBoxRegistro.Controls.Add(lblCondutor);
+            gBoxRegistro.Controls.Add(lblCliente);
+            gBoxRegistro.Controls.Add(lblFuncionario);
+            gBoxRegistro.Controls.Add(lblId);
+            gBoxRegistro.Controls.Add(txtId);
+            gBoxRegistro.Controls.Add(dateTPDataDevolucao);
+            gBoxRegistro.Controls.Add(dateTPDataSaida);
+            gBoxRegistro.Controls.Add(cBoxCondutor);
+            gBoxRegistro.Controls.Add(cBoxCliente);
+            gBoxRegistro.Controls.Add(cBoxFuncionario);
+            gBoxRegistro.Controls.Add(cBoxVeiculo);
+            gBoxRegistro.Location = new System.Drawing.Point(16, 134);
+            gBoxRegistro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            gBoxRegistro.Name = "gBoxRegistro";
+            gBoxRegistro.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            gBoxRegistro.Size = new System.Drawing.Size(577, 434);
+            gBoxRegistro.TabIndex = 0;
+            gBoxRegistro.TabStop = false;
             // 
             // btnVerificar
             // 
-            this.btnVerificar.Location = new System.Drawing.Point(334, 204);
-            this.btnVerificar.Name = "btnVerificar";
-            this.btnVerificar.Size = new System.Drawing.Size(75, 23);
-            this.btnVerificar.TabIndex = 20;
-            this.btnVerificar.Text = "Verificar";
-            this.btnVerificar.UseVisualStyleBackColor = true;
-            this.btnVerificar.Click += new System.EventHandler(this.BtnVerificar_Click);
+            btnVerificar.Location = new System.Drawing.Point(445, 314);
+            btnVerificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnVerificar.Name = "btnVerificar";
+            btnVerificar.Size = new System.Drawing.Size(100, 35);
+            btnVerificar.TabIndex = 20;
+            btnVerificar.Text = "Verify";
+            btnVerificar.UseVisualStyleBackColor = true;
+            btnVerificar.Click += BtnVerificar_Click;
+            // 
+            // txtCupom
+            // 
+            txtCupom.BackColor = System.Drawing.SystemColors.Window;
+            txtCupom.Location = new System.Drawing.Point(119, 317);
+            txtCupom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtCupom.Name = "txtCupom";
+            txtCupom.Size = new System.Drawing.Size(317, 27);
+            txtCupom.TabIndex = 19;
+            // 
+            // lblCupom
+            // 
+            lblCupom.AutoSize = true;
+            lblCupom.Location = new System.Drawing.Point(50, 321);
+            lblCupom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCupom.Name = "lblCupom";
+            lblCupom.Size = new System.Drawing.Size(61, 20);
+            lblCupom.TabIndex = 18;
+            lblCupom.Text = "Coupon";
+            // 
+            // txtTotal
+            // 
+            txtTotal.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            txtTotal.Enabled = false;
+            txtTotal.Location = new System.Drawing.Point(412, 385);
+            txtTotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtTotal.Name = "txtTotal";
+            txtTotal.Size = new System.Drawing.Size(132, 27);
+            txtTotal.TabIndex = 17;
+            txtTotal.Text = "0";
+            // 
+            // lblValorInicial
+            // 
+            lblValorInicial.AutoSize = true;
+            lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lblValorInicial.Location = new System.Drawing.Point(274, 388);
+            lblValorInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblValorInicial.Name = "lblValorInicial";
+            lblValorInicial.Size = new System.Drawing.Size(130, 20);
+            lblValorInicial.TabIndex = 2;
+            lblValorInicial.Text = "Initial Value: $";
+            // 
+            // btnServicos
+            // 
+            btnServicos.Location = new System.Drawing.Point(445, 152);
+            btnServicos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnServicos.Name = "btnServicos";
+            btnServicos.Size = new System.Drawing.Size(100, 35);
+            btnServicos.TabIndex = 16;
+            btnServicos.Text = "Selecionar";
+            btnServicos.UseVisualStyleBackColor = true;
+            btnServicos.Click += BtnServicos_Click;
+            // 
+            // lblServicos
+            // 
+            lblServicos.AutoSize = true;
+            lblServicos.Location = new System.Drawing.Point(373, 160);
+            lblServicos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblServicos.Name = "lblServicos";
+            lblServicos.Size = new System.Drawing.Size(62, 20);
+            lblServicos.TabIndex = 15;
+            lblServicos.Text = "Services";
+            // 
+            // cBoxPlano
+            // 
+            cBoxPlano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cBoxPlano.FormattingEnabled = true;
+            cBoxPlano.Items.AddRange(new object[] { "Plano Diario", "Km Controlado", "Km Livre" });
+            cBoxPlano.Location = new System.Drawing.Point(119, 152);
+            cBoxPlano.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cBoxPlano.Name = "cBoxPlano";
+            cBoxPlano.Size = new System.Drawing.Size(225, 28);
+            cBoxPlano.TabIndex = 14;
+            // 
+            // lblPlano
+            // 
+            lblPlano.AutoSize = true;
+            lblPlano.Location = new System.Drawing.Point(39, 159);
+            lblPlano.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPlano.Name = "lblPlano";
+            lblPlano.Size = new System.Drawing.Size(72, 20);
+            lblPlano.TabIndex = 13;
+            lblPlano.Text = "Plan Type";
+            // 
+            // lblVeiculo
+            // 
+            lblVeiculo.AutoSize = true;
+            lblVeiculo.Location = new System.Drawing.Point(58, 114);
+            lblVeiculo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblVeiculo.Name = "lblVeiculo";
+            lblVeiculo.Size = new System.Drawing.Size(56, 20);
+            lblVeiculo.TabIndex = 12;
+            lblVeiculo.Text = "Vehicle";
+            // 
+            // lblDataDevolucao
+            // 
+            lblDataDevolucao.AutoSize = true;
+            lblDataDevolucao.Location = new System.Drawing.Point(318, 284);
+            lblDataDevolucao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDataDevolucao.Name = "lblDataDevolucao";
+            lblDataDevolucao.Size = new System.Drawing.Size(52, 20);
+            lblDataDevolucao.TabIndex = 11;
+            lblDataDevolucao.Text = "Return";
+            // 
+            // lblDataLocacao
+            // 
+            lblDataLocacao.AutoSize = true;
+            lblDataLocacao.Location = new System.Drawing.Point(60, 284);
+            lblDataLocacao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDataLocacao.Name = "lblDataLocacao";
+            lblDataLocacao.Size = new System.Drawing.Size(51, 20);
+            lblDataLocacao.TabIndex = 10;
+            lblDataLocacao.Text = "Rental";
+            // 
+            // lblCondutor
+            // 
+            lblCondutor.AutoSize = true;
+            lblCondutor.Location = new System.Drawing.Point(33, 238);
+            lblCondutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCondutor.Name = "lblCondutor";
+            lblCondutor.Size = new System.Drawing.Size(78, 20);
+            lblCondutor.TabIndex = 9;
+            lblCondutor.Text = "Conductor";
+            // 
+            // lblCliente
+            // 
+            lblCliente.AutoSize = true;
+            lblCliente.Location = new System.Drawing.Point(64, 197);
+            lblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new System.Drawing.Size(47, 20);
+            lblCliente.TabIndex = 8;
+            lblCliente.Text = "Client";
+            // 
+            // lblFuncionario
+            // 
+            lblFuncionario.AutoSize = true;
+            lblFuncionario.Location = new System.Drawing.Point(36, 77);
+            lblFuncionario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblFuncionario.Name = "lblFuncionario";
+            lblFuncionario.Size = new System.Drawing.Size(75, 20);
+            lblFuncionario.TabIndex = 7;
+            lblFuncionario.Text = "Employee";
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Location = new System.Drawing.Point(87, 34);
+            lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblId.Name = "lblId";
+            lblId.Size = new System.Drawing.Size(24, 20);
+            lblId.TabIndex = 6;
+            lblId.Text = "ID";
+            // 
+            // txtId
+            // 
+            txtId.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            txtId.Enabled = false;
+            txtId.Location = new System.Drawing.Point(119, 29);
+            txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            txtId.Name = "txtId";
+            txtId.Size = new System.Drawing.Size(89, 27);
+            txtId.TabIndex = 2;
+            txtId.Text = "0";
+            // 
+            // dateTPDataDevolucao
+            // 
+            dateTPDataDevolucao.CustomFormat = "dd/MM/yyyy HH:mm";
+            dateTPDataDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dateTPDataDevolucao.Location = new System.Drawing.Point(379, 277);
+            dateTPDataDevolucao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            dateTPDataDevolucao.Name = "dateTPDataDevolucao";
+            dateTPDataDevolucao.Size = new System.Drawing.Size(165, 27);
+            dateTPDataDevolucao.TabIndex = 5;
+            // 
+            // dateTPDataSaida
+            // 
+            dateTPDataSaida.CustomFormat = "dd/MM/yyyy HH:mm";
+            dateTPDataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dateTPDataSaida.Location = new System.Drawing.Point(119, 277);
+            dateTPDataSaida.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            dateTPDataSaida.Name = "dateTPDataSaida";
+            dateTPDataSaida.Size = new System.Drawing.Size(160, 27);
+            dateTPDataSaida.TabIndex = 4;
+            // 
+            // cBoxCondutor
+            // 
+            cBoxCondutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cBoxCondutor.FormattingEnabled = true;
+            cBoxCondutor.Location = new System.Drawing.Point(119, 235);
+            cBoxCondutor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cBoxCondutor.Name = "cBoxCondutor";
+            cBoxCondutor.Size = new System.Drawing.Size(425, 28);
+            cBoxCondutor.TabIndex = 3;
+            // 
+            // cBoxCliente
+            // 
+            cBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cBoxCliente.FormattingEnabled = true;
+            cBoxCliente.Location = new System.Drawing.Point(119, 194);
+            cBoxCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cBoxCliente.Name = "cBoxCliente";
+            cBoxCliente.Size = new System.Drawing.Size(425, 28);
+            cBoxCliente.TabIndex = 2;
+            // 
+            // cBoxFuncionario
+            // 
+            cBoxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cBoxFuncionario.FormattingEnabled = true;
+            cBoxFuncionario.Location = new System.Drawing.Point(119, 69);
+            cBoxFuncionario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cBoxFuncionario.Name = "cBoxFuncionario";
+            cBoxFuncionario.Size = new System.Drawing.Size(425, 28);
+            cBoxFuncionario.TabIndex = 1;
+            // 
+            // cBoxVeiculo
+            // 
+            cBoxVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cBoxVeiculo.FormattingEnabled = true;
+            cBoxVeiculo.Location = new System.Drawing.Point(119, 111);
+            cBoxVeiculo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cBoxVeiculo.Name = "cBoxVeiculo";
+            cBoxVeiculo.Size = new System.Drawing.Size(425, 28);
+            cBoxVeiculo.TabIndex = 0;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            lblTitulo.Location = new System.Drawing.Point(234, 60);
+            lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new System.Drawing.Size(158, 25);
+            lblTitulo.TabIndex = 1;
+            lblTitulo.Text = "Register Rental";
+            // 
+            // brnConfirmar
+            // 
+            brnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            brnConfirmar.Location = new System.Drawing.Point(385, 580);
+            brnConfirmar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            brnConfirmar.Name = "brnConfirmar";
+            brnConfirmar.Size = new System.Drawing.Size(100, 35);
+            brnConfirmar.TabIndex = 18;
+            brnConfirmar.Text = "Submit";
+            brnConfirmar.UseVisualStyleBackColor = true;
+            brnConfirmar.Click += BrnConfirmar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCancelar.Location = new System.Drawing.Point(493, 580);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(100, 35);
+            btnCancelar.TabIndex = 19;
+            btnCancelar.Text = "Cancel";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // TelaLocacaoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 412);
-            this.Controls.Add(this.brnConfirmar);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.gBoxRegistro);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "TelaLocacaoForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Locadora de Veiculo";
-            this.gBoxRegistro.ResumeLayout(false);
-            this.gBoxRegistro.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(612, 634);
+            Controls.Add(brnConfirmar);
+            Controls.Add(btnCancelar);
+            Controls.Add(lblTitulo);
+            Controls.Add(gBoxRegistro);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "TelaLocacaoForm";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Car Rental App";
+            gBoxRegistro.ResumeLayout(false);
+            gBoxRegistro.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

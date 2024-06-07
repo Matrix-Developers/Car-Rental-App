@@ -19,16 +19,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Veiculos
             var colunas = new DataGridViewColumn[]
            {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "modelo", HeaderText = "Modelo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "grupoVeiculos", HeaderText = "Grupo"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "placa", HeaderText = "Placa"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "marca", HeaderText = "Marca"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "cor", HeaderText = "Cor"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "tipoCombustivel", HeaderText = "Combustivel"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "ano", HeaderText = "Ano"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "numeroPortas", HeaderText = "Qtd. Portas"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "capacidadePessoas", HeaderText = "Cap. Pessoas"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "tamanhoPortaMala", HeaderText = "Tam. Porta Malas"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "modelo", HeaderText = "Model"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "grupoVeiculos", HeaderText = "Grup"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "placa", HeaderText = "Sign"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "marca", HeaderText = "Brand"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "cor", HeaderText = "Colour"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "tipoCombustivel", HeaderText = "Fuel Type"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "ano", HeaderText = "Year"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "numeroPortas", HeaderText = "Num. of Doors"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "capacidadePessoas", HeaderText = "Num. of Seats"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "tamanhoPortaMala", HeaderText = "Trunk Size"}
            };
 
             return colunas;

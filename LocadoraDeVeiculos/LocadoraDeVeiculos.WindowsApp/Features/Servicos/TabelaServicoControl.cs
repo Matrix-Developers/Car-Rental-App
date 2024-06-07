@@ -21,11 +21,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Name"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "EhTaxadoDiario", HeaderText = "É taxado diário"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "EhTaxadoDiario", HeaderText = "Is Taxed Daily?"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Valor"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Value"},
             };
 
             return colunas;

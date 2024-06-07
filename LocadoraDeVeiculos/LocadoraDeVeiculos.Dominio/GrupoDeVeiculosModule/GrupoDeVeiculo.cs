@@ -43,28 +43,28 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
             string resultadoValidacao = "";
 
             if (this.nome.Length <= 0)
-                resultadoValidacao = "O nome não pode ser nulo\n";
+                resultadoValidacao = "The name field cannot be null.\n";
 
             if (this.taxaPlanoDiario <= 0f)
-                resultadoValidacao += "A taxa diaria do Plano Diário não pode ser nula\n";
+                resultadoValidacao += "The daily rate for the Daily Plan cannot be zero.\n";
 
             if (this.taxaPorKmDiario <= 0f)
-                resultadoValidacao += "A taxa por KM do Plano Diário não pode ser nula\n";
+                resultadoValidacao += "The rate per KM of the Daily Plan cannot be zero.\n";
 
             if (this.taxaPlanoControlado <= 0f)
-                resultadoValidacao += "A taxa diária do Plano Controlado não pode ser nula\n";
+                resultadoValidacao += "The daily rate of the Controlled Plan cannot be zero.\n";
 
             if (this.limiteKmControlado <= 0)
-                resultadoValidacao += "O limite de KM do plano Controlado não pode ser nulo\n";
+                resultadoValidacao += "The KM limit of the Controlled plan cannot be zero.\n";
 
             if (this.taxaKmExcedidoControlado <= 0f)
-                resultadoValidacao += "A taxa de KM Excedido do plano Controlado não pode ser nulo\n";
+                resultadoValidacao += "The Controlled plan's Exceeded KM rate cannot be zero.\n";
 
             if (this.taxaPlanoLivre <= 0f)
-                resultadoValidacao += "A taxa diária do do Plano Livre não pode ser nula\n";
+                resultadoValidacao += "The daily fee for the Free Plan cannot be zero.\n";
 
             if (resultadoValidacao.Length == 0)
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
 
             return resultadoValidacao;
         }
@@ -98,7 +98,7 @@ namespace LocadoraDeVeiculos.Dominio.GrupoDeVeiculosModule
 
         public override string ToString()
         {
-            return $"{id} {nome}";
+            return $"{nome}";
         }
     }
 }

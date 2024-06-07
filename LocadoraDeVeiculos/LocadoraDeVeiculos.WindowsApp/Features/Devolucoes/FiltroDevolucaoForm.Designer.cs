@@ -29,87 +29,92 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Devolucoes
         /// </summary>
         private void InitializeComponent()
         {
-            this.rdbDevolucoesConcluidas = new System.Windows.Forms.RadioButton();
-            this.rdbDevolucoesPendentes = new System.Windows.Forms.RadioButton();
-            this.rdbTodasDevolucoes = new System.Windows.Forms.RadioButton();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            rdbDevolucoesConcluidas = new System.Windows.Forms.RadioButton();
+            rdbDevolucoesPendentes = new System.Windows.Forms.RadioButton();
+            rdbTodasDevolucoes = new System.Windows.Forms.RadioButton();
+            btnCancelar = new System.Windows.Forms.Button();
+            btnGravar = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // rdbDevolucoesConcluidas
             // 
-            this.rdbDevolucoesConcluidas.AutoSize = true;
-            this.rdbDevolucoesConcluidas.Location = new System.Drawing.Point(49, 106);
-            this.rdbDevolucoesConcluidas.Name = "rdbDevolucoesConcluidas";
-            this.rdbDevolucoesConcluidas.Size = new System.Drawing.Size(226, 17);
-            this.rdbDevolucoesConcluidas.TabIndex = 9;
-            this.rdbDevolucoesConcluidas.TabStop = true;
-            this.rdbDevolucoesConcluidas.Text = "Visualizar somente devoluções concluídas";
-            this.rdbDevolucoesConcluidas.UseVisualStyleBackColor = true;
+            rdbDevolucoesConcluidas.AutoSize = true;
+            rdbDevolucoesConcluidas.Location = new System.Drawing.Point(65, 163);
+            rdbDevolucoesConcluidas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            rdbDevolucoesConcluidas.Name = "rdbDevolucoesConcluidas";
+            rdbDevolucoesConcluidas.Size = new System.Drawing.Size(244, 24);
+            rdbDevolucoesConcluidas.TabIndex = 9;
+            rdbDevolucoesConcluidas.TabStop = true;
+            rdbDevolucoesConcluidas.Text = "View only concluded Devolution";
+            rdbDevolucoesConcluidas.UseVisualStyleBackColor = true;
             // 
             // rdbDevolucoesPendentes
             // 
-            this.rdbDevolucoesPendentes.AutoSize = true;
-            this.rdbDevolucoesPendentes.Location = new System.Drawing.Point(49, 72);
-            this.rdbDevolucoesPendentes.Name = "rdbDevolucoesPendentes";
-            this.rdbDevolucoesPendentes.Size = new System.Drawing.Size(223, 17);
-            this.rdbDevolucoesPendentes.TabIndex = 8;
-            this.rdbDevolucoesPendentes.TabStop = true;
-            this.rdbDevolucoesPendentes.Text = "Visualizar somente devoluções pendentes";
-            this.rdbDevolucoesPendentes.UseVisualStyleBackColor = true;
+            rdbDevolucoesPendentes.AutoSize = true;
+            rdbDevolucoesPendentes.Location = new System.Drawing.Point(65, 111);
+            rdbDevolucoesPendentes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            rdbDevolucoesPendentes.Name = "rdbDevolucoesPendentes";
+            rdbDevolucoesPendentes.Size = new System.Drawing.Size(236, 24);
+            rdbDevolucoesPendentes.TabIndex = 8;
+            rdbDevolucoesPendentes.TabStop = true;
+            rdbDevolucoesPendentes.Text = "View only pending Devolutions";
+            rdbDevolucoesPendentes.UseVisualStyleBackColor = true;
             // 
             // rdbTodasDevolucoes
             // 
-            this.rdbTodasDevolucoes.AutoSize = true;
-            this.rdbTodasDevolucoes.Location = new System.Drawing.Point(49, 38);
-            this.rdbTodasDevolucoes.Name = "rdbTodasDevolucoes";
-            this.rdbTodasDevolucoes.Size = new System.Drawing.Size(170, 17);
-            this.rdbTodasDevolucoes.TabIndex = 7;
-            this.rdbTodasDevolucoes.TabStop = true;
-            this.rdbTodasDevolucoes.Text = "Visualizar todas as devoluções";
-            this.rdbTodasDevolucoes.UseVisualStyleBackColor = true;
+            rdbTodasDevolucoes.AutoSize = true;
+            rdbTodasDevolucoes.Location = new System.Drawing.Point(65, 58);
+            rdbTodasDevolucoes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            rdbTodasDevolucoes.Name = "rdbTodasDevolucoes";
+            rdbTodasDevolucoes.Size = new System.Drawing.Size(165, 24);
+            rdbTodasDevolucoes.TabIndex = 7;
+            rdbTodasDevolucoes.TabStop = true;
+            rdbTodasDevolucoes.Text = "View all Devolutions";
+            rdbTodasDevolucoes.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(338, 156);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCancelar.Location = new System.Drawing.Point(451, 240);
+            btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new System.Drawing.Size(100, 35);
+            btnCancelar.TabIndex = 11;
+            btnCancelar.Text = "Cancel";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnGravar
             // 
-            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(257, 156);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 10;
-            this.btnGravar.Text = "Filtrar";
-            this.btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnGravar.Location = new System.Drawing.Point(343, 240);
+            btnGravar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new System.Drawing.Size(100, 35);
+            btnGravar.TabIndex = 10;
+            btnGravar.Text = "Filter";
+            btnGravar.UseVisualStyleBackColor = true;
             // 
             // FiltroDevolucaoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 191);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.rdbDevolucoesConcluidas);
-            this.Controls.Add(this.rdbDevolucoesPendentes);
-            this.Controls.Add(this.rdbTodasDevolucoes);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FiltroDevolucaoForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Filtrar Devolucao";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(567, 294);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
+            Controls.Add(rdbDevolucoesConcluidas);
+            Controls.Add(rdbDevolucoesPendentes);
+            Controls.Add(rdbTodasDevolucoes);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FiltroDevolucaoForm";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Filter Vehicle Devolution";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -4,12 +4,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Funcionarios
 {
     public class ConfiguracaoFuncionarioToolBox : IConfiguracaoToolBox
     {
-        public string TipoCadastro { get { return "Cadastro de Funcionários"; } }
+        public string TipoCadastro { get { return "Employee Register"; } }
 
-        public string ToolTipAdicionar { get { return "Adicionar um Funcionário"; } }
+        public string ToolTipAdicionar { get { return "Add Employee"; } }
 
-        public string ToolTipEditar { get { return "Editar um Funcionário"; } }
+        public string ToolTipEditar { get { return "Edit Employee"; } }
 
-        public string ToolTipExcluir { get { return "Excluir um Funcionário"; } }
+        public string ToolTipExcluir { get { return "Delete Employee"; } }
     }
 }

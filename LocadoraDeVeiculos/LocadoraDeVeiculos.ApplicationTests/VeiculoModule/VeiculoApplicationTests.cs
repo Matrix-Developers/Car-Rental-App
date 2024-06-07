@@ -253,6 +253,12 @@ namespace LocadoraDeVeiculos.ApplicationTests.VeiculoModule
                 .ComAlocaoAtiva(verdade)
                 .Build();
             Mock<IRepository<Veiculo>> veiculoMock = new();
+            veiculoMock.Setup(x => x.SelecionarPorId(veiculo.Id))
+                .Returns(() =>
+                {
+                    return veiculo;
+                });
+
             veiculoMock.Setup(x => x.Excluir(veiculo.Id))
                 .Returns(() =>
                 {

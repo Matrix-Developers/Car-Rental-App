@@ -26,11 +26,11 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
         {
             string resultadoValidacao = "";
             if (this.Nome.Length == 0)
-                resultadoValidacao = "O nome não pode ser nulo\n";
+                resultadoValidacao = "The name field cannot be null.\n";
             if (this.Valor <= 0)
-                resultadoValidacao += "O valor não pode ser nulo";
+                resultadoValidacao += "The value cannot be null.";
             if (resultadoValidacao.Length == 0)
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
             return resultadoValidacao;
         }
 
@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.Dominio.SevicosModule
 
         public override string ToString()
         {
-            return $"[{id}, {Nome}, {EhTaxadoDiario}, {Valor}]";
+            return $"{Nome}, {Valor}";
         }
     }
 }

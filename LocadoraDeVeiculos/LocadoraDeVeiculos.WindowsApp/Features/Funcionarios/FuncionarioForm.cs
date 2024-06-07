@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
 
             string resultadoValidacao = funcionario.Validar();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);

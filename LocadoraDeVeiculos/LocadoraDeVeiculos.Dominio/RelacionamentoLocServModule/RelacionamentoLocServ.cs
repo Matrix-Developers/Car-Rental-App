@@ -30,11 +30,11 @@ namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
         {
             string resultadoValidacao = "";
             if (Locacao.Id == 0)
-                resultadoValidacao = "ID de locação inválido";
+                resultadoValidacao = "Invalid rental ID.";
             if (Servicos == null)
-                resultadoValidacao = "Nenhum serviço selecionado";
+                resultadoValidacao = "No services selected.";
             if (resultadoValidacao == "")
-                resultadoValidacao = "VALIDO";
+                resultadoValidacao = "VALID";
             return resultadoValidacao;
         }
 
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Dominio.RelacionamentoLocServModule
         }
         public override string ToString()
         {
-            return $"{id} {Locacao} {Servicos}";
+            return $"{Locacao}, {Servicos}";
         }
 
         public override bool Equals(object obj)

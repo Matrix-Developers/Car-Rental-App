@@ -64,7 +64,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         {
             if (rBtnValorFixo.Checked == true)
             {
-                lbValor.Text = "Valor";
+                lbValor.Text = "Value";
                 lbValor.Location = new Point(83, 249);
                 numUpDownValor.Maximum = 15000;
             }
@@ -74,7 +74,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         {
             if (rBtnPorcentagem.Checked == true)
             {
-                lbValor.Text = "Porcentagem";
+                lbValor.Text = "Percentage";
                 lbValor.Location = new Point(44, 249);
                 numUpDownValor.Maximum = 100;
             }
@@ -101,7 +101,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             string resultadoValidacao = cupom.Validar();
 
-            if (resultadoValidacao != "VALIDO")
+            if (resultadoValidacao != "VALID")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 

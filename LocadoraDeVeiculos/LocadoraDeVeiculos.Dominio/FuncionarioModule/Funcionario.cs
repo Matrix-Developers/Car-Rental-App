@@ -47,29 +47,29 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         {
             string resultadoValidação = "";
             if (UsuarioAcesso == "admin")
-                return "VALIDO";
+                return "VALID";
             if (UsuarioAcesso.Length == 0)
-                resultadoValidação += "O usuário de acesso não pode estar vazio\n";
+                resultadoValidação += "The Username cannot be empty\n";
             if (MatriculaInterna <= 0)
                 resultadoValidação += "Matricula inválida\n";
             if (Salario <= 0)
-                resultadoValidação += "O salário deve ser maior que R$ 0,00\n";
+                resultadoValidação += "The salary must be a value bigger than $ 0,00\n";
             if (Cargo.Length == 0)
-                resultadoValidação += "O funcionário deve possuir um cargo\n";
+                resultadoValidação += "The employee must have a role\n";
             if (DataAdmissao > DateTime.Now.AddMonths(2))
-                resultadoValidação += "Data de admissão inválida\n";
-            if (Senha.Length <= 3)
-                resultadoValidação += "A senha não pode ser menor que três caracteres\n";
-            if (base.ValidarPessoa() != "VALIDO")
+                resultadoValidação += "Invalid admission date\n";
+            if (Senha.Length < 3)
+                resultadoValidação += "The password length cannot be smaller than 3 digits\n";
+            if (base.ValidarPessoa() != "VALID")
                 resultadoValidação += base.ValidarPessoa();
             if (resultadoValidação == "")
-                resultadoValidação += "VALIDO";
+                resultadoValidação += "VALID";
             return resultadoValidação;
         }
 
         public override string ToString()
         {
-            return $" {id} {Nome} {MatriculaInterna} {Telefone} {UsuarioAcesso} {Cargo}";
+            return $"{Nome}, {MatriculaInterna}, {Telefone}, {Cargo}";
         }
 
         public override bool Equals(object obj)

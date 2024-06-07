@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.UnitTests.LocacaoModule
 
             string resultado = locacao.Validar();
 
-            resultado.Should().Be("VALIDO");
+            resultado.Should().Be("VALID");
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace LocadoraDeVeiculos.UnitTests.LocacaoModule
 
             string resultado = locacao.Validar();
 
-            resultado.Should().Be("VALIDO");
+            resultado.Should().Be("VALID");
         }
 
         [TestMethod]
@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.UnitTests.LocacaoModule
 
             string resultado = locacao.Validar();
 
-            resultado.Should().Be("VALIDO");
+            resultado.Should().Be("VALID");
         }
 
         [TestMethod]

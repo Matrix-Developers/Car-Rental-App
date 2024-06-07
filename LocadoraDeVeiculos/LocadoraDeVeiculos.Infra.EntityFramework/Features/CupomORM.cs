@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario Tempo: ?? / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), cupom.Id, cupom.QtdUtilizada, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Código um(a) {Feature} / Layer: Repository / Id Processo: {IdProcesso} / User: IdUsuario Tempo: ?? / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), cupom.Id, cupom.QtdUtilizada, ex);
             }
         }
 
@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Verificar se Existe o Código o(a) {Feature} / Camada: Repository / Usuário: IdUsuario Tempo: ?? / Sql: query / {StackTrace}", DateTime.Now, this.ToString(),  ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Verificar se Existe o Código o(a) {Feature} / Layer: Repository / User: IdUsuario Tempo: ?? / Sql: query / {StackTrace}", DateTime.Now, this.ToString(),  ex);
                 return false;
             }
         }
@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Id um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Selecionar Por Id um(a) {Feature} / Layer: Repository / Id Processo: {IdProcesso} / User: IdUsuario / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), ex);
                 return null;
             }
         }

@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Infra.EntityFramework.Features
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Editar  um(a) {Feature} / Camada: Repository / Id Processo: {IdProcesso} / Usuário: IdUsuario / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), registro.Id, ex);
+                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Editar  um(a) {Feature} / Layer: Repository / Id Processo: {IdProcesso} / User: IdUsuario / Sql: query / {StackTrace}", DateTime.Now, this.ToString(), registro.Id, ex);
                 return false;
             }
             return true;
