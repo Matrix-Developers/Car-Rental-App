@@ -134,14 +134,14 @@ namespace LocadoraDeVeiculos.WindowsApp
             // locarToolStripMenuItem
             // 
             locarToolStripMenuItem.Name = "locarToolStripMenuItem";
-            locarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            locarToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             locarToolStripMenuItem.Text = "Rentals";
             locarToolStripMenuItem.Click += LocarToolStripMenuItem_Click;
             // 
             // devoluçãoToolStripMenuItem
             // 
             devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             devoluçãoToolStripMenuItem.Text = "Devolution";
             devoluçãoToolStripMenuItem.Click += DevoluçãoToolStripMenuItem_Click;
             // 
@@ -272,6 +272,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             Controls.Add(toolBoxAcoes);
             Controls.Add(menuStrip1);
             Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            MinimumSize = new System.Drawing.Size(1078, 947);
             Name = "TelaPrincipalForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Car Rental App";
