@@ -128,9 +128,9 @@ namespace LocadoraDeVeiculos.ORMTests.Shared
         private void InserirLocacoes()
         {
             //bug ClienteId e Lista de Servico 
-            locacao1 = new Locacao(0, clio, beto, condutorPedro, condutorPedro, descontaoDoDeko, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", servicos);
-            locacao2 = new Locacao(0, fusca, joao, condutorBruno, condutorBruno, cupombrabo, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", null);
-            locacao3 = new Locacao(0, kicks, mario, condutorMaria, condutorMaria, nddtech, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "Nenhum", null);
+            locacao1 = new Locacao(0, clio, beto, condutorPedro, condutorPedro, descontaoDoDeko, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "None", servicos);
+            locacao2 = new Locacao(0, fusca, joao, condutorBruno, condutorBruno, cupombrabo, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "None", null);
+            locacao3 = new Locacao(0, kicks, mario, condutorMaria, condutorMaria, nddtech, DateTime.Today, DateTime.Today.AddDays(5f), "KmLivre", "None", null);
 
             controlador.InserirNovo(locacao1);
             controlador.InserirNovo(locacao2);

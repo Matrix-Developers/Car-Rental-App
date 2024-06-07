@@ -266,7 +266,7 @@ namespace LocadoraDeVeiculos.ApplicationTests.LocacaoModule
         private void ConfigurarPlanosESeguro()
         {
             planoDiario = "PlanoDiario";
-            seguroCliente = "SeguroCliente";
+            seguroCliente = "ClientInsurance";
         }
 
         private void InserirClientes()

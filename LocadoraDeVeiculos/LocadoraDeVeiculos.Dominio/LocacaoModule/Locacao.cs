@@ -26,8 +26,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         private DateTime dataDeSaida;
         private DateTime dataPrevistaDeChegada;
         private DateTime dataDeChegada;
-        private string tipoDoPlano;         //PlanoDiario, KmControlado ou KmLivre
-        private string tipoDeSeguro;    //SeguroCliente, SeguroTerceiro ou Nenhum
+        private string tipoDoPlano;
+        private string tipoDeSeguro;
         private double precoLocacao;
         private double precoDevolucao;
         private bool estaAberta;
@@ -172,7 +172,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             if (!this.tipoDoPlano.Equals("PlanoDiario") && !this.tipoDoPlano.Equals("KmControlado") && !this.tipoDoPlano.Equals("KmLivre"))
                 resultadoValidacao += "The plan type is invalid.\n";
 
-            if (!this.tipoDeSeguro.Equals("SeguroCliente") && !this.tipoDeSeguro.Equals("SeguroTerceiro") && !this.tipoDeSeguro.Equals("Nenhum"))
+            if (!this.tipoDeSeguro.Equals("ClientInsurance") && !this.tipoDeSeguro.Equals("ThirdPartyInsurance") && !this.tipoDeSeguro.Equals("None"))
                 resultadoValidacao += "The insurance type is invalid.\n";
 
             if (this.DataDeSaida >= this.DataPrevistaDeChegada)
