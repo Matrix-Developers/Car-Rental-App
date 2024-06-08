@@ -107,7 +107,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             // 
             menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { inícioToolStripMenuItem, toolStripMenuItem1, locaçaoToolStripMenuItem, descontosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { inícioToolStripMenuItem, toolStripMenuItem1, descontosToolStripMenuItem, locaçaoToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(5, 3, 0, 3);
@@ -147,7 +147,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             // 
             // descontosToolStripMenuItem
             // 
-            descontosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { cuponsToolStripMenuItem, parceirosToolStripMenuItem });
+            descontosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { parceirosToolStripMenuItem, cuponsToolStripMenuItem });
             descontosToolStripMenuItem.Name = "descontosToolStripMenuItem";
             descontosToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             descontosToolStripMenuItem.Text = "Discount";

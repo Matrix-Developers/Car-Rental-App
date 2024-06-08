@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             lbValidade.AutoSize = true;
             lbValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbValidade.ForeColor = System.Drawing.Color.Black;
-            lbValidade.Location = new System.Drawing.Point(75, 417);
+            lbValidade.Location = new System.Drawing.Point(86, 415);
             lbValidade.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lbValidade.Name = "lbValidade";
             lbValidade.Size = new System.Drawing.Size(53, 17);
@@ -102,7 +102,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             lbValorMinimo.AutoSize = true;
             lbValorMinimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbValorMinimo.ForeColor = System.Drawing.Color.Black;
-            lbValorMinimo.Location = new System.Drawing.Point(40, 372);
+            lbValorMinimo.Location = new System.Drawing.Point(39, 372);
             lbValorMinimo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lbValorMinimo.Name = "lbValorMinimo";
             lbValorMinimo.Size = new System.Drawing.Size(100, 17);
@@ -126,7 +126,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             labelCodigo.AutoSize = true;
             labelCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             labelCodigo.ForeColor = System.Drawing.Color.Black;
-            labelCodigo.Location = new System.Drawing.Point(92, 238);
+            labelCodigo.Location = new System.Drawing.Point(98, 238);
             labelCodigo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             labelCodigo.Name = "labelCodigo";
             labelCodigo.Size = new System.Drawing.Size(41, 17);
@@ -138,7 +138,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             lbNome.AutoSize = true;
             lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbNome.ForeColor = System.Drawing.Color.Black;
-            lbNome.Location = new System.Drawing.Point(95, 199);
+            lbNome.Location = new System.Drawing.Point(94, 198);
             lbNome.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lbNome.Name = "lbNome";
             lbNome.Size = new System.Drawing.Size(45, 17);
@@ -220,7 +220,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // lblParceiro
             // 
             lblParceiro.AutoSize = true;
-            lblParceiro.Location = new System.Drawing.Point(73, 460);
+            lblParceiro.Location = new System.Drawing.Point(84, 459);
             lblParceiro.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lblParceiro.Name = "lblParceiro";
             lblParceiro.Size = new System.Drawing.Size(55, 20);
