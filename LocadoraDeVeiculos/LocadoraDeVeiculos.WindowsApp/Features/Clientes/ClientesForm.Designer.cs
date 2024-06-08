@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             // 
             // label8
             // 
-            label8.AutoSize = true;
+            label8.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label8.ForeColor = System.Drawing.Color.Black;
             label8.Location = new System.Drawing.Point(130, 25);
@@ -65,6 +65,7 @@ namespace LocadoraDeVeiculos.WindowsApp.ClientesModule
             label8.Size = new System.Drawing.Size(153, 25);
             label8.TabIndex = 26;
             label8.Text = "Register Client";
+            label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // radioButton1
             // 

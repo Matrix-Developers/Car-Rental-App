@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
         private string planoKmControlado;
 
         private string seguroCliente;
-        private string seguroNenhum;
+        private string seguroNone;
 
         private DateTime hoje;
         private DateTime amanha;
@@ -168,7 +168,7 @@ namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
                 .ComDataDeChegada()
                 .ComDataPrevistaDeChegada(daquiDezDias)
                 .ComTipoDoPlano(planoKmControlado)
-                .ComTipoDoSeguro(seguroNenhum)
+                .ComTipoDoSeguro(seguroNone)
                 .ComServicos(null)
                 .Build();
 
@@ -314,8 +314,8 @@ namespace LocadoraDeVeiculos.ORMTests.LocacaoModule
 
         private void ConfigurarSeguro()
         {
-            seguroCliente = "SeguroCliente";
-            seguroNenhum = "Nenhum";
+            seguroCliente = "ClientInsurance";
+            seguroNone = "None";
         }
 
         private void InserirClientes()

@@ -21,9 +21,9 @@ namespace LocadoraDeVeiculos.Dominio.Shared
         public static double CalcularSeguro(string tipoSeguro)
         {
             double valorFinal;
-            if (tipoSeguro.Equals("SeguroCliente"))
+            if (tipoSeguro.Equals("ClientInsurance"))
                 valorFinal = VALOR_SEGURO_CLIENTE;
-            else if (tipoSeguro.Equals("SeguroTerceiro"))
+            else if (tipoSeguro.Equals("ThirdPartyInsurance"))
                 valorFinal = VALOR_SEGURO_TERCEIRO;
             else
                 valorFinal = 0;

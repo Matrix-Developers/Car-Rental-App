@@ -227,15 +227,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             // 
             // lblCadastroServico
             // 
-            lblCadastroServico.AutoSize = true;
+            lblCadastroServico.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             lblCadastroServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             lblCadastroServico.ForeColor = System.Drawing.Color.Black;
-            lblCadastroServico.Location = new System.Drawing.Point(40, 29);
+            lblCadastroServico.Location = new System.Drawing.Point(1, 30);
             lblCadastroServico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblCadastroServico.Name = "lblCadastroServico";
-            lblCadastroServico.Size = new System.Drawing.Size(220, 25);
+            lblCadastroServico.Size = new System.Drawing.Size(319, 25);
             lblCadastroServico.TabIndex = 53;
-            lblCadastroServico.Text = "Cadastro de Serviços";
+            lblCadastroServico.Text = "Register Services";
+            lblCadastroServico.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // TelaServicoForm
             // 
@@ -260,7 +261,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Servicos
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

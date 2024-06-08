@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             // 
             // labelTitulo
             // 
-            labelTitulo.AutoSize = true;
+            labelTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             labelTitulo.ForeColor = System.Drawing.Color.Black;
             labelTitulo.Location = new System.Drawing.Point(162, 51);
@@ -49,6 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             labelTitulo.Size = new System.Drawing.Size(167, 25);
             labelTitulo.TabIndex = 65;
             labelTitulo.Text = "Register Partner";
+            labelTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbPlaca
             // 

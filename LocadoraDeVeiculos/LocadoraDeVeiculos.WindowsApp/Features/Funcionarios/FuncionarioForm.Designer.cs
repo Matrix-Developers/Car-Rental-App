@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             lbNome.AutoSize = true;
             lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbNome.ForeColor = System.Drawing.Color.Black;
-            lbNome.Location = new System.Drawing.Point(47, 62);
+            lbNome.Location = new System.Drawing.Point(47, 64);
             lbNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbNome.Name = "lbNome";
             lbNome.Size = new System.Drawing.Size(45, 17);
@@ -115,7 +115,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             lbEmail.AutoSize = true;
             lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbEmail.ForeColor = System.Drawing.Color.Black;
-            lbEmail.Location = new System.Drawing.Point(50, 221);
+            lbEmail.Location = new System.Drawing.Point(50, 225);
             lbEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbEmail.Name = "lbEmail";
             lbEmail.Size = new System.Drawing.Size(42, 17);
@@ -180,7 +180,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             lbCargo.AutoSize = true;
             lbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbCargo.ForeColor = System.Drawing.Color.Black;
-            lbCargo.Location = new System.Drawing.Point(351, 182);
+            lbCargo.Location = new System.Drawing.Point(352, 182);
             lbCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbCargo.Name = "lbCargo";
             lbCargo.Size = new System.Drawing.Size(37, 17);
@@ -192,19 +192,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             lbSalario.AutoSize = true;
             lbSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbSalario.ForeColor = System.Drawing.Color.Black;
-            lbSalario.Location = new System.Drawing.Point(340, 221);
+            lbSalario.Location = new System.Drawing.Point(336, 221);
             lbSalario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbSalario.Name = "lbSalario";
-            lbSalario.Size = new System.Drawing.Size(48, 17);
+            lbSalario.Size = new System.Drawing.Size(52, 17);
             lbSalario.TabIndex = 43;
-            lbSalario.Text = "Salary";
+            lbSalario.Text = "Salary ";
             // 
             // lbUsuAcesso
             // 
             lbUsuAcesso.AutoSize = true;
             lbUsuAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbUsuAcesso.ForeColor = System.Drawing.Color.Black;
-            lbUsuAcesso.Location = new System.Drawing.Point(315, 65);
+            lbUsuAcesso.Location = new System.Drawing.Point(316, 67);
             lbUsuAcesso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbUsuAcesso.Name = "lbUsuAcesso";
             lbUsuAcesso.Size = new System.Drawing.Size(73, 17);
@@ -228,7 +228,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Funcionarios
             lbDataAdmissao.AutoSize = true;
             lbDataAdmissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             lbDataAdmissao.ForeColor = System.Drawing.Color.Black;
-            lbDataAdmissao.Location = new System.Drawing.Point(282, 145);
+            lbDataAdmissao.Location = new System.Drawing.Point(283, 142);
             lbDataAdmissao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbDataAdmissao.Name = "lbDataAdmissao";
             lbDataAdmissao.Size = new System.Drawing.Size(106, 17);

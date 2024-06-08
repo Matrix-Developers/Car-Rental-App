@@ -107,7 +107,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             // 
             menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { inícioToolStripMenuItem, toolStripMenuItem1, locaçaoToolStripMenuItem, descontosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { inícioToolStripMenuItem, toolStripMenuItem1, descontosToolStripMenuItem, locaçaoToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(5, 3, 0, 3);
@@ -134,20 +134,20 @@ namespace LocadoraDeVeiculos.WindowsApp
             // locarToolStripMenuItem
             // 
             locarToolStripMenuItem.Name = "locarToolStripMenuItem";
-            locarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            locarToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             locarToolStripMenuItem.Text = "Rentals";
             locarToolStripMenuItem.Click += LocarToolStripMenuItem_Click;
             // 
             // devoluçãoToolStripMenuItem
             // 
             devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             devoluçãoToolStripMenuItem.Text = "Devolution";
             devoluçãoToolStripMenuItem.Click += DevoluçãoToolStripMenuItem_Click;
             // 
             // descontosToolStripMenuItem
             // 
-            descontosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { cuponsToolStripMenuItem, parceirosToolStripMenuItem });
+            descontosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { parceirosToolStripMenuItem, cuponsToolStripMenuItem });
             descontosToolStripMenuItem.Name = "descontosToolStripMenuItem";
             descontosToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             descontosToolStripMenuItem.Text = "Discount";
@@ -272,6 +272,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             Controls.Add(toolBoxAcoes);
             Controls.Add(menuStrip1);
             Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            MinimumSize = new System.Drawing.Size(1078, 947);
             Name = "TelaPrincipalForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Car Rental App";

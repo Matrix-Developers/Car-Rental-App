@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         public void InserirNovoRegistro()
         {
             Log.Logger.Information("{DataEHora} / {Feature} / Layer: {Layer} / Module: {Modulo} / User: {UsuarioLogado}", DateTime.Now, this.ToString(), "Apresentação", "Insert", TelaPrincipalForm.FuncionarioLogado);
-            TelaCupomForm tela = new("Insert Coupon", parceiroAppService);
+            TelaCupomForm tela = new("Register Coupon", parceiroAppService);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
