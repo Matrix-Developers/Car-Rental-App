@@ -29,34 +29,34 @@ namespace LocadoraDeVeiculos.Controladores.Shared
             string subpath = @"c:\Car Rental App\Recibos\";
             System.IO.Directory.CreateDirectory(subpath);
 
-            string arquivo = $@"{subpath}Recibo{locacao.Id}.pdf";
-            string titulo = $"Recibo Locadora de Veículos - Locação {locacao.Id}";
+            string arquivo = $@"{subpath}Receipt{locacao.Id}.pdf";
+            string titulo = $"Receipt Car Rental App - Rental ID: {locacao.Id}";
 
             List<string> linhas = new()
             {
-                $"• Detalhes da Locação:",
-                $"      - Seguro selecionado: {locacao.TipoDeSeguro}",
-                $"      - Plano selecionado: {locacao.TipoDoPlano}",
-                $"      - Data de locação: {locacao.DataDeSaida.Date:dd/MM/yyyy}",
-                $"      - Data prevista de devolução: {locacao.DataPrevistaDeChegada.Date:dd/MM/yyyy}",
-                $"      - Preco inicial da locação: R${locacao.PrecoLocacao}",
-                $"• Cliente contratante:",
-                $"      - Nome: {locacao.ClienteContratante.Nome}",
-                $"      - Registro Único: {locacao.ClienteContratante.RegistroUnico}",
+                $"• Rental Details:",
+                $"      - Insurance selected: {locacao.TipoDeSeguro}",
+                $"      - Plan selected: {locacao.TipoDoPlano}",
+                $"      - Rental date: {locacao.DataDeSaida.Date:dd/MM/yyyy}",
+                $"      - Expected return date: {locacao.DataPrevistaDeChegada.Date:dd/MM/yyyy}",
+                $"      - Initial rental price: ${locacao.PrecoLocacao}",
+                $"• Contracting Client:",
+                $"      - Name: {locacao.ClienteContratante.Nome}",
+                $"      - Unique registry: {locacao.ClienteContratante.RegistroUnico}",
                 $"      - Email: {locacao.ClienteContratante.Email}",
-                $"• Cliente condutor:",
-                $"      - Nome: {locacao.ClienteCondutor.Nome}",
-                $"      - Registro Único: {locacao.ClienteCondutor.RegistroUnico}",
+                $"• Conducting Client:",
+                $"      - Name: {locacao.ClienteCondutor.Nome}",
+                $"      - Unique registry {locacao.ClienteCondutor.RegistroUnico}",
                 $"      - Email: {locacao.ClienteCondutor.Email}",
                 $"      - CNH: {locacao.ClienteCondutor.Cnh}",
-                $"• Veículo locado:",
-                $"      - Modelo: {locacao.Veiculo.modelo}",
-                $"      - Marca: {locacao.Veiculo.marca}",
-                $"      - Placa: {locacao.Veiculo.placa}",
-                $"      - Ano: {locacao.Veiculo.ano}",
-                $"      - Cor: {locacao.Veiculo.cor}",
-                $"      - Número de portas: {locacao.Veiculo.numeroPortas}",
-                $"      - Kilometragem atual: {locacao.Veiculo.kilometragem} km"
+                $"• Rented Vehicle:",
+                $"      - Model: {locacao.Veiculo.modelo}",
+                $"      - Brand: {locacao.Veiculo.marca}",
+                $"      - Sign: {locacao.Veiculo.placa}",
+                $"      - Year: {locacao.Veiculo.ano}",
+                $"      - Collour: {locacao.Veiculo.cor}",
+                $"      - Number of doors: {locacao.Veiculo.numeroPortas}",
+                $"      - Current Mileage: {locacao.Veiculo.kilometragem} km"
             };
             try
             {
@@ -65,7 +65,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
             }
             catch (Exception ex)
             {
-                Log.Error("{DataEHora} / Ocorreu um erro ao tentar Gerar o PDF o(a) {Feature} / Layer: Shared / User: IdUsuario Tempo: ?? / {StackTrace}", DateTime.Now, this.ToString(), ex);
+                Log.Error("{DataEHora} / An error occurred when trying to generate the PDF {Feature} / Layer: Shared / {StackTrace}", DateTime.Now, this.ToString(), ex);
             }
         }
 
