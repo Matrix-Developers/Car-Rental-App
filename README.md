@@ -43,6 +43,7 @@ The Dashboard allows the user to view the most important information on the Car 
 
 ### Records Tab
 This tab allows the managemenet most basic data entries related to a rental, including Employees, Clients, Services, Groups of Vehicles, Vehicles
+
 ![image](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/7c9e3157-e492-44ec-b43e-504be4117187)
 
 ![Vehicles](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/95700d67-4350-4181-b5fc-bd2dae8e770d)
