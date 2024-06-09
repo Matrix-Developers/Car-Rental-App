@@ -1,7 +1,7 @@
 # Car Rental App
 The Car Rental App is a complete Windows Forms C# .NET CRUD application with almost market-level business logic used to manage the rental of vehicles on a Car Rental Store. As a CRUD application, it allows to create, read, update, and delete data entries from Employees, Clients, Services, Cupons, Partners, Groups of Vehicles, Vehicles, Rentals and Devolutions. To manage the data entries, a valid registered employee must log using valid credentials.
 
-The app uses Entity Framework ORM for the Database Integration to allow better data scalability and maintenance.
+The app uses Entity Framework ORM for the SQL Database Integration, to allow better data scalability and maintenance.
 
 Many other auxiliary libraries were also used, including: "Serilog" for logs, "Moq" for tests that require the use of a mock, "Autofac" for dependency injection and "PdfSharp" for the PDFs of the rental receips.
 
