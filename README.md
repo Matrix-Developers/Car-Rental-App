@@ -61,13 +61,31 @@ You can register new entries or update and delete existing ones. For register an
 
 
 ### Discounts Tab 
-Discounts are an optional feature that allows user to get discounts when applying for a car rental. This tabs allow to manage the data entry related to the coupon and his coupons.
+Discounts are an optional feature that allows user to get discounts when applying for a car rental. This tabs allow to manage the data entry related partners and their coupons.
 
 ![image](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/f02cc02d-719b-4db5-9a8e-7a1f226725e9)
-![cupouns](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/5e2bc618-c056-4e9b-91fe-c8af802f30f7)
+![image](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/b8ef82d6-6cc3-4d9e-a0bd-a3d945656ca0)
 ![Register Partner](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/5eae0b76-65d7-45cd-8c08-3bc96e854553)
 ![Register Cupoun](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/9fab7d29-3f6d-4416-addc-70c4e593b36b)
 
 
 ### Rental Tab
-todo
+The Rental tab allows start and finish the the lease of an existing car.
+
+![image](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/b82a5be4-4aa8-4975-8a46-c47e9742192d)
+
+
+To start to rent a car, go to the sub-tab "Rents" and register a new one for a available car to a client for using an expecific type of renting plan and for a determined ammount of time, using multiple optional features like services, insurance a coupons if desired. 
+![image](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/99f41983-945e-46e0-b3fb-855b425f9906)
+![Resgister Rental](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/8031d250-a33f-4b4c-b2ef-e9c2f18a606f)
+![image](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/40559d81-694c-4f4c-b176-decb0103b1ec)
+
+After sucessfully renting a car, a PDF receip will appear on the folder "C:\Car Rental App\Recibos" on your computer.
+
+![rental receipt](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/ee919e37-0a08-4d47-b6b1-3ee0a085c78d)
+
+To finish an existig rent, go the sub-tab "Devolution" and choose an open car rent. Here the final value is calculed based on choosen plan type, previous applied coupons, the car milleage, aditional services and how much of gas the car has in the tank.
+
+![Register Devolution](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/722650ea-762f-41c8-8bb6-5fdb2d5161c9)
+
+
