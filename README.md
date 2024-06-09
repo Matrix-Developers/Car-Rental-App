@@ -34,7 +34,7 @@ To actually open the Car Rental App, you must enter a valid username and passwor
 
 ### Dashboard
 The Dashboard allows the user to view the most important information on the Car Rental App:
-- In the "Vehicle" Area, its possible to visualize the ammount of registered Cars, how many are available (able to rent) and unavailable ( curently rented).
+- In the "Vehicle" Area, its possible to visualize the ammount of registered Cars, how many are available (able to rent) and unavailable (curently rented).
 - In the "Client" Area, its possible to visualize the ammount of registered clients and how many of them are either legal or natural entities.
 - In the "Rental" Area, its possible to visuazlie the ammount total ammount of car rents accomplished, how many of the open leases return today and how many return in at least 7 days.
 - In the "Services" Area, its possibile to visualize the total ammount of registered rental services
@@ -70,7 +70,8 @@ Discounts are an optional feature that allows user to get discounts when applyin
 
 
 ### Rental Tab
-The Rental tab allows start and finish the the lease of an existing car.
+The Rental tab allows start and finish the the rental of an existing car.
+
 
 ![image](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/b82a5be4-4aa8-4975-8a46-c47e9742192d)
 
@@ -80,11 +81,11 @@ To start to rent a car, go to the sub-tab "Rents" and register a new one for a a
 ![Resgister Rental](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/8031d250-a33f-4b4c-b2ef-e9c2f18a606f)
 ![image](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/40559d81-694c-4f4c-b176-decb0103b1ec)
 
-After sucessfully renting a car, a PDF receip will appear on the folder "C:\Car Rental App\Recibos" on your computer.
+After sucessfully renting a car, a PDF receip will appear on the folder "C:\Car Rental App\Recibos" on your computer and the car will become unavailable util his Devolution.
 
 ![rental receipt](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/ee919e37-0a08-4d47-b6b1-3ee0a085c78d)
 
-To finish an existig rent, go the sub-tab "Devolution" and choose an open car rent. Here the final value is calculed based on choosen plan type, previous applied coupons, the car milleage, aditional services and how much of gas the car has in the tank.
+To finish an existig rent, go the sub-tab "Devolution" and choose an open car rent. Here the final value is calculed based on choosen plan type, previous applied coupons, the car milleage, aditional services and how much of gas the car has in the tank. After the Devolution is registered, the car can be rented again. 
 
 ![Register Devolution](https://github.com/Matrix-Developers/Locadora-de-Veiculos/assets/50923316/722650ea-762f-41c8-8bb6-5fdb2d5161c9)
 
